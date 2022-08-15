@@ -1,0 +1,497 @@
+[0.000000] (-) TimerEvent: {}
+[0.000637] (img_proc_pkg) JobQueued: {'identifier': 'img_proc_pkg', 'dependencies': OrderedDict()}
+[0.000673] (interfaces) JobQueued: {'identifier': 'interfaces', 'dependencies': OrderedDict()}
+[0.000691] (sim_pkg) JobQueued: {'identifier': 'sim_pkg', 'dependencies': OrderedDict([('interfaces', '/home/javierfr/Tesis_ws/V1/install/interfaces')])}
+[0.000877] (interfaces) JobStarted: {'identifier': 'interfaces'}
+[0.008514] (img_proc_pkg) JobStarted: {'identifier': 'img_proc_pkg'}
+[0.011589] (interfaces) JobProgress: {'identifier': 'interfaces', 'progress': 'cmake'}
+[0.012171] (interfaces) JobProgress: {'identifier': 'interfaces', 'progress': 'build'}
+[0.012760] (interfaces) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/javierfr/Tesis_ws/V1/build/interfaces', '--', '-j12', '-l12'], 'cwd': '/home/javierfr/Tesis_ws/V1/build/interfaces', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '2308'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib::/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins'), ('HOME', '/home/javierfr'), ('OLDPWD', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('GAZEBO_MASTER_URI', 'http://localhost:11345'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '2121'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '43289'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:57820'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', '/home/javierfr/ardupilot_gazebo/models'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('OGRE_RESOURCE_PATH', '/usr/lib/x86_64-linux-gnu/OGRE-1.9.0'), ('PATH', '/opt/ros/foxy/bin:/usr/lib/ccache:/home/javierfr/Ardupilot_test/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-6-2017-q2-update/bin:/home/javierfr/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfrubuntu:@/tmp/.ICE-unix/2345,unix/javierfrubuntu:/tmp/.ICE-unix/2345'), ('INVOCATION_ID', 'c7300f8fc3de429684d089a2bdee2a85'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:5b861fda-d5c2-4580-b5a4-ac422330bfd2'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GAZEBO_RESOURCE_PATH', '/usr/share/gazebo-11:/usr/share/gazebo-11:'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('GAZEBO_MODEL_DATABASE_URI', 'http://models.gazebosim.org'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Tesis_ws/V1/build/interfaces'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('GAZEBO_PLUGIN_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[0.017244] (img_proc_pkg) JobProgress: {'identifier': 'img_proc_pkg', 'progress': 'cmake'}
+[0.018735] (img_proc_pkg) JobProgress: {'identifier': 'img_proc_pkg', 'progress': 'build'}
+[0.018815] (img_proc_pkg) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg', '--', '-j12', '-l12'], 'cwd': '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '2308'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib::/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins'), ('HOME', '/home/javierfr'), ('OLDPWD', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('GAZEBO_MASTER_URI', 'http://localhost:11345'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '2121'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '43289'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:57820'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', '/home/javierfr/ardupilot_gazebo/models'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('OGRE_RESOURCE_PATH', '/usr/lib/x86_64-linux-gnu/OGRE-1.9.0'), ('PATH', '/opt/ros/foxy/bin:/usr/lib/ccache:/home/javierfr/Ardupilot_test/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-6-2017-q2-update/bin:/home/javierfr/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfrubuntu:@/tmp/.ICE-unix/2345,unix/javierfrubuntu:/tmp/.ICE-unix/2345'), ('INVOCATION_ID', 'c7300f8fc3de429684d089a2bdee2a85'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:5b861fda-d5c2-4580-b5a4-ac422330bfd2'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GAZEBO_RESOURCE_PATH', '/usr/share/gazebo-11:/usr/share/gazebo-11:'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('GAZEBO_MODEL_DATABASE_URI', 'http://models.gazebosim.org'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('GAZEBO_PLUGIN_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[0.054749] (interfaces) StdoutLine: {'line': b'[  3%] Built target interfaces__cpp\n'}
+[0.054941] (interfaces) StdoutLine: {'line': b'[ 12%] Built target interfaces__rosidl_generator_c\n'}
+[0.065279] (img_proc_pkg) StdoutLine: {'line': b'[ 33%] Built target img_proc_node\n'}
+[0.065573] (img_proc_pkg) StdoutLine: {'line': b'[ 66%] Built target img_subs_test_node\n'}
+[0.065736] (img_proc_pkg) StdoutLine: {'line': b'[100%] Built target img_publ_test_node\n'}
+[0.072022] (interfaces) StdoutLine: {'line': b'[ 41%] Built target interfaces__rosidl_typesupport_introspection_cpp\n'}
+[0.072194] (interfaces) StdoutLine: {'line': b'[ 41%] Built target interfaces__rosidl_typesupport_introspection_c\n'}
+[0.072264] (interfaces) StdoutLine: {'line': b'[ 41%] Built target interfaces__rosidl_typesupport_cpp\n'}
+[0.074353] (img_proc_pkg) CommandEnded: {'returncode': 0}
+[0.078399] (interfaces) StdoutLine: {'line': b'[ 51%] Built target interfaces__rosidl_typesupport_fastrtps_cpp\n'}
+[0.088372] (interfaces) StdoutLine: {'line': b'[ 61%] Built target interfaces__rosidl_typesupport_c\n'}
+[0.094995] (img_proc_pkg) JobProgress: {'identifier': 'img_proc_pkg', 'progress': 'install'}
+[0.098452] (interfaces) StdoutLine: {'line': b'[ 70%] Built target interfaces__rosidl_typesupport_fastrtps_c\n'}
+[0.100003] (-) TimerEvent: {}
+[0.104020] (img_proc_pkg) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg'], 'cwd': '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '2308'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib::/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins'), ('HOME', '/home/javierfr'), ('OLDPWD', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('GAZEBO_MASTER_URI', 'http://localhost:11345'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '2121'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '43289'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:57820'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', '/home/javierfr/ardupilot_gazebo/models'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('OGRE_RESOURCE_PATH', '/usr/lib/x86_64-linux-gnu/OGRE-1.9.0'), ('PATH', '/opt/ros/foxy/bin:/usr/lib/ccache:/home/javierfr/Ardupilot_test/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-6-2017-q2-update/bin:/home/javierfr/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfrubuntu:@/tmp/.ICE-unix/2345,unix/javierfrubuntu:/tmp/.ICE-unix/2345'), ('INVOCATION_ID', 'c7300f8fc3de429684d089a2bdee2a85'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:5b861fda-d5c2-4580-b5a4-ac422330bfd2'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GAZEBO_RESOURCE_PATH', '/usr/share/gazebo-11:/usr/share/gazebo-11:'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('GAZEBO_MODEL_DATABASE_URI', 'http://models.gazebosim.org'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('GAZEBO_PLUGIN_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[0.110881] (img_proc_pkg) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.111126] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_proc_node\n'}
+[0.111250] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_publ_test_node\n'}
+[0.111402] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_subs_test_node\n'}
+[0.111588] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/ament_index/resource_index/package_run_dependencies/img_proc_pkg\n'}
+[0.111735] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/ament_index/resource_index/parent_prefix_path/img_proc_pkg\n'}
+[0.111875] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/environment/ament_prefix_path.sh\n'}
+[0.112025] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/environment/ament_prefix_path.dsv\n'}
+[0.112159] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/environment/path.sh\n'}
+[0.112278] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/environment/path.dsv\n'}
+[0.112380] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/local_setup.bash\n'}
+[0.112532] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/local_setup.sh\n'}
+[0.112646] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/local_setup.zsh\n'}
+[0.112736] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/local_setup.dsv\n'}
+[0.112820] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/package.dsv\n'}
+[0.112901] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/ament_index/resource_index/packages/img_proc_pkg\n'}
+[0.112990] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/cmake/img_proc_pkgConfig.cmake\n'}
+[0.113074] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/cmake/img_proc_pkgConfig-version.cmake\n'}
+[0.113148] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/package.xml\n'}
+[0.113726] (interfaces) StdoutLine: {'line': b'[ 70%] Built target interfaces\n'}
+[0.114515] (img_proc_pkg) CommandEnded: {'returncode': 0}
+[0.130566] (interfaces) StdoutLine: {'line': b'[ 74%] Built target interfaces__py\n'}
+[0.149976] (interfaces) StdoutLine: {'line': b'[ 80%] Built target interfaces__python\n'}
+[0.154667] (img_proc_pkg) JobEnded: {'identifier': 'img_proc_pkg', 'rc': 0}
+[0.170154] (interfaces) StdoutLine: {'line': b'[100%] Built target interfaces__rosidl_typesupport_introspection_c__pyext\n'}
+[0.170321] (interfaces) StdoutLine: {'line': b'[100%] Built target interfaces__rosidl_typesupport_fastrtps_c__pyext\n'}
+[0.170388] (interfaces) StdoutLine: {'line': b'[100%] Built target interfaces__rosidl_typesupport_c__pyext\n'}
+[0.178390] (interfaces) CommandEnded: {'returncode': 0}
+[0.200135] (-) TimerEvent: {}
+[0.213712] (interfaces) JobProgress: {'identifier': 'interfaces', 'progress': 'install'}
+[0.213832] (interfaces) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/javierfr/Tesis_ws/V1/build/interfaces'], 'cwd': '/home/javierfr/Tesis_ws/V1/build/interfaces', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '2308'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib::/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins'), ('HOME', '/home/javierfr'), ('OLDPWD', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('GAZEBO_MASTER_URI', 'http://localhost:11345'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '2121'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '43289'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:57820'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', '/home/javierfr/ardupilot_gazebo/models'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('OGRE_RESOURCE_PATH', '/usr/lib/x86_64-linux-gnu/OGRE-1.9.0'), ('PATH', '/opt/ros/foxy/bin:/usr/lib/ccache:/home/javierfr/Ardupilot_test/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-6-2017-q2-update/bin:/home/javierfr/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfrubuntu:@/tmp/.ICE-unix/2345,unix/javierfrubuntu:/tmp/.ICE-unix/2345'), ('INVOCATION_ID', 'c7300f8fc3de429684d089a2bdee2a85'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:5b861fda-d5c2-4580-b5a4-ac422330bfd2'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GAZEBO_RESOURCE_PATH', '/usr/share/gazebo-11:/usr/share/gazebo-11:'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('GAZEBO_MODEL_DATABASE_URI', 'http://models.gazebosim.org'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Tesis_ws/V1/build/interfaces'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('GAZEBO_PLUGIN_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[0.220617] (interfaces) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.220838] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/ament_index/resource_index/rosidl_interfaces/interfaces\n'}
+[0.220927] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces\n'}
+[0.220992] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv\n'}
+[0.221053] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail\n'}
+[0.221120] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__functions.c\n'}
+[0.221174] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__functions.h\n'}
+[0.221227] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__struct.h\n'}
+[0.221285] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__type_support.h\n'}
+[0.221360] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/platform1_vel.h\n'}
+[0.221447] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/msg\n'}
+[0.221502] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/msg/rosidl_generator_c__visibility_control.h\n'}
+[0.221574] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/environment/library_path.sh\n'}
+[0.221627] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/environment/library_path.dsv\n'}
+[0.221679] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_generator_c.so\n'}
+[0.221745] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces\n'}
+[0.221830] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv\n'}
+[0.221883] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail\n'}
+[0.221936] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__rosidl_typesupport_fastrtps_c.h\n'}
+[0.221997] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/msg\n'}
+[0.222050] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[0.222101] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_typesupport_fastrtps_c.so\n'}
+[0.222154] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces\n'}
+[0.222208] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv\n'}
+[0.222260] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail\n'}
+[0.222338] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/dds_fastrtps\n'}
+[0.222412] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.222502] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/msg\n'}
+[0.222582] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[0.222637] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_typesupport_fastrtps_cpp.so\n'}
+[0.222691] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces\n'}
+[0.222759] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv\n'}
+[0.222813] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail\n'}
+[0.222902] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__type_support.c\n'}
+[0.223043] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__rosidl_typesupport_introspection_c.h\n'}
+[0.223152] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/msg\n'}
+[0.223241] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[0.223344] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_typesupport_introspection_c.so\n'}
+[0.223438] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_typesupport_c.so\n'}
+[0.223528] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces\n'}
+[0.223639] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv\n'}
+[0.223751] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail\n'}
+[0.223847] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__builder.hpp\n'}
+[0.223903] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__traits.hpp\n'}
+[0.223956] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__struct.hpp\n'}
+[0.224009] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/platform1_vel.hpp\n'}
+[0.224061] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces\n'}
+[0.224112] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv\n'}
+[0.224164] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail\n'}
+[0.224216] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.224268] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__type_support.cpp\n'}
+[0.224321] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_typesupport_introspection_cpp.so\n'}
+[0.224373] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_typesupport_cpp.so\n'}
+[0.224425] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/environment/pythonpath.sh\n'}
+[0.224477] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/environment/pythonpath.dsv\n'}
+[0.224530] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages/interfaces/__init__.py\n'}
+[0.247821] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages/interfaces/srv\n'}
+[0.247956] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages/interfaces/srv/__init__.py\n'}
+[0.248016] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages/interfaces/srv/_platform1_vel_s.c\n'}
+[0.248090] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages/interfaces/srv/_platform1_vel.py\n'}
+[0.248151] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages/interfaces/interfaces_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so\n'}
+[0.248538] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages/interfaces/interfaces_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so\n'}
+[0.249054] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages/interfaces/interfaces_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so\n'}
+[0.249404] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__python.so\n'}
+[0.249574] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/srv/Platform1Vel.idl\n'}
+[0.249700] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/srv/Platform1Vel.srv\n'}
+[0.249803] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/srv/Platform1Vel_Request.msg\n'}
+[0.249893] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/srv/Platform1Vel_Response.msg\n'}
+[0.249968] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/ament_index/resource_index/package_run_dependencies/interfaces\n'}
+[0.250050] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/ament_index/resource_index/parent_prefix_path/interfaces\n'}
+[0.250102] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/environment/ament_prefix_path.sh\n'}
+[0.250155] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/environment/ament_prefix_path.dsv\n'}
+[0.250219] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/environment/path.sh\n'}
+[0.250272] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/environment/path.dsv\n'}
+[0.250344] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/local_setup.bash\n'}
+[0.250397] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/local_setup.sh\n'}
+[0.250460] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/local_setup.zsh\n'}
+[0.250525] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/local_setup.dsv\n'}
+[0.250578] (interfaces) StdoutLine: {'line': b'-- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/package.dsv\n'}
+[0.250652] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/ament_index/resource_index/packages/interfaces\n'}
+[0.250705] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_generator_cExport.cmake\n'}
+[0.250769] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_generator_cExport-noconfig.cmake\n'}
+[0.250822] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_introspection_cExport.cmake\n'}
+[0.250887] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[0.250950] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_cExport.cmake\n'}
+[0.251002] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[0.251075] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_generator_cppExport.cmake\n'}
+[0.251153] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[0.251228] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[0.251301] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_cppExport.cmake\n'}
+[0.251383] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[0.251451] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/rosidl_cmake-extras.cmake\n'}
+[0.251504] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[0.251557] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[0.251609] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[0.251660] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[0.251712] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[0.251764] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[0.251815] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfacesConfig.cmake\n'}
+[0.251867] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfacesConfig-version.cmake\n'}
+[0.251919] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/package.xml\n'}
+[0.252856] (interfaces) CommandEnded: {'returncode': 0}
+[0.300611] (-) TimerEvent: {}
+[0.303818] (interfaces) JobEnded: {'identifier': 'interfaces', 'rc': 0}
+[0.304273] (sim_pkg) JobStarted: {'identifier': 'sim_pkg'}
+[0.308714] (sim_pkg) JobProgress: {'identifier': 'sim_pkg', 'progress': 'cmake'}
+[0.309602] (sim_pkg) JobProgress: {'identifier': 'sim_pkg', 'progress': 'build'}
+[0.310087] (sim_pkg) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/javierfr/Tesis_ws/V1/build/sim_pkg', '--', '-j12', '-l12'], 'cwd': '/home/javierfr/Tesis_ws/V1/build/sim_pkg', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '2308'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins'), ('HOME', '/home/javierfr'), ('OLDPWD', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('GAZEBO_MASTER_URI', 'http://localhost:11345'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '2121'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '43289'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:57820'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', '/home/javierfr/ardupilot_gazebo/models'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('OGRE_RESOURCE_PATH', '/usr/lib/x86_64-linux-gnu/OGRE-1.9.0'), ('PATH', '/opt/ros/foxy/bin:/usr/lib/ccache:/home/javierfr/Ardupilot_test/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-6-2017-q2-update/bin:/home/javierfr/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfrubuntu:@/tmp/.ICE-unix/2345,unix/javierfrubuntu:/tmp/.ICE-unix/2345'), ('INVOCATION_ID', 'c7300f8fc3de429684d089a2bdee2a85'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:5b861fda-d5c2-4580-b5a4-ac422330bfd2'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GAZEBO_RESOURCE_PATH', '/usr/share/gazebo-11:/usr/share/gazebo-11:'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('GAZEBO_MODEL_DATABASE_URI', 'http://models.gazebosim.org'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Tesis_ws/V1/build/sim_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('GAZEBO_PLUGIN_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy')]), 'shell': False}
+[0.332056] (sim_pkg) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.348652] (sim_pkg) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.400683] (-) TimerEvent: {}
+[0.490181] (sim_pkg) StdoutLine: {'line': b'-- Found std_msgs: 2.0.4 (/opt/ros/foxy/share/std_msgs/cmake)\n'}
+[0.500776] (-) TimerEvent: {}
+[0.506769] (sim_pkg) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.509374] (sim_pkg) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[0.600894] (-) TimerEvent: {}
+[0.606013] (sim_pkg) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.639621] (sim_pkg) StdoutLine: {'line': b'-- Found rclcpp: 2.3.1 (/opt/ros/foxy/share/rclcpp/cmake)\n'}
+[0.667190] (sim_pkg) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)\n'}
+[0.668341] (sim_pkg) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.700986] (-) TimerEvent: {}
+[0.770749] (sim_pkg) StdoutLine: {'line': b'-- Found interfaces: 0.0.0 (/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake)\n'}
+[0.801107] (-) TimerEvent: {}
+[0.810713] (sim_pkg) StdoutLine: {'line': b'-- Found DART: /usr/include (Required is at least version "6.6") found components: dart \n'}
+[0.835115] (sim_pkg) StdoutLine: {'line': b'-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "3.6.1") \n'}
+[0.836431] (sim_pkg) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.8.0\n'}
+[0.839672] (sim_pkg) StdoutLine: {'line': b'-- Searching for dependencies of ignition-math6\n'}
+[0.841007] (sim_pkg) StdoutLine: {'line': b'-- Looking for OGRE...\n'}
+[0.845104] (sim_pkg) StdoutLine: {'line': b'-- Found Ogre Ghadamon (1.9.0)\n'}
+[0.845408] (sim_pkg) StdoutLine: {'line': b'-- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so\n'}
+[0.853089] (sim_pkg) StdoutLine: {'line': b'-- Looking for OGRE_Paging...\n'}
+[0.853380] (sim_pkg) StdoutLine: {'line': b'-- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so\n'}
+[0.853672] (sim_pkg) StdoutLine: {'line': b'-- Looking for OGRE_Terrain...\n'}
+[0.853861] (sim_pkg) StdoutLine: {'line': b'-- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so\n'}
+[0.853944] (sim_pkg) StdoutLine: {'line': b'-- Looking for OGRE_Property...\n'}
+[0.854023] (sim_pkg) StdoutLine: {'line': b'-- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so\n'}
+[0.854092] (sim_pkg) StdoutLine: {'line': b'-- Looking for OGRE_RTShaderSystem...\n'}
+[0.854148] (sim_pkg) StdoutLine: {'line': b'-- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so\n'}
+[0.854203] (sim_pkg) StdoutLine: {'line': b'-- Looking for OGRE_Volume...\n'}
+[0.854257] (sim_pkg) StdoutLine: {'line': b'-- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so\n'}
+[0.854312] (sim_pkg) StdoutLine: {'line': b'-- Looking for OGRE_Overlay...\n'}
+[0.854367] (sim_pkg) StdoutLine: {'line': b'-- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so\n'}
+[0.901205] (-) TimerEvent: {}
+[0.959965] (sim_pkg) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.8.0\n'}
+[0.960249] (sim_pkg) StdoutLine: {'line': b'-- Looking for ignition-transport8 -- found version 8.2.0\n'}
+[0.960617] (sim_pkg) StdoutLine: {'line': b'-- Searching for dependencies of ignition-transport8\n'}
+[0.975745] (sim_pkg) StdoutLine: {'line': b'-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found suitable version "3.6.1", minimum required is "3") \n'}
+[0.985353] (sim_pkg) StdoutLine: {'line': b'-- Config-file not installed for ZeroMQ -- checking for pkg-config\n'}
+[0.988388] (sim_pkg) StdoutLine: {'line': b"-- Checking for module 'libzmq >= 4'\n"}
+[0.999918] (sim_pkg) StdoutLine: {'line': b'--   Found libzmq , version 4.3.2\n'}
+[1.001293] (-) TimerEvent: {}
+[1.031321] (sim_pkg) StdoutLine: {'line': b"-- Checking for module 'uuid'\n"}
+[1.041891] (sim_pkg) StdoutLine: {'line': b'--   Found uuid, version 2.34.0\n'}
+[1.069129] (sim_pkg) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.7.0\n'}
+[1.069516] (sim_pkg) StdoutLine: {'line': b'-- Searching for dependencies of ignition-msgs5\n'}
+[1.084869] (sim_pkg) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.8.0\n'}
+[1.088314] (sim_pkg) StdoutLine: {'line': b"-- Checking for module 'tinyxml2'\n"}
+[1.099319] (sim_pkg) StdoutLine: {'line': b'--   Found tinyxml2, version 6.2.0\n'}
+[1.101388] (-) TimerEvent: {}
+[1.127529] (sim_pkg) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.7.0\n'}
+[1.127835] (sim_pkg) StdoutLine: {'line': b'-- Looking for ignition-common3 -- found version 3.13.1\n'}
+[1.128210] (sim_pkg) StdoutLine: {'line': b'-- Searching for dependencies of ignition-common3\n'}
+[1.128363] (sim_pkg) StdoutLine: {'line': b'-- Looking for dlfcn.h - found\n'}
+[1.128448] (sim_pkg) StdoutLine: {'line': b'-- Looking for libdl - found\n'}
+[1.134122] (sim_pkg) StdoutLine: {'line': b'-- Searching for <ignition-common3> component [graphics]\n'}
+[1.134405] (sim_pkg) StdoutLine: {'line': b'-- Looking for ignition-common3-graphics -- found version 3.13.1\n'}
+[1.134803] (sim_pkg) StdoutLine: {'line': b'-- Searching for dependencies of ignition-common3-graphics\n'}
+[1.135076] (sim_pkg) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.8.0\n'}
+[1.136071] (sim_pkg) StdoutLine: {'line': b'-- Looking for ignition-fuel_tools4 -- found version 4.3.0\n'}
+[1.136422] (sim_pkg) StdoutLine: {'line': b'-- Searching for dependencies of ignition-fuel_tools4\n'}
+[1.155313] (sim_pkg) StdoutLine: {'line': b"-- Checking for module 'jsoncpp'\n"}
+[1.166409] (sim_pkg) StdoutLine: {'line': b'--   Found jsoncpp, version 1.7.4\n'}
+[1.197076] (sim_pkg) StdoutLine: {'line': b"-- Checking for module 'libzip'\n"}
+[1.201488] (-) TimerEvent: {}
+[1.207814] (sim_pkg) StdoutLine: {'line': b'--   Found libzip, version 1.5.1\n'}
+[1.234910] (sim_pkg) StdoutLine: {'line': b'-- Looking for ignition-common3 -- found version 3.13.1\n'}
+[1.235186] (sim_pkg) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.7.0\n'}
+[1.280581] (sim_pkg) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.286614] (sim_pkg) StdoutLine: {'line': b'-- Generating done\n'}
+[1.288121] (sim_pkg) StdoutLine: {'line': b'-- Build files have been written to: /home/javierfr/Tesis_ws/V1/build/sim_pkg\n'}
+[1.301614] (-) TimerEvent: {}
+[1.309913] (sim_pkg) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target plat1_send_vel_node\x1b[0m\n'}
+[1.324765] (sim_pkg) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/plat1_send_vel_node.dir/src/plat1_send_vel_node.cpp.o\x1b[0m\n'}
+[1.401698] (-) TimerEvent: {}
+[1.501952] (-) TimerEvent: {}
+[1.602209] (-) TimerEvent: {}
+[1.702496] (-) TimerEvent: {}
+[1.802758] (-) TimerEvent: {}
+[1.903074] (-) TimerEvent: {}
+[2.003309] (-) TimerEvent: {}
+[2.103575] (-) TimerEvent: {}
+[2.203868] (-) TimerEvent: {}
+[2.304132] (-) TimerEvent: {}
+[2.404465] (-) TimerEvent: {}
+[2.504712] (-) TimerEvent: {}
+[2.605050] (-) TimerEvent: {}
+[2.705377] (-) TimerEvent: {}
+[2.805624] (-) TimerEvent: {}
+[2.905898] (-) TimerEvent: {}
+[3.006209] (-) TimerEvent: {}
+[3.106473] (-) TimerEvent: {}
+[3.206721] (-) TimerEvent: {}
+[3.307034] (-) TimerEvent: {}
+[3.407345] (-) TimerEvent: {}
+[3.507644] (-) TimerEvent: {}
+[3.607905] (-) TimerEvent: {}
+[3.708172] (-) TimerEvent: {}
+[3.808475] (-) TimerEvent: {}
+[3.908782] (-) TimerEvent: {}
+[4.009062] (-) TimerEvent: {}
+[4.109317] (-) TimerEvent: {}
+[4.209628] (-) TimerEvent: {}
+[4.310011] (-) TimerEvent: {}
+[4.410334] (-) TimerEvent: {}
+[4.510586] (-) TimerEvent: {}
+[4.610853] (-) TimerEvent: {}
+[4.711118] (-) TimerEvent: {}
+[4.811424] (-) TimerEvent: {}
+[4.911741] (-) TimerEvent: {}
+[5.012044] (-) TimerEvent: {}
+[5.112310] (-) TimerEvent: {}
+[5.212610] (-) TimerEvent: {}
+[5.312907] (-) TimerEvent: {}
+[5.413225] (-) TimerEvent: {}
+[5.513540] (-) TimerEvent: {}
+[5.613805] (-) TimerEvent: {}
+[5.714071] (-) TimerEvent: {}
+[5.814330] (-) TimerEvent: {}
+[5.914667] (-) TimerEvent: {}
+[6.014966] (-) TimerEvent: {}
+[6.115226] (-) TimerEvent: {}
+[6.215487] (-) TimerEvent: {}
+[6.315765] (-) TimerEvent: {}
+[6.416089] (-) TimerEvent: {}
+[6.516376] (-) TimerEvent: {}
+[6.616626] (-) TimerEvent: {}
+[6.716890] (-) TimerEvent: {}
+[6.817157] (-) TimerEvent: {}
+[6.883736] (sim_pkg) StderrLine: {'line': b'In file included from /usr/include/ignition/math6/ignition/math.hh:30,\n'}
+[6.883890] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/sdformat-9.5/sdf/Param.hh:33,\n'}
+[6.883956] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/sdformat-9.5/sdf/Element.hh:28,\n'}
+[6.884012] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/sdformat-9.5/sdf/Actor.hh:25,\n'}
+[6.884065] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/sdformat-9.5/sdf/sdf.hh:2,\n'}
+[6.884132] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/gazebo-11/gazebo/msgs/msgs.hh:22,\n'}
+[6.884212] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/gazebo-11/gazebo/transport/CallbackHelper.hh:29,\n'}
+[6.884377] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/gazebo-11/gazebo/transport/transport.hh:2,\n'}
+[6.884466] (sim_pkg) StderrLine: {'line': b'                 from /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:4:\n'}
+[6.884641] (sim_pkg) StderrLine: {'line': b'/usr/include/ignition/math6/ignition/math/Capsule.hh:91:20: error: \xe2\x80\x98optional\xe2\x80\x99 in namespace \xe2\x80\x98std\xe2\x80\x99 does not name a template type\n'}
+[6.884783] (sim_pkg) StderrLine: {'line': b'   91 |       public: std::optional< MassMatrix3<Precision> > MassMatrix() const;\n'}
+[6.884844] (sim_pkg) StderrLine: {'line': b'      |                    ^~~~~~~~\n'}
+[6.884899] (sim_pkg) StderrLine: {'line': b'/usr/include/ignition/math6/ignition/math/Capsule.hh:91:15: note: \xe2\x80\x98std::optional\xe2\x80\x99 is only available from C++17 onwards\n'}
+[6.884952] (sim_pkg) StderrLine: {'line': b'   91 |       public: std::optional< MassMatrix3<Precision> > MassMatrix() const;\n'}
+[6.885038] (sim_pkg) StderrLine: {'line': b'      |               ^~~\n'}
+[6.885104] (sim_pkg) StderrLine: {'line': b'In file included from /usr/include/ignition/math6/ignition/math/Capsule.hh:149,\n'}
+[6.885155] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/ignition/math6/ignition/math.hh:30,\n'}
+[6.885206] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/sdformat-9.5/sdf/Param.hh:33,\n'}
+[6.885256] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/sdformat-9.5/sdf/Element.hh:28,\n'}
+[6.885306] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/sdformat-9.5/sdf/Actor.hh:25,\n'}
+[6.885372] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/sdformat-9.5/sdf/sdf.hh:2,\n'}
+[6.885436] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/gazebo-11/gazebo/msgs/msgs.hh:22,\n'}
+[6.885487] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/gazebo-11/gazebo/transport/CallbackHelper.hh:29,\n'}
+[6.885537] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/gazebo-11/gazebo/transport/transport.hh:2,\n'}
+[6.885587] (sim_pkg) StderrLine: {'line': b'                 from /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:4:\n'}
+[6.885638] (sim_pkg) StderrLine: {'line': b'/usr/include/ignition/math6/ignition/math/detail/Capsule.hh:100:6: error: \xe2\x80\x98optional\xe2\x80\x99 in namespace \xe2\x80\x98std\xe2\x80\x99 does not name a template type\n'}
+[6.885693] (sim_pkg) StderrLine: {'line': b'  100 | std::optional< MassMatrix3<T> > Capsule<T>::MassMatrix() const\n'}
+[6.885759] (sim_pkg) StderrLine: {'line': b'      |      ^~~~~~~~\n'}
+[6.885840] (sim_pkg) StderrLine: {'line': b'/usr/include/ignition/math6/ignition/math/detail/Capsule.hh:100:1: note: \xe2\x80\x98std::optional\xe2\x80\x99 is only available from C++17 onwards\n'}
+[6.885938] (sim_pkg) StderrLine: {'line': b'  100 | std::optional< MassMatrix3<T> > Capsule<T>::MassMatrix() const\n'}
+[6.886034] (sim_pkg) StderrLine: {'line': b'      | ^~~\n'}
+[6.886198] (sim_pkg) StderrLine: {'line': b'In file included from /usr/include/ignition/math6/ignition/math.hh:34,\n'}
+[6.886398] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/sdformat-9.5/sdf/Param.hh:33,\n'}
+[6.886708] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/sdformat-9.5/sdf/Element.hh:28,\n'}
+[6.886843] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/sdformat-9.5/sdf/Actor.hh:25,\n'}
+[6.888133] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/sdformat-9.5/sdf/sdf.hh:2,\n'}
+[6.888277] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/gazebo-11/gazebo/msgs/msgs.hh:22,\n'}
+[6.888366] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/gazebo-11/gazebo/transport/CallbackHelper.hh:29,\n'}
+[6.889107] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/gazebo-11/gazebo/transport/transport.hh:2,\n'}
+[6.889231] (sim_pkg) StderrLine: {'line': b'                 from /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:4:\n'}
+[6.889318] (sim_pkg) StderrLine: {'line': b'/usr/include/ignition/math6/ignition/math/Ellipsoid.hh:77:20: error: \xe2\x80\x98optional\xe2\x80\x99 in namespace \xe2\x80\x98std\xe2\x80\x99 does not name a template type\n'}
+[6.889403] (sim_pkg) StderrLine: {'line': b'   77 |       public: std::optional< MassMatrix3<Precision> > MassMatrix() const;\n'}
+[6.889482] (sim_pkg) StderrLine: {'line': b'      |                    ^~~~~~~~\n'}
+[6.889535] (sim_pkg) StderrLine: {'line': b'/usr/include/ignition/math6/ignition/math/Ellipsoid.hh:77:15: note: \xe2\x80\x98std::optional\xe2\x80\x99 is only available from C++17 onwards\n'}
+[6.889588] (sim_pkg) StderrLine: {'line': b'   77 |       public: std::optional< MassMatrix3<Precision> > MassMatrix() const;\n'}
+[6.889640] (sim_pkg) StderrLine: {'line': b'      |               ^~~\n'}
+[6.889692] (sim_pkg) StderrLine: {'line': b'In file included from /usr/include/ignition/math6/ignition/math/Ellipsoid.hh:132,\n'}
+[6.889746] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/ignition/math6/ignition/math.hh:34,\n'}
+[6.889797] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/sdformat-9.5/sdf/Param.hh:33,\n'}
+[6.889847] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/sdformat-9.5/sdf/Element.hh:28,\n'}
+[6.889898] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/sdformat-9.5/sdf/Actor.hh:25,\n'}
+[6.889949] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/sdformat-9.5/sdf/sdf.hh:2,\n'}
+[6.890001] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/gazebo-11/gazebo/msgs/msgs.hh:22,\n'}
+[6.890052] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/gazebo-11/gazebo/transport/CallbackHelper.hh:29,\n'}
+[6.890103] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/gazebo-11/gazebo/transport/transport.hh:2,\n'}
+[6.890159] (sim_pkg) StderrLine: {'line': b'                 from /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:4:\n'}
+[6.890216] (sim_pkg) StderrLine: {'line': b'/usr/include/ignition/math6/ignition/math/detail/Ellipsoid.hh:77:6: error: \xe2\x80\x98optional\xe2\x80\x99 in namespace \xe2\x80\x98std\xe2\x80\x99 does not name a template type\n'}
+[6.890275] (sim_pkg) StderrLine: {'line': b'   77 | std::optional< MassMatrix3<T> > Ellipsoid<T>::MassMatrix() const\n'}
+[6.890326] (sim_pkg) StderrLine: {'line': b'      |      ^~~~~~~~\n'}
+[6.890377] (sim_pkg) StderrLine: {'line': b'/usr/include/ignition/math6/ignition/math/detail/Ellipsoid.hh:77:1: note: \xe2\x80\x98std::optional\xe2\x80\x99 is only available from C++17 onwards\n'}
+[6.890428] (sim_pkg) StderrLine: {'line': b'   77 | std::optional< MassMatrix3<T> > Ellipsoid<T>::MassMatrix() const\n'}
+[6.890478] (sim_pkg) StderrLine: {'line': b'      | ^~~\n'}
+[6.890531] (sim_pkg) StderrLine: {'line': b'In file included from /usr/include/sdformat-9.5/sdf/Element.hh:28,\n'}
+[6.890582] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/sdformat-9.5/sdf/Actor.hh:25,\n'}
+[6.890632] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/sdformat-9.5/sdf/sdf.hh:2,\n'}
+[6.890684] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/gazebo-11/gazebo/msgs/msgs.hh:22,\n'}
+[6.890735] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/gazebo-11/gazebo/transport/CallbackHelper.hh:29,\n'}
+[6.890786] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/gazebo-11/gazebo/transport/transport.hh:2,\n'}
+[6.890863] (sim_pkg) StderrLine: {'line': b'                 from /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:4:\n'}
+[6.890936] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:72:57: error: expected constructor, destructor, or type conversion before \xe2\x80\x98;\xe2\x80\x99 token\n'}
+[6.890999] (sim_pkg) StderrLine: {'line': b'   72 |   template<class T> ParamStreamer(T) -> ParamStreamer<T>;\n'}
+[6.891057] (sim_pkg) StderrLine: {'line': b'      |                                                         ^\n'}
+[6.891115] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:83:47: error: \xe2\x80\x98variant\xe2\x80\x99 is not a member of \xe2\x80\x98std\xe2\x80\x99\n'}
+[6.891181] (sim_pkg) StderrLine: {'line': b'   83 |                            ParamStreamer<std::variant<Ts...>> sv)\n'}
+[6.891231] (sim_pkg) StderrLine: {'line': b'      |                                               ^~~~~~~\n'}
+[6.891280] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:83:47: note: \xe2\x80\x98std::variant\xe2\x80\x99 is only available from C++17 onwards\n'}
+[6.891343] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:83:47: error: \xe2\x80\x98variant\xe2\x80\x99 is not a member of \xe2\x80\x98std\xe2\x80\x99\n'}
+[6.891396] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:83:47: note: \xe2\x80\x98std::variant\xe2\x80\x99 is only available from C++17 onwards\n'}
+[6.891447] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:83:57: error: expected parameter pack before \xe2\x80\x98...\xe2\x80\x99\n'}
+[6.891499] (sim_pkg) StderrLine: {'line': b'   83 |                            ParamStreamer<std::variant<Ts...>> sv)\n'}
+[6.891551] (sim_pkg) StderrLine: {'line': b'      |                                                         ^~~\n'}
+[6.891602] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:83:57: error: template argument 1 is invalid\n'}
+[6.891700] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:83:47: error: \xe2\x80\x98variant\xe2\x80\x99 is not a member of \xe2\x80\x98std\xe2\x80\x99\n'}
+[6.891791] (sim_pkg) StderrLine: {'line': b'   83 |                            ParamStreamer<std::variant<Ts...>> sv)\n'}
+[6.891842] (sim_pkg) StderrLine: {'line': b'      |                                               ^~~~~~~\n'}
+[6.891895] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:83:47: note: \xe2\x80\x98std::variant\xe2\x80\x99 is only available from C++17 onwards\n'}
+[6.891947] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:83:47: error: \xe2\x80\x98variant\xe2\x80\x99 is not a member of \xe2\x80\x98std\xe2\x80\x99\n'}
+[6.892020] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:83:47: note: \xe2\x80\x98std::variant\xe2\x80\x99 is only available from C++17 onwards\n'}
+[6.892097] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:83:57: error: expected parameter pack before \xe2\x80\x98...\xe2\x80\x99\n'}
+[6.892150] (sim_pkg) StderrLine: {'line': b'   83 |                            ParamStreamer<std::variant<Ts...>> sv)\n'}
+[6.892201] (sim_pkg) StderrLine: {'line': b'      |                                                         ^~~\n'}
+[6.892250] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:83:60: error: template argument 1 is invalid\n'}
+[6.892299] (sim_pkg) StderrLine: {'line': b'   83 |                            ParamStreamer<std::variant<Ts...>> sv)\n'}
+[6.892364] (sim_pkg) StderrLine: {'line': b'      |                                                            ^~\n'}
+[6.892428] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:83:47: error: \xe2\x80\x98variant\xe2\x80\x99 is not a member of \xe2\x80\x98std\xe2\x80\x99\n'}
+[6.892477] (sim_pkg) StderrLine: {'line': b'   83 |                            ParamStreamer<std::variant<Ts...>> sv)\n'}
+[6.892526] (sim_pkg) StderrLine: {'line': b'      |                                               ^~~~~~~\n'}
+[6.892575] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:83:47: note: \xe2\x80\x98std::variant\xe2\x80\x99 is only available from C++17 onwards\n'}
+[6.892625] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:83:47: error: \xe2\x80\x98variant\xe2\x80\x99 is not a member of \xe2\x80\x98std\xe2\x80\x99\n'}
+[6.892675] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:83:47: note: \xe2\x80\x98std::variant\xe2\x80\x99 is only available from C++17 onwards\n'}
+[6.892725] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:83:57: error: expected parameter pack before \xe2\x80\x98...\xe2\x80\x99\n'}
+[6.892774] (sim_pkg) StderrLine: {'line': b'   83 |                            ParamStreamer<std::variant<Ts...>> sv)\n'}
+[6.892823] (sim_pkg) StderrLine: {'line': b'      |                                                         ^~~\n'}
+[6.892872] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:83:60: error: template argument 1 is invalid\n'}
+[6.892922] (sim_pkg) StderrLine: {'line': b'   83 |                            ParamStreamer<std::variant<Ts...>> sv)\n'}
+[6.893001] (sim_pkg) StderrLine: {'line': b'      |                                                            ^~\n'}
+[6.893060] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:83:28: error: \xe2\x80\x98ParamStreamer\xe2\x80\x99 is not a type\n'}
+[6.893126] (sim_pkg) StderrLine: {'line': b'   83 |                            ParamStreamer<std::variant<Ts...>> sv)\n'}
+[6.893175] (sim_pkg) StderrLine: {'line': b'      |                            ^~~~~~~~~~~~~\n'}
+[6.893224] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:83:41: error: expected \xe2\x80\x98,\xe2\x80\x99 or \xe2\x80\x98...\xe2\x80\x99 before \xe2\x80\x98<\xe2\x80\x99 token\n'}
+[6.893275] (sim_pkg) StderrLine: {'line': b'   83 |                            ParamStreamer<std::variant<Ts...>> sv)\n'}
+[6.893325] (sim_pkg) StderrLine: {'line': b'      |                                         ^\n'}
+[6.893390] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh: In function \xe2\x80\x98std::ostream& sdf::v9::operator<<(std::ostream&, int)\xe2\x80\x99:\n'}
+[6.893453] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:85:10: error: \xe2\x80\x98visit\xe2\x80\x99 is not a member of \xe2\x80\x98std\xe2\x80\x99\n'}
+[6.893518] (sim_pkg) StderrLine: {'line': b'   85 |     std::visit([&os](auto const &v)\n'}
+[6.893568] (sim_pkg) StderrLine: {'line': b'      |          ^~~~~\n'}
+[6.893631] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:85:10: note: \xe2\x80\x98std::visit\xe2\x80\x99 is only available from C++17 onwards\n'}
+[6.893683] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh: In lambda function:\n'}
+[6.893732] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:87:28: error: missing template arguments before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[6.893781] (sim_pkg) StderrLine: {'line': b'   87 |         os << ParamStreamer{v};\n'}
+[6.893830] (sim_pkg) StderrLine: {'line': b'      |                            ^\n'}
+[6.893878] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh: In function \xe2\x80\x98std::ostream& sdf::v9::operator<<(std::ostream&, int)\xe2\x80\x99:\n'}
+[6.893928] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:88:10: error: \xe2\x80\x98sv\xe2\x80\x99 was not declared in this scope\n'}
+[6.893976] (sim_pkg) StderrLine: {'line': b'   88 |       }, sv.val);\n'}
+[6.894025] (sim_pkg) StderrLine: {'line': b'      |          ^~\n'}
+[6.894074] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh: At global scope:\n'}
+[6.894122] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:173:30: error: \xe2\x80\x98std::any\xe2\x80\x99 has not been declared\n'}
+[6.894172] (sim_pkg) StderrLine: {'line': b'  173 |     public: bool GetAny(std::any &_anyVal) const;\n'}
+[6.894221] (sim_pkg) StderrLine: {'line': b'      |                              ^~~\n'}
+[6.894270] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:242:32: error: \xe2\x80\x98any\xe2\x80\x99 is not a member of \xe2\x80\x98std\xe2\x80\x99\n'}
+[6.894321] (sim_pkg) StderrLine: {'line': b'  242 |     public: std::function<std::any ()> updateFunc;\n'}
+[6.894386] (sim_pkg) StderrLine: {'line': b'      |                                ^~~\n'}
+[6.894448] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:242:32: note: \xe2\x80\x98std::any\xe2\x80\x99 is only available from C++17 onwards\n'}
+[6.894497] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:242:32: error: \xe2\x80\x98any\xe2\x80\x99 is not a member of \xe2\x80\x98std\xe2\x80\x99\n'}
+[6.894546] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:242:32: note: \xe2\x80\x98std::any\xe2\x80\x99 is only available from C++17 onwards\n'}
+[6.894595] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:242:38: error: template argument 1 is invalid\n'}
+[6.894643] (sim_pkg) StderrLine: {'line': b'  242 |     public: std::function<std::any ()> updateFunc;\n'}
+[6.894692] (sim_pkg) StderrLine: {'line': b'      |                                      ^\n'}
+[6.894740] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:246:26: error: \xe2\x80\x98variant\xe2\x80\x99 in namespace \xe2\x80\x98std\xe2\x80\x99 does not name a template type\n'}
+[6.894789] (sim_pkg) StderrLine: {'line': b'  246 |     public: typedef std::variant<bool, char, std::string, int, std::uint64_t,\n'}
+[6.894837] (sim_pkg) StderrLine: {'line': b'      |                          ^~~~~~~\n'}
+[6.894885] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:246:21: note: \xe2\x80\x98std::variant\xe2\x80\x99 is only available from C++17 onwards\n'}
+[6.894935] (sim_pkg) StderrLine: {'line': b'  246 |     public: typedef std::variant<bool, char, std::string, int, std::uint64_t,\n'}
+[6.894983] (sim_pkg) StderrLine: {'line': b'      |                     ^~~\n'}
+[6.895032] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:257:13: error: \xe2\x80\x98ParamVariant\xe2\x80\x99 does not name a type\n'}
+[6.895081] (sim_pkg) StderrLine: {'line': b'  257 |     public: ParamVariant value;\n'}
+[6.895130] (sim_pkg) StderrLine: {'line': b'      |             ^~~~~~~~~~~~\n'}
+[6.895179] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:260:13: error: \xe2\x80\x98ParamVariant\xe2\x80\x99 does not name a type\n'}
+[6.895229] (sim_pkg) StderrLine: {'line': b'  260 |     public: ParamVariant defaultValue;\n'}
+[6.895277] (sim_pkg) StderrLine: {'line': b'      |             ^~~~~~~~~~~~\n'}
+[6.895329] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh: In member function \xe2\x80\x98bool sdf::v9::Param::Get(T&) const\xe2\x80\x99:\n'}
+[6.895407] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:298:69: error: \xe2\x80\x98class sdf::v9::ParamPrivate\xe2\x80\x99 has no member named \xe2\x80\x98value\xe2\x80\x99\n'}
+[6.895456] (sim_pkg) StderrLine: {'line': b'  298 |         std::string strValue = std::get<std::string>(this->dataPtr->value);\n'}
+[6.895506] (sim_pkg) StderrLine: {'line': b'      |                                                                     ^~~~~\n'}
+[6.895556] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:318:25: error: \xe2\x80\x98get_if\xe2\x80\x99 is not a member of \xe2\x80\x98std\xe2\x80\x99; did you mean \xe2\x80\x98get_time\xe2\x80\x99?\n'}
+[6.895606] (sim_pkg) StderrLine: {'line': b'  318 |         T *value = std::get_if<T>(&this->dataPtr->value);\n'}
+[6.895656] (sim_pkg) StderrLine: {'line': b'      |                         ^~~~~~\n'}
+[6.895705] (sim_pkg) StderrLine: {'line': b'      |                         get_time\n'}
+[6.895754] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:318:33: error: expected primary-expression before \xe2\x80\x98>\xe2\x80\x99 token\n'}
+[6.895802] (sim_pkg) StderrLine: {'line': b'  318 |         T *value = std::get_if<T>(&this->dataPtr->value);\n'}
+[6.895867] (sim_pkg) StderrLine: {'line': b'      |                                 ^\n'}
+[6.895927] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:318:51: error: \xe2\x80\x98class sdf::v9::ParamPrivate\xe2\x80\x99 has no member named \xe2\x80\x98value\xe2\x80\x99\n'}
+[6.895976] (sim_pkg) StderrLine: {'line': b'  318 |         T *value = std::get_if<T>(&this->dataPtr->value);\n'}
+[6.896025] (sim_pkg) StderrLine: {'line': b'      |                                                   ^~~~~\n'}
+[6.896073] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:324:30: error: missing template arguments before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[6.896146] (sim_pkg) StderrLine: {'line': b'  324 |           ss << ParamStreamer{this->dataPtr->value};\n'}
+[6.896196] (sim_pkg) StderrLine: {'line': b'      |                              ^\n'}
+[6.896246] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh: In member function \xe2\x80\x98bool sdf::v9::Param::GetDefault(T&) const\xe2\x80\x99:\n'}
+[6.896296] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:349:26: error: missing template arguments before \xe2\x80\x98{\xe2\x80\x99 token\n'}
+[6.896345] (sim_pkg) StderrLine: {'line': b'  349 |       ss << ParamStreamer{this->dataPtr->defaultValue};\n'}
+[6.896394] (sim_pkg) StderrLine: {'line': b'      |                          ^\n'}
+[6.896443] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh: In member function \xe2\x80\x98bool sdf::v9::Param::IsType() const\xe2\x80\x99:\n'}
+[6.896492] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:369:17: error: \xe2\x80\x98holds_alternative\xe2\x80\x99 is not a member of \xe2\x80\x98std\xe2\x80\x99\n'}
+[6.896543] (sim_pkg) StderrLine: {'line': b'  369 |     return std::holds_alternative<Type>(this->dataPtr->value);\n'}
+[6.896594] (sim_pkg) StderrLine: {'line': b'      |                 ^~~~~~~~~~~~~~~~~\n'}
+[6.896644] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:369:39: error: expected primary-expression before \xe2\x80\x98>\xe2\x80\x99 token\n'}
+[6.896695] (sim_pkg) StderrLine: {'line': b'  369 |     return std::holds_alternative<Type>(this->dataPtr->value);\n'}
+[6.896745] (sim_pkg) StderrLine: {'line': b'      |                                       ^\n'}
+[6.896795] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Param.hh:369:56: error: \xe2\x80\x98class sdf::v9::ParamPrivate\xe2\x80\x99 has no member named \xe2\x80\x98value\xe2\x80\x99\n'}
+[6.896848] (sim_pkg) StderrLine: {'line': b'  369 |     return std::holds_alternative<Type>(this->dataPtr->value);\n'}
+[6.896900] (sim_pkg) StderrLine: {'line': b'      |                                                        ^~~~~\n'}
+[6.896950] (sim_pkg) StderrLine: {'line': b'In file included from /usr/include/sdformat-9.5/sdf/Actor.hh:25,\n'}
+[6.897007] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/sdformat-9.5/sdf/sdf.hh:2,\n'}
+[6.897059] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/gazebo-11/gazebo/msgs/msgs.hh:22,\n'}
+[6.897110] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/gazebo-11/gazebo/transport/CallbackHelper.hh:29,\n'}
+[6.897285] (sim_pkg) StderrLine: {'line': b'                 from /usr/include/gazebo-11/gazebo/transport/transport.hh:2,\n'}
+[6.897341] (sim_pkg) StderrLine: {'line': b'                 from /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:4:\n'}
+[6.897393] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Element.hh: At global scope:\n'}
+[6.897445] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Element.hh:237:18: error: \xe2\x80\x98any\xe2\x80\x99 in namespace \xe2\x80\x98std\xe2\x80\x99 does not name a type\n'}
+[6.897496] (sim_pkg) StderrLine: {'line': b'  237 |     public: std::any GetAny(const std::string &_key = "") const;\n'}
+[6.897628] (sim_pkg) StderrLine: {'line': b'      |                  ^~~\n'}
+[6.897684] (sim_pkg) StderrLine: {'line': b'/usr/include/sdformat-9.5/sdf/Element.hh:237:13: note: \xe2\x80\x98std::any\xe2\x80\x99 is only available from C++17 onwards\n'}
+[6.897737] (sim_pkg) StderrLine: {'line': b'  237 |     public: std::any GetAny(const std::string &_key = "") const;\n'}
+[6.897788] (sim_pkg) StderrLine: {'line': b'      |             ^~~\n'}
+[6.897838] (sim_pkg) StderrLine: {'line': b'make[2]: *** [CMakeFiles/plat1_send_vel_node.dir/build.make:63: CMakeFiles/plat1_send_vel_node.dir/src/plat1_send_vel_node.cpp.o] Error 1\n'}
+[6.897955] (sim_pkg) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/plat1_send_vel_node.dir/all] Error 2\n'}
+[6.898010] (sim_pkg) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[6.898068] (sim_pkg) CommandEnded: {'returncode': 2}
+[6.908471] (sim_pkg) JobEnded: {'identifier': 'sim_pkg', 'rc': 2}
+[6.917218] (-) TimerEvent: {}
+[6.918800] (-) EventReactorShutdown: {}

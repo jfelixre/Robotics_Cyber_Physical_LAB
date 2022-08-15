@@ -1,0 +1,64 @@
+[35m[1mScanning dependencies of target img_proc_id_node[0m
+[ 25%] Built target img_proc_node
+[ 50%] Built target img_subs_test_node
+[ 75%] Built target img_publ_test_node
+[ 87%] [32mBuilding CXX object CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o[0m
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:33:16:[m[K [01;31m[Kerror: [m[Kexpected initializer before ‘[01m[KRHmin[m[K’
+   33 | int::SharedPtr [01;31m[KRHmin[m[K=0;
+      |                [01;31m[K^~~~~[m[K
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:34:16:[m[K [01;31m[Kerror: [m[Kexpected initializer before ‘[01m[KRSmin[m[K’
+   34 | int::SharedPtr [01;31m[KRSmin[m[K=0;
+      |                [01;31m[K^~~~~[m[K
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:35:16:[m[K [01;31m[Kerror: [m[Kexpected initializer before ‘[01m[KRVmin[m[K’
+   35 | int::SharedPtr [01;31m[KRVmin[m[K=0;
+      |                [01;31m[K^~~~~[m[K
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:36:16:[m[K [01;31m[Kerror: [m[Kexpected initializer before ‘[01m[KRHmax[m[K’
+   36 | int::SharedPtr [01;31m[KRHmax[m[K=0;
+      |                [01;31m[K^~~~~[m[K
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:37:16:[m[K [01;31m[Kerror: [m[Kexpected initializer before ‘[01m[KRSmax[m[K’
+   37 | int::SharedPtr [01;31m[KRSmax[m[K=0;
+      |                [01;31m[K^~~~~[m[K
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:38:16:[m[K [01;31m[Kerror: [m[Kexpected initializer before ‘[01m[KRVmax[m[K’
+   38 | int::SharedPtr [01;31m[KRVmax[m[K=0;
+      |                [01;31m[K^~~~~[m[K
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Proc_Id_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:79:51:[m[K [01;31m[Kerror: [m[K‘[01m[KRHmin[m[K’ was not declared in this scope
+   79 |       cv::threshold(img_hsvs[0], img_red_temp[0], [01;31m[KRHmin[m[K, 255, cv::THRESH_BINARY);  //Hmin filter
+      |                                                   [01;31m[K^~~~~[m[K
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:80:51:[m[K [01;31m[Kerror: [m[K‘[01m[KRHmax[m[K’ was not declared in this scope
+   80 |       cv::threshold(img_hsvs[0], img_red_temp[1], [01;31m[KRHmax[m[K, 255, cv::THRESH_BINARY_INV);  //Hmax filter
+      |                                                   [01;31m[K^~~~~[m[K
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:83:51:[m[K [01;31m[Kerror: [m[K‘[01m[KRSmin[m[K’ was not declared in this scope
+   83 |       cv::threshold(img_hsvs[1], img_red_temp[2], [01;31m[KRSmin[m[K, 255, cv::THRESH_BINARY);  //Smin filter
+      |                                                   [01;31m[K^~~~~[m[K
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:84:51:[m[K [01;31m[Kerror: [m[K‘[01m[KRSmax[m[K’ was not declared in this scope
+   84 |       cv::threshold(img_hsvs[1], img_red_temp[3], [01;31m[KRSmax[m[K, 255, cv::THRESH_BINARY_INV);  //Smax filter
+      |                                                   [01;31m[K^~~~~[m[K
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:87:51:[m[K [01;31m[Kerror: [m[K‘[01m[KRVmin[m[K’ was not declared in this scope
+   87 |       cv::threshold(img_hsvs[2], img_red_temp[4], [01;31m[KRVmin[m[K, 255, cv::THRESH_BINARY);  //Vmin filter
+      |                                                   [01;31m[K^~~~~[m[K
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:88:51:[m[K [01;31m[Kerror: [m[K‘[01m[KRVmax[m[K’ was not declared in this scope
+   88 |       cv::threshold(img_hsvs[2], img_red_temp[5], [01;31m[KRVmax[m[K, 255, cv::THRESH_BINARY_INV);  //Vmax filter
+      |                                                   [01;31m[K^~~~~[m[K
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:120:42:[m[K [01;31m[Kerror: [m[K‘[01m[KRHmin[m[K’ was not declared in this scope
+  120 |   cv::createTrackbar("Hmin", "HSV_RED", &[01;31m[KRHmin[m[K, 360);
+      |                                          [01;31m[K^~~~~[m[K
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:121:42:[m[K [01;31m[Kerror: [m[K‘[01m[KRHmax[m[K’ was not declared in this scope
+  121 |   cv::createTrackbar("Hmax", "HSV_RED", &[01;31m[KRHmax[m[K, 360);
+      |                                          [01;31m[K^~~~~[m[K
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:122:42:[m[K [01;31m[Kerror: [m[K‘[01m[KRSmin[m[K’ was not declared in this scope
+  122 |   cv::createTrackbar("Smin", "HSV_RED", &[01;31m[KRSmin[m[K, 255);
+      |                                          [01;31m[K^~~~~[m[K
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:123:42:[m[K [01;31m[Kerror: [m[K‘[01m[KRSmax[m[K’ was not declared in this scope
+  123 |   cv::createTrackbar("Smax", "HSV_RED", &[01;31m[KRSmax[m[K, 255);
+      |                                          [01;31m[K^~~~~[m[K
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:124:42:[m[K [01;31m[Kerror: [m[K‘[01m[KRVmin[m[K’ was not declared in this scope
+  124 |   cv::createTrackbar("Vmin", "HSV_RED", &[01;31m[KRVmin[m[K, 255);
+      |                                          [01;31m[K^~~~~[m[K
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:125:42:[m[K [01;31m[Kerror: [m[K‘[01m[KRVmax[m[K’ was not declared in this scope
+  125 |   cv::createTrackbar("Vmax", "HSV_RED", &[01;31m[KRVmax[m[K, 255);
+      |                                          [01;31m[K^~~~~[m[K
+make[2]: *** [CMakeFiles/img_proc_id_node.dir/build.make:63: CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/img_proc_id_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

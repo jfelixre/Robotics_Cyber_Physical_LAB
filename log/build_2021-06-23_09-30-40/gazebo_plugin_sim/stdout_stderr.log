@@ -1,0 +1,23 @@
+[ 12%] [32mBuilding CXX object CMakeFiles/robot1_plugin.dir/src/robot1_plugin.cpp.o[0m
+[ 37%] Built target platform2_plugin
+[ 62%] Built target platform_plugin_test
+[ 87%] Built target platform1_plugin
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/robot1_plugin.cpp: In member function ‘void gazebo_plugin_sim::Robot1PluginPrivate::OnUpdate(const gazebo::common::UpdateInfo&)’:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/robot1_plugin.cpp:311:29: error: found ‘:’ in nested-name-specifier, expected ‘::’
+  311 |   B1_pos=Robot1PluginPrivate:jointB1->GetAngle(0);
+      |                             ^
+      |                             ::
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/robot1_plugin.cpp:311:39: error: ‘class gazebo::physics::Joint’ has no member named ‘GetAngle’
+  311 |   B1_pos=Robot1PluginPrivate:jointB1->GetAngle(0);
+      |                                       ^~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/robot1_plugin.cpp:298:17: warning: unused variable ‘B2_pos’ [-Wunused-variable]
+  298 |   float B1_pos, B2_pos, B3_pos;
+      |                 ^~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/robot1_plugin.cpp:298:25: warning: unused variable ‘B3_pos’ [-Wunused-variable]
+  298 |   float B1_pos, B2_pos, B3_pos;
+      |                         ^~~~~~
+At global scope:
+cc1plus: warning: unrecognized command line option ‘-Wno-inconsistent-missing-override’
+make[2]: *** [CMakeFiles/robot1_plugin.dir/build.make:63: CMakeFiles/robot1_plugin.dir/src/robot1_plugin.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:84: CMakeFiles/robot1_plugin.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

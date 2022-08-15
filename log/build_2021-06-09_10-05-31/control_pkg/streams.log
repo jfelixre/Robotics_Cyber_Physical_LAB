@@ -1,0 +1,44 @@
+[0.009s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/control_pkg': AMENT_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/control_pkg -- -j12 -l12
+[0.027s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.044s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.184s] -- Found rclcpp: 2.3.1 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.212s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.215s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.313s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.351s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.352s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.463s] -- Found interfaces: 0.0.0 (/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake)
+[0.512s] -- Configuring done
+[0.520s] -- Generating done
+[0.521s] -- Build files have been written to: /home/javierfr/Tesis_ws/V1/build/control_pkg
+[0.539s] [35m[1mScanning dependencies of target control_pid_p2_node[0m
+[0.541s] [35m[1mScanning dependencies of target control_pid_p1_node[0m
+[0.560s] [ 25%] [32mBuilding CXX object CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o[0m
+[0.565s] [ 50%] [32mBuilding CXX object CMakeFiles/control_pid_p2_node.dir/src/control_pid_p2_node.cpp.o[0m
+[0.702s] [ 75%] [32m[1mLinking CXX executable control_pid_p1_node[0m
+[0.943s] [ 75%] Built target control_pid_p1_node
+[5.432s] [100%] [32m[1mLinking CXX executable control_pid_p2_node[0m
+[5.643s] [100%] Built target control_pid_p2_node
+[5.652s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/control_pkg' returned '0': AMENT_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/control_pkg -- -j12 -l12
+[5.671s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/control_pkg': AMENT_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/control_pkg
+[5.677s] -- Install configuration: ""
+[5.677s] -- Installing: /home/javierfr/Tesis_ws/V1/install/control_pkg/lib/control_pkg/control_pid_p1_node
+[5.679s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/control_pkg/lib/control_pkg/control_pid_p1_node" to ""
+[5.680s] -- Installing: /home/javierfr/Tesis_ws/V1/install/control_pkg/lib/control_pkg/control_pid_p2_node
+[5.682s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/control_pkg/lib/control_pkg/control_pid_p2_node" to ""
+[5.682s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/ament_index/resource_index/package_run_dependencies/control_pkg
+[5.682s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/ament_index/resource_index/parent_prefix_path/control_pkg
+[5.682s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/environment/ament_prefix_path.sh
+[5.682s] -- Installing: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/environment/ament_prefix_path.dsv
+[5.682s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/environment/path.sh
+[5.682s] -- Installing: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/environment/path.dsv
+[5.682s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/local_setup.bash
+[5.682s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/local_setup.sh
+[5.682s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/local_setup.zsh
+[5.683s] -- Installing: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/local_setup.dsv
+[5.683s] -- Installing: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/package.dsv
+[5.683s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/ament_index/resource_index/packages/control_pkg
+[5.683s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/cmake/control_pkgConfig.cmake
+[5.683s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/cmake/control_pkgConfig-version.cmake
+[5.683s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/package.xml
+[5.684s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/control_pkg' returned '0': AMENT_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/control_pkg

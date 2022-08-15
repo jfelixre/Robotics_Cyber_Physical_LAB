@@ -1,0 +1,47 @@
+[0.021s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12
+[0.060s] [35m[1mScanning dependencies of target platform_plugin_test[0m
+[0.139s] [ 50%] [32mBuilding CXX object CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o[0m
+[6.612s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:34:46: error: ‘vector3’ is not a member of ‘geometry_msgs::msg’; did you mean ‘Vector3’?
+[6.612s]    34 |     rclcpp::Subscription<geometry_msgs::msg::vector3>::SharedPtr vel_M1_;
+[6.612s]       |                                              ^~~~~~~
+[6.612s]       |                                              Vector3
+[6.612s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:34:53: error: template argument 1 is invalid
+[6.612s]    34 |     rclcpp::Subscription<geometry_msgs::msg::vector3>::SharedPtr vel_M1_;
+[6.612s]       |                                                     ^
+[6.612s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:34:53: error: template argument 3 is invalid
+[6.612s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:34:56: error: expected ‘;’ at end of member declaration
+[6.612s]    34 |     rclcpp::Subscription<geometry_msgs::msg::vector3>::SharedPtr vel_M1_;
+[6.612s]       |                                                        ^~~~~~~~~
+[6.612s]       |                                                                 ;
+[6.612s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:34:66: error: ‘vel_M1_’ does not name a type
+[6.612s]    34 |     rclcpp::Subscription<geometry_msgs::msg::vector3>::SharedPtr vel_M1_;
+[6.612s]       |                                                                  ^~~~~~~
+[6.613s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp: In member function ‘virtual void gazebo_plugin_sim::PlatformPluginTest::Load(gazebo::physics::ModelPtr, sdf::v9::ElementPtr)’:
+[6.613s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:73:12: error: ‘class gazebo_plugin_sim::PlatformPluginTestPrivate’ has no member named ‘vel_M1_’
+[6.613s]    73 |     impl_->vel_M1_=impl_->ros_node_->create_subscription<geometry_msgs::msg::vector3>(
+[6.613s]       |            ^~~~~~~
+[6.613s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:73:78: error: ‘vector3’ is not a member of ‘geometry_msgs::msg’; did you mean ‘Vector3’?
+[6.613s]    73 |     impl_->vel_M1_=impl_->ros_node_->create_subscription<geometry_msgs::msg::vector3>(
+[6.613s]       |                                                                              ^~~~~~~
+[6.613s]       |                                                                              Vector3
+[6.613s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:75:91: error: no matching function for call to ‘gazebo_ros::Node::create_subscription<<expression error> >(std::string&, rclcpp::QoS, std::_Bind_helper<false, void (gazebo_plugin_sim::PlatformPluginTestPrivate::*)(double), gazebo_plugin_sim::PlatformPluginTestPrivate*, const std::_Placeholder<1>&>::type)’
+[6.613s]    75 |      std::bind(&PlatformPluginTestPrivate::OnMsgVelM1, impl_.get(), std::placeholders::_1));
+[6.613s]       |                                                                                           ^
+[6.613s] In file included from /opt/ros/foxy/include/rclcpp/executors/single_threaded_executor.hpp:28,
+[6.613s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:22,
+[6.613s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[6.613s]                  from /opt/ros/foxy/include/gazebo_ros/node.hpp:18,
+[6.613s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:9:
+[6.613s] /opt/ros/foxy/include/rclcpp/node.hpp:213:3: note: candidate: ‘template<class MessageT, class CallbackT, class AllocatorT, class CallbackMessageT, class SubscriptionT, class MessageMemoryStrategyT> std::shared_ptr<SubscriptionT> rclcpp::Node::create_subscription(const string&, const rclcpp::QoS&, CallbackT&&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&, typename MessageMemoryStrategyT::SharedPtr)’
+[6.614s]   213 |   create_subscription(
+[6.614s]       |   ^~~~~~~~~~~~~~~~~~~
+[6.614s] /opt/ros/foxy/include/rclcpp/node.hpp:213:3: note:   template argument deduction/substitution failed:
+[6.614s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:75:91: error: template argument 1 is invalid
+[6.614s]    75 |      std::bind(&PlatformPluginTestPrivate::OnMsgVelM1, impl_.get(), std::placeholders::_1));
+[6.614s]       |                                                                                           ^
+[6.614s] At global scope:
+[6.614s] cc1plus: warning: unrecognized command line option ‘-Wno-inconsistent-missing-override’
+[6.614s] make[2]: *** [CMakeFiles/platform_plugin_test.dir/build.make:63: CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o] Error 1
+[6.614s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform_plugin_test.dir/all] Error 2
+[6.614s] make: *** [Makefile:141: all] Error 2
+[6.616s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12

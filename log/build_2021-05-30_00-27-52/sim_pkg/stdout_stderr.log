@@ -1,0 +1,105 @@
+-- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Found std_msgs: 2.0.4 (/opt/ros/foxy/share/std_msgs/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rclcpp: 2.3.1 (/opt/ros/foxy/share/rclcpp/cmake)
+-- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found interfaces: 0.0.0 (/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake)
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.1") 
+-- Checking for module 'bullet>=2.82'
+--   Found bullet, version 2.88
+-- Found ccd: /usr/include (found suitable version "2.0", minimum required is "2.0") 
+-- Found fcl: /usr/include (found suitable version "0.5.0", minimum required is "0.3.2") 
+-- Found assimp: /usr/include (found version "5.0.0") 
+-- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake (found suitable version "1.71.0", minimum required is "1.40.0") found components: thread system filesystem program_options regex iostreams date_time 
+-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "3.6.1") 
+-- Looking for ignition-math6 -- found version 6.8.0
+-- Searching for dependencies of ignition-math6
+-- Looking for OGRE...
+-- OGRE_PREFIX_WATCH changed.
+-- Checking for module 'OGRE'
+--   Found OGRE, version 1.9.0
+-- Found Ogre Ghadamon (1.9.0)
+-- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+-- Looking for OGRE_Paging...
+-- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+-- Looking for OGRE_Terrain...
+-- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+-- Looking for OGRE_Property...
+-- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+-- Looking for OGRE_RTShaderSystem...
+-- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+-- Looking for OGRE_Volume...
+-- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+-- Looking for OGRE_Overlay...
+-- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+-- Looking for ignition-math6 -- found version 6.8.0
+-- Looking for ignition-transport8 -- found version 8.2.0
+-- Searching for dependencies of ignition-transport8
+-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found suitable version "3.6.1", minimum required is "3") 
+-- Config-file not installed for ZeroMQ -- checking for pkg-config
+-- Checking for module 'libzmq >= 4'
+--   Found libzmq , version 4.3.2
+-- Found ZeroMQ: TRUE (Required is at least version "4") 
+-- Checking for module 'uuid'
+--   Found uuid, version 2.34.0
+-- Found UUID: TRUE  
+-- Looking for ignition-msgs5 -- found version 5.7.0
+-- Searching for dependencies of ignition-msgs5
+-- Looking for ignition-math6 -- found version 6.8.0
+-- Checking for module 'tinyxml2'
+--   Found tinyxml2, version 6.2.0
+-- Looking for ignition-msgs5 -- found version 5.7.0
+-- Looking for ignition-common3 -- found version 3.13.1
+-- Searching for dependencies of ignition-common3
+-- Looking for dlfcn.h - found
+-- Looking for libdl - found
+-- Found DL: TRUE  
+-- Searching for <ignition-common3> component [graphics]
+-- Looking for ignition-common3-graphics -- found version 3.13.1
+-- Searching for dependencies of ignition-common3-graphics
+-- Looking for ignition-math6 -- found version 6.8.0
+-- Looking for ignition-fuel_tools4 -- found version 4.3.0
+-- Searching for dependencies of ignition-fuel_tools4
+-- Found CURL: /usr/lib/x86_64-linux-gnu/libcurl.so (found version "7.68.0")  
+-- Checking for module 'jsoncpp'
+--   Found jsoncpp, version 1.7.4
+-- Found JSONCPP: TRUE  
+-- Checking for module 'libzip'
+--   Found libzip, version 1.5.1
+-- Found ZIP: TRUE  
+-- Looking for ignition-common3 -- found version 3.13.1
+-- Looking for ignition-msgs5 -- found version 5.7.0
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/javierfr/Tesis_ws/V1/build/sim_pkg
+[35m[1mScanning dependencies of target plat1_send_vel_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/plat1_send_vel_node.dir/src/plat1_send_vel_node.cpp.o[0m
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp: In function ‘void setvel(std::shared_ptr<interfaces::srv::Platform1Vel_Request_<std::allocator<void> > >, std::shared_ptr<interfaces::srv::Platform1Vel_Response_<std::allocator<void> > >)’:
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:9:10: warning: unused variable ‘xvel’ [-Wunused-variable]
+    9 |   double xvel = request->x_vel;
+      |          ^~~~
+[100%] [32m[1mLinking CXX executable plat1_send_vel_node[0m
+[100%] Built target plat1_send_vel_node
+-- Install configuration: ""
+-- Installing: /home/javierfr/Tesis_ws/V1/install/lib/sim_pkg/plat1_send_vel_node
+-- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/lib/sim_pkg/plat1_send_vel_node" to ""
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/ament_index/resource_index/package_run_dependencies/sim_pkg
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/ament_index/resource_index/parent_prefix_path/sim_pkg
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/environment/ament_prefix_path.sh
+-- Installing: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/environment/path.sh
+-- Installing: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/environment/path.dsv
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/local_setup.bash
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/local_setup.sh
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/local_setup.zsh
+-- Installing: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/local_setup.dsv
+-- Installing: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/package.dsv
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/ament_index/resource_index/packages/sim_pkg
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/cmake/sim_pkgConfig.cmake
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/cmake/sim_pkgConfig-version.cmake
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/package.xml

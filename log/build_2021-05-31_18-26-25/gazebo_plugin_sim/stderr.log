@@ -1,0 +1,48 @@
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:56:36: error: ‘float32’ is not a member of ‘std_msgs::msg’; did you mean ‘Float32’?
+   56 |   rclcpp::Publisher<std_msgs::msg::float32>::SharedPtr sim_vel_M1_;
+      |                                    ^~~~~~~
+      |                                    Float32
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:56:43: error: template argument 1 is invalid
+   56 |   rclcpp::Publisher<std_msgs::msg::float32>::SharedPtr sim_vel_M1_;
+      |                                           ^
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:56:46: error: expected ‘;’ at end of member declaration
+   56 |   rclcpp::Publisher<std_msgs::msg::float32>::SharedPtr sim_vel_M1_;
+      |                                              ^~~~~~~~~
+      |                                                       ;
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:56:56: error: ‘sim_vel_M1_’ does not name a type
+   56 |   rclcpp::Publisher<std_msgs::msg::float32>::SharedPtr sim_vel_M1_;
+      |                                                        ^~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp: In member function ‘virtual void gazebo_plugin_sim::PlatformPluginTest::Load(gazebo::physics::ModelPtr, sdf::v9::ElementPtr)’:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:165:15: error: ‘class gazebo_plugin_sim::PlatformPluginTestPrivate’ has no member named ‘sim_vel_M1_’; did you mean ‘vel_M1_’?
+  165 |        impl_->sim_vel_M1_ = impl_->ros_node_-<create_publisher<std_msgs::msg::float32>(
+      |               ^~~~~~~~~~~
+      |               vel_M1_
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:165:46: error: expected primary-expression before ‘<’ token
+  165 |        impl_->sim_vel_M1_ = impl_->ros_node_-<create_publisher<std_msgs::msg::float32>(
+      |                                              ^
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:165:47: error: ‘create_publisher’ was not declared in this scope; did you mean ‘rclcpp::create_publisher’?
+  165 |        impl_->sim_vel_M1_ = impl_->ros_node_-<create_publisher<std_msgs::msg::float32>(
+      |                                               ^~~~~~~~~~~~~~~~
+      |                                               rclcpp::create_publisher
+In file included from /opt/ros/foxy/include/rclcpp/node_impl.hpp:39,
+                 from /opt/ros/foxy/include/rclcpp/node.hpp:1221,
+                 from /opt/ros/foxy/include/rclcpp/executors/single_threaded_executor.hpp:28,
+                 from /opt/ros/foxy/include/rclcpp/executors.hpp:22,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+                 from /opt/ros/foxy/include/gazebo_ros/node.hpp:18,
+                 from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:12:
+/opt/ros/foxy/include/rclcpp/create_publisher.hpp:43:1: note: ‘rclcpp::create_publisher’ declared here
+   43 | create_publisher(
+      | ^~~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:165:79: error: ‘float32’ is not a member of ‘std_msgs::msg’; did you mean ‘Float32’?
+  165 |        impl_->sim_vel_M1_ = impl_->ros_node_-<create_publisher<std_msgs::msg::float32>(
+      |                                                                               ^~~~~~~
+      |                                                                               Float32
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:166:9: warning: left operand of comma operator has no effect [-Wunused-value]
+  166 |         "~/sim_vel_M1", qos.get_publisher_qos("~/sim_vel_M1", rclcpp::QoS(1)));
+      |         ^~~~~~~~~~~~~~
+At global scope:
+cc1plus: warning: unrecognized command line option ‘-Wno-inconsistent-missing-override’
+make[2]: *** [CMakeFiles/platform_plugin_test.dir/build.make:63: CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform_plugin_test.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

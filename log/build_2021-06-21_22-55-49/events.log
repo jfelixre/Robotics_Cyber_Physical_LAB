@@ -1,0 +1,359 @@
+[0.000000] (-) TimerEvent: {}
+[0.000470] (gazebo_plugin_sim) JobQueued: {'identifier': 'gazebo_plugin_sim', 'dependencies': OrderedDict()}
+[0.000505] (img_proc_pkg) JobQueued: {'identifier': 'img_proc_pkg', 'dependencies': OrderedDict()}
+[0.000905] (interfaces) JobQueued: {'identifier': 'interfaces', 'dependencies': OrderedDict()}
+[0.000930] (control_pkg) JobQueued: {'identifier': 'control_pkg', 'dependencies': OrderedDict([('interfaces', '/home/javierfr/Tesis_ws/V1/install/interfaces')])}
+[0.000949] (inv_kinematics_pkg) JobQueued: {'identifier': 'inv_kinematics_pkg', 'dependencies': OrderedDict([('interfaces', '/home/javierfr/Tesis_ws/V1/install/interfaces')])}
+[0.001330] (interfaces) JobStarted: {'identifier': 'interfaces'}
+[0.009405] (gazebo_plugin_sim) JobStarted: {'identifier': 'gazebo_plugin_sim'}
+[0.013389] (img_proc_pkg) JobStarted: {'identifier': 'img_proc_pkg'}
+[0.017385] (interfaces) JobProgress: {'identifier': 'interfaces', 'progress': 'cmake'}
+[0.018353] (interfaces) JobProgress: {'identifier': 'interfaces', 'progress': 'build'}
+[0.018458] (interfaces) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/javierfr/Tesis_ws/V1/build/interfaces', '--', '-j12', '-l12'], 'cwd': '/home/javierfr/Tesis_ws/V1/build/interfaces', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '7186'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib::/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins'), ('HOME', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('GAZEBO_MASTER_URI', 'http://localhost:11345'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '1322'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '8180'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/javierfr/Tesis_ws/V1/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:101420'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', '/home/javierfr/ardupilot_gazebo/models'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('OGRE_RESOURCE_PATH', '/usr/lib/x86_64-linux-gnu/OGRE-1.9.0'), ('PATH', '/opt/ros/foxy/bin:/usr/lib/ccache:/home/javierfr/Ardupilot_test/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-6-2017-q2-update/bin:/home/javierfr/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfrubuntu:@/tmp/.ICE-unix/7220,unix/javierfrubuntu:/tmp/.ICE-unix/7220'), ('INVOCATION_ID', '32aabe744c914e6eb79bcab69b813772'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg:/home/javierfr/Tesis_ws/V1/install/control_pkg:/home/javierfr/Tesis_ws/V1/install/interfaces:/home/javierfr/Tesis_ws/V1/install/img_proc_pkg:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:772a7473-388d-4fa5-8a0a-a7c066832c25'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GAZEBO_RESOURCE_PATH', '/usr/share/gazebo-11:/usr/share/gazebo-11:'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('GAZEBO_MODEL_DATABASE_URI', 'http://models.gazebosim.org'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Tesis_ws/V1/build/interfaces'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('GAZEBO_PLUGIN_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg:/home/javierfr/Tesis_ws/V1/install/control_pkg:/home/javierfr/Tesis_ws/V1/install/interfaces:/home/javierfr/Tesis_ws/V1/install/img_proc_pkg:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim:/opt/ros/foxy')]), 'shell': False}
+[0.021640] (gazebo_plugin_sim) JobProgress: {'identifier': 'gazebo_plugin_sim', 'progress': 'cmake'}
+[0.022396] (gazebo_plugin_sim) JobProgress: {'identifier': 'gazebo_plugin_sim', 'progress': 'build'}
+[0.022685] (gazebo_plugin_sim) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim', '--', '-j12', '-l12'], 'cwd': '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '7186'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib::/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins'), ('HOME', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('GAZEBO_MASTER_URI', 'http://localhost:11345'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '1322'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '8180'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/javierfr/Tesis_ws/V1/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:101420'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', '/home/javierfr/ardupilot_gazebo/models'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('OGRE_RESOURCE_PATH', '/usr/lib/x86_64-linux-gnu/OGRE-1.9.0'), ('PATH', '/opt/ros/foxy/bin:/usr/lib/ccache:/home/javierfr/Ardupilot_test/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-6-2017-q2-update/bin:/home/javierfr/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfrubuntu:@/tmp/.ICE-unix/7220,unix/javierfrubuntu:/tmp/.ICE-unix/7220'), ('INVOCATION_ID', '32aabe744c914e6eb79bcab69b813772'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg:/home/javierfr/Tesis_ws/V1/install/control_pkg:/home/javierfr/Tesis_ws/V1/install/interfaces:/home/javierfr/Tesis_ws/V1/install/img_proc_pkg:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:772a7473-388d-4fa5-8a0a-a7c066832c25'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GAZEBO_RESOURCE_PATH', '/usr/share/gazebo-11:/usr/share/gazebo-11:'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('GAZEBO_MODEL_DATABASE_URI', 'http://models.gazebosim.org'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('GAZEBO_PLUGIN_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg:/home/javierfr/Tesis_ws/V1/install/control_pkg:/home/javierfr/Tesis_ws/V1/install/interfaces:/home/javierfr/Tesis_ws/V1/install/img_proc_pkg:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim:/opt/ros/foxy')]), 'shell': False}
+[0.027086] (img_proc_pkg) JobProgress: {'identifier': 'img_proc_pkg', 'progress': 'cmake'}
+[0.027913] (img_proc_pkg) JobProgress: {'identifier': 'img_proc_pkg', 'progress': 'build'}
+[0.028646] (img_proc_pkg) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg', '--', '-j12', '-l12'], 'cwd': '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '7186'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib::/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins'), ('HOME', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('GAZEBO_MASTER_URI', 'http://localhost:11345'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '1322'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '8180'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/javierfr/Tesis_ws/V1/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:101420'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', '/home/javierfr/ardupilot_gazebo/models'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('OGRE_RESOURCE_PATH', '/usr/lib/x86_64-linux-gnu/OGRE-1.9.0'), ('PATH', '/opt/ros/foxy/bin:/usr/lib/ccache:/home/javierfr/Ardupilot_test/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-6-2017-q2-update/bin:/home/javierfr/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfrubuntu:@/tmp/.ICE-unix/7220,unix/javierfrubuntu:/tmp/.ICE-unix/7220'), ('INVOCATION_ID', '32aabe744c914e6eb79bcab69b813772'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg:/home/javierfr/Tesis_ws/V1/install/control_pkg:/home/javierfr/Tesis_ws/V1/install/interfaces:/home/javierfr/Tesis_ws/V1/install/img_proc_pkg:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:772a7473-388d-4fa5-8a0a-a7c066832c25'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GAZEBO_RESOURCE_PATH', '/usr/share/gazebo-11:/usr/share/gazebo-11:'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('GAZEBO_MODEL_DATABASE_URI', 'http://models.gazebosim.org'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('GAZEBO_PLUGIN_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg:/home/javierfr/Tesis_ws/V1/install/control_pkg:/home/javierfr/Tesis_ws/V1/install/interfaces:/home/javierfr/Tesis_ws/V1/install/img_proc_pkg:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim:/opt/ros/foxy')]), 'shell': False}
+[0.077218] (img_proc_pkg) StdoutLine: {'line': b'[ 25%] Built target img_proc_node\n'}
+[0.079201] (img_proc_pkg) StdoutLine: {'line': b'[ 62%] Built target img_proc_id_node\n'}
+[0.079371] (img_proc_pkg) StdoutLine: {'line': b'[ 75%] Built target img_subs_test_node\n'}
+[0.080763] (img_proc_pkg) StdoutLine: {'line': b'[100%] Built target img_publ_test_node\n'}
+[0.089098] (img_proc_pkg) CommandEnded: {'returncode': 0}
+[0.100042] (-) TimerEvent: {}
+[0.111846] (img_proc_pkg) JobProgress: {'identifier': 'img_proc_pkg', 'progress': 'install'}
+[0.121142] (img_proc_pkg) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg'], 'cwd': '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '7186'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib::/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins'), ('HOME', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('GAZEBO_MASTER_URI', 'http://localhost:11345'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '1322'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '8180'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/javierfr/Tesis_ws/V1/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:101420'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', '/home/javierfr/ardupilot_gazebo/models'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('OGRE_RESOURCE_PATH', '/usr/lib/x86_64-linux-gnu/OGRE-1.9.0'), ('PATH', '/opt/ros/foxy/bin:/usr/lib/ccache:/home/javierfr/Ardupilot_test/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-6-2017-q2-update/bin:/home/javierfr/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfrubuntu:@/tmp/.ICE-unix/7220,unix/javierfrubuntu:/tmp/.ICE-unix/7220'), ('INVOCATION_ID', '32aabe744c914e6eb79bcab69b813772'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg:/home/javierfr/Tesis_ws/V1/install/control_pkg:/home/javierfr/Tesis_ws/V1/install/interfaces:/home/javierfr/Tesis_ws/V1/install/img_proc_pkg:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:772a7473-388d-4fa5-8a0a-a7c066832c25'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GAZEBO_RESOURCE_PATH', '/usr/share/gazebo-11:/usr/share/gazebo-11:'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('GAZEBO_MODEL_DATABASE_URI', 'http://models.gazebosim.org'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('GAZEBO_PLUGIN_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg:/home/javierfr/Tesis_ws/V1/install/control_pkg:/home/javierfr/Tesis_ws/V1/install/interfaces:/home/javierfr/Tesis_ws/V1/install/img_proc_pkg:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim:/opt/ros/foxy')]), 'shell': False}
+[0.127899] (img_proc_pkg) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.128073] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_proc_node\n'}
+[0.128327] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_publ_test_node\n'}
+[0.128633] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_subs_test_node\n'}
+[0.128950] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_proc_id_node\n'}
+[0.129146] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/ament_index/resource_index/package_run_dependencies/img_proc_pkg\n'}
+[0.129242] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/ament_index/resource_index/parent_prefix_path/img_proc_pkg\n'}
+[0.129348] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/environment/ament_prefix_path.sh\n'}
+[0.129420] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/environment/ament_prefix_path.dsv\n'}
+[0.129508] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/environment/path.sh\n'}
+[0.129573] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/environment/path.dsv\n'}
+[0.129628] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/local_setup.bash\n'}
+[0.129692] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/local_setup.sh\n'}
+[0.129739] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/local_setup.zsh\n'}
+[0.129790] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/local_setup.dsv\n'}
+[0.129845] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/package.dsv\n'}
+[0.129923] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/ament_index/resource_index/packages/img_proc_pkg\n'}
+[0.129979] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/cmake/img_proc_pkgConfig.cmake\n'}
+[0.130046] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/cmake/img_proc_pkgConfig-version.cmake\n'}
+[0.130101] (img_proc_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/package.xml\n'}
+[0.132091] (img_proc_pkg) CommandEnded: {'returncode': 0}
+[0.169667] (img_proc_pkg) JobEnded: {'identifier': 'img_proc_pkg', 'rc': 0}
+[0.200157] (-) TimerEvent: {}
+[0.300420] (-) TimerEvent: {}
+[0.306583] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.306739] (interfaces) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.400577] (-) TimerEvent: {}
+[0.415991] (interfaces) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.5", minimum required is "3") \n'}
+[0.416148] (interfaces) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.416212] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.500650] (-) TimerEvent: {}
+[0.600942] (-) TimerEvent: {}
+[0.701226] (-) TimerEvent: {}
+[0.748255] (interfaces) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)\n'}
+[0.759758] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found camera_info_manager: 2.3.0 (/opt/ros/foxy/share/camera_info_manager/cmake)\n'}
+[0.801332] (-) TimerEvent: {}
+[0.869109] (interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.901445] (-) TimerEvent: {}
+[0.914112] (interfaces) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[1.001566] (-) TimerEvent: {}
+[1.101785] (-) TimerEvent: {}
+[1.202037] (-) TimerEvent: {}
+[1.208456] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.211211] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[1.302151] (-) TimerEvent: {}
+[1.402405] (-) TimerEvent: {}
+[1.502671] (-) TimerEvent: {}
+[1.572102] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.572323] (interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.602740] (-) TimerEvent: {}
+[1.633993] (interfaces) StderrLine: {'line': b'CMake Error at /opt/ros/foxy/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:93 (message):\n'}
+[1.634156] (interfaces) StderrLine: {'line': b"  rosidl_generate_interfaces() the passed file 'msg/MotorVelsWArm' doesn't\n"}
+[1.634222] (interfaces) StderrLine: {'line': b'  exist relative to the CMAKE_CURRENT_SOURCE_DIR\n'}
+[1.634279] (interfaces) StderrLine: {'line': b"  '/home/javierfr/Tesis_ws/V1/src/interfaces'\n"}
+[1.634335] (interfaces) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[1.634389] (interfaces) StderrLine: {'line': b'  CMakeLists.txt:22 (rosidl_generate_interfaces)\n'}
+[1.634442] (interfaces) StderrLine: {'line': b'\n'}
+[1.634494] (interfaces) StderrLine: {'line': b'\n'}
+[1.634767] (interfaces) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[1.634858] (interfaces) StdoutLine: {'line': b'See also "/home/javierfr/Tesis_ws/V1/build/interfaces/CMakeFiles/CMakeOutput.log".\n'}
+[1.638717] (interfaces) StderrLine: {'line': b'make: *** [Makefile:1948: cmake_check_build_system] Error 1\n'}
+[1.640904] (interfaces) CommandEnded: {'returncode': 2}
+[1.702819] (-) TimerEvent: {}
+[1.735956] (interfaces) JobEnded: {'identifier': 'interfaces', 'rc': 2}
+[1.754684] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)\n'}
+[1.760801] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[1.802907] (-) TimerEvent: {}
+[1.903151] (-) TimerEvent: {}
+[2.003409] (-) TimerEvent: {}
+[2.103657] (-) TimerEvent: {}
+[2.203338] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Setting yaml-cpp_DIR to: '/opt/ros/foxy/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/lib/cmake/yaml-cpp'\n"}
+[2.203712] (-) TimerEvent: {}
+[2.289749] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found gazebo_dev: 3.5.3 (/opt/ros/foxy/share/gazebo_dev/cmake)\n'}
+[2.303810] (-) TimerEvent: {}
+[2.404021] (-) TimerEvent: {}
+[2.504317] (-) TimerEvent: {}
+[2.604560] (-) TimerEvent: {}
+[2.620196] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found DART: /usr/include (Required is at least version "6.6") found components: dart \n'}
+[2.704677] (-) TimerEvent: {}
+[2.804943] (-) TimerEvent: {}
+[2.905196] (-) TimerEvent: {}
+[2.929993] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "3.6.1") \n'}
+[2.959620] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.8.0\n'}
+[2.988254] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for dependencies of ignition-math6\n'}
+[2.990914] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE...\n'}
+[3.005300] (-) TimerEvent: {}
+[3.027528] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found Ogre Ghadamon (1.9.0)\n'}
+[3.031906] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so\n'}
+[3.039960] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE_Paging...\n'}
+[3.040123] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so\n'}
+[3.040287] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE_Terrain...\n'}
+[3.040356] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so\n'}
+[3.040418] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE_Property...\n'}
+[3.040774] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so\n'}
+[3.040932] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE_RTShaderSystem...\n'}
+[3.041033] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so\n'}
+[3.041109] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE_Volume...\n'}
+[3.041169] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so\n'}
+[3.041227] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE_Overlay...\n'}
+[3.041281] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so\n'}
+[3.105424] (-) TimerEvent: {}
+[3.167538] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.8.0\n'}
+[3.176475] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-transport8 -- found version 8.2.0\n'}
+[3.176859] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for dependencies of ignition-transport8\n'}
+[3.199502] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found suitable version "3.6.1", minimum required is "3") \n'}
+[3.205516] (-) TimerEvent: {}
+[3.215572] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Config-file not installed for ZeroMQ -- checking for pkg-config\n'}
+[3.218987] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Checking for module 'libzmq >= 4'\n"}
+[3.305605] (-) TimerEvent: {}
+[3.318973] (gazebo_plugin_sim) StdoutLine: {'line': b'--   Found libzmq , version 4.3.2\n'}
+[3.354339] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Checking for module 'uuid'\n"}
+[3.381446] (gazebo_plugin_sim) StdoutLine: {'line': b'--   Found uuid, version 2.34.0\n'}
+[3.405689] (-) TimerEvent: {}
+[3.415625] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.7.0\n'}
+[3.416007] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for dependencies of ignition-msgs5\n'}
+[3.432171] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.8.0\n'}
+[3.435827] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Checking for module 'tinyxml2'\n"}
+[3.450791] (gazebo_plugin_sim) StdoutLine: {'line': b'--   Found tinyxml2, version 6.2.0\n'}
+[3.484363] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.7.0\n'}
+[3.497571] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-common3 -- found version 3.13.1\n'}
+[3.498175] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for dependencies of ignition-common3\n'}
+[3.498444] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for dlfcn.h - found\n'}
+[3.498511] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for libdl - found\n'}
+[3.505801] (-) TimerEvent: {}
+[3.506823] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for <ignition-common3> component [graphics]\n'}
+[3.507516] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-common3-graphics -- found version 3.13.1\n'}
+[3.508127] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for dependencies of ignition-common3-graphics\n'}
+[3.508491] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.8.0\n'}
+[3.520489] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-fuel_tools4 -- found version 4.3.0\n'}
+[3.520982] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for dependencies of ignition-fuel_tools4\n'}
+[3.591517] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Checking for module 'jsoncpp'\n"}
+[3.605893] (-) TimerEvent: {}
+[3.629883] (gazebo_plugin_sim) StdoutLine: {'line': b'--   Found jsoncpp, version 1.7.4\n'}
+[3.664820] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Checking for module 'libzip'\n"}
+[3.694890] (gazebo_plugin_sim) StdoutLine: {'line': b'--   Found libzip, version 1.5.1\n'}
+[3.706007] (-) TimerEvent: {}
+[3.725304] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-common3 -- found version 3.13.1\n'}
+[3.725705] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.7.0\n'}
+[3.727259] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Gazebo version: 11.5\n'}
+[3.739545] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found gazebo_msgs: 3.5.3 (/opt/ros/foxy/share/gazebo_msgs/cmake)\n'}
+[3.806123] (-) TimerEvent: {}
+[3.906344] (-) TimerEvent: {}
+[4.006601] (-) TimerEvent: {}
+[4.027032] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found gazebo_ros: 3.5.3 (/opt/ros/foxy/share/gazebo_ros/cmake)\n'}
+[4.074147] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found image_transport: 2.3.0 (/opt/ros/foxy/share/image_transport/cmake)\n'}
+[4.106695] (-) TimerEvent: {}
+[4.206933] (-) TimerEvent: {}
+[4.207539] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found cv_bridge: 2.2.1 (/opt/ros/foxy/share/cv_bridge/cmake)\n'}
+[4.253991] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found nav_msgs: 2.0.4 (/opt/ros/foxy/share/nav_msgs/cmake)\n'}
+[4.307104] (-) TimerEvent: {}
+[4.333425] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found std_srvs: 2.0.4 (/opt/ros/foxy/share/std_srvs/cmake)\n'}
+[4.353653] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found tf2: 0.13.10 (/opt/ros/foxy/share/tf2/cmake)\n'}
+[4.376710] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found tf2_geometry_msgs: 0.13.10 (/opt/ros/foxy/share/tf2_geometry_msgs/cmake)\n'}
+[4.407151] (-) TimerEvent: {}
+[4.407544] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/foxy/share/eigen3_cmake_module/cmake)\n'}
+[4.507229] (-) TimerEvent: {}
+[4.607470] (-) TimerEvent: {}
+[4.707717] (-) TimerEvent: {}
+[4.807961] (-) TimerEvent: {}
+[4.853820] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found interfaces: 0.0.0 (/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake)\n'}
+[4.908051] (-) TimerEvent: {}
+[5.008360] (-) TimerEvent: {}
+[5.108743] (-) TimerEvent: {}
+[5.208994] (-) TimerEvent: {}
+[5.309238] (-) TimerEvent: {}
+[5.409486] (-) TimerEvent: {}
+[5.509818] (-) TimerEvent: {}
+[5.610232] (-) TimerEvent: {}
+[5.710459] (-) TimerEvent: {}
+[5.810712] (-) TimerEvent: {}
+[5.911000] (-) TimerEvent: {}
+[6.011364] (-) TimerEvent: {}
+[6.111606] (-) TimerEvent: {}
+[6.211846] (-) TimerEvent: {}
+[6.220996] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Configuring done\n'}
+[6.311974] (-) TimerEvent: {}
+[6.412329] (-) TimerEvent: {}
+[6.512573] (-) TimerEvent: {}
+[6.612815] (-) TimerEvent: {}
+[6.713056] (-) TimerEvent: {}
+[6.717682] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Generating done\n'}
+[6.720055] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Build files have been written to: /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim\n'}
+[6.743439] (gazebo_plugin_sim) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot1_plugin\x1b[0m\n'}
+[6.772481] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 75%] Built target platform2_plugin\n'}
+[6.772671] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 75%] Built target platform1_plugin\n'}
+[6.772765] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 75%] Built target platform_plugin_test\n'}
+[6.813132] (-) TimerEvent: {}
+[6.913356] (-) TimerEvent: {}
+[7.013672] (-) TimerEvent: {}
+[7.114093] (-) TimerEvent: {}
+[7.214334] (-) TimerEvent: {}
+[7.314578] (-) TimerEvent: {}
+[7.414825] (-) TimerEvent: {}
+[7.515067] (-) TimerEvent: {}
+[7.615308] (-) TimerEvent: {}
+[7.715557] (-) TimerEvent: {}
+[7.815812] (-) TimerEvent: {}
+[7.916071] (-) TimerEvent: {}
+[8.016314] (-) TimerEvent: {}
+[8.116556] (-) TimerEvent: {}
+[8.216803] (-) TimerEvent: {}
+[8.317164] (-) TimerEvent: {}
+[8.417412] (-) TimerEvent: {}
+[8.517652] (-) TimerEvent: {}
+[8.617900] (-) TimerEvent: {}
+[8.718152] (-) TimerEvent: {}
+[8.775985] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding CXX object CMakeFiles/robot1_plugin.dir/src/robot1_plugin.cpp.o\x1b[0m\n'}
+[8.818242] (-) TimerEvent: {}
+[8.918482] (-) TimerEvent: {}
+[9.018790] (-) TimerEvent: {}
+[9.119226] (-) TimerEvent: {}
+[9.219469] (-) TimerEvent: {}
+[9.319711] (-) TimerEvent: {}
+[9.419962] (-) TimerEvent: {}
+[9.520222] (-) TimerEvent: {}
+[9.620467] (-) TimerEvent: {}
+[9.720705] (-) TimerEvent: {}
+[9.820991] (-) TimerEvent: {}
+[9.921295] (-) TimerEvent: {}
+[10.021537] (-) TimerEvent: {}
+[10.121776] (-) TimerEvent: {}
+[10.222043] (-) TimerEvent: {}
+[10.322358] (-) TimerEvent: {}
+[10.422595] (-) TimerEvent: {}
+[10.522874] (-) TimerEvent: {}
+[10.623129] (-) TimerEvent: {}
+[10.723380] (-) TimerEvent: {}
+[10.823617] (-) TimerEvent: {}
+[10.923856] (-) TimerEvent: {}
+[11.024096] (-) TimerEvent: {}
+[11.124352] (-) TimerEvent: {}
+[11.224591] (-) TimerEvent: {}
+[11.324843] (-) TimerEvent: {}
+[11.425095] (-) TimerEvent: {}
+[11.525334] (-) TimerEvent: {}
+[11.625572] (-) TimerEvent: {}
+[11.725815] (-) TimerEvent: {}
+[11.826066] (-) TimerEvent: {}
+[11.926306] (-) TimerEvent: {}
+[12.026548] (-) TimerEvent: {}
+[12.126796] (-) TimerEvent: {}
+[12.227041] (-) TimerEvent: {}
+[12.327281] (-) TimerEvent: {}
+[12.427523] (-) TimerEvent: {}
+[12.527768] (-) TimerEvent: {}
+[12.628006] (-) TimerEvent: {}
+[12.728244] (-) TimerEvent: {}
+[12.828572] (-) TimerEvent: {}
+[12.928994] (-) TimerEvent: {}
+[13.029229] (-) TimerEvent: {}
+[13.129473] (-) TimerEvent: {}
+[13.229722] (-) TimerEvent: {}
+[13.329963] (-) TimerEvent: {}
+[13.430205] (-) TimerEvent: {}
+[13.530448] (-) TimerEvent: {}
+[13.630706] (-) TimerEvent: {}
+[13.730942] (-) TimerEvent: {}
+[13.831267] (-) TimerEvent: {}
+[13.931703] (-) TimerEvent: {}
+[14.031945] (-) TimerEvent: {}
+[14.132189] (-) TimerEvent: {}
+[14.232427] (-) TimerEvent: {}
+[14.332674] (-) TimerEvent: {}
+[14.432911] (-) TimerEvent: {}
+[14.533157] (-) TimerEvent: {}
+[14.633423] (-) TimerEvent: {}
+[14.733666] (-) TimerEvent: {}
+[14.833916] (-) TimerEvent: {}
+[14.934168] (-) TimerEvent: {}
+[15.034407] (-) TimerEvent: {}
+[15.134642] (-) TimerEvent: {}
+[15.234895] (-) TimerEvent: {}
+[15.335148] (-) TimerEvent: {}
+[15.435399] (-) TimerEvent: {}
+[15.535660] (-) TimerEvent: {}
+[15.635912] (-) TimerEvent: {}
+[15.736151] (-) TimerEvent: {}
+[15.836390] (-) TimerEvent: {}
+[15.936632] (-) TimerEvent: {}
+[16.036877] (-) TimerEvent: {}
+[16.137112] (-) TimerEvent: {}
+[16.237355] (-) TimerEvent: {}
+[16.337608] (-) TimerEvent: {}
+[16.437851] (-) TimerEvent: {}
+[16.538089] (-) TimerEvent: {}
+[16.638333] (-) TimerEvent: {}
+[16.738580] (-) TimerEvent: {}
+[16.838827] (-) TimerEvent: {}
+[16.939091] (-) TimerEvent: {}
+[17.039338] (-) TimerEvent: {}
+[17.139577] (-) TimerEvent: {}
+[17.239815] (-) TimerEvent: {}
+[17.340056] (-) TimerEvent: {}
+[17.440305] (-) TimerEvent: {}
+[17.540550] (-) TimerEvent: {}
+[17.640794] (-) TimerEvent: {}
+[17.741080] (-) TimerEvent: {}
+[17.841448] (-) TimerEvent: {}
+[17.941684] (-) TimerEvent: {}
+[18.041927] (-) TimerEvent: {}
+[18.142188] (-) TimerEvent: {}
+[18.242432] (-) TimerEvent: {}
+[18.342682] (-) TimerEvent: {}
+[18.442927] (-) TimerEvent: {}
+[18.543175] (-) TimerEvent: {}
+[18.643417] (-) TimerEvent: {}
+[18.743683] (-) TimerEvent: {}
+[18.843927] (-) TimerEvent: {}
+[18.944169] (-) TimerEvent: {}
+[19.044411] (-) TimerEvent: {}
+[19.144660] (-) TimerEvent: {}
+[19.244930] (-) TimerEvent: {}
+[19.345174] (-) TimerEvent: {}
+[19.445425] (-) TimerEvent: {}
+[19.545688] (-) TimerEvent: {}
+[19.645961] (-) TimerEvent: {}
+[19.746219] (-) TimerEvent: {}
+[19.846479] (-) TimerEvent: {}
+[19.946721] (-) TimerEvent: {}
+[20.046987] (-) TimerEvent: {}
+[20.147287] (-) TimerEvent: {}
+[20.227860] (gazebo_plugin_sim) StderrLine: {'line': b'\x1b[01m\x1b[K/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/robot1_plugin.cpp:25:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Kinterfaces/msg/motor_vels_w_arm.hpp: No such file or directory\n'}
+[20.228045] (gazebo_plugin_sim) StderrLine: {'line': b'   25 | #include \x1b[01;31m\x1b[K<interfaces/msg/motor_vels_w_arm.hpp>\x1b[m\x1b[K\n'}
+[20.228133] (gazebo_plugin_sim) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[20.228210] (gazebo_plugin_sim) StderrLine: {'line': b'compilation terminated.\n'}
+[20.235038] (gazebo_plugin_sim) StderrLine: {'line': b'make[2]: *** [CMakeFiles/robot1_plugin.dir/build.make:63: CMakeFiles/robot1_plugin.dir/src/robot1_plugin.cpp.o] Error 1\n'}
+[20.235262] (gazebo_plugin_sim) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:84: CMakeFiles/robot1_plugin.dir/all] Error 2\n'}
+[20.235426] (gazebo_plugin_sim) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[20.236932] (gazebo_plugin_sim) JobEnded: {'identifier': 'gazebo_plugin_sim', 'rc': 'SIGINT'}
+[20.247349] (control_pkg) JobSkipped: {'identifier': 'control_pkg'}
+[20.247382] (-) TimerEvent: {}
+[20.247486] (inv_kinematics_pkg) JobSkipped: {'identifier': 'inv_kinematics_pkg'}
+[20.247515] (-) EventReactorShutdown: {}

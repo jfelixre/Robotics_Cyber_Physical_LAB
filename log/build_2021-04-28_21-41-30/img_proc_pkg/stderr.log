@@ -1,0 +1,5 @@
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Subs_Test_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:40:66:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+   40 | c_callback([01;35m[Kconst sensor_msgs::msg::Image::SharedPtr msg[m[K) const
+      |            [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+

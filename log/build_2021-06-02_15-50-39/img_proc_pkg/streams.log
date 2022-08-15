@@ -1,0 +1,17 @@
+[0.019s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.054s] [35m[1mScanning dependencies of target img_proc_qr_detector[0m
+[0.073s] [ 25%] Built target img_proc_node
+[0.080s] [ 50%] Built target img_subs_test_node
+[0.081s] [ 75%] Built target img_publ_test_node
+[0.087s] [ 87%] [32mBuilding CXX object CMakeFiles/img_proc_qr_detector.dir/src/img_proc_qr_detector.cpp.o[0m
+[1.351s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:[m[K In member function ‘[01m[Kvoid Img_Proc_Qr_Detector::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[1.351s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:69:47:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ has non-pointer type ‘[01m[Kcv::Mat[m[K’
+[1.351s]    69 |         std::cout << "Decoded Data : " << bbox[01;31m[K->[m[K(0,0) << std::endl;
+[1.352s]       |                                               [01;31m[K^~[m[K
+[1.352s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:69:49:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K([m[K’ token
+[1.352s]    69 |         std::cout << "Decoded Data : " << bbox->[01;31m[K([m[K0,0) << std::endl;
+[1.352s]       |                                                 [01;31m[K^[m[K
+[2.514s] make[2]: *** [CMakeFiles/img_proc_qr_detector.dir/build.make:63: CMakeFiles/img_proc_qr_detector.dir/src/img_proc_qr_detector.cpp.o] Error 1
+[2.514s] make[1]: *** [CMakeFiles/Makefile2:84: CMakeFiles/img_proc_qr_detector.dir/all] Error 2
+[2.514s] make: *** [Makefile:141: all] Error 2
+[2.517s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12

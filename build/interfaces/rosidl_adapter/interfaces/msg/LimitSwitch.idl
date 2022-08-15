@@ -1,0 +1,22 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from interfaces/msg/LimitSwitch.msg
+// generated code does not contain a copyright notice
+
+
+module interfaces {
+  module msg {
+    struct LimitSwitch {
+      int32 b1_min;
+
+      int32 b1_max;
+
+      int32 b2_min;
+
+      int32 b2_max;
+
+      int32 b3_min;
+
+      int32 b3_max;
+    };
+  };
+};

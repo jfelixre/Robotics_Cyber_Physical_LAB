@@ -1,0 +1,16 @@
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:102:6: error: ‘auto time’ redeclared as different kind of entity
+  102 | auto time = std::chrono::system_clock::now();
+      |      ^~~~
+In file included from /usr/include/pthread.h:23,
+                 from /usr/include/x86_64-linux-gnu/c++/9/bits/gthr-default.h:35,
+                 from /usr/include/x86_64-linux-gnu/c++/9/bits/gthr.h:148,
+                 from /usr/include/c++/9/ext/atomicity.h:35,
+                 from /usr/include/c++/9/memory:73,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+                 from /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:1:
+/usr/include/time.h:75:15: note: previous declaration ‘time_t time(time_t*)’
+   75 | extern time_t time (time_t *__timer) __THROW;
+      |               ^~~~
+make[2]: *** [CMakeFiles/control_pid_p1_node.dir/build.make:63: CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:107: CMakeFiles/control_pid_p1_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

@@ -1,0 +1,7 @@
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_node.cpp:15:19:[m[K [01;31m[Kerror: [m[Kaggregate ‘[01m[Kcv::cuda::GpuMat frame_gpu[m[K’ has incomplete type and cannot be defined
+   15 |  cv::cuda::GpuMat [01;31m[Kframe_gpu[m[K;
+      |                   [01;31m[K^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/img_proc_node.dir/build.make:63: CMakeFiles/img_proc_node.dir/src/img_proc_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/img_proc_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

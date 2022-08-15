@@ -1,0 +1,10 @@
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/robot1_plugin.cpp:264:7: error: redefinition of ‘void gazebo_plugin_sim::Platform1PluginPrivate::SetVelocityM4(const double&)’
+  264 |  void Platform1PluginPrivate::SetVelocityM4(const double &_velG1)
+      |       ^~~~~~~~~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/robot1_plugin.cpp:236:7: note: ‘void gazebo_plugin_sim::Platform1PluginPrivate::SetVelocityM4(const double&)’ previously defined here
+  236 |  void Platform1PluginPrivate::SetVelocityM4(const double &_velM4)
+      |       ^~~~~~~~~~~~~~~~~~~~~~
+cc1plus: warning: unrecognized command line option ‘-Wno-inconsistent-missing-override’
+make[2]: *** [CMakeFiles/robot1_plugin.dir/build.make:63: CMakeFiles/robot1_plugin.dir/src/robot1_plugin.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:84: CMakeFiles/robot1_plugin.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

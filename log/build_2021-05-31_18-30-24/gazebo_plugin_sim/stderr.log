@@ -1,0 +1,72 @@
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp: In member function ‘virtual void gazebo_plugin_sim::PlatformPluginTest::Load(gazebo::physics::ModelPtr, sdf::v9::ElementPtr)’:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:153:92: error: no match for ‘operator=’ (operand types are ‘rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >::SharedPtr’ {aka ‘std::shared_ptr<rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > > >’} and ‘std::shared_ptr<rclcpp::Subscription<geometry_msgs::msg::Vector3_<std::allocator<void> > > >’)
+  153 |       std::bind(&PlatformPluginTestPrivate::OnMsgVelM1, impl_.get(), std::placeholders::_1));
+      |                                                                                            ^
+In file included from /usr/include/c++/9/memory:81,
+                 from /usr/include/gazebo-11/gazebo/common/CommonTypes.hh:23,
+                 from /usr/include/gazebo-11/gazebo/common/Time.hh:26,
+                 from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:4:
+/usr/include/c++/9/bits/shared_ptr.h:309:19: note: candidate: ‘std::shared_ptr<_Tp>& std::shared_ptr<_Tp>::operator=(const std::shared_ptr<_Tp>&) [with _Tp = rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >]’
+  309 |       shared_ptr& operator=(const shared_ptr&) noexcept = default;
+      |                   ^~~~~~~~
+/usr/include/c++/9/bits/shared_ptr.h:309:29: note:   no known conversion for argument 1 from ‘std::shared_ptr<rclcpp::Subscription<geometry_msgs::msg::Vector3_<std::allocator<void> > > >’ to ‘const std::shared_ptr<rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > > >&’
+  309 |       shared_ptr& operator=(const shared_ptr&) noexcept = default;
+      |                             ^~~~~~~~~~~~~~~~~
+/usr/include/c++/9/bits/shared_ptr.h:313:2: note: candidate: ‘template<class _Yp> std::shared_ptr<_Tp>::_Assignable<const std::shared_ptr<_Yp>&> std::shared_ptr<_Tp>::operator=(const std::shared_ptr<_Yp>&) [with _Yp = _Yp; _Tp = rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >]’
+  313 |  operator=(const shared_ptr<_Yp>& __r) noexcept
+      |  ^~~~~~~~
+/usr/include/c++/9/bits/shared_ptr.h:313:2: note:   template argument deduction/substitution failed:
+/usr/include/c++/9/bits/shared_ptr.h: In substitution of ‘template<class _Tp> template<class _Arg> using _Assignable = typename std::enable_if<std::is_assignable<std::__shared_ptr<_Tp>&, _Arg>::value, std::shared_ptr<_Tp>&>::type [with _Arg = const std::shared_ptr<rclcpp::Subscription<geometry_msgs::msg::Vector3_<std::allocator<void> > > >&; _Tp = rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >]’:
+/usr/include/c++/9/bits/shared_ptr.h:313:2:   required by substitution of ‘template<class _Yp> std::shared_ptr<rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > > >::_Assignable<const std::shared_ptr<_Tp>&> std::shared_ptr<rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > > >::operator=<_Yp>(const std::shared_ptr<_Tp>&) [with _Yp = rclcpp::Subscription<geometry_msgs::msg::Vector3_<std::allocator<void> > >]’
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:153:92:   required from here
+/usr/include/c++/9/bits/shared_ptr.h:111:8: error: no type named ‘type’ in ‘struct std::enable_if<false, std::shared_ptr<rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > > >&>’
+  111 |  using _Assignable = typename enable_if<
+      |        ^~~~~~~~~~~
+/usr/include/c++/9/bits/shared_ptr.h:324:2: note: candidate: ‘template<class _Yp> std::shared_ptr<_Tp>::_Assignable<std::auto_ptr<_Up> > std::shared_ptr<_Tp>::operator=(std::auto_ptr<_Up>&&) [with _Yp = _Yp; _Tp = rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >]’
+  324 |  operator=(auto_ptr<_Yp>&& __r)
+      |  ^~~~~~~~
+/usr/include/c++/9/bits/shared_ptr.h:324:2: note:   template argument deduction/substitution failed:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:153:92: note:   ‘std::shared_ptr<rclcpp::Subscription<geometry_msgs::msg::Vector3_<std::allocator<void> > > >’ is not derived from ‘std::auto_ptr<Y>’
+  153 |       std::bind(&PlatformPluginTestPrivate::OnMsgVelM1, impl_.get(), std::placeholders::_1));
+      |                                                                                            ^
+In file included from /usr/include/c++/9/memory:81,
+                 from /usr/include/gazebo-11/gazebo/common/CommonTypes.hh:23,
+                 from /usr/include/gazebo-11/gazebo/common/Time.hh:26,
+                 from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:4:
+/usr/include/c++/9/bits/shared_ptr.h:333:7: note: candidate: ‘std::shared_ptr<_Tp>& std::shared_ptr<_Tp>::operator=(std::shared_ptr<_Tp>&&) [with _Tp = rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >]’
+  333 |       operator=(shared_ptr&& __r) noexcept
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/shared_ptr.h:333:30: note:   no known conversion for argument 1 from ‘std::shared_ptr<rclcpp::Subscription<geometry_msgs::msg::Vector3_<std::allocator<void> > > >’ to ‘std::shared_ptr<rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > > >&&’
+  333 |       operator=(shared_ptr&& __r) noexcept
+      |                 ~~~~~~~~~~~~~^~~
+/usr/include/c++/9/bits/shared_ptr.h:341:2: note: candidate: ‘template<class _Yp> std::shared_ptr<_Tp>::_Assignable<std::shared_ptr<_Yp> > std::shared_ptr<_Tp>::operator=(std::shared_ptr<_Yp>&&) [with _Yp = _Yp; _Tp = rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >]’
+  341 |  operator=(shared_ptr<_Yp>&& __r) noexcept
+      |  ^~~~~~~~
+/usr/include/c++/9/bits/shared_ptr.h:341:2: note:   template argument deduction/substitution failed:
+/usr/include/c++/9/bits/shared_ptr.h: In substitution of ‘template<class _Tp> template<class _Arg> using _Assignable = typename std::enable_if<std::is_assignable<std::__shared_ptr<_Tp>&, _Arg>::value, std::shared_ptr<_Tp>&>::type [with _Arg = std::shared_ptr<rclcpp::Subscription<geometry_msgs::msg::Vector3_<std::allocator<void> > > >; _Tp = rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >]’:
+/usr/include/c++/9/bits/shared_ptr.h:341:2:   required by substitution of ‘template<class _Yp> std::shared_ptr<rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > > >::_Assignable<std::shared_ptr<_Tp> > std::shared_ptr<rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > > >::operator=<_Yp>(std::shared_ptr<_Tp>&&) [with _Yp = rclcpp::Subscription<geometry_msgs::msg::Vector3_<std::allocator<void> > >]’
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:153:92:   required from here
+/usr/include/c++/9/bits/shared_ptr.h:111:8: error: no type named ‘type’ in ‘struct std::enable_if<false, std::shared_ptr<rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > > >&>’
+  111 |  using _Assignable = typename enable_if<
+      |        ^~~~~~~~~~~
+/usr/include/c++/9/bits/shared_ptr.h:349:2: note: candidate: ‘template<class _Yp, class _Del> std::shared_ptr<_Tp>::_Assignable<std::unique_ptr<_Up, _Ep> > std::shared_ptr<_Tp>::operator=(std::unique_ptr<_Up, _Ep>&&) [with _Yp = _Yp; _Del = _Del; _Tp = rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >]’
+  349 |  operator=(unique_ptr<_Yp, _Del>&& __r)
+      |  ^~~~~~~~
+/usr/include/c++/9/bits/shared_ptr.h:349:2: note:   template argument deduction/substitution failed:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:153:92: note:   ‘std::shared_ptr<rclcpp::Subscription<geometry_msgs::msg::Vector3_<std::allocator<void> > > >’ is not derived from ‘std::unique_ptr<_Tp, _Dp>’
+  153 |       std::bind(&PlatformPluginTestPrivate::OnMsgVelM1, impl_.get(), std::placeholders::_1));
+      |                                                                                            ^
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp: At global scope:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:202:7: error: no declaration matches ‘void gazebo_plugin_sim::PlatformPluginTestPrivate::OnMsgVelM1(std_msgs::msg::Float32_<std::allocator<void> >::SharedPtr)’
+  202 |  void PlatformPluginTestPrivate::OnMsgVelM1(const std_msgs::msg::Float32::SharedPtr _msgM1)
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:32:8: note: candidate is: ‘void gazebo_plugin_sim::PlatformPluginTestPrivate::OnMsgVelM1(geometry_msgs::msg::Vector3_<std::allocator<void> >::SharedPtr)’
+   32 |   void OnMsgVelM1(const geometry_msgs::msg::Vector3::SharedPtr _msgM1);
+      |        ^~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:28:8: note: ‘class gazebo_plugin_sim::PlatformPluginTestPrivate’ defined here
+   28 |  class PlatformPluginTestPrivate
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~
+cc1plus: warning: unrecognized command line option ‘-Wno-inconsistent-missing-override’
+make[2]: *** [CMakeFiles/platform_plugin_test.dir/build.make:63: CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform_plugin_test.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

@@ -1,0 +1,30 @@
+[0.013s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/control_pkg': CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg:/home/javierfr/Tesis_ws/V1/install/control_pkg:/home/javierfr/Tesis_ws/V1/install/img_proc_pkg:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/control_pkg -- -j12 -l12
+[0.047s] [35m[1mScanning dependencies of target control_pid_r1_node[0m
+[0.066s] [ 33%] Built target control_pid_p1_node
+[0.068s] [ 66%] Built target control_pid_p2_node
+[0.074s] [ 83%] [32mBuilding CXX object CMakeFiles/control_pid_r1_node.dir/src/control_pid_r1_node.cpp.o[0m
+[8.205s] [100%] [32m[1mLinking CXX executable control_pid_r1_node[0m
+[8.606s] [100%] Built target control_pid_r1_node
+[8.615s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/control_pkg' returned '0': CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg:/home/javierfr/Tesis_ws/V1/install/control_pkg:/home/javierfr/Tesis_ws/V1/install/img_proc_pkg:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/control_pkg -- -j12 -l12
+[8.640s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/control_pkg': CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg:/home/javierfr/Tesis_ws/V1/install/control_pkg:/home/javierfr/Tesis_ws/V1/install/img_proc_pkg:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/control_pkg
+[8.646s] -- Install configuration: ""
+[8.646s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/lib/control_pkg/control_pid_p1_node
+[8.647s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/lib/control_pkg/control_pid_p2_node
+[8.647s] -- Installing: /home/javierfr/Tesis_ws/V1/install/control_pkg/lib/control_pkg/control_pid_r1_node
+[8.652s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/control_pkg/lib/control_pkg/control_pid_r1_node" to ""
+[8.652s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/ament_index/resource_index/package_run_dependencies/control_pkg
+[8.652s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/ament_index/resource_index/parent_prefix_path/control_pkg
+[8.652s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/environment/ament_prefix_path.sh
+[8.652s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/environment/ament_prefix_path.dsv
+[8.652s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/environment/path.sh
+[8.652s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/environment/path.dsv
+[8.653s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/local_setup.bash
+[8.653s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/local_setup.sh
+[8.653s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/local_setup.zsh
+[8.653s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/local_setup.dsv
+[8.653s] -- Installing: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/package.dsv
+[8.653s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/ament_index/resource_index/packages/control_pkg
+[8.653s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/cmake/control_pkgConfig.cmake
+[8.653s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/cmake/control_pkgConfig-version.cmake
+[8.655s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/package.xml
+[8.656s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/control_pkg' returned '0': CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg:/home/javierfr/Tesis_ws/V1/install/control_pkg:/home/javierfr/Tesis_ws/V1/install/img_proc_pkg:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/control_pkg

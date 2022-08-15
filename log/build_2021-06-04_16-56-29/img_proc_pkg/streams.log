@@ -1,0 +1,20 @@
+[0.018s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.056s] [35m[1mScanning dependencies of target img_proc_id_node[0m
+[0.075s] [ 25%] Built target img_publ_test_node
+[0.076s] [ 50%] Built target img_proc_node
+[0.085s] [ 75%] Built target img_subs_test_node
+[0.093s] [ 87%] [32mBuilding CXX object CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o[0m
+[1.390s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Proc_Id_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[1.390s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:96:56:[m[K [01;31m[Kerror: [m[K‘[01m[KPoint[m[K’ was not declared in this scope; did you mean ‘[01m[Kcv::Point[m[K’?
+[1.390s]    96 |       cv::erode(img_red_crop, img_red_crop, cv::Mat(), [01;31m[KPoint[m[K(-1,-1) 3);
+[1.390s]       |                                                        [01;31m[K^~~~~[m[K
+[1.390s]       |                                                        [32m[Kcv::Point[m[K
+[1.390s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:58[m[K,
+[1.390s]                  from [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:10[m[K:
+[1.390s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:194:17:[m[K [01;36m[Knote: [m[K‘[01m[Kcv::Point[m[K’ declared here
+[1.390s]   194 | typedef Point2i [01;36m[KPoint[m[K;
+[1.390s]       |                 [01;36m[K^~~~~[m[K
+[2.518s] make[2]: *** [CMakeFiles/img_proc_id_node.dir/build.make:63: CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o] Error 1
+[2.518s] make[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/img_proc_id_node.dir/all] Error 2
+[2.518s] make: *** [Makefile:141: all] Error 2
+[2.520s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12

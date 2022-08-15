@@ -1,0 +1,15 @@
+[0.020s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12
+[0.079s] [ 50%] [32mBuilding CXX object CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o[0m
+[7.593s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:82:7: error: no declaration matches ‘void gazebo_plugin_sim::PlatformPluginTest::OnMsgVelM1(geometry_msgs::msg::Twist_<std::allocator<void> >::SharedPtr)’
+[7.593s]    82 |  void PlatformPluginTest::OnMsgVelM1(const geometry_msgs::msg::Twist::SharedPtr _msg)
+[7.593s]       |       ^~~~~~~~~~~~~~~~~~
+[7.593s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:82:7: note: no functions named ‘void gazebo_plugin_sim::PlatformPluginTest::OnMsgVelM1(geometry_msgs::msg::Twist_<std::allocator<void> >::SharedPtr)’
+[7.593s] In file included from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:6:
+[7.593s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/include/gazebo_plugin_sim/platform_plugin_test.hpp:12:7: note: ‘class gazebo_plugin_sim::PlatformPluginTest’ defined here
+[7.593s]    12 | class PlatformPluginTest : public gazebo::ModelPlugin
+[7.593s]       |       ^~~~~~~~~~~~~~~~~~
+[7.594s] cc1plus: warning: unrecognized command line option ‘-Wno-inconsistent-missing-override’
+[7.594s] make[2]: *** [CMakeFiles/platform_plugin_test.dir/build.make:63: CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o] Error 1
+[7.595s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform_plugin_test.dir/all] Error 2
+[7.595s] make: *** [Makefile:141: all] Error 2
+[7.597s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12

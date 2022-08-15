@@ -1,0 +1,9 @@
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/robot1_plugin.cpp: In member function ‘void gazebo_plugin_sim::Robot1PluginPrivate::OnUpdate(const gazebo::common::UpdateInfo&)’:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/robot1_plugin.cpp:298:17: warning: unused variable ‘B2_pos’ [-Wunused-variable]
+  298 |   float B1_pos, B2_pos, B3_pos;
+      |                 ^~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/robot1_plugin.cpp:298:25: warning: unused variable ‘B3_pos’ [-Wunused-variable]
+  298 |   float B1_pos, B2_pos, B3_pos;
+      |                         ^~~~~~
+At global scope:
+cc1plus: warning: unrecognized command line option ‘-Wno-inconsistent-missing-override’

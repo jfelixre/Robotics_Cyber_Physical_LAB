@@ -1,0 +1,13 @@
+[0.015s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.048s] [35m[1mScanning dependencies of target img_subs_test_node[0m
+[0.060s] [ 33%] Built target img_proc_node
+[0.063s] [ 66%] Built target img_publ_test_node
+[0.070s] [ 83%] [32mBuilding CXX object CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o[0m
+[1.206s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Subs_Test_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[1.206s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:46:29:[m[K [01;31m[Kerror: [m[K‘[01m[Krgb8[m[K’ was not declared in this scope
+[1.206s]    46 |    cv_bridge::toCvCopy(msg, [01;31m[Krgb8[m[K)->image;
+[1.206s]       |                             [01;31m[K^~~~[m[K
+[2.247s] make[2]: *** [CMakeFiles/img_subs_test_node.dir/build.make:63: CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o] Error 1
+[2.247s] make[1]: *** [CMakeFiles/Makefile2:82: CMakeFiles/img_subs_test_node.dir/all] Error 2
+[2.247s] make: *** [Makefile:141: all] Error 2
+[2.249s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '2': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12

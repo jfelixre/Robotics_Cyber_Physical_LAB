@@ -1,0 +1,12 @@
+[0.010s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/control_pkg': AMENT_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/control_pkg -- -j12 -l12
+[0.040s] [35m[1mScanning dependencies of target control_pid_p1_node[0m
+[0.055s] [ 50%] Built target control_pid_p2_node
+[0.066s] [ 75%] [32mBuilding CXX object CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o[0m
+[0.277s] [01m[K/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:12:10:[m[K [01;31m[Kfatal error: [m[Knumbers: No such file or directory
+[0.277s]    12 | #include [01;31m[K<numbers>[m[K
+[0.277s]       |          [01;31m[K^~~~~~~~~[m[K
+[0.277s] compilation terminated.
+[0.279s] make[2]: *** [CMakeFiles/control_pid_p1_node.dir/build.make:63: CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o] Error 1
+[0.279s] make[1]: *** [CMakeFiles/Makefile2:107: CMakeFiles/control_pid_p1_node.dir/all] Error 2
+[0.279s] make: *** [Makefile:141: all] Error 2
+[0.281s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/control_pkg' returned '2': AMENT_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/control_pkg -- -j12 -l12

@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from interfaces/srv/Platform1Vel.srv
+// generated code does not contain a copyright notice
+
+
+module interfaces {
+  module srv {
+    struct Platform1Vel_Request {
+      float x_vel;
+
+      float y_vel;
+
+      float ang_vel;
+    };
+    struct Platform1Vel_Response {
+      int64 sent;
+    };
+  };
+};

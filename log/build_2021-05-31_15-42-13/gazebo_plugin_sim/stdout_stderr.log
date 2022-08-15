@@ -1,0 +1,18 @@
+[35m[1mScanning dependencies of target platform_plugin_test[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o[0m
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp: In member function ‘virtual void gazebo_plugin_sim::PlatformPluginTest::Load(gazebo::physics::ModelPtr, sdf::v9::ElementPtr)’:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:90:12: error: ‘class gazebo_plugin_sim::PlatformPluginTest’ has no member named ‘SetVelocityM1’
+   90 |      this->SetVelocityM1(velocityM1);
+      |            ^~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp: At global scope:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:104:7: error: no declaration matches ‘void gazebo_plugin_sim::PlatformPluginTestPrivate::SetVelocityM1(const double&)’
+  104 |  void PlatformPluginTestPrivate::SetVelocityM1(const double &_velM1)
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:104:7: note: no functions named ‘void gazebo_plugin_sim::PlatformPluginTestPrivate::SetVelocityM1(const double&)’
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:25:8: note: ‘class gazebo_plugin_sim::PlatformPluginTestPrivate’ defined here
+   25 |  class PlatformPluginTestPrivate
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~
+cc1plus: warning: unrecognized command line option ‘-Wno-inconsistent-missing-override’
+make[2]: *** [CMakeFiles/platform_plugin_test.dir/build.make:63: CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform_plugin_test.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

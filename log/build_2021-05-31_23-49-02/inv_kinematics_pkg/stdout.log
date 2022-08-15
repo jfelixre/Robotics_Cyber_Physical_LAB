@@ -1,0 +1,22 @@
+[35m[1mScanning dependencies of target platform1_vel_server[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/platform1_vel_server.dir/src/platform1_vel_server.cpp.o[0m
+[100%] [32m[1mLinking CXX executable platform1_vel_server[0m
+[100%] Built target platform1_vel_server
+-- Install configuration: ""
+-- Installing: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform1_vel_server
+-- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform1_vel_server" to ""
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/ament_index/resource_index/package_run_dependencies/inv_kinematics_pkg
+-- Installing: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/ament_index/resource_index/parent_prefix_path/inv_kinematics_pkg
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/environment/ament_prefix_path.sh
+-- Installing: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/environment/path.sh
+-- Installing: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/environment/path.dsv
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/local_setup.bash
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/local_setup.sh
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/local_setup.zsh
+-- Installing: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/local_setup.dsv
+-- Installing: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/package.dsv
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/ament_index/resource_index/packages/inv_kinematics_pkg
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/cmake/inv_kinematics_pkgConfig.cmake
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/cmake/inv_kinematics_pkgConfig-version.cmake
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/package.xml

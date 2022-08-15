@@ -1,0 +1,57 @@
+[0.014s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.048s] [35m[1mScanning dependencies of target img_subs_test_node[0m
+[0.059s] [ 33%] Built target img_proc_node
+[0.063s] [ 66%] Built target img_publ_test_node
+[0.070s] [ 83%] [32mBuilding CXX object CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o[0m
+[1.248s] In file included from [01m[K/opt/ros/foxy/include/rclcpp/service.hpp:34[m[K,
+[1.248s]                  from [01m[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:25[m[K,
+[1.248s]                  from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20[m[K,
+[1.248s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+[1.248s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+[1.248s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+[1.248s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+[1.249s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[1.249s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+[1.249s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[1.249s]                  from [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:15[m[K:
+[1.249s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[1.249s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:62:15:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[1.249s]    62 |   RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "init" );
+[1.249s]       |               [01;31m[K^~~~[m[K
+[1.249s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:62:15:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[1.249s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:62:3:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.249s]    62 |   [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "init" );
+[1.249s]       |   [01;31m[K^~~~~~~~~~~[m[K
+[1.250s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:62:3:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.250s]    62 |   [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "init" );
+[1.250s]       |   [01;31m[K^~~~~~~~~~~[m[K
+[1.250s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:62:3:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.250s]    62 |   [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "init" );
+[1.250s]       |   [01;31m[K^~~~~~~~~~~[m[K
+[1.250s] In file included from [01m[K/opt/ros/foxy/include/rclcpp/client.hpp:40[m[K,
+[1.250s]                  from [01m[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:23[m[K,
+[1.250s]                  from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20[m[K,
+[1.250s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+[1.250s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+[1.251s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+[1.251s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+[1.251s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[1.251s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+[1.251s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[1.251s]                  from [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:15[m[K:
+[1.251s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:62:15:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[1.251s]    62 |   RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "init" );
+[1.251s]       |               [01;31m[K^~~~[m[K
+[1.251s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:62:15:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[1.251s]    62 |   RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "init" );
+[1.251s]       |               [01;31m[K^~~~[m[K
+[1.251s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:64:22:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[1.252s]    64 |   ReceivedCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "make" );
+[1.252s]       |                      [01;31m[K^~~~[m[K
+[1.254s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:64:3:[m[K [01;31m[Kerror: [m[K‘[01m[KReceivedCLCPP_INFO[m[K’ was not declared in this scope
+[1.254s]    64 |   [01;31m[KReceivedCLCPP_INFO[m[K(this->get_logger(), "make" );
+[1.254s]       |   [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[2.307s] make[2]: *** [CMakeFiles/img_subs_test_node.dir/build.make:63: CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o] Error 1
+[2.307s] make[1]: *** [CMakeFiles/Makefile2:82: CMakeFiles/img_subs_test_node.dir/all] Error 2
+[2.307s] make: *** [Makefile:141: all] Error 2
+[2.309s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '2': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12

@@ -1,0 +1,13 @@
+[0.015s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12
+[0.087s] [ 12%] [32mBuilding CXX object CMakeFiles/robot1_plugin.dir/src/robot1_plugin.cpp.o[0m
+[0.092s] [ 37%] Built target platform_plugin_test
+[0.098s] [ 87%] Built target platform2_plugin
+[0.098s] [ 87%] Built target platform1_plugin
+[2.759s] [01m[K/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/robot1_plugin.cpp:25:10:[m[K [01;31m[Kfatal error: [m[Kinterfaces/msg/motor_vels_w_arm.hpp: No such file or directory
+[2.760s]    25 | #include [01;31m[K<interfaces/msg/motor_vels_w_arm.hpp>[m[K
+[2.760s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.760s] compilation terminated.
+[2.767s] make[2]: *** [CMakeFiles/robot1_plugin.dir/build.make:63: CMakeFiles/robot1_plugin.dir/src/robot1_plugin.cpp.o] Error 1
+[2.767s] make[1]: *** [CMakeFiles/Makefile2:84: CMakeFiles/robot1_plugin.dir/all] Error 2
+[2.767s] make: *** [Makefile:141: all] Error 2
+[2.769s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12

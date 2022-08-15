@@ -1,0 +1,19 @@
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r1_node.cpp: In member function ‘void Control_PID_R1_node::LmSw_subs(interfaces::msg::LimitSwitch_<std::allocator<void> >::SharedPtr) const’:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r1_node.cpp:269:17: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  269 |    if (LS_B1_min=1) {
+      |        ~~~~~~~~~^~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r1_node.cpp:273:17: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  273 |    if (LS_B1_max=1) {
+      |        ~~~~~~~~~^~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r1_node.cpp:277:17: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  277 |    if (LS_B2_min=1) {
+      |        ~~~~~~~~~^~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r1_node.cpp:281:17: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  281 |    if (LS_B2_max=1) {
+      |        ~~~~~~~~~^~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r1_node.cpp:285:17: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  285 |    if (LS_B3_min=1) {
+      |        ~~~~~~~~~^~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r1_node.cpp:289:17: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  289 |    if (LS_B3_max=1) {
+      |        ~~~~~~~~~^~

@@ -1,0 +1,63 @@
+[0.014s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg': CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg:/home/javierfr/Tesis_ws/V1/install/control_pkg:/home/javierfr/Tesis_ws/V1/install/img_proc_pkg:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg -- -j12 -l12
+[0.036s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.052s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.193s] -- Found rclcpp: 2.3.1 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.242s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.245s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.346s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.407s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.408s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.538s] -- Found interfaces: 0.0.0 (/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake)
+[0.543s] -- Found geometry_msgs: 2.0.4 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[0.620s] -- Configuring done
+[0.664s] -- Generating done
+[0.665s] -- Build files have been written to: /home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg
+[0.694s] [35m[1mScanning dependencies of target platform1_vel_test_client[0m
+[0.694s] [35m[1mScanning dependencies of target robot1_vel_server[0m
+[0.694s] [35m[1mScanning dependencies of target platform2_vel_test_client[0m
+[0.694s] [35m[1mScanning dependencies of target platform1_vel_server[0m
+[0.705s] [35m[1mScanning dependencies of target platform2_vel_server[0m
+[0.717s] [ 20%] [32mBuilding CXX object CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.o[0m
+[0.717s] [ 20%] [32mBuilding CXX object CMakeFiles/platform1_vel_test_client.dir/src/platform1_vel_test_client.cpp.o[0m
+[0.718s] [ 30%] [32mBuilding CXX object CMakeFiles/platform2_vel_test_client.dir/src/platform2_vel_test_client.cpp.o[0m
+[0.722s] [ 40%] [32mBuilding CXX object CMakeFiles/platform1_vel_server.dir/src/platform1_vel_server.cpp.o[0m
+[0.729s] [ 50%] [32mBuilding CXX object CMakeFiles/platform2_vel_server.dir/src/platform2_vel_server.cpp.o[0m
+[0.747s] [ 60%] [32m[1mLinking CXX executable platform2_vel_test_client[0m
+[0.749s] [ 70%] [32m[1mLinking CXX executable platform2_vel_server[0m
+[0.750s] [ 80%] [32m[1mLinking CXX executable platform1_vel_test_client[0m
+[0.771s] [ 90%] [32m[1mLinking CXX executable platform1_vel_server[0m
+[0.918s] [100%] [32m[1mLinking CXX executable robot1_vel_server[0m
+[1.079s] [100%] Built target platform2_vel_server
+[1.123s] [100%] Built target platform1_vel_server
+[1.135s] [100%] Built target platform2_vel_test_client
+[1.135s] [100%] Built target platform1_vel_test_client
+[1.194s] [100%] Built target robot1_vel_server
+[1.203s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg' returned '0': CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg:/home/javierfr/Tesis_ws/V1/install/control_pkg:/home/javierfr/Tesis_ws/V1/install/img_proc_pkg:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg -- -j12 -l12
+[1.229s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg': CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg:/home/javierfr/Tesis_ws/V1/install/control_pkg:/home/javierfr/Tesis_ws/V1/install/img_proc_pkg:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg
+[1.239s] -- Install configuration: ""
+[1.239s] -- Installing: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform1_vel_server
+[1.240s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform1_vel_server" to ""
+[1.240s] -- Installing: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform1_vel_test_client
+[1.241s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform1_vel_test_client" to ""
+[1.241s] -- Installing: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform2_vel_server
+[1.242s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform2_vel_server" to ""
+[1.242s] -- Installing: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform2_vel_test_client
+[1.243s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform2_vel_test_client" to ""
+[1.243s] -- Installing: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/robot1_vel_server
+[1.244s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/robot1_vel_server" to ""
+[1.244s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/ament_index/resource_index/package_run_dependencies/inv_kinematics_pkg
+[1.244s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/ament_index/resource_index/parent_prefix_path/inv_kinematics_pkg
+[1.244s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/environment/ament_prefix_path.sh
+[1.244s] -- Installing: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/environment/ament_prefix_path.dsv
+[1.244s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/environment/path.sh
+[1.244s] -- Installing: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/environment/path.dsv
+[1.245s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/local_setup.bash
+[1.245s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/local_setup.sh
+[1.245s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/local_setup.zsh
+[1.245s] -- Installing: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/local_setup.dsv
+[1.245s] -- Installing: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/package.dsv
+[1.245s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/ament_index/resource_index/packages/inv_kinematics_pkg
+[1.245s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/cmake/inv_kinematics_pkgConfig.cmake
+[1.245s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/cmake/inv_kinematics_pkgConfig-version.cmake
+[1.245s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg/share/inv_kinematics_pkg/package.xml
+[1.248s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg' returned '0': CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg:/home/javierfr/Tesis_ws/V1/install/control_pkg:/home/javierfr/Tesis_ws/V1/install/img_proc_pkg:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg

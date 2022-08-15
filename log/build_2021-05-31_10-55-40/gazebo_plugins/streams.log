@@ -1,0 +1,454 @@
+[0.017s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugins': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim -DCMAKE_INSTALL_PREFIX=/home/javierfr/Tesis_ws/V1/install/gazebo_plugins
+[0.060s] -- The C compiler identification is GNU 9.3.0
+[0.104s] -- The CXX compiler identification is GNU 9.3.0
+[0.109s] -- Check for working C compiler: /usr/lib/ccache/cc
+[0.201s] -- Check for working C compiler: /usr/lib/ccache/cc -- works
+[0.201s] -- Detecting C compiler ABI info
+[0.242s] -- Detecting C compiler ABI info - done
+[0.252s] -- Detecting C compile features
+[0.252s] -- Detecting C compile features - done
+[0.254s] -- Check for working CXX compiler: /usr/lib/ccache/c++
+[0.318s] -- Check for working CXX compiler: /usr/lib/ccache/c++ -- works
+[0.318s] -- Detecting CXX compiler ABI info
+[0.366s] -- Detecting CXX compiler ABI info - done
+[0.376s] -- Detecting CXX compile features
+[0.376s] -- Detecting CXX compile features - done
+[0.378s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.395s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.5", minimum required is "3") 
+[0.395s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.543s] -- Found gazebo_dev: 3.5.3 (/opt/ros/foxy/share/gazebo_dev/cmake)
+[0.547s] -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.1") 
+[0.551s] -- Checking for module 'bullet>=2.82'
+[0.561s] --   Found bullet, version 2.88
+[0.648s] -- Found ccd: /usr/include (found suitable version "2.0", minimum required is "2.0") 
+[0.687s] -- Found fcl: /usr/include (found suitable version "0.5.0", minimum required is "0.3.2") 
+[0.727s] -- Found assimp: /usr/include (found version "5.0.0") 
+[0.744s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[1.006s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake (found suitable version "1.71.0", minimum required is "1.40.0") found components: thread system filesystem program_options regex iostreams date_time 
+[1.027s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "3.6.1") 
+[1.030s] -- Looking for ignition-math6 -- found version 6.8.0
+[1.035s] -- Searching for dependencies of ignition-math6
+[1.036s] -- Looking for OGRE...
+[1.036s] -- OGRE_PREFIX_WATCH changed.
+[1.040s] -- Checking for module 'OGRE'
+[1.051s] --   Found OGRE, version 1.9.0
+[1.078s] -- Found Ogre Ghadamon (1.9.0)
+[1.085s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[1.093s] -- Looking for OGRE_Paging...
+[1.097s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[1.098s] -- Looking for OGRE_Terrain...
+[1.102s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[1.102s] -- Looking for OGRE_Property...
+[1.107s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[1.107s] -- Looking for OGRE_RTShaderSystem...
+[1.112s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[1.112s] -- Looking for OGRE_Volume...
+[1.117s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[1.117s] -- Looking for OGRE_Overlay...
+[1.122s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[1.224s] -- Looking for ignition-math6 -- found version 6.8.0
+[1.226s] -- Looking for ignition-transport8 -- found version 8.2.0
+[1.226s] -- Searching for dependencies of ignition-transport8
+[1.241s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found suitable version "3.6.1", minimum required is "3") 
+[1.251s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[1.254s] -- Checking for module 'libzmq >= 4'
+[1.265s] --   Found libzmq , version 4.3.2
+[1.294s] -- Found ZeroMQ: TRUE (Required is at least version "4") 
+[1.298s] -- Checking for module 'uuid'
+[1.309s] --   Found uuid, version 2.34.0
+[1.337s] -- Found UUID: TRUE  
+[1.338s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[1.339s] -- Searching for dependencies of ignition-msgs5
+[1.354s] -- Looking for ignition-math6 -- found version 6.8.0
+[1.357s] -- Checking for module 'tinyxml2'
+[1.368s] --   Found tinyxml2, version 6.2.0
+[1.397s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[1.399s] -- Looking for ignition-common3 -- found version 3.13.1
+[1.399s] -- Searching for dependencies of ignition-common3
+[1.400s] -- Looking for dlfcn.h - found
+[1.400s] -- Looking for libdl - found
+[1.401s] -- Found DL: TRUE  
+[1.406s] -- Searching for <ignition-common3> component [graphics]
+[1.407s] -- Looking for ignition-common3-graphics -- found version 3.13.1
+[1.408s] -- Searching for dependencies of ignition-common3-graphics
+[1.408s] -- Looking for ignition-math6 -- found version 6.8.0
+[1.411s] -- Looking for ignition-fuel_tools4 -- found version 4.3.0
+[1.411s] -- Searching for dependencies of ignition-fuel_tools4
+[1.463s] -- Found CURL: /usr/lib/x86_64-linux-gnu/libcurl.so (found version "7.68.0")  
+[1.469s] -- Checking for module 'jsoncpp'
+[1.480s] --   Found jsoncpp, version 1.7.4
+[1.508s] -- Found JSONCPP: TRUE  
+[1.512s] -- Checking for module 'libzip'
+[1.523s] --   Found libzip, version 1.5.1
+[1.551s] -- Found ZIP: TRUE  
+[1.551s] -- Looking for ignition-common3 -- found version 3.13.1
+[1.552s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[1.553s] -- Gazebo version: 11.5
+[1.554s] -- Found gazebo_ros: 3.5.3 (/opt/ros/foxy/share/gazebo_ros/cmake)
+[1.584s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.589s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.647s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[1.668s] -- Found FastRTPS: /opt/ros/foxy/include  
+[1.730s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.772s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[1.773s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.774s] -- Found Threads: TRUE  
+[1.967s] -- Configuring done
+[1.986s] -- Generating done
+[1.987s] -- Build files have been written to: /home/javierfr/Tesis_ws/V1/build/gazebo_plugins
+[1.995s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugins' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim -DCMAKE_INSTALL_PREFIX=/home/javierfr/Tesis_ws/V1/install/gazebo_plugins
+[1.997s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugins': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugins -- -j12 -l12
+[2.028s] [35m[1mScanning dependencies of target meca_platform_plugin_test[0m
+[2.123s] [ 50%] [32mBuilding CXX object CMakeFiles/meca_platform_plugin_test.dir/src/meca_platform_plugin_test.cpp.o[0m
+[10.949s] In file included from /usr/include/c++/9/ext/alloc_traits.h:36,
+[10.949s]                  from /usr/include/c++/9/bits/basic_string.h:40,
+[10.950s]                  from /usr/include/c++/9/string:55,
+[10.950s]                  from /usr/include/gazebo-11/gazebo/common/Animation.hh:20,
+[10.950s]                  from /usr/include/gazebo-11/gazebo/common/common.hh:5,
+[10.950s]                  from /usr/include/gazebo-11/gazebo/gazebo_core.hh:19,
+[10.951s]                  from /usr/include/gazebo-11/gazebo/gazebo.hh:20,
+[10.951s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:4:
+[10.951s] /usr/include/c++/9/bits/alloc_traits.h: In instantiation of ‘struct std::allocator_traits<std::allocator<const double&> >’:
+[10.951s] /opt/ros/foxy/include/rclcpp/message_memory_strategy.hpp:47:9:   required from ‘class rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> >’
+[10.951s] /opt/ros/foxy/include/rclcpp/node_impl.hpp:91:1:   required by substitution of ‘template<class MessageT, class CallbackT, class AllocatorT, class CallbackMessageT, class SubscriptionT, class MessageMemoryStrategyT> std::shared_ptr<SubscriptionT> rclcpp::Node::create_subscription(const string&, const rclcpp::QoS&, CallbackT&&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&, typename MessageMemoryStrategyT::SharedPtr) [with MessageT = std_msgs::msg::Float32_<std::allocator<void> >; CallbackT = std::_Bind<void (gazebo::MecaPlatformTestPlugin::*(gazebo_ros::Node*, std::_Placeholder<1>))(const double&)>; AllocatorT = std::allocator<void>; CallbackMessageT = const double&; SubscriptionT = rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >; MessageMemoryStrategyT = rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> >]’
+[10.951s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:58:99:   required from here
+[10.951s] /usr/include/c++/9/bits/alloc_traits.h:400:13: error: forming pointer to reference type ‘const double&’
+[10.951s]   400 |       using pointer = _Tp*;
+[10.951s]       |             ^~~~~~~
+[10.951s] /usr/include/c++/9/bits/alloc_traits.h:403:13: error: forming pointer to reference type ‘const double&’
+[10.951s]   403 |       using const_pointer = const _Tp*;
+[10.951s]       |             ^~~~~~~~~~~~~
+[10.951s] In file included from /usr/include/c++/9/bits/locale_conv.h:41,
+[10.951s]                  from /usr/include/c++/9/locale:43,
+[10.951s]                  from /usr/include/c++/9/iomanip:43,
+[10.951s]                  from /usr/include/ignition/math6/ignition/math/Helpers.hh:24,
+[10.951s]                  from /usr/include/ignition/math6/ignition/math/Spline.hh:22,
+[10.952s]                  from /usr/include/gazebo-11/gazebo/common/Animation.hh:22,
+[10.952s]                  from /usr/include/gazebo-11/gazebo/common/common.hh:5,
+[10.952s]                  from /usr/include/gazebo-11/gazebo/gazebo_core.hh:19,
+[10.952s]                  from /usr/include/gazebo-11/gazebo/gazebo.hh:20,
+[10.952s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:4:
+[10.952s] /usr/include/c++/9/bits/unique_ptr.h: In instantiation of ‘struct std::default_delete<const double&>’:
+[10.952s] /opt/ros/foxy/include/rclcpp/message_memory_strategy.hpp:119:18:   required from ‘class rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> >’
+[10.952s] /opt/ros/foxy/include/rclcpp/node_impl.hpp:91:1:   required by substitution of ‘template<class MessageT, class CallbackT, class AllocatorT, class CallbackMessageT, class SubscriptionT, class MessageMemoryStrategyT> std::shared_ptr<SubscriptionT> rclcpp::Node::create_subscription(const string&, const rclcpp::QoS&, CallbackT&&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&, typename MessageMemoryStrategyT::SharedPtr) [with MessageT = std_msgs::msg::Float32_<std::allocator<void> >; CallbackT = std::_Bind<void (gazebo::MecaPlatformTestPlugin::*(gazebo_ros::Node*, std::_Placeholder<1>))(const double&)>; AllocatorT = std::allocator<void>; CallbackMessageT = const double&; SubscriptionT = rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >; MessageMemoryStrategyT = rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> >]’
+[10.952s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:58:99:   required from here
+[10.952s] /usr/include/c++/9/bits/unique_ptr.h:71:9: error: forming pointer to reference type ‘const double&’
+[10.952s]    71 |         default_delete(const default_delete<_Up>&) noexcept { }
+[10.952s]       |         ^~~~~~~~~~~~~~
+[10.952s] /usr/include/c++/9/bits/unique_ptr.h:75:7: error: forming pointer to reference type ‘const double&’
+[10.952s]    75 |       operator()(_Tp* __ptr) const
+[10.952s]       |       ^~~~~~~~
+[10.953s] In file included from /opt/ros/foxy/include/rclcpp/subscription_base.hpp:29,
+[10.953s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:26,
+[10.953s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[10.953s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[10.953s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[10.953s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[10.953s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[10.953s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:25,
+[10.953s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[10.953s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[10.953s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:10:
+[10.953s] /opt/ros/foxy/include/rclcpp/any_subscription_callback.hpp: In instantiation of ‘class rclcpp::AnySubscriptionCallback<const double&, std::allocator<void> >’:
+[10.954s] /opt/ros/foxy/include/rclcpp/subscription.hpp:327:57:   required from ‘class rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >’
+[10.954s] /usr/include/c++/9/type_traits:1320:45:   required by substitution of ‘template<class _From1, class _To1, class> static std::true_type std::__is_convertible_helper<rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >*, rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >*, false>::__test<_From1, _To1, <template-parameter-1-3> >(int) [with _From1 = rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >*; _To1 = rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >*; <template-parameter-1-3> = <missing>]’
+[10.954s] /usr/include/c++/9/type_traits:1329:42:   required from ‘struct std::__is_convertible_helper<rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >*, rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >*, false>’
+[10.955s] /usr/include/c++/9/type_traits:1335:12:   required from ‘struct std::is_convertible<rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >*, rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >*>’
+[10.955s] /usr/include/c++/9/bits/shared_ptr_base.h:927:12:   [ skipping 2 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+[10.956s] /usr/include/c++/9/bits/shared_ptr_base.h:1099:8:   required by substitution of ‘template<class _Tp, __gnu_cxx::_Lock_policy _Lp> template<class _Yp> using _Assignable = std::__shared_ptr<_Tp, _Lp>::_Compatible<_Yp, std::__shared_ptr<_Tp, _Lp>&> [with _Yp = rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >; _Tp = rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+[10.956s] /usr/include/c++/9/bits/shared_ptr_base.h:1271:2:   required by substitution of ‘template<class _Yp> std::__shared_ptr<rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >, __gnu_cxx::_S_atomic>::_Assignable<_Yp> std::__shared_ptr<rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >, __gnu_cxx::_S_atomic>::operator=<_Yp>(std::__shared_ptr<_Tp>&&) [with _Yp = rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >]’
+[10.956s] /usr/include/c++/9/type_traits:1017:12:   required from ‘struct std::is_assignable<std::__shared_ptr<rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >, __gnu_cxx::_S_atomic>&, std::shared_ptr<rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > > > >’
+[10.956s] /usr/include/c++/9/bits/shared_ptr.h:111:8:   required by substitution of ‘template<class _Tp> template<class _Arg> using _Assignable = typename std::enable_if<std::is_assignable<std::__shared_ptr<_Tp>&, _Arg>::value, std::shared_ptr<_Tp>&>::type [with _Arg = std::shared_ptr<rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > > >; _Tp = rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >]’
+[10.956s] /usr/include/c++/9/bits/shared_ptr.h:341:2:   required by substitution of ‘template<class _Yp> std::shared_ptr<rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > > >::_Assignable<std::shared_ptr<_Tp> > std::shared_ptr<rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > > >::operator=<_Yp>(std::shared_ptr<_Tp>&&) [with _Yp = rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >]’
+[10.956s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:58:99:   required from here
+[10.957s] /opt/ros/foxy/include/rclcpp/any_subscription_callback.hpp:111:8: error: ‘template<class CallbackT, typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<const double&>)> >::value, void>::type* <anonymous> > void rclcpp::AnySubscriptionCallback<MessageT, Alloc>::set(CallbackT) [with CallbackT = CallbackT; typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<const _Tp>)> >::value>::type* <anonymous> = <enumerator>; MessageT = const double&; Alloc = std::allocator<void>]’ cannot be overloaded with ‘template<class CallbackT, typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<const double&>)> >::value, void>::type* <anonymous> > void rclcpp::AnySubscriptionCallback<MessageT, Alloc>::set(CallbackT) [with CallbackT = CallbackT; typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<_Tp>)> >::value>::type* <anonymous> = <enumerator>; MessageT = const double&; Alloc = std::allocator<void>]’
+[10.957s]   111 |   void set(CallbackT callback)
+[10.957s]       |        ^~~
+[10.957s] /opt/ros/foxy/include/rclcpp/any_subscription_callback.hpp:83:8: note: previous declaration ‘template<class CallbackT, typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<const double&>)> >::value, void>::type* <anonymous> > void rclcpp::AnySubscriptionCallback<MessageT, Alloc>::set(CallbackT) [with CallbackT = CallbackT; typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<_Tp>)> >::value>::type* <anonymous> = <enumerator>; MessageT = const double&; Alloc = std::allocator<void>]’
+[10.957s]    83 |   void set(CallbackT callback)
+[10.957s]       |        ^~~
+[10.957s] /opt/ros/foxy/include/rclcpp/any_subscription_callback.hpp:125:8: error: ‘template<class CallbackT, typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<const double&>, const rclcpp::MessageInfo&)> >::value, void>::type* <anonymous> > void rclcpp::AnySubscriptionCallback<MessageT, Alloc>::set(CallbackT) [with CallbackT = CallbackT; typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<const _Tp>, const rclcpp::MessageInfo&)> >::value>::type* <anonymous> = <enumerator>; MessageT = const double&; Alloc = std::allocator<void>]’ cannot be overloaded with ‘template<class CallbackT, typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<const double&>, const rclcpp::MessageInfo&)> >::value, void>::type* <anonymous> > void rclcpp::AnySubscriptionCallback<MessageT, Alloc>::set(CallbackT) [with CallbackT = CallbackT; typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<_Tp>, const rclcpp::MessageInfo&)> >::value>::type* <anonymous> = <enumerator>; MessageT = const double&; Alloc = std::allocator<void>]’
+[10.957s]   125 |   void set(CallbackT callback)
+[10.957s]       |        ^~~
+[10.957s] /opt/ros/foxy/include/rclcpp/any_subscription_callback.hpp:97:8: note: previous declaration ‘template<class CallbackT, typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<const double&>, const rclcpp::MessageInfo&)> >::value, void>::type* <anonymous> > void rclcpp::AnySubscriptionCallback<MessageT, Alloc>::set(CallbackT) [with CallbackT = CallbackT; typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<_Tp>, const rclcpp::MessageInfo&)> >::value>::type* <anonymous> = <enumerator>; MessageT = const double&; Alloc = std::allocator<void>]’
+[10.957s]    97 |   void set(CallbackT callback)
+[10.957s]       |        ^~~
+[10.957s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp: In member function ‘virtual void gazebo::MecaPlatformTestPlugin::Load(gazebo::physics::ModelPtr, sdf::v9::ElementPtr)’:
+[10.957s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:58:99: error: no match for ‘operator=’ (operand types are ‘rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >::SharedPtr’ {aka ‘std::shared_ptr<rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > > >’} and ‘std::shared_ptr<rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > > >’)
+[10.957s]    58 |         std::bind(&MecaPlatformTestPlugin::OnMsgVelM1,this->ros_node_.get(),std::placeholders::_1));
+[10.957s]       |                                                                                                   ^
+[10.957s] In file included from /usr/include/c++/9/memory:81,
+[10.957s]                  from /usr/include/c++/9/regex:45,
+[10.958s]                  from /usr/include/ignition/math6/ignition/math/Helpers.hh:27,
+[10.958s]                  from /usr/include/ignition/math6/ignition/math/Spline.hh:22,
+[10.958s]                  from /usr/include/gazebo-11/gazebo/common/Animation.hh:22,
+[10.958s]                  from /usr/include/gazebo-11/gazebo/common/common.hh:5,
+[10.958s]                  from /usr/include/gazebo-11/gazebo/gazebo_core.hh:19,
+[10.958s]                  from /usr/include/gazebo-11/gazebo/gazebo.hh:20,
+[10.958s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:4:
+[10.958s] /usr/include/c++/9/bits/shared_ptr.h:309:19: note: candidate: ‘std::shared_ptr<_Tp>& std::shared_ptr<_Tp>::operator=(const std::shared_ptr<_Tp>&) [with _Tp = rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >]’
+[10.958s]   309 |       shared_ptr& operator=(const shared_ptr&) noexcept = default;
+[10.958s]       |                   ^~~~~~~~
+[10.958s] /usr/include/c++/9/bits/shared_ptr.h:309:29: note:   no known conversion for argument 1 from ‘std::shared_ptr<rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > > >’ to ‘const std::shared_ptr<rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > > >&’
+[10.958s]   309 |       shared_ptr& operator=(const shared_ptr&) noexcept = default;
+[10.958s]       |                             ^~~~~~~~~~~~~~~~~
+[10.958s] /usr/include/c++/9/bits/shared_ptr.h:313:2: note: candidate: ‘template<class _Yp> std::shared_ptr<_Tp>::_Assignable<const std::shared_ptr<_Yp>&> std::shared_ptr<_Tp>::operator=(const std::shared_ptr<_Yp>&) [with _Yp = _Yp; _Tp = rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >]’
+[10.958s]   313 |  operator=(const shared_ptr<_Yp>& __r) noexcept
+[10.958s]       |  ^~~~~~~~
+[10.958s] /usr/include/c++/9/bits/shared_ptr.h:313:2: note:   template argument deduction/substitution failed:
+[10.958s] /usr/include/c++/9/bits/shared_ptr.h: In substitution of ‘template<class _Tp> template<class _Arg> using _Assignable = typename std::enable_if<std::is_assignable<std::__shared_ptr<_Tp>&, _Arg>::value, std::shared_ptr<_Tp>&>::type [with _Arg = const std::shared_ptr<rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > > >&; _Tp = rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >]’:
+[10.958s] /usr/include/c++/9/bits/shared_ptr.h:313:2:   required by substitution of ‘template<class _Yp> std::shared_ptr<rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > > >::_Assignable<const std::shared_ptr<_Tp>&> std::shared_ptr<rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > > >::operator=<_Yp>(const std::shared_ptr<_Tp>&) [with _Yp = rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >]’
+[10.959s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:58:99:   required from here
+[10.959s] /usr/include/c++/9/bits/shared_ptr.h:111:8: error: no type named ‘type’ in ‘struct std::enable_if<false, std::shared_ptr<rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > > >&>’
+[10.959s]   111 |  using _Assignable = typename enable_if<
+[10.959s]       |        ^~~~~~~~~~~
+[10.959s] /usr/include/c++/9/bits/shared_ptr.h:324:2: note: candidate: ‘template<class _Yp> std::shared_ptr<_Tp>::_Assignable<std::auto_ptr<_Up> > std::shared_ptr<_Tp>::operator=(std::auto_ptr<_Up>&&) [with _Yp = _Yp; _Tp = rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >]’
+[10.959s]   324 |  operator=(auto_ptr<_Yp>&& __r)
+[10.959s]       |  ^~~~~~~~
+[10.959s] /usr/include/c++/9/bits/shared_ptr.h:324:2: note:   template argument deduction/substitution failed:
+[10.959s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:58:99: note:   ‘std::shared_ptr<rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > > >’ is not derived from ‘std::auto_ptr<_Up>’
+[10.959s]    58 |         std::bind(&MecaPlatformTestPlugin::OnMsgVelM1,this->ros_node_.get(),std::placeholders::_1));
+[10.959s]       |                                                                                                   ^
+[10.959s] In file included from /usr/include/c++/9/memory:81,
+[10.959s]                  from /usr/include/c++/9/regex:45,
+[10.959s]                  from /usr/include/ignition/math6/ignition/math/Helpers.hh:27,
+[10.959s]                  from /usr/include/ignition/math6/ignition/math/Spline.hh:22,
+[10.959s]                  from /usr/include/gazebo-11/gazebo/common/Animation.hh:22,
+[10.959s]                  from /usr/include/gazebo-11/gazebo/common/common.hh:5,
+[10.959s]                  from /usr/include/gazebo-11/gazebo/gazebo_core.hh:19,
+[10.959s]                  from /usr/include/gazebo-11/gazebo/gazebo.hh:20,
+[10.959s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:4:
+[10.960s] /usr/include/c++/9/bits/shared_ptr.h:333:7: note: candidate: ‘std::shared_ptr<_Tp>& std::shared_ptr<_Tp>::operator=(std::shared_ptr<_Tp>&&) [with _Tp = rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >]’
+[10.960s]   333 |       operator=(shared_ptr&& __r) noexcept
+[10.960s]       |       ^~~~~~~~
+[10.960s] /usr/include/c++/9/bits/shared_ptr.h:333:30: note:   no known conversion for argument 1 from ‘std::shared_ptr<rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > > >’ to ‘std::shared_ptr<rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > > >&&’
+[10.960s]   333 |       operator=(shared_ptr&& __r) noexcept
+[10.960s]       |                 ~~~~~~~~~~~~~^~~
+[10.960s] /usr/include/c++/9/bits/shared_ptr.h:341:2: note: candidate: ‘template<class _Yp> std::shared_ptr<_Tp>::_Assignable<std::shared_ptr<_Yp> > std::shared_ptr<_Tp>::operator=(std::shared_ptr<_Yp>&&) [with _Yp = _Yp; _Tp = rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >]’
+[10.960s]   341 |  operator=(shared_ptr<_Yp>&& __r) noexcept
+[10.960s]       |  ^~~~~~~~
+[10.960s] /usr/include/c++/9/bits/shared_ptr.h:341:2: note:   substitution of deduced template arguments resulted in errors seen above
+[10.960s] /usr/include/c++/9/bits/shared_ptr.h:349:2: note: candidate: ‘template<class _Yp, class _Del> std::shared_ptr<_Tp>::_Assignable<std::unique_ptr<_Up, _Ep> > std::shared_ptr<_Tp>::operator=(std::unique_ptr<_Up, _Ep>&&) [with _Yp = _Yp; _Del = _Del; _Tp = rclcpp::Subscription<std_msgs::msg::Float32_<std::allocator<void> > >]’
+[10.960s]   349 |  operator=(unique_ptr<_Yp, _Del>&& __r)
+[10.960s]       |  ^~~~~~~~
+[10.960s] /usr/include/c++/9/bits/shared_ptr.h:349:2: note:   template argument deduction/substitution failed:
+[10.960s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:58:99: note:   ‘std::shared_ptr<rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > > >’ is not derived from ‘std::unique_ptr<_Tp, _Dp>’
+[10.960s]    58 |         std::bind(&MecaPlatformTestPlugin::OnMsgVelM1,this->ros_node_.get(),std::placeholders::_1));
+[10.960s]       |                                                                                                   ^
+[10.960s] In file included from /opt/ros/foxy/include/rclcpp/node_interfaces/node_topics_interface.hpp:32,
+[10.960s]                  from /opt/ros/foxy/include/rclcpp/node.hpp:55,
+[10.960s]                  from /opt/ros/foxy/include/rclcpp/executors/single_threaded_executor.hpp:28,
+[10.961s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:22,
+[10.961s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[10.961s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:10:
+[10.961s] /opt/ros/foxy/include/rclcpp/subscription_factory.hpp: In instantiation of ‘rclcpp::SubscriptionFactory rclcpp::create_subscription_factory(CallbackT&&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&, typename MessageMemoryStrategyT::SharedPtr, std::shared_ptr<rclcpp::topic_statistics::SubscriptionTopicStatistics<CallbackMessageT> >) [with MessageT = std_msgs::msg::Float32_<std::allocator<void> >; CallbackT = std::_Bind<void (gazebo::MecaPlatformTestPlugin::*(gazebo_ros::Node*, std::_Placeholder<1>))(const double&)>; AllocatorT = std::allocator<void>; CallbackMessageT = const double&; SubscriptionT = rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >; MessageMemoryStrategyT = rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> >; typename MessageMemoryStrategyT::SharedPtr = std::shared_ptr<rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >]’:
+[10.961s] /opt/ros/foxy/include/rclcpp/create_subscription.hpp:144:63:   required from ‘std::shared_ptr<SubscriptionT> rclcpp::create_subscription(NodeT&&, const string&, const rclcpp::QoS&, CallbackT&&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&, typename MessageMemoryStrategyT::SharedPtr) [with MessageT = std_msgs::msg::Float32_<std::allocator<void> >; CallbackT = std::_Bind<void (gazebo::MecaPlatformTestPlugin::*(gazebo_ros::Node*, std::_Placeholder<1>))(const double&)>; AllocatorT = std::allocator<void>; CallbackMessageT = const double&; SubscriptionT = rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >; MessageMemoryStrategyT = rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> >; NodeT = rclcpp::Node&; std::string = std::__cxx11::basic_string<char>; typename MessageMemoryStrategyT::SharedPtr = std::shared_ptr<rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >]’
+[10.961s] /opt/ros/foxy/include/rclcpp/node_impl.hpp:98:47:   required from ‘std::shared_ptr<SubscriptionT> rclcpp::Node::create_subscription(const string&, const rclcpp::QoS&, CallbackT&&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&, typename MessageMemoryStrategyT::SharedPtr) [with MessageT = std_msgs::msg::Float32_<std::allocator<void> >; CallbackT = std::_Bind<void (gazebo::MecaPlatformTestPlugin::*(gazebo_ros::Node*, std::_Placeholder<1>))(const double&)>; AllocatorT = std::allocator<void>; CallbackMessageT = const double&; SubscriptionT = rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >; MessageMemoryStrategyT = rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> >; std::string = std::__cxx11::basic_string<char>; typename MessageMemoryStrategyT::SharedPtr = std::shared_ptr<rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >]’
+[10.961s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:58:99:   required from here
+[10.961s] /opt/ros/foxy/include/rclcpp/subscription_factory.hpp:97:3: error: no matching function for call to ‘rclcpp::AnySubscriptionCallback<const double&, std::allocator<void> >::set(std::_Bind<void (gazebo::MecaPlatformTestPlugin::*(gazebo_ros::Node*, std::_Placeholder<1>))(const double&)>)’
+[10.961s]    97 |   any_subscription_callback.set(std::forward<CallbackT>(callback));
+[10.961s]       |   ^~~~~~~~~~~~~~~~~~~~~~~~~
+[10.961s] In file included from /opt/ros/foxy/include/rclcpp/subscription_base.hpp:29,
+[10.961s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:26,
+[10.961s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[10.961s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[10.961s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[10.961s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[10.961s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[10.961s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:25,
+[10.962s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[10.962s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[10.962s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:10:
+[10.962s] /opt/ros/foxy/include/rclcpp/any_subscription_callback.hpp:83:8: note: candidate: ‘template<class CallbackT, typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<const double&>)> >::value, void>::type* <anonymous> > void rclcpp::AnySubscriptionCallback<MessageT, Alloc>::set(CallbackT) [with CallbackT = CallbackT; typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<_Tp>)> >::value>::type* <anonymous> = <enumerator>; MessageT = const double&; Alloc = std::allocator<void>]’
+[10.962s]    83 |   void set(CallbackT callback)
+[10.962s]       |        ^~~
+[10.962s] /opt/ros/foxy/include/rclcpp/any_subscription_callback.hpp:83:8: note:   template argument deduction/substitution failed:
+[10.962s] /opt/ros/foxy/include/rclcpp/any_subscription_callback.hpp:81:17: error: no type named ‘type’ in ‘struct std::enable_if<false, void>’
+[10.962s]    81 |     >::type * = nullptr
+[10.962s]       |                 ^~~~~~~
+[10.962s] /opt/ros/foxy/include/rclcpp/any_subscription_callback.hpp:97:8: note: candidate: ‘template<class CallbackT, typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<const double&>, const rclcpp::MessageInfo&)> >::value, void>::type* <anonymous> > void rclcpp::AnySubscriptionCallback<MessageT, Alloc>::set(CallbackT) [with CallbackT = CallbackT; typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<_Tp>, const rclcpp::MessageInfo&)> >::value>::type* <anonymous> = <enumerator>; MessageT = const double&; Alloc = std::allocator<void>]’
+[10.962s]    97 |   void set(CallbackT callback)
+[10.962s]       |        ^~~
+[10.962s] /opt/ros/foxy/include/rclcpp/any_subscription_callback.hpp:97:8: note:   template argument deduction/substitution failed:
+[10.962s] /opt/ros/foxy/include/rclcpp/any_subscription_callback.hpp:95:17: error: no type named ‘type’ in ‘struct std::enable_if<false, void>’
+[10.962s]    95 |     >::type * = nullptr
+[10.962s]       |                 ^~~~~~~
+[10.962s] /opt/ros/foxy/include/rclcpp/any_subscription_callback.hpp:139:8: note: candidate: ‘template<class CallbackT, typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::unique_ptr<const double&, std::default_delete<const double&> >)> >::value, void>::type* <anonymous> > void rclcpp::AnySubscriptionCallback<MessageT, Alloc>::set(CallbackT) [with CallbackT = CallbackT; typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::unique_ptr<MessageT, typename std::conditional<std::is_same<typename std::allocator_traits<typename std::allocator_traits<_NodeAlloc>::rebind_traits<MessageT>::allocator_type>::rebind_alloc<MessageT>, typename std::allocator<void>::rebind<_Tp1>::other>::value, std::default_delete<_Tp>, rclcpp::allocator::AllocatorDeleter<typename std::allocator_traits<_NodeAlloc>::rebind_traits<MessageT>::allocator_type> >::type>)> >::value>::type* <anonymous> = <enumerator>; MessageT = const double&; Alloc = std::allocator<void>]’
+[10.962s]   139 |   void set(CallbackT callback)
+[10.963s]       |        ^~~
+[10.963s] /opt/ros/foxy/include/rclcpp/any_subscription_callback.hpp:139:8: note:   template argument deduction/substitution failed:
+[10.963s] /opt/ros/foxy/include/rclcpp/any_subscription_callback.hpp:137:17: error: no type named ‘type’ in ‘struct std::enable_if<false, void>’
+[10.963s]   137 |     >::type * = nullptr
+[10.963s]       |                 ^~~~~~~
+[10.963s] /opt/ros/foxy/include/rclcpp/any_subscription_callback.hpp:153:8: note: candidate: ‘template<class CallbackT, typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::unique_ptr<const double&, std::default_delete<const double&> >, const rclcpp::MessageInfo&)> >::value, void>::type* <anonymous> > void rclcpp::AnySubscriptionCallback<MessageT, Alloc>::set(CallbackT) [with CallbackT = CallbackT; typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::unique_ptr<MessageT, typename std::conditional<std::is_same<typename std::allocator_traits<typename std::allocator_traits<_NodeAlloc>::rebind_traits<MessageT>::allocator_type>::rebind_alloc<MessageT>, typename std::allocator<void>::rebind<_Tp1>::other>::value, std::default_delete<_Tp>, rclcpp::allocator::AllocatorDeleter<typename std::allocator_traits<_NodeAlloc>::rebind_traits<MessageT>::allocator_type> >::type>, const rclcpp::MessageInfo&)> >::value>::type* <anonymous> = <enumerator>; MessageT = const double&; Alloc = std::allocator<void>]’
+[10.963s]   153 |   void set(CallbackT callback)
+[10.963s]       |        ^~~
+[10.963s] /opt/ros/foxy/include/rclcpp/any_subscription_callback.hpp:153:8: note:   template argument deduction/substitution failed:
+[10.963s] /opt/ros/foxy/include/rclcpp/any_subscription_callback.hpp:151:17: error: no type named ‘type’ in ‘struct std::enable_if<false, void>’
+[10.963s]   151 |     >::type * = nullptr
+[10.963s]       |                 ^~~~~~~
+[10.963s] In file included from /usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h:33,
+[10.963s]                  from /usr/include/c++/9/bits/allocator.h:46,
+[10.963s]                  from /usr/include/c++/9/string:41,
+[10.963s]                  from /usr/include/gazebo-11/gazebo/common/Animation.hh:20,
+[10.963s]                  from /usr/include/gazebo-11/gazebo/common/common.hh:5,
+[10.963s]                  from /usr/include/gazebo-11/gazebo/gazebo_core.hh:19,
+[10.963s]                  from /usr/include/gazebo-11/gazebo/gazebo.hh:20,
+[10.964s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:4:
+[10.964s] /usr/include/c++/9/ext/new_allocator.h: In instantiation of ‘class __gnu_cxx::new_allocator<const double&>’:
+[10.964s] /usr/include/c++/9/bits/allocator.h:112:11:   required from ‘class std::allocator<const double&>’
+[10.964s] /usr/include/c++/9/bits/shared_ptr_base.h:1365:63:   required by substitution of ‘template<class _Yp> struct std::__shared_ptr<std::allocator<const double&>, __gnu_cxx::_S_atomic>::__has_esft_base<_Yp, std::__void_t<decltype (__enable_shared_from_this_base(declval<const std::__shared_count<__gnu_cxx::_S_atomic>&>(), declval<_Yp*>()))> > [with _Yp = std::allocator<const double&>]’
+[10.964s] /usr/include/c++/9/bits/shared_ptr_base.h:1387:21:   required by substitution of ‘template<class _Yp, class _Yp2> typename std::enable_if<(! std::__shared_ptr<std::allocator<const double&>, __gnu_cxx::_S_atomic>::__has_esft_base<_Yp2, void>::value), void>::type std::__shared_ptr<std::allocator<const double&>, __gnu_cxx::_S_atomic>::_M_enable_shared_from_this_with<_Yp, _Yp2>(_Yp*) [with _Yp = std::allocator<const double&>; _Yp2 = std::allocator<const double&>]’
+[10.964s] /usr/include/c++/9/bits/shared_ptr_base.h:1345:4:   required from ‘std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<std::allocator<const double&> >; _Args = {std::allocator<void>&}; _Tp = std::allocator<const double&>; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+[10.964s] /usr/include/c++/9/bits/shared_ptr.h:359:59:   [ skipping 2 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+[10.964s] /usr/include/c++/9/bits/shared_ptr.h:717:39:   required from ‘std::shared_ptr<_Tp> std::make_shared(_Args&& ...) [with _Tp = std::allocator<const double&>; _Args = {std::allocator<void>&}]’
+[10.964s] /opt/ros/foxy/include/rclcpp/any_subscription_callback.hpp:68:56:   required from ‘rclcpp::AnySubscriptionCallback<MessageT, Alloc>::AnySubscriptionCallback(std::shared_ptr<_Tp>) [with MessageT = const double&; Alloc = std::allocator<void>]’
+[10.964s] /opt/ros/foxy/include/rclcpp/subscription_factory.hpp:96:57:   required from ‘rclcpp::SubscriptionFactory rclcpp::create_subscription_factory(CallbackT&&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&, typename MessageMemoryStrategyT::SharedPtr, std::shared_ptr<rclcpp::topic_statistics::SubscriptionTopicStatistics<CallbackMessageT> >) [with MessageT = std_msgs::msg::Float32_<std::allocator<void> >; CallbackT = std::_Bind<void (gazebo::MecaPlatformTestPlugin::*(gazebo_ros::Node*, std::_Placeholder<1>))(const double&)>; AllocatorT = std::allocator<void>; CallbackMessageT = const double&; SubscriptionT = rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >; MessageMemoryStrategyT = rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> >; typename MessageMemoryStrategyT::SharedPtr = std::shared_ptr<rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >]’
+[10.964s] /opt/ros/foxy/include/rclcpp/create_subscription.hpp:144:63:   required from ‘std::shared_ptr<SubscriptionT> rclcpp::create_subscription(NodeT&&, const string&, const rclcpp::QoS&, CallbackT&&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&, typename MessageMemoryStrategyT::SharedPtr) [with MessageT = std_msgs::msg::Float32_<std::allocator<void> >; CallbackT = std::_Bind<void (gazebo::MecaPlatformTestPlugin::*(gazebo_ros::Node*, std::_Placeholder<1>))(const double&)>; AllocatorT = std::allocator<void>; CallbackMessageT = const double&; SubscriptionT = rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >; MessageMemoryStrategyT = rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> >; NodeT = rclcpp::Node&; std::string = std::__cxx11::basic_string<char>; typename MessageMemoryStrategyT::SharedPtr = std::shared_ptr<rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >]’
+[10.964s] /opt/ros/foxy/include/rclcpp/node_impl.hpp:98:47:   required from ‘std::shared_ptr<SubscriptionT> rclcpp::Node::create_subscription(const string&, const rclcpp::QoS&, CallbackT&&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&, typename MessageMemoryStrategyT::SharedPtr) [with MessageT = std_msgs::msg::Float32_<std::allocator<void> >; CallbackT = std::_Bind<void (gazebo::MecaPlatformTestPlugin::*(gazebo_ros::Node*, std::_Placeholder<1>))(const double&)>; AllocatorT = std::allocator<void>; CallbackMessageT = const double&; SubscriptionT = rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >; MessageMemoryStrategyT = rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> >; std::string = std::__cxx11::basic_string<char>; typename MessageMemoryStrategyT::SharedPtr = std::shared_ptr<rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >]’
+[10.964s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:58:99:   required from here
+[10.965s] /usr/include/c++/9/ext/new_allocator.h:63:26: error: forming pointer to reference type ‘const double&’
+[10.965s]    63 |       typedef _Tp*       pointer;
+[10.965s]       |                          ^~~~~~~
+[10.965s] /usr/include/c++/9/ext/new_allocator.h:64:26: error: forming pointer to reference type ‘const double&’
+[10.965s]    64 |       typedef const _Tp* const_pointer;
+[10.965s]       |                          ^~~~~~~~~~~~~
+[10.965s] In file included from /usr/include/c++/9/string:41,
+[10.965s]                  from /usr/include/gazebo-11/gazebo/common/Animation.hh:20,
+[10.965s]                  from /usr/include/gazebo-11/gazebo/common/common.hh:5,
+[10.965s]                  from /usr/include/gazebo-11/gazebo/gazebo_core.hh:19,
+[10.965s]                  from /usr/include/gazebo-11/gazebo/gazebo.hh:20,
+[10.965s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:4:
+[10.965s] /usr/include/c++/9/bits/allocator.h: In instantiation of ‘class std::allocator<const double&>’:
+[10.966s] /usr/include/c++/9/bits/shared_ptr_base.h:1365:63:   required by substitution of ‘template<class _Yp> struct std::__shared_ptr<std::allocator<const double&>, __gnu_cxx::_S_atomic>::__has_esft_base<_Yp, std::__void_t<decltype (__enable_shared_from_this_base(declval<const std::__shared_count<__gnu_cxx::_S_atomic>&>(), declval<_Yp*>()))> > [with _Yp = std::allocator<const double&>]’
+[10.966s] /usr/include/c++/9/bits/shared_ptr_base.h:1387:21:   required by substitution of ‘template<class _Yp, class _Yp2> typename std::enable_if<(! std::__shared_ptr<std::allocator<const double&>, __gnu_cxx::_S_atomic>::__has_esft_base<_Yp2, void>::value), void>::type std::__shared_ptr<std::allocator<const double&>, __gnu_cxx::_S_atomic>::_M_enable_shared_from_this_with<_Yp, _Yp2>(_Yp*) [with _Yp = std::allocator<const double&>; _Yp2 = std::allocator<const double&>]’
+[10.966s] /usr/include/c++/9/bits/shared_ptr_base.h:1345:4:   required from ‘std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<std::allocator<const double&> >; _Args = {std::allocator<void>&}; _Tp = std::allocator<const double&>; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+[10.966s] /usr/include/c++/9/bits/shared_ptr.h:359:59:   required from ‘std::shared_ptr<_Tp>::shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<std::allocator<const double&> >; _Args = {std::allocator<void>&}; _Tp = std::allocator<const double&>]’
+[10.966s] /usr/include/c++/9/bits/shared_ptr.h:701:14:   required from ‘std::shared_ptr<_Tp> std::allocate_shared(const _Alloc&, _Args&& ...) [with _Tp = std::allocator<const double&>; _Alloc = std::allocator<std::allocator<const double&> >; _Args = {std::allocator<void>&}]’
+[10.966s] /usr/include/c++/9/bits/shared_ptr.h:717:39:   required from ‘std::shared_ptr<_Tp> std::make_shared(_Args&& ...) [with _Tp = std::allocator<const double&>; _Args = {std::allocator<void>&}]’
+[10.966s] /opt/ros/foxy/include/rclcpp/any_subscription_callback.hpp:68:56:   required from ‘rclcpp::AnySubscriptionCallback<MessageT, Alloc>::AnySubscriptionCallback(std::shared_ptr<_Tp>) [with MessageT = const double&; Alloc = std::allocator<void>]’
+[10.966s] /opt/ros/foxy/include/rclcpp/subscription_factory.hpp:96:57:   required from ‘rclcpp::SubscriptionFactory rclcpp::create_subscription_factory(CallbackT&&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&, typename MessageMemoryStrategyT::SharedPtr, std::shared_ptr<rclcpp::topic_statistics::SubscriptionTopicStatistics<CallbackMessageT> >) [with MessageT = std_msgs::msg::Float32_<std::allocator<void> >; CallbackT = std::_Bind<void (gazebo::MecaPlatformTestPlugin::*(gazebo_ros::Node*, std::_Placeholder<1>))(const double&)>; AllocatorT = std::allocator<void>; CallbackMessageT = const double&; SubscriptionT = rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >; MessageMemoryStrategyT = rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> >; typename MessageMemoryStrategyT::SharedPtr = std::shared_ptr<rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >]’
+[10.966s] /opt/ros/foxy/include/rclcpp/create_subscription.hpp:144:63:   required from ‘std::shared_ptr<SubscriptionT> rclcpp::create_subscription(NodeT&&, const string&, const rclcpp::QoS&, CallbackT&&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&, typename MessageMemoryStrategyT::SharedPtr) [with MessageT = std_msgs::msg::Float32_<std::allocator<void> >; CallbackT = std::_Bind<void (gazebo::MecaPlatformTestPlugin::*(gazebo_ros::Node*, std::_Placeholder<1>))(const double&)>; AllocatorT = std::allocator<void>; CallbackMessageT = const double&; SubscriptionT = rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >; MessageMemoryStrategyT = rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> >; NodeT = rclcpp::Node&; std::string = std::__cxx11::basic_string<char>; typename MessageMemoryStrategyT::SharedPtr = std::shared_ptr<rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >]’
+[10.966s] /opt/ros/foxy/include/rclcpp/node_impl.hpp:98:47:   required from ‘std::shared_ptr<SubscriptionT> rclcpp::Node::create_subscription(const string&, const rclcpp::QoS&, CallbackT&&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&, typename MessageMemoryStrategyT::SharedPtr) [with MessageT = std_msgs::msg::Float32_<std::allocator<void> >; CallbackT = std::_Bind<void (gazebo::MecaPlatformTestPlugin::*(gazebo_ros::Node*, std::_Placeholder<1>))(const double&)>; AllocatorT = std::allocator<void>; CallbackMessageT = const double&; SubscriptionT = rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >; MessageMemoryStrategyT = rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> >; std::string = std::__cxx11::basic_string<char>; typename MessageMemoryStrategyT::SharedPtr = std::shared_ptr<rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >]’
+[10.966s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:58:99:   required from here
+[10.966s] /usr/include/c++/9/bits/allocator.h:117:26: error: forming pointer to reference type ‘const double&’
+[10.967s]   117 |       typedef _Tp*       pointer;
+[10.967s]       |                          ^~~~~~~
+[10.967s] /usr/include/c++/9/bits/allocator.h:118:26: error: forming pointer to reference type ‘const double&’
+[10.967s]   118 |       typedef const _Tp* const_pointer;
+[10.967s]       |                          ^~~~~~~~~~~~~
+[10.967s] In file included from /usr/include/c++/9/bits/shared_ptr.h:52,
+[10.967s]                  from /usr/include/c++/9/memory:81,
+[10.967s]                  from /usr/include/c++/9/regex:45,
+[10.967s]                  from /usr/include/ignition/math6/ignition/math/Helpers.hh:27,
+[10.967s]                  from /usr/include/ignition/math6/ignition/math/Spline.hh:22,
+[10.967s]                  from /usr/include/gazebo-11/gazebo/common/Animation.hh:22,
+[10.967s]                  from /usr/include/gazebo-11/gazebo/common/common.hh:5,
+[10.967s]                  from /usr/include/gazebo-11/gazebo/gazebo_core.hh:19,
+[10.967s]                  from /usr/include/gazebo-11/gazebo/gazebo.hh:20,
+[10.968s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:4:
+[10.968s] /usr/include/c++/9/bits/shared_ptr_base.h: In instantiation of ‘class std::__shared_ptr_access<const double&, __gnu_cxx::_S_atomic, false, false>’:
+[10.968s] /usr/include/c++/9/bits/shared_ptr_base.h:1080:11:   required from ‘class std::__shared_ptr<const double&, __gnu_cxx::_S_atomic>’
+[10.968s] /opt/ros/foxy/include/rclcpp/message_memory_strategy.hpp:85:37:   recursively required from ‘std::shared_ptr<_Tp> rclcpp::message_memory_strategy::MessageMemoryStrategy<MessageT, Alloc>::borrow_message() [with MessageT = const double&; Alloc = std::allocator<void>]’
+[10.968s] /opt/ros/foxy/include/rclcpp/message_memory_strategy.hpp:85:37:   required from here
+[10.968s] /usr/include/c++/9/bits/shared_ptr_base.h:1012:7: error: forming pointer to reference type ‘std::__shared_ptr_access<const double&, __gnu_cxx::_S_atomic, false, false>::element_type’ {aka ‘const double&’}
+[10.968s]  1012 |       operator->() const noexcept
+[10.968s]       |       ^~~~~~~~
+[10.968s] /usr/include/c++/9/bits/shared_ptr_base.h:1020:7: error: forming pointer to reference type ‘std::__shared_ptr_access<const double&, __gnu_cxx::_S_atomic, false, false>::element_type’ {aka ‘const double&’}
+[10.968s]  1020 |       _M_get() const noexcept
+[10.968s]       |       ^~~~~~
+[10.968s] /usr/include/c++/9/bits/shared_ptr_base.h: In instantiation of ‘class std::__shared_ptr<const double&, __gnu_cxx::_S_atomic>’:
+[10.968s] /opt/ros/foxy/include/rclcpp/message_memory_strategy.hpp:85:37:   recursively required from ‘std::shared_ptr<_Tp> rclcpp::message_memory_strategy::MessageMemoryStrategy<MessageT, Alloc>::borrow_message() [with MessageT = const double&; Alloc = std::allocator<void>]’
+[10.968s] /opt/ros/foxy/include/rclcpp/message_memory_strategy.hpp:85:37:   required from here
+[10.969s] /usr/include/c++/9/bits/shared_ptr_base.h:1094:8: error: forming pointer to reference type ‘const double&’
+[10.969s]  1094 |  using _Compatible = typename
+[10.969s]       |        ^~~~~~~~~~~
+[10.969s] /usr/include/c++/9/bits/shared_ptr_base.h:1104:8: error: forming pointer to reference type ‘const double&’
+[10.969s]  1104 |  using _UniqCompatible = typename enable_if<__and_<
+[10.969s]       |        ^~~~~~~~~~~~~~~
+[10.969s] /usr/include/c++/9/bits/shared_ptr_base.h:1162:2: error: forming pointer to reference type ‘std::__shared_ptr<const double&, __gnu_cxx::_S_atomic>::element_type’ {aka ‘const double&’}
+[10.969s]  1162 |  __shared_ptr(const __shared_ptr<_Yp, _Lp>& __r,
+[10.969s]       |  ^~~~~~~~~~~~
+[10.969s] /usr/include/c++/9/bits/shared_ptr_base.h: In substitution of ‘template<class _Tp, __gnu_cxx::_Lock_policy _Lp> template<class _Yp, class _Res> using _Compatible = typename std::enable_if<std::__sp_compatible_with<_Yp*, _Tp*>::value, _Res>::type [with _Yp = _Yp; _Res = void; _Tp = const double&; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’:
+[10.969s] /usr/include/c++/9/bits/shared_ptr_base.h:1172:2:   required from ‘class std::__shared_ptr<const double&, __gnu_cxx::_S_atomic>’
+[10.969s] /opt/ros/foxy/include/rclcpp/message_memory_strategy.hpp:85:37:   recursively required from ‘std::shared_ptr<_Tp> rclcpp::message_memory_strategy::MessageMemoryStrategy<MessageT, Alloc>::borrow_message() [with MessageT = const double&; Alloc = std::allocator<void>]’
+[10.969s] /opt/ros/foxy/include/rclcpp/message_memory_strategy.hpp:85:37:   required from here
+[10.970s] /usr/include/c++/9/bits/shared_ptr_base.h:1094:8: error: forming pointer to reference type ‘const double&’
+[10.970s]  1094 |  using _Compatible = typename
+[10.970s]       |        ^~~~~~~~~~~
+[10.970s] /usr/include/c++/9/bits/shared_ptr_base.h: In substitution of ‘template<class _Tp, __gnu_cxx::_Lock_policy _Lp> template<class _Yp, class _Del, class _Res, class _Ptr> using _UniqCompatible = typename std::enable_if<std::__and_<std::__sp_compatible_with<_Yp*, _Tp*>, std::is_convertible<_Ptr, typename std::remove_extent<_Up>::type*> >::value, _Res>::type [with _Yp = _Yp; _Del = _Del; _Res = void; _Ptr = typename std::unique_ptr<_Tp, _Dp>::pointer; _Tp = const double&; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’:
+[10.970s] /usr/include/c++/9/bits/shared_ptr_base.h:1203:2:   required from ‘class std::__shared_ptr<const double&, __gnu_cxx::_S_atomic>’
+[10.970s] /opt/ros/foxy/include/rclcpp/message_memory_strategy.hpp:85:37:   recursively required from ‘std::shared_ptr<_Tp> rclcpp::message_memory_strategy::MessageMemoryStrategy<MessageT, Alloc>::borrow_message() [with MessageT = const double&; Alloc = std::allocator<void>]’
+[10.970s] /opt/ros/foxy/include/rclcpp/message_memory_strategy.hpp:85:37:   required from here
+[10.970s] /usr/include/c++/9/bits/shared_ptr_base.h:1104:8: error: forming pointer to reference type ‘const double&’
+[10.970s]  1104 |  using _UniqCompatible = typename enable_if<__and_<
+[10.970s]       |        ^~~~~~~~~~~~~~~
+[10.970s] /usr/include/c++/9/bits/shared_ptr_base.h: In instantiation of ‘class std::__shared_ptr<const double&, __gnu_cxx::_S_atomic>’:
+[10.970s] /opt/ros/foxy/include/rclcpp/message_memory_strategy.hpp:85:37:   recursively required from ‘std::shared_ptr<_Tp> rclcpp::message_memory_strategy::MessageMemoryStrategy<MessageT, Alloc>::borrow_message() [with MessageT = const double&; Alloc = std::allocator<void>]’
+[10.970s] /opt/ros/foxy/include/rclcpp/message_memory_strategy.hpp:85:37:   required from here
+[10.970s] /usr/include/c++/9/bits/shared_ptr_base.h:1309:7: error: forming pointer to reference type ‘std::__shared_ptr<const double&, __gnu_cxx::_S_atomic>::element_type’ {aka ‘const double&’}
+[10.970s]  1309 |       get() const noexcept
+[10.971s]       |       ^~~
+[10.971s] /usr/include/c++/9/bits/shared_ptr_base.h:1404:24: error: forming pointer to reference type ‘std::__shared_ptr<const double&, __gnu_cxx::_S_atomic>::element_type’ {aka ‘const double&’}
+[10.971s]  1404 |       element_type*    _M_ptr;         // Contained pointer.
+[10.971s]       |                        ^~~~~~
+[10.971s] In file included from /usr/include/c++/9/memory:81,
+[10.971s]                  from /usr/include/c++/9/regex:45,
+[10.971s]                  from /usr/include/ignition/math6/ignition/math/Helpers.hh:27,
+[10.971s]                  from /usr/include/ignition/math6/ignition/math/Spline.hh:22,
+[10.971s]                  from /usr/include/gazebo-11/gazebo/common/Animation.hh:22,
+[10.971s]                  from /usr/include/gazebo-11/gazebo/common/common.hh:5,
+[10.971s]                  from /usr/include/gazebo-11/gazebo/gazebo_core.hh:19,
+[10.971s]                  from /usr/include/gazebo-11/gazebo/gazebo.hh:20,
+[10.971s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:4:
+[10.971s] /usr/include/c++/9/bits/shared_ptr.h: In instantiation of ‘class std::shared_ptr<const double&>’:
+[10.971s] /opt/ros/foxy/include/rclcpp/message_memory_strategy.hpp:85:37:   recursively required from ‘std::shared_ptr<_Tp> rclcpp::message_memory_strategy::MessageMemoryStrategy<MessageT, Alloc>::borrow_message() [with MessageT = const double&; Alloc = std::allocator<void>]’
+[10.972s] /opt/ros/foxy/include/rclcpp/message_memory_strategy.hpp:85:37:   required from here
+[10.972s] /usr/include/c++/9/bits/shared_ptr.h:234:2: error: forming pointer to reference type ‘std::shared_ptr<const double&>::element_type’ {aka ‘const double&’}
+[10.972s]   234 |  shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
+[10.972s]       |  ^~~~~~~~~~
+[10.972s] In file included from /usr/include/c++/9/bits/shared_ptr.h:52,
+[10.972s]                  from /usr/include/c++/9/memory:81,
+[10.972s]                  from /usr/include/c++/9/regex:45,
+[10.974s]                  from /usr/include/ignition/math6/ignition/math/Helpers.hh:27,
+[10.974s]                  from /usr/include/ignition/math6/ignition/math/Spline.hh:22,
+[10.974s]                  from /usr/include/gazebo-11/gazebo/common/Animation.hh:22,
+[10.974s]                  from /usr/include/gazebo-11/gazebo/common/common.hh:5,
+[10.974s]                  from /usr/include/gazebo-11/gazebo/gazebo_core.hh:19,
+[10.975s]                  from /usr/include/gazebo-11/gazebo/gazebo.hh:20,
+[10.975s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:4:
+[10.976s] /usr/include/c++/9/bits/shared_ptr_base.h: In instantiation of ‘constexpr std::__shared_ptr<_Tp, _Lp>::__shared_ptr() [with _Tp = const double&; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’:
+[10.976s] /usr/include/c++/9/bits/shared_ptr_base.h:1287:9:   required from ‘void std::__shared_ptr<_Tp, _Lp>::reset() [with _Tp = const double&; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+[10.976s] /opt/ros/foxy/include/rclcpp/message_memory_strategy.hpp:109:5:   required from ‘void rclcpp::message_memory_strategy::MessageMemoryStrategy<MessageT, Alloc>::return_message(std::shared_ptr<_Tp>&) [with MessageT = const double&; Alloc = std::allocator<void>]’
+[10.976s] /opt/ros/foxy/include/rclcpp/message_memory_strategy.hpp:107:16:   required from here
+[10.976s] /usr/include/c++/9/bits/shared_ptr_base.h:1119:32: error: using invalid field ‘std::__shared_ptr<_Tp, _Lp>::_M_ptr’
+[10.976s]  1119 |       : _M_ptr(0), _M_refcount()
+[10.977s]       |                                ^
+[10.977s] /usr/include/c++/9/bits/shared_ptr_base.h: In instantiation of ‘void std::__shared_ptr<_Tp, _Lp>::swap(std::__shared_ptr<_Tp, _Lp>&) [with _Tp = const double&; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’:
+[10.977s] /usr/include/c++/9/bits/shared_ptr_base.h:1287:24:   required from ‘void std::__shared_ptr<_Tp, _Lp>::reset() [with _Tp = const double&; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+[10.977s] /opt/ros/foxy/include/rclcpp/message_memory_strategy.hpp:109:5:   required from ‘void rclcpp::message_memory_strategy::MessageMemoryStrategy<MessageT, Alloc>::return_message(std::shared_ptr<_Tp>&) [with MessageT = const double&; Alloc = std::allocator<void>]’
+[10.978s] /opt/ros/foxy/include/rclcpp/message_memory_strategy.hpp:107:16:   required from here
+[10.978s] /usr/include/c++/9/bits/shared_ptr_base.h:1326:12: error: using invalid field ‘std::__shared_ptr<_Tp, _Lp>::_M_ptr’
+[10.978s]  1326 |  std::swap(_M_ptr, __other._M_ptr);
+[10.978s]       |            ^~~~~~
+[10.978s] /usr/include/c++/9/bits/shared_ptr_base.h:1326:28: error: ‘class std::__shared_ptr<const double&, __gnu_cxx::_S_atomic>’ has no member named ‘_M_ptr’
+[10.978s]  1326 |  std::swap(_M_ptr, __other._M_ptr);
+[10.979s]       |                    ~~~~~~~~^~~~~~
+[10.979s] In file included from /usr/include/c++/9/functional:59,
+[10.979s]                  from /usr/include/c++/9/pstl/glue_algorithm_defs.h:13,
+[10.979s]                  from /usr/include/c++/9/algorithm:71,
+[10.979s]                  from /usr/include/ignition/math6/ignition/math/Helpers.hh:20,
+[10.979s]                  from /usr/include/ignition/math6/ignition/math/Spline.hh:22,
+[10.979s]                  from /usr/include/gazebo-11/gazebo/common/Animation.hh:22,
+[10.979s]                  from /usr/include/gazebo-11/gazebo/common/common.hh:5,
+[10.979s]                  from /usr/include/gazebo-11/gazebo/gazebo_core.hh:19,
+[10.979s]                  from /usr/include/gazebo-11/gazebo/gazebo.hh:20,
+[10.979s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:4:
+[10.979s] /usr/include/c++/9/bits/std_function.h: At global scope:
+[10.979s] /usr/include/c++/9/bits/std_function.h:667:7: error: ‘std::function<_Res(_ArgTypes ...)>::function(_Functor) [with _Functor = rclcpp::create_subscription_factory(CallbackT&&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&, typename MessageMemoryStrategyT::SharedPtr, std::shared_ptr<rclcpp::topic_statistics::SubscriptionTopicStatistics<CallbackMessageT> >) [with MessageT = std_msgs::msg::Float32_<std::allocator<void> >; CallbackT = std::_Bind<void (gazebo::MecaPlatformTestPlugin::*(gazebo_ros::Node*, std::_Placeholder<1>))(const double&)>; AllocatorT = std::allocator<void>; CallbackMessageT = const double&; SubscriptionT = rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >; MessageMemoryStrategyT = rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> >; typename MessageMemoryStrategyT::SharedPtr = std::shared_ptr<rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >]::<lambda(rclcpp::node_interfaces::NodeBaseInterface*, const string&, const rclcpp::QoS&)>; <template-parameter-2-2> = void; <template-parameter-2-3> = void; _Res = std::shared_ptr<rclcpp::SubscriptionBase>; _ArgTypes = {rclcpp::node_interfaces::NodeBaseInterface*, const std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, const rclcpp::QoS&}]’, declared using local type ‘rclcpp::create_subscription_factory(CallbackT&&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&, typename MessageMemoryStrategyT::SharedPtr, std::shared_ptr<rclcpp::topic_statistics::SubscriptionTopicStatistics<CallbackMessageT> >) [with MessageT = std_msgs::msg::Float32_<std::allocator<void> >; CallbackT = std::_Bind<void (gazebo::MecaPlatformTestPlugin::*(gazebo_ros::Node*, std::_Placeholder<1>))(const double&)>; AllocatorT = std::allocator<void>; CallbackMessageT = const double&; SubscriptionT = rclcpp::Subscription<const double&, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >; MessageMemoryStrategyT = rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> >; typename MessageMemoryStrategyT::SharedPtr = std::shared_ptr<rclcpp::message_memory_strategy::MessageMemoryStrategy<const double&, std::allocator<void> > >]::<lambda(rclcpp::node_interfaces::NodeBaseInterface*, const string&, const rclcpp::QoS&)>’, is used but never defined [-fpermissive]
+[10.979s]   667 |       function<_Res(_ArgTypes...)>::
+[10.979s]       |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[10.979s] make[2]: *** [CMakeFiles/meca_platform_plugin_test.dir/build.make:63: CMakeFiles/meca_platform_plugin_test.dir/src/meca_platform_plugin_test.cpp.o] Error 1
+[10.980s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/meca_platform_plugin_test.dir/all] Error 2
+[10.980s] make: *** [Makefile:141: all] Error 2
+[10.980s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugins' returned '2': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugins -- -j12 -l12

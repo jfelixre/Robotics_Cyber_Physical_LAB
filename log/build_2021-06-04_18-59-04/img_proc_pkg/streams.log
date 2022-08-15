@@ -1,0 +1,43 @@
+[0.019s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.057s] [35m[1mScanning dependencies of target img_proc_id_node[0m
+[0.073s] [ 25%] Built target img_proc_node
+[0.077s] [ 50%] Built target img_publ_test_node
+[0.080s] [ 75%] Built target img_subs_test_node
+[0.090s] [ 87%] [32mBuilding CXX object CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o[0m
+[1.389s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Proc_Id_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[1.389s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:92:22:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+[1.389s]    92 |       for (int i=1; [01;35m[Ki<red_contours.size()[m[K; i++)
+[1.389s]       |                     [01;35m[K~^~~~~~~~~~~~~~~~~~~~[m[K
+[1.390s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:121:26:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+[1.390s]   121 |         for (int ii=1; [01;35m[Kii<red_subcontours.size()[m[K; ii++)
+[1.390s]       |                        [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.390s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:95:13:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[KX[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+[1.390s]    95 |         int [01;35m[KX[m[K, Y;
+[1.390s]       |             [01;35m[K^[m[K
+[1.390s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:95:16:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[KY[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+[1.390s]    95 |         int X, [01;35m[KY[m[K;
+[1.390s]       |                [01;35m[K^[m[K
+[1.390s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:116:13:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[KXc[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+[1.390s]   116 |         int [01;35m[KXc[m[K,Yc,Xt,Yt;  //Coordenadas para triangulo y cuadrado
+[1.390s]       |             [01;35m[K^~[m[K
+[1.390s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:116:16:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[KYc[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+[1.391s]   116 |         int Xc,[01;35m[KYc[m[K,Xt,Yt;  //Coordenadas para triangulo y cuadrado
+[1.391s]       |                [01;35m[K^~[m[K
+[1.391s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:116:19:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[KXt[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+[1.391s]   116 |         int Xc,Yc,[01;35m[KXt[m[K,Yt;  //Coordenadas para triangulo y cuadrado
+[1.391s]       |                   [01;35m[K^~[m[K
+[1.391s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:116:22:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[KYt[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+[1.391s]   116 |         int Xc,Yc,Xt,[01;35m[KYt[m[K;  //Coordenadas para triangulo y cuadrado
+[1.391s]       |                      [01;35m[K^~[m[K
+[1.393s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:163:19:[m[K [01;31m[Kerror: [m[K‘[01m[Kred_subcontours[m[K’ was not declared in this scope; did you mean ‘[01m[Kred_contours[m[K’?
+[1.394s]   163 |       std::cout<< [01;31m[Kred_subcontours[m[K.size();
+[1.394s]       |                   [01;31m[K^~~~~~~~~~~~~~~[m[K
+[1.394s]       |                   [32m[Kred_contours[m[K
+[1.396s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:166:34:[m[K [01;31m[Kerror: [m[K‘[01m[Kimg_red_crop[m[K’ was not declared in this scope; did you mean ‘[01m[Kimg_red_bin[m[K’?
+[1.397s]   166 |      cv::imshow("Display Image", [01;31m[Kimg_red_crop[m[K);
+[1.397s]       |                                  [01;31m[K^~~~~~~~~~~~[m[K
+[1.397s]       |                                  [32m[Kimg_red_bin[m[K
+[2.508s] make[2]: *** [CMakeFiles/img_proc_id_node.dir/build.make:63: CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o] Error 1
+[2.508s] make[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/img_proc_id_node.dir/all] Error 2
+[2.509s] make: *** [Makefile:141: all] Error 2
+[2.510s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12

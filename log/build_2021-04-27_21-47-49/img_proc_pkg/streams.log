@@ -1,0 +1,24 @@
+[0.012s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.030s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.046s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.149s] Traceback (most recent call last):
+[0.150s]   File "/opt/ros/foxy/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py", line 21, in <module>
+[0.150s]     from ament_package.templates import get_environment_hook_template_path
+[0.150s] ModuleNotFoundError: No module named 'ament_package'
+[0.161s] CMake Error at /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_package_templates-extras.cmake:41 (message):
+[0.161s]   execute_process(/usr/bin/python3
+[0.161s]   /opt/ros/foxy/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py
+[0.161s]   /home/javierfr/Tesis_ws/V1/build/img_proc_pkg/ament_cmake_package_templates/templates.cmake)
+[0.161s]   returned error code 1
+[0.161s] Call Stack (most recent call first):
+[0.161s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)
+[0.161s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)
+[0.161s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)
+[0.162s]   CMakeLists.txt:19 (find_package)
+[0.162s] 
+[0.162s] 
+[0.162s] -- Configuring incomplete, errors occurred!
+[0.162s] See also "/home/javierfr/Tesis_ws/V1/build/img_proc_pkg/CMakeFiles/CMakeOutput.log".
+[0.162s] See also "/home/javierfr/Tesis_ws/V1/build/img_proc_pkg/CMakeFiles/CMakeError.log".
+[0.163s] make: *** [Makefile:310: cmake_check_build_system] Error 1
+[0.164s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '2': /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12

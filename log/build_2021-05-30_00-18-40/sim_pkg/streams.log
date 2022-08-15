@@ -1,0 +1,13 @@
+[0.008s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/sim_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/sim_pkg -- -j12 -l12
+[0.047s] [ 50%] [32mBuilding CXX object CMakeFiles/plat1_send_vel_node.dir/src/plat1_send_vel_node.cpp.o[0m
+[1.373s] /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp: In function ‘void setvel(std::shared_ptr<interfaces::srv::Platform1Vel_Request_<std::allocator<void> > >, std::shared_ptr<interfaces::srv::Platform1Vel_Response_<std::allocator<void> > >)’:
+[1.373s] /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:13:13: error: ‘using element_type = struct interfaces::srv::Platform1Vel_Response_<std::allocator<void> >’ {aka ‘struct interfaces::srv::Platform1Vel_Response_<std::allocator<void> >’} has no member named ‘sent’
+[1.373s]    13 |   response->sent =1;
+[1.373s]       |             ^~~~
+[1.373s] /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:9:10: warning: unused variable ‘xvel’ [-Wunused-variable]
+[1.373s]     9 |   double xvel = request->x_vel;
+[1.373s]       |          ^~~~
+[1.374s] make[2]: *** [CMakeFiles/plat1_send_vel_node.dir/build.make:63: CMakeFiles/plat1_send_vel_node.dir/src/plat1_send_vel_node.cpp.o] Error 1
+[1.374s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/plat1_send_vel_node.dir/all] Error 2
+[1.374s] make: *** [Makefile:141: all] Error 2
+[1.375s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/sim_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/sim_pkg -- -j12 -l12

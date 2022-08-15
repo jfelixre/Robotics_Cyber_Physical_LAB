@@ -1,0 +1,3 @@
+[35m[1mScanning dependencies of target control_pid_p1_node[0m
+[ 50%] Built target control_pid_p2_node
+[ 75%] [32mBuilding CXX object CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o[0m

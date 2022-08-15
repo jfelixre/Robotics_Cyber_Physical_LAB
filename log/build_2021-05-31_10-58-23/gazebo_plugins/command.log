@@ -1,0 +1,4 @@
+Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugins': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugins -- -j12 -l12
+Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugins' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugins -- -j12 -l12
+Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugins': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/gazebo_plugins
+Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugins' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/gazebo_plugins

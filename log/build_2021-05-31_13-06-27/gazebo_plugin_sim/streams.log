@@ -1,0 +1,17 @@
+[0.020s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12
+[0.061s] [35m[1mScanning dependencies of target platform_plugin_test[0m
+[0.132s] [ 50%] [32mBuilding CXX object CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o[0m
+[6.705s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:75:7: error: ‘GazeboRosDiffDrive’ has not been declared
+[6.705s]    75 |  void GazeboRosDiffDrive::Reset()
+[6.705s]       |       ^~~~~~~~~~~~~~~~~~
+[6.705s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp: In function ‘void gazebo_plugin_sim::Reset()’:
+[6.705s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:77:4: error: ‘impl_’ was not declared in this scope; did you mean ‘mpl_’?
+[6.705s]    77 |    impl_->ros_node_.reset();
+[6.705s]       |    ^~~~~
+[6.705s]       |    mpl_
+[6.705s] At global scope:
+[6.705s] cc1plus: warning: unrecognized command line option ‘-Wno-inconsistent-missing-override’
+[6.706s] make[2]: *** [CMakeFiles/platform_plugin_test.dir/build.make:63: CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o] Error 1
+[6.707s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform_plugin_test.dir/all] Error 2
+[6.707s] make: *** [Makefile:141: all] Error 2
+[6.709s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12

@@ -1,0 +1,75 @@
+[0.020s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugins': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugins -- -j12 -l12
+[0.042s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.060s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.206s] -- Found gazebo_dev: 3.5.3 (/opt/ros/foxy/share/gazebo_dev/cmake)
+[0.241s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[0.267s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "3.6.1") 
+[0.269s] -- Looking for ignition-math6 -- found version 6.8.0
+[0.272s] -- Searching for dependencies of ignition-math6
+[0.273s] -- Looking for OGRE...
+[0.277s] -- Found Ogre Ghadamon (1.9.0)
+[0.277s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[0.285s] -- Looking for OGRE_Paging...
+[0.285s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[0.285s] -- Looking for OGRE_Terrain...
+[0.285s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[0.285s] -- Looking for OGRE_Property...
+[0.285s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[0.286s] -- Looking for OGRE_RTShaderSystem...
+[0.286s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[0.286s] -- Looking for OGRE_Volume...
+[0.286s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[0.286s] -- Looking for OGRE_Overlay...
+[0.286s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[0.393s] -- Looking for ignition-math6 -- found version 6.8.0
+[0.393s] -- Looking for ignition-transport8 -- found version 8.2.0
+[0.394s] -- Searching for dependencies of ignition-transport8
+[0.408s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found suitable version "3.6.1", minimum required is "3") 
+[0.418s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[0.421s] -- Checking for module 'libzmq >= 4'
+[0.432s] --   Found libzmq , version 4.3.2
+[0.463s] -- Checking for module 'uuid'
+[0.473s] --   Found uuid, version 2.34.0
+[0.499s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[0.500s] -- Searching for dependencies of ignition-msgs5
+[0.515s] -- Looking for ignition-math6 -- found version 6.8.0
+[0.518s] -- Checking for module 'tinyxml2'
+[0.529s] --   Found tinyxml2, version 6.2.0
+[0.556s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[0.556s] -- Looking for ignition-common3 -- found version 3.13.1
+[0.556s] -- Searching for dependencies of ignition-common3
+[0.557s] -- Looking for dlfcn.h - found
+[0.557s] -- Looking for libdl - found
+[0.562s] -- Searching for <ignition-common3> component [graphics]
+[0.562s] -- Looking for ignition-common3-graphics -- found version 3.13.1
+[0.563s] -- Searching for dependencies of ignition-common3-graphics
+[0.563s] -- Looking for ignition-math6 -- found version 6.8.0
+[0.564s] -- Looking for ignition-fuel_tools4 -- found version 4.3.0
+[0.564s] -- Searching for dependencies of ignition-fuel_tools4
+[0.582s] -- Checking for module 'jsoncpp'
+[0.592s] --   Found jsoncpp, version 1.7.4
+[0.622s] -- Checking for module 'libzip'
+[0.632s] --   Found libzip, version 1.5.1
+[0.658s] -- Looking for ignition-common3 -- found version 3.13.1
+[0.659s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[0.660s] -- Gazebo version: 11.5
+[0.660s] -- Found gazebo_ros: 3.5.3 (/opt/ros/foxy/share/gazebo_ros/cmake)
+[0.683s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.685s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.780s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.818s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.819s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.996s] CMake Error at /opt/ros/foxy/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:53 (message):
+[0.996s]   ament_package_xml() package name 'gazebo_plugins' in '/package.xml' does
+[0.996s]   not match current PROJECT_NAME 'gazebo_plugin_sim'.  You must call
+[0.996s]   project() with the same package name before.
+[0.996s] Call Stack (most recent call first):
+[0.996s]   /opt/ros/foxy/share/ament_cmake_core/cmake/core/ament_package.cmake:63 (ament_package_xml)
+[0.996s]   CMakeLists.txt:50 (ament_package)
+[0.997s] 
+[0.997s] 
+[0.998s] -- Configuring incomplete, errors occurred!
+[0.998s] See also "/home/javierfr/Tesis_ws/V1/build/gazebo_plugins/CMakeFiles/CMakeOutput.log".
+[0.998s] See also "/home/javierfr/Tesis_ws/V1/build/gazebo_plugins/CMakeFiles/CMakeError.log".
+[1.004s] make: *** [Makefile:266: cmake_check_build_system] Error 1
+[1.006s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugins' returned '2': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugins -- -j12 -l12

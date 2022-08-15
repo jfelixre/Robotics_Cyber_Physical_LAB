@@ -1,0 +1,52 @@
+[0.017s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.038s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.058s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.219s] -- Found sensor_msgs: 2.0.4 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[0.243s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.247s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.353s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.489s] -- Found rclcpp: 2.3.1 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.517s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.518s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.622s] -- Found image_transport: 2.3.0 (/opt/ros/foxy/share/image_transport/cmake)
+[0.655s] -- Found cv_bridge: 2.2.1 (/opt/ros/foxy/share/cv_bridge/cmake)
+[0.711s] -- Configuring done
+[0.733s] -- Generating done
+[0.735s] -- Build files have been written to: /home/javierfr/Tesis_ws/V1/build/img_proc_pkg
+[0.759s] [35m[1mScanning dependencies of target img_proc_qr_detector[0m
+[0.772s] [ 25%] Built target img_proc_node
+[0.775s] [ 50%] Built target img_publ_test_node
+[0.777s] [ 75%] Built target img_subs_test_node
+[0.804s] [ 87%] [32mBuilding CXX object CMakeFiles/img_proc_qr_detector.dir/src/img_proc_qr_detector.cpp.o[0m
+[1.974s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:[m[K In constructor ‘[01m[KImg_Proc_Qr_Detector::Img_Proc_Qr_Detector()[m[K’:
+[1.975s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:37:52:[m[K [01;31m[Kerror: [m[K‘[01m[KImg_Subs_Test_Node[m[K’ has not been declared
+[1.975s]    37 |       "demo_cam/camera1/image_raw", 10, std::bind(&[01;31m[KImg_Subs_Test_Node[m[K::topic_callback, this, _1));
+[1.975s]       |                                                    [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[1.986s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:[m[K In member function ‘[01m[Kvoid Img_Proc_Qr_Detector::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[1.986s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:54:11:[m[K [01;31m[Kerror: [m[K‘[01m[KQRCodeDetector[m[K’ is not a member of ‘[01m[Kcv[m[K’
+[1.986s]    54 |       cv::[01;31m[KQRCodeDetector[m[K qr =QRCodeDetector::QrCodeDetector();
+[1.986s]       |           [01;31m[K^~~~~~~~~~~~~~[m[K
+[1.987s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:56:26:[m[K [01;31m[Kerror: [m[K‘[01m[Kqr[m[K’ was not declared in this scope
+[1.987s]    56 |       std::string data = [01;31m[Kqr[m[K.detectAndDecode(image1,bbox,rectifiedImage);
+[1.987s]       |                          [01;31m[K^~[m[K
+[1.987s] In file included from [01m[K/opt/ros/foxy/include/rclcpp/client.hpp:40[m[K,
+[1.987s]                  from [01m[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:23[m[K,
+[1.987s]                  from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20[m[K,
+[1.988s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+[1.988s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+[1.988s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+[1.988s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+[1.988s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[1.988s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+[1.988s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[1.988s]                  from [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:15[m[K:
+[1.988s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:58:53:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[Kdata[m[K’
+[1.988s]    58 |       RCLCPP_INFO(this->get_logger(), "QR_Data: %s" [01;31m[Kdata[m[K);
+[1.988s]       |                                                     [01;31m[K^~~~[m[K
+[1.988s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:58:7:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+[1.988s]    58 |       [01;36m[KRCLCPP_INFO[m[K(this->get_logger(), "QR_Data: %s" data);
+[1.988s]       |       [01;36m[K^~~~~~~~~~~[m[K
+[2.446s] make[2]: *** [CMakeFiles/img_proc_qr_detector.dir/build.make:63: CMakeFiles/img_proc_qr_detector.dir/src/img_proc_qr_detector.cpp.o] Error 1
+[2.446s] make[1]: *** [CMakeFiles/Makefile2:84: CMakeFiles/img_proc_qr_detector.dir/all] Error 2
+[2.446s] make: *** [Makefile:141: all] Error 2
+[2.448s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12

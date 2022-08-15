@@ -1,0 +1,62 @@
+[0.020s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12
+[0.060s] [35m[1mScanning dependencies of target platform_plugin_test[0m
+[0.123s] [ 50%] [32mBuilding CXX object CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o[0m
+[7.863s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:45:19: error: ‘PID’ in namespace ‘gazebo::common’ does not name a type
+[7.863s]    45 |   gazebo::common::PID pidM1;
+[7.863s]       |                   ^~~
+[7.863s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp: In member function ‘virtual void gazebo_plugin_sim::PlatformPluginTest::Load(gazebo::physics::ModelPtr, sdf::v9::ElementPtr)’:
+[7.863s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:73:12: error: ‘class gazebo_plugin_sim::PlatformPluginTestPrivate’ has no member named ‘pidM1’
+[7.863s]    73 |     impl_->pidM1 = gazebo::common::PID(0.1,0,0);
+[7.863s]       |            ^~~~~
+[7.863s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:73:36: error: ‘PID’ is not a member of ‘gazebo::common’
+[7.863s]    73 |     impl_->pidM1 = gazebo::common::PID(0.1,0,0);
+[7.864s]       |                                    ^~~
+[7.864s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:73:36: note: suggested alternatives:
+[7.864s] In file included from /usr/include/gazebo-11/gazebo/msgs/joint_cmd.pb.h:33,
+[7.864s]                  from /usr/include/gazebo-11/gazebo/msgs/MessageTypes.hh:51,
+[7.864s]                  from /usr/include/gazebo-11/gazebo/physics/Joint.hh:29,
+[7.864s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:2:
+[7.864s] /usr/include/gazebo-11/gazebo/msgs/pid.pb.h:73:23: note:   ‘gazebo::msgs::PID’
+[7.864s]    73 | class GZ_MSGS_VISIBLE PID : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:gazebo.msgs.PID) */ {
+[7.864s]       |                       ^~~
+[7.864s] In file included from /usr/include/ignition/math6/ignition/math.hh:50,
+[7.864s]                  from /usr/include/sdformat-9.5/sdf/Param.hh:33,
+[7.864s]                  from /usr/include/sdformat-9.5/sdf/Element.hh:28,
+[7.864s]                  from /usr/include/sdformat-9.5/sdf/Actor.hh:25,
+[7.865s]                  from /usr/include/sdformat-9.5/sdf/sdf.hh:2,
+[7.865s]                  from /usr/include/gazebo-11/gazebo/common/Events.hh:21,
+[7.865s]                  from /usr/include/gazebo-11/gazebo/physics/Joint.hh:28,
+[7.865s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:2:
+[7.865s] /usr/include/ignition/math6/ignition/math/PID.hh:38:33: note:   ‘ignition::math::v6::PID’
+[7.865s]    38 |     class IGNITION_MATH_VISIBLE PID
+[7.865s]       |                                 ^~~
+[7.865s] In file included from /usr/include/ignition/msgs5/ignition/msgs/joint_cmd.pb.h:34,
+[7.865s]                  from /usr/include/ignition/msgs5/ignition/msgs/MessageTypes.hh:95,
+[7.865s]                  from /usr/include/ignition/msgs5/ignition/msgs/Utility.hh:33,
+[7.865s]                  from /usr/include/ignition/msgs5/ignition/msgs.hh:27,
+[7.865s]                  from /usr/include/ignition/transport8/ignition/transport/Node.hh:33,
+[7.865s]                  from /usr/include/gazebo-11/gazebo/physics/Entity.hh:25,
+[7.866s]                  from /usr/include/gazebo-11/gazebo/physics/Link.hh:31,
+[7.866s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:3:
+[7.866s] /usr/include/ignition/msgs5/ignition/msgs/pid.pb.h:78:29: note:   ‘ignition::msgs::PID’
+[7.866s]    78 | class IGNITION_MSGS_VISIBLE PID : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ignition.msgs.PID) */ {
+[7.866s]       |                             ^~~
+[7.866s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:76:40: error: invalid use of incomplete type ‘class gazebo::physics::JointController’
+[7.866s]    76 |     impl_->model_->GetJointController()->SetVelocityPID(
+[7.866s]       |                                        ^~
+[7.866s] In file included from /usr/include/gazebo-11/gazebo/physics/State.hh:28,
+[7.866s]                  from /usr/include/gazebo-11/gazebo/physics/JointState.hh:24,
+[7.866s]                  from /usr/include/gazebo-11/gazebo/physics/Joint.hh:31,
+[7.867s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:2:
+[7.867s] /usr/include/gazebo-11/gazebo/physics/PhysicsTypes.hh:48:11: note: forward declaration of ‘class gazebo::physics::JointController’
+[7.867s]    48 |     class JointController;
+[7.868s]       |           ^~~~~~~~~~~~~~~
+[7.868s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:77:46: error: ‘class gazebo_plugin_sim::PlatformPluginTestPrivate’ has no member named ‘pidM1’
+[7.869s]    77 |      impl_->jointM1->GetScopedName(), impl_->pidM1);
+[7.869s]       |                                              ^~~~~
+[7.869s] At global scope:
+[7.869s] cc1plus: warning: unrecognized command line option ‘-Wno-inconsistent-missing-override’
+[7.869s] make[2]: *** [CMakeFiles/platform_plugin_test.dir/build.make:63: CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o] Error 1
+[7.869s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform_plugin_test.dir/all] Error 2
+[7.869s] make: *** [Makefile:141: all] Error 2
+[7.869s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12

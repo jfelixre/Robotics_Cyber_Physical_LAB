@@ -1,0 +1,50 @@
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp: In function ‘void setvel(std::shared_ptr<interfaces::srv::Platform1Vel_Request_<std::allocator<void> > >, std::shared_ptr<interfaces::srv::Platform1Vel_Response_<std::allocator<void> > >)’:
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:9:13: error: ‘using element_type = struct interfaces::srv::Platform1Vel_Response_<std::allocator<void> >’ {aka ‘struct interfaces::srv::Platform1Vel_Response_<std::allocator<void> >’} has no member named ‘sum’
+    9 |   response->sum = request->a + request->b + request->c;                                       // CHANGE
+      |             ^~~
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:9:28: error: ‘using element_type = struct interfaces::srv::Platform1Vel_Request_<std::allocator<void> >’ {aka ‘struct interfaces::srv::Platform1Vel_Request_<std::allocator<void> >’} has no member named ‘a’
+    9 |   response->sum = request->a + request->b + request->c;                                       // CHANGE
+      |                            ^
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:9:41: error: ‘using element_type = struct interfaces::srv::Platform1Vel_Request_<std::allocator<void> >’ {aka ‘struct interfaces::srv::Platform1Vel_Request_<std::allocator<void> >’} has no member named ‘b’
+    9 |   response->sum = request->a + request->b + request->c;                                       // CHANGE
+      |                                         ^
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:9:54: error: ‘using element_type = struct interfaces::srv::Platform1Vel_Request_<std::allocator<void> >’ {aka ‘struct interfaces::srv::Platform1Vel_Request_<std::allocator<void> >’} has no member named ‘c’
+    9 |   response->sum = request->a + request->b + request->c;                                       // CHANGE
+      |                                                      ^
+In file included from /opt/ros/foxy/include/rclcpp/client.hpp:40,
+                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:25,
+                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+                 from /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:1:
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:11:26: error: ‘using element_type = struct interfaces::srv::Platform1Vel_Request_<std::allocator<void> >’ {aka ‘struct interfaces::srv::Platform1Vel_Request_<std::allocator<void> >’} has no member named ‘a’
+   11 |                 request->a, request->b, request->c);                                          // CHANGE
+      |                          ^
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:11:38: error: ‘using element_type = struct interfaces::srv::Platform1Vel_Request_<std::allocator<void> >’ {aka ‘struct interfaces::srv::Platform1Vel_Request_<std::allocator<void> >’} has no member named ‘b’
+   11 |                 request->a, request->b, request->c);                                          // CHANGE
+      |                                      ^
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:11:50: error: ‘using element_type = struct interfaces::srv::Platform1Vel_Request_<std::allocator<void> >’ {aka ‘struct interfaces::srv::Platform1Vel_Request_<std::allocator<void> >’} has no member named ‘c’
+   11 |                 request->a, request->b, request->c);                                          // CHANGE
+      |                                                  ^
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:12:97: error: ‘using element_type = struct interfaces::srv::Platform1Vel_Response_<std::allocator<void> >’ {aka ‘struct interfaces::srv::Platform1Vel_Response_<std::allocator<void> >’} has no member named ‘sum’
+   12 |   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "sending back response: [%ld]", (long int)response->sum);
+      |                                                                                                 ^~~
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp: In function ‘int main(int, char**)’:
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:21:19: error: ‘tutorial_interfaces’ was not declared in this scope; did you mean ‘rcl_interfaces’?
+   21 |   rclcpp::Service<tutorial_interfaces::srv::AddThreeInts>::SharedPtr service =                 // CHANGE
+      |                   ^~~~~~~~~~~~~~~~~~~
+      |                   rcl_interfaces
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:21:57: error: template argument 1 is invalid
+   21 |   rclcpp::Service<tutorial_interfaces::srv::AddThreeInts>::SharedPtr service =                 // CHANGE
+      |                                                         ^
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:21:70: error: qualified-id in declaration before ‘service’
+   21 |   rclcpp::Service<tutorial_interfaces::srv::AddThreeInts>::SharedPtr service =                 // CHANGE
+      |                                                                      ^~~~~~~
+make[2]: *** [CMakeFiles/plat1_send_vel_node.dir/build.make:63: CMakeFiles/plat1_send_vel_node.dir/src/plat1_send_vel_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/plat1_send_vel_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

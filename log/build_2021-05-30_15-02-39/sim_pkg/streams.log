@@ -1,0 +1,74 @@
+[0.007s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/sim_pkg': AMENT_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/sim_pkg -- -j12 -l12
+[0.028s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.044s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.203s] -- Found std_msgs: 2.0.4 (/opt/ros/foxy/share/std_msgs/cmake)
+[0.219s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.222s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.319s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.352s] -- Found rclcpp: 2.3.1 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.380s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.381s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.484s] -- Found interfaces: 0.0.0 (/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake)
+[0.524s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[0.548s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "3.6.1") 
+[0.549s] -- Looking for ignition-math6 -- found version 6.8.0
+[0.552s] -- Searching for dependencies of ignition-math6
+[0.553s] -- Looking for OGRE...
+[0.557s] -- Found Ogre Ghadamon (1.9.0)
+[0.557s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[0.565s] -- Looking for OGRE_Paging...
+[0.565s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[0.565s] -- Looking for OGRE_Terrain...
+[0.566s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[0.566s] -- Looking for OGRE_Property...
+[0.566s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[0.566s] -- Looking for OGRE_RTShaderSystem...
+[0.566s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[0.566s] -- Looking for OGRE_Volume...
+[0.566s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[0.566s] -- Looking for OGRE_Overlay...
+[0.566s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[0.669s] -- Looking for ignition-math6 -- found version 6.8.0
+[0.669s] -- Looking for ignition-transport8 -- found version 8.2.0
+[0.670s] -- Searching for dependencies of ignition-transport8
+[0.684s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found suitable version "3.6.1", minimum required is "3") 
+[0.694s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[0.697s] -- Checking for module 'libzmq >= 4'
+[0.708s] --   Found libzmq , version 4.3.2
+[0.739s] -- Checking for module 'uuid'
+[0.750s] --   Found uuid, version 2.34.0
+[0.778s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[0.779s] -- Searching for dependencies of ignition-msgs5
+[0.794s] -- Looking for ignition-math6 -- found version 6.8.0
+[0.797s] -- Checking for module 'tinyxml2'
+[0.808s] --   Found tinyxml2, version 6.2.0
+[0.836s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[0.836s] -- Looking for ignition-common3 -- found version 3.13.1
+[0.837s] -- Searching for dependencies of ignition-common3
+[0.837s] -- Looking for dlfcn.h - found
+[0.837s] -- Looking for libdl - found
+[0.843s] -- Searching for <ignition-common3> component [graphics]
+[0.843s] -- Looking for ignition-common3-graphics -- found version 3.13.1
+[0.843s] -- Searching for dependencies of ignition-common3-graphics
+[0.844s] -- Looking for ignition-math6 -- found version 6.8.0
+[0.845s] -- Looking for ignition-fuel_tools4 -- found version 4.3.0
+[0.845s] -- Searching for dependencies of ignition-fuel_tools4
+[0.864s] -- Checking for module 'jsoncpp'
+[0.875s] --   Found jsoncpp, version 1.7.4
+[0.905s] -- Checking for module 'libzip'
+[0.916s] --   Found libzip, version 1.5.1
+[0.943s] -- Looking for ignition-common3 -- found version 3.13.1
+[0.943s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[0.990s] -- Configuring done
+[0.996s] -- Generating done
+[0.997s] -- Build files have been written to: /home/javierfr/Tesis_ws/V1/build/sim_pkg
+[1.019s] [35m[1mScanning dependencies of target plat1_send_vel_node[0m
+[1.036s] [ 50%] [32mBuilding CXX object CMakeFiles/plat1_send_vel_node.dir/src/plat1_send_vel_node.cpp.o[0m
+[1.252s] [01m[K/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:3:10:[m[K [01;31m[Kfatal error: [m[Kgazebo/gazebo_config.h: No such file or directory
+[1.252s]     3 | #include [01;31m[K<gazebo/gazebo_config.h>[m[K
+[1.252s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.252s] compilation terminated.
+[1.253s] make[2]: *** [CMakeFiles/plat1_send_vel_node.dir/build.make:63: CMakeFiles/plat1_send_vel_node.dir/src/plat1_send_vel_node.cpp.o] Error 1
+[1.254s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/plat1_send_vel_node.dir/all] Error 2
+[1.254s] make: *** [Makefile:141: all] Error 2
+[1.256s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/sim_pkg' returned '2': AMENT_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/sim_pkg -- -j12 -l12

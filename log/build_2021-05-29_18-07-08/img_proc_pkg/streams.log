@@ -1,0 +1,29 @@
+[0.162s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[3.931s] [ 33%] Built target img_proc_node
+[4.144s] [100%] Built target img_subs_test_node
+[4.144s] [100%] Built target img_publ_test_node
+[4.153s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[4.181s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/img_proc_pkg
+[4.259s] -- Install configuration: ""
+[4.260s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_proc_node
+[4.329s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_proc_node" to ""
+[4.329s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_publ_test_node
+[4.560s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_publ_test_node" to ""
+[4.560s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_subs_test_node
+[4.740s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_subs_test_node" to ""
+[4.741s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/ament_index/resource_index/package_run_dependencies/img_proc_pkg
+[4.754s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/ament_index/resource_index/parent_prefix_path/img_proc_pkg
+[4.834s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/environment/ament_prefix_path.sh
+[5.088s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/environment/ament_prefix_path.dsv
+[5.190s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/environment/path.sh
+[5.191s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/environment/path.dsv
+[5.191s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/local_setup.bash
+[5.266s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/local_setup.sh
+[5.362s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/local_setup.zsh
+[5.420s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/local_setup.dsv
+[5.421s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/package.dsv
+[5.497s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/ament_index/resource_index/packages/img_proc_pkg
+[5.497s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/cmake/img_proc_pkgConfig.cmake
+[5.557s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/cmake/img_proc_pkgConfig-version.cmake
+[5.627s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/package.xml
+[5.691s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/img_proc_pkg

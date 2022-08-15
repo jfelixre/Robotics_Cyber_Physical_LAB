@@ -1,0 +1,54 @@
+[0.021s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/interfaces -- -j12 -l12
+[0.042s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.058s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.5", minimum required is "3") 
+[0.058s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.200s] -- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)
+[0.202s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.205s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.317s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.351s] -- Found PythonInterp: /usr/bin/python3 (found version "3.8.5") 
+[0.489s] CMake Error at /opt/ros/foxy/share/rosidl_adapter/cmake/rosidl_adapt_interfaces.cmake:60 (message):
+[0.489s]   execute_process(/usr/bin/python3 -m rosidl_adapter --package-name
+[0.489s]   interfaces --arguments-file
+[0.489s]   /home/javierfr/Tesis_ws/V1/build/interfaces/rosidl_adapter__arguments__interfaces.json
+[0.489s]   --output-dir
+[0.489s]   /home/javierfr/Tesis_ws/V1/build/interfaces/rosidl_adapter/interfaces
+[0.489s]   --output-file
+[0.490s]   /home/javierfr/Tesis_ws/V1/build/interfaces/rosidl_adapter/interfaces.idls)
+[0.490s]   returned error code 1:
+[0.490s] 
+[0.490s]   Error processing 'float32 vel_M1' of 'interfaces/MotorVels': ''vel_M1' is
+[0.490s]   an invalid field name.  It should have the pattern
+[0.490s]   '^(?!.*__)(?!.*_$)[a-z][a-z0-9_]*$''
+[0.490s] 
+[0.490s]   Traceback (most recent call last):
+[0.490s] 
+[0.490s]     File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+[0.490s]       return _run_code(code, main_globals, None,
+[0.491s]     File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+[0.491s]       exec(code, run_globals)
+[0.491s]     File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_adapter/__main__.py", line 19, in <module>
+[0.491s]       sys.exit(main())
+[0.491s]     File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_adapter/main.py", line 53, in main
+[0.491s]       abs_idl_file = convert_to_idl(
+[0.491s]     File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_adapter/__init__.py", line 19, in convert_to_idl
+[0.491s]       return convert_msg_to_idl(
+[0.491s]     File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_adapter/msg/__init__.py", line 28, in convert_msg_to_idl
+[0.491s]       msg = parse_message_string(package_name, input_file.stem, content)
+[0.491s]     File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_adapter/parser.py", line 515, in parse_message_string
+[0.491s]       fields.append(Field(
+[0.492s]     File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_adapter/parser.py", line 353, in __init__
+[0.492s]       raise NameError(
+[0.492s] 
+[0.492s]   NameError: 'vel_M1' is an invalid field name.  It should have the pattern
+[0.492s]   '^(?!.*__)(?!.*_$)[a-z][a-z0-9_]*$'
+[0.492s] 
+[0.492s] Call Stack (most recent call first):
+[0.492s]   /opt/ros/foxy/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:130 (rosidl_adapt_interfaces)
+[0.492s]   CMakeLists.txt:22 (rosidl_generate_interfaces)
+[0.492s] 
+[0.492s] 
+[0.492s] -- Configuring incomplete, errors occurred!
+[0.493s] See also "/home/javierfr/Tesis_ws/V1/build/interfaces/CMakeFiles/CMakeOutput.log".
+[0.495s] make: *** [Makefile:748: cmake_check_build_system] Error 1
+[0.496s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/interfaces' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/interfaces -- -j12 -l12

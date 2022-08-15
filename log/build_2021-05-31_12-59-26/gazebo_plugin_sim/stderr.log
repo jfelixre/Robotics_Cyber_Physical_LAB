@@ -1,0 +1,32 @@
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:53:2: error: ‘PlatformPluginTest’ does not name a type; did you mean ‘PlatformPluginTestPrivate’?
+   53 |  PlatformPluginTest::PlatformPluginTest()
+      |  ^~~~~~~~~~~~~~~~~~
+      |  PlatformPluginTestPrivate
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:59:2: error: ‘PlatformPluginTest’ does not name a type; did you mean ‘PlatformPluginTestPrivate’?
+   59 |  PlatformPluginTest::~PlatformPluginTest()
+      |  ^~~~~~~~~~~~~~~~~~
+      |  PlatformPluginTestPrivate
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:64:7: error: ‘PlatformPluginTest’ has not been declared
+   64 |  void PlatformPluginTest::Load(gazebo::physics::ModelPtr _model, sdf::ElementPtr _sdf)
+      |       ^~~~~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp: In function ‘void gazebo_plugin_sim::Load(gazebo::physics::ModelPtr, sdf::v9::ElementPtr)’:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:66:3: error: ‘impl_’ was not declared in this scope; did you mean ‘mpl_’?
+   66 |   impl_->model_ = _model;
+      |   ^~~~~
+      |   mpl_
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:72:29: warning: unused variable ‘qos’ [-Wunused-variable]
+   72 |     const gazebo_ros::QoS & qos = impl_->ros_node_->get_qos();
+      |                             ^~~
+In file included from /opt/ros/foxy/include/gazebo_plugins/gazebo_ros_diff_drive.hpp:36,
+                 from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:6:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp: In function ‘gazebo::ModelPlugin* gazebo_plugin_sim::RegisterPlugin()’:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:75:27: error: expected type-specifier before ‘PlatformPluginTest’
+   75 |  GZ_REGISTER_MODEL_PLUGIN(PlatformPluginTest)
+      |                           ^~~~~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:75:27: error: expected ‘;’ before ‘PlatformPluginTest’
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:75:27: error: ‘PlatformPluginTest’ was not declared in this scope; did you mean ‘PlatformPluginTestPrivate’?
+At global scope:
+cc1plus: warning: unrecognized command line option ‘-Wno-inconsistent-missing-override’
+make[2]: *** [CMakeFiles/platform_plugin_test.dir/build.make:63: CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform_plugin_test.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

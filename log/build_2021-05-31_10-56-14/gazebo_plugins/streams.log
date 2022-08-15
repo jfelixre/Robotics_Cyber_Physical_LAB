@@ -1,0 +1,40 @@
+[0.020s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugins': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugins -- -j12 -l12
+[0.059s] [35m[1mScanning dependencies of target meca_platform_plugin_test[0m
+[0.128s] [ 50%] [32mBuilding CXX object CMakeFiles/meca_platform_plugin_test.dir/src/meca_platform_plugin_test.cpp.o[0m
+[10.115s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp: In member function ‘virtual void gazebo::MecaPlatformTestPlugin::Load(gazebo::physics::ModelPtr, sdf::v9::ElementPtr)’:
+[10.115s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:53:31: warning: unused variable ‘qos’ [-Wunused-variable]
+[10.115s]    53 |       const gazebo_ros::QoS & qos = this->ros_node_->get_qos();
+[10.115s]       |                               ^~~
+[10.130s] [100%] [32m[1mLinking CXX shared library libmeca_platform_plugin_test.so[0m
+[10.496s] [100%] Built target meca_platform_plugin_test
+[10.505s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugins' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugins -- -j12 -l12
+[10.524s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugins': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/gazebo_plugins
+[10.531s] -- Install configuration: ""
+[10.531s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/gazebo_plugins/environment/library_path.sh
+[10.531s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/gazebo_plugins/environment/library_path.dsv
+[10.531s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/ament_index/resource_index/package_run_dependencies/gazebo_plugins
+[10.531s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/ament_index/resource_index/parent_prefix_path/gazebo_plugins
+[10.531s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/gazebo_plugins/environment/ament_prefix_path.sh
+[10.531s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/gazebo_plugins/environment/ament_prefix_path.dsv
+[10.532s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/gazebo_plugins/environment/path.sh
+[10.532s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/gazebo_plugins/environment/path.dsv
+[10.532s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/gazebo_plugins/local_setup.bash
+[10.532s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/gazebo_plugins/local_setup.sh
+[10.532s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/gazebo_plugins/local_setup.zsh
+[10.532s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/gazebo_plugins/local_setup.dsv
+[10.532s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/gazebo_plugins/package.dsv
+[10.532s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/ament_index/resource_index/packages/gazebo_plugins
+[10.532s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/gazebo_plugins/cmake/ament_cmake_export_libraries-extras.cmake
+[10.532s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/gazebo_plugins/cmake/ament_cmake_export_include_directories-extras.cmake
+[10.532s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/gazebo_plugins/cmake/ament_cmake_export_dependencies-extras.cmake
+[10.532s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/gazebo_plugins/cmake/gazebo_pluginsConfig.cmake
+[10.533s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/gazebo_plugins/cmake/gazebo_pluginsConfig-version.cmake
+[10.533s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/gazebo_plugins/package.xml
+[10.533s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/include
+[10.533s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/include/gazebo_plugin_sim
+[10.533s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/include/gazebo_plugin_sim/platform_plugin_test.hpp
+[10.533s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/lib/libmeca_platform_plugin_test.so
+[10.535s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/gazebo_plugins/lib/libmeca_platform_plugin_test.so" to ""
+[10.535s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/gazebo_plugins//worlds
+[10.535s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugins/share/gazebo_plugins//worlds/test_mecanum_platform.world
+[10.537s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugins' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/gazebo_plugins

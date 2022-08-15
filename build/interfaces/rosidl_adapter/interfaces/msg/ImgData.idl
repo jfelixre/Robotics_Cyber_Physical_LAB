@@ -1,0 +1,40 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from interfaces/msg/ImgData.msg
+// generated code does not contain a copyright notice
+
+
+module interfaces {
+  module msg {
+    struct ImgData {
+      int32 r1_x;
+
+      int32 r1_y;
+
+      float r1_ang;
+
+      int32 r2_x;
+
+      int32 r2_y;
+
+      float r2_ang;
+
+      int32 obj1_x;
+
+      int32 obj1_y;
+
+      float obj1_ang;
+
+      int32 obj2_x;
+
+      int32 obj2_y;
+
+      float obj2_ang;
+
+      int32 tgt_x;
+
+      int32 tgt_y;
+
+      float tgt_ang;
+    };
+  };
+};

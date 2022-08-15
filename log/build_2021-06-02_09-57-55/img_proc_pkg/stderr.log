@@ -1,0 +1,8 @@
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:[m[K In member function ‘[01m[Kvoid Img_Proc_Qr_Detector::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:69:30:[m[K [01;31m[Kerror: [m[Kfound ‘[01m[K:[m[K’ in nested-name-specifier, expected ‘[01m[K::[m[K’
+   69 |           cv::line(image1, cv[01;31m[K:[m[KPoint2i(bbox.at<float>(i,0),bbox.at<float>(i,1)),
+      |                              [01;31m[K^[m[K
+      |                              [32m[K::[m[K
+make[2]: *** [CMakeFiles/img_proc_qr_detector.dir/build.make:63: CMakeFiles/img_proc_qr_detector.dir/src/img_proc_qr_detector.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:84: CMakeFiles/img_proc_qr_detector.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

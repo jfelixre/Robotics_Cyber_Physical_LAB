@@ -1,0 +1,48 @@
+[0.112s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.206s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.223s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.437s] -- Found sensor_msgs: 2.0.4 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[0.811s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.878s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.440s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.707s] -- Found rclcpp: 2.3.1 (/opt/ros/foxy/share/rclcpp/cmake)
+[1.803s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[1.805s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.100s] -- Found image_transport: 2.3.0 (/opt/ros/foxy/share/image_transport/cmake)
+[2.300s] -- Found cv_bridge: 2.2.1 (/opt/ros/foxy/share/cv_bridge/cmake)
+[2.427s] -- Configuring done
+[2.518s] -- Generating done
+[2.525s] -- Build files have been written to: /home/javierfr/Tesis_ws/V1/build/img_proc_pkg
+[2.641s] [35m[1mScanning dependencies of target img_proc_node[0m
+[2.655s] [35m[1mScanning dependencies of target img_publ_test_node[0m
+[2.832s] [ 25%] [32mBuilding CXX object CMakeFiles/img_proc_node.dir/src/img_proc_node.cpp.o[0m
+[2.849s] [ 50%] [32mBuilding CXX object CMakeFiles/img_publ_test_node.dir/src/img_publ_test_node.cpp.o[0m
+[3.406s] [ 75%] [32m[1mLinking CXX executable img_proc_node[0m
+[3.556s] [ 75%] Built target img_proc_node
+[5.331s] [100%] [32m[1mLinking CXX executable img_publ_test_node[0m
+[5.631s] /usr/bin/ld: warning: libopencv_imgcodecs.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgcodecs.so.4.5
+[5.631s] /usr/bin/ld: warning: libopencv_core.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_core.so.4.5
+[5.639s] [100%] Built target img_publ_test_node
+[5.647s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[5.666s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/img_proc_pkg
+[5.673s] -- Install configuration: ""
+[5.709s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_proc_node
+[5.710s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_proc_node" to ""
+[5.710s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_publ_test_node
+[5.712s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_publ_test_node" to ""
+[5.712s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/ament_index/resource_index/package_run_dependencies/img_proc_pkg
+[5.712s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/ament_index/resource_index/parent_prefix_path/img_proc_pkg
+[5.712s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/environment/ament_prefix_path.sh
+[5.713s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/environment/ament_prefix_path.dsv
+[5.713s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/environment/path.sh
+[5.713s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/environment/path.dsv
+[5.713s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/local_setup.bash
+[5.713s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/local_setup.sh
+[5.713s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/local_setup.zsh
+[5.713s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/local_setup.dsv
+[5.713s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/package.dsv
+[5.714s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/ament_index/resource_index/packages/img_proc_pkg
+[5.714s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/cmake/img_proc_pkgConfig.cmake
+[5.714s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/cmake/img_proc_pkgConfig-version.cmake
+[5.714s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/package.xml
+[5.718s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/img_proc_pkg

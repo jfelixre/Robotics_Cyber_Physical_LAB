@@ -1,0 +1,264 @@
+[0.007s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/sim_pkg': AMENT_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/sim_pkg -- -j12 -l12
+[0.028s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.044s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.186s] -- Found std_msgs: 2.0.4 (/opt/ros/foxy/share/std_msgs/cmake)
+[0.203s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.205s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.302s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.335s] -- Found rclcpp: 2.3.1 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.363s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.364s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.467s] -- Found interfaces: 0.0.0 (/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake)
+[0.507s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[0.531s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "3.6.1") 
+[0.532s] -- Looking for ignition-math6 -- found version 6.8.0
+[0.535s] -- Searching for dependencies of ignition-math6
+[0.537s] -- Looking for OGRE...
+[0.541s] -- Found Ogre Ghadamon (1.9.0)
+[0.541s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[0.549s] -- Looking for OGRE_Paging...
+[0.549s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[0.550s] -- Looking for OGRE_Terrain...
+[0.550s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[0.550s] -- Looking for OGRE_Property...
+[0.550s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[0.550s] -- Looking for OGRE_RTShaderSystem...
+[0.550s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[0.550s] -- Looking for OGRE_Volume...
+[0.550s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[0.550s] -- Looking for OGRE_Overlay...
+[0.550s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[0.656s] -- Looking for ignition-math6 -- found version 6.8.0
+[0.656s] -- Looking for ignition-transport8 -- found version 8.2.0
+[0.656s] -- Searching for dependencies of ignition-transport8
+[0.672s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found suitable version "3.6.1", minimum required is "3") 
+[0.681s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[0.684s] -- Checking for module 'libzmq >= 4'
+[0.696s] --   Found libzmq , version 4.3.2
+[0.727s] -- Checking for module 'uuid'
+[0.738s] --   Found uuid, version 2.34.0
+[0.765s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[0.765s] -- Searching for dependencies of ignition-msgs5
+[0.781s] -- Looking for ignition-math6 -- found version 6.8.0
+[0.784s] -- Checking for module 'tinyxml2'
+[0.795s] --   Found tinyxml2, version 6.2.0
+[0.823s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[0.824s] -- Looking for ignition-common3 -- found version 3.13.1
+[0.824s] -- Searching for dependencies of ignition-common3
+[0.824s] -- Looking for dlfcn.h - found
+[0.824s] -- Looking for libdl - found
+[0.830s] -- Searching for <ignition-common3> component [graphics]
+[0.830s] -- Looking for ignition-common3-graphics -- found version 3.13.1
+[0.831s] -- Searching for dependencies of ignition-common3-graphics
+[0.831s] -- Looking for ignition-math6 -- found version 6.8.0
+[0.832s] -- Looking for ignition-fuel_tools4 -- found version 4.3.0
+[0.832s] -- Searching for dependencies of ignition-fuel_tools4
+[0.851s] -- Checking for module 'jsoncpp'
+[0.862s] --   Found jsoncpp, version 1.7.4
+[0.893s] -- Checking for module 'libzip'
+[0.904s] --   Found libzip, version 1.5.1
+[0.931s] -- Looking for ignition-common3 -- found version 3.13.1
+[0.931s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[0.976s] -- Configuring done
+[0.982s] -- Generating done
+[0.984s] -- Build files have been written to: /home/javierfr/Tesis_ws/V1/build/sim_pkg
+[1.006s] [35m[1mScanning dependencies of target plat1_send_vel_node[0m
+[1.021s] [ 50%] [32mBuilding CXX object CMakeFiles/plat1_send_vel_node.dir/src/plat1_send_vel_node.cpp.o[0m
+[6.580s] In file included from /usr/include/ignition/math6/ignition/math.hh:30,
+[6.580s]                  from /usr/include/sdformat-9.5/sdf/Param.hh:33,
+[6.580s]                  from /usr/include/sdformat-9.5/sdf/Element.hh:28,
+[6.580s]                  from /usr/include/sdformat-9.5/sdf/Actor.hh:25,
+[6.580s]                  from /usr/include/sdformat-9.5/sdf/sdf.hh:2,
+[6.580s]                  from /usr/include/gazebo-11/gazebo/msgs/msgs.hh:22,
+[6.580s]                  from /usr/include/gazebo-11/gazebo/transport/CallbackHelper.hh:29,
+[6.580s]                  from /usr/include/gazebo-11/gazebo/transport/transport.hh:2,
+[6.580s]                  from /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:4:
+[6.580s] /usr/include/ignition/math6/ignition/math/Capsule.hh:91:20: error: ‘optional’ in namespace ‘std’ does not name a template type
+[6.581s]    91 |       public: std::optional< MassMatrix3<Precision> > MassMatrix() const;
+[6.581s]       |                    ^~~~~~~~
+[6.581s] /usr/include/ignition/math6/ignition/math/Capsule.hh:91:15: note: ‘std::optional’ is only available from C++17 onwards
+[6.581s]    91 |       public: std::optional< MassMatrix3<Precision> > MassMatrix() const;
+[6.581s]       |               ^~~
+[6.581s] In file included from /usr/include/ignition/math6/ignition/math/Capsule.hh:149,
+[6.581s]                  from /usr/include/ignition/math6/ignition/math.hh:30,
+[6.581s]                  from /usr/include/sdformat-9.5/sdf/Param.hh:33,
+[6.581s]                  from /usr/include/sdformat-9.5/sdf/Element.hh:28,
+[6.581s]                  from /usr/include/sdformat-9.5/sdf/Actor.hh:25,
+[6.581s]                  from /usr/include/sdformat-9.5/sdf/sdf.hh:2,
+[6.581s]                  from /usr/include/gazebo-11/gazebo/msgs/msgs.hh:22,
+[6.581s]                  from /usr/include/gazebo-11/gazebo/transport/CallbackHelper.hh:29,
+[6.581s]                  from /usr/include/gazebo-11/gazebo/transport/transport.hh:2,
+[6.581s]                  from /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:4:
+[6.581s] /usr/include/ignition/math6/ignition/math/detail/Capsule.hh:100:6: error: ‘optional’ in namespace ‘std’ does not name a template type
+[6.581s]   100 | std::optional< MassMatrix3<T> > Capsule<T>::MassMatrix() const
+[6.582s]       |      ^~~~~~~~
+[6.582s] /usr/include/ignition/math6/ignition/math/detail/Capsule.hh:100:1: note: ‘std::optional’ is only available from C++17 onwards
+[6.582s]   100 | std::optional< MassMatrix3<T> > Capsule<T>::MassMatrix() const
+[6.582s]       | ^~~
+[6.582s] In file included from /usr/include/ignition/math6/ignition/math.hh:34,
+[6.582s]                  from /usr/include/sdformat-9.5/sdf/Param.hh:33,
+[6.583s]                  from /usr/include/sdformat-9.5/sdf/Element.hh:28,
+[6.584s]                  from /usr/include/sdformat-9.5/sdf/Actor.hh:25,
+[6.584s]                  from /usr/include/sdformat-9.5/sdf/sdf.hh:2,
+[6.584s]                  from /usr/include/gazebo-11/gazebo/msgs/msgs.hh:22,
+[6.585s]                  from /usr/include/gazebo-11/gazebo/transport/CallbackHelper.hh:29,
+[6.585s]                  from /usr/include/gazebo-11/gazebo/transport/transport.hh:2,
+[6.585s]                  from /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:4:
+[6.585s] /usr/include/ignition/math6/ignition/math/Ellipsoid.hh:77:20: error: ‘optional’ in namespace ‘std’ does not name a template type
+[6.585s]    77 |       public: std::optional< MassMatrix3<Precision> > MassMatrix() const;
+[6.585s]       |                    ^~~~~~~~
+[6.585s] /usr/include/ignition/math6/ignition/math/Ellipsoid.hh:77:15: note: ‘std::optional’ is only available from C++17 onwards
+[6.585s]    77 |       public: std::optional< MassMatrix3<Precision> > MassMatrix() const;
+[6.585s]       |               ^~~
+[6.585s] In file included from /usr/include/ignition/math6/ignition/math/Ellipsoid.hh:132,
+[6.585s]                  from /usr/include/ignition/math6/ignition/math.hh:34,
+[6.586s]                  from /usr/include/sdformat-9.5/sdf/Param.hh:33,
+[6.586s]                  from /usr/include/sdformat-9.5/sdf/Element.hh:28,
+[6.586s]                  from /usr/include/sdformat-9.5/sdf/Actor.hh:25,
+[6.586s]                  from /usr/include/sdformat-9.5/sdf/sdf.hh:2,
+[6.586s]                  from /usr/include/gazebo-11/gazebo/msgs/msgs.hh:22,
+[6.586s]                  from /usr/include/gazebo-11/gazebo/transport/CallbackHelper.hh:29,
+[6.586s]                  from /usr/include/gazebo-11/gazebo/transport/transport.hh:2,
+[6.586s]                  from /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:4:
+[6.586s] /usr/include/ignition/math6/ignition/math/detail/Ellipsoid.hh:77:6: error: ‘optional’ in namespace ‘std’ does not name a template type
+[6.586s]    77 | std::optional< MassMatrix3<T> > Ellipsoid<T>::MassMatrix() const
+[6.586s]       |      ^~~~~~~~
+[6.586s] /usr/include/ignition/math6/ignition/math/detail/Ellipsoid.hh:77:1: note: ‘std::optional’ is only available from C++17 onwards
+[6.586s]    77 | std::optional< MassMatrix3<T> > Ellipsoid<T>::MassMatrix() const
+[6.586s]       | ^~~
+[6.586s] In file included from /usr/include/sdformat-9.5/sdf/Element.hh:28,
+[6.586s]                  from /usr/include/sdformat-9.5/sdf/Actor.hh:25,
+[6.586s]                  from /usr/include/sdformat-9.5/sdf/sdf.hh:2,
+[6.586s]                  from /usr/include/gazebo-11/gazebo/msgs/msgs.hh:22,
+[6.586s]                  from /usr/include/gazebo-11/gazebo/transport/CallbackHelper.hh:29,
+[6.587s]                  from /usr/include/gazebo-11/gazebo/transport/transport.hh:2,
+[6.587s]                  from /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:4:
+[6.587s] /usr/include/sdformat-9.5/sdf/Param.hh:72:57: error: expected constructor, destructor, or type conversion before ‘;’ token
+[6.587s]    72 |   template<class T> ParamStreamer(T) -> ParamStreamer<T>;
+[6.587s]       |                                                         ^
+[6.587s] /usr/include/sdformat-9.5/sdf/Param.hh:83:47: error: ‘variant’ is not a member of ‘std’
+[6.587s]    83 |                            ParamStreamer<std::variant<Ts...>> sv)
+[6.587s]       |                                               ^~~~~~~
+[6.587s] /usr/include/sdformat-9.5/sdf/Param.hh:83:47: note: ‘std::variant’ is only available from C++17 onwards
+[6.587s] /usr/include/sdformat-9.5/sdf/Param.hh:83:47: error: ‘variant’ is not a member of ‘std’
+[6.587s] /usr/include/sdformat-9.5/sdf/Param.hh:83:47: note: ‘std::variant’ is only available from C++17 onwards
+[6.587s] /usr/include/sdformat-9.5/sdf/Param.hh:83:57: error: expected parameter pack before ‘...’
+[6.587s]    83 |                            ParamStreamer<std::variant<Ts...>> sv)
+[6.587s]       |                                                         ^~~
+[6.587s] /usr/include/sdformat-9.5/sdf/Param.hh:83:57: error: template argument 1 is invalid
+[6.587s] /usr/include/sdformat-9.5/sdf/Param.hh:83:47: error: ‘variant’ is not a member of ‘std’
+[6.588s]    83 |                            ParamStreamer<std::variant<Ts...>> sv)
+[6.588s]       |                                               ^~~~~~~
+[6.588s] /usr/include/sdformat-9.5/sdf/Param.hh:83:47: note: ‘std::variant’ is only available from C++17 onwards
+[6.588s] /usr/include/sdformat-9.5/sdf/Param.hh:83:47: error: ‘variant’ is not a member of ‘std’
+[6.588s] /usr/include/sdformat-9.5/sdf/Param.hh:83:47: note: ‘std::variant’ is only available from C++17 onwards
+[6.588s] /usr/include/sdformat-9.5/sdf/Param.hh:83:57: error: expected parameter pack before ‘...’
+[6.588s]    83 |                            ParamStreamer<std::variant<Ts...>> sv)
+[6.588s]       |                                                         ^~~
+[6.588s] /usr/include/sdformat-9.5/sdf/Param.hh:83:60: error: template argument 1 is invalid
+[6.588s]    83 |                            ParamStreamer<std::variant<Ts...>> sv)
+[6.588s]       |                                                            ^~
+[6.588s] /usr/include/sdformat-9.5/sdf/Param.hh:83:47: error: ‘variant’ is not a member of ‘std’
+[6.588s]    83 |                            ParamStreamer<std::variant<Ts...>> sv)
+[6.588s]       |                                               ^~~~~~~
+[6.588s] /usr/include/sdformat-9.5/sdf/Param.hh:83:47: note: ‘std::variant’ is only available from C++17 onwards
+[6.588s] /usr/include/sdformat-9.5/sdf/Param.hh:83:47: error: ‘variant’ is not a member of ‘std’
+[6.588s] /usr/include/sdformat-9.5/sdf/Param.hh:83:47: note: ‘std::variant’ is only available from C++17 onwards
+[6.588s] /usr/include/sdformat-9.5/sdf/Param.hh:83:57: error: expected parameter pack before ‘...’
+[6.589s]    83 |                            ParamStreamer<std::variant<Ts...>> sv)
+[6.589s]       |                                                         ^~~
+[6.589s] /usr/include/sdformat-9.5/sdf/Param.hh:83:60: error: template argument 1 is invalid
+[6.589s]    83 |                            ParamStreamer<std::variant<Ts...>> sv)
+[6.589s]       |                                                            ^~
+[6.589s] /usr/include/sdformat-9.5/sdf/Param.hh:83:28: error: ‘ParamStreamer’ is not a type
+[6.589s]    83 |                            ParamStreamer<std::variant<Ts...>> sv)
+[6.589s]       |                            ^~~~~~~~~~~~~
+[6.589s] /usr/include/sdformat-9.5/sdf/Param.hh:83:41: error: expected ‘,’ or ‘...’ before ‘<’ token
+[6.589s]    83 |                            ParamStreamer<std::variant<Ts...>> sv)
+[6.589s]       |                                         ^
+[6.589s] /usr/include/sdformat-9.5/sdf/Param.hh: In function ‘std::ostream& sdf::v9::operator<<(std::ostream&, int)’:
+[6.589s] /usr/include/sdformat-9.5/sdf/Param.hh:85:10: error: ‘visit’ is not a member of ‘std’
+[6.589s]    85 |     std::visit([&os](auto const &v)
+[6.589s]       |          ^~~~~
+[6.589s] /usr/include/sdformat-9.5/sdf/Param.hh:85:10: note: ‘std::visit’ is only available from C++17 onwards
+[6.589s] /usr/include/sdformat-9.5/sdf/Param.hh: In lambda function:
+[6.589s] /usr/include/sdformat-9.5/sdf/Param.hh:87:28: error: missing template arguments before ‘{’ token
+[6.590s]    87 |         os << ParamStreamer{v};
+[6.590s]       |                            ^
+[6.590s] /usr/include/sdformat-9.5/sdf/Param.hh: In function ‘std::ostream& sdf::v9::operator<<(std::ostream&, int)’:
+[6.590s] /usr/include/sdformat-9.5/sdf/Param.hh:88:10: error: ‘sv’ was not declared in this scope
+[6.590s]    88 |       }, sv.val);
+[6.590s]       |          ^~
+[6.590s] /usr/include/sdformat-9.5/sdf/Param.hh: At global scope:
+[6.590s] /usr/include/sdformat-9.5/sdf/Param.hh:173:30: error: ‘std::any’ has not been declared
+[6.590s]   173 |     public: bool GetAny(std::any &_anyVal) const;
+[6.590s]       |                              ^~~
+[6.590s] /usr/include/sdformat-9.5/sdf/Param.hh:242:32: error: ‘any’ is not a member of ‘std’
+[6.590s]   242 |     public: std::function<std::any ()> updateFunc;
+[6.590s]       |                                ^~~
+[6.590s] /usr/include/sdformat-9.5/sdf/Param.hh:242:32: note: ‘std::any’ is only available from C++17 onwards
+[6.590s] /usr/include/sdformat-9.5/sdf/Param.hh:242:32: error: ‘any’ is not a member of ‘std’
+[6.590s] /usr/include/sdformat-9.5/sdf/Param.hh:242:32: note: ‘std::any’ is only available from C++17 onwards
+[6.590s] /usr/include/sdformat-9.5/sdf/Param.hh:242:38: error: template argument 1 is invalid
+[6.590s]   242 |     public: std::function<std::any ()> updateFunc;
+[6.590s]       |                                      ^
+[6.590s] /usr/include/sdformat-9.5/sdf/Param.hh:246:26: error: ‘variant’ in namespace ‘std’ does not name a template type
+[6.591s]   246 |     public: typedef std::variant<bool, char, std::string, int, std::uint64_t,
+[6.591s]       |                          ^~~~~~~
+[6.591s] /usr/include/sdformat-9.5/sdf/Param.hh:246:21: note: ‘std::variant’ is only available from C++17 onwards
+[6.591s]   246 |     public: typedef std::variant<bool, char, std::string, int, std::uint64_t,
+[6.591s]       |                     ^~~
+[6.591s] /usr/include/sdformat-9.5/sdf/Param.hh:257:13: error: ‘ParamVariant’ does not name a type
+[6.591s]   257 |     public: ParamVariant value;
+[6.591s]       |             ^~~~~~~~~~~~
+[6.591s] /usr/include/sdformat-9.5/sdf/Param.hh:260:13: error: ‘ParamVariant’ does not name a type
+[6.591s]   260 |     public: ParamVariant defaultValue;
+[6.591s]       |             ^~~~~~~~~~~~
+[6.591s] /usr/include/sdformat-9.5/sdf/Param.hh: In member function ‘bool sdf::v9::Param::Get(T&) const’:
+[6.591s] /usr/include/sdformat-9.5/sdf/Param.hh:298:69: error: ‘class sdf::v9::ParamPrivate’ has no member named ‘value’
+[6.591s]   298 |         std::string strValue = std::get<std::string>(this->dataPtr->value);
+[6.591s]       |                                                                     ^~~~~
+[6.591s] /usr/include/sdformat-9.5/sdf/Param.hh:318:25: error: ‘get_if’ is not a member of ‘std’; did you mean ‘get_time’?
+[6.591s]   318 |         T *value = std::get_if<T>(&this->dataPtr->value);
+[6.591s]       |                         ^~~~~~
+[6.591s]       |                         get_time
+[6.591s] /usr/include/sdformat-9.5/sdf/Param.hh:318:33: error: expected primary-expression before ‘>’ token
+[6.592s]   318 |         T *value = std::get_if<T>(&this->dataPtr->value);
+[6.592s]       |                                 ^
+[6.592s] /usr/include/sdformat-9.5/sdf/Param.hh:318:51: error: ‘class sdf::v9::ParamPrivate’ has no member named ‘value’
+[6.592s]   318 |         T *value = std::get_if<T>(&this->dataPtr->value);
+[6.592s]       |                                                   ^~~~~
+[6.592s] /usr/include/sdformat-9.5/sdf/Param.hh:324:30: error: missing template arguments before ‘{’ token
+[6.592s]   324 |           ss << ParamStreamer{this->dataPtr->value};
+[6.592s]       |                              ^
+[6.592s] /usr/include/sdformat-9.5/sdf/Param.hh: In member function ‘bool sdf::v9::Param::GetDefault(T&) const’:
+[6.592s] /usr/include/sdformat-9.5/sdf/Param.hh:349:26: error: missing template arguments before ‘{’ token
+[6.592s]   349 |       ss << ParamStreamer{this->dataPtr->defaultValue};
+[6.592s]       |                          ^
+[6.592s] /usr/include/sdformat-9.5/sdf/Param.hh: In member function ‘bool sdf::v9::Param::IsType() const’:
+[6.592s] /usr/include/sdformat-9.5/sdf/Param.hh:369:17: error: ‘holds_alternative’ is not a member of ‘std’
+[6.592s]   369 |     return std::holds_alternative<Type>(this->dataPtr->value);
+[6.592s]       |                 ^~~~~~~~~~~~~~~~~
+[6.592s] /usr/include/sdformat-9.5/sdf/Param.hh:369:39: error: expected primary-expression before ‘>’ token
+[6.592s]   369 |     return std::holds_alternative<Type>(this->dataPtr->value);
+[6.592s]       |                                       ^
+[6.593s] /usr/include/sdformat-9.5/sdf/Param.hh:369:56: error: ‘class sdf::v9::ParamPrivate’ has no member named ‘value’
+[6.593s]   369 |     return std::holds_alternative<Type>(this->dataPtr->value);
+[6.593s]       |                                                        ^~~~~
+[6.593s] In file included from /usr/include/sdformat-9.5/sdf/Actor.hh:25,
+[6.593s]                  from /usr/include/sdformat-9.5/sdf/sdf.hh:2,
+[6.593s]                  from /usr/include/gazebo-11/gazebo/msgs/msgs.hh:22,
+[6.593s]                  from /usr/include/gazebo-11/gazebo/transport/CallbackHelper.hh:29,
+[6.593s]                  from /usr/include/gazebo-11/gazebo/transport/transport.hh:2,
+[6.593s]                  from /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:4:
+[6.593s] /usr/include/sdformat-9.5/sdf/Element.hh: At global scope:
+[6.593s] /usr/include/sdformat-9.5/sdf/Element.hh:237:18: error: ‘any’ in namespace ‘std’ does not name a type
+[6.593s]   237 |     public: std::any GetAny(const std::string &_key = "") const;
+[6.593s]       |                  ^~~
+[6.593s] /usr/include/sdformat-9.5/sdf/Element.hh:237:13: note: ‘std::any’ is only available from C++17 onwards
+[6.593s]   237 |     public: std::any GetAny(const std::string &_key = "") const;
+[6.594s]       |             ^~~
+[6.594s] make[2]: *** [CMakeFiles/plat1_send_vel_node.dir/build.make:63: CMakeFiles/plat1_send_vel_node.dir/src/plat1_send_vel_node.cpp.o] Error 1
+[6.594s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/plat1_send_vel_node.dir/all] Error 2
+[6.594s] make: *** [Makefile:141: all] Error 2
+[6.594s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/sim_pkg' returned '2': AMENT_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/sim_pkg -- -j12 -l12

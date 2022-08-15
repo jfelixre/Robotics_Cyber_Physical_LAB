@@ -1,0 +1,25 @@
+[35m[1mScanning dependencies of target platform1_vel_server[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/platform1_vel_server.dir/src/platform1_vel_server.cpp.o[0m
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp: In function ‘void send_vel(std::shared_ptr<interfaces::srv::PlatformVel_Request_<std::allocator<void> > >, std::shared_ptr<interfaces::srv::PlatformVel_Response_<std::allocator<void> > >)’:
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:36:8: warning: unused variable ‘sent’ [-Wunused-variable]
+   36 |    int sent=0;
+      |        ^~~~
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:42:11: warning: unused variable ‘vel_M1’ [-Wunused-variable]
+   42 |     float vel_M1=(velx + vely + ((La+Lb)*velang))/R;
+      |           ^~~~~~
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:43:12: warning: unused variable ‘vel_M2’ [-Wunused-variable]
+   43 |      float vel_M2=(-velx + vely - ((La+Lb)*velang))/R;
+      |            ^~~~~~
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:44:12: warning: unused variable ‘vel_M3’ [-Wunused-variable]
+   44 |      float vel_M3=(-velx + vely + ((La+Lb)*velang))/R;
+      |            ^~~~~~
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:45:12: warning: unused variable ‘vel_M4’ [-Wunused-variable]
+   45 |      float vel_M4=(+velx + vely - ((La+Lb)*velang))/R;
+      |            ^~~~~~
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp: In function ‘int main(int, char**)’:
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:60:54: error: expected initializer before ‘publisher_’
+   60 |   rclcpp::Publisher<std_msgs::msg::Float32>SharedPtr publisher_ = Platform1VelServer_node->create_publisher<
+      |                                                      ^~~~~~~~~~
+make[2]: *** [CMakeFiles/platform1_vel_server.dir/build.make:63: CMakeFiles/platform1_vel_server.dir/src/platform1_vel_server.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform1_vel_server.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

@@ -1,0 +1,7 @@
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Proc_Id_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:65:34:[m[K [01;31m[Kerror: [m[K‘[01m[Kimage1[m[K’ was not declared in this scope
+   65 |      cv::imshow("Display Image", [01;31m[Kimage1[m[K);
+      |                                  [01;31m[K^~~~~~[m[K
+make[2]: *** [CMakeFiles/img_proc_id_node.dir/build.make:63: CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/img_proc_id_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

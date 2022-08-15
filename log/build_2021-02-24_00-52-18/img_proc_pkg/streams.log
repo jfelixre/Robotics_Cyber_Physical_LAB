@@ -1,0 +1,12 @@
+[0.015s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.046s] [35m[1mScanning dependencies of target img_publ_test_node[0m
+[0.058s] [ 50%] Built target img_proc_node
+[0.067s] [ 75%] [32mBuilding CXX object CMakeFiles/img_publ_test_node.dir/src/img_publ_test_node.cpp.o[0m
+[1.191s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_publ_test_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Publ_Test_Node::timer_callback()[m[K’:
+[1.192s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_publ_test_node.cpp:38:29:[m[K [01;31m[Kerror: [m[K‘[01m[Kmessage[m[K’ was not declared in this scope
+[1.192s]    38 |         publisher_->publish([01;31m[Kmessage[m[K);
+[1.192s]       |                             [01;31m[K^~~~~~~[m[K
+[1.852s] make[2]: *** [CMakeFiles/img_publ_test_node.dir/build.make:63: CMakeFiles/img_publ_test_node.dir/src/img_publ_test_node.cpp.o] Error 1
+[1.852s] make[1]: *** [CMakeFiles/Makefile2:80: CMakeFiles/img_publ_test_node.dir/all] Error 2
+[1.853s] make: *** [Makefile:141: all] Error 2
+[1.854s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '2': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12

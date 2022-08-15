@@ -1,0 +1,71 @@
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:13:1: error: expected class-name before ‘{’ token
+   13 | {
+      | ^
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:31:2: error: expected ‘;’ after class definition
+   31 | }
+      |  ^
+      |  ;
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp: In constructor ‘Control_PID_P1_node::Control_PID_P1_node()’:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:16:5: error: class ‘Control_PID_P1_node’ does not have any field named ‘Node’
+   16 |   : Node("control_pid_p1_node")
+      |     ^~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:18:26: error: ‘class Control_PID_P1_node’ has no member named ‘create_subscription’
+   18 |    subs_img_data = this->create_subscription<interfaces::msg::ImgData>(
+      |                          ^~~~~~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:18:70: error: expected primary-expression before ‘>’ token
+   18 |    subs_img_data = this->create_subscription<interfaces::msg::ImgData>(
+      |                                                                      ^
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:19:5: warning: left operand of comma operator has no effect [-Wunused-value]
+   19 |     "image_data", 1, std::bind(&Control_PID_P1_node::subs_callback,this, _1));
+      |     ^~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:19:76: warning: right operand of comma operator has no effect [-Wunused-value]
+   19 |     "image_data", 1, std::bind(&Control_PID_P1_node::subs_callback,this, _1));
+      |                                                                            ^
+In file included from /opt/ros/foxy/include/rclcpp/service.hpp:34,
+                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:25,
+                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:25,
+                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+                 from /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:1:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp: In member function ‘void Control_PID_P1_node::subs_callback(interfaces::msg::ImgData_<std::allocator<void> >::SharedPtr) const’:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:26:16: error: ‘Control_PID_P1_server’ was not declared in this scope; did you mean ‘Control_PID_P1_node’?
+   26 |    RCLCPP_INFO(Control_PID_P1_server->get_logger(), "Data received" );
+      |                ^~~~~~~~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:26:4: error: template argument 1 is invalid
+   26 |    RCLCPP_INFO(Control_PID_P1_server->get_logger(), "Data received" );
+      |    ^~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:26:4: error: template argument 1 is invalid
+   26 |    RCLCPP_INFO(Control_PID_P1_server->get_logger(), "Data received" );
+      |    ^~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:26:4: error: template argument 1 is invalid
+   26 |    RCLCPP_INFO(Control_PID_P1_server->get_logger(), "Data received" );
+      |    ^~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:24:64: warning: unused parameter ‘data_msg’ [-Wunused-parameter]
+   24 |   void subs_callback(const interfaces::msg::ImgData::SharedPtr data_msg) const
+      |                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp: In function ‘int main(int, char**)’:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:40:55: error: no matching function for call to ‘spin(std::shared_ptr<Control_PID_P1_node>)’
+   40 |   rclcpp::spin(std::make_shared<Control_PID_P1_node>());
+      |                                                       ^
+In file included from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+                 from /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:1:
+/opt/ros/foxy/include/rclcpp/executors.hpp:45:1: note: candidate: ‘void rclcpp::spin(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr)’
+   45 | spin(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr node_ptr);
+      | ^~~~
+/opt/ros/foxy/include/rclcpp/executors.hpp:45:60: note:   no known conversion for argument 1 from ‘shared_ptr<Control_PID_P1_node>’ to ‘shared_ptr<rclcpp::node_interfaces::NodeBaseInterface>’
+   45 | spin(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr node_ptr);
+      |      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+/opt/ros/foxy/include/rclcpp/executors.hpp:49:1: note: candidate: ‘void rclcpp::spin(rclcpp::Node::SharedPtr)’
+   49 | spin(rclcpp::Node::SharedPtr node_ptr);
+      | ^~~~
+/opt/ros/foxy/include/rclcpp/executors.hpp:49:30: note:   no known conversion for argument 1 from ‘shared_ptr<Control_PID_P1_node>’ to ‘shared_ptr<rclcpp::Node>’
+   49 | spin(rclcpp::Node::SharedPtr node_ptr);
+      |      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+make[2]: *** [CMakeFiles/control_pid_p1_node.dir/build.make:63: CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/control_pid_p1_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

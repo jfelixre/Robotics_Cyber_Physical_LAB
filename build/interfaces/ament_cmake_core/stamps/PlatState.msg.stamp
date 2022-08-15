@@ -1,0 +1,1 @@
+int32 platform_state

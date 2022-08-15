@@ -1,0 +1,13 @@
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp: In function ‘void send_vel(std::shared_ptr<interfaces::srv::PlatformVel_Request_<std::allocator<void> > >, std::shared_ptr<interfaces::srv::PlatformVel_Response_<std::allocator<void> > >)’:
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:10:9: warning: unused variable ‘xvel’ [-Wunused-variable]
+   10 |  double xvel = request->x_vel;
+      |         ^~~~
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:11:9: warning: unused variable ‘yvel’ [-Wunused-variable]
+   11 |  double yvel = request->y_vel;
+      |         ^~~~
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:12:9: warning: unused variable ‘angvel’ [-Wunused-variable]
+   12 |  double angvel = request-> ang_vel;
+      |         ^~~~~~
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:18:9: warning: unused variable ‘sent’ [-Wunused-variable]
+   18 |  double sent=0;
+      |         ^~~~

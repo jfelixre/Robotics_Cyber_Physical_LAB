@@ -1,0 +1,13 @@
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp: In member function ‘void gazebo_plugin_sim::PlatformPluginTestPrivate::OnUpdate(const gazebo::common::UpdateInfo&)’:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:228:15: error: expected initializer before ‘.’ token
+  228 |   double velM1.x = 1;
+      |               ^
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:229:51: error: ‘velM1’ was not declared in this scope; did you mean ‘vel_M1_’?
+  229 |   PlatformPluginTestPrivate::sim_vel_M1_->publish(velM1);
+      |                                                   ^~~~~
+      |                                                   vel_M1_
+At global scope:
+cc1plus: warning: unrecognized command line option ‘-Wno-inconsistent-missing-override’
+make[2]: *** [CMakeFiles/platform_plugin_test.dir/build.make:63: CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform_plugin_test.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

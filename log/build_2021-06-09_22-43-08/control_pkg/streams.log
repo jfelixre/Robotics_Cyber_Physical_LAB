@@ -1,0 +1,23 @@
+[0.010s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/control_pkg': AMENT_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/control_pkg -- -j12 -l12
+[0.039s] [35m[1mScanning dependencies of target control_pid_p1_node[0m
+[0.055s] [ 50%] Built target control_pid_p2_node
+[0.073s] [ 75%] [32mBuilding CXX object CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o[0m
+[2.865s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp: In member function ‘void Control_PID_P1_node::PIDcicle()’:
+[2.865s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:294:57: error: invalid use of member function ‘constexpr std::chrono::duration<_Rep, _Period>::rep std::chrono::duration<_Rep, _Period>::count() const [with _Rep = long int; _Period = std::ratio<1, 1000>; std::chrono::duration<_Rep, _Period>::rep = long int]’ (did you forget the ‘()’ ?)
+[2.865s]   294 |    INTerrorX= (errorX + errorX_ant1 + errorX_ant2) * dt.count;
+[2.865s]       |                                                      ~~~^~~~~
+[2.865s]       |                                                              ()
+[2.865s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:297:30: error: expected primary-expression before ‘<’ token
+[2.865s]   297 |    Dx=(errorX - errorX_ant1)/<double>dt;
+[2.865s]       |                              ^
+[2.866s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:297:31: error: expected primary-expression before ‘double’
+[2.866s]   297 |    Dx=(errorX - errorX_ant1)/<double>dt;
+[2.866s]       |                               ^~~~~~
+[2.866s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:313:25: error: ‘errorY_ant1’ was not declared in this scope; did you mean ‘errorY_ant2’?
+[2.866s]   313 |    INTerrorY= (errorY + errorY_ant1 + errorY_ant2) * dt;
+[2.866s]       |                         ^~~~~~~~~~~
+[2.866s]       |                         errorY_ant2
+[2.866s] make[2]: *** [CMakeFiles/control_pid_p1_node.dir/build.make:63: CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o] Error 1
+[2.866s] make[1]: *** [CMakeFiles/Makefile2:107: CMakeFiles/control_pid_p1_node.dir/all] Error 2
+[2.866s] make: *** [Makefile:141: all] Error 2
+[2.867s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/control_pkg' returned '2': AMENT_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/control_pkg -- -j12 -l12

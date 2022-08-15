@@ -1,0 +1,12 @@
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:82:7: error: no declaration matches ‘void gazebo_plugin_sim::PlatformPluginTest::OnMsgVelM1(geometry_msgs::msg::Twist_<std::allocator<void> >::SharedPtr)’
+   82 |  void PlatformPluginTest::OnMsgVelM1(const geometry_msgs::msg::Twist::SharedPtr _msg)
+      |       ^~~~~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:82:7: note: no functions named ‘void gazebo_plugin_sim::PlatformPluginTest::OnMsgVelM1(geometry_msgs::msg::Twist_<std::allocator<void> >::SharedPtr)’
+In file included from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:6:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/include/gazebo_plugin_sim/platform_plugin_test.hpp:12:7: note: ‘class gazebo_plugin_sim::PlatformPluginTest’ defined here
+   12 | class PlatformPluginTest : public gazebo::ModelPlugin
+      |       ^~~~~~~~~~~~~~~~~~
+cc1plus: warning: unrecognized command line option ‘-Wno-inconsistent-missing-override’
+make[2]: *** [CMakeFiles/platform_plugin_test.dir/build.make:63: CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform_plugin_test.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

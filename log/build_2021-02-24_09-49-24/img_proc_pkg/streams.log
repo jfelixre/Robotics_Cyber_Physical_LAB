@@ -1,0 +1,26 @@
+[0.015s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.046s] [35m[1mScanning dependencies of target img_publ_test_node[0m
+[0.057s] [ 50%] Built target img_proc_node
+[0.068s] [ 75%] [32mBuilding CXX object CMakeFiles/img_publ_test_node.dir/src/img_publ_test_node.cpp.o[0m
+[1.149s] In file included from [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_publ_test_node.cpp:18[m[K:
+[1.149s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.h:41:89:[m[K [01;36m[Knote: [m[K#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead
+[1.149s]    41 | This header is deprecated. Use 'image_transport.hpp' instead"[01;36m[K)[m[K
+[1.149s]       |                                                              [01;36m[K^[m[K
+[1.149s] 
+[1.222s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_publ_test_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Publ_Test_Node::timer_callback()[m[K’:
+[1.222s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_publ_test_node.cpp:40:89:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator=[m[K’ (operand types are ‘[01m[Ksensor_msgs::msg::Image[m[K’ {aka ‘[01m[Ksensor_msgs::msg::Image_<std::allocator<void> >[m[K’} and ‘[01m[Ksensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr[m[K’ {aka ‘[01m[Kstd::shared_ptr<sensor_msgs::msg::Image_<std::allocator<void> > >[m[K’})
+[1.222s]    40 | ::CvImage(std_msgs::msg::Header(), "bgr8", image).toImageMsg([01;31m[K)[m[K;
+[1.223s]       |                                                              [01;31m[K^[m[K
+[1.223s] 
+[1.223s] In file included from [01m[K/opt/ros/foxy/include/sensor_msgs/msg/image.hpp:7[m[K,
+[1.223s]                  from [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_publ_test_node.cpp:16[m[K:
+[1.223s] [01m[K/opt/ros/foxy/include/sensor_msgs/msg/detail/image__struct.hpp:35:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ksensor_msgs::msg::Image_<std::allocator<void> >& sensor_msgs::msg::Image_<std::allocator<void> >::operator=(const sensor_msgs::msg::Image_<std::allocator<void> >&)[m[K’
+[1.223s]    35 | struct [01;36m[KImage_[m[K
+[1.223s]       |        [01;36m[K^~~~~~[m[K
+[1.223s] [01m[K/opt/ros/foxy/include/sensor_msgs/msg/detail/image__struct.hpp:35:8:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Ksensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr[m[K’ {aka ‘[01m[Kstd::shared_ptr<sensor_msgs::msg::Image_<std::allocator<void> > >[m[K’} to ‘[01m[Kconst sensor_msgs::msg::Image_<std::allocator<void> >&[m[K’
+[1.223s] [01m[K/opt/ros/foxy/include/sensor_msgs/msg/detail/image__struct.hpp:35:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ksensor_msgs::msg::Image_<std::allocator<void> >& sensor_msgs::msg::Image_<std::allocator<void> >::operator=(sensor_msgs::msg::Image_<std::allocator<void> >&&)[m[K’
+[1.223s] [01m[K/opt/ros/foxy/include/sensor_msgs/msg/detail/image__struct.hpp:35:8:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Ksensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr[m[K’ {aka ‘[01m[Kstd::shared_ptr<sensor_msgs::msg::Image_<std::allocator<void> > >[m[K’} to ‘[01m[Ksensor_msgs::msg::Image_<std::allocator<void> >&&[m[K’
+[1.871s] make[2]: *** [CMakeFiles/img_publ_test_node.dir/build.make:63: CMakeFiles/img_publ_test_node.dir/src/img_publ_test_node.cpp.o] Error 1
+[1.872s] make[1]: *** [CMakeFiles/Makefile2:80: CMakeFiles/img_publ_test_node.dir/all] Error 2
+[1.872s] make: *** [Makefile:141: all] Error 2
+[1.874s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '2': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12

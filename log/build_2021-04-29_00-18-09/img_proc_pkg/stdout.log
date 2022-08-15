@@ -1,0 +1,3 @@
+[ 16%] [32mBuilding CXX object CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o[0m
+[ 50%] Built target img_proc_node
+[ 83%] Built target img_publ_test_node

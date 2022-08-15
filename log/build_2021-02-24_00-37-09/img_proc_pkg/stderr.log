@@ -1,0 +1,12 @@
+CMake Error at CMakeLists.txt:40 (add_executable):
+  add_executable cannot create target "img_proc_node" because another target
+  with the same name already exists.  The existing target is an executable
+  created in source directory "/home/javierfr/Tesis_ws/V1/src/img_proc_pkg".
+  See documentation for policy CMP0002 for more details.
+
+
+CMake Error at CMakeLists.txt:53 (install):
+  install TARGETS given target "img_publ_test_node" which does not exist.
+
+
+make: *** [Makefile:266: cmake_check_build_system] Error 1

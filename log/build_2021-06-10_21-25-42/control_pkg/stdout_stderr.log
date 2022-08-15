@@ -1,0 +1,37 @@
+[35m[1mScanning dependencies of target control_pid_p1_node[0m
+[ 50%] Built target control_pid_p2_node
+[ 75%] [32mBuilding CXX object CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o[0m
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp: In member function ‘void Control_PID_P1_node::save_data()’:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:558:35: warning: right operand of comma operator has no effect [-Wunused-value]
+  558 |    myfile << time,platform1_state,Xrobot1,Yrobot1,"\n";
+      |                                   ^~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:558:43: warning: right operand of comma operator has no effect [-Wunused-value]
+  558 |    myfile << time,platform1_state,Xrobot1,Yrobot1,"\n";
+      |                                           ^~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:558:51: warning: right operand of comma operator has no effect [-Wunused-value]
+  558 |    myfile << time,platform1_state,Xrobot1,Yrobot1,"\n";
+      |                                                   ^~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:558:55: warning: right operand of comma operator has no effect [-Wunused-value]
+  558 |    myfile << time,platform1_state,Xrobot1,Yrobot1,"\n";
+      |                                                       ^
+[100%] [32m[1mLinking CXX executable control_pid_p1_node[0m
+[100%] Built target control_pid_p1_node
+-- Install configuration: ""
+-- Installing: /home/javierfr/Tesis_ws/V1/install/control_pkg/lib/control_pkg/control_pid_p1_node
+-- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/control_pkg/lib/control_pkg/control_pid_p1_node" to ""
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/lib/control_pkg/control_pid_p2_node
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/ament_index/resource_index/package_run_dependencies/control_pkg
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/ament_index/resource_index/parent_prefix_path/control_pkg
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/environment/ament_prefix_path.sh
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/environment/path.sh
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/environment/path.dsv
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/local_setup.bash
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/local_setup.sh
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/local_setup.zsh
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/local_setup.dsv
+-- Installing: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/package.dsv
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/ament_index/resource_index/packages/control_pkg
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/cmake/control_pkgConfig.cmake
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/cmake/control_pkgConfig-version.cmake
+-- Up-to-date: /home/javierfr/Tesis_ws/V1/install/control_pkg/share/control_pkg/package.xml

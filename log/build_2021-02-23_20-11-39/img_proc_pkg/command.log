@@ -1,0 +1,2 @@
+Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '2': /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12

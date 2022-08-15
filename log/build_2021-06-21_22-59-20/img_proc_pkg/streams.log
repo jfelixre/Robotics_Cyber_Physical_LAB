@@ -1,0 +1,68 @@
+[0.016s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.096s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.115s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.291s] -- Found sensor_msgs: 2.0.4 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[0.316s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.320s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.437s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.584s] -- Found rclcpp: 2.3.1 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.613s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.616s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.728s] -- Found image_transport: 2.3.0 (/opt/ros/foxy/share/image_transport/cmake)
+[0.762s] -- Found cv_bridge: 2.2.1 (/opt/ros/foxy/share/cv_bridge/cmake)
+[0.764s] -- Found interfaces: 0.0.0 (/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake)
+[0.887s] -- Configuring done
+[1.033s] -- Generating done
+[1.035s] -- Build files have been written to: /home/javierfr/Tesis_ws/V1/build/img_proc_pkg
+[1.061s] [35m[1mScanning dependencies of target img_proc_id_node[0m
+[1.074s] [ 25%] Built target img_proc_node
+[1.076s] [ 50%] Built target img_publ_test_node
+[1.077s] [ 75%] Built target img_subs_test_node
+[1.106s] [ 87%] [32mBuilding CXX object CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o[0m
+[2.783s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Proc_Id_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[2.784s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:130:22:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+[2.784s]   130 |       for (int i=0; [01;35m[Ki<red_contours.size()[m[K; i++)
+[2.784s]       |                     [01;35m[K~^~~~~~~~~~~~~~~~~~~~[m[K
+[2.784s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:163:26:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+[2.784s]   163 |         for (int ii=1; [01;35m[Kii<red_subcontours.size()[m[K; ii++)
+[2.785s]       |                        [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.787s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:257:22:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+[2.787s]   257 |       for (int i=0; [01;35m[Ki<blue_contours.size()[m[K; i++)
+[2.787s]       |                     [01;35m[K~^~~~~~~~~~~~~~~~~~~~~[m[K
+[2.787s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:290:26:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+[2.787s]   290 |         for (int ii=1; [01;35m[Kii<blue_subcontours.size()[m[K; ii++)
+[2.788s]       |                        [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.789s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:385:22:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+[2.789s]   385 |       for (int i=0; [01;35m[Ki<green_contours.size()[m[K; i++)
+[2.789s]       |                     [01;35m[K~^~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.790s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:417:26:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+[2.790s]   417 |         for (int ii=1; [01;35m[Kii<green_subcontours.size()[m[K; ii++)
+[2.790s]       |                        [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[6.656s] [100%] [32m[1mLinking CXX executable img_proc_id_node[0m
+[7.959s] /usr/bin/ld: warning: libopencv_imgproc.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.4.5
+[7.959s] /usr/bin/ld: warning: libopencv_core.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_core.so.4.5
+[7.967s] [100%] Built target img_proc_id_node
+[7.976s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[8.001s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/img_proc_pkg
+[8.008s] -- Install configuration: ""
+[8.008s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_proc_node
+[8.008s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_publ_test_node
+[8.008s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_subs_test_node
+[8.009s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_proc_id_node
+[8.011s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/img_proc_pkg/img_proc_id_node" to ""
+[8.011s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/ament_index/resource_index/package_run_dependencies/img_proc_pkg
+[8.011s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/ament_index/resource_index/parent_prefix_path/img_proc_pkg
+[8.011s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/environment/ament_prefix_path.sh
+[8.011s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/environment/ament_prefix_path.dsv
+[8.011s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/environment/path.sh
+[8.011s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/environment/path.dsv
+[8.011s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/local_setup.bash
+[8.012s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/local_setup.sh
+[8.012s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/local_setup.zsh
+[8.012s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/local_setup.dsv
+[8.012s] -- Installing: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/package.dsv
+[8.012s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/ament_index/resource_index/packages/img_proc_pkg
+[8.014s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/cmake/img_proc_pkgConfig.cmake
+[8.014s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/cmake/img_proc_pkgConfig-version.cmake
+[8.014s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/package.xml
+[8.015s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/img_proc_pkg

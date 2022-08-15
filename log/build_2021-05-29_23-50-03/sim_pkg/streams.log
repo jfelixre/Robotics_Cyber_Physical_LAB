@@ -1,0 +1,39 @@
+[0.008s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/sim_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/sim_pkg -- -j12 -l12
+[0.026s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.042s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.223s] -- Found std_msgs: 2.0.4 (/opt/ros/foxy/share/std_msgs/cmake)
+[0.387s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.399s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.461s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[0.485s] -- Found FastRTPS: /opt/ros/foxy/include  
+[0.546s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.613s] -- Found rclcpp: 2.3.1 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.814s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.840s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.874s] -- Looking for pthread.h
+[0.988s] -- Looking for pthread.h - found
+[0.988s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.113s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[1.114s] -- Looking for pthread_create in pthreads
+[1.187s] -- Looking for pthread_create in pthreads - not found
+[1.187s] -- Looking for pthread_create in pthread
+[1.280s] -- Looking for pthread_create in pthread - found
+[1.282s] -- Found Threads: TRUE  
+[1.709s] -- Found interfaces: 0.0.0 (/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake)
+[1.759s] -- Configuring done
+[1.759s] CMake Error at CMakeLists.txt:24 (add_executable):
+[1.759s]   Cannot find source file:
+[1.759s] 
+[1.759s]     src/plat1_send_vel_node.cpp
+[1.759s] 
+[1.760s]   Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
+[1.760s]   .hpp .hxx .in .txx
+[1.760s] 
+[1.760s] 
+[1.760s] CMake Error at CMakeLists.txt:24 (add_executable):
+[1.760s]   No SOURCES given to target: plat1_send_vel_node
+[1.760s] 
+[1.760s] 
+[1.760s] CMake Generate step failed.  Build files cannot be regenerated correctly.
+[1.764s] make: *** [Makefile:222: cmake_check_build_system] Error 1
+[1.765s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/sim_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/sim_pkg -- -j12 -l12

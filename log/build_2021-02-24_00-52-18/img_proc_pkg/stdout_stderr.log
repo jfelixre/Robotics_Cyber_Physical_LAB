@@ -1,0 +1,10 @@
+[35m[1mScanning dependencies of target img_publ_test_node[0m
+[ 50%] Built target img_proc_node
+[ 75%] [32mBuilding CXX object CMakeFiles/img_publ_test_node.dir/src/img_publ_test_node.cpp.o[0m
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_publ_test_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Publ_Test_Node::timer_callback()[m[K’:
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_publ_test_node.cpp:38:29:[m[K [01;31m[Kerror: [m[K‘[01m[Kmessage[m[K’ was not declared in this scope
+   38 |         publisher_->publish([01;31m[Kmessage[m[K);
+      |                             [01;31m[K^~~~~~~[m[K
+make[2]: *** [CMakeFiles/img_publ_test_node.dir/build.make:63: CMakeFiles/img_publ_test_node.dir/src/img_publ_test_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:80: CMakeFiles/img_publ_test_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

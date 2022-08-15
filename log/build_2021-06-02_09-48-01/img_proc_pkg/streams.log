@@ -1,0 +1,14 @@
+[0.018s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.052s] [35m[1mScanning dependencies of target img_proc_qr_detector[0m
+[0.079s] [ 37%] Built target img_subs_test_node
+[0.079s] [ 50%] Built target img_proc_node
+[0.079s] [ 75%] Built target img_publ_test_node
+[0.087s] [ 87%] [32mBuilding CXX object CMakeFiles/img_proc_qr_detector.dir/src/img_proc_qr_detector.cpp.o[0m
+[1.357s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:[m[K In member function ‘[01m[Kvoid Img_Proc_Qr_Detector::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[1.357s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:55:50:[m[K [01;31m[Kerror: [m[K‘[01m[KQrCodeDetector[m[K’ is not a member of ‘[01m[Kcv::QRCodeDetector[m[K’
+[1.357s]    55 |       cv::QRCodeDetector qr =cv::QRCodeDetector::[01;31m[KQrCodeDetector[m[K();
+[1.357s]       |                                                  [01;31m[K^~~~~~~~~~~~~~[m[K
+[2.482s] make[2]: *** [CMakeFiles/img_proc_qr_detector.dir/build.make:63: CMakeFiles/img_proc_qr_detector.dir/src/img_proc_qr_detector.cpp.o] Error 1
+[2.482s] make[1]: *** [CMakeFiles/Makefile2:84: CMakeFiles/img_proc_qr_detector.dir/all] Error 2
+[2.482s] make: *** [Makefile:141: all] Error 2
+[2.484s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12

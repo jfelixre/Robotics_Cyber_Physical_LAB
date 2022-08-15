@@ -1,0 +1,13 @@
+[0.020s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12
+[0.060s] [35m[1mScanning dependencies of target platform_plugin_test[0m
+[0.134s] [ 50%] [32mBuilding CXX object CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o[0m
+[9.295s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp: In member function ‘void gazebo_plugin_sim::PlatformPluginTestPrivate::OnMsgVelM1(geometry_msgs::msg::Vector3_<std::allocator<void> >::SharedPtr)’:
+[9.295s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:117:49: error: ‘const SharedPtr’ {aka ‘const class std::shared_ptr<geometry_msgs::msg::Vector3_<std::allocator<void> > >’} has no member named ‘_x’
+[9.295s]   117 |   PlatformPluginTestPrivate::SetVelocityM1(_msg._x);
+[9.295s]       |                                                 ^~
+[9.295s] At global scope:
+[9.295s] cc1plus: warning: unrecognized command line option ‘-Wno-inconsistent-missing-override’
+[9.297s] make[2]: *** [CMakeFiles/platform_plugin_test.dir/build.make:63: CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o] Error 1
+[9.297s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform_plugin_test.dir/all] Error 2
+[9.297s] make: *** [Makefile:141: all] Error 2
+[9.299s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12

@@ -1,0 +1,11 @@
+[35m[1mScanning dependencies of target platform_plugin_test[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o[0m
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp: In member function ‘void gazebo_plugin_sim::PlatformPluginTestPrivate::OnMsgVelM1(geometry_msgs::msg::Vector3_<std::allocator<void> >::SharedPtr)’:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:117:49: error: ‘const SharedPtr’ {aka ‘const class std::shared_ptr<geometry_msgs::msg::Vector3_<std::allocator<void> > >’} has no member named ‘_x’
+  117 |   PlatformPluginTestPrivate::SetVelocityM1(_msg._x);
+      |                                                 ^~
+At global scope:
+cc1plus: warning: unrecognized command line option ‘-Wno-inconsistent-missing-override’
+make[2]: *** [CMakeFiles/platform_plugin_test.dir/build.make:63: CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform_plugin_test.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

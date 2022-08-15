@@ -1,0 +1,16 @@
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp: In member function ‘virtual void gazebo_plugin_sim::PlatformPluginTest::Load(gazebo::physics::ModelPtr, sdf::v9::ElementPtr)’:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:77:40: error: invalid use of incomplete type ‘class gazebo::physics::JointController’
+   77 |     impl_->model_->GetJointController()->SetVelocityPID(
+      |                                        ^~
+In file included from /usr/include/gazebo-11/gazebo/physics/State.hh:28,
+                 from /usr/include/gazebo-11/gazebo/physics/JointState.hh:24,
+                 from /usr/include/gazebo-11/gazebo/physics/Joint.hh:31,
+                 from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:2:
+/usr/include/gazebo-11/gazebo/physics/PhysicsTypes.hh:48:11: note: forward declaration of ‘class gazebo::physics::JointController’
+   48 |     class JointController;
+      |           ^~~~~~~~~~~~~~~
+At global scope:
+cc1plus: warning: unrecognized command line option ‘-Wno-inconsistent-missing-override’
+make[2]: *** [CMakeFiles/platform_plugin_test.dir/build.make:63: CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform_plugin_test.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

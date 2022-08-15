@@ -1,0 +1,99 @@
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:87:2: error: ‘Platform1Plugin’ does not name a type; did you mean ‘PlatformPluginTest’?
+   87 |  Platform1Plugin::Platform1Plugin()
+      |  ^~~~~~~~~~~~~~~
+      |  PlatformPluginTest
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:93:2: error: ‘Platform1Plugin’ does not name a type; did you mean ‘PlatformPluginTest’?
+   93 |  Platform1Plugin::~Platform1Plugin()
+      |  ^~~~~~~~~~~~~~~
+      |  PlatformPluginTest
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:98:7: error: ‘Platform1Plugin’ has not been declared
+   98 |  void Platform1Plugin::Load(gazebo::physics::ModelPtr _model, sdf::ElementPtr _sdf)
+      |       ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp: In function ‘void gazebo_plugin_sim::Load(gazebo::physics::ModelPtr, sdf::v9::ElementPtr)’:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:100:3: error: ‘impl_’ was not declared in this scope; did you mean ‘mpl_’?
+  100 |   impl_->model_ = _model;
+      |   ^~~~~
+      |   mpl_
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:160:90: error: expected primary-expression before ‘>’ token
+  160 |        impl_->vel_M1_ = impl_->ros_node_->create_subscription<geometry_msgs::msg::Vector3>(
+      |                                                                                          ^
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:161:7: warning: left operand of comma operator has no effect [-Wunused-value]
+  161 |       "~/vel_M1", qos.get_subscription_qos("~/vel_M1", rclcpp::QoS(0)),
+      |       ^~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:163:90: error: expected primary-expression before ‘>’ token
+  163 |        impl_->vel_M2_ = impl_->ros_node_->create_subscription<geometry_msgs::msg::Vector3>(
+      |                                                                                          ^
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:164:7: warning: left operand of comma operator has no effect [-Wunused-value]
+  164 |       "~/vel_M2", qos.get_subscription_qos("~/vel_M2", rclcpp::QoS(0)),
+      |       ^~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:166:90: error: expected primary-expression before ‘>’ token
+  166 |        impl_->vel_M3_ = impl_->ros_node_->create_subscription<geometry_msgs::msg::Vector3>(
+      |                                                                                          ^
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:167:7: warning: left operand of comma operator has no effect [-Wunused-value]
+  167 |       "~/vel_M3", qos.get_subscription_qos("~/vel_M3", rclcpp::QoS(0)),
+      |       ^~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:169:90: error: expected primary-expression before ‘>’ token
+  169 |        impl_->vel_M4_ = impl_->ros_node_->create_subscription<geometry_msgs::msg::Vector3>(
+      |                                                                                          ^
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:170:7: warning: left operand of comma operator has no effect [-Wunused-value]
+  170 |       "~/vel_M4", qos.get_subscription_qos("~/vel_M4", rclcpp::QoS(0)),
+      |       ^~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:174:91: error: expected primary-expression before ‘>’ token
+  174 |        impl_->sim_vel_M1_ = impl_->ros_node_->create_publisher<geometry_msgs::msg::Vector3>(
+      |                                                                                           ^
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:175:9: warning: left operand of comma operator has no effect [-Wunused-value]
+  175 |         "~/sim_vel_M1", qos.get_publisher_qos("~/sim_vel_M1", rclcpp::QoS(1)));
+      |         ^~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:176:91: error: expected primary-expression before ‘>’ token
+  176 |        impl_->sim_vel_M2_ = impl_->ros_node_->create_publisher<geometry_msgs::msg::Vector3>(
+      |                                                                                           ^
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:177:9: warning: left operand of comma operator has no effect [-Wunused-value]
+  177 |         "~/sim_vel_M2", qos.get_publisher_qos("~/sim_vel_M2", rclcpp::QoS(1)));
+      |         ^~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:178:91: error: expected primary-expression before ‘>’ token
+  178 |        impl_->sim_vel_M3_ = impl_->ros_node_->create_publisher<geometry_msgs::msg::Vector3>(
+      |                                                                                           ^
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:179:9: warning: left operand of comma operator has no effect [-Wunused-value]
+  179 |         "~/sim_vel_M3", qos.get_publisher_qos("~/sim_vel_M3", rclcpp::QoS(1)));
+      |         ^~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:180:91: error: expected primary-expression before ‘>’ token
+  180 |        impl_->sim_vel_M4_ = impl_->ros_node_->create_publisher<geometry_msgs::msg::Vector3>(
+      |                                                                                           ^
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:181:9: warning: left operand of comma operator has no effect [-Wunused-value]
+  181 |         "~/sim_vel_M4", qos.get_publisher_qos("~/sim_vel_M4", rclcpp::QoS(1)));
+      |         ^~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp: At global scope:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:270:7: error: ‘Platform1Plugin’ has not been declared
+  270 |  void Platform1Plugin::Reset()
+      |       ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp: In function ‘void gazebo_plugin_sim::Reset()’:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:272:4: error: ‘impl_’ was not declared in this scope; did you mean ‘mpl_’?
+  272 |    impl_->ros_node_.reset();
+      |    ^~~~~
+      |    mpl_
+In file included from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/include/gazebo_plugin_sim/platform_plugin_test.hpp:4,
+                 from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:12:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp: In function ‘gazebo::ModelPlugin* gazebo_plugin_sim::RegisterPlugin()’:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:276:27: error: expected type-specifier before ‘Platform1Plugin’
+  276 |  GZ_REGISTER_MODEL_PLUGIN(Platform1Plugin)
+      |                           ^~~~~~~~~~~~~~~
+/usr/include/gazebo-11/gazebo/common/Plugin.hh:423:16: note: in definition of macro ‘GZ_REGISTER_MODEL_PLUGIN’
+  423 |     return new classname();\
+      |                ^~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:276:27: error: expected ‘;’ before ‘Platform1Plugin’
+  276 |  GZ_REGISTER_MODEL_PLUGIN(Platform1Plugin)
+      |                           ^~~~~~~~~~~~~~~
+/usr/include/gazebo-11/gazebo/common/Plugin.hh:423:16: note: in definition of macro ‘GZ_REGISTER_MODEL_PLUGIN’
+  423 |     return new classname();\
+      |                ^~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform1_plugin.cpp:276:27: error: ‘Platform1Plugin’ was not declared in this scope; did you mean ‘PlatformPluginTest’?
+  276 |  GZ_REGISTER_MODEL_PLUGIN(Platform1Plugin)
+      |                           ^~~~~~~~~~~~~~~
+/usr/include/gazebo-11/gazebo/common/Plugin.hh:423:16: note: in definition of macro ‘GZ_REGISTER_MODEL_PLUGIN’
+  423 |     return new classname();\
+      |                ^~~~~~~~~
+At global scope:
+cc1plus: warning: unrecognized command line option ‘-Wno-inconsistent-missing-override’
+make[2]: *** [CMakeFiles/platform1_plugin.dir/build.make:63: CMakeFiles/platform1_plugin.dir/src/platform1_plugin.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:80: CMakeFiles/platform1_plugin.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

@@ -1,0 +1,83 @@
+[0.018s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.057s] [35m[1mScanning dependencies of target img_proc_id_node[0m
+[0.079s] [ 25%] Built target img_proc_node
+[0.086s] [ 50%] Built target img_subs_test_node
+[0.094s] [ 75%] Built target img_publ_test_node
+[0.100s] [ 87%] [32mBuilding CXX object CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o[0m
+[1.390s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[1.390s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:113:23:[m[K [01;31m[Kerror: [m[K‘[01m[KVHmin[m[K’ was not declared in this scope
+[1.390s]   113 |     int VLower[3] = { [01;31m[KVHmin[m[K, VSmin, VVmin };
+[1.390s]       |                       [01;31m[K^~~~~[m[K
+[1.391s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:113:30:[m[K [01;31m[Kerror: [m[K‘[01m[KVSmin[m[K’ was not declared in this scope
+[1.391s]   113 |     int VLower[3] = { VHmin, [01;31m[KVSmin[m[K, VVmin };
+[1.391s]       |                              [01;31m[K^~~~~[m[K
+[1.391s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:113:37:[m[K [01;31m[Kerror: [m[K‘[01m[KVVmin[m[K’ was not declared in this scope
+[1.392s]   113 |     int VLower[3] = { VHmin, VSmin, [01;31m[KVVmin[m[K };
+[1.392s]       |                                     [01;31m[K^~~~~[m[K
+[1.392s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:114:21:[m[K [01;31m[Kerror: [m[K‘[01m[KVHmax[m[K’ was not declared in this scope
+[1.392s]   114 |   int VUpper[3] = { [01;31m[KVHmax[m[K, VSmax, VVmax };
+[1.392s]       |                     [01;31m[K^~~~~[m[K
+[1.393s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:114:28:[m[K [01;31m[Kerror: [m[K‘[01m[KVSmax[m[K’ was not declared in this scope
+[1.393s]   114 |   int VUpper[3] = { VHmax, [01;31m[KVSmax[m[K, VVmax };
+[1.393s]       |                            [01;31m[K^~~~~[m[K
+[1.394s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:114:35:[m[K [01;31m[Kerror: [m[K‘[01m[KVVmax[m[K’ was not declared in this scope
+[1.394s]   114 |   int VUpper[3] = { VHmax, VSmax, [01;31m[KVVmax[m[K };
+[1.394s]       |                                   [01;31m[K^~~~~[m[K
+[1.395s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:127:21:[m[K [01;31m[Kerror: [m[K‘[01m[KNHmin[m[K’ was not declared in this scope
+[1.395s]   127 |   int NLower[3] = { [01;31m[KNHmin[m[K, NSmin, NVmin };
+[1.395s]       |                     [01;31m[K^~~~~[m[K
+[1.396s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:127:28:[m[K [01;31m[Kerror: [m[K‘[01m[KNSmin[m[K’ was not declared in this scope
+[1.396s]   127 |   int NLower[3] = { NHmin, [01;31m[KNSmin[m[K, NVmin };
+[1.396s]       |                            [01;31m[K^~~~~[m[K
+[1.397s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:127:35:[m[K [01;31m[Kerror: [m[K‘[01m[KNVmin[m[K’ was not declared in this scope
+[1.397s]   127 |   int NLower[3] = { NHmin, NSmin, [01;31m[KNVmin[m[K };
+[1.397s]       |                                   [01;31m[K^~~~~[m[K
+[1.398s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:128:21:[m[K [01;31m[Kerror: [m[K‘[01m[KNHmax[m[K’ was not declared in this scope
+[1.398s]   128 |   int NUpper[3] = { [01;31m[KNHmax[m[K, NSmax, NVmax };
+[1.398s]       |                     [01;31m[K^~~~~[m[K
+[1.399s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:128:28:[m[K [01;31m[Kerror: [m[K‘[01m[KNSmax[m[K’ was not declared in this scope
+[1.399s]   128 |   int NUpper[3] = { NHmax, [01;31m[KNSmax[m[K, NVmax };
+[1.399s]       |                            [01;31m[K^~~~~[m[K
+[1.400s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:128:35:[m[K [01;31m[Kerror: [m[K‘[01m[KNVmax[m[K’ was not declared in this scope
+[1.400s]   128 |   int NUpper[3] = { NHmax, NSmax, [01;31m[KNVmax[m[K };
+[1.400s]       |                                   [01;31m[K^~~~~[m[K
+[1.401s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:141:21:[m[K [01;31m[Kerror: [m[K‘[01m[KAHmin[m[K’ was not declared in this scope
+[1.401s]   141 |   int ALower[3] = { [01;31m[KAHmin[m[K, ASmin, AVmin };
+[1.401s]       |                     [01;31m[K^~~~~[m[K
+[1.402s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:141:28:[m[K [01;31m[Kerror: [m[K‘[01m[KASmin[m[K’ was not declared in this scope
+[1.402s]   141 |   int ALower[3] = { AHmin, [01;31m[KASmin[m[K, AVmin };
+[1.402s]       |                            [01;31m[K^~~~~[m[K
+[1.403s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:141:35:[m[K [01;31m[Kerror: [m[K‘[01m[KAVmin[m[K’ was not declared in this scope
+[1.403s]   141 |   int ALower[3] = { AHmin, ASmin, [01;31m[KAVmin[m[K };
+[1.403s]       |                                   [01;31m[K^~~~~[m[K
+[1.404s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:142:21:[m[K [01;31m[Kerror: [m[K‘[01m[KAHmax[m[K’ was not declared in this scope
+[1.404s]   142 |   int AUpper[3] = { [01;31m[KAHmax[m[K, ASmax, AVmax };
+[1.404s]       |                     [01;31m[K^~~~~[m[K
+[1.405s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:142:28:[m[K [01;31m[Kerror: [m[K‘[01m[KASmax[m[K’ was not declared in this scope
+[1.405s]   142 |   int AUpper[3] = { AHmax, [01;31m[KASmax[m[K, AVmax };
+[1.405s]       |                            [01;31m[K^~~~~[m[K
+[1.405s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:142:35:[m[K [01;31m[Kerror: [m[K‘[01m[KAVmax[m[K’ was not declared in this scope
+[1.405s]   142 |   int AUpper[3] = { AHmax, ASmax, [01;31m[KAVmax[m[K };
+[1.406s]       |                                   [01;31m[K^~~~~[m[K
+[1.409s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:113:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KVLower[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[1.409s]   113 |     int [01;35m[KVLower[m[K[3] = { VHmin, VSmin, VVmin };
+[1.409s]       |         [01;35m[K^~~~~~[m[K
+[1.409s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:114:7:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KVUpper[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[1.409s]   114 |   int [01;35m[KVUpper[m[K[3] = { VHmax, VSmax, VVmax };
+[1.409s]       |       [01;35m[K^~~~~~[m[K
+[1.409s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:127:7:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KNLower[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[1.410s]   127 |   int [01;35m[KNLower[m[K[3] = { NHmin, NSmin, NVmin };
+[1.410s]       |       [01;35m[K^~~~~~[m[K
+[1.410s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:128:7:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KNUpper[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[1.410s]   128 |   int [01;35m[KNUpper[m[K[3] = { NHmax, NSmax, NVmax };
+[1.410s]       |       [01;35m[K^~~~~~[m[K
+[1.410s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:141:7:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KALower[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[1.410s]   141 |   int [01;35m[KALower[m[K[3] = { AHmin, ASmin, AVmin };
+[1.410s]       |       [01;35m[K^~~~~~[m[K
+[1.410s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:142:7:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KAUpper[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[1.410s]   142 |   int [01;35m[KAUpper[m[K[3] = { AHmax, ASmax, AVmax };
+[1.410s]       |       [01;35m[K^~~~~~[m[K
+[2.552s] make[2]: *** [CMakeFiles/img_proc_id_node.dir/build.make:63: CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o] Error 1
+[2.552s] make[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/img_proc_id_node.dir/all] Error 2
+[2.552s] make: *** [Makefile:141: all] Error 2
+[2.554s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12

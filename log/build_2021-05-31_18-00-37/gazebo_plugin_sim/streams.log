@@ -1,0 +1,106 @@
+[0.021s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12
+[0.060s] [35m[1mScanning dependencies of target platform_plugin_test[0m
+[0.130s] [ 50%] [32mBuilding CXX object CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o[0m
+[9.067s] In file included from /usr/include/boost/bind.hpp:22,
+[9.067s]                  from /usr/include/boost/thread/detail/thread.hpp:33,
+[9.068s]                  from /usr/include/boost/thread/thread_only.hpp:22,
+[9.068s]                  from /usr/include/boost/thread/thread.hpp:12,
+[9.068s]                  from /usr/include/boost/thread.hpp:13,
+[9.068s]                  from /usr/include/gazebo-11/gazebo/common/Console.hh:27,
+[9.068s]                  from /usr/include/gazebo-11/gazebo/common/Events.hh:23,
+[9.068s]                  from /usr/include/gazebo-11/gazebo/physics/Joint.hh:28,
+[9.068s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:5:
+[9.068s] /usr/include/boost/bind/bind.hpp: In instantiation of ‘void boost::_bi::list2<A1, A2>::operator()(boost::_bi::type<void>, F&, A&, int) [with F = boost::_mfi::mf1<void, gazebo_plugin_sim::PlatformPluginTestPrivate, const gazebo::common::UpdateInfo&>; A = boost::_bi::rrlist1<const gazebo::common::UpdateInfo&>; A1 = boost::_bi::value<gazebo_plugin_sim::PlatformPluginTestPrivate*>; A2 = boost::_bi::value<std::_Placeholder<1> >]’:
+[9.068s] /usr/include/boost/bind/bind.hpp:1306:50:   required from ‘boost::_bi::bind_t<R, F, L>::result_type boost::_bi::bind_t<R, F, L>::operator()(A1&&) [with A1 = const gazebo::common::UpdateInfo&; R = void; F = boost::_mfi::mf1<void, gazebo_plugin_sim::PlatformPluginTestPrivate, const gazebo::common::UpdateInfo&>; L = boost::_bi::list2<boost::_bi::value<gazebo_plugin_sim::PlatformPluginTestPrivate*>, boost::_bi::value<std::_Placeholder<1> > >; boost::_bi::bind_t<R, F, L>::result_type = void]’
+[9.068s] /usr/include/c++/9/bits/std_function.h:300:37:   required from ‘static void std::_Function_handler<void(_ArgTypes ...), _Functor>::_M_invoke(const std::_Any_data&, _ArgTypes&& ...) [with _Functor = boost::_bi::bind_t<void, boost::_mfi::mf1<void, gazebo_plugin_sim::PlatformPluginTestPrivate, const gazebo::common::UpdateInfo&>, boost::_bi::list2<boost::_bi::value<gazebo_plugin_sim::PlatformPluginTestPrivate*>, boost::_bi::value<std::_Placeholder<1> > > >; _ArgTypes = {const gazebo::common::UpdateInfo&}]’
+[9.068s] /usr/include/c++/9/bits/std_function.h:676:19:   required from ‘std::function<_Res(_ArgTypes ...)>::function(_Functor) [with _Functor = boost::_bi::bind_t<void, boost::_mfi::mf1<void, gazebo_plugin_sim::PlatformPluginTestPrivate, const gazebo::common::UpdateInfo&>, boost::_bi::list2<boost::_bi::value<gazebo_plugin_sim::PlatformPluginTestPrivate*>, boost::_bi::value<std::_Placeholder<1> > > >; <template-parameter-2-2> = void; <template-parameter-2-3> = void; _Res = void; _ArgTypes = {const gazebo::common::UpdateInfo&}]’
+[9.068s] /usr/include/gazebo-11/gazebo/common/Events.hh:109:60:   required from ‘static gazebo::event::ConnectionPtr gazebo::event::Events::ConnectWorldUpdateBegin(T) [with T = boost::_bi::bind_t<void, boost::_mfi::mf1<void, gazebo_plugin_sim::PlatformPluginTestPrivate, const gazebo::common::UpdateInfo&>, boost::_bi::list2<boost::_bi::value<gazebo_plugin_sim::PlatformPluginTestPrivate*>, boost::_bi::value<std::_Placeholder<1> > > >; gazebo::event::ConnectionPtr = boost::shared_ptr<gazebo::event::Connection>]’
+[9.068s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:167:94:   required from here
+[9.068s] /usr/include/boost/bind/bind.hpp:319:35: error: no match for call to ‘(boost::_mfi::mf1<void, gazebo_plugin_sim::PlatformPluginTestPrivate, const gazebo::common::UpdateInfo&>) (gazebo_plugin_sim::PlatformPluginTestPrivate*&, std::_Placeholder<1>&)’
+[9.068s]   319 |         unwrapper<F>::unwrap(f, 0)(a[base_type::a1_], a[base_type::a2_]);
+[9.068s]       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[9.069s] In file included from /usr/include/boost/bind/mem_fn.hpp:215,
+[9.069s]                  from /usr/include/boost/mem_fn.hpp:22,
+[9.069s]                  from /usr/include/boost/bind/bind.hpp:26,
+[9.069s]                  from /usr/include/boost/bind.hpp:22,
+[9.069s]                  from /usr/include/boost/thread/detail/thread.hpp:33,
+[9.069s]                  from /usr/include/boost/thread/thread_only.hpp:22,
+[9.069s]                  from /usr/include/boost/thread/thread.hpp:12,
+[9.069s]                  from /usr/include/boost/thread.hpp:13,
+[9.069s]                  from /usr/include/gazebo-11/gazebo/common/Console.hh:27,
+[9.069s]                  from /usr/include/gazebo-11/gazebo/common/Events.hh:23,
+[9.069s]                  from /usr/include/gazebo-11/gazebo/physics/Joint.hh:28,
+[9.069s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:5:
+[9.070s] /usr/include/boost/bind/mem_fn_template.hpp:163:7: note: candidate: ‘R boost::_mfi::mf1<R, T, A1>::operator()(T*, A1) const [with R = void; T = gazebo_plugin_sim::PlatformPluginTestPrivate; A1 = const gazebo::common::UpdateInfo&]’
+[9.070s]   163 |     R operator()(T * p, A1 a1) const
+[9.070s]       |       ^~~~~~~~
+[9.070s] /usr/include/boost/bind/mem_fn_template.hpp:163:28: note:   no known conversion for argument 2 from ‘std::_Placeholder<1>’ to ‘const gazebo::common::UpdateInfo&’
+[9.070s]   163 |     R operator()(T * p, A1 a1) const
+[9.070s]       |                         ~~~^~
+[9.070s] /usr/include/boost/bind/mem_fn_template.hpp:168:25: note: candidate: ‘template<class U> R boost::_mfi::mf1<R, T, A1>::operator()(U&, A1) const [with U = U; R = void; T = gazebo_plugin_sim::PlatformPluginTestPrivate; A1 = const gazebo::common::UpdateInfo&]’
+[9.070s]   168 |     template<class U> R operator()(U & u, A1 a1) const
+[9.070s]       |                         ^~~~~~~~
+[9.070s] /usr/include/boost/bind/mem_fn_template.hpp:168:25: note:   template argument deduction/substitution failed:
+[9.070s] In file included from /usr/include/boost/bind.hpp:22,
+[9.070s]                  from /usr/include/boost/thread/detail/thread.hpp:33,
+[9.070s]                  from /usr/include/boost/thread/thread_only.hpp:22,
+[9.070s]                  from /usr/include/boost/thread/thread.hpp:12,
+[9.070s]                  from /usr/include/boost/thread.hpp:13,
+[9.071s]                  from /usr/include/gazebo-11/gazebo/common/Console.hh:27,
+[9.071s]                  from /usr/include/gazebo-11/gazebo/common/Events.hh:23,
+[9.071s]                  from /usr/include/gazebo-11/gazebo/physics/Joint.hh:28,
+[9.071s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:5:
+[9.071s] /usr/include/boost/bind/bind.hpp:319:35: note:   cannot convert ‘(& a)->boost::_bi::rrlist1<const gazebo::common::UpdateInfo&>::operator[]<std::_Placeholder<1> >(((boost::_bi::list2<boost::_bi::value<gazebo_plugin_sim::PlatformPluginTestPrivate*>, boost::_bi::value<std::_Placeholder<1> > >*)this)->boost::_bi::list2<boost::_bi::value<gazebo_plugin_sim::PlatformPluginTestPrivate*>, boost::_bi::value<std::_Placeholder<1> > >::<anonymous>.boost::_bi::storage2<boost::_bi::value<gazebo_plugin_sim::PlatformPluginTestPrivate*>, boost::_bi::value<std::_Placeholder<1> > >::a2_)’ (type ‘std::_Placeholder<1>’) to type ‘const gazebo::common::UpdateInfo&’
+[9.072s]   319 |         unwrapper<F>::unwrap(f, 0)(a[base_type::a1_], a[base_type::a2_]);
+[9.073s]       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[9.073s] In file included from /usr/include/boost/bind/mem_fn.hpp:215,
+[9.073s]                  from /usr/include/boost/mem_fn.hpp:22,
+[9.074s]                  from /usr/include/boost/bind/bind.hpp:26,
+[9.074s]                  from /usr/include/boost/bind.hpp:22,
+[9.074s]                  from /usr/include/boost/thread/detail/thread.hpp:33,
+[9.074s]                  from /usr/include/boost/thread/thread_only.hpp:22,
+[9.074s]                  from /usr/include/boost/thread/thread.hpp:12,
+[9.074s]                  from /usr/include/boost/thread.hpp:13,
+[9.074s]                  from /usr/include/gazebo-11/gazebo/common/Console.hh:27,
+[9.074s]                  from /usr/include/gazebo-11/gazebo/common/Events.hh:23,
+[9.074s]                  from /usr/include/gazebo-11/gazebo/physics/Joint.hh:28,
+[9.074s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:5:
+[9.074s] /usr/include/boost/bind/mem_fn_template.hpp:176:25: note: candidate: ‘template<class U> R boost::_mfi::mf1<R, T, A1>::operator()(const U&, A1) const [with U = U; R = void; T = gazebo_plugin_sim::PlatformPluginTestPrivate; A1 = const gazebo::common::UpdateInfo&]’
+[9.074s]   176 |     template<class U> R operator()(U const & u, A1 a1) const
+[9.074s]       |                         ^~~~~~~~
+[9.074s] /usr/include/boost/bind/mem_fn_template.hpp:176:25: note:   template argument deduction/substitution failed:
+[9.074s] In file included from /usr/include/boost/bind.hpp:22,
+[9.074s]                  from /usr/include/boost/thread/detail/thread.hpp:33,
+[9.074s]                  from /usr/include/boost/thread/thread_only.hpp:22,
+[9.075s]                  from /usr/include/boost/thread/thread.hpp:12,
+[9.075s]                  from /usr/include/boost/thread.hpp:13,
+[9.075s]                  from /usr/include/gazebo-11/gazebo/common/Console.hh:27,
+[9.075s]                  from /usr/include/gazebo-11/gazebo/common/Events.hh:23,
+[9.075s]                  from /usr/include/gazebo-11/gazebo/physics/Joint.hh:28,
+[9.075s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:5:
+[9.075s] /usr/include/boost/bind/bind.hpp:319:35: note:   cannot convert ‘(& a)->boost::_bi::rrlist1<const gazebo::common::UpdateInfo&>::operator[]<std::_Placeholder<1> >(((boost::_bi::list2<boost::_bi::value<gazebo_plugin_sim::PlatformPluginTestPrivate*>, boost::_bi::value<std::_Placeholder<1> > >*)this)->boost::_bi::list2<boost::_bi::value<gazebo_plugin_sim::PlatformPluginTestPrivate*>, boost::_bi::value<std::_Placeholder<1> > >::<anonymous>.boost::_bi::storage2<boost::_bi::value<gazebo_plugin_sim::PlatformPluginTestPrivate*>, boost::_bi::value<std::_Placeholder<1> > >::a2_)’ (type ‘std::_Placeholder<1>’) to type ‘const gazebo::common::UpdateInfo&’
+[9.075s]   319 |         unwrapper<F>::unwrap(f, 0)(a[base_type::a1_], a[base_type::a2_]);
+[9.075s]       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[9.075s] In file included from /usr/include/boost/bind/mem_fn.hpp:215,
+[9.075s]                  from /usr/include/boost/mem_fn.hpp:22,
+[9.075s]                  from /usr/include/boost/bind/bind.hpp:26,
+[9.075s]                  from /usr/include/boost/bind.hpp:22,
+[9.075s]                  from /usr/include/boost/thread/detail/thread.hpp:33,
+[9.075s]                  from /usr/include/boost/thread/thread_only.hpp:22,
+[9.075s]                  from /usr/include/boost/thread/thread.hpp:12,
+[9.075s]                  from /usr/include/boost/thread.hpp:13,
+[9.075s]                  from /usr/include/gazebo-11/gazebo/common/Console.hh:27,
+[9.075s]                  from /usr/include/gazebo-11/gazebo/common/Events.hh:23,
+[9.076s]                  from /usr/include/gazebo-11/gazebo/physics/Joint.hh:28,
+[9.076s]                  from /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:5:
+[9.076s] /usr/include/boost/bind/mem_fn_template.hpp:184:7: note: candidate: ‘R boost::_mfi::mf1<R, T, A1>::operator()(T&, A1) const [with R = void; T = gazebo_plugin_sim::PlatformPluginTestPrivate; A1 = const gazebo::common::UpdateInfo&]’
+[9.076s]   184 |     R operator()(T & t, A1 a1) const
+[9.076s]       |       ^~~~~~~~
+[9.076s] /usr/include/boost/bind/mem_fn_template.hpp:184:22: note:   no known conversion for argument 1 from ‘gazebo_plugin_sim::PlatformPluginTestPrivate*’ to ‘gazebo_plugin_sim::PlatformPluginTestPrivate&’
+[9.076s]   184 |     R operator()(T & t, A1 a1) const
+[9.076s]       |                  ~~~~^
+[9.076s] cc1plus: warning: unrecognized command line option ‘-Wno-inconsistent-missing-override’
+[9.076s] make[2]: *** [CMakeFiles/platform_plugin_test.dir/build.make:63: CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o] Error 1
+[9.076s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform_plugin_test.dir/all] Error 2
+[9.076s] make: *** [Makefile:141: all] Error 2
+[9.076s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12

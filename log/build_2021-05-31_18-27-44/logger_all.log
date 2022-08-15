@@ -1,0 +1,290 @@
+[0.221s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.221s] DEBUG:colcon:Parsed command line arguments: Namespace(ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7fa33f2b2790>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=12, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7fa33f2b2790>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7fa33f2b2c70>)
+[0.225s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.225s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.225s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.225s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.225s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.225s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.225s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/javierfr/Tesis_ws/V1'
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/gazebo_plugin_sim) by extensions ['ignore', 'ignore_ament_install']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/gazebo_plugin_sim) by extension 'ignore'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/gazebo_plugin_sim) by extension 'ignore_ament_install'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/gazebo_plugin_sim) by extensions ['colcon_pkg']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/gazebo_plugin_sim) by extension 'colcon_pkg'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/gazebo_plugin_sim) by extensions ['colcon_meta']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/gazebo_plugin_sim) by extension 'colcon_meta'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/gazebo_plugin_sim) by extensions ['ros']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/gazebo_plugin_sim) by extension 'ros'
+[0.237s] DEBUG:colcon.colcon_core.package_identification:Package 'src/gazebo_plugin_sim' with type 'ros.ament_cmake' and name 'gazebo_plugin_sim'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/img_proc_pkg) by extensions ['ignore', 'ignore_ament_install']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/img_proc_pkg) by extension 'ignore'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/img_proc_pkg) by extension 'ignore_ament_install'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/img_proc_pkg) by extensions ['colcon_pkg']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/img_proc_pkg) by extension 'colcon_pkg'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/img_proc_pkg) by extensions ['colcon_meta']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/img_proc_pkg) by extension 'colcon_meta'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/img_proc_pkg) by extensions ['ros']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/img_proc_pkg) by extension 'ros'
+[0.238s] DEBUG:colcon.colcon_core.package_identification:Package 'src/img_proc_pkg' with type 'ros.ament_cmake' and name 'img_proc_pkg'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extension 'ignore'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extension 'ignore_ament_install'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extensions ['colcon_pkg']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extension 'colcon_pkg'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extensions ['colcon_meta']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extension 'colcon_meta'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extensions ['ros']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extension 'ros'
+[0.238s] DEBUG:colcon.colcon_core.package_identification:Package 'src/interfaces' with type 'ros.ament_cmake' and name 'interfaces'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/sim_pkg) by extensions ['ignore', 'ignore_ament_install']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/sim_pkg) by extension 'ignore'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/sim_pkg) ignored
+[0.239s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.239s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.239s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.239s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.239s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.253s] Level 5:colcon.colcon_core.verb:set package 'gazebo_plugin_sim' build argument 'cmake_args' from command line to 'None'
+[0.253s] Level 5:colcon.colcon_core.verb:set package 'gazebo_plugin_sim' build argument 'cmake_target' from command line to 'None'
+[0.253s] Level 5:colcon.colcon_core.verb:set package 'gazebo_plugin_sim' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.253s] Level 5:colcon.colcon_core.verb:set package 'gazebo_plugin_sim' build argument 'cmake_clean_cache' from command line to 'False'
+[0.253s] Level 5:colcon.colcon_core.verb:set package 'gazebo_plugin_sim' build argument 'cmake_clean_first' from command line to 'False'
+[0.253s] Level 5:colcon.colcon_core.verb:set package 'gazebo_plugin_sim' build argument 'cmake_force_configure' from command line to 'False'
+[0.253s] Level 5:colcon.colcon_core.verb:set package 'gazebo_plugin_sim' build argument 'ament_cmake_args' from command line to 'None'
+[0.253s] Level 5:colcon.colcon_core.verb:set package 'gazebo_plugin_sim' build argument 'catkin_cmake_args' from command line to 'None'
+[0.253s] Level 5:colcon.colcon_core.verb:set package 'gazebo_plugin_sim' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.253s] DEBUG:colcon.colcon_core.verb:Building package 'gazebo_plugin_sim' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim', 'merge_install': False, 'path': '/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim', 'symlink_install': False, 'test_result_base': None}
+[0.255s] Level 5:colcon.colcon_core.verb:set package 'img_proc_pkg' build argument 'cmake_args' from command line to 'None'
+[0.255s] Level 5:colcon.colcon_core.verb:set package 'img_proc_pkg' build argument 'cmake_target' from command line to 'None'
+[0.255s] Level 5:colcon.colcon_core.verb:set package 'img_proc_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.255s] Level 5:colcon.colcon_core.verb:set package 'img_proc_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[0.255s] Level 5:colcon.colcon_core.verb:set package 'img_proc_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[0.255s] Level 5:colcon.colcon_core.verb:set package 'img_proc_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[0.255s] Level 5:colcon.colcon_core.verb:set package 'img_proc_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[0.255s] Level 5:colcon.colcon_core.verb:set package 'img_proc_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[0.255s] Level 5:colcon.colcon_core.verb:set package 'img_proc_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.255s] DEBUG:colcon.colcon_core.verb:Building package 'img_proc_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg', 'merge_install': False, 'path': '/home/javierfr/Tesis_ws/V1/src/img_proc_pkg', 'symlink_install': False, 'test_result_base': None}
+[0.257s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'cmake_args' from command line to 'None'
+[0.257s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'cmake_target' from command line to 'None'
+[0.257s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.257s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.257s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.257s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.257s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.257s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.257s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.257s] DEBUG:colcon.colcon_core.verb:Building package 'interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/javierfr/Tesis_ws/V1/build/interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/javierfr/Tesis_ws/V1/install/interfaces', 'merge_install': False, 'path': '/home/javierfr/Tesis_ws/V1/src/interfaces', 'symlink_install': False, 'test_result_base': None}
+[0.258s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.259s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.259s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim' with build type 'ament_cmake'
+[0.259s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim'
+[0.262s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.262s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.262s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.263s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/javierfr/Tesis_ws/V1/install/gazebo_plugins' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.264s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/javierfr/Tesis_ws/V1/install/gazebo_plugins' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.264s] DEBUG:colcon.colcon_core.shell:Ignoring prefix path '/opt/ros/foxy'
+[0.266s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/javierfr/Tesis_ws/V1/src/img_proc_pkg' with build type 'ament_cmake'
+[0.266s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/javierfr/Tesis_ws/V1/src/img_proc_pkg'
+[0.267s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.267s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.269s] DEBUG:colcon.colcon_core.shell:Ignoring prefix path '/opt/ros/foxy'
+[0.270s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/javierfr/Tesis_ws/V1/src/interfaces' with build type 'ament_cmake'
+[0.270s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/javierfr/Tesis_ws/V1/src/interfaces'
+[0.271s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.271s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.273s] DEBUG:colcon.colcon_core.shell:Ignoring prefix path '/opt/ros/foxy'
+[0.280s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12
+[0.286s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.289s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/javierfr/Tesis_ws/V1/build/interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/interfaces -- -j12 -l12
+[0.341s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.374s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/img_proc_pkg
+[0.384s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(img_proc_pkg)
+[0.385s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/img_proc_pkg
+[0.387s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg' for CMake module files
+[0.388s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg' for CMake config files
+[0.388s] Level 1:colcon.colcon_core.shell:create_environment_hook('img_proc_pkg', 'cmake_prefix_path')
+[0.389s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/hook/cmake_prefix_path.ps1'
+[0.389s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/hook/cmake_prefix_path.dsv'
+[0.390s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/hook/cmake_prefix_path.sh'
+[0.390s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib'
+[0.390s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/bin'
+[0.391s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/pkgconfig/img_proc_pkg.pc'
+[0.391s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/python3.8/site-packages'
+[0.391s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/package.ps1'
+[0.392s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/package.dsv'
+[0.393s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/package.sh'
+[0.394s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/package.bash'
+[0.394s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/package.zsh'
+[0.395s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/colcon-core/packages/img_proc_pkg)
+[0.416s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(img_proc_pkg)
+[0.417s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg' for CMake module files
+[0.418s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg' for CMake config files
+[0.418s] Level 1:colcon.colcon_core.shell:create_environment_hook('img_proc_pkg', 'cmake_prefix_path')
+[0.418s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/hook/cmake_prefix_path.ps1'
+[0.418s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/hook/cmake_prefix_path.dsv'
+[0.419s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/hook/cmake_prefix_path.sh'
+[0.419s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib'
+[0.419s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/bin'
+[0.419s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/pkgconfig/img_proc_pkg.pc'
+[0.419s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/lib/python3.8/site-packages'
+[0.420s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/package.ps1'
+[0.420s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/package.dsv'
+[0.421s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/package.sh'
+[0.421s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/package.bash'
+[0.421s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/img_proc_pkg/package.zsh'
+[0.421s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/javierfr/Tesis_ws/V1/install/img_proc_pkg/share/colcon-core/packages/img_proc_pkg)
+[0.462s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/javierfr/Tesis_ws/V1/build/interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/interfaces -- -j12 -l12
+[0.501s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/javierfr/Tesis_ws/V1/build/interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/interfaces
+[0.542s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(interfaces)
+[0.543s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/interfaces' for CMake module files
+[0.543s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/javierfr/Tesis_ws/V1/build/interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/interfaces
+[0.543s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/interfaces' for CMake config files
+[0.543s] Level 1:colcon.colcon_core.shell:create_environment_hook('interfaces', 'cmake_prefix_path')
+[0.544s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/hook/cmake_prefix_path.ps1'
+[0.544s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/hook/cmake_prefix_path.dsv'
+[0.545s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/hook/cmake_prefix_path.sh'
+[0.545s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/interfaces/lib'
+[0.545s] Level 1:colcon.colcon_core.shell:create_environment_hook('interfaces', 'ld_library_path_lib')
+[0.545s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/hook/ld_library_path_lib.ps1'
+[0.546s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/hook/ld_library_path_lib.dsv'
+[0.546s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/hook/ld_library_path_lib.sh'
+[0.546s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/interfaces/bin'
+[0.546s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/interfaces/lib/pkgconfig/interfaces.pc'
+[0.546s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages'
+[0.546s] Level 1:colcon.colcon_core.shell:create_environment_hook('interfaces', 'pythonpath')
+[0.547s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/hook/pythonpath.ps1'
+[0.547s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/hook/pythonpath.dsv'
+[0.547s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/hook/pythonpath.sh'
+[0.548s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/package.ps1'
+[0.548s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/package.dsv'
+[0.549s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/package.sh'
+[0.549s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/package.bash'
+[0.549s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/package.zsh'
+[0.549s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/javierfr/Tesis_ws/V1/install/interfaces/share/colcon-core/packages/interfaces)
+[0.588s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(interfaces)
+[0.588s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/interfaces' for CMake module files
+[0.589s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/interfaces' for CMake config files
+[0.589s] Level 1:colcon.colcon_core.shell:create_environment_hook('interfaces', 'cmake_prefix_path')
+[0.589s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/hook/cmake_prefix_path.ps1'
+[0.590s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/hook/cmake_prefix_path.dsv'
+[0.590s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/hook/cmake_prefix_path.sh'
+[0.590s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/interfaces/lib'
+[0.590s] Level 1:colcon.colcon_core.shell:create_environment_hook('interfaces', 'ld_library_path_lib')
+[0.591s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/hook/ld_library_path_lib.ps1'
+[0.591s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/hook/ld_library_path_lib.dsv'
+[0.591s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/hook/ld_library_path_lib.sh'
+[0.591s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/interfaces/bin'
+[0.592s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/interfaces/lib/pkgconfig/interfaces.pc'
+[0.592s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages'
+[0.592s] Level 1:colcon.colcon_core.shell:create_environment_hook('interfaces', 'pythonpath')
+[0.592s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/hook/pythonpath.ps1'
+[0.592s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/hook/pythonpath.dsv'
+[0.593s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/hook/pythonpath.sh'
+[0.593s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/package.ps1'
+[0.594s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/package.dsv'
+[0.594s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/package.sh'
+[0.594s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/package.bash'
+[0.595s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/package.zsh'
+[0.595s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/javierfr/Tesis_ws/V1/install/interfaces/share/colcon-core/packages/interfaces)
+[12.935s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12
+[12.954s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim
+[12.966s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(gazebo_plugin_sim)
+[12.967s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim' for CMake module files
+[12.968s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim
+[12.968s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim' for CMake config files
+[12.968s] Level 1:colcon.colcon_core.shell:create_environment_hook('gazebo_plugin_sim', 'cmake_prefix_path')
+[12.968s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/cmake_prefix_path.ps1'
+[12.969s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/cmake_prefix_path.dsv'
+[12.969s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/cmake_prefix_path.sh'
+[12.970s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib'
+[12.970s] Level 1:colcon.colcon_core.shell:create_environment_hook('gazebo_plugin_sim', 'ld_library_path_lib')
+[12.970s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/ld_library_path_lib.ps1'
+[12.970s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/ld_library_path_lib.dsv'
+[12.970s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/ld_library_path_lib.sh'
+[12.971s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/bin'
+[12.971s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib/pkgconfig/gazebo_plugin_sim.pc'
+[12.971s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib/python3.8/site-packages'
+[12.971s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.ps1'
+[12.972s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.dsv'
+[12.972s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.sh'
+[12.972s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.bash'
+[12.972s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.zsh'
+[12.973s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/colcon-core/packages/gazebo_plugin_sim)
+[12.992s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(gazebo_plugin_sim)
+[12.993s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim' for CMake module files
+[12.994s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim' for CMake config files
+[12.994s] Level 1:colcon.colcon_core.shell:create_environment_hook('gazebo_plugin_sim', 'cmake_prefix_path')
+[12.994s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/cmake_prefix_path.ps1'
+[12.995s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/cmake_prefix_path.dsv'
+[12.995s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/cmake_prefix_path.sh'
+[12.995s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib'
+[12.995s] Level 1:colcon.colcon_core.shell:create_environment_hook('gazebo_plugin_sim', 'ld_library_path_lib')
+[12.996s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/ld_library_path_lib.ps1'
+[12.996s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/ld_library_path_lib.dsv'
+[12.996s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/ld_library_path_lib.sh'
+[12.996s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/bin'
+[12.996s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib/pkgconfig/gazebo_plugin_sim.pc'
+[12.996s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib/python3.8/site-packages'
+[12.997s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.ps1'
+[12.997s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.dsv'
+[12.998s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.sh'
+[12.998s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.bash'
+[12.998s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.zsh'
+[12.998s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/colcon-core/packages/gazebo_plugin_sim)
+[12.999s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[12.999s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[12.999s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[12.999s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[13.004s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[13.004s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[13.004s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[13.015s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[13.015s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/javierfr/Tesis_ws/V1/install/local_setup.ps1'
+[13.016s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/javierfr/Tesis_ws/V1/install/_local_setup_util_ps1.py'
+[13.017s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/javierfr/Tesis_ws/V1/install/setup.ps1'
+[13.019s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/javierfr/Tesis_ws/V1/install/local_setup.sh'
+[13.019s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/javierfr/Tesis_ws/V1/install/_local_setup_util_sh.py'
+[13.019s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/javierfr/Tesis_ws/V1/install/setup.sh'
+[13.021s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/javierfr/Tesis_ws/V1/install/local_setup.bash'
+[13.021s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/javierfr/Tesis_ws/V1/install/setup.bash'
+[13.023s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/javierfr/Tesis_ws/V1/install/local_setup.zsh'
+[13.023s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/javierfr/Tesis_ws/V1/install/setup.zsh'

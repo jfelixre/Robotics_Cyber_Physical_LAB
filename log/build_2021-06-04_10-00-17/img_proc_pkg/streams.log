@@ -1,0 +1,19 @@
+[0.021s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.055s] [35m[1mScanning dependencies of target img_proc_id_node[0m
+[0.081s] [ 50%] Built target img_proc_node
+[0.081s] [ 50%] Built target img_publ_test_node
+[0.081s] [ 75%] Built target img_subs_test_node
+[0.089s] [ 87%] [32mBuilding CXX object CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o[0m
+[1.290s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Proc_Id_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[1.290s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:60:50:[m[K [01;31m[Kerror: [m[K‘[01m[KCOLOR_GBR2RGB[m[K’ is not a member of ‘[01m[Kcv[m[K’; did you mean ‘[01m[KCOLOR_BGR2RGB[m[K’?
+[1.291s]    60 |       cv::cvtColor(img_original,img_original,cv::[01;31m[KCOLOR_GBR2RGB[m[K);
+[1.291s]       |                                                  [01;31m[K^~~~~~~~~~~~~[m[K
+[1.291s]       |                                                  [32m[KCOLOR_BGR2RGB[m[K
+[1.291s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:66:46:[m[K [01;31m[Kerror: [m[K‘[01m[KCOLOR_GBR2HSV[m[K’ is not a member of ‘[01m[Kcv[m[K’; did you mean ‘[01m[KCOLOR_BGR2HSV[m[K’?
+[1.291s]    66 |       cv::cvtColor(img_original,img_hsv, cv::[01;31m[KCOLOR_GBR2HSV[m[K);     //Convert to HSV
+[1.291s]       |                                              [01;31m[K^~~~~~~~~~~~~[m[K
+[1.291s]       |                                              [32m[KCOLOR_BGR2HSV[m[K
+[2.382s] make[2]: *** [CMakeFiles/img_proc_id_node.dir/build.make:63: CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o] Error 1
+[2.382s] make[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/img_proc_id_node.dir/all] Error 2
+[2.382s] make: *** [Makefile:141: all] Error 2
+[2.385s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12

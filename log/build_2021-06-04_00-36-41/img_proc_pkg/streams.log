@@ -1,0 +1,54 @@
+[0.024s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.064s] [35m[1mScanning dependencies of target img_proc_id_node[0m
+[0.091s] [ 25%] Built target img_proc_node
+[0.101s] [ 50%] Built target img_subs_test_node
+[0.106s] [ 75%] Built target img_publ_test_node
+[0.110s] [ 87%] [32mBuilding CXX object CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o[0m
+[1.365s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:33:16:[m[K [01;31m[Kerror: [m[Kexpected initializer before ‘[01m[KRHmin[m[K’
+[1.365s]    33 | int::SharedPtr [01;31m[KRHmin[m[K,RSmin,RVmin,RHmax,RSmax,RVmax;;
+[1.365s]       |                [01;31m[K^~~~~[m[K
+[1.365s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:33:52:[m[K [01;35m[Kwarning: [m[Kextra ‘[01m[K;[m[K’ [[01;35m[K-Wpedantic[m[K]
+[1.365s]    33 | int::SharedPtr RHmin,RSmin,RVmin,RHmax,RSmax,RVmax;[01;35m[K;[m[K
+[1.365s]       |                                                    [01;35m[K^[m[K
+[1.396s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Proc_Id_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[1.396s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:74:51:[m[K [01;31m[Kerror: [m[K‘[01m[KRHmin[m[K’ was not declared in this scope
+[1.396s]    74 |       cv::threshold(img_hsvs[0], img_red_temp[0], [01;31m[KRHmin[m[K, 255, cv::THRESH_BINARY);  //Hmin filter
+[1.396s]       |                                                   [01;31m[K^~~~~[m[K
+[1.397s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:75:51:[m[K [01;31m[Kerror: [m[K‘[01m[KRHmax[m[K’ was not declared in this scope
+[1.397s]    75 |       cv::threshold(img_hsvs[0], img_red_temp[1], [01;31m[KRHmax[m[K, 255, cv::THRESH_BINARY_INV);  //Hmax filter
+[1.397s]       |                                                   [01;31m[K^~~~~[m[K
+[1.398s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:78:51:[m[K [01;31m[Kerror: [m[K‘[01m[KRSmin[m[K’ was not declared in this scope
+[1.398s]    78 |       cv::threshold(img_hsvs[1], img_red_temp[2], [01;31m[KRSmin[m[K, 255, cv::THRESH_BINARY);  //Smin filter
+[1.398s]       |                                                   [01;31m[K^~~~~[m[K
+[1.399s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:79:51:[m[K [01;31m[Kerror: [m[K‘[01m[KRSmax[m[K’ was not declared in this scope
+[1.399s]    79 |       cv::threshold(img_hsvs[1], img_red_temp[3], [01;31m[KRSmax[m[K, 255, cv::THRESH_BINARY_INV);  //Smax filter
+[1.399s]       |                                                   [01;31m[K^~~~~[m[K
+[1.400s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:82:51:[m[K [01;31m[Kerror: [m[K‘[01m[KRVmin[m[K’ was not declared in this scope
+[1.400s]    82 |       cv::threshold(img_hsvs[2], img_red_temp[4], [01;31m[KRVmin[m[K, 255, cv::THRESH_BINARY);  //Vmin filter
+[1.400s]       |                                                   [01;31m[K^~~~~[m[K
+[1.401s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:83:51:[m[K [01;31m[Kerror: [m[K‘[01m[KRVmax[m[K’ was not declared in this scope
+[1.401s]    83 |       cv::threshold(img_hsvs[2], img_red_temp[5], [01;31m[KRVmax[m[K, 255, cv::THRESH_BINARY_INV);  //Vmax filter
+[1.401s]       |                                                   [01;31m[K^~~~~[m[K
+[1.403s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[1.403s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:115:42:[m[K [01;31m[Kerror: [m[K‘[01m[KRHmin[m[K’ was not declared in this scope
+[1.403s]   115 |   cv::createTrackbar("Hmin", "HSV_RED", &[01;31m[KRHmin[m[K, 360);
+[1.404s]       |                                          [01;31m[K^~~~~[m[K
+[1.404s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:116:42:[m[K [01;31m[Kerror: [m[K‘[01m[KRHmax[m[K’ was not declared in this scope
+[1.404s]   116 |   cv::createTrackbar("Hmax", "HSV_RED", &[01;31m[KRHmax[m[K, 360);
+[1.404s]       |                                          [01;31m[K^~~~~[m[K
+[1.405s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:117:42:[m[K [01;31m[Kerror: [m[K‘[01m[KRSmin[m[K’ was not declared in this scope
+[1.405s]   117 |   cv::createTrackbar("Smin", "HSV_RED", &[01;31m[KRSmin[m[K, 255);
+[1.405s]       |                                          [01;31m[K^~~~~[m[K
+[1.406s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:118:42:[m[K [01;31m[Kerror: [m[K‘[01m[KRSmax[m[K’ was not declared in this scope
+[1.406s]   118 |   cv::createTrackbar("Smax", "HSV_RED", &[01;31m[KRSmax[m[K, 255);
+[1.406s]       |                                          [01;31m[K^~~~~[m[K
+[1.407s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:119:42:[m[K [01;31m[Kerror: [m[K‘[01m[KRVmin[m[K’ was not declared in this scope
+[1.407s]   119 |   cv::createTrackbar("Vmin", "HSV_RED", &[01;31m[KRVmin[m[K, 255);
+[1.407s]       |                                          [01;31m[K^~~~~[m[K
+[1.408s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:120:42:[m[K [01;31m[Kerror: [m[K‘[01m[KRVmax[m[K’ was not declared in this scope
+[1.408s]   120 |   cv::createTrackbar("Vmax", "HSV_RED", &[01;31m[KRVmax[m[K, 255);
+[1.408s]       |                                          [01;31m[K^~~~~[m[K
+[2.582s] make[2]: *** [CMakeFiles/img_proc_id_node.dir/build.make:63: CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o] Error 1
+[2.582s] make[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/img_proc_id_node.dir/all] Error 2
+[2.582s] make: *** [Makefile:141: all] Error 2
+[2.584s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12

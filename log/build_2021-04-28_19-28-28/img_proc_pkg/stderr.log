@@ -1,0 +1,17 @@
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:[m[K In constructor ‘[01m[KImg_Subs_Test_Node::Img_Subs_Test_Node()[m[K’:
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:33:82:[m[K [01;31m[Kerror: [m[K‘[01m[K_1[m[K’ was not declared in this scope; did you mean ‘[01m[Kstd::placeholders::_1[m[K’?
+   33 | (&Img_Subs_Test_Node::topic_callback, this, [01;31m[K_1[m[K));
+      |                                             [01;31m[K^~[m[K
+      |                                             [32m[Kstd::placeholders::_1[m[K
+In file included from [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:3[m[K:
+[01m[K/usr/include/c++/9/functional:211:34:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::placeholders::_1[m[K’ declared here
+  211 |     extern const _Placeholder<1> [01;36m[K_1[m[K;
+      |                                  [01;36m[K^~[m[K
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Subs_Test_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:37:66:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+   37 | c_callback([01;35m[Kconst sensor_msgs::msg::Image::SharedPtr msg[m[K) const
+      |            [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+
+make[2]: *** [CMakeFiles/img_subs_test_node.dir/build.make:63: CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:82: CMakeFiles/img_subs_test_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

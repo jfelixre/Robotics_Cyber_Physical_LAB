@@ -1,0 +1,26 @@
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp: In function ‘void send_vel(std::shared_ptr<interfaces::srv::PlatformVel_Request_<std::allocator<void> > >, std::shared_ptr<interfaces::srv::PlatformVel_Response_<std::allocator<void> > >)’:
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:54:6: error: ‘Platform1VelServer_node’ has not been declared
+   54 |      Platform1VelServer_node::publisher_M1->publish(vel_M1);
+      |      ^~~~~~~~~~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp: In function ‘int main(int, char**)’:
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:66:3: error: expected primary-expression before ‘public’
+   66 |   public: std::shared_ptr<rclcpp::Node> Platform1VelServer_node = rclcpp::Node::make_shared("platform1_vel_server");
+      |   ^~~~~~
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:69:5: error: ‘Platform1VelServer_node’ was not declared in this scope
+   69 |     Platform1VelServer_node->create_service<interfaces::srv::PlatformVel>("platform1_vel", &send_vel);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:69:73: error: expected primary-expression before ‘>’ token
+   69 |     Platform1VelServer_node->create_service<interfaces::srv::PlatformVel>("platform1_vel", &send_vel);
+      |                                                                         ^
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:69:75: warning: left operand of comma operator has no effect [-Wunused-value]
+   69 |     Platform1VelServer_node->create_service<interfaces::srv::PlatformVel>("platform1_vel", &send_vel);
+      |                                                                           ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:72:31: error: expected primary-expression before ‘>’ token
+   72 |    geometry_msgs::msg::Vector3>("/robot_platform_1/vel_M1",1);
+      |                               ^
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:72:33: warning: left operand of comma operator has no effect [-Wunused-value]
+   72 |    geometry_msgs::msg::Vector3>("/robot_platform_1/vel_M1",1);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~
+make[2]: *** [CMakeFiles/platform1_vel_server.dir/build.make:63: CMakeFiles/platform1_vel_server.dir/src/platform1_vel_server.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform1_vel_server.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

@@ -1,0 +1,41 @@
+[0.155s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12
+[6.593s] [ 33%] Built target platform1_plugin
+[6.594s] [ 83%] Built target platform_plugin_test
+[6.595s] [100%] Built target platform2_plugin
+[6.607s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12
+[6.630s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim
+[6.649s] -- Install configuration: ""
+[6.649s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/library_path.sh
+[6.650s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/library_path.dsv
+[6.650s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/gazebo_plugin_sim.sh
+[6.651s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/gazebo_plugin_sim.dsv
+[6.651s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/ament_index/resource_index/package_run_dependencies/gazebo_plugin_sim
+[6.652s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/ament_index/resource_index/parent_prefix_path/gazebo_plugin_sim
+[6.652s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/ament_prefix_path.sh
+[6.653s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/ament_prefix_path.dsv
+[6.653s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/path.sh
+[6.654s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/path.dsv
+[6.654s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/local_setup.bash
+[6.654s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/local_setup.sh
+[6.655s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/local_setup.zsh
+[6.655s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/local_setup.dsv
+[6.655s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.dsv
+[6.656s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/ament_index/resource_index/packages/gazebo_plugin_sim
+[6.656s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/cmake/ament_cmake_export_libraries-extras.cmake
+[6.657s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/cmake/ament_cmake_export_include_directories-extras.cmake
+[6.657s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/cmake/ament_cmake_export_dependencies-extras.cmake
+[6.657s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/cmake/gazebo_plugin_simConfig.cmake
+[6.658s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/cmake/gazebo_plugin_simConfig-version.cmake
+[6.658s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.xml
+[6.658s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/include
+[6.659s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/include/gazebo_plugin_sim
+[6.659s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/include/gazebo_plugin_sim/platform2_plugin.hpp
+[6.659s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/include/gazebo_plugin_sim/platform_plugin_test.hpp
+[6.660s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/include/gazebo_plugin_sim/platform1_plugin.hpp
+[6.660s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib/libplatform_plugin_test.so
+[6.661s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib/libplatform1_plugin.so
+[6.663s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib/libplatform2_plugin.so
+[6.664s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim//worlds
+[6.665s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim//worlds/test_mecanum_platform.world
+[6.666s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim//worlds/2platform.world
+[6.677s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim

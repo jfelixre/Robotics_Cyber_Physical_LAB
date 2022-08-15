@@ -1,0 +1,25 @@
+-- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Found std_msgs: 2.0.4 (/opt/ros/foxy/share/std_msgs/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rclcpp: 2.3.1 (/opt/ros/foxy/share/rclcpp/cmake)
+-- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found interfaces: 0.0.0 (/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/javierfr/Tesis_ws/V1/build/sim_pkg
+[35m[1mScanning dependencies of target plat1_send_vel_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/plat1_send_vel_node.dir/src/plat1_send_vel_node.cpp.o[0m
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp: In function ‘void setvel(std::shared_ptr<interfaces::srv::Platform1Vel_Request_<std::allocator<void> > >, std::shared_ptr<interfaces::srv::Platform1Vel_Response_<std::allocator<void> > >)’:
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:13:13: error: ‘using element_type = struct interfaces::srv::Platform1Vel_Response_<std::allocator<void> >’ {aka ‘struct interfaces::srv::Platform1Vel_Response_<std::allocator<void> >’} has no member named ‘sent’
+   13 |   response->sent =1;
+      |             ^~~~
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:9:10: warning: unused variable ‘xvel’ [-Wunused-variable]
+    9 |   double xvel = request->x_vel;
+      |          ^~~~
+make[2]: *** [CMakeFiles/plat1_send_vel_node.dir/build.make:63: CMakeFiles/plat1_send_vel_node.dir/src/plat1_send_vel_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/plat1_send_vel_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

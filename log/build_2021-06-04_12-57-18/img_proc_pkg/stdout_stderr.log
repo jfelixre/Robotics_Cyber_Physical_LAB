@@ -1,0 +1,28 @@
+[35m[1mScanning dependencies of target img_proc_id_node[0m
+[ 25%] Built target img_proc_node
+[ 50%] Built target img_publ_test_node
+[ 75%] Built target img_subs_test_node
+[ 87%] [32mBuilding CXX object CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o[0m
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Proc_Id_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:71:50:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kcv::Mat::zeros(int&, int&)[m[K’
+   71 |       cv::Mat mask = cv::Mat::zeros(n_rows,n_cols[01;31m[K)[m[K;
+      |                                                  [01;31m[K^[m[K
+In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:59[m[K,
+                 from [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:10[m[K:
+[01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:1353:20:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstatic cv::MatExpr cv::Mat::zeros(int, int, int)[m[K’
+ 1353 |     static MatExpr [01;36m[Kzeros[m[K(int rows, int cols, int type);
+      |                    [01;36m[K^~~~~[m[K
+[01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:1353:20:[m[K [01;36m[Knote: [m[K  candidate expects 3 arguments, 2 provided
+[01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:1359:20:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstatic cv::MatExpr cv::Mat::zeros(cv::Size, int)[m[K’
+ 1359 |     static MatExpr [01;36m[Kzeros[m[K(Size size, int type);
+      |                    [01;36m[K^~~~~[m[K
+[01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:1359:31:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kcv::Size[m[K’ {aka ‘[01m[Kcv::Size_<int>[m[K’}
+ 1359 |     static MatExpr zeros([01;36m[KSize size[m[K, int type);
+      |                          [01;36m[K~~~~~^~~~[m[K
+[01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:1366:20:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstatic cv::MatExpr cv::Mat::zeros(int, const int*, int)[m[K’
+ 1366 |     static MatExpr [01;36m[Kzeros[m[K(int ndims, const int* sz, int type);
+      |                    [01;36m[K^~~~~[m[K
+[01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:1366:20:[m[K [01;36m[Knote: [m[K  candidate expects 3 arguments, 2 provided
+make[2]: *** [CMakeFiles/img_proc_id_node.dir/build.make:63: CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/img_proc_id_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

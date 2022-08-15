@@ -1,0 +1,184 @@
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:741:38: error: ‘PlatState’ is not a member of ‘interfaces::msg’
+  741 |   rclcpp::Publisher<interfaces::msg::PlatState>::SharedPtr state_platform2_publisher;
+      |                                      ^~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:741:38: error: ‘PlatState’ is not a member of ‘interfaces::msg’
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:741:47: error: template argument 1 is invalid
+  741 |   rclcpp::Publisher<interfaces::msg::PlatState>::SharedPtr state_platform2_publisher;
+      |                                               ^
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:741:50: error: expected ‘;’ at end of member declaration
+  741 |   rclcpp::Publisher<interfaces::msg::PlatState>::SharedPtr state_platform2_publisher;
+      |                                                  ^~~~~~~~~
+      |                                                           ;
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:741:60: error: ‘state_platform2_publisher’ does not name a type
+  741 |   rclcpp::Publisher<interfaces::msg::PlatState>::SharedPtr state_platform2_publisher;
+      |                                                            ^~~~~~~~~~~~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:742:41: error: ‘PlatState’ is not a member of ‘interfaces::msg’
+  742 |   rclcpp::Subscription<interfaces::msg::PlatState>::SharedPtr state_platform1_subscriber;
+      |                                         ^~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:742:41: error: ‘PlatState’ is not a member of ‘interfaces::msg’
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:742:50: error: template argument 1 is invalid
+  742 |   rclcpp::Subscription<interfaces::msg::PlatState>::SharedPtr state_platform1_subscriber;
+      |                                                  ^
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:742:50: error: template argument 3 is invalid
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:742:53: error: expected ‘;’ at end of member declaration
+  742 |   rclcpp::Subscription<interfaces::msg::PlatState>::SharedPtr state_platform1_subscriber;
+      |                                                     ^~~~~~~~~
+      |                                                              ;
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:742:53: error: redeclaration of ‘int Control_PID_R2_node::SharedPtr’
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:741:50: note: previous declaration ‘int Control_PID_R2_node::SharedPtr’
+  741 |   rclcpp::Publisher<interfaces::msg::PlatState>::SharedPtr state_platform2_publisher;
+      |                                                  ^~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:742:63: error: ‘state_platform1_subscriber’ does not name a type
+  742 |   rclcpp::Subscription<interfaces::msg::PlatState>::SharedPtr state_platform1_subscriber;
+      |                                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:744:35: error: ‘PlatformVel’ is not a member of ‘interfaces::srv’
+  744 |   rclcpp::Client<interfaces::srv::PlatformVel>::SharedPtr client;
+      |                                   ^~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:744:35: error: ‘PlatformVel’ is not a member of ‘interfaces::srv’
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:744:46: error: template argument 1 is invalid
+  744 |   rclcpp::Client<interfaces::srv::PlatformVel>::SharedPtr client;
+      |                                              ^
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:744:49: error: expected ‘;’ at end of member declaration
+  744 |   rclcpp::Client<interfaces::srv::PlatformVel>::SharedPtr client;
+      |                                                 ^~~~~~~~~
+      |                                                          ;
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:744:49: error: redeclaration of ‘int Control_PID_R2_node::SharedPtr’
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:741:50: note: previous declaration ‘int Control_PID_R2_node::SharedPtr’
+  741 |   rclcpp::Publisher<interfaces::msg::PlatState>::SharedPtr state_platform2_publisher;
+      |                                                  ^~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:744:59: error: ‘client’ does not name a type
+  744 |   rclcpp::Client<interfaces::srv::PlatformVel>::SharedPtr client;
+      |                                                           ^~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp: In constructor ‘Control_PID_R2_node::Control_PID_R2_node()’:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:189:4: error: ‘client’ was not declared in this scope
+  189 |    client = this->create_client<interfaces::srv::RobotVel>("robot2_vel");
+      |    ^~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:197:9: error: ‘state_robot2_publisher’ was not declared in this scope
+  197 |         state_robot2_publisher = create_publisher<interfaces::msg::RobotState>("robot2_state",1);
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:199:8: error: ‘state_robot1_subscriber’ was not declared in this scope
+  199 |        state_robot1_subscriber= create_subscription<interfaces::msg::RobotState>(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:202:9: error: ‘data_robot_publisher’ was not declared in this scope; did you mean ‘data_platform_publisher’?
+  202 |         data_robot_publisher = create_publisher<interfaces::msg::ControlData>("robot2_control_data",1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         data_platform_publisher
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:204:6: error: ‘LmSw_subscriber’ was not declared in this scope; did you mean ‘count_subscribers’?
+  204 |      LmSw_subscriber= create_subscription<interfaces::msg::LimitSwitch>(
+      |      ^~~~~~~~~~~~~~~
+      |      count_subscribers
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:207:4: error: ‘velM_subscriber’ was not declared in this scope; did you mean ‘count_subscribers’?
+  207 |    velM_subscriber= create_subscription<interfaces::msg::MotorVelsWArm>(
+      |    ^~~~~~~~~~~~~~~
+      |    count_subscribers
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp: In member function ‘void Control_PID_R2_node::timer_callback()’:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:310:8: error: ‘platform2_state’ was not declared in this scope
+  310 |    if (platform2_state==-1)
+      |        ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:316:8: error: ‘platform2_state’ was not declared in this scope
+  316 |    if (platform2_state==0)
+      |        ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:320:9: error: ‘platform1_state’ was not declared in this scope
+  320 |     if (platform1_state==0 or platform1_state==1)
+      |         ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:329:9: error: ‘platform1_state’ was not declared in this scope
+  329 |     if (platform1_state>=4)
+      |         ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:336:8: error: ‘platform2_state’ was not declared in this scope
+  336 |    if (platform2_state==1)
+      |        ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:342:8: error: ‘platform2_state’ was not declared in this scope
+  342 |    if (platform2_state==2)
+      |        ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:348:8: error: ‘platform2_state’ was not declared in this scope
+  348 |    if (platform2_state==3)
+      |        ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:354:8: error: ‘platform2_state’ was not declared in this scope
+  354 |    if (platform2_state==4)
+      |        ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:360:8: error: ‘platform2_state’ was not declared in this scope
+  360 |    if (platform2_state==5)
+      |        ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:366:8: error: ‘platform2_state’ was not declared in this scope
+  366 |    if (platform2_state==6)
+      |        ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:372:8: error: ‘platform2_state’ was not declared in this scope
+  372 |    if (platform2_state==7)
+      |        ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:378:8: error: ‘platform2_state’ was not declared in this scope
+  378 |    if (platform2_state==8)
+      |        ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:396:22: error: ‘PlatState’ is not a member of ‘interfaces::msg’
+  396 |     interfaces::msg::PlatState msg_publ;
+      |                      ^~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:397:5: error: ‘msg_publ’ was not declared in this scope
+  397 |     msg_publ.platform_state=platform2_state;
+      |     ^~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:397:29: error: ‘platform2_state’ was not declared in this scope
+  397 |     msg_publ.platform_state=platform2_state;
+      |                             ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:398:5: error: ‘state_platform2_publisher’ was not declared in this scope; did you mean ‘data_platform_publisher’?
+  398 |     state_platform2_publisher->publish(msg_publ);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |     data_platform_publisher
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp: In member function ‘void Control_PID_R2_node::control_F1()’:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:422:5: error: ‘platform2_state’ was not declared in this scope
+  422 |     platform2_state=2;
+      |     ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp: In member function ‘void Control_PID_R2_node::control_F2()’:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:445:5: error: ‘platform2_state’ was not declared in this scope
+  445 |     platform2_state=3;
+      |     ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp: In member function ‘void Control_PID_R2_node::control_F3()’:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:466:26: error: ‘platform1_state’ was not declared in this scope
+  466 |    if (error_count>10 && platform1_state>=7){
+      |                          ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:467:5: error: ‘platform2_state’ was not declared in this scope
+  467 |     platform2_state=4;
+      |     ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp: In member function ‘void Control_PID_R2_node::control_F4()’:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:490:5: error: ‘platform2_state’ was not declared in this scope
+  490 |     platform2_state=5;
+      |     ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp: In member function ‘void Control_PID_R2_node::control_F5()’:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:512:5: error: ‘platform2_state’ was not declared in this scope
+  512 |     platform2_state=6;
+      |     ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp: In member function ‘void Control_PID_R2_node::control_F6()’:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:534:5: error: ‘platform2_state’ was not declared in this scope
+  534 |     platform2_state=7;
+      |     ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp: In member function ‘void Control_PID_R2_node::control_F7()’:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:556:5: error: ‘platform2_state’ was not declared in this scope
+  556 |     platform2_state=8;
+      |     ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp: In member function ‘void Control_PID_R2_node::send_vel()’:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:646:19: error: ‘client’ was not declared in this scope
+  646 |     auto result = client->async_send_request(request);
+      |                   ^~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp: In member function ‘void Control_PID_R2_node::save_data()’:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:659:25: error: ‘platform2_state’ was not declared in this scope
+  659 |    ctrl_data_msg.fase = platform2_state;
+      |                         ^~~~~~~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp: In function ‘int main(int, char**)’:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:759:33: error: ‘Control_PID_P2_node’ was not declared in this scope; did you mean ‘Control_PID_R2_node’?
+  759 |   rclcpp::spin(std::make_shared<Control_PID_P2_node>());
+      |                                 ^~~~~~~~~~~~~~~~~~~
+      |                                 Control_PID_R2_node
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:759:54: error: no matching function for call to ‘make_shared<<expression error> >()’
+  759 |   rclcpp::spin(std::make_shared<Control_PID_P2_node>());
+      |                                                      ^
+In file included from /usr/include/c++/9/memory:81,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+                 from /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:1:
+/usr/include/c++/9/bits/shared_ptr.h:714:5: note: candidate: ‘template<class _Tp, class ... _Args> std::shared_ptr<_Tp> std::make_shared(_Args&& ...)’
+  714 |     make_shared(_Args&&... __args)
+      |     ^~~~~~~~~~~
+/usr/include/c++/9/bits/shared_ptr.h:714:5: note:   template argument deduction/substitution failed:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r2_node.cpp:759:54: error: template argument 1 is invalid
+  759 |   rclcpp::spin(std::make_shared<Control_PID_P2_node>());
+      |                                                      ^
+make[2]: *** [CMakeFiles/control_pid_r2_node.dir/build.make:63: CMakeFiles/control_pid_r2_node.dir/src/control_pid_r2_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:84: CMakeFiles/control_pid_r2_node.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:141: all] Error 2

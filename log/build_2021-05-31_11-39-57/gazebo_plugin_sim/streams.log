@@ -1,0 +1,95 @@
+[0.021s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12
+[0.045s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.062s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.210s] -- Found gazebo_dev: 3.5.3 (/opt/ros/foxy/share/gazebo_dev/cmake)
+[0.247s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[0.273s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "3.6.1") 
+[0.275s] -- Looking for ignition-math6 -- found version 6.8.0
+[0.279s] -- Searching for dependencies of ignition-math6
+[0.279s] -- Looking for OGRE...
+[0.286s] -- Found Ogre Ghadamon (1.9.0)
+[0.286s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[0.296s] -- Looking for OGRE_Paging...
+[0.296s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[0.296s] -- Looking for OGRE_Terrain...
+[0.297s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[0.297s] -- Looking for OGRE_Property...
+[0.297s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[0.297s] -- Looking for OGRE_RTShaderSystem...
+[0.297s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[0.297s] -- Looking for OGRE_Volume...
+[0.297s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[0.297s] -- Looking for OGRE_Overlay...
+[0.297s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[0.419s] -- Looking for ignition-math6 -- found version 6.8.0
+[0.419s] -- Looking for ignition-transport8 -- found version 8.2.0
+[0.420s] -- Searching for dependencies of ignition-transport8
+[0.434s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found suitable version "3.6.1", minimum required is "3") 
+[0.444s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[0.447s] -- Checking for module 'libzmq >= 4'
+[0.459s] --   Found libzmq , version 4.3.2
+[0.491s] -- Checking for module 'uuid'
+[0.502s] --   Found uuid, version 2.34.0
+[0.530s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[0.530s] -- Searching for dependencies of ignition-msgs5
+[0.546s] -- Looking for ignition-math6 -- found version 6.8.0
+[0.549s] -- Checking for module 'tinyxml2'
+[0.560s] --   Found tinyxml2, version 6.2.0
+[0.589s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[0.589s] -- Looking for ignition-common3 -- found version 3.13.1
+[0.589s] -- Searching for dependencies of ignition-common3
+[0.589s] -- Looking for dlfcn.h - found
+[0.589s] -- Looking for libdl - found
+[0.595s] -- Searching for <ignition-common3> component [graphics]
+[0.595s] -- Looking for ignition-common3-graphics -- found version 3.13.1
+[0.596s] -- Searching for dependencies of ignition-common3-graphics
+[0.596s] -- Looking for ignition-math6 -- found version 6.8.0
+[0.597s] -- Looking for ignition-fuel_tools4 -- found version 4.3.0
+[0.597s] -- Searching for dependencies of ignition-fuel_tools4
+[0.616s] -- Checking for module 'jsoncpp'
+[0.627s] --   Found jsoncpp, version 1.7.4
+[0.659s] -- Checking for module 'libzip'
+[0.670s] --   Found libzip, version 1.5.1
+[0.698s] -- Looking for ignition-common3 -- found version 3.13.1
+[0.698s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[0.699s] -- Gazebo version: 11.5
+[0.699s] -- Found gazebo_ros: 3.5.3 (/opt/ros/foxy/share/gazebo_ros/cmake)
+[0.722s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.725s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.821s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.859s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.861s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.048s] -- Configuring done
+[1.068s] -- Generating done
+[1.069s] -- Build files have been written to: /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim
+[1.115s] [100%] Built target platform_plugin_test
+[1.124s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12
+[1.146s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim
+[1.153s] -- Install configuration: ""
+[1.153s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/library_path.sh
+[1.154s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/library_path.dsv
+[1.154s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/ament_index/resource_index/package_run_dependencies/gazebo_plugin_sim
+[1.154s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/ament_index/resource_index/parent_prefix_path/gazebo_plugin_sim
+[1.154s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/ament_prefix_path.sh
+[1.154s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/ament_prefix_path.dsv
+[1.154s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/path.sh
+[1.154s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/path.dsv
+[1.155s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/local_setup.bash
+[1.155s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/local_setup.sh
+[1.155s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/local_setup.zsh
+[1.155s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/local_setup.dsv
+[1.155s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.dsv
+[1.155s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/ament_index/resource_index/packages/gazebo_plugin_sim
+[1.155s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/cmake/ament_cmake_export_libraries-extras.cmake
+[1.155s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/cmake/ament_cmake_export_include_directories-extras.cmake
+[1.156s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/cmake/ament_cmake_export_dependencies-extras.cmake
+[1.156s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/cmake/gazebo_plugin_simConfig.cmake
+[1.156s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/cmake/gazebo_plugin_simConfig-version.cmake
+[1.156s] -- Installing: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.xml
+[1.157s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/include
+[1.158s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/include/gazebo_plugin_sim
+[1.158s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/include/gazebo_plugin_sim/platform_plugin_test.hpp
+[1.158s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib/libplatform_plugin_test.so
+[1.158s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim//worlds
+[1.159s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/share/gazebo_plugin_sim//worlds/test_mecanum_platform.world
+[1.159s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim

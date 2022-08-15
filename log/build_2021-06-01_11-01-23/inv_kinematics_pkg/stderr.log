@@ -1,0 +1,4 @@
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp: In function ‘void send_vel(std::shared_ptr<interfaces::srv::PlatformVel_Request_<std::allocator<void> > >, std::shared_ptr<interfaces::srv::PlatformVel_Response_<std::allocator<void> > >)’:
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:38:8: warning: variable ‘sent’ set but not used [-Wunused-but-set-variable]
+   38 |    int sent=0;
+      |        ^~~~

@@ -1,0 +1,18 @@
+[35m[1mScanning dependencies of target platform_plugin_test[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o[0m
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp: In member function ‘virtual void gazebo_plugin_sim::PlatformPluginTest::Load(gazebo::physics::ModelPtr, sdf::v9::ElementPtr)’:
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:70:38: error: ‘using element_type = class gazebo_ros::Node’ {aka ‘class gazebo_ros::Node’} has no member named ‘create_subcription’; did you mean ‘create_subscription’?
+   70 |     impl_->vel_M1_=impl_->ros_node_->create_subcription<std_msgs::msg::Float32>(
+      |                                      ^~~~~~~~~~~~~~~~~~
+      |                                      create_subscription
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:70:79: error: expected primary-expression before ‘>’ token
+   70 |     impl_->vel_M1_=impl_->ros_node_->create_subcription<std_msgs::msg::Float32>(
+      |                                                                               ^
+/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:71:6: warning: left operand of comma operator has no effect [-Wunused-value]
+   71 |      topicNameM1,qos.get_subscription_qos(topicNameM1, rclcpp::QoS(1)),
+      |      ^~~~~~~~~~~
+At global scope:
+cc1plus: warning: unrecognized command line option ‘-Wno-inconsistent-missing-override’
+make[2]: *** [CMakeFiles/platform_plugin_test.dir/build.make:63: CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform_plugin_test.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

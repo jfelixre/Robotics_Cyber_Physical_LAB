@@ -1,0 +1,19 @@
+[35m[1mScanning dependencies of target control_pid_p1_node[0m
+[ 50%] Built target control_pid_p2_node
+[ 75%] [32mBuilding CXX object CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o[0m
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:101:15: error: ‘std::numbers’ has not been declared
+  101 | float pi=std::numbers::pi;
+      |               ^~~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp: In member function ‘void Control_PID_P1_node::conv_world_2_robot()’:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:356:10: warning: unused variable ‘z’ [-Wunused-variable]
+  356 |    float z = sqrt((sumPIDx*sumPIDx)+(sumPIDy*sumPIDy));
+      |          ^
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:357:10: warning: unused variable ‘Beta’ [-Wunused-variable]
+  357 |    float Beta = atan2(sumPIDy,sumPIDx);
+      |          ^~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:358:10: warning: unused variable ‘Gamma’ [-Wunused-variable]
+  358 |    float Gamma = ANGrobot1 - (pi/2);
+      |          ^~~~~
+make[2]: *** [CMakeFiles/control_pid_p1_node.dir/build.make:63: CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:107: CMakeFiles/control_pid_p1_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

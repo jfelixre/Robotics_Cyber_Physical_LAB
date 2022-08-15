@@ -1,0 +1,20 @@
+[0.020s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.057s] [35m[1mScanning dependencies of target img_proc_id_node[0m
+[0.078s] [ 25%] Built target img_proc_node
+[0.081s] [ 50%] Built target img_subs_test_node
+[0.087s] [ 75%] Built target img_publ_test_node
+[0.090s] [ 87%] [32mBuilding CXX object CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o[0m
+[1.378s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Proc_Id_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[1.378s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:71:51:[m[K [01;31m[Kerror: [m[K‘[01m[KCvType[m[K’ has not been declared
+[1.378s]    71 |       cv::Mat mask = cv::Mat::zeros(n_rows,n_cols,[01;31m[KCvType[m[K::CV_8UC1);
+[1.378s]       |                                                   [01;31m[K^~~~~~[m[K
+[1.378s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/cvdef.h:188[m[K,
+[1.378s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:52[m[K,
+[1.378s]                  from [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:10[m[K:
+[1.378s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:71:59:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K([m[K’ token
+[1.378s]    71 |       cv::Mat mask = cv::Mat::zeros(n_rows,n_cols,CvType::[01;31m[KCV_8UC1[m[K);
+[1.378s]       |                                                           [01;31m[K^~~~~~~[m[K
+[2.537s] make[2]: *** [CMakeFiles/img_proc_id_node.dir/build.make:63: CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o] Error 1
+[2.538s] make[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/img_proc_id_node.dir/all] Error 2
+[2.538s] make: *** [Makefile:141: all] Error 2
+[2.539s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12

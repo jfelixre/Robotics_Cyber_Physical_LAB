@@ -1,0 +1,20 @@
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp: In member function ‘void Control_PID_P1_node::PIDcicle()’:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:294:54: error: expected primary-expression before ‘<’ token
+  294 |    INTerrorX= (errorX + errorX_ant1 + errorX_ant2) * <double>dt;
+      |                                                      ^
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:294:55: error: expected primary-expression before ‘double’
+  294 |    INTerrorX= (errorX + errorX_ant1 + errorX_ant2) * <double>dt;
+      |                                                       ^~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:297:30: error: expected primary-expression before ‘<’ token
+  297 |    Dx=(errorX - errorX_ant1)/<double>dt;
+      |                              ^
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:297:31: error: expected primary-expression before ‘double’
+  297 |    Dx=(errorX - errorX_ant1)/<double>dt;
+      |                               ^~~~~~
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:313:25: error: ‘errorY_ant1’ was not declared in this scope; did you mean ‘errorY_ant2’?
+  313 |    INTerrorY= (errorY + errorY_ant1 + errorY_ant2) * dt;
+      |                         ^~~~~~~~~~~
+      |                         errorY_ant2
+make[2]: *** [CMakeFiles/control_pid_p1_node.dir/build.make:63: CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:107: CMakeFiles/control_pid_p1_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

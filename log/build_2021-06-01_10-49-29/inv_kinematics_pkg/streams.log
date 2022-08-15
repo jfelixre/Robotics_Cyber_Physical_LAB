@@ -1,0 +1,27 @@
+[0.007s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg': CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg:/home/javierfr/Tesis_ws/V1/install/img_proc_pkg:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg -- -j12 -l12
+[0.038s] [35m[1mScanning dependencies of target platform1_vel_server[0m
+[0.058s] [ 50%] [32mBuilding CXX object CMakeFiles/platform1_vel_server.dir/src/platform1_vel_server.cpp.o[0m
+[1.389s] /home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp: In function ‘void send_vel(std::shared_ptr<interfaces::srv::PlatformVel_Request_<std::allocator<void> > >, std::shared_ptr<interfaces::srv::PlatformVel_Response_<std::allocator<void> > >)’:
+[1.389s] /home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:36:8: warning: unused variable ‘sent’ [-Wunused-variable]
+[1.389s]    36 |    int sent=0;
+[1.389s]       |        ^~~~
+[1.389s] /home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:42:11: warning: unused variable ‘vel_M1’ [-Wunused-variable]
+[1.389s]    42 |     float vel_M1=(velx + vely + ((La+Lb)*velang))/R;
+[1.389s]       |           ^~~~~~
+[1.389s] /home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:43:12: warning: unused variable ‘vel_M2’ [-Wunused-variable]
+[1.389s]    43 |      float vel_M2=(-velx + vely - ((La+Lb)*velang))/R;
+[1.390s]       |            ^~~~~~
+[1.390s] /home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:44:12: warning: unused variable ‘vel_M3’ [-Wunused-variable]
+[1.390s]    44 |      float vel_M3=(-velx + vely + ((La+Lb)*velang))/R;
+[1.390s]       |            ^~~~~~
+[1.390s] /home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:45:12: warning: unused variable ‘vel_M4’ [-Wunused-variable]
+[1.390s]    45 |      float vel_M4=(+velx + vely - ((La+Lb)*velang))/R;
+[1.390s]       |            ^~~~~~
+[1.390s] /home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp: In function ‘int main(int, char**)’:
+[1.390s] /home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:60:53: error: expected initializer before ‘publisher_’
+[1.390s]    60 |   rclcpp::Publisher<std_msgs::msg::String>SharedPtr publisher_ = Platform1VelServer_node->create_publisher<
+[1.390s]       |                                                     ^~~~~~~~~~
+[1.390s] make[2]: *** [CMakeFiles/platform1_vel_server.dir/build.make:63: CMakeFiles/platform1_vel_server.dir/src/platform1_vel_server.cpp.o] Error 1
+[1.390s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform1_vel_server.dir/all] Error 2
+[1.390s] make: *** [Makefile:141: all] Error 2
+[1.391s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg' returned '2': CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/home/javierfr/Tesis_ws/V1/install/inv_kinematics_pkg:/home/javierfr/Tesis_ws/V1/install/img_proc_pkg:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/home/javierfr/Tesis_ws/V1/install/gazebo_plugin_sim/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg -- -j12 -l12

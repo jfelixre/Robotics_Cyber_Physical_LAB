@@ -1,0 +1,15 @@
+/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/install/strip.dir
+/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/inv_kinematics_pkg_uninstall.dir
+/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/install/local.dir
+/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/robot1_vel_server.dir
+/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/platform1_vel_server.dir
+/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/platform2_vel_server.dir
+/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/list_install_components.dir
+/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/install.dir
+/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/platform2_vel_test_client.dir
+/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/uninstall.dir
+/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/test.dir
+/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/platform1_vel_test_client.dir
+/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/rebuild_cache.dir
+/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/edit_cache.dir
+/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/robot2_vel_server.dir

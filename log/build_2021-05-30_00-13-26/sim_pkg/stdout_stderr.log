@@ -1,0 +1,23 @@
+[35m[1mScanning dependencies of target plat1_send_vel_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/plat1_send_vel_node.dir/src/plat1_send_vel_node.cpp.o[0m
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp: In function ‘void setvel(std::shared_ptr<interfaces::srv::Platform1Vel_Request_<std::allocator<void> > >, std::shared_ptr<interfaces::srv::Platform1Vel_Response_<std::allocator<void> > >)’:
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:6:75: warning: unused parameter ‘request’ [-Wunused-parameter]
+    6 | void setvel(const std::shared_ptr<interfaces::srv::Platform1Vel::Request> request,     // CHANGE
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:7:74: warning: unused parameter ‘response’ [-Wunused-parameter]
+    7 |           std::shared_ptr<interfaces::srv::Platform1Vel::Response>       response)  // CHANGE
+      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp: In function ‘int main(int, char**)’:
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:20:19: error: ‘tutorial_interfaces’ was not declared in this scope; did you mean ‘rcl_interfaces’?
+   20 |   rclcpp::Service<tutorial_interfaces::srv::AddThreeInts>::SharedPtr service =                 // CHANGE
+      |                   ^~~~~~~~~~~~~~~~~~~
+      |                   rcl_interfaces
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:20:57: error: template argument 1 is invalid
+   20 |   rclcpp::Service<tutorial_interfaces::srv::AddThreeInts>::SharedPtr service =                 // CHANGE
+      |                                                         ^
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:20:70: error: qualified-id in declaration before ‘service’
+   20 |   rclcpp::Service<tutorial_interfaces::srv::AddThreeInts>::SharedPtr service =                 // CHANGE
+      |                                                                      ^~~~~~~
+make[2]: *** [CMakeFiles/plat1_send_vel_node.dir/build.make:63: CMakeFiles/plat1_send_vel_node.dir/src/plat1_send_vel_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/plat1_send_vel_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

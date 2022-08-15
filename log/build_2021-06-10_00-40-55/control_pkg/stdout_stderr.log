@@ -1,0 +1,10 @@
+[35m[1mScanning dependencies of target control_pid_p1_node[0m
+[ 50%] Built target control_pid_p2_node
+[ 75%] [32mBuilding CXX object CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o[0m
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp: In member function ‘void Control_PID_P1_node::send_vel()’:
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:377:16: error: return-statement with a value, in function returning ‘void’ [-fpermissive]
+  377 |         return 0;
+      |                ^
+make[2]: *** [CMakeFiles/control_pid_p1_node.dir/build.make:63: CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:107: CMakeFiles/control_pid_p1_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

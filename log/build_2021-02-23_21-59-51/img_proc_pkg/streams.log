@@ -1,0 +1,14 @@
+[0.010s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.028s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.043s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.181s] CMake Error at /opt/ros/foxy/share/ament_cmake_target_dependencies/cmake/ament_target_dependencies.cmake:77 (message):
+[0.181s]   ament_target_dependencies() the passed package name 'std_msgs' was not
+[0.181s]   found before
+[0.181s] Call Stack (most recent call first):
+[0.182s]   CMakeLists.txt:31 (ament_target_dependencies)
+[0.182s] 
+[0.182s] 
+[0.182s] -- Configuring incomplete, errors occurred!
+[0.182s] See also "/home/javierfr/Tesis_ws/V1/build/img_proc_pkg/CMakeFiles/CMakeOutput.log".
+[0.183s] make: *** [Makefile:266: cmake_check_build_system] Error 1
+[0.185s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '2': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12

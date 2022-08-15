@@ -1,0 +1,23 @@
+[35m[1mScanning dependencies of target img_subs_test_node[0m
+[ 33%] Built target img_proc_node
+[ 66%] Built target img_publ_test_node
+[ 83%] [32mBuilding CXX object CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o[0m
+In file included from [01m[K/opt/ros/foxy/include/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:23[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+                 from [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:15[m[K:
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Subs_Test_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:43:72:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing _data_type = class std::vector<unsigned char>[m[K’ {aka ‘[01m[Kclass std::vector<unsigned char>[m[K’} has no member named ‘[01m[Kc_str[m[K’
+   43 | this->get_logger(), "Received image '%s'", msg->data.[01;31m[Kc_str[m[K());
+      |                                                      [01;31m[K^~~~~[m[K
+
+make[2]: *** [CMakeFiles/img_subs_test_node.dir/build.make:63: CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:82: CMakeFiles/img_subs_test_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

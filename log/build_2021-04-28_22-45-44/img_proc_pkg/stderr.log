@@ -1,0 +1,14 @@
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Subs_Test_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:47:54:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator=[m[K’ (operand types are ‘[01m[Kcv_bridge::CvImage[m[K’ and ‘[01m[Kcv_bridge::CvImagePtr[m[K’ {aka ‘[01m[Kstd::shared_ptr<cv_bridge::CvImage>[m[K’})
+   47 |       image_bridge=cv_bridge::toCvCopy(msg, enc::RGB8[01;31m[K)[m[K;
+      |                                                      [01;31m[K^[m[K
+In file included from [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:20[m[K:
+[01m[K/opt/ros/foxy/include/cv_bridge/cv_bridge.h:83:24:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv_bridge::CvImage& cv_bridge::CvImage::operator=(const cv_bridge::CvImage&)[m[K’
+   83 | class CV_BRIDGE_EXPORT [01;36m[KCvImage[m[K
+      |                        [01;36m[K^~~~~~~[m[K
+[01m[K/opt/ros/foxy/include/cv_bridge/cv_bridge.h:83:24:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kcv_bridge::CvImagePtr[m[K’ {aka ‘[01m[Kstd::shared_ptr<cv_bridge::CvImage>[m[K’} to ‘[01m[Kconst cv_bridge::CvImage&[m[K’
+[01m[K/opt/ros/foxy/include/cv_bridge/cv_bridge.h:83:24:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv_bridge::CvImage& cv_bridge::CvImage::operator=(cv_bridge::CvImage&&)[m[K’
+[01m[K/opt/ros/foxy/include/cv_bridge/cv_bridge.h:83:24:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kcv_bridge::CvImagePtr[m[K’ {aka ‘[01m[Kstd::shared_ptr<cv_bridge::CvImage>[m[K’} to ‘[01m[Kcv_bridge::CvImage&&[m[K’
+make[2]: *** [CMakeFiles/img_subs_test_node.dir/build.make:63: CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:82: CMakeFiles/img_subs_test_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

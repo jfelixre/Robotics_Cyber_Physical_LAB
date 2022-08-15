@@ -1,0 +1,8 @@
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Proc_Id_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_id_node.cpp:101:71:[m[K [01;31m[Kerror: [m[K‘[01m[KRETR_INTERNAL[m[K’ is not a member of ‘[01m[Kcv[m[K’; did you mean ‘[01m[KRETR_EXTERNAL[m[K’?
+  101 |       cv::findContours(img_red_crop,red_subcontours,sub_hierarchy,cv::[01;31m[KRETR_INTERNAL[m[K, cv::CHAIN_APPROX_SIMPLE);
+      |                                                                       [01;31m[K^~~~~~~~~~~~~[m[K
+      |                                                                       [32m[KRETR_EXTERNAL[m[K
+make[2]: *** [CMakeFiles/img_proc_id_node.dir/build.make:63: CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/img_proc_id_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

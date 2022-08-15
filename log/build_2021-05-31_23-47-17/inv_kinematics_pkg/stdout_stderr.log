@@ -1,0 +1,114 @@
+-- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Found rclcpp: 2.3.1 (/opt/ros/foxy/share/rclcpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found interfaces: 0.0.0 (/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg
+[35m[1mScanning dependencies of target platform1_vel_server[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/platform1_vel_server.dir/src/platform1_vel_server.cpp.o[0m
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:6:37: error: ‘example_interfaces’ was not declared in this scope; did you mean ‘rcl_interfaces’?
+    6 | void send_vel(const std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request,
+      |                                     ^~~~~~~~~~~~~~~~~~
+      |                                     rcl_interfaces
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:6:81: error: template argument 1 is invalid
+    6 | void send_vel(const std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request,
+      |                                                                                 ^
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:6:37: error: ‘example_interfaces’ was not declared in this scope; did you mean ‘rcl_interfaces’?
+    6 | void send_vel(const std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request,
+      |                                     ^~~~~~~~~~~~~~~~~~
+      |                                     rcl_interfaces
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:6:81: error: template argument 1 is invalid
+    6 | void send_vel(const std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request,
+      |                                                                                 ^
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:6:37: error: ‘example_interfaces’ was not declared in this scope; did you mean ‘rcl_interfaces’?
+    6 | void send_vel(const std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request,
+      |                                     ^~~~~~~~~~~~~~~~~~
+      |                                     rcl_interfaces
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:6:81: error: template argument 1 is invalid
+    6 | void send_vel(const std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request,
+      |                                                                                 ^
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:6:37: error: ‘example_interfaces’ was not declared in this scope; did you mean ‘rcl_interfaces’?
+    6 | void send_vel(const std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request,
+      |                                     ^~~~~~~~~~~~~~~~~~
+      |                                     rcl_interfaces
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:6:81: error: template argument 1 is invalid
+    6 | void send_vel(const std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request,
+      |                                                                                 ^
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:6:37: error: ‘example_interfaces’ was not declared in this scope; did you mean ‘rcl_interfaces’?
+    6 | void send_vel(const std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request,
+      |                                     ^~~~~~~~~~~~~~~~~~
+      |                                     rcl_interfaces
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:6:81: error: template argument 1 is invalid
+    6 | void send_vel(const std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request,
+      |                                                                                 ^
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:6:21: error: invalid use of template-name ‘std::shared_ptr’ without an argument list
+    6 | void send_vel(const std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request,
+      |                     ^~~
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:6:21: note: class template argument deduction is only available with ‘-std=c++17’ or ‘-std=gnu++17’
+In file included from /usr/include/c++/9/bits/shared_ptr.h:52,
+                 from /usr/include/c++/9/memory:81,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+                 from /home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:1:
+/usr/include/c++/9/bits/shared_ptr_base.h:348:11: note: ‘template<class _Tp> class std::shared_ptr’ declared here
+  348 |     class shared_ptr;
+      |           ^~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:6:36: error: expected ‘,’ or ‘...’ before ‘<’ token
+    6 | void send_vel(const std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request,
+      |                                    ^
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp: In function ‘void send_vel(int)’:
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:9:3: error: ‘response’ was not declared in this scope
+    9 |   response->sum = request->a + request->b;
+      |   ^~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:9:19: error: ‘request’ was not declared in this scope
+    9 |   response->sum = request->a + request->b;
+      |                   ^~~~~~~
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp: In function ‘int main(int, char**)’:
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:26:16: error: ‘node’ was not declared in this scope
+   26 |   rclcpp::spin(node);
+      |                ^~~~
+In file included from /opt/ros/foxy/include/rclcpp/node_impl.hpp:40,
+                 from /opt/ros/foxy/include/rclcpp/node.hpp:1221,
+                 from /opt/ros/foxy/include/rclcpp/executors/single_threaded_executor.hpp:28,
+                 from /opt/ros/foxy/include/rclcpp/executors.hpp:22,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+                 from /home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:1:
+/opt/ros/foxy/include/rclcpp/create_service.hpp: In instantiation of ‘typename rclcpp::Service<ServiceT>::SharedPtr rclcpp::create_service(std::shared_ptr<rclcpp::node_interfaces::NodeBaseInterface>, std::shared_ptr<rclcpp::node_interfaces::NodeServicesInterface>, const string&, CallbackT&&, const rmw_qos_profile_t&, rclcpp::CallbackGroup::SharedPtr) [with ServiceT = interfaces::srv::PlatformVel; CallbackT = void (*)(int); typename rclcpp::Service<ServiceT>::SharedPtr = std::shared_ptr<rclcpp::Service<interfaces::srv::PlatformVel> >; std::string = std::__cxx11::basic_string<char>; rmw_qos_profile_t = rmw_qos_profile_t; rclcpp::CallbackGroup::SharedPtr = std::shared_ptr<rclcpp::CallbackGroup>]’:
+/opt/ros/foxy/include/rclcpp/node_impl.hpp:146:53:   required from ‘typename rclcpp::Service<ServiceT>::SharedPtr rclcpp::Node::create_service(const string&, CallbackT&&, const rmw_qos_profile_t&, rclcpp::CallbackGroup::SharedPtr) [with ServiceT = interfaces::srv::PlatformVel; CallbackT = void (*)(int); typename rclcpp::Service<ServiceT>::SharedPtr = std::shared_ptr<rclcpp::Service<interfaces::srv::PlatformVel> >; std::string = std::__cxx11::basic_string<char>; rmw_qos_profile_t = rmw_qos_profile_t; rclcpp::CallbackGroup::SharedPtr = std::shared_ptr<rclcpp::CallbackGroup>]’
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:22:96:   required from here
+/opt/ros/foxy/include/rclcpp/create_service.hpp:43:3: error: no matching function for call to ‘rclcpp::AnyServiceCallback<interfaces::srv::PlatformVel>::set(void (*)(int))’
+   43 |   any_service_callback.set(std::forward<CallbackT>(callback));
+      |   ^~~~~~~~~~~~~~~~~~~~
+In file included from /opt/ros/foxy/include/rclcpp/service.hpp:28,
+                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:25,
+                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:25,
+                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+                 from /home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:1:
+/opt/ros/foxy/include/rclcpp/any_service_callback.hpp:67:8: note: candidate: ‘template<class CallbackT, typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<interfaces::srv::PlatformVel_Request_<std::allocator<void> > >, std::shared_ptr<interfaces::srv::PlatformVel_Response_<std::allocator<void> > >)> >::value, void>::type* <anonymous> > void rclcpp::AnyServiceCallback<ServiceT>::set(CallbackT) [with CallbackT = CallbackT; typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<typename ServiceT::Request>, std::shared_ptr<typename ServiceT::Response>)> >::value>::type* <anonymous> = <enumerator>; ServiceT = interfaces::srv::PlatformVel]’
+   67 |   void set(CallbackT callback)
+      |        ^~~
+/opt/ros/foxy/include/rclcpp/any_service_callback.hpp:67:8: note:   template argument deduction/substitution failed:
+/opt/ros/foxy/include/rclcpp/any_service_callback.hpp:65:17: error: no type named ‘type’ in ‘struct std::enable_if<false, void>’
+   65 |     >::type * = nullptr
+      |                 ^~~~~~~
+/opt/ros/foxy/include/rclcpp/any_service_callback.hpp:81:8: note: candidate: ‘template<class CallbackT, typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<rmw_request_id_t>, std::shared_ptr<interfaces::srv::PlatformVel_Request_<std::allocator<void> > >, std::shared_ptr<interfaces::srv::PlatformVel_Response_<std::allocator<void> > >)> >::value, void>::type* <anonymous> > void rclcpp::AnyServiceCallback<ServiceT>::set(CallbackT) [with CallbackT = CallbackT; typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<rmw_request_id_t>, std::shared_ptr<typename ServiceT::Request>, std::shared_ptr<typename ServiceT::Response>)> >::value>::type* <anonymous> = <enumerator>; ServiceT = interfaces::srv::PlatformVel]’
+   81 |   void set(CallbackT callback)
+      |        ^~~
+/opt/ros/foxy/include/rclcpp/any_service_callback.hpp:81:8: note:   template argument deduction/substitution failed:
+/opt/ros/foxy/include/rclcpp/any_service_callback.hpp:79:17: error: no type named ‘type’ in ‘struct std::enable_if<false, void>’
+   79 |     >::type * = nullptr
+      |                 ^~~~~~~
+make[2]: *** [CMakeFiles/platform1_vel_server.dir/build.make:63: CMakeFiles/platform1_vel_server.dir/src/platform1_vel_server.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform1_vel_server.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

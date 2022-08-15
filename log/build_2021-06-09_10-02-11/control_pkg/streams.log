@@ -1,0 +1,15 @@
+[0.009s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/control_pkg': AMENT_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/control_pkg -- -j12 -l12
+[0.038s] [35m[1mScanning dependencies of target control_pid_p1_node[0m
+[0.060s] [ 50%] [32mBuilding CXX object CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o[0m
+[2.433s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp: In member function ‘void Control_PID_P1_node::subs_callback(interfaces::msg::ImgData_<std::allocator<void> >::SharedPtr) const’:
+[2.433s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:69:25: error: expected primary-expression before ‘>’ token
+[2.433s]    69 |    obj2ang_msg=data_msg=>obj2_ang;
+[2.433s]       |                         ^
+[2.433s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:69:26: error: ‘obj2_ang’ was not declared in this scope; did you mean ‘obj2y_msg’?
+[2.433s]    69 |    obj2ang_msg=data_msg=>obj2_ang;
+[2.434s]       |                          ^~~~~~~~
+[2.434s]       |                          obj2y_msg
+[2.434s] make[2]: *** [CMakeFiles/control_pid_p1_node.dir/build.make:63: CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o] Error 1
+[2.434s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/control_pid_p1_node.dir/all] Error 2
+[2.434s] make: *** [Makefile:141: all] Error 2
+[2.436s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/control_pkg' returned '2': AMENT_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/control_pkg -- -j12 -l12

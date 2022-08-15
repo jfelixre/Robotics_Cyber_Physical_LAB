@@ -1,0 +1,197 @@
+[0.017s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/interfaces': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/interfaces -- -j12 -l12
+[0.032s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.048s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.5", minimum required is "3") 
+[0.049s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.190s] -- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)
+[0.192s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.194s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.303s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.337s] -- Found PythonInterp: /usr/bin/python3 (found version "3.8.5") 
+[0.603s] -- Found ament_cmake_ros: 0.9.1 (/opt/ros/foxy/share/ament_cmake_ros/cmake)
+[0.801s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.831s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.862s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.5", minimum required is "3.5") 
+[0.888s] -- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)
+[1.024s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.8.so (found suitable version "3.8.5", minimum required is "3.5") 
+[1.025s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.026s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8
+[1.026s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so
+[1.052s] -- Found PythonExtra: .so  
+[1.202s] -- Configuring done
+[1.418s] -- Generating done
+[1.421s] -- Build files have been written to: /home/javierfr/Tesis_ws/V1/build/interfaces
+[1.444s] [  3%] [34m[1mGenerating C code for ROS interfaces[0m
+[1.444s] [35m[1mScanning dependencies of target interfaces__cpp[0m
+[1.453s] [  6%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[1.715s] [35m[1mScanning dependencies of target interfaces__rosidl_generator_c[0m
+[1.732s] [  6%] Built target interfaces__cpp
+[1.740s] [ 16%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[1.740s] [ 16%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[1.740s] [ 16%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[1.765s] [ 19%] [32mBuilding C object CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/platform1_vel__functions.c.o[0m
+[1.946s] [35m[1mScanning dependencies of target interfaces__rosidl_typesupport_fastrtps_cpp[0m
+[1.974s] [35m[1mScanning dependencies of target interfaces__rosidl_typesupport_introspection_cpp[0m
+[1.999s] [35m[1mScanning dependencies of target interfaces__rosidl_typesupport_cpp[0m
+[2.209s] [ 22%] [32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/srv/platform1_vel__type_support.cpp.o[0m
+[2.209s] [ 25%] [32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/srv/detail/platform1_vel__type_support.cpp.o[0m
+[3.359s] [ 29%] [32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/srv/detail/dds_fastrtps/platform1_vel__type_support.cpp.o[0m
+[3.669s] [ 32%] [32m[1mLinking C shared library libinterfaces__rosidl_generator_c.so[0m
+[3.924s] [ 32%] Built target interfaces__rosidl_generator_c
+[3.937s] [ 38%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[3.937s] [ 38%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[4.215s] [35m[1mScanning dependencies of target interfaces__rosidl_typesupport_c[0m
+[4.226s] [35m[1mScanning dependencies of target interfaces__rosidl_typesupport_introspection_c[0m
+[4.235s] [ 41%] [32mBuilding C object CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/srv/detail/platform1_vel__type_support.c.o[0m
+[4.256s] [ 45%] [32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/srv/platform1_vel__type_support.cpp.o[0m
+[4.260s] [ 48%] [32m[1mLinking C shared library libinterfaces__rosidl_typesupport_introspection_c.so[0m
+[4.282s] [ 48%] Built target interfaces__rosidl_typesupport_introspection_c
+[4.393s] [ 51%] [32m[1mLinking CXX shared library libinterfaces__rosidl_typesupport_c.so[0m
+[4.531s] [ 51%] Built target interfaces__rosidl_typesupport_c
+[4.595s] [ 54%] [32m[1mLinking CXX shared library libinterfaces__rosidl_typesupport_introspection_cpp.so[0m
+[4.596s] [ 58%] [32m[1mLinking CXX shared library libinterfaces__rosidl_typesupport_cpp.so[0m
+[4.690s] [ 58%] Built target interfaces__rosidl_typesupport_introspection_cpp
+[4.717s] [ 58%] Built target interfaces__rosidl_typesupport_cpp
+[5.025s] [ 61%] [32m[1mLinking CXX shared library libinterfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[5.225s] [ 61%] Built target interfaces__rosidl_typesupport_fastrtps_cpp
+[5.232s] [ 64%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[5.494s] [35m[1mScanning dependencies of target interfaces__rosidl_typesupport_fastrtps_c[0m
+[5.574s] [ 67%] [32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/srv/detail/platform1_vel__type_support_c.cpp.o[0m
+[5.875s] [ 70%] [32m[1mLinking CXX shared library libinterfaces__rosidl_typesupport_fastrtps_c.so[0m
+[5.935s] [ 70%] Built target interfaces__rosidl_typesupport_fastrtps_c
+[5.942s] [35m[1mScanning dependencies of target interfaces[0m
+[5.949s] [ 70%] Built target interfaces
+[5.957s] [35m[1mScanning dependencies of target interfaces__py[0m
+[5.965s] [ 74%] [34m[1mGenerating Python code for ROS interfaces[0m
+[7.305s] [ 74%] Built target interfaces__py
+[7.313s] [35m[1mScanning dependencies of target interfaces__python[0m
+[7.499s] [ 77%] [32mBuilding C object CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/srv/_platform1_vel_s.c.o[0m
+[7.991s] [ 80%] [32m[1mLinking C shared library rosidl_generator_py/interfaces/libinterfaces__python.so[0m
+[8.052s] [ 80%] Built target interfaces__python
+[8.062s] [35m[1mScanning dependencies of target interfaces__rosidl_typesupport_introspection_c__pyext[0m
+[8.062s] [35m[1mScanning dependencies of target interfaces__rosidl_typesupport_c__pyext[0m
+[8.062s] [35m[1mScanning dependencies of target interfaces__rosidl_typesupport_fastrtps_c__pyext[0m
+[8.140s] [ 87%] [32mBuilding C object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/interfaces/_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[8.140s] [ 87%] [32mBuilding C object CMakeFiles/interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/interfaces/_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[8.141s] [ 90%] [32mBuilding C object CMakeFiles/interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/interfaces/_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[8.201s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/interfaces/interfaces_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so[0m
+[8.201s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/interfaces/interfaces_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so[0m
+[8.202s] [100%] [32m[1mLinking CXX shared library rosidl_generator_py/interfaces/interfaces_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so[0m
+[8.226s] [100%] Built target interfaces__rosidl_typesupport_c__pyext
+[8.227s] [100%] Built target interfaces__rosidl_typesupport_introspection_c__pyext
+[8.252s] [100%] Built target interfaces__rosidl_typesupport_fastrtps_c__pyext
+[8.261s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/interfaces -- -j12 -l12
+[8.297s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/interfaces': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/interfaces
+[8.303s] -- Install configuration: ""
+[8.304s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/ament_index/resource_index/rosidl_interfaces/interfaces
+[8.304s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces
+[8.304s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv
+[8.304s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail
+[8.304s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__functions.c
+[8.304s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__functions.h
+[8.304s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__struct.h
+[8.304s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__type_support.h
+[8.304s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/platform1_vel.h
+[8.304s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/msg
+[8.304s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/msg/rosidl_generator_c__visibility_control.h
+[8.304s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/environment/library_path.sh
+[8.305s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/environment/library_path.dsv
+[8.305s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_generator_c.so
+[8.305s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_generator_c.so" to ""
+[8.305s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces
+[8.305s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv
+[8.305s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail
+[8.305s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__rosidl_typesupport_fastrtps_c.h
+[8.305s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/msg
+[8.305s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[8.305s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_typesupport_fastrtps_c.so
+[8.305s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[8.305s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces
+[8.305s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv
+[8.306s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail
+[8.306s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/dds_fastrtps
+[8.306s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__rosidl_typesupport_fastrtps_cpp.hpp
+[8.306s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/msg
+[8.306s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[8.306s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_typesupport_fastrtps_cpp.so
+[8.306s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[8.306s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces
+[8.306s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv
+[8.306s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail
+[8.306s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__type_support.c
+[8.306s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__rosidl_typesupport_introspection_c.h
+[8.306s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/msg
+[8.306s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[8.306s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_typesupport_introspection_c.so
+[8.307s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_typesupport_introspection_c.so" to ""
+[8.307s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_typesupport_c.so
+[8.307s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_typesupport_c.so" to ""
+[8.307s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces
+[8.307s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv
+[8.307s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail
+[8.307s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__builder.hpp
+[8.307s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__traits.hpp
+[8.307s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__struct.hpp
+[8.307s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/platform1_vel.hpp
+[8.308s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces
+[8.308s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv
+[8.308s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail
+[8.308s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__rosidl_typesupport_introspection_cpp.hpp
+[8.308s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/include/interfaces/srv/detail/platform1_vel__type_support.cpp
+[8.308s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_typesupport_introspection_cpp.so
+[8.308s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[8.308s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_typesupport_cpp.so
+[8.308s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__rosidl_typesupport_cpp.so" to ""
+[8.308s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/environment/pythonpath.sh
+[8.308s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/environment/pythonpath.dsv
+[8.309s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages/interfaces/__init__.py
+[8.350s] Compiling '/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages/interfaces/__init__.py'...
+[8.353s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages/interfaces/srv
+[8.353s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages/interfaces/srv/__init__.py
+[8.353s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages/interfaces/srv/_platform1_vel_s.c
+[8.353s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages/interfaces/srv/_platform1_vel.py
+[8.353s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages/interfaces/interfaces_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so
+[8.354s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages/interfaces/interfaces_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so" to ""
+[8.354s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages/interfaces/interfaces_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so
+[8.354s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages/interfaces/interfaces_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so" to ""
+[8.354s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages/interfaces/interfaces_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so
+[8.355s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages/interfaces/interfaces_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so" to ""
+[8.355s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__python.so
+[8.355s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/interfaces/lib/libinterfaces__python.so" to ""
+[8.355s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/srv/Platform1Vel.idl
+[8.355s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/srv/Platform1Vel.srv
+[8.355s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/srv/Platform1Vel_Request.msg
+[8.355s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/srv/Platform1Vel_Response.msg
+[8.356s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/ament_index/resource_index/package_run_dependencies/interfaces
+[8.356s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/ament_index/resource_index/parent_prefix_path/interfaces
+[8.356s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/environment/ament_prefix_path.sh
+[8.356s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/environment/ament_prefix_path.dsv
+[8.356s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/environment/path.sh
+[8.356s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/environment/path.dsv
+[8.356s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/local_setup.bash
+[8.356s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/local_setup.sh
+[8.356s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/local_setup.zsh
+[8.356s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/local_setup.dsv
+[8.356s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/package.dsv
+[8.356s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/ament_index/resource_index/packages/interfaces
+[8.356s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_generator_cExport.cmake
+[8.357s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_generator_cExport-noconfig.cmake
+[8.357s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_introspection_cExport.cmake
+[8.357s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[8.357s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_cExport.cmake
+[8.357s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[8.357s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_generator_cppExport.cmake
+[8.357s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[8.357s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[8.357s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_cppExport.cmake
+[8.357s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[8.358s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/rosidl_cmake-extras.cmake
+[8.358s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[8.358s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[8.358s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[8.358s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[8.358s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[8.358s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[8.358s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfacesConfig.cmake
+[8.358s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake/interfacesConfig-version.cmake
+[8.358s] -- Installing: /home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/package.xml
+[8.361s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/interfaces

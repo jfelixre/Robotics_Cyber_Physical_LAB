@@ -1,0 +1,15 @@
+-- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Found OpenCV: /usr/local (found version "4.5.0") 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/javierfr/Tesis_ws/V1/build/img_proc_pkg
+[35m[1mScanning dependencies of target img_proc_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/img_proc_node.dir/src/img_proc_node.cpp.o[0m
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_node.cpp:2:10:[m[K [01;31m[Kfatal error: [m[Kopencv2/core.hpp: No such file or directory
+    2 | #include [01;31m[K<opencv2/core.hpp>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/img_proc_node.dir/build.make:63: CMakeFiles/img_proc_node.dir/src/img_proc_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/img_proc_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

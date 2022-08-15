@@ -1,0 +1,25 @@
+[0.009s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/control_pkg': AMENT_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/control_pkg -- -j12 -l12
+[0.038s] [35m[1mScanning dependencies of target control_pid_p1_node[0m
+[0.039s] [35m[1mScanning dependencies of target control_pid_p2_node[0m
+[0.077s] [ 50%] [32mBuilding CXX object CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o[0m
+[0.078s] [ 50%] [32mBuilding CXX object CMakeFiles/control_pid_p2_node.dir/src/control_pid_p2_node.cpp.o[0m
+[2.781s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:110:40: error: stray ‘\303’ in program
+[2.781s]   110 |     interfaces::msg::PlatState msg_publñ
+[2.781s]       |                                        ^
+[2.781s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:110:41: error: stray ‘\261’ in program
+[2.781s]   110 |     interfaces::msg::PlatState msg_publñ
+[2.781s]       |                                         ^
+[2.781s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp: In member function ‘void Control_PID_P1_node::timer_callback()’:
+[2.781s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:111:5: error: expected initializer before ‘msg_publ’
+[2.781s]   111 |     msg_publ.platform_state=platform1_state;
+[2.781s]       |     ^~~~~~~~
+[2.781s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:112:40: error: ‘msg_publ’ was not declared in this scope
+[2.781s]   112 |     state_platform1_publisher->publish(msg_publ);
+[2.781s]       |                                        ^~~~~~~~
+[2.782s] make[2]: *** [CMakeFiles/control_pid_p1_node.dir/build.make:63: CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o] Error 1
+[2.782s] make[1]: *** [CMakeFiles/Makefile2:107: CMakeFiles/control_pid_p1_node.dir/all] Error 2
+[2.782s] make[1]: *** Waiting for unfinished jobs....
+[5.281s] [ 75%] [32m[1mLinking CXX executable control_pid_p2_node[0m
+[5.494s] [ 75%] Built target control_pid_p2_node
+[5.495s] make: *** [Makefile:141: all] Error 2
+[5.496s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/control_pkg' returned '2': AMENT_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/control_pkg -- -j12 -l12

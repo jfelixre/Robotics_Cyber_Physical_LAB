@@ -1,0 +1,16 @@
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp: In function ‘void send_vel(std::shared_ptr<interfaces::srv::PlatformVel_Request_<std::allocator<void> > >, std::shared_ptr<interfaces::srv::PlatformVel_Response_<std::allocator<void> > >)’:
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:13:6: warning: unused variable ‘sent’ [-Wunused-variable]
+   13 | 
+      |      ^   
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:19:9: warning: unused variable ‘vel_M1’ [-Wunused-variable]
+   19 | 
+      |         ^     
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:20:10: warning: unused variable ‘vel_M2’ [-Wunused-variable]
+   20 |   float vel_M1=(velx + vely + ((La+Lb)*velang))/R;
+      |          ^~~~~~
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:21:10: warning: unused variable ‘vel_M3’ [-Wunused-variable]
+   21 |    float vel_M2=(-velx + vely - ((La+Lb)*velang))/R;
+      |          ^~~~~~
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:22:10: warning: unused variable ‘vel_M4’ [-Wunused-variable]
+   22 |    float vel_M3=(-velx + vely + ((La+Lb)*velang))/R;
+      |          ^~~~~~

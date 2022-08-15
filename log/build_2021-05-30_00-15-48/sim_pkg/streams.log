@@ -1,0 +1,33 @@
+[0.008s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/sim_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/sim_pkg -- -j12 -l12
+[0.041s] [35m[1mScanning dependencies of target plat1_send_vel_node[0m
+[0.060s] [ 50%] [32mBuilding CXX object CMakeFiles/plat1_send_vel_node.dir/src/plat1_send_vel_node.cpp.o[0m
+[1.696s] /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp: In function ‘void setvel(std::shared_ptr<interfaces::srv::Platform1Vel_Request_<std::allocator<void> > >, std::shared_ptr<interfaces::srv::Platform1Vel_Response_<std::allocator<void> > >)’:
+[1.696s] /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:9:10: warning: unused variable ‘xvel’ [-Wunused-variable]
+[1.696s]     9 |   double xvel = request->x_vel;
+[1.696s]       |          ^~~~
+[1.696s] /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:7:74: warning: unused parameter ‘response’ [-Wunused-parameter]
+[1.696s]     7 |           std::shared_ptr<interfaces::srv::Platform1Vel::Response>       response)  // CHANGE
+[1.696s]       |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+[1.702s] [100%] [32m[1mLinking CXX executable plat1_send_vel_node[0m
+[1.791s] [100%] Built target plat1_send_vel_node
+[1.799s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/sim_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/sim_pkg -- -j12 -l12
+[1.816s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/sim_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/sim_pkg
+[1.824s] -- Install configuration: ""
+[1.824s] -- Installing: /home/javierfr/Tesis_ws/V1/install/lib/sim_pkg/plat1_send_vel_node
+[1.824s] -- Set runtime path of "/home/javierfr/Tesis_ws/V1/install/lib/sim_pkg/plat1_send_vel_node" to ""
+[1.824s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/ament_index/resource_index/package_run_dependencies/sim_pkg
+[1.825s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/ament_index/resource_index/parent_prefix_path/sim_pkg
+[1.825s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/environment/ament_prefix_path.sh
+[1.825s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/environment/ament_prefix_path.dsv
+[1.825s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/environment/path.sh
+[1.825s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/environment/path.dsv
+[1.825s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/local_setup.bash
+[1.825s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/local_setup.sh
+[1.825s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/local_setup.zsh
+[1.825s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/local_setup.dsv
+[1.825s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/package.dsv
+[1.825s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/ament_index/resource_index/packages/sim_pkg
+[1.826s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/cmake/sim_pkgConfig.cmake
+[1.826s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/cmake/sim_pkgConfig-version.cmake
+[1.826s] -- Up-to-date: /home/javierfr/Tesis_ws/V1/install/share/sim_pkg/package.xml
+[1.828s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/sim_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /home/javierfr/Tesis_ws/V1/build/sim_pkg

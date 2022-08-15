@@ -1,0 +1,34 @@
+-- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Found rclcpp: 2.3.1 (/opt/ros/foxy/share/rclcpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found interfaces: 0.0.0 (/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/javierfr/Tesis_ws/V1/build/control_pkg
+[35m[1mScanning dependencies of target control_pid_p1_node[0m
+[35m[1mScanning dependencies of target control_pid_p2_node[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/control_pid_p2_node.dir/src/control_pid_p2_node.cpp.o[0m
+[ 75%] [32m[1mLinking CXX executable control_pid_p2_node[0m
+[ 75%] Built target control_pid_p2_node
+/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:102:6: error: ‘auto time’ redeclared as different kind of entity
+  102 | auto time = std::chrono::system_clock::now();
+      |      ^~~~
+In file included from /usr/include/pthread.h:23,
+                 from /usr/include/x86_64-linux-gnu/c++/9/bits/gthr-default.h:35,
+                 from /usr/include/x86_64-linux-gnu/c++/9/bits/gthr.h:148,
+                 from /usr/include/c++/9/ext/atomicity.h:35,
+                 from /usr/include/c++/9/memory:73,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+                 from /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:1:
+/usr/include/time.h:75:15: note: previous declaration ‘time_t time(time_t*)’
+   75 | extern time_t time (time_t *__timer) __THROW;
+      |               ^~~~
+make[2]: *** [CMakeFiles/control_pid_p1_node.dir/build.make:63: CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:107: CMakeFiles/control_pid_p1_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

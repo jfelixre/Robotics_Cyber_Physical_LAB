@@ -1,0 +1,8 @@
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_publ_test_node.cpp:10:10:[m[K [01;31m[Kfatal error: [m[Kopencv2/core.hpp: No such file or directory
+   10 | #include [01;31m[K<opencv2/core.hpp>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/img_publ_test_node.dir/build.make:63: CMakeFiles/img_publ_test_node.dir/src/img_publ_test_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:80: CMakeFiles/img_publ_test_node.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:141: all] Error 2

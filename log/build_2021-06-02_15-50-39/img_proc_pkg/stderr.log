@@ -1,0 +1,10 @@
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:[m[K In member function ‘[01m[Kvoid Img_Proc_Qr_Detector::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:69:47:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ has non-pointer type ‘[01m[Kcv::Mat[m[K’
+   69 |         std::cout << "Decoded Data : " << bbox[01;31m[K->[m[K(0,0) << std::endl;
+      |                                               [01;31m[K^~[m[K
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:69:49:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K([m[K’ token
+   69 |         std::cout << "Decoded Data : " << bbox->[01;31m[K([m[K0,0) << std::endl;
+      |                                                 [01;31m[K^[m[K
+make[2]: *** [CMakeFiles/img_proc_qr_detector.dir/build.make:63: CMakeFiles/img_proc_qr_detector.dir/src/img_proc_qr_detector.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:84: CMakeFiles/img_proc_qr_detector.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

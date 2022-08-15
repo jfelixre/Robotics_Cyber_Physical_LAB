@@ -1,0 +1,11 @@
+[0.010s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.037s] [35m[1mScanning dependencies of target img_proc_node[0m
+[0.046s] [ 50%] [32mBuilding CXX object CMakeFiles/img_proc_node.dir/src/img_proc_node.cpp.o[0m
+[0.109s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_node.cpp:8:10:[m[K [01;31m[Kfatal error: [m[Ksensor_msgs/msg/image.hpp: No such file or directory
+[0.109s]     8 | #include [01;31m[K"sensor_msgs/msg/image.hpp"[m[K
+[0.109s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.109s] compilation terminated.
+[0.110s] make[2]: *** [CMakeFiles/img_proc_node.dir/build.make:63: CMakeFiles/img_proc_node.dir/src/img_proc_node.cpp.o] Error 1
+[0.110s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/img_proc_node.dir/all] Error 2
+[0.110s] make: *** [Makefile:141: all] Error 2
+[0.112s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '2': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12

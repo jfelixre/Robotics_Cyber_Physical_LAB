@@ -1,0 +1,13 @@
+[0.018s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12
+[0.056s] [35m[1mScanning dependencies of target platform_plugin_test[0m
+[0.143s] [ 50%] [32mBuilding CXX object CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o[0m
+[9.259s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp: In member function ‘virtual void gazebo_plugin_sim::PlatformPluginTest::Load(gazebo::physics::ModelPtr, sdf::v9::ElementPtr)’:
+[9.259s] /home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/platform_plugin_test.cpp:105:26: error: ‘using SharedPtr = class std::shared_ptr<rclcpp::executors::MultiThreadedExecutor>’ {aka ‘class std::shared_ptr<rclcpp::executors::MultiThreadedExecutor>’} has no member named ‘add_node’
+[9.260s]   105 |     impl_->node_executor.add_node(impl_->ros_node_);
+[9.260s]       |                          ^~~~~~~~
+[9.260s] At global scope:
+[9.260s] cc1plus: warning: unrecognized command line option ‘-Wno-inconsistent-missing-override’
+[9.261s] make[2]: *** [CMakeFiles/platform_plugin_test.dir/build.make:63: CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o] Error 1
+[9.261s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform_plugin_test.dir/all] Error 2
+[9.261s] make: *** [Makefile:141: all] Error 2
+[9.263s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim -- -j12 -l12

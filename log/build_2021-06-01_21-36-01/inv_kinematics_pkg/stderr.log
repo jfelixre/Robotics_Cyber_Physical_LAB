@@ -1,0 +1,31 @@
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:9:1: error: invalid use of template-name ‘rclcpp::Publisher’ without an argument list
+    9 | rclcpp::Publisher::SharedPtr publisher_M = nullptr;
+      | ^~~~~~
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:9:1: note: class template argument deduction is only available with ‘-std=c++17’ or ‘-std=gnu++17’
+In file included from /opt/ros/foxy/include/rclcpp/topic_statistics/subscription_topic_statistics.hpp:31,
+                 from /opt/ros/foxy/include/rclcpp/subscription.hpp:50,
+                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:25,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:25,
+                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+                 from /home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:1:
+/opt/ros/foxy/include/rclcpp/publisher.hpp:51:7: note: ‘template<class MessageT, class AllocatorT> class rclcpp::Publisher’ declared here
+   51 | class Publisher : public PublisherBase
+      |       ^~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp: In function ‘void send_vel(std::shared_ptr<interfaces::srv::PlatformVel_Request_<std::allocator<void> > >, std::shared_ptr<interfaces::srv::PlatformVel_Response_<std::allocator<void> > >)’:
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:37:6: error: ‘publisher_M’ was not declared in this scope; did you mean ‘rcl_publisher_t’?
+   37 |      publisher_M->publish(vel_M);
+      |      ^~~~~~~~~~~
+      |      rcl_publisher_t
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp: In function ‘int main(int, char**)’:
+/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel_server.cpp:59:3: error: ‘publisher_M’ was not declared in this scope; did you mean ‘rcl_publisher_t’?
+   59 |   publisher_M = Platform1VelServer_node->create_publisher<interfaces::msg::MotorVels>("/robot_platform_1/vel_Motors",1);
+      |   ^~~~~~~~~~~
+      |   rcl_publisher_t
+make[2]: *** [CMakeFiles/platform1_vel_server.dir/build.make:63: CMakeFiles/platform1_vel_server.dir/src/platform1_vel_server.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:107: CMakeFiles/platform1_vel_server.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

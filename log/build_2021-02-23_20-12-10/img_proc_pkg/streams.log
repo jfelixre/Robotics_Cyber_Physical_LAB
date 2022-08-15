@@ -1,0 +1,13 @@
+[0.010s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.065s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.082s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.589s] CMake Error at /opt/ros/foxy/share/ament_cmake_target_dependencies/cmake/ament_target_dependencies.cmake:42 (message):
+[0.590s]   ament_target_dependencies() the first argument must be a valid target name
+[0.590s] Call Stack (most recent call first):
+[0.590s]   CMakeLists.txt:31 (ament_target_dependencies)
+[0.591s] 
+[0.591s] 
+[0.591s] -- Configuring incomplete, errors occurred!
+[0.592s] See also "/home/javierfr/Tesis_ws/V1/build/img_proc_pkg/CMakeFiles/CMakeOutput.log".
+[0.596s] make: *** [Makefile:266: cmake_check_build_system] Error 1
+[0.603s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '2': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12

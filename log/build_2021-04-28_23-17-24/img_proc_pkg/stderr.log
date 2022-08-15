@@ -1,0 +1,7 @@
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Subs_Test_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:46:29:[m[K [01;31m[Kerror: [m[K‘[01m[Krtb8[m[K’ was not declared in this scope
+   46 |    cv_bridge::toCvCopy(msg, [01;31m[Krtb8[m[K)->image;
+      |                             [01;31m[K^~~~[m[K
+make[2]: *** [CMakeFiles/img_subs_test_node.dir/build.make:63: CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:82: CMakeFiles/img_subs_test_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

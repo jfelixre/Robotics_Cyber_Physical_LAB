@@ -1,0 +1,28 @@
+[0.052s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12
+[0.070s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.086s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.223s] -- Found sensor_msgs: 2.0.3 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[0.239s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.242s] -- Found rosidl_adapter: 1.2.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.334s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.457s] -- Found rclcpp: 2.3.0 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.483s] -- Found rmw_implementation_cmake: 1.0.2 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.484s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.633s] -- Configuring done
+[0.642s] -- Generating done
+[0.643s] -- Build files have been written to: /home/javierfr/Tesis_ws/V1/build/img_proc_pkg
+[0.661s] [35m[1mScanning dependencies of target img_publ_test_node[0m
+[0.661s] [35m[1mScanning dependencies of target img_proc_node[0m
+[0.669s] [ 25%] [32mBuilding CXX object CMakeFiles/img_publ_test_node.dir/src/img_publ_test_node.cpp.o[0m
+[0.672s] [ 50%] [32mBuilding CXX object CMakeFiles/img_proc_node.dir/src/img_proc_node.cpp.o[0m
+[0.702s] [01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_publ_test_node.cpp:10:10:[m[K [01;31m[Kfatal error: [m[Kopencv2/core.hpp: No such file or directory
+[0.702s]    10 | #include [01;31m[K<opencv2/core.hpp>[m[K
+[0.702s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[0.702s] compilation terminated.
+[0.703s] make[2]: *** [CMakeFiles/img_publ_test_node.dir/build.make:63: CMakeFiles/img_publ_test_node.dir/src/img_publ_test_node.cpp.o] Error 1
+[0.703s] make[1]: *** [CMakeFiles/Makefile2:80: CMakeFiles/img_publ_test_node.dir/all] Error 2
+[0.703s] make[1]: *** Waiting for unfinished jobs....
+[1.235s] [ 75%] [32m[1mLinking CXX executable img_proc_node[0m
+[1.763s] [ 75%] Built target img_proc_node
+[1.763s] make: *** [Makefile:141: all] Error 2
+[1.764s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/img_proc_pkg' returned '2': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/img_proc_pkg -- -j12 -l12

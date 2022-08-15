@@ -1,0 +1,72 @@
+[35m[1mScanning dependencies of target plat1_send_vel_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/plat1_send_vel_node.dir/src/plat1_send_vel_node.cpp.o[0m
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:6:32: error: ‘tutorial_interfaces’ was not declared in this scope; did you mean ‘rcl_interfaces’?
+    6 | void add(const std::shared_ptr<tutorial_interfaces::srv::AddThreeInts::Request> request,     // CHANGE
+      |                                ^~~~~~~~~~~~~~~~~~~
+      |                                rcl_interfaces
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:6:79: error: template argument 1 is invalid
+    6 | void add(const std::shared_ptr<tutorial_interfaces::srv::AddThreeInts::Request> request,     // CHANGE
+      |                                                                               ^
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:6:32: error: ‘tutorial_interfaces’ was not declared in this scope; did you mean ‘rcl_interfaces’?
+    6 | void add(const std::shared_ptr<tutorial_interfaces::srv::AddThreeInts::Request> request,     // CHANGE
+      |                                ^~~~~~~~~~~~~~~~~~~
+      |                                rcl_interfaces
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:6:79: error: template argument 1 is invalid
+    6 | void add(const std::shared_ptr<tutorial_interfaces::srv::AddThreeInts::Request> request,     // CHANGE
+      |                                                                               ^
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:6:32: error: ‘tutorial_interfaces’ was not declared in this scope; did you mean ‘rcl_interfaces’?
+    6 | void add(const std::shared_ptr<tutorial_interfaces::srv::AddThreeInts::Request> request,     // CHANGE
+      |                                ^~~~~~~~~~~~~~~~~~~
+      |                                rcl_interfaces
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:6:79: error: template argument 1 is invalid
+    6 | void add(const std::shared_ptr<tutorial_interfaces::srv::AddThreeInts::Request> request,     // CHANGE
+      |                                                                               ^
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:6:32: error: ‘tutorial_interfaces’ was not declared in this scope; did you mean ‘rcl_interfaces’?
+    6 | void add(const std::shared_ptr<tutorial_interfaces::srv::AddThreeInts::Request> request,     // CHANGE
+      |                                ^~~~~~~~~~~~~~~~~~~
+      |                                rcl_interfaces
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:6:79: error: template argument 1 is invalid
+    6 | void add(const std::shared_ptr<tutorial_interfaces::srv::AddThreeInts::Request> request,     // CHANGE
+      |                                                                               ^
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:6:32: error: ‘tutorial_interfaces’ was not declared in this scope; did you mean ‘rcl_interfaces’?
+    6 | void add(const std::shared_ptr<tutorial_interfaces::srv::AddThreeInts::Request> request,     // CHANGE
+      |                                ^~~~~~~~~~~~~~~~~~~
+      |                                rcl_interfaces
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:6:79: error: template argument 1 is invalid
+    6 | void add(const std::shared_ptr<tutorial_interfaces::srv::AddThreeInts::Request> request,     // CHANGE
+      |                                                                               ^
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:6:16: error: invalid use of template-name ‘std::shared_ptr’ without an argument list
+    6 | void add(const std::shared_ptr<tutorial_interfaces::srv::AddThreeInts::Request> request,     // CHANGE
+      |                ^~~
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:6:16: note: class template argument deduction is only available with ‘-std=c++17’ or ‘-std=gnu++17’
+In file included from /usr/include/c++/9/bits/shared_ptr.h:52,
+                 from /usr/include/c++/9/memory:81,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+                 from /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:1:
+/usr/include/c++/9/bits/shared_ptr_base.h:348:11: note: ‘template<class _Tp> class std::shared_ptr’ declared here
+  348 |     class shared_ptr;
+      |           ^~~~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:6:31: error: expected ‘,’ or ‘...’ before ‘<’ token
+    6 | void add(const std::shared_ptr<tutorial_interfaces::srv::AddThreeInts::Request> request,     // CHANGE
+      |                               ^
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp: In function ‘void add(int)’:
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:9:3: error: ‘response’ was not declared in this scope
+    9 |   response->sum = request->a + request->b + request->c;                                       // CHANGE
+      |   ^~~~~~~~
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:9:19: error: ‘request’ was not declared in this scope
+    9 |   response->sum = request->a + request->b + request->c;                                       // CHANGE
+      |                   ^~~~~~~
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp: In function ‘int main(int, char**)’:
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:21:19: error: ‘tutorial_interfaces’ was not declared in this scope; did you mean ‘rcl_interfaces’?
+   21 |   rclcpp::Service<tutorial_interfaces::srv::AddThreeInts>::SharedPtr service =                 // CHANGE
+      |                   ^~~~~~~~~~~~~~~~~~~
+      |                   rcl_interfaces
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:21:57: error: template argument 1 is invalid
+   21 |   rclcpp::Service<tutorial_interfaces::srv::AddThreeInts>::SharedPtr service =                 // CHANGE
+      |                                                         ^
+/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:21:70: error: qualified-id in declaration before ‘service’
+   21 |   rclcpp::Service<tutorial_interfaces::srv::AddThreeInts>::SharedPtr service =                 // CHANGE
+      |                                                                      ^~~~~~~
+make[2]: *** [CMakeFiles/plat1_send_vel_node.dir/build.make:63: CMakeFiles/plat1_send_vel_node.dir/src/plat1_send_vel_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/plat1_send_vel_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

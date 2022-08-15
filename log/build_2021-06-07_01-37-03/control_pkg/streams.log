@@ -1,0 +1,25 @@
+[0.011s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/control_pkg': AMENT_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/control_pkg -- -j12 -l12
+[0.042s] [35m[1mScanning dependencies of target control_pid_p1_server[0m
+[0.063s] [ 50%] [32mBuilding CXX object CMakeFiles/control_pid_p1_server.dir/src/control_pid_p1_server.cpp.o[0m
+[1.463s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_server.cpp: In function ‘void pid_serv(std::shared_ptr<interfaces::srv::ControlPidStart_Request_<std::allocator<void> > >, std::shared_ptr<interfaces::srv::ControlPidStart_Response_<std::allocator<void> > >)’:
+[1.463s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_server.cpp:19:31: error: ‘subs_callback’ was not declared in this scope
+[1.463s]    19 |   "image_data", 1, std::bind(&subs_callback,Control_PID_P1_server, _1));
+[1.463s]       |                               ^~~~~~~~~~~~~
+[1.463s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_server.cpp:15:80: warning: unused parameter ‘request’ [-Wunused-parameter]
+[1.463s]    15 | void pid_serv(const std::shared_ptr<interfaces::srv::ControlPidStart::Request> request,
+[1.464s]       |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+[1.464s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_server.cpp:16:63: warning: unused parameter ‘response’ [-Wunused-parameter]
+[1.464s]    16 |   std::shared_ptr<interfaces::srv::ControlPidStart::Response> response)
+[1.464s]       |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+[1.464s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_server.cpp: At global scope:
+[1.464s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_server.cpp:27:72: error: non-member function ‘void subs_callback(interfaces::msg::ImgData_<std::allocator<void> >::SharedPtr)’ cannot have cv-qualifier
+[1.464s]    27 | void subs_callback(const interfaces::msg::ImgData::SharedPtr data_msg) const
+[1.464s]       |                                                                        ^~~~~
+[1.464s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_server.cpp: In function ‘void subs_callback(interfaces::msg::ImgData_<std::allocator<void> >::SharedPtr)’:
+[1.464s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_server.cpp:27:62: warning: unused parameter ‘data_msg’ [-Wunused-parameter]
+[1.464s]    27 | void subs_callback(const interfaces::msg::ImgData::SharedPtr data_msg) const
+[1.464s]       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+[1.464s] make[2]: *** [CMakeFiles/control_pid_p1_server.dir/build.make:63: CMakeFiles/control_pid_p1_server.dir/src/control_pid_p1_server.cpp.o] Error 1
+[1.464s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/control_pid_p1_server.dir/all] Error 2
+[1.464s] make: *** [Makefile:141: all] Error 2
+[1.465s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/control_pkg' returned '2': AMENT_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/control_pkg -- -j12 -l12

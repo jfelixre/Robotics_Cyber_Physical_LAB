@@ -1,0 +1,10 @@
+/home/javierfr/Tesis_ws/V1/build/interfaces/rosidl_adapter/interfaces:srv/PlatformVel.idl
+/home/javierfr/Tesis_ws/V1/build/interfaces/rosidl_adapter/interfaces:msg/MotorVels.idl
+/home/javierfr/Tesis_ws/V1/build/interfaces/rosidl_adapter/interfaces:msg/ImgData.idl
+/home/javierfr/Tesis_ws/V1/build/interfaces/rosidl_adapter/interfaces:srv/ControlPidStart.idl
+/home/javierfr/Tesis_ws/V1/build/interfaces/rosidl_adapter/interfaces:msg/PlatState.idl
+/home/javierfr/Tesis_ws/V1/build/interfaces/rosidl_adapter/interfaces:msg/ControlData.idl
+/home/javierfr/Tesis_ws/V1/build/interfaces/rosidl_adapter/interfaces:msg/MotorVelsWArm.idl
+/home/javierfr/Tesis_ws/V1/build/interfaces/rosidl_adapter/interfaces:msg/LimitSwitch.idl
+/home/javierfr/Tesis_ws/V1/build/interfaces/rosidl_adapter/interfaces:srv/RobotVel.idl
+/home/javierfr/Tesis_ws/V1/build/interfaces/rosidl_adapter/interfaces:msg/RobotState.idl

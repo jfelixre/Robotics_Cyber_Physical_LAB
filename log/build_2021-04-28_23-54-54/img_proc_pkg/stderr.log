@@ -1,0 +1,7 @@
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:62:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kspin_node_once[m[K’ is not a member of ‘[01m[Krclcpp[m[K’
+   62 |   rclcpp::[01;31m[Kspin_node_once[m[K(std::make_shared<Img_Subs_Test_Node>());
+      |           [01;31m[K^~~~~~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/img_subs_test_node.dir/build.make:63: CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:82: CMakeFiles/img_subs_test_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

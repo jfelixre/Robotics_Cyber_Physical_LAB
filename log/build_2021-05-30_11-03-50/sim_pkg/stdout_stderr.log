@@ -1,0 +1,199 @@
+[35m[1mScanning dependencies of target plat1_send_vel_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/plat1_send_vel_node.dir/src/plat1_send_vel_node.cpp.o[0m
+In file included from /usr/include/ignition/math6/ignition/math.hh:30,
+                 from /usr/include/sdformat-9.5/sdf/Param.hh:33,
+                 from /usr/include/sdformat-9.5/sdf/Element.hh:28,
+                 from /usr/include/sdformat-9.5/sdf/Actor.hh:25,
+                 from /usr/include/sdformat-9.5/sdf/sdf.hh:2,
+                 from /usr/include/gazebo-11/gazebo/msgs/msgs.hh:22,
+                 from /usr/include/gazebo-11/gazebo/transport/CallbackHelper.hh:29,
+                 from /usr/include/gazebo-11/gazebo/transport/transport.hh:2,
+                 from /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:4:
+/usr/include/ignition/math6/ignition/math/Capsule.hh:91:20: error: ‘optional’ in namespace ‘std’ does not name a template type
+   91 |       public: std::optional< MassMatrix3<Precision> > MassMatrix() const;
+      |                    ^~~~~~~~
+/usr/include/ignition/math6/ignition/math/Capsule.hh:91:15: note: ‘std::optional’ is only available from C++17 onwards
+   91 |       public: std::optional< MassMatrix3<Precision> > MassMatrix() const;
+      |               ^~~
+In file included from /usr/include/ignition/math6/ignition/math/Capsule.hh:149,
+                 from /usr/include/ignition/math6/ignition/math.hh:30,
+                 from /usr/include/sdformat-9.5/sdf/Param.hh:33,
+                 from /usr/include/sdformat-9.5/sdf/Element.hh:28,
+                 from /usr/include/sdformat-9.5/sdf/Actor.hh:25,
+                 from /usr/include/sdformat-9.5/sdf/sdf.hh:2,
+                 from /usr/include/gazebo-11/gazebo/msgs/msgs.hh:22,
+                 from /usr/include/gazebo-11/gazebo/transport/CallbackHelper.hh:29,
+                 from /usr/include/gazebo-11/gazebo/transport/transport.hh:2,
+                 from /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:4:
+/usr/include/ignition/math6/ignition/math/detail/Capsule.hh:100:6: error: ‘optional’ in namespace ‘std’ does not name a template type
+  100 | std::optional< MassMatrix3<T> > Capsule<T>::MassMatrix() const
+      |      ^~~~~~~~
+/usr/include/ignition/math6/ignition/math/detail/Capsule.hh:100:1: note: ‘std::optional’ is only available from C++17 onwards
+  100 | std::optional< MassMatrix3<T> > Capsule<T>::MassMatrix() const
+      | ^~~
+In file included from /usr/include/ignition/math6/ignition/math.hh:34,
+                 from /usr/include/sdformat-9.5/sdf/Param.hh:33,
+                 from /usr/include/sdformat-9.5/sdf/Element.hh:28,
+                 from /usr/include/sdformat-9.5/sdf/Actor.hh:25,
+                 from /usr/include/sdformat-9.5/sdf/sdf.hh:2,
+                 from /usr/include/gazebo-11/gazebo/msgs/msgs.hh:22,
+                 from /usr/include/gazebo-11/gazebo/transport/CallbackHelper.hh:29,
+                 from /usr/include/gazebo-11/gazebo/transport/transport.hh:2,
+                 from /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:4:
+/usr/include/ignition/math6/ignition/math/Ellipsoid.hh:77:20: error: ‘optional’ in namespace ‘std’ does not name a template type
+   77 |       public: std::optional< MassMatrix3<Precision> > MassMatrix() const;
+      |                    ^~~~~~~~
+/usr/include/ignition/math6/ignition/math/Ellipsoid.hh:77:15: note: ‘std::optional’ is only available from C++17 onwards
+   77 |       public: std::optional< MassMatrix3<Precision> > MassMatrix() const;
+      |               ^~~
+In file included from /usr/include/ignition/math6/ignition/math/Ellipsoid.hh:132,
+                 from /usr/include/ignition/math6/ignition/math.hh:34,
+                 from /usr/include/sdformat-9.5/sdf/Param.hh:33,
+                 from /usr/include/sdformat-9.5/sdf/Element.hh:28,
+                 from /usr/include/sdformat-9.5/sdf/Actor.hh:25,
+                 from /usr/include/sdformat-9.5/sdf/sdf.hh:2,
+                 from /usr/include/gazebo-11/gazebo/msgs/msgs.hh:22,
+                 from /usr/include/gazebo-11/gazebo/transport/CallbackHelper.hh:29,
+                 from /usr/include/gazebo-11/gazebo/transport/transport.hh:2,
+                 from /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:4:
+/usr/include/ignition/math6/ignition/math/detail/Ellipsoid.hh:77:6: error: ‘optional’ in namespace ‘std’ does not name a template type
+   77 | std::optional< MassMatrix3<T> > Ellipsoid<T>::MassMatrix() const
+      |      ^~~~~~~~
+/usr/include/ignition/math6/ignition/math/detail/Ellipsoid.hh:77:1: note: ‘std::optional’ is only available from C++17 onwards
+   77 | std::optional< MassMatrix3<T> > Ellipsoid<T>::MassMatrix() const
+      | ^~~
+In file included from /usr/include/sdformat-9.5/sdf/Element.hh:28,
+                 from /usr/include/sdformat-9.5/sdf/Actor.hh:25,
+                 from /usr/include/sdformat-9.5/sdf/sdf.hh:2,
+                 from /usr/include/gazebo-11/gazebo/msgs/msgs.hh:22,
+                 from /usr/include/gazebo-11/gazebo/transport/CallbackHelper.hh:29,
+                 from /usr/include/gazebo-11/gazebo/transport/transport.hh:2,
+                 from /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:4:
+/usr/include/sdformat-9.5/sdf/Param.hh:72:57: error: expected constructor, destructor, or type conversion before ‘;’ token
+   72 |   template<class T> ParamStreamer(T) -> ParamStreamer<T>;
+      |                                                         ^
+/usr/include/sdformat-9.5/sdf/Param.hh:83:47: error: ‘variant’ is not a member of ‘std’
+   83 |                            ParamStreamer<std::variant<Ts...>> sv)
+      |                                               ^~~~~~~
+/usr/include/sdformat-9.5/sdf/Param.hh:83:47: note: ‘std::variant’ is only available from C++17 onwards
+/usr/include/sdformat-9.5/sdf/Param.hh:83:47: error: ‘variant’ is not a member of ‘std’
+/usr/include/sdformat-9.5/sdf/Param.hh:83:47: note: ‘std::variant’ is only available from C++17 onwards
+/usr/include/sdformat-9.5/sdf/Param.hh:83:57: error: expected parameter pack before ‘...’
+   83 |                            ParamStreamer<std::variant<Ts...>> sv)
+      |                                                         ^~~
+/usr/include/sdformat-9.5/sdf/Param.hh:83:57: error: template argument 1 is invalid
+/usr/include/sdformat-9.5/sdf/Param.hh:83:47: error: ‘variant’ is not a member of ‘std’
+   83 |                            ParamStreamer<std::variant<Ts...>> sv)
+      |                                               ^~~~~~~
+/usr/include/sdformat-9.5/sdf/Param.hh:83:47: note: ‘std::variant’ is only available from C++17 onwards
+/usr/include/sdformat-9.5/sdf/Param.hh:83:47: error: ‘variant’ is not a member of ‘std’
+/usr/include/sdformat-9.5/sdf/Param.hh:83:47: note: ‘std::variant’ is only available from C++17 onwards
+/usr/include/sdformat-9.5/sdf/Param.hh:83:57: error: expected parameter pack before ‘...’
+   83 |                            ParamStreamer<std::variant<Ts...>> sv)
+      |                                                         ^~~
+/usr/include/sdformat-9.5/sdf/Param.hh:83:60: error: template argument 1 is invalid
+   83 |                            ParamStreamer<std::variant<Ts...>> sv)
+      |                                                            ^~
+/usr/include/sdformat-9.5/sdf/Param.hh:83:47: error: ‘variant’ is not a member of ‘std’
+   83 |                            ParamStreamer<std::variant<Ts...>> sv)
+      |                                               ^~~~~~~
+/usr/include/sdformat-9.5/sdf/Param.hh:83:47: note: ‘std::variant’ is only available from C++17 onwards
+/usr/include/sdformat-9.5/sdf/Param.hh:83:47: error: ‘variant’ is not a member of ‘std’
+/usr/include/sdformat-9.5/sdf/Param.hh:83:47: note: ‘std::variant’ is only available from C++17 onwards
+/usr/include/sdformat-9.5/sdf/Param.hh:83:57: error: expected parameter pack before ‘...’
+   83 |                            ParamStreamer<std::variant<Ts...>> sv)
+      |                                                         ^~~
+/usr/include/sdformat-9.5/sdf/Param.hh:83:60: error: template argument 1 is invalid
+   83 |                            ParamStreamer<std::variant<Ts...>> sv)
+      |                                                            ^~
+/usr/include/sdformat-9.5/sdf/Param.hh:83:28: error: ‘ParamStreamer’ is not a type
+   83 |                            ParamStreamer<std::variant<Ts...>> sv)
+      |                            ^~~~~~~~~~~~~
+/usr/include/sdformat-9.5/sdf/Param.hh:83:41: error: expected ‘,’ or ‘...’ before ‘<’ token
+   83 |                            ParamStreamer<std::variant<Ts...>> sv)
+      |                                         ^
+/usr/include/sdformat-9.5/sdf/Param.hh: In function ‘std::ostream& sdf::v9::operator<<(std::ostream&, int)’:
+/usr/include/sdformat-9.5/sdf/Param.hh:85:10: error: ‘visit’ is not a member of ‘std’
+   85 |     std::visit([&os](auto const &v)
+      |          ^~~~~
+/usr/include/sdformat-9.5/sdf/Param.hh:85:10: note: ‘std::visit’ is only available from C++17 onwards
+/usr/include/sdformat-9.5/sdf/Param.hh: In lambda function:
+/usr/include/sdformat-9.5/sdf/Param.hh:87:28: error: missing template arguments before ‘{’ token
+   87 |         os << ParamStreamer{v};
+      |                            ^
+/usr/include/sdformat-9.5/sdf/Param.hh: In function ‘std::ostream& sdf::v9::operator<<(std::ostream&, int)’:
+/usr/include/sdformat-9.5/sdf/Param.hh:88:10: error: ‘sv’ was not declared in this scope
+   88 |       }, sv.val);
+      |          ^~
+/usr/include/sdformat-9.5/sdf/Param.hh: At global scope:
+/usr/include/sdformat-9.5/sdf/Param.hh:173:30: error: ‘std::any’ has not been declared
+  173 |     public: bool GetAny(std::any &_anyVal) const;
+      |                              ^~~
+/usr/include/sdformat-9.5/sdf/Param.hh:242:32: error: ‘any’ is not a member of ‘std’
+  242 |     public: std::function<std::any ()> updateFunc;
+      |                                ^~~
+/usr/include/sdformat-9.5/sdf/Param.hh:242:32: note: ‘std::any’ is only available from C++17 onwards
+/usr/include/sdformat-9.5/sdf/Param.hh:242:32: error: ‘any’ is not a member of ‘std’
+/usr/include/sdformat-9.5/sdf/Param.hh:242:32: note: ‘std::any’ is only available from C++17 onwards
+/usr/include/sdformat-9.5/sdf/Param.hh:242:38: error: template argument 1 is invalid
+  242 |     public: std::function<std::any ()> updateFunc;
+      |                                      ^
+/usr/include/sdformat-9.5/sdf/Param.hh:246:26: error: ‘variant’ in namespace ‘std’ does not name a template type
+  246 |     public: typedef std::variant<bool, char, std::string, int, std::uint64_t,
+      |                          ^~~~~~~
+/usr/include/sdformat-9.5/sdf/Param.hh:246:21: note: ‘std::variant’ is only available from C++17 onwards
+  246 |     public: typedef std::variant<bool, char, std::string, int, std::uint64_t,
+      |                     ^~~
+/usr/include/sdformat-9.5/sdf/Param.hh:257:13: error: ‘ParamVariant’ does not name a type
+  257 |     public: ParamVariant value;
+      |             ^~~~~~~~~~~~
+/usr/include/sdformat-9.5/sdf/Param.hh:260:13: error: ‘ParamVariant’ does not name a type
+  260 |     public: ParamVariant defaultValue;
+      |             ^~~~~~~~~~~~
+/usr/include/sdformat-9.5/sdf/Param.hh: In member function ‘bool sdf::v9::Param::Get(T&) const’:
+/usr/include/sdformat-9.5/sdf/Param.hh:298:69: error: ‘class sdf::v9::ParamPrivate’ has no member named ‘value’
+  298 |         std::string strValue = std::get<std::string>(this->dataPtr->value);
+      |                                                                     ^~~~~
+/usr/include/sdformat-9.5/sdf/Param.hh:318:25: error: ‘get_if’ is not a member of ‘std’; did you mean ‘get_time’?
+  318 |         T *value = std::get_if<T>(&this->dataPtr->value);
+      |                         ^~~~~~
+      |                         get_time
+/usr/include/sdformat-9.5/sdf/Param.hh:318:33: error: expected primary-expression before ‘>’ token
+  318 |         T *value = std::get_if<T>(&this->dataPtr->value);
+      |                                 ^
+/usr/include/sdformat-9.5/sdf/Param.hh:318:51: error: ‘class sdf::v9::ParamPrivate’ has no member named ‘value’
+  318 |         T *value = std::get_if<T>(&this->dataPtr->value);
+      |                                                   ^~~~~
+/usr/include/sdformat-9.5/sdf/Param.hh:324:30: error: missing template arguments before ‘{’ token
+  324 |           ss << ParamStreamer{this->dataPtr->value};
+      |                              ^
+/usr/include/sdformat-9.5/sdf/Param.hh: In member function ‘bool sdf::v9::Param::GetDefault(T&) const’:
+/usr/include/sdformat-9.5/sdf/Param.hh:349:26: error: missing template arguments before ‘{’ token
+  349 |       ss << ParamStreamer{this->dataPtr->defaultValue};
+      |                          ^
+/usr/include/sdformat-9.5/sdf/Param.hh: In member function ‘bool sdf::v9::Param::IsType() const’:
+/usr/include/sdformat-9.5/sdf/Param.hh:369:17: error: ‘holds_alternative’ is not a member of ‘std’
+  369 |     return std::holds_alternative<Type>(this->dataPtr->value);
+      |                 ^~~~~~~~~~~~~~~~~
+/usr/include/sdformat-9.5/sdf/Param.hh:369:39: error: expected primary-expression before ‘>’ token
+  369 |     return std::holds_alternative<Type>(this->dataPtr->value);
+      |                                       ^
+/usr/include/sdformat-9.5/sdf/Param.hh:369:56: error: ‘class sdf::v9::ParamPrivate’ has no member named ‘value’
+  369 |     return std::holds_alternative<Type>(this->dataPtr->value);
+      |                                                        ^~~~~
+In file included from /usr/include/sdformat-9.5/sdf/Actor.hh:25,
+                 from /usr/include/sdformat-9.5/sdf/sdf.hh:2,
+                 from /usr/include/gazebo-11/gazebo/msgs/msgs.hh:22,
+                 from /usr/include/gazebo-11/gazebo/transport/CallbackHelper.hh:29,
+                 from /usr/include/gazebo-11/gazebo/transport/transport.hh:2,
+                 from /home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:4:
+/usr/include/sdformat-9.5/sdf/Element.hh: At global scope:
+/usr/include/sdformat-9.5/sdf/Element.hh:237:18: error: ‘any’ in namespace ‘std’ does not name a type
+  237 |     public: std::any GetAny(const std::string &_key = "") const;
+      |                  ^~~
+/usr/include/sdformat-9.5/sdf/Element.hh:237:13: note: ‘std::any’ is only available from C++17 onwards
+  237 |     public: std::any GetAny(const std::string &_key = "") const;
+      |             ^~~
+make[2]: *** [CMakeFiles/plat1_send_vel_node.dir/build.make:63: CMakeFiles/plat1_send_vel_node.dir/src/plat1_send_vel_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/plat1_send_vel_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

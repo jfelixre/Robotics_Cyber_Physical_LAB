@@ -1,0 +1,11 @@
+[35m[1mScanning dependencies of target img_subs_test_node[0m
+[ 33%] Built target img_proc_node
+[ 66%] Built target img_publ_test_node
+[ 83%] [32mBuilding CXX object CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o[0m
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Subs_Test_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_subs_test_node.cpp:50:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kconst class Img_Subs_Test_Node[m[K’ has no member named ‘[01m[Kshutdown[m[K’
+   50 |       this->[01;31m[Kshutdown[m[K();
+      |             [01;31m[K^~~~~~~~[m[K
+make[2]: *** [CMakeFiles/img_subs_test_node.dir/build.make:63: CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:82: CMakeFiles/img_subs_test_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

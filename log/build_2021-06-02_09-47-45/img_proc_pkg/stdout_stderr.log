@@ -1,0 +1,12 @@
+[35m[1mScanning dependencies of target img_proc_qr_detector[0m
+[ 25%] Built target img_proc_node
+[ 50%] Built target img_subs_test_node
+[ 75%] Built target img_publ_test_node
+[ 87%] [32mBuilding CXX object CMakeFiles/img_proc_qr_detector.dir/src/img_proc_qr_detector.cpp.o[0m
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:[m[K In member function ‘[01m[Kvoid Img_Proc_Qr_Detector::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:55:30:[m[K [01;31m[Kerror: [m[K‘[01m[KQRCodeDetector[m[K’ has not been declared
+   55 |       cv::QRCodeDetector qr =[01;31m[KQRCodeDetector[m[K::QrCodeDetector();
+      |                              [01;31m[K^~~~~~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/img_proc_qr_detector.dir/build.make:63: CMakeFiles/img_proc_qr_detector.dir/src/img_proc_qr_detector.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:84: CMakeFiles/img_proc_qr_detector.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

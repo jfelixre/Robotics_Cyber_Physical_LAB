@@ -1,0 +1,87 @@
+[0.104s] Invoking command in '/home/javierfr/Tesis_ws/V1/build/control_pkg': AMENT_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/control_pkg -- -j12 -l12
+[0.490s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.592s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.865s] -- Found rclcpp: 2.3.1 (/opt/ros/foxy/share/rclcpp/cmake)
+[1.082s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.109s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.514s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.618s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[1.623s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.903s] -- Found interfaces: 0.0.0 (/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/cmake)
+[2.097s] -- Configuring done
+[2.264s] -- Generating done
+[2.265s] -- Build files have been written to: /home/javierfr/Tesis_ws/V1/build/control_pkg
+[2.283s] [35m[1mScanning dependencies of target control_pid_p1_node[0m
+[3.226s] [ 50%] [32mBuilding CXX object CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o[0m
+[7.471s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:13:1: error: expected class-name before ‘{’ token
+[7.472s]    13 | {
+[7.472s]       | ^
+[7.472s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:31:2: error: expected ‘;’ after class definition
+[7.472s]    31 | }
+[7.472s]       |  ^
+[7.472s]       |  ;
+[7.472s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp: In constructor ‘Control_PID_P1_node::Control_PID_P1_node()’:
+[7.472s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:16:5: error: class ‘Control_PID_P1_node’ does not have any field named ‘Node’
+[7.472s]    16 |   : Node("control_pid_p1_node")
+[7.472s]       |     ^~~~
+[7.472s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:18:26: error: ‘class Control_PID_P1_node’ has no member named ‘create_subscription’
+[7.472s]    18 |    subs_img_data = this->create_subscription<interfaces::msg::ImgData>(
+[7.472s]       |                          ^~~~~~~~~~~~~~~~~~~
+[7.472s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:18:70: error: expected primary-expression before ‘>’ token
+[7.472s]    18 |    subs_img_data = this->create_subscription<interfaces::msg::ImgData>(
+[7.472s]       |                                                                      ^
+[7.472s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:19:5: warning: left operand of comma operator has no effect [-Wunused-value]
+[7.472s]    19 |     "image_data", 1, std::bind(&Control_PID_P1_node::subs_callback,this, _1));
+[7.472s]       |     ^~~~~~~~~~~~
+[7.473s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:19:76: warning: right operand of comma operator has no effect [-Wunused-value]
+[7.473s]    19 |     "image_data", 1, std::bind(&Control_PID_P1_node::subs_callback,this, _1));
+[7.473s]       |                                                                            ^
+[7.473s] In file included from /opt/ros/foxy/include/rclcpp/service.hpp:34,
+[7.473s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:25,
+[7.473s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[7.473s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[7.473s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[7.473s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[7.473s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[7.473s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:25,
+[7.473s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[7.473s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[7.473s]                  from /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:1:
+[7.473s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp: In member function ‘void Control_PID_P1_node::subs_callback(interfaces::msg::ImgData_<std::allocator<void> >::SharedPtr) const’:
+[7.473s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:26:16: error: ‘Control_PID_P1_server’ was not declared in this scope; did you mean ‘Control_PID_P1_node’?
+[7.473s]    26 |    RCLCPP_INFO(Control_PID_P1_server->get_logger(), "Data received" );
+[7.473s]       |                ^~~~~~~~~~~~~~~~~~~~~
+[7.474s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:26:4: error: template argument 1 is invalid
+[7.474s]    26 |    RCLCPP_INFO(Control_PID_P1_server->get_logger(), "Data received" );
+[7.474s]       |    ^~~~~~~~~~~
+[7.474s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:26:4: error: template argument 1 is invalid
+[7.474s]    26 |    RCLCPP_INFO(Control_PID_P1_server->get_logger(), "Data received" );
+[7.474s]       |    ^~~~~~~~~~~
+[7.474s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:26:4: error: template argument 1 is invalid
+[7.474s]    26 |    RCLCPP_INFO(Control_PID_P1_server->get_logger(), "Data received" );
+[7.474s]       |    ^~~~~~~~~~~
+[7.474s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:24:64: warning: unused parameter ‘data_msg’ [-Wunused-parameter]
+[7.474s]    24 |   void subs_callback(const interfaces::msg::ImgData::SharedPtr data_msg) const
+[7.474s]       |                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+[7.474s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp: In function ‘int main(int, char**)’:
+[7.474s] /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:40:55: error: no matching function for call to ‘spin(std::shared_ptr<Control_PID_P1_node>)’
+[7.474s]    40 |   rclcpp::spin(std::make_shared<Control_PID_P1_node>());
+[7.474s]       |                                                       ^
+[7.474s] In file included from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[7.474s]                  from /home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:1:
+[7.474s] /opt/ros/foxy/include/rclcpp/executors.hpp:45:1: note: candidate: ‘void rclcpp::spin(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr)’
+[7.474s]    45 | spin(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr node_ptr);
+[7.475s]       | ^~~~
+[7.475s] /opt/ros/foxy/include/rclcpp/executors.hpp:45:60: note:   no known conversion for argument 1 from ‘shared_ptr<Control_PID_P1_node>’ to ‘shared_ptr<rclcpp::node_interfaces::NodeBaseInterface>’
+[7.475s]    45 | spin(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr node_ptr);
+[7.475s]       |      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+[7.475s] /opt/ros/foxy/include/rclcpp/executors.hpp:49:1: note: candidate: ‘void rclcpp::spin(rclcpp::Node::SharedPtr)’
+[7.475s]    49 | spin(rclcpp::Node::SharedPtr node_ptr);
+[7.475s]       | ^~~~
+[7.475s] /opt/ros/foxy/include/rclcpp/executors.hpp:49:30: note:   no known conversion for argument 1 from ‘shared_ptr<Control_PID_P1_node>’ to ‘shared_ptr<rclcpp::Node>’
+[7.475s]    49 | spin(rclcpp::Node::SharedPtr node_ptr);
+[7.475s]       |      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+[7.521s] make[2]: *** [CMakeFiles/control_pid_p1_node.dir/build.make:63: CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o] Error 1
+[7.521s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/control_pid_p1_node.dir/all] Error 2
+[7.522s] make: *** [Makefile:141: all] Error 2
+[7.523s] Invoked command in '/home/javierfr/Tesis_ws/V1/build/control_pkg' returned '2': AMENT_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/javierfr/Tesis_ws/V1/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/javierfr/Tesis_ws/V1/build/control_pkg -- -j12 -l12

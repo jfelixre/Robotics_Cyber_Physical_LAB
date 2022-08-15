@@ -1,0 +1,5 @@
+[35m[1mScanning dependencies of target img_proc_qr_detector[0m
+[ 50%] Built target img_proc_node
+[ 50%] Built target img_publ_test_node
+[ 75%] Built target img_subs_test_node
+[ 87%] [32mBuilding CXX object CMakeFiles/img_proc_qr_detector.dir/src/img_proc_qr_detector.cpp.o[0m
