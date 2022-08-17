@@ -1,0 +1,40 @@
+[0.022s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg -- -j8 -l8
+[0.119s] [ 12%] [32mBuilding CXX object CMakeFiles/control_pid_p2_node.dir/src/control_pid_p2_node.cpp.o[0m
+[0.129s] [ 25%] [32mBuilding CXX object CMakeFiles/control_pid_r2_node.dir/src/control_pid_r2_node.cpp.o[0m
+[0.142s] [ 37%] [32mBuilding CXX object CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o[0m
+[0.145s] [ 50%] [32mBuilding CXX object CMakeFiles/control_pid_r1_node.dir/src/control_pid_r1_node.cpp.o[0m
+[19.323s] [ 62%] [32m[1mLinking CXX executable control_pid_p1_node[0m
+[20.355s] [ 62%] Built target control_pid_p1_node
+[21.100s] [ 75%] [32m[1mLinking CXX executable control_pid_p2_node[0m
+[21.996s] [ 75%] Built target control_pid_p2_node
+[23.992s] [ 87%] [32m[1mLinking CXX executable control_pid_r1_node[0m
+[25.025s] [ 87%] Built target control_pid_r1_node
+[25.658s] [100%] [32m[1mLinking CXX executable control_pid_r2_node[0m
+[26.379s] [100%] Built target control_pid_r2_node
+[26.391s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg -- -j8 -l8
+[26.426s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg
+[26.444s] -- Install configuration: ""
+[26.444s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_p1_node
+[26.449s] -- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_p1_node" to ""
+[26.449s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_p2_node
+[26.454s] -- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_p2_node" to ""
+[26.454s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_r1_node
+[26.461s] -- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_r1_node" to ""
+[26.461s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_r2_node
+[26.468s] -- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_r2_node" to ""
+[26.468s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/ament_index/resource_index/package_run_dependencies/control_pkg
+[26.468s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/ament_index/resource_index/parent_prefix_path/control_pkg
+[26.469s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/environment/ament_prefix_path.sh
+[26.469s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/environment/ament_prefix_path.dsv
+[26.470s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/environment/path.sh
+[26.470s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/environment/path.dsv
+[26.470s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/local_setup.bash
+[26.471s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/local_setup.sh
+[26.471s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/local_setup.zsh
+[26.471s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/local_setup.dsv
+[26.472s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/package.dsv
+[26.472s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/ament_index/resource_index/packages/control_pkg
+[26.472s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/cmake/control_pkgConfig.cmake
+[26.473s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/cmake/control_pkgConfig-version.cmake
+[26.473s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/package.xml
+[26.481s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg

@@ -1,8 +1,8 @@
-# Install script for directory: /home/javierfr/Tesis_ws/V1/build/interfaces/interfaces__py
+# Install script for directory: /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/interfaces__py
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/javierfr/Tesis_ws/V1/install/interfaces")
+  set(CMAKE_INSTALL_PREFIX "/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

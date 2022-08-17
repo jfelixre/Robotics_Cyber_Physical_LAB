@@ -1,0 +1,1 @@
+Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg -DCMAKE_INSTALL_PREFIX=/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg

@@ -1,21 +1,21 @@
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/CMakeTmp
+Change Dir: /home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_4f32c/fast && /usr/bin/make -f CMakeFiles/cmTC_4f32c.dir/build.make CMakeFiles/cmTC_4f32c.dir/build
-make[1]: Entering directory '/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_4f32c.dir/src.c.o
-/usr/lib/ccache/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_4f32c.dir/src.c.o   -c /home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_4f32c
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4f32c.dir/link.txt --verbose=1
-/usr/lib/ccache/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_4f32c.dir/src.c.o  -o cmTC_4f32c 
-/usr/bin/ld: CMakeFiles/cmTC_4f32c.dir/src.c.o: in function `main':
+Run Build Command(s):/usr/bin/make cmTC_996dd/fast && /usr/bin/make -f CMakeFiles/cmTC_996dd.dir/build.make CMakeFiles/cmTC_996dd.dir/build
+make[1]: Entering directory '/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_996dd.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_996dd.dir/src.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_996dd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_996dd.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_996dd.dir/src.c.o  -o cmTC_996dd 
+/usr/bin/ld: CMakeFiles/cmTC_996dd.dir/src.c.o: in function `main':
 src.c:(.text+0x46): undefined reference to `pthread_create'
 /usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
 /usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_4f32c.dir/build.make:87: cmTC_4f32c] Error 1
-make[1]: Leaving directory '/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_4f32c/fast] Error 2
+make[1]: *** [CMakeFiles/cmTC_996dd.dir/build.make:87: cmTC_996dd] Error 1
+make[1]: Leaving directory '/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_996dd/fast] Error 2
 
 
 Source file was:
@@ -39,20 +39,20 @@ int main(void)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/CMakeTmp
+Change Dir: /home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_6721b/fast && /usr/bin/make -f CMakeFiles/cmTC_6721b.dir/build.make CMakeFiles/cmTC_6721b.dir/build
-make[1]: Entering directory '/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_6721b.dir/CheckFunctionExists.c.o
-/usr/lib/ccache/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_6721b.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_6721b
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6721b.dir/link.txt --verbose=1
-/usr/lib/ccache/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_6721b.dir/CheckFunctionExists.c.o  -o cmTC_6721b  -lpthreads 
+Run Build Command(s):/usr/bin/make cmTC_74598/fast && /usr/bin/make -f CMakeFiles/cmTC_74598.dir/build.make CMakeFiles/cmTC_74598.dir/build
+make[1]: Entering directory '/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_74598.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_74598.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_74598
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_74598.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_74598.dir/CheckFunctionExists.c.o  -o cmTC_74598  -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_6721b.dir/build.make:87: cmTC_6721b] Error 1
-make[1]: Leaving directory '/home/javierfr/Tesis_ws/V1/build/inv_kinematics_pkg/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_6721b/fast] Error 2
+make[1]: *** [CMakeFiles/cmTC_74598.dir/build.make:87: cmTC_74598] Error 1
+make[1]: Leaving directory '/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_74598/fast] Error 2
 
 
 

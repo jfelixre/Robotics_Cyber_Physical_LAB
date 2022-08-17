@@ -1,0 +1,1036 @@
+[0.000000] (-) TimerEvent: {}
+[0.000700] (gazebo_plugin_sim) JobQueued: {'identifier': 'gazebo_plugin_sim', 'dependencies': OrderedDict()}
+[0.000936] (img_proc_pkg) JobQueued: {'identifier': 'img_proc_pkg', 'dependencies': OrderedDict()}
+[0.000989] (interfaces) JobQueued: {'identifier': 'interfaces', 'dependencies': OrderedDict()}
+[0.001014] (control_pkg) JobQueued: {'identifier': 'control_pkg', 'dependencies': OrderedDict([('interfaces', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces')])}
+[0.001050] (inv_kinematics_pkg) JobQueued: {'identifier': 'inv_kinematics_pkg', 'dependencies': OrderedDict([('interfaces', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces')])}
+[0.001083] (interfaces) JobStarted: {'identifier': 'interfaces'}
+[0.014887] (gazebo_plugin_sim) JobStarted: {'identifier': 'gazebo_plugin_sim'}
+[0.024161] (img_proc_pkg) JobStarted: {'identifier': 'img_proc_pkg'}
+[0.033899] (interfaces) JobProgress: {'identifier': 'interfaces', 'progress': 'cmake'}
+[0.035466] (interfaces) JobProgress: {'identifier': 'interfaces', 'progress': 'build'}
+[0.035540] (interfaces) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces', '--', '-j8', '-l8'], 'cwd': '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '1602'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/javierfr'), ('OLDPWD', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '1414'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '21603'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:46322'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfr-Lenovo-Y50-70:@/tmp/.ICE-unix/1639,unix/javierfr-Lenovo-Y50-70:/tmp/.ICE-unix/1639'), ('INVOCATION_ID', '993e1bed76424b68b54b352c965a36d7'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:ef83c382-0f41-4047-aba9-72bf5c72efc2'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy')]), 'shell': False}
+[0.041223] (gazebo_plugin_sim) JobProgress: {'identifier': 'gazebo_plugin_sim', 'progress': 'cmake'}
+[0.043917] (gazebo_plugin_sim) Command: {'cmd': ['/usr/bin/cmake', '/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim', '-DCMAKE_INSTALL_PREFIX=/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim'], 'cwd': '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '1602'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/javierfr'), ('OLDPWD', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '1414'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '21603'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:46322'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfr-Lenovo-Y50-70:@/tmp/.ICE-unix/1639,unix/javierfr-Lenovo-Y50-70:/tmp/.ICE-unix/1639'), ('INVOCATION_ID', '993e1bed76424b68b54b352c965a36d7'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:ef83c382-0f41-4047-aba9-72bf5c72efc2'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy')]), 'shell': False}
+[0.048529] (img_proc_pkg) JobProgress: {'identifier': 'img_proc_pkg', 'progress': 'cmake'}
+[0.049545] (img_proc_pkg) Command: {'cmd': ['/usr/bin/cmake', '/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg', '-DCMAKE_INSTALL_PREFIX=/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg'], 'cwd': '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '1602'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/javierfr'), ('OLDPWD', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '1414'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '21603'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:46322'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfr-Lenovo-Y50-70:@/tmp/.ICE-unix/1639,unix/javierfr-Lenovo-Y50-70:/tmp/.ICE-unix/1639'), ('INVOCATION_ID', '993e1bed76424b68b54b352c965a36d7'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:ef83c382-0f41-4047-aba9-72bf5c72efc2'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy')]), 'shell': False}
+[0.063487] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.067049] (img_proc_pkg) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.087079] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.091597] (img_proc_pkg) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.099710] (-) TimerEvent: {}
+[0.100769] (interfaces) StdoutLine: {'line': b'[  0%] Built target interfaces__cpp\n'}
+[0.105652] (interfaces) StdoutLine: {'line': b'[ 12%] Built target interfaces__rosidl_generator_c\n'}
+[0.138705] (interfaces) StdoutLine: {'line': b'[ 36%] Built target interfaces__rosidl_typesupport_introspection_cpp\n'}
+[0.139242] (interfaces) StdoutLine: {'line': b'[ 36%] Built target interfaces__rosidl_typesupport_cpp\n'}
+[0.142651] (interfaces) StdoutLine: {'line': b'[ 57%] Built target interfaces__rosidl_typesupport_c\n'}
+[0.143003] (interfaces) StdoutLine: {'line': b'[ 59%] Built target interfaces__rosidl_typesupport_introspection_c\n'}
+[0.147160] (interfaces) StdoutLine: {'line': b'[ 70%] Built target interfaces__rosidl_typesupport_fastrtps_cpp\n'}
+[0.177815] (interfaces) StdoutLine: {'line': b'[ 82%] Built target interfaces__rosidl_typesupport_fastrtps_c\n'}
+[0.199212] (interfaces) StdoutLine: {'line': b'[ 82%] Built target interfaces\n'}
+[0.199781] (-) TimerEvent: {}
+[0.221572] (interfaces) StdoutLine: {'line': b'[ 83%] Built target interfaces__py\n'}
+[0.254226] (interfaces) StdoutLine: {'line': b'[ 94%] Built target interfaces__python\n'}
+[0.288350] (interfaces) StdoutLine: {'line': b'[ 96%] Built target interfaces__rosidl_typesupport_introspection_c__pyext\n'}
+[0.289311] (interfaces) StdoutLine: {'line': b'[ 98%] Built target interfaces__rosidl_typesupport_fastrtps_c__pyext\n'}
+[0.291182] (interfaces) StdoutLine: {'line': b'[100%] Built target interfaces__rosidl_typesupport_c__pyext\n'}
+[0.296905] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found camera_info_manager: 2.3.0 (/opt/ros/foxy/share/camera_info_manager/cmake)\n'}
+[0.299882] (-) TimerEvent: {}
+[0.304173] (interfaces) CommandEnded: {'returncode': 0}
+[0.341856] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.345482] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[0.351224] (img_proc_pkg) StdoutLine: {'line': b'-- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)\n'}
+[0.374362] (img_proc_pkg) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.378406] (img_proc_pkg) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[0.399982] (-) TimerEvent: {}
+[0.464886] (interfaces) JobProgress: {'identifier': 'interfaces', 'progress': 'install'}
+[0.477430] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.478739] (interfaces) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces'], 'cwd': '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '1602'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/javierfr'), ('OLDPWD', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '1414'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '21603'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:46322'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfr-Lenovo-Y50-70:@/tmp/.ICE-unix/1639,unix/javierfr-Lenovo-Y50-70:/tmp/.ICE-unix/1639'), ('INVOCATION_ID', '993e1bed76424b68b54b352c965a36d7'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:ef83c382-0f41-4047-aba9-72bf5c72efc2'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy')]), 'shell': False}
+[0.491168] (interfaces) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.491644] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/ament_index/resource_index/rosidl_interfaces/interfaces\n'}
+[0.491911] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces\n'}
+[0.492202] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg\n'}
+[0.492469] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/motor_vels_w_arm.h\n'}
+[0.492717] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/control_data.h\n'}
+[0.492958] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/robot_state.h\n'}
+[0.493118] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail\n'}
+[0.493261] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__struct.h\n'}
+[0.493370] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__functions.c\n'}
+[0.493478] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__functions.h\n'}
+[0.493629] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__functions.c\n'}
+[0.493736] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__type_support.h\n'}
+[0.493905] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__type_support.h\n'}
+[0.494107] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__type_support.h\n'}
+[0.494341] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__functions.h\n'}
+[0.494470] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__functions.h\n'}
+[0.494577] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__functions.c\n'}
+[0.494684] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__functions.h\n'}
+[0.494824] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__type_support.h\n'}
+[0.494940] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__functions.c\n'}
+[0.495049] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__type_support.h\n'}
+[0.495269] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__functions.h\n'}
+[0.495502] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__struct.h\n'}
+[0.495740] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__functions.h\n'}
+[0.495862] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__type_support.h\n'}
+[0.495979] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__functions.h\n'}
+[0.496139] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__functions.c\n'}
+[0.496255] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__struct.h\n'}
+[0.496382] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__struct.h\n'}
+[0.496494] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__functions.c\n'}
+[0.496698] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__struct.h\n'}
+[0.496926] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__struct.h\n'}
+[0.497187] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__type_support.h\n'}
+[0.497418] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__struct.h\n'}
+[0.497537] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__functions.c\n'}
+[0.497654] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/plat_state.h\n'}
+[0.497800] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/img_data.h\n'}
+[0.497878] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/rosidl_generator_c__visibility_control.h\n'}
+[0.497950] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/limit_switch.h\n'}
+[0.498019] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/motor_vels.h\n'}
+[0.498088] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv\n'}
+[0.498154] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail\n'}
+[0.498230] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__struct.h\n'}
+[0.498331] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__functions.c\n'}
+[0.498400] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__functions.c\n'}
+[0.498476] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__struct.h\n'}
+[0.498545] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__functions.h\n'}
+[0.498672] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__functions.h\n'}
+[0.498896] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__type_support.h\n'}
+[0.499154] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__type_support.h\n'}
+[0.499500] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__struct.h\n'}
+[0.499941] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__type_support.h\n'}
+[0.500333] (-) TimerEvent: {}
+[0.500692] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__functions.h\n'}
+[0.500901] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__functions.c\n'}
+[0.501060] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/robot_vel.h\n'}
+[0.501216] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/control_pid_start.h\n'}
+[0.501406] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/platform_vel.h\n'}
+[0.501619] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/environment/library_path.sh\n'}
+[0.501802] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/environment/library_path.dsv\n'}
+[0.501982] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_generator_c.so\n'}
+[0.502129] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces\n'}
+[0.502277] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg\n'}
+[0.502422] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail\n'}
+[0.502552] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__rosidl_typesupport_fastrtps_c.h\n'}
+[0.502702] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__rosidl_typesupport_fastrtps_c.h\n'}
+[0.502848] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__rosidl_typesupport_fastrtps_c.h\n'}
+[0.502991] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__rosidl_typesupport_fastrtps_c.h\n'}
+[0.503146] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__rosidl_typesupport_fastrtps_c.h\n'}
+[0.503301] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__rosidl_typesupport_fastrtps_c.h\n'}
+[0.503452] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__rosidl_typesupport_fastrtps_c.h\n'}
+[0.503601] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[0.503745] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv\n'}
+[0.503885] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail\n'}
+[0.504034] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__rosidl_typesupport_fastrtps_c.h\n'}
+[0.504186] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__rosidl_typesupport_fastrtps_c.h\n'}
+[0.504350] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__rosidl_typesupport_fastrtps_c.h\n'}
+[0.504508] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_fastrtps_c.so\n'}
+[0.504660] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces\n'}
+[0.504815] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg\n'}
+[0.504966] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[0.505120] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail\n'}
+[0.505268] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.505419] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.505569] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/dds_fastrtps\n'}
+[0.505720] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.505871] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.506024] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.506173] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.506318] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.506485] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv\n'}
+[0.506635] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail\n'}
+[0.506785] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.506934] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.507087] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/dds_fastrtps\n'}
+[0.507238] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.507386] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_fastrtps_cpp.so\n'}
+[0.507534] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces\n'}
+[0.507684] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg\n'}
+[0.507834] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail\n'}
+[0.507981] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__type_support.c\n'}
+[0.508131] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__rosidl_typesupport_introspection_c.h\n'}
+[0.508302] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__rosidl_typesupport_introspection_c.h\n'}
+[0.508465] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__type_support.c\n'}
+[0.508615] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__rosidl_typesupport_introspection_c.h\n'}
+[0.508760] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__rosidl_typesupport_introspection_c.h\n'}
+[0.508903] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__type_support.c\n'}
+[0.509063] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__rosidl_typesupport_introspection_c.h\n'}
+[0.509212] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__rosidl_typesupport_introspection_c.h\n'}
+[0.509363] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__type_support.c\n'}
+[0.509512] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__type_support.c\n'}
+[0.509659] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__type_support.c\n'}
+[0.509819] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__type_support.c\n'}
+[0.509971] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__rosidl_typesupport_introspection_c.h\n'}
+[0.510122] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[0.510271] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv\n'}
+[0.510420] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail\n'}
+[0.510570] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__rosidl_typesupport_introspection_c.h\n'}
+[0.510717] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__rosidl_typesupport_introspection_c.h\n'}
+[0.510865] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__rosidl_typesupport_introspection_c.h\n'}
+[0.511032] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__type_support.c\n'}
+[0.511180] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__type_support.c\n'}
+[0.511326] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__type_support.c\n'}
+[0.511475] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_introspection_c.so\n'}
+[0.511624] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_c.so\n'}
+[0.511774] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces\n'}
+[0.511907] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg\n'}
+[0.512053] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/limit_switch.hpp\n'}
+[0.512180] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/control_data.hpp\n'}
+[0.512408] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail\n'}
+[0.512562] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__builder.hpp\n'}
+[0.512702] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__builder.hpp\n'}
+[0.512852] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__struct.hpp\n'}
+[0.512992] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__struct.hpp\n'}
+[0.513144] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__traits.hpp\n'}
+[0.513305] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__builder.hpp\n'}
+[0.513450] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__struct.hpp\n'}
+[0.513593] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__struct.hpp\n'}
+[0.513731] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__struct.hpp\n'}
+[0.513880] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__traits.hpp\n'}
+[0.514026] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__traits.hpp\n'}
+[0.514176] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__traits.hpp\n'}
+[0.514328] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__traits.hpp\n'}
+[0.514474] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__builder.hpp\n'}
+[0.514619] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__builder.hpp\n'}
+[0.514767] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__struct.hpp\n'}
+[0.514917] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__traits.hpp\n'}
+[0.515066] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__struct.hpp\n'}
+[0.515211] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__builder.hpp\n'}
+[0.515359] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__traits.hpp\n'}
+[0.515510] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__builder.hpp\n'}
+[0.515664] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/robot_state.hpp\n'}
+[0.515833] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/motor_vels.hpp\n'}
+[0.515984] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/img_data.hpp\n'}
+[0.516134] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/plat_state.hpp\n'}
+[0.516310] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/motor_vels_w_arm.hpp\n'}
+[0.516468] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv\n'}
+[0.516617] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/platform_vel.hpp\n'}
+[0.516775] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail\n'}
+[0.516925] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__builder.hpp\n'}
+[0.517079] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__traits.hpp\n'}
+[0.517228] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__struct.hpp\n'}
+[0.517366] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__builder.hpp\n'}
+[0.517516] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__traits.hpp\n'}
+[0.517668] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__traits.hpp\n'}
+[0.517815] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__struct.hpp\n'}
+[0.517984] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__struct.hpp\n'}
+[0.518134] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__builder.hpp\n'}
+[0.518281] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/robot_vel.hpp\n'}
+[0.518426] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/control_pid_start.hpp\n'}
+[0.518573] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces\n'}
+[0.518722] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg\n'}
+[0.518869] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail\n'}
+[0.519019] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.519168] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__type_support.cpp\n'}
+[0.519317] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__type_support.cpp\n'}
+[0.519452] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__type_support.cpp\n'}
+[0.519598] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.519726] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.519872] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__type_support.cpp\n'}
+[0.520030] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__type_support.cpp\n'}
+[0.520170] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.520330] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.520494] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.520642] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__type_support.cpp\n'}
+[0.520792] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.520948] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__type_support.cpp\n'}
+[0.521080] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv\n'}
+[0.521224] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail\n'}
+[0.521375] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.521523] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__type_support.cpp\n'}
+[0.521671] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.521822] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.521971] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__type_support.cpp\n'}
+[0.522126] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__type_support.cpp\n'}
+[0.522277] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_introspection_cpp.so\n'}
+[0.522428] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_cpp.so\n'}
+[0.522590] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/environment/pythonpath.sh\n'}
+[0.522746] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/environment/pythonpath.dsv\n'}
+[0.522957] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/__init__.py\n'}
+[0.523115] (img_proc_pkg) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.534657] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/srv\n'}
+[0.535157] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/srv/_robot_vel_s.c\n'}
+[0.535367] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/srv/_control_pid_start_s.c\n'}
+[0.535533] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/srv/_platform_vel_s.c\n'}
+[0.535772] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/srv/_platform_vel.py\n'}
+[0.535929] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/srv/_robot_vel.py\n'}
+[0.536087] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/srv/__init__.py\n'}
+[0.536239] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/srv/_control_pid_start.py\n'}
+[0.536425] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg\n'}
+[0.536581] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_motor_vels.py\n'}
+[0.536732] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_limit_switch.py\n'}
+[0.536885] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_robot_state.py\n'}
+[0.537035] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_motor_vels_w_arm.py\n'}
+[0.537235] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_control_data.py\n'}
+[0.537397] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_control_data_s.c\n'}
+[0.537550] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_img_data_s.c\n'}
+[0.537769] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_motor_vels_s.c\n'}
+[0.537973] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_motor_vels_w_arm_s.c\n'}
+[0.538162] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_plat_state.py\n'}
+[0.538369] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_limit_switch_s.c\n'}
+[0.538554] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/__init__.py\n'}
+[0.538744] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_robot_state_s.c\n'}
+[0.538943] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_plat_state_s.c\n'}
+[0.539106] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_img_data.py\n'}
+[0.539327] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/interfaces_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so\n'}
+[0.539551] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)\n'}
+[0.539798] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/interfaces_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so\n'}
+[0.540029] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/interfaces_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so\n'}
+[0.540256] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__python.so\n'}
+[0.540426] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.540618] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/PlatformVel.idl\n'}
+[0.540838] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/MotorVels.idl\n'}
+[0.541016] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/ImgData.idl\n'}
+[0.541201] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/ControlPidStart.idl\n'}
+[0.541416] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/PlatState.idl\n'}
+[0.541604] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/ControlData.idl\n'}
+[0.541813] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/MotorVelsWArm.idl\n'}
+[0.541995] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/LimitSwitch.idl\n'}
+[0.542198] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/RobotVel.idl\n'}
+[0.542427] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/RobotState.idl\n'}
+[0.542656] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/PlatformVel.srv\n'}
+[0.542872] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/PlatformVel_Request.msg\n'}
+[0.543023] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/PlatformVel_Response.msg\n'}
+[0.543159] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/MotorVels.msg\n'}
+[0.543299] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/ImgData.msg\n'}
+[0.543452] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/ControlPidStart.srv\n'}
+[0.543593] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/ControlPidStart_Request.msg\n'}
+[0.543769] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/ControlPidStart_Response.msg\n'}
+[0.543915] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/PlatState.msg\n'}
+[0.544059] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/ControlData.msg\n'}
+[0.544211] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/MotorVelsWArm.msg\n'}
+[0.544426] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/LimitSwitch.msg\n'}
+[0.544784] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/RobotVel.srv\n'}
+[0.545496] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/RobotVel_Request.msg\n'}
+[0.547145] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/RobotVel_Response.msg\n'}
+[0.547615] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/RobotState.msg\n'}
+[0.547884] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/ament_index/resource_index/package_run_dependencies/interfaces\n'}
+[0.548165] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/ament_index/resource_index/parent_prefix_path/interfaces\n'}
+[0.549067] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/environment/ament_prefix_path.sh\n'}
+[0.549367] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/environment/ament_prefix_path.dsv\n'}
+[0.549595] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/environment/path.sh\n'}
+[0.549926] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/environment/path.dsv\n'}
+[0.550149] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/local_setup.bash\n'}
+[0.550358] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/local_setup.sh\n'}
+[0.550627] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/local_setup.zsh\n'}
+[0.550796] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/local_setup.dsv\n'}
+[0.551073] (interfaces) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/package.dsv\n'}
+[0.551359] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/ament_index/resource_index/packages/interfaces\n'}
+[0.552128] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_generator_cExport.cmake\n'}
+[0.552365] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_generator_cExport-noconfig.cmake\n'}
+[0.552659] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_introspection_cExport.cmake\n'}
+[0.553549] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[0.555090] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_cExport.cmake\n'}
+[0.555362] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[0.555645] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_generator_cppExport.cmake\n'}
+[0.555907] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[0.556097] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[0.557450] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_cppExport.cmake\n'}
+[0.558348] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[0.558958] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/rosidl_cmake-extras.cmake\n'}
+[0.559164] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[0.559429] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[0.559666] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[0.559905] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[0.560173] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[0.560438] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[0.560671] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfacesConfig.cmake\n'}
+[0.560914] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfacesConfig-version.cmake\n'}
+[0.561151] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/package.xml\n'}
+[0.561388] (interfaces) CommandEnded: {'returncode': 0}
+[0.600516] (-) TimerEvent: {}
+[0.701012] (-) TimerEvent: {}
+[0.704130] (img_proc_pkg) StdoutLine: {'line': b'-- Found rclcpp: 2.4.1 (/opt/ros/foxy/share/rclcpp/cmake)\n'}
+[0.745914] (img_proc_pkg) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)\n'}
+[0.751806] (img_proc_pkg) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.768156] (interfaces) JobEnded: {'identifier': 'interfaces', 'rc': 0}
+[0.769948] (control_pkg) JobStarted: {'identifier': 'control_pkg'}
+[0.775326] (inv_kinematics_pkg) JobStarted: {'identifier': 'inv_kinematics_pkg'}
+[0.787450] (control_pkg) JobProgress: {'identifier': 'control_pkg', 'progress': 'cmake'}
+[0.788358] (control_pkg) JobProgress: {'identifier': 'control_pkg', 'progress': 'build'}
+[0.788967] (control_pkg) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg', '--', '-j8', '-l8'], 'cwd': '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '1602'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/javierfr'), ('OLDPWD', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '1414'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '21603'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:46322'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfr-Lenovo-Y50-70:@/tmp/.ICE-unix/1639,unix/javierfr-Lenovo-Y50-70:/tmp/.ICE-unix/1639'), ('INVOCATION_ID', '993e1bed76424b68b54b352c965a36d7'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:ef83c382-0f41-4047-aba9-72bf5c72efc2'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy')]), 'shell': False}
+[0.794462] (inv_kinematics_pkg) JobProgress: {'identifier': 'inv_kinematics_pkg', 'progress': 'cmake'}
+[0.795428] (inv_kinematics_pkg) JobProgress: {'identifier': 'inv_kinematics_pkg', 'progress': 'build'}
+[0.796187] (inv_kinematics_pkg) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg', '--', '-j8', '-l8'], 'cwd': '/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '1602'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/javierfr'), ('OLDPWD', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '1414'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '21603'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:46322'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfr-Lenovo-Y50-70:@/tmp/.ICE-unix/1639,unix/javierfr-Lenovo-Y50-70:/tmp/.ICE-unix/1639'), ('INVOCATION_ID', '993e1bed76424b68b54b352c965a36d7'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:ef83c382-0f41-4047-aba9-72bf5c72efc2'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy')]), 'shell': False}
+[0.801439] (-) TimerEvent: {}
+[0.876402] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Setting yaml-cpp_DIR to: '/opt/ros/foxy/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/lib/cmake/yaml-cpp'\n"}
+[0.888620] (control_pkg) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding CXX object CMakeFiles/control_pid_p2_node.dir/src/control_pid_p2_node.cpp.o\x1b[0m\n'}
+[0.898494] (control_pkg) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/control_pid_r2_node.dir/src/control_pid_r2_node.cpp.o\x1b[0m\n'}
+[0.901557] (-) TimerEvent: {}
+[0.908240] (inv_kinematics_pkg) StdoutLine: {'line': b'[ 16%] Built target platform2_vel_server\n'}
+[0.912135] (control_pkg) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o\x1b[0m\n'}
+[0.914887] (control_pkg) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/control_pid_r1_node.dir/src/control_pid_r1_node.cpp.o\x1b[0m\n'}
+[0.927066] (inv_kinematics_pkg) StdoutLine: {'line': b'[ 33%] Built target platform1_vel_server\n'}
+[0.930111] (inv_kinematics_pkg) StdoutLine: {'line': b'[ 50%] Built target robot2_vel_server\n'}
+[0.930532] (inv_kinematics_pkg) StdoutLine: {'line': b'[ 66%] Built target robot1_vel_server\n'}
+[0.942168] (inv_kinematics_pkg) StdoutLine: {'line': b'[ 83%] Built target platform2_vel_test_client\n'}
+[0.944072] (inv_kinematics_pkg) StdoutLine: {'line': b'[100%] Built target platform1_vel_test_client\n'}
+[0.963617] (inv_kinematics_pkg) CommandEnded: {'returncode': 0}
+[0.965512] (img_proc_pkg) StdoutLine: {'line': b'-- Found image_transport: 2.3.0 (/opt/ros/foxy/share/image_transport/cmake)\n'}
+[1.000604] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found gazebo_dev: 3.5.3 (/opt/ros/foxy/share/gazebo_dev/cmake)\n'}
+[1.001629] (-) TimerEvent: {}
+[1.022467] (inv_kinematics_pkg) JobProgress: {'identifier': 'inv_kinematics_pkg', 'progress': 'install'}
+[1.023236] (inv_kinematics_pkg) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg'], 'cwd': '/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '1602'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/javierfr'), ('OLDPWD', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '1414'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '21603'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:46322'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfr-Lenovo-Y50-70:@/tmp/.ICE-unix/1639,unix/javierfr-Lenovo-Y50-70:/tmp/.ICE-unix/1639'), ('INVOCATION_ID', '993e1bed76424b68b54b352c965a36d7'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:ef83c382-0f41-4047-aba9-72bf5c72efc2'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy')]), 'shell': False}
+[1.030284] (img_proc_pkg) StdoutLine: {'line': b'-- Found cv_bridge: 2.2.1 (/opt/ros/foxy/share/cv_bridge/cmake)\n'}
+[1.037565] (img_proc_pkg) StdoutLine: {'line': b'-- Found interfaces: 0.0.0 (/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake)\n'}
+[1.042657] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[1.043091] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform1_vel_server\n'}
+[1.044551] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform1_vel_server" to ""\n'}
+[1.044871] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform1_vel_test_client\n'}
+[1.045812] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform1_vel_test_client" to ""\n'}
+[1.046092] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform2_vel_server\n'}
+[1.047494] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform2_vel_server" to ""\n'}
+[1.047740] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform2_vel_test_client\n'}
+[1.048772] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform2_vel_test_client" to ""\n'}
+[1.049031] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/robot1_vel_server\n'}
+[1.050488] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/robot1_vel_server" to ""\n'}
+[1.050714] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/robot2_vel_server\n'}
+[1.052208] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/robot2_vel_server" to ""\n'}
+[1.052584] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/ament_index/resource_index/package_run_dependencies/inv_kinematics_pkg\n'}
+[1.052902] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/ament_index/resource_index/parent_prefix_path/inv_kinematics_pkg\n'}
+[1.053504] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/environment/ament_prefix_path.sh\n'}
+[1.054005] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/environment/ament_prefix_path.dsv\n'}
+[1.054498] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/environment/path.sh\n'}
+[1.054984] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/environment/path.dsv\n'}
+[1.055485] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/local_setup.bash\n'}
+[1.055969] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/local_setup.sh\n'}
+[1.056628] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/local_setup.zsh\n'}
+[1.057132] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/local_setup.dsv\n'}
+[1.057601] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/package.dsv\n'}
+[1.058136] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/ament_index/resource_index/packages/inv_kinematics_pkg\n'}
+[1.058653] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/cmake/inv_kinematics_pkgConfig.cmake\n'}
+[1.059067] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/cmake/inv_kinematics_pkgConfig-version.cmake\n'}
+[1.059555] (inv_kinematics_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/package.xml\n'}
+[1.062668] (inv_kinematics_pkg) CommandEnded: {'returncode': 0}
+[1.080765] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found DART: /usr/include (Required is at least version "6.6") found components: dart \n'}
+[1.101809] (-) TimerEvent: {}
+[1.142724] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "3.6.1") \n'}
+[1.146115] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.12.0\n'}
+[1.156514] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for dependencies of ignition-math6\n'}
+[1.161798] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE...\n'}
+[1.167552] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found Ogre Ghadamon (1.9.0)\n'}
+[1.168250] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so\n'}
+[1.179015] (inv_kinematics_pkg) JobEnded: {'identifier': 'inv_kinematics_pkg', 'rc': 0}
+[1.187766] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE_Paging...\n'}
+[1.188690] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so\n'}
+[1.189078] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE_Terrain...\n'}
+[1.189430] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so\n'}
+[1.189874] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE_Property...\n'}
+[1.190230] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so\n'}
+[1.190606] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE_RTShaderSystem...\n'}
+[1.193591] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so\n'}
+[1.194179] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE_Volume...\n'}
+[1.194556] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so\n'}
+[1.194898] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE_Overlay...\n'}
+[1.195222] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so\n'}
+[1.201911] (-) TimerEvent: {}
+[1.213106] (img_proc_pkg) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.265416] (img_proc_pkg) StdoutLine: {'line': b'-- Generating done\n'}
+[1.267261] (img_proc_pkg) StdoutLine: {'line': b'-- Build files have been written to: /home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg\n'}
+[1.279596] (img_proc_pkg) CommandEnded: {'returncode': 0}
+[1.280435] (img_proc_pkg) JobProgress: {'identifier': 'img_proc_pkg', 'progress': 'build'}
+[1.280781] (img_proc_pkg) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg', '--', '-j8', '-l8'], 'cwd': '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '1602'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/javierfr'), ('OLDPWD', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '1414'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '21603'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:46322'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfr-Lenovo-Y50-70:@/tmp/.ICE-unix/1639,unix/javierfr-Lenovo-Y50-70:/tmp/.ICE-unix/1639'), ('INVOCATION_ID', '993e1bed76424b68b54b352c965a36d7'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:ef83c382-0f41-4047-aba9-72bf5c72efc2'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy')]), 'shell': False}
+[1.302082] (-) TimerEvent: {}
+[1.351529] (img_proc_pkg) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target img_proc_id_node\x1b[0m\n'}
+[1.352184] (img_proc_pkg) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target img_proc_node\x1b[0m\n'}
+[1.367144] (img_proc_pkg) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target img_publ_test_node\x1b[0m\n'}
+[1.367784] (img_proc_pkg) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target img_subs_test_node\x1b[0m\n'}
+[1.402187] (-) TimerEvent: {}
+[1.502698] (img_proc_pkg) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding CXX object CMakeFiles/img_proc_node.dir/src/img_proc_node.cpp.o\x1b[0m\n'}
+[1.503028] (-) TimerEvent: {}
+[1.552572] (img_proc_pkg) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/img_publ_test_node.dir/src/img_publ_test_node.cpp.o\x1b[0m\n'}
+[1.557303] (img_proc_pkg) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o\x1b[0m\n'}
+[1.560311] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.12.0\n'}
+[1.560973] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-transport8 -- found version 8.3.0\n'}
+[1.561871] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for dependencies of ignition-transport8\n'}
+[1.582193] (img_proc_pkg) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o\x1b[0m\n'}
+[1.603173] (-) TimerEvent: {}
+[1.615201] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found suitable version "3.6.1", minimum required is "3") \n'}
+[1.637235] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Config-file not installed for ZeroMQ -- checking for pkg-config\n'}
+[1.666365] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Checking for module 'libzmq >= 4'\n"}
+[1.703289] (-) TimerEvent: {}
+[1.760460] (gazebo_plugin_sim) StdoutLine: {'line': b'--   Found libzmq , version 4.3.2\n'}
+[1.803416] (-) TimerEvent: {}
+[1.903882] (-) TimerEvent: {}
+[2.004361] (-) TimerEvent: {}
+[2.054826] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Checking for module 'uuid'\n"}
+[2.104484] (-) TimerEvent: {}
+[2.165295] (gazebo_plugin_sim) StdoutLine: {'line': b'--   Found uuid, version 2.34.0\n'}
+[2.204599] (-) TimerEvent: {}
+[2.305198] (-) TimerEvent: {}
+[2.405797] (-) TimerEvent: {}
+[2.433192] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.10.0\n'}
+[2.433618] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for dependencies of ignition-msgs5\n'}
+[2.478978] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.12.0\n'}
+[2.505915] (-) TimerEvent: {}
+[2.506328] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Checking for module 'tinyxml2'\n"}
+[2.600580] (gazebo_plugin_sim) StdoutLine: {'line': b'--   Found tinyxml2, version 6.2.0\n'}
+[2.606046] (-) TimerEvent: {}
+[2.706937] (-) TimerEvent: {}
+[2.807421] (-) TimerEvent: {}
+[2.894747] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.10.0\n'}
+[2.895329] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-common3 -- found version 3.14.1\n'}
+[2.896176] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for dependencies of ignition-common3\n'}
+[2.896537] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for dlfcn.h - found\n'}
+[2.896760] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for libdl - found\n'}
+[2.907536] (-) TimerEvent: {}
+[2.929430] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for <ignition-common3> component [graphics]\n'}
+[2.930052] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-common3-graphics -- found version 3.14.1\n'}
+[2.933983] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for dependencies of ignition-common3-graphics\n'}
+[2.934639] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.12.0\n'}
+[2.940486] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-fuel_tools4 -- found version 4.5.0\n'}
+[2.941405] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for dependencies of ignition-fuel_tools4\n'}
+[3.007658] (-) TimerEvent: {}
+[3.074347] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Checking for module 'jsoncpp'\n"}
+[3.107784] (-) TimerEvent: {}
+[3.152444] (img_proc_pkg) StdoutLine: {'line': b'[ 62%] \x1b[32m\x1b[1mLinking CXX executable img_proc_node\x1b[0m\n'}
+[3.160635] (gazebo_plugin_sim) StdoutLine: {'line': b'--   Found jsoncpp, version 1.7.4\n'}
+[3.207908] (-) TimerEvent: {}
+[3.308378] (-) TimerEvent: {}
+[3.326354] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Checking for module 'libzip'\n"}
+[3.400846] (gazebo_plugin_sim) StdoutLine: {'line': b'--   Found libzip, version 1.5.1\n'}
+[3.408489] (-) TimerEvent: {}
+[3.508982] (-) TimerEvent: {}
+[3.609439] (-) TimerEvent: {}
+[3.680251] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-common3 -- found version 3.14.1\n'}
+[3.680868] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.12.0\n'}
+[3.681554] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.10.0\n'}
+[3.683720] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Gazebo version: 11.11\n'}
+[3.684243] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found gazebo_msgs: 3.5.3 (/opt/ros/foxy/share/gazebo_msgs/cmake)\n'}
+[3.709557] (-) TimerEvent: {}
+[3.810034] (-) TimerEvent: {}
+[3.910454] (-) TimerEvent: {}
+[4.010884] (-) TimerEvent: {}
+[4.111395] (-) TimerEvent: {}
+[4.177263] (img_proc_pkg) StdoutLine: {'line': b'[ 62%] Built target img_proc_node\n'}
+[4.211522] (-) TimerEvent: {}
+[4.231159] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found gazebo_ros: 3.5.3 (/opt/ros/foxy/share/gazebo_ros/cmake)\n'}
+[4.249219] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found image_transport: 2.3.0 (/opt/ros/foxy/share/image_transport/cmake)\n'}
+[4.311648] (-) TimerEvent: {}
+[4.321189] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found cv_bridge: 2.2.1 (/opt/ros/foxy/share/cv_bridge/cmake)\n'}
+[4.352343] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)\n'}
+[4.411776] (-) TimerEvent: {}
+[4.500382] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found std_srvs: 2.0.5 (/opt/ros/foxy/share/std_srvs/cmake)\n'}
+[4.511904] (-) TimerEvent: {}
+[4.518089] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found tf2: 0.13.13 (/opt/ros/foxy/share/tf2/cmake)\n'}
+[4.533379] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found tf2_geometry_msgs: 0.13.13 (/opt/ros/foxy/share/tf2_geometry_msgs/cmake)\n'}
+[4.544841] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/foxy/share/eigen3_cmake_module/cmake)\n'}
+[4.612038] (-) TimerEvent: {}
+[4.712732] (-) TimerEvent: {}
+[4.813245] (-) TimerEvent: {}
+[4.900532] (img_proc_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid Img_Proc_Id_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.905879] (img_proc_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:130:22:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<std::vector<cv::Point_<int> > >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K-Wsign-compare\x1b[m\x1b[K]\n'}
+[4.906197] (img_proc_pkg) StderrLine: {'line': b'  130 |       for (int i=0; \x1b[01;35m\x1b[Ki<red_contours.size()\x1b[m\x1b[K; i++)\n'}
+[4.906623] (img_proc_pkg) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K~^~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.910915] (img_proc_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:163:26:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<std::vector<cv::Point_<int> > >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K-Wsign-compare\x1b[m\x1b[K]\n'}
+[4.911685] (img_proc_pkg) StderrLine: {'line': b'  163 |         for (int ii=1; \x1b[01;35m\x1b[Kii<red_subcontours.size()\x1b[m\x1b[K; ii++)\n'}
+[4.912186] (img_proc_pkg) StderrLine: {'line': b'      |                        \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.913327] (-) TimerEvent: {}
+[4.915924] (img_proc_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:257:22:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<std::vector<cv::Point_<int> > >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K-Wsign-compare\x1b[m\x1b[K]\n'}
+[4.916393] (img_proc_pkg) StderrLine: {'line': b'  257 |       for (int i=0; \x1b[01;35m\x1b[Ki<blue_contours.size()\x1b[m\x1b[K; i++)\n'}
+[4.916697] (img_proc_pkg) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K~^~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.917640] (img_proc_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:290:26:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<std::vector<cv::Point_<int> > >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K-Wsign-compare\x1b[m\x1b[K]\n'}
+[4.918049] (img_proc_pkg) StderrLine: {'line': b'  290 |         for (int ii=1; \x1b[01;35m\x1b[Kii<blue_subcontours.size()\x1b[m\x1b[K; ii++)\n'}
+[4.918351] (img_proc_pkg) StderrLine: {'line': b'      |                        \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.922559] (img_proc_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:385:22:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<std::vector<cv::Point_<int> > >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K-Wsign-compare\x1b[m\x1b[K]\n'}
+[4.923031] (img_proc_pkg) StderrLine: {'line': b'  385 |       for (int i=0; \x1b[01;35m\x1b[Ki<green_contours.size()\x1b[m\x1b[K; i++)\n'}
+[4.923326] (img_proc_pkg) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K~^~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.925419] (img_proc_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:417:26:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<std::vector<cv::Point_<int> > >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K-Wsign-compare\x1b[m\x1b[K]\n'}
+[4.925816] (img_proc_pkg) StderrLine: {'line': b'  417 |         for (int ii=1; \x1b[01;35m\x1b[Kii<green_subcontours.size()\x1b[m\x1b[K; ii++)\n'}
+[4.926107] (img_proc_pkg) StderrLine: {'line': b'      |                        \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.013463] (-) TimerEvent: {}
+[5.113982] (-) TimerEvent: {}
+[5.214527] (-) TimerEvent: {}
+[5.315010] (-) TimerEvent: {}
+[5.404335] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found interfaces: 0.0.0 (/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake)\n'}
+[5.415134] (-) TimerEvent: {}
+[5.515682] (-) TimerEvent: {}
+[5.616218] (-) TimerEvent: {}
+[5.706888] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Configuring done\n'}
+[5.716362] (-) TimerEvent: {}
+[5.817010] (-) TimerEvent: {}
+[5.917744] (-) TimerEvent: {}
+[6.018386] (-) TimerEvent: {}
+[6.085164] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Generating done\n'}
+[6.092296] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Build files have been written to: /home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim\n'}
+[6.116990] (gazebo_plugin_sim) CommandEnded: {'returncode': 0}
+[6.119463] (gazebo_plugin_sim) JobProgress: {'identifier': 'gazebo_plugin_sim', 'progress': 'build'}
+[6.121982] (-) TimerEvent: {}
+[6.123564] (gazebo_plugin_sim) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim', '--', '-j8', '-l8'], 'cwd': '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '1602'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/javierfr'), ('OLDPWD', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '1414'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '21603'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:46322'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfr-Lenovo-Y50-70:@/tmp/.ICE-unix/1639,unix/javierfr-Lenovo-Y50-70:/tmp/.ICE-unix/1639'), ('INVOCATION_ID', '993e1bed76424b68b54b352c965a36d7'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:ef83c382-0f41-4047-aba9-72bf5c72efc2'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy')]), 'shell': False}
+[6.222081] (-) TimerEvent: {}
+[6.322760] (-) TimerEvent: {}
+[6.377671] (gazebo_plugin_sim) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target platform2_plugin\x1b[0m\n'}
+[6.405702] (gazebo_plugin_sim) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target platform1_plugin\x1b[0m\n'}
+[6.406157] (gazebo_plugin_sim) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot1_plugin\x1b[0m\n'}
+[6.422882] (-) TimerEvent: {}
+[6.438615] (gazebo_plugin_sim) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target platform_plugin_test\x1b[0m\n'}
+[6.456379] (gazebo_plugin_sim) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot2_plugin\x1b[0m\n'}
+[6.523003] (-) TimerEvent: {}
+[6.623694] (-) TimerEvent: {}
+[6.732369] (-) TimerEvent: {}
+[6.836376] (-) TimerEvent: {}
+[6.942708] (-) TimerEvent: {}
+[6.975946] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding CXX object CMakeFiles/robot1_plugin.dir/src/robot1_plugin.cpp.o\x1b[0m\n'}
+[6.981049] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/platform2_plugin.dir/src/platform2_plugin.cpp.o\x1b[0m\n'}
+[7.008817] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o\x1b[0m\n'}
+[7.023837] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/robot2_plugin.dir/src/robot2_plugin.cpp.o\x1b[0m\n'}
+[7.042832] (-) TimerEvent: {}
+[7.082351] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/platform1_plugin.dir/src/platform1_plugin.cpp.o\x1b[0m\n'}
+[7.142962] (-) TimerEvent: {}
+[7.243556] (-) TimerEvent: {}
+[7.344213] (-) TimerEvent: {}
+[7.444659] (-) TimerEvent: {}
+[7.545145] (-) TimerEvent: {}
+[7.645602] (-) TimerEvent: {}
+[7.746087] (-) TimerEvent: {}
+[7.846626] (-) TimerEvent: {}
+[7.947149] (-) TimerEvent: {}
+[8.047862] (-) TimerEvent: {}
+[8.148755] (-) TimerEvent: {}
+[8.249359] (-) TimerEvent: {}
+[8.349973] (-) TimerEvent: {}
+[8.450590] (-) TimerEvent: {}
+[8.551088] (-) TimerEvent: {}
+[8.651689] (-) TimerEvent: {}
+[8.752218] (-) TimerEvent: {}
+[8.852895] (-) TimerEvent: {}
+[8.953393] (-) TimerEvent: {}
+[9.054028] (-) TimerEvent: {}
+[9.154570] (-) TimerEvent: {}
+[9.255219] (-) TimerEvent: {}
+[9.355907] (-) TimerEvent: {}
+[9.456655] (-) TimerEvent: {}
+[9.557233] (-) TimerEvent: {}
+[9.657772] (-) TimerEvent: {}
+[9.758343] (-) TimerEvent: {}
+[9.858875] (-) TimerEvent: {}
+[9.959381] (-) TimerEvent: {}
+[10.059922] (-) TimerEvent: {}
+[10.160499] (-) TimerEvent: {}
+[10.260969] (-) TimerEvent: {}
+[10.361660] (-) TimerEvent: {}
+[10.462239] (-) TimerEvent: {}
+[10.562766] (-) TimerEvent: {}
+[10.663415] (-) TimerEvent: {}
+[10.683571] (img_proc_pkg) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX executable img_publ_test_node\x1b[0m\n'}
+[10.763553] (-) TimerEvent: {}
+[10.864152] (-) TimerEvent: {}
+[10.964746] (-) TimerEvent: {}
+[11.065405] (-) TimerEvent: {}
+[11.166145] (-) TimerEvent: {}
+[11.266678] (-) TimerEvent: {}
+[11.367229] (-) TimerEvent: {}
+[11.467726] (-) TimerEvent: {}
+[11.568259] (-) TimerEvent: {}
+[11.668789] (-) TimerEvent: {}
+[11.769270] (-) TimerEvent: {}
+[11.869709] (-) TimerEvent: {}
+[11.970218] (-) TimerEvent: {}
+[12.038507] (img_proc_pkg) StdoutLine: {'line': b'[ 75%] Built target img_publ_test_node\n'}
+[12.070349] (-) TimerEvent: {}
+[12.170832] (-) TimerEvent: {}
+[12.271389] (-) TimerEvent: {}
+[12.371913] (-) TimerEvent: {}
+[12.472368] (-) TimerEvent: {}
+[12.572840] (-) TimerEvent: {}
+[12.673439] (-) TimerEvent: {}
+[12.774106] (-) TimerEvent: {}
+[12.874708] (-) TimerEvent: {}
+[12.975287] (-) TimerEvent: {}
+[13.075821] (-) TimerEvent: {}
+[13.176450] (-) TimerEvent: {}
+[13.277033] (-) TimerEvent: {}
+[13.377588] (-) TimerEvent: {}
+[13.478195] (-) TimerEvent: {}
+[13.578784] (-) TimerEvent: {}
+[13.679441] (-) TimerEvent: {}
+[13.780018] (-) TimerEvent: {}
+[13.880562] (-) TimerEvent: {}
+[13.984438] (-) TimerEvent: {}
+[14.085838] (-) TimerEvent: {}
+[14.196388] (-) TimerEvent: {}
+[14.297083] (-) TimerEvent: {}
+[14.397781] (-) TimerEvent: {}
+[14.498388] (-) TimerEvent: {}
+[14.599046] (-) TimerEvent: {}
+[14.699717] (-) TimerEvent: {}
+[14.749905] (img_proc_pkg) StdoutLine: {'line': b'[ 87%] \x1b[32m\x1b[1mLinking CXX executable img_subs_test_node\x1b[0m\n'}
+[14.799842] (-) TimerEvent: {}
+[14.900456] (-) TimerEvent: {}
+[15.001113] (-) TimerEvent: {}
+[15.101721] (-) TimerEvent: {}
+[15.202278] (-) TimerEvent: {}
+[15.302834] (-) TimerEvent: {}
+[15.403327] (-) TimerEvent: {}
+[15.503938] (-) TimerEvent: {}
+[15.604472] (-) TimerEvent: {}
+[15.705009] (-) TimerEvent: {}
+[15.805485] (-) TimerEvent: {}
+[15.906111] (-) TimerEvent: {}
+[16.020380] (-) TimerEvent: {}
+[16.120946] (-) TimerEvent: {}
+[16.232381] (-) TimerEvent: {}
+[16.332988] (-) TimerEvent: {}
+[16.433520] (-) TimerEvent: {}
+[16.534051] (-) TimerEvent: {}
+[16.634508] (-) TimerEvent: {}
+[16.735056] (-) TimerEvent: {}
+[16.835712] (-) TimerEvent: {}
+[16.853865] (img_proc_pkg) StdoutLine: {'line': b'[ 87%] Built target img_subs_test_node\n'}
+[16.935834] (-) TimerEvent: {}
+[17.036469] (-) TimerEvent: {}
+[17.137133] (-) TimerEvent: {}
+[17.237689] (-) TimerEvent: {}
+[17.338276] (-) TimerEvent: {}
+[17.438887] (-) TimerEvent: {}
+[17.544370] (-) TimerEvent: {}
+[17.652546] (-) TimerEvent: {}
+[17.760369] (-) TimerEvent: {}
+[17.860777] (-) TimerEvent: {}
+[17.968381] (-) TimerEvent: {}
+[18.068784] (-) TimerEvent: {}
+[18.180374] (-) TimerEvent: {}
+[18.280787] (-) TimerEvent: {}
+[18.381318] (-) TimerEvent: {}
+[18.496365] (-) TimerEvent: {}
+[18.596829] (-) TimerEvent: {}
+[18.704382] (-) TimerEvent: {}
+[18.812767] (-) TimerEvent: {}
+[18.924372] (-) TimerEvent: {}
+[18.993590] (img_proc_pkg) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable img_proc_id_node\x1b[0m\n'}
+[19.024492] (-) TimerEvent: {}
+[19.125048] (-) TimerEvent: {}
+[19.225567] (-) TimerEvent: {}
+[19.326057] (-) TimerEvent: {}
+[19.426657] (-) TimerEvent: {}
+[19.527166] (-) TimerEvent: {}
+[19.627676] (-) TimerEvent: {}
+[19.728213] (-) TimerEvent: {}
+[19.828728] (-) TimerEvent: {}
+[19.929286] (-) TimerEvent: {}
+[20.029713] (-) TimerEvent: {}
+[20.092503] (control_pkg) StdoutLine: {'line': b'[ 62%] \x1b[32m\x1b[1mLinking CXX executable control_pid_p1_node\x1b[0m\n'}
+[20.129857] (-) TimerEvent: {}
+[20.230336] (-) TimerEvent: {}
+[20.330817] (-) TimerEvent: {}
+[20.431294] (-) TimerEvent: {}
+[20.531897] (-) TimerEvent: {}
+[20.632478] (-) TimerEvent: {}
+[20.641830] (img_proc_pkg) StdoutLine: {'line': b'[100%] Built target img_proc_id_node\n'}
+[20.689505] (img_proc_pkg) CommandEnded: {'returncode': 0}
+[20.732625] (-) TimerEvent: {}
+[20.833260] (-) TimerEvent: {}
+[20.935802] (-) TimerEvent: {}
+[21.036241] (-) TimerEvent: {}
+[21.124337] (control_pkg) StdoutLine: {'line': b'[ 62%] Built target control_pid_p1_node\n'}
+[21.136381] (-) TimerEvent: {}
+[21.184604] (img_proc_pkg) JobProgress: {'identifier': 'img_proc_pkg', 'progress': 'install'}
+[21.185259] (img_proc_pkg) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg'], 'cwd': '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '1602'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/javierfr'), ('OLDPWD', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '1414'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '21603'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:46322'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfr-Lenovo-Y50-70:@/tmp/.ICE-unix/1639,unix/javierfr-Lenovo-Y50-70:/tmp/.ICE-unix/1639'), ('INVOCATION_ID', '993e1bed76424b68b54b352c965a36d7'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:ef83c382-0f41-4047-aba9-72bf5c72efc2'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy')]), 'shell': False}
+[21.223335] (img_proc_pkg) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[21.223911] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_proc_node\n'}
+[21.224344] (img_proc_pkg) StdoutLine: {'line': b'-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_proc_node" to ""\n'}
+[21.224765] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_publ_test_node\n'}
+[21.225866] (img_proc_pkg) StdoutLine: {'line': b'-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_publ_test_node" to ""\n'}
+[21.226316] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_subs_test_node\n'}
+[21.236510] (-) TimerEvent: {}
+[21.237104] (img_proc_pkg) StdoutLine: {'line': b'-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_subs_test_node" to ""\n'}
+[21.237565] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_proc_id_node\n'}
+[21.240330] (img_proc_pkg) StdoutLine: {'line': b'-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_proc_id_node" to ""\n'}
+[21.244696] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/ament_index/resource_index/package_run_dependencies/img_proc_pkg\n'}
+[21.245210] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/ament_index/resource_index/parent_prefix_path/img_proc_pkg\n'}
+[21.248547] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/environment/ament_prefix_path.sh\n'}
+[21.248926] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/environment/ament_prefix_path.dsv\n'}
+[21.249253] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/environment/path.sh\n'}
+[21.249578] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/environment/path.dsv\n'}
+[21.249875] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/local_setup.bash\n'}
+[21.250379] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/local_setup.sh\n'}
+[21.250843] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/local_setup.zsh\n'}
+[21.251288] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/local_setup.dsv\n'}
+[21.251652] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/package.dsv\n'}
+[21.252228] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/ament_index/resource_index/packages/img_proc_pkg\n'}
+[21.256562] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/cmake/img_proc_pkgConfig.cmake\n'}
+[21.257274] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/cmake/img_proc_pkgConfig-version.cmake\n'}
+[21.257636] (img_proc_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/package.xml\n'}
+[21.259811] (img_proc_pkg) CommandEnded: {'returncode': 0}
+[21.336690] (-) TimerEvent: {}
+[21.437527] (-) TimerEvent: {}
+[21.538153] (-) TimerEvent: {}
+[21.638845] (-) TimerEvent: {}
+[21.739548] (-) TimerEvent: {}
+[21.840439] (-) TimerEvent: {}
+[21.870123] (control_pkg) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX executable control_pid_p2_node\x1b[0m\n'}
+[21.876915] (img_proc_pkg) JobEnded: {'identifier': 'img_proc_pkg', 'rc': 0}
+[21.940565] (-) TimerEvent: {}
+[22.041055] (-) TimerEvent: {}
+[22.141624] (-) TimerEvent: {}
+[22.242147] (-) TimerEvent: {}
+[22.342826] (-) TimerEvent: {}
+[22.443456] (-) TimerEvent: {}
+[22.543986] (-) TimerEvent: {}
+[22.644451] (-) TimerEvent: {}
+[22.747021] (-) TimerEvent: {}
+[22.765492] (control_pkg) StdoutLine: {'line': b'[ 75%] Built target control_pid_p2_node\n'}
+[22.847146] (-) TimerEvent: {}
+[22.947608] (-) TimerEvent: {}
+[23.048043] (-) TimerEvent: {}
+[23.148722] (-) TimerEvent: {}
+[23.249392] (-) TimerEvent: {}
+[23.349828] (-) TimerEvent: {}
+[23.450236] (-) TimerEvent: {}
+[23.550658] (-) TimerEvent: {}
+[23.651248] (-) TimerEvent: {}
+[23.751818] (-) TimerEvent: {}
+[23.856385] (-) TimerEvent: {}
+[23.956998] (-) TimerEvent: {}
+[24.060398] (-) TimerEvent: {}
+[24.161032] (-) TimerEvent: {}
+[24.261499] (-) TimerEvent: {}
+[24.364243] (-) TimerEvent: {}
+[24.464723] (-) TimerEvent: {}
+[24.572377] (-) TimerEvent: {}
+[24.673089] (-) TimerEvent: {}
+[24.761519] (control_pkg) StdoutLine: {'line': b'[ 87%] \x1b[32m\x1b[1mLinking CXX executable control_pid_r1_node\x1b[0m\n'}
+[24.773211] (-) TimerEvent: {}
+[24.873628] (-) TimerEvent: {}
+[24.974051] (-) TimerEvent: {}
+[25.074614] (-) TimerEvent: {}
+[25.175325] (-) TimerEvent: {}
+[25.275850] (-) TimerEvent: {}
+[25.376346] (-) TimerEvent: {}
+[25.476887] (-) TimerEvent: {}
+[25.577356] (-) TimerEvent: {}
+[25.678054] (-) TimerEvent: {}
+[25.778527] (-) TimerEvent: {}
+[25.794581] (control_pkg) StdoutLine: {'line': b'[ 87%] Built target control_pid_r1_node\n'}
+[25.878653] (-) TimerEvent: {}
+[25.979258] (-) TimerEvent: {}
+[26.079681] (-) TimerEvent: {}
+[26.180176] (-) TimerEvent: {}
+[26.280603] (-) TimerEvent: {}
+[26.381062] (-) TimerEvent: {}
+[26.427737] (control_pkg) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable control_pid_r2_node\x1b[0m\n'}
+[26.481184] (-) TimerEvent: {}
+[26.581640] (-) TimerEvent: {}
+[26.682389] (-) TimerEvent: {}
+[26.783128] (-) TimerEvent: {}
+[26.883638] (-) TimerEvent: {}
+[26.984321] (-) TimerEvent: {}
+[27.084845] (-) TimerEvent: {}
+[27.148190] (control_pkg) StdoutLine: {'line': b'[100%] Built target control_pid_r2_node\n'}
+[27.160553] (control_pkg) CommandEnded: {'returncode': 0}
+[27.185001] (-) TimerEvent: {}
+[27.193865] (control_pkg) JobProgress: {'identifier': 'control_pkg', 'progress': 'install'}
+[27.194282] (control_pkg) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg'], 'cwd': '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '1602'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/javierfr'), ('OLDPWD', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '1414'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '21603'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:46322'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfr-Lenovo-Y50-70:@/tmp/.ICE-unix/1639,unix/javierfr-Lenovo-Y50-70:/tmp/.ICE-unix/1639'), ('INVOCATION_ID', '993e1bed76424b68b54b352c965a36d7'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:ef83c382-0f41-4047-aba9-72bf5c72efc2'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy')]), 'shell': False}
+[27.213905] (control_pkg) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[27.214287] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_p1_node\n'}
+[27.219070] (control_pkg) StdoutLine: {'line': b'-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_p1_node" to ""\n'}
+[27.219397] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_p2_node\n'}
+[27.223624] (control_pkg) StdoutLine: {'line': b'-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_p2_node" to ""\n'}
+[27.223930] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_r1_node\n'}
+[27.230604] (control_pkg) StdoutLine: {'line': b'-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_r1_node" to ""\n'}
+[27.230907] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_r2_node\n'}
+[27.237287] (control_pkg) StdoutLine: {'line': b'-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_r2_node" to ""\n'}
+[27.237828] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/ament_index/resource_index/package_run_dependencies/control_pkg\n'}
+[27.238250] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/ament_index/resource_index/parent_prefix_path/control_pkg\n'}
+[27.238742] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/environment/ament_prefix_path.sh\n'}
+[27.239131] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/environment/ament_prefix_path.dsv\n'}
+[27.239516] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/environment/path.sh\n'}
+[27.239706] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/environment/path.dsv\n'}
+[27.240057] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/local_setup.bash\n'}
+[27.240349] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/local_setup.sh\n'}
+[27.240625] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/local_setup.zsh\n'}
+[27.240948] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/local_setup.dsv\n'}
+[27.241344] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/package.dsv\n'}
+[27.241877] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/ament_index/resource_index/packages/control_pkg\n'}
+[27.242184] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/cmake/control_pkgConfig.cmake\n'}
+[27.242420] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/cmake/control_pkgConfig-version.cmake\n'}
+[27.242866] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/package.xml\n'}
+[27.245898] (control_pkg) CommandEnded: {'returncode': 0}
+[27.285165] (-) TimerEvent: {}
+[27.333223] (control_pkg) JobEnded: {'identifier': 'control_pkg', 'rc': 0}
+[27.385252] (-) TimerEvent: {}
+[27.485649] (-) TimerEvent: {}
+[27.586016] (-) TimerEvent: {}
+[27.686422] (-) TimerEvent: {}
+[27.786837] (-) TimerEvent: {}
+[27.887213] (-) TimerEvent: {}
+[27.987610] (-) TimerEvent: {}
+[28.088030] (-) TimerEvent: {}
+[28.188491] (-) TimerEvent: {}
+[28.288912] (-) TimerEvent: {}
+[28.389355] (-) TimerEvent: {}
+[28.489872] (-) TimerEvent: {}
+[28.590316] (-) TimerEvent: {}
+[28.690753] (-) TimerEvent: {}
+[28.791159] (-) TimerEvent: {}
+[28.891681] (-) TimerEvent: {}
+[28.992089] (-) TimerEvent: {}
+[29.092519] (-) TimerEvent: {}
+[29.192957] (-) TimerEvent: {}
+[29.293366] (-) TimerEvent: {}
+[29.393817] (-) TimerEvent: {}
+[29.494305] (-) TimerEvent: {}
+[29.594703] (-) TimerEvent: {}
+[29.695173] (-) TimerEvent: {}
+[29.795593] (-) TimerEvent: {}
+[29.896042] (-) TimerEvent: {}
+[29.996466] (-) TimerEvent: {}
+[30.096926] (-) TimerEvent: {}
+[30.197344] (-) TimerEvent: {}
+[30.297800] (-) TimerEvent: {}
+[30.398217] (-) TimerEvent: {}
+[30.498615] (-) TimerEvent: {}
+[30.599029] (-) TimerEvent: {}
+[30.699565] (-) TimerEvent: {}
+[30.799999] (-) TimerEvent: {}
+[30.900499] (-) TimerEvent: {}
+[31.000887] (-) TimerEvent: {}
+[31.101287] (-) TimerEvent: {}
+[31.201727] (-) TimerEvent: {}
+[31.302185] (-) TimerEvent: {}
+[31.402605] (-) TimerEvent: {}
+[31.503052] (-) TimerEvent: {}
+[31.604029] (-) TimerEvent: {}
+[31.704464] (-) TimerEvent: {}
+[31.804881] (-) TimerEvent: {}
+[31.905306] (-) TimerEvent: {}
+[32.005760] (-) TimerEvent: {}
+[32.106171] (-) TimerEvent: {}
+[32.206602] (-) TimerEvent: {}
+[32.307065] (-) TimerEvent: {}
+[32.407492] (-) TimerEvent: {}
+[32.507946] (-) TimerEvent: {}
+[32.608450] (-) TimerEvent: {}
+[32.708859] (-) TimerEvent: {}
+[32.809356] (-) TimerEvent: {}
+[32.909989] (-) TimerEvent: {}
+[33.010429] (-) TimerEvent: {}
+[33.110941] (-) TimerEvent: {}
+[33.211433] (-) TimerEvent: {}
+[33.311835] (-) TimerEvent: {}
+[33.412254] (-) TimerEvent: {}
+[33.512644] (-) TimerEvent: {}
+[33.613024] (-) TimerEvent: {}
+[33.713411] (-) TimerEvent: {}
+[33.813757] (-) TimerEvent: {}
+[33.914130] (-) TimerEvent: {}
+[34.014580] (-) TimerEvent: {}
+[34.114945] (-) TimerEvent: {}
+[34.215355] (-) TimerEvent: {}
+[34.315741] (-) TimerEvent: {}
+[34.416141] (-) TimerEvent: {}
+[34.516544] (-) TimerEvent: {}
+[34.616914] (-) TimerEvent: {}
+[34.717319] (-) TimerEvent: {}
+[34.817688] (-) TimerEvent: {}
+[34.918049] (-) TimerEvent: {}
+[35.018439] (-) TimerEvent: {}
+[35.120369] (-) TimerEvent: {}
+[35.220742] (-) TimerEvent: {}
+[35.321119] (-) TimerEvent: {}
+[35.421499] (-) TimerEvent: {}
+[35.521891] (-) TimerEvent: {}
+[35.622242] (-) TimerEvent: {}
+[35.722733] (-) TimerEvent: {}
+[35.823155] (-) TimerEvent: {}
+[35.923534] (-) TimerEvent: {}
+[36.023931] (-) TimerEvent: {}
+[36.124380] (-) TimerEvent: {}
+[36.225041] (-) TimerEvent: {}
+[36.249987] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 60%] \x1b[32m\x1b[1mLinking CXX shared library librobot1_plugin.so\x1b[0m\n'}
+[36.325442] (-) TimerEvent: {}
+[36.425912] (-) TimerEvent: {}
+[36.526896] (-) TimerEvent: {}
+[36.627451] (-) TimerEvent: {}
+[36.664195] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 70%] \x1b[32m\x1b[1mLinking CXX shared library libplatform1_plugin.so\x1b[0m\n'}
+[36.727589] (-) TimerEvent: {}
+[36.828124] (-) TimerEvent: {}
+[36.928736] (-) TimerEvent: {}
+[37.029328] (-) TimerEvent: {}
+[37.129974] (-) TimerEvent: {}
+[37.230561] (-) TimerEvent: {}
+[37.331053] (-) TimerEvent: {}
+[37.431475] (-) TimerEvent: {}
+[37.531933] (-) TimerEvent: {}
+[37.632384] (-) TimerEvent: {}
+[37.732970] (-) TimerEvent: {}
+[37.760674] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 80%] \x1b[32m\x1b[1mLinking CXX shared library librobot2_plugin.so\x1b[0m\n'}
+[37.833092] (-) TimerEvent: {}
+[37.933662] (-) TimerEvent: {}
+[37.946896] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 80%] Built target robot1_plugin\n'}
+[38.033854] (-) TimerEvent: {}
+[38.134495] (-) TimerEvent: {}
+[38.208153] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 80%] Built target platform1_plugin\n'}
+[38.234607] (-) TimerEvent: {}
+[38.335134] (-) TimerEvent: {}
+[38.381985] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 90%] \x1b[32m\x1b[1mLinking CXX shared library libplatform_plugin_test.so\x1b[0m\n'}
+[38.435292] (-) TimerEvent: {}
+[38.440607] (gazebo_plugin_sim) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX shared library libplatform2_plugin.so\x1b[0m\n'}
+[38.535453] (-) TimerEvent: {}
+[38.636203] (-) TimerEvent: {}
+[38.737154] (-) TimerEvent: {}
+[38.837799] (-) TimerEvent: {}
+[38.938407] (-) TimerEvent: {}
+[39.034859] (gazebo_plugin_sim) StdoutLine: {'line': b'[100%] Built target robot2_plugin\n'}
+[39.038571] (-) TimerEvent: {}
+[39.139143] (-) TimerEvent: {}
+[39.239646] (-) TimerEvent: {}
+[39.340081] (-) TimerEvent: {}
+[39.440543] (-) TimerEvent: {}
+[39.540916] (-) TimerEvent: {}
+[39.552712] (gazebo_plugin_sim) StdoutLine: {'line': b'[100%] Built target platform_plugin_test\n'}
+[39.604507] (gazebo_plugin_sim) StdoutLine: {'line': b'[100%] Built target platform2_plugin\n'}
+[39.616513] (gazebo_plugin_sim) CommandEnded: {'returncode': 0}
+[39.641038] (-) TimerEvent: {}
+[39.650016] (gazebo_plugin_sim) JobProgress: {'identifier': 'gazebo_plugin_sim', 'progress': 'install'}
+[39.653204] (gazebo_plugin_sim) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim'], 'cwd': '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '1602'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/javierfr'), ('OLDPWD', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '1414'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '21603'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:46322'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfr-Lenovo-Y50-70:@/tmp/.ICE-unix/1639,unix/javierfr-Lenovo-Y50-70:/tmp/.ICE-unix/1639'), ('INVOCATION_ID', '993e1bed76424b68b54b352c965a36d7'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:ef83c382-0f41-4047-aba9-72bf5c72efc2'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy')]), 'shell': False}
+[39.662022] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[39.662244] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/library_path.sh\n'}
+[39.662392] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/library_path.dsv\n'}
+[39.662483] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/gazebo_plugin_sim.sh\n'}
+[39.662598] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/gazebo_plugin_sim.dsv\n'}
+[39.662734] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/ament_index/resource_index/package_run_dependencies/gazebo_plugin_sim\n'}
+[39.662895] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/ament_index/resource_index/parent_prefix_path/gazebo_plugin_sim\n'}
+[39.663030] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/ament_prefix_path.sh\n'}
+[39.663164] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/ament_prefix_path.dsv\n'}
+[39.663301] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/path.sh\n'}
+[39.663441] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/path.dsv\n'}
+[39.663585] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/local_setup.bash\n'}
+[39.663719] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/local_setup.sh\n'}
+[39.663859] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/local_setup.zsh\n'}
+[39.663999] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/local_setup.dsv\n'}
+[39.664136] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.dsv\n'}
+[39.664347] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/ament_index/resource_index/packages/gazebo_plugin_sim\n'}
+[39.664516] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[39.664659] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[39.664793] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[39.664932] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/cmake/gazebo_plugin_simConfig.cmake\n'}
+[39.665045] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/cmake/gazebo_plugin_simConfig-version.cmake\n'}
+[39.665169] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.xml\n'}
+[39.665296] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/include\n'}
+[39.665431] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/include/gazebo_plugin_sim\n'}
+[39.665571] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/include/gazebo_plugin_sim/robot2_plugin.hpp\n'}
+[39.665695] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/include/gazebo_plugin_sim/platform_plugin_test.hpp\n'}
+[39.665802] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/include/gazebo_plugin_sim/platform1_plugin.hpp\n'}
+[39.665888] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/include/gazebo_plugin_sim/platform2_plugin.hpp\n'}
+[39.665997] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/include/gazebo_plugin_sim/robot1_plugin.hpp\n'}
+[39.666073] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib/libplatform_plugin_test.so\n'}
+[39.670522] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib/libplatform_plugin_test.so" to ""\n'}
+[39.670735] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib/libplatform1_plugin.so\n'}
+[39.675196] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib/libplatform1_plugin.so" to ""\n'}
+[39.675411] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib/libplatform2_plugin.so\n'}
+[39.679844] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib/libplatform2_plugin.so" to ""\n'}
+[39.680070] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib/librobot1_plugin.so\n'}
+[39.684831] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib/librobot1_plugin.so" to ""\n'}
+[39.685069] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib/librobot2_plugin.so\n'}
+[39.689867] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib/librobot2_plugin.so" to ""\n'}
+[39.690143] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim//worlds\n'}
+[39.690230] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim//worlds/2platform_old.world\n'}
+[39.690450] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim//worlds/2robots_mod.world\n'}
+[39.690908] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim//worlds/2platform.world\n'}
+[39.691332] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim//worlds/test_mecanum_platform.world\n'}
+[39.691671] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim//worlds/2robots.world\n'}
+[39.694317] (gazebo_plugin_sim) CommandEnded: {'returncode': 0}
+[39.741162] (-) TimerEvent: {}
+[39.763034] (gazebo_plugin_sim) JobEnded: {'identifier': 'gazebo_plugin_sim', 'rc': 0}
+[39.763752] (-) EventReactorShutdown: {}

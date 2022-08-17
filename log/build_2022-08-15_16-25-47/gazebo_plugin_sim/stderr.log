@@ -1,0 +1,4 @@
+CMake Error: The current CMakeCache.txt directory /home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/CMakeCache.txt is different than the directory /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt
+CMake Error: The source directory "/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim" does not exist.
+Specify --help for usage, or press the help button on the CMake GUI.
+make: *** [Makefile:442: cmake_check_build_system] Error 1

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_node.cpp" "/home/javierfr/Tesis_ws/V1/build/img_proc_pkg/CMakeFiles/img_proc_node.dir/src/img_proc_node.cpp.o"
+  "/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_node.cpp" "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg/CMakeFiles/img_proc_node.dir/src/img_proc_node.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -17,9 +17,9 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/include"
+  "/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/include"
   "/opt/ros/foxy/include"
-  "/usr/local/include/opencv4"
+  "/usr/include/opencv4"
   )
 
 # Targets to which this target links.

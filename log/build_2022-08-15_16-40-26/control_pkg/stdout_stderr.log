@@ -1,0 +1,36 @@
+[ 12%] [32mBuilding CXX object CMakeFiles/control_pid_p2_node.dir/src/control_pid_p2_node.cpp.o[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/control_pid_r2_node.dir/src/control_pid_r2_node.cpp.o[0m
+[ 37%] [32mBuilding CXX object CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/control_pid_r1_node.dir/src/control_pid_r1_node.cpp.o[0m
+[ 62%] [32m[1mLinking CXX executable control_pid_p1_node[0m
+[ 62%] Built target control_pid_p1_node
+[ 75%] [32m[1mLinking CXX executable control_pid_p2_node[0m
+[ 75%] Built target control_pid_p2_node
+[ 87%] [32m[1mLinking CXX executable control_pid_r1_node[0m
+[ 87%] Built target control_pid_r1_node
+[100%] [32m[1mLinking CXX executable control_pid_r2_node[0m
+[100%] Built target control_pid_r2_node
+-- Install configuration: ""
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_p1_node
+-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_p1_node" to ""
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_p2_node
+-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_p2_node" to ""
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_r1_node
+-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_r1_node" to ""
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_r2_node
+-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_r2_node" to ""
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/ament_index/resource_index/package_run_dependencies/control_pkg
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/ament_index/resource_index/parent_prefix_path/control_pkg
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/environment/ament_prefix_path.sh
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/environment/ament_prefix_path.dsv
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/environment/path.sh
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/environment/path.dsv
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/local_setup.bash
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/local_setup.sh
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/local_setup.zsh
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/local_setup.dsv
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/package.dsv
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/ament_index/resource_index/packages/control_pkg
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/cmake/control_pkgConfig.cmake
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/cmake/control_pkgConfig-version.cmake
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/package.xml

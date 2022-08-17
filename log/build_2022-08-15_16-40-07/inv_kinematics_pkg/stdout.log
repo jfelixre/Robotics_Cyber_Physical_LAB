@@ -1,0 +1,24 @@
+[35m[1mScanning dependencies of target platform2_vel_test_client[0m
+[35m[1mScanning dependencies of target robot2_vel_server[0m
+[35m[1mScanning dependencies of target robot1_vel_server[0m
+[35m[1mScanning dependencies of target platform1_vel_server[0m
+[35m[1mScanning dependencies of target platform2_vel_server[0m
+[35m[1mScanning dependencies of target platform1_vel_test_client[0m
+[  8%] [32mBuilding CXX object CMakeFiles/platform2_vel_test_client.dir/src/platform2_vel_test_client.cpp.o[0m
+[ 16%] [32mBuilding CXX object CMakeFiles/robot2_vel_server.dir/src/robot2_vel_server.cpp.o[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/platform1_vel_server.dir/src/platform1_vel_server.cpp.o[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/platform1_vel_test_client.dir/src/platform1_vel_test_client.cpp.o[0m
+[ 41%] [32mBuilding CXX object CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/platform2_vel_server.dir/src/platform2_vel_server.cpp.o[0m
+[ 58%] [32m[1mLinking CXX executable platform2_vel_test_client[0m
+[ 66%] [32m[1mLinking CXX executable platform1_vel_test_client[0m
+[ 66%] Built target platform2_vel_test_client
+[ 66%] Built target platform1_vel_test_client
+[ 75%] [32m[1mLinking CXX executable robot1_vel_server[0m
+[ 83%] [32m[1mLinking CXX executable platform1_vel_server[0m
+[ 91%] [32m[1mLinking CXX executable platform2_vel_server[0m
+[ 91%] Built target platform1_vel_server
+[ 91%] Built target robot1_vel_server
+[100%] [32m[1mLinking CXX executable robot2_vel_server[0m
+[100%] Built target platform2_vel_server
+[100%] Built target robot2_vel_server

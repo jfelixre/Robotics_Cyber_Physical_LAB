@@ -1,0 +1,22 @@
+[0.019s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg': AMENT_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg -- -j8 -l8
+[0.063s] [35m[1mScanning dependencies of target control_pid_p1_node[0m
+[0.063s] [35m[1mScanning dependencies of target control_pid_r2_node[0m
+[0.064s] [35m[1mScanning dependencies of target control_pid_r1_node[0m
+[0.064s] [35m[1mScanning dependencies of target control_pid_p2_node[0m
+[0.192s] [ 12%] [32mBuilding CXX object CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o[0m
+[0.204s] [ 25%] [32mBuilding CXX object CMakeFiles/control_pid_r2_node.dir/src/control_pid_r2_node.cpp.o[0m
+[0.208s] [ 37%] [32mBuilding CXX object CMakeFiles/control_pid_r1_node.dir/src/control_pid_r1_node.cpp.o[0m
+[0.226s] [ 50%] [32mBuilding CXX object CMakeFiles/control_pid_p2_node.dir/src/control_pid_p2_node.cpp.o[0m
+[9.790s] make[2]: *** [CMakeFiles/control_pid_p2_node.dir/build.make:63: CMakeFiles/control_pid_p2_node.dir/src/control_pid_p2_node.cpp.o] Interrupt
+[9.790s] make[2]: *** [CMakeFiles/control_pid_p1_node.dir/build.make:63: CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o] Interrupt
+[9.790s] make[2]: *** wait: No child processes.  Stop.
+[9.790s] make[2]: *** Waiting for unfinished jobs....
+[9.790s] make[2]: *** wait: No child processes.  Stop.
+[9.791s] make[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/control_pid_p1_node.dir/all] Interrupt
+[9.791s] make[1]: *** [CMakeFiles/Makefile2:111: CMakeFiles/control_pid_p2_node.dir/all] Interrupt
+[9.791s] make[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/control_pid_r1_node.dir/all] Error 2
+[9.791s] make[2]: *** wait: No child processes.  Stop.
+[9.791s] make[2]: *** Waiting for unfinished jobs....
+[9.791s] make[2]: *** wait: No child processes.  Stop.
+[9.791s] make[1]: *** [CMakeFiles/Makefile2:84: CMakeFiles/control_pid_r2_node.dir/all] Error 2
+[9.792s] make: *** [Makefile:141: all] Interrupt

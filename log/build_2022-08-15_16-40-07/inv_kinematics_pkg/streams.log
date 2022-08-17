@@ -1,0 +1,25 @@
+[0.023s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg': AMENT_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg -- -j8 -l8
+[0.075s] [35m[1mScanning dependencies of target platform2_vel_test_client[0m
+[0.077s] [35m[1mScanning dependencies of target robot2_vel_server[0m
+[0.102s] [35m[1mScanning dependencies of target robot1_vel_server[0m
+[0.116s] [35m[1mScanning dependencies of target platform1_vel_server[0m
+[0.117s] [35m[1mScanning dependencies of target platform2_vel_server[0m
+[0.122s] [35m[1mScanning dependencies of target platform1_vel_test_client[0m
+[0.160s] [  8%] [32mBuilding CXX object CMakeFiles/platform2_vel_test_client.dir/src/platform2_vel_test_client.cpp.o[0m
+[0.182s] [ 16%] [32mBuilding CXX object CMakeFiles/robot2_vel_server.dir/src/robot2_vel_server.cpp.o[0m
+[0.218s] [ 25%] [32mBuilding CXX object CMakeFiles/platform1_vel_server.dir/src/platform1_vel_server.cpp.o[0m
+[0.235s] [ 33%] [32mBuilding CXX object CMakeFiles/platform1_vel_test_client.dir/src/platform1_vel_test_client.cpp.o[0m
+[0.277s] [ 41%] [32mBuilding CXX object CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.o[0m
+[0.285s] [ 50%] [32mBuilding CXX object CMakeFiles/platform2_vel_server.dir/src/platform2_vel_server.cpp.o[0m
+[5.789s] [ 58%] [32m[1mLinking CXX executable platform2_vel_test_client[0m
+[6.406s] [ 66%] [32m[1mLinking CXX executable platform1_vel_test_client[0m
+[6.470s] [ 66%] Built target platform2_vel_test_client
+[6.814s] [ 66%] Built target platform1_vel_test_client
+[8.200s] [ 75%] [32m[1mLinking CXX executable robot1_vel_server[0m
+[8.246s] [ 83%] [32m[1mLinking CXX executable platform1_vel_server[0m
+[8.629s] [ 91%] [32m[1mLinking CXX executable platform2_vel_server[0m
+[8.662s] [ 91%] Built target platform1_vel_server
+[8.666s] [ 91%] Built target robot1_vel_server
+[8.778s] [100%] [32m[1mLinking CXX executable robot2_vel_server[0m
+[8.897s] [100%] Built target platform2_vel_server
+[9.086s] [100%] Built target robot2_vel_server

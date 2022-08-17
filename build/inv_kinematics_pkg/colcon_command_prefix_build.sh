@@ -1,2 +1,2 @@
 # generated from colcon_core/shell/template/command_prefix.sh.em
-. "/home/javierfr/Tesis_ws/V1/install/interfaces/share/interfaces/package.sh"
+. "/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/package.sh"
