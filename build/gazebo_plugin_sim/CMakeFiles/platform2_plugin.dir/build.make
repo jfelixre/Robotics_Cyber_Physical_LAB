@@ -124,7 +124,7 @@ libplatform2_plugin.so: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0
 libplatform2_plugin.so: /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0
 libplatform2_plugin.so: /usr/lib/x86_64-linux-gnu/libOgreTerrain.so
 libplatform2_plugin.so: /usr/lib/x86_64-linux-gnu/libOgrePaging.so
-libplatform2_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-common3-graphics.so.3.14.1
+libplatform2_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-common3-graphics.so.3.14.2
 libplatform2_plugin.so: /opt/ros/foxy/lib/libnav_msgs__rosidl_generator_c.so
 libplatform2_plugin.so: /opt/ros/foxy/lib/libtf2_ros.so
 libplatform2_plugin.so: /opt/ros/foxy/lib/libtf2.so
@@ -223,11 +223,11 @@ libplatform2_plugin.so: /usr/lib/x86_64-linux-gnu/liboctomap.so.1.9.3
 libplatform2_plugin.so: /usr/lib/x86_64-linux-gnu/liboctomath.so.1.9.3
 libplatform2_plugin.so: /usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.71.0
 libplatform2_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-transport8.so.8.3.0
-libplatform2_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-fuel_tools4.so.4.5.0
+libplatform2_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-fuel_tools4.so.4.6.0
 libplatform2_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-msgs5.so.5.10.0
 libplatform2_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-math6.so.6.12.0
 libplatform2_plugin.so: /usr/lib/x86_64-linux-gnu/libprotobuf.so
-libplatform2_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-common3.so.3.14.1
+libplatform2_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-common3.so.3.14.2
 libplatform2_plugin.so: /usr/lib/x86_64-linux-gnu/libuuid.so
 libplatform2_plugin.so: /usr/lib/x86_64-linux-gnu/libuuid.so
 libplatform2_plugin.so: CMakeFiles/platform2_plugin.dir/link.txt

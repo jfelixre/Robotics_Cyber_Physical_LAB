@@ -1,0 +1,24 @@
+[0.368s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg': /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg -- -j8 -l8
+[0.539s] -- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.573s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.842s] Traceback (most recent call last):
+[0.842s]   File "/opt/ros/foxy/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py", line 21, in <module>
+[0.842s]     from ament_package.templates import get_environment_hook_template_path
+[0.842s] ModuleNotFoundError: No module named 'ament_package'
+[0.885s] CMake Error at /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_package_templates-extras.cmake:41 (message):
+[0.885s]   execute_process(/usr/bin/python3
+[0.885s]   /opt/ros/foxy/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py
+[0.885s]   /home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg/ament_cmake_package_templates/templates.cmake)
+[0.885s]   returned error code 1
+[0.885s] Call Stack (most recent call first):
+[0.885s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)
+[0.885s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)
+[0.885s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)
+[0.885s]   CMakeLists.txt:19 (find_package)
+[0.885s] 
+[0.885s] 
+[0.887s] -- Configuring incomplete, errors occurred!
+[0.887s] See also "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg/CMakeFiles/CMakeOutput.log".
+[0.887s] See also "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg/CMakeFiles/CMakeError.log".
+[0.888s] make: *** [Makefile:398: cmake_check_build_system] Error 1
+[0.894s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg' returned '2': /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg -- -j8 -l8

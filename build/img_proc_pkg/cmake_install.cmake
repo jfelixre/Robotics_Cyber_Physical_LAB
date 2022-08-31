@@ -118,6 +118,13 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/img_proc_pkg" TYPE DIRECTORY FILES
+    "/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/launch"
+    "/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/config"
+    )
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/img_proc_pkg")
 endif()
 
