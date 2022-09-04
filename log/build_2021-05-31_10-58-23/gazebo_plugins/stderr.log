@@ -1,4 +1,0 @@
-/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp: In member function ‘virtual void gazebo::MecaPlatformTestPlugin::Load(gazebo::physics::ModelPtr, sdf::v9::ElementPtr)’:
-/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim/src/meca_platform_plugin_test.cpp:54:31: warning: unused variable ‘qos’ [-Wunused-variable]
-   54 |       const gazebo_ros::QoS & qos = this->ros_node_->get_qos();
-      |                               ^~~

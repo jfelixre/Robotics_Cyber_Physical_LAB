@@ -1,8 +1,0 @@
-/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r1_node.cpp: In member function ‘void Control_PID_R1_node::LmSw_subs(interfaces::msg::LimitSwitch_<std::allocator<void> >::SharedPtr) const’:
-/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r1_node.cpp:196:64: warning: unused parameter ‘msg’ [-Wunused-parameter]
-  196 |   void LmSw_subs(const interfaces::msg::LimitSwitch::SharedPtr msg) const
-      |                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
-/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r1_node.cpp: In member function ‘void Control_PID_R1_node::velM_subs(interfaces::msg::MotorVelsWArm_<std::allocator<void> >::SharedPtr) const’:
-/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_r1_node.cpp:201:66: warning: unused parameter ‘msg’ [-Wunused-parameter]
-  201 |   void velM_subs(const interfaces::msg::MotorVelsWArm::SharedPtr msg) const
-      |                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~

@@ -1,3 +1,0 @@
-[35m[1mScanning dependencies of target img_publ_test_node[0m
-[ 50%] Built target img_proc_node
-[ 75%] [32mBuilding CXX object CMakeFiles/img_publ_test_node.dir/src/img_publ_test_node.cpp.o[0m

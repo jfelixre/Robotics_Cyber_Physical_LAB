@@ -1,4 +1,0 @@
-CMake Error: The current CMakeCache.txt directory /home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg/CMakeCache.txt is different than the directory /home/javierfr/Tesis_ws/V1/build/img_proc_pkg where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt
-CMake Error: The source directory "/home/javierfr/Tesis_ws/V1/src/img_proc_pkg" does not exist.
-Specify --help for usage, or press the help button on the CMake GUI.
-make: *** [Makefile:398: cmake_check_build_system] Error 1

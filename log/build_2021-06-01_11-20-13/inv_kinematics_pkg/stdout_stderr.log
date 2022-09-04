@@ -1,9 +1,0 @@
-[35m[1mScanning dependencies of target platform1_vel[0m
-[ 50%] [32mBuilding CXX object CMakeFiles/platform1_vel.dir/src/platform1_vel.cpp.o[0m
-/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel.cpp: In constructor ‘Platform1Vel::Platform1Vel()’:
-/home/javierfr/Tesis_ws/V1/src/inv_kinematics_pkg/src/platform1_vel.cpp:15:23: error: ‘Platform1VelServer’ has not been declared
-   15 |     "platform1_vel", &Platform1VelServer::send_vel);
-      |                       ^~~~~~~~~~~~~~~~~~
-make[2]: *** [CMakeFiles/platform1_vel.dir/build.make:63: CMakeFiles/platform1_vel.dir/src/platform1_vel.cpp.o] Error 1
-make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/platform1_vel.dir/all] Error 2
-make: *** [Makefile:141: all] Error 2

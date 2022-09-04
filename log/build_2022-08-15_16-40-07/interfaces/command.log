@@ -1,4 +1,0 @@
-Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces -- -j8 -l8
-Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces -- -j8 -l8
-Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces
-Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces

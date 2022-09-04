@@ -1,7 +1,0 @@
-[01m[K/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:2:10:[m[K [01;31m[Kfatal error: [m[Kinterfaces/srv/platform1vel.hpp: No such file or directory
-    2 | #include [01;31m[K"interfaces/srv/platform1vel.hpp"[m[K     // CHANGE
-      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
-compilation terminated.
-make[2]: *** [CMakeFiles/plat1_send_vel_node.dir/build.make:63: CMakeFiles/plat1_send_vel_node.dir/src/plat1_send_vel_node.cpp.o] Error 1
-make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/plat1_send_vel_node.dir/all] Error 2
-make: *** [Makefile:141: all] Error 2

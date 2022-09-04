@@ -1,5 +1,0 @@
-[35m[1mScanning dependencies of target robot1_plugin[0m
-[ 25%] Built target platform1_plugin
-[ 50%] Built target platform2_plugin
-[ 75%] Built target platform_plugin_test
-[ 87%] [32mBuilding CXX object CMakeFiles/robot1_plugin.dir/src/robot1_plugin.cpp.o[0m

@@ -1,6 +1,0 @@
-[0.030s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim -- -j8 -l8
-[0.039s] CMake Error: The current CMakeCache.txt directory /home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/CMakeCache.txt is different than the directory /home/javierfr/Tesis_ws/V1/build/gazebo_plugin_sim where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt
-[0.051s] CMake Error: The source directory "/home/javierfr/Tesis_ws/V1/src/gazebo_plugin_sim" does not exist.
-[0.051s] Specify --help for usage, or press the help button on the CMake GUI.
-[0.051s] make: *** [Makefile:442: cmake_check_build_system] Error 1
-[0.056s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim' returned '2': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim -- -j8 -l8
