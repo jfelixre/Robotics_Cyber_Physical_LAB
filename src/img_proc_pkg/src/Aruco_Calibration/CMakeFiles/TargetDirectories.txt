@@ -1,0 +1,3 @@
+/home/duvanmarrugo/Aruco_Calibration/CMakeFiles/edit_cache.dir
+/home/duvanmarrugo/Aruco_Calibration/CMakeFiles/rebuild_cache.dir
+/home/duvanmarrugo/Aruco_Calibration/CMakeFiles/CalibrationUsingCpp2.dir
