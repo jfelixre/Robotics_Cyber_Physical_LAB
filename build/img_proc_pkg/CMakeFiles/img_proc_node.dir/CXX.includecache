@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_node.cpp
+/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_node.cpp
 cstdio
 -
 opencv2/core.hpp

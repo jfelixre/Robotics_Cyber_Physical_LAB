@@ -1,0 +1,36 @@
+[0.066s] Invoking command in '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/opt/ros/foxy /usr/bin/cmake --build /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/img_proc_pkg -- -j4 -l4
+[0.147s] [35m[1mScanning dependencies of target img_proc_id_node[0m
+[0.153s] [35m[1mScanning dependencies of target img_subs_test_node[0m
+[0.163s] [35m[1mScanning dependencies of target img_publ_test_node[0m
+[0.166s] [35m[1mScanning dependencies of target img_proc_node[0m
+[0.330s] [ 12%] [32mBuilding CXX object CMakeFiles/img_proc_node.dir/src/img_proc_node.cpp.o[0m
+[0.406s] [ 25%] [32mBuilding CXX object CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o[0m
+[0.426s] [ 37%] [32mBuilding CXX object CMakeFiles/img_publ_test_node.dir/src/img_publ_test_node.cpp.o[0m
+[0.452s] [ 50%] [32mBuilding CXX object CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o[0m
+[2.323s] [ 62%] [32m[1mLinking CXX executable img_proc_node[0m
+[3.281s] [ 62%] Built target img_proc_node
+[4.651s] [01m[K/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Proc_Id_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[4.651s] [01m[K/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:130:22:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+[4.651s]   130 |       for (int i=0; [01;35m[Ki<red_contours.size()[m[K; i++)
+[4.652s]       |                     [01;35m[K~^~~~~~~~~~~~~~~~~~~~[m[K
+[4.653s] [01m[K/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:163:26:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+[4.654s]   163 |         for (int ii=1; [01;35m[Kii<red_subcontours.size()[m[K; ii++)
+[4.654s]       |                        [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.659s] [01m[K/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:257:22:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+[4.659s]   257 |       for (int i=0; [01;35m[Ki<blue_contours.size()[m[K; i++)
+[4.659s]       |                     [01;35m[K~^~~~~~~~~~~~~~~~~~~~~[m[K
+[4.662s] [01m[K/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:290:26:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+[4.662s]   290 |         for (int ii=1; [01;35m[Kii<blue_subcontours.size()[m[K; ii++)
+[4.662s]       |                        [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.666s] [01m[K/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:385:22:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+[4.666s]   385 |       for (int i=0; [01;35m[Ki<green_contours.size()[m[K; i++)
+[4.667s]       |                     [01;35m[K~^~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.668s] [01m[K/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:417:26:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+[4.669s]   417 |         for (int ii=1; [01;35m[Kii<green_subcontours.size()[m[K; ii++)
+[4.669s]       |                        [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[7.717s] [ 75%] [32m[1mLinking CXX executable img_publ_test_node[0m
+[8.719s] [ 75%] Built target img_publ_test_node
+[9.183s] [ 87%] [32m[1mLinking CXX executable img_subs_test_node[0m
+[10.047s] [ 87%] Built target img_subs_test_node
+[11.500s] [100%] [32m[1mLinking CXX executable img_proc_id_node[0m
+[12.283s] [100%] Built target img_proc_id_node

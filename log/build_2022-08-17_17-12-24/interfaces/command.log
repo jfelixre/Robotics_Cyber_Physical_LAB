@@ -1,0 +1,2 @@
+Invoking command in '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/opt/ros/foxy /usr/bin/cmake --build /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces -- -j4 -l4
+Invoked command in '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/opt/ros/foxy /usr/bin/cmake --build /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces -- -j4 -l4

@@ -1,0 +1,38 @@
+[0.107s] Invoking command in '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/opt/ros/foxy /usr/bin/cmake /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim -DCMAKE_INSTALL_PREFIX=/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim
+[0.530s] -- The C compiler identification is GNU 9.4.0
+[0.846s] -- The CXX compiler identification is GNU 9.4.0
+[0.852s] -- Check for working C compiler: /usr/bin/cc
+[0.963s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.966s] -- Detecting C compiler ABI info
+[1.094s] -- Detecting C compiler ABI info - done
+[1.121s] -- Detecting C compile features
+[1.121s] -- Detecting C compile features - done
+[1.132s] -- Check for working CXX compiler: /usr/bin/c++
+[1.298s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[1.301s] -- Detecting CXX compiler ABI info
+[1.450s] -- Detecting CXX compiler ABI info - done
+[1.469s] -- Detecting CXX compile features
+[1.470s] -- Detecting CXX compile features - done
+[1.474s] -- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)
+[1.512s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[1.513s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.805s] CMake Error at CMakeLists.txt:25 (find_package):
+[1.805s]   By not providing "Findcamera_info_manager.cmake" in CMAKE_MODULE_PATH this
+[1.806s]   project has asked CMake to find a package configuration file provided by
+[1.806s]   "camera_info_manager", but CMake did not find one.
+[1.806s] 
+[1.806s]   Could not find a package configuration file provided by
+[1.806s]   "camera_info_manager" with any of the following names:
+[1.807s] 
+[1.807s]     camera_info_managerConfig.cmake
+[1.807s]     camera_info_manager-config.cmake
+[1.807s] 
+[1.807s]   Add the installation prefix of "camera_info_manager" to CMAKE_PREFIX_PATH
+[1.807s]   or set "camera_info_manager_DIR" to a directory containing one of the above
+[1.807s]   files.  If "camera_info_manager" provides a separate development package or
+[1.807s]   SDK, be sure it has been installed.
+[1.807s] 
+[1.808s] 
+[1.808s] -- Configuring incomplete, errors occurred!
+[1.808s] See also "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/CMakeFiles/CMakeOutput.log".
+[1.811s] Invoked command in '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/opt/ros/foxy /usr/bin/cmake /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim -DCMAKE_INSTALL_PREFIX=/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim

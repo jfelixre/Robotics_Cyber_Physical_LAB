@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_subs_test_node.cpp" "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg/CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o"
+  "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_subs_test_node.cpp" "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/img_proc_pkg/CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

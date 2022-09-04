@@ -1,0 +1,25 @@
+[0.071s] Invoking command in '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/opt/ros/foxy /usr/bin/cmake --build /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg -- -j4 -l4
+[0.193s] [35m[1mScanning dependencies of target platform2_vel_server[0m
+[0.215s] [35m[1mScanning dependencies of target robot1_vel_server[0m
+[0.222s] [35m[1mScanning dependencies of target platform1_vel_server[0m
+[0.251s] [35m[1mScanning dependencies of target platform2_vel_test_client[0m
+[0.305s] [  8%] [32mBuilding CXX object CMakeFiles/platform2_vel_server.dir/src/platform2_vel_server.cpp.o[0m
+[0.405s] [ 16%] [32mBuilding CXX object CMakeFiles/platform2_vel_test_client.dir/src/platform2_vel_test_client.cpp.o[0m
+[0.414s] [ 25%] [32mBuilding CXX object CMakeFiles/platform1_vel_server.dir/src/platform1_vel_server.cpp.o[0m
+[0.417s] [ 33%] [32mBuilding CXX object CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.o[0m
+[9.672s] [ 41%] [32m[1mLinking CXX executable platform2_vel_test_client[0m
+[10.437s] [ 41%] Built target platform2_vel_test_client
+[10.509s] [35m[1mScanning dependencies of target platform1_vel_test_client[0m
+[10.763s] [ 50%] [32mBuilding CXX object CMakeFiles/platform1_vel_test_client.dir/src/platform1_vel_test_client.cpp.o[0m
+[12.824s] [ 58%] [32m[1mLinking CXX executable robot1_vel_server[0m
+[13.737s] [ 58%] Built target robot1_vel_server
+[13.795s] [35m[1mScanning dependencies of target robot2_vel_server[0m
+[13.821s] [ 66%] [32m[1mLinking CXX executable platform1_vel_server[0m
+[13.862s] [ 75%] [32m[1mLinking CXX executable platform2_vel_server[0m
+[14.062s] [ 83%] [32mBuilding CXX object CMakeFiles/robot2_vel_server.dir/src/robot2_vel_server.cpp.o[0m
+[14.839s] [ 83%] Built target platform2_vel_server
+[14.892s] [ 83%] Built target platform1_vel_server
+[18.790s] [ 91%] [32m[1mLinking CXX executable platform1_vel_test_client[0m
+[19.286s] [ 91%] Built target platform1_vel_test_client
+[23.591s] [100%] [32m[1mLinking CXX executable robot2_vel_server[0m
+[24.139s] [100%] Built target robot2_vel_server

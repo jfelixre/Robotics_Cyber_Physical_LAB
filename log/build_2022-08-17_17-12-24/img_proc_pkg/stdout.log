@@ -1,0 +1,16 @@
+[35m[1mScanning dependencies of target img_proc_id_node[0m
+[35m[1mScanning dependencies of target img_subs_test_node[0m
+[35m[1mScanning dependencies of target img_publ_test_node[0m
+[35m[1mScanning dependencies of target img_proc_node[0m
+[ 12%] [32mBuilding CXX object CMakeFiles/img_proc_node.dir/src/img_proc_node.cpp.o[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o[0m
+[ 37%] [32mBuilding CXX object CMakeFiles/img_publ_test_node.dir/src/img_publ_test_node.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o[0m
+[ 62%] [32m[1mLinking CXX executable img_proc_node[0m
+[ 62%] Built target img_proc_node
+[ 75%] [32m[1mLinking CXX executable img_publ_test_node[0m
+[ 75%] Built target img_publ_test_node
+[ 87%] [32m[1mLinking CXX executable img_subs_test_node[0m
+[ 87%] Built target img_subs_test_node
+[100%] [32m[1mLinking CXX executable img_proc_id_node[0m
+[100%] Built target img_proc_id_node

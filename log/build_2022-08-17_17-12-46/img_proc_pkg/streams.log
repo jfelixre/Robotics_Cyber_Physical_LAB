@@ -1,0 +1,32 @@
+[0.070s] Invoking command in '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/opt/ros/foxy /usr/bin/cmake --build /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/img_proc_pkg -- -j4 -l4
+[0.241s] [ 25%] Built target img_publ_test_node
+[0.256s] [ 50%] Built target img_subs_test_node
+[0.265s] [ 75%] Built target img_proc_node
+[0.304s] [100%] Built target img_proc_id_node
+[0.338s] Invoked command in '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/img_proc_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/opt/ros/foxy /usr/bin/cmake --build /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/img_proc_pkg -- -j4 -l4
+[0.423s] Invoking command in '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/opt/ros/foxy /usr/bin/cmake --install /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/img_proc_pkg
+[0.443s] -- Install configuration: ""
+[0.443s] -- Installing: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_proc_node
+[0.443s] -- Set runtime path of "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_proc_node" to ""
+[0.443s] -- Installing: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_publ_test_node
+[0.445s] -- Set runtime path of "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_publ_test_node" to ""
+[0.445s] -- Installing: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_subs_test_node
+[0.448s] -- Set runtime path of "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_subs_test_node" to ""
+[0.449s] -- Installing: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_proc_id_node
+[0.453s] -- Set runtime path of "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_proc_id_node" to ""
+[0.453s] -- Installing: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/ament_index/resource_index/package_run_dependencies/img_proc_pkg
+[0.454s] -- Installing: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/ament_index/resource_index/parent_prefix_path/img_proc_pkg
+[0.454s] -- Installing: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/environment/ament_prefix_path.sh
+[0.454s] -- Installing: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/environment/ament_prefix_path.dsv
+[0.455s] -- Installing: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/environment/path.sh
+[0.455s] -- Installing: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/environment/path.dsv
+[0.455s] -- Installing: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/local_setup.bash
+[0.455s] -- Installing: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/local_setup.sh
+[0.456s] -- Installing: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/local_setup.zsh
+[0.456s] -- Installing: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/local_setup.dsv
+[0.456s] -- Installing: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/package.dsv
+[0.457s] -- Installing: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/ament_index/resource_index/packages/img_proc_pkg
+[0.457s] -- Installing: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/cmake/img_proc_pkgConfig.cmake
+[0.458s] -- Installing: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/cmake/img_proc_pkgConfig-version.cmake
+[0.458s] -- Installing: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/package.xml
+[0.464s] Invoked command in '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/img_proc_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/opt/ros/foxy /usr/bin/cmake --install /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/img_proc_pkg

@@ -1,8 +1,8 @@
-# Install script for directory: /home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim
+# Install script for directory: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim")
+  set(CMAKE_INSTALL_PREFIX "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -42,23 +42,23 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim/environment" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_environment_hooks/library_path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim/environment" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_environment_hooks/library_path.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim/environment" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_environment_hooks/gazebo_plugin_sim.sh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim/environment" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_environment_hooks/gazebo_plugin_sim.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim/environment" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_environment_hooks/gazebo_plugin_sim.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim/environment" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_environment_hooks/gazebo_plugin_sim.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/gazebo_plugin_sim")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/gazebo_plugin_sim")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/gazebo_plugin_sim")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/gazebo_plugin_sim")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -66,7 +66,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim/environment" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_environment_hooks/ament_prefix_path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim/environment" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_environment_hooks/ament_prefix_path.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -74,58 +74,58 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim/environment" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_environment_hooks/path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim/environment" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_environment_hooks/path.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_environment_hooks/local_setup.bash")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_environment_hooks/local_setup.bash")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_environment_hooks/local_setup.sh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_environment_hooks/local_setup.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_environment_hooks/local_setup.zsh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_environment_hooks/local_setup.zsh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_environment_hooks/local_setup.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_environment_hooks/local_setup.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_environment_hooks/package.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_environment_hooks/package.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_index/share/ament_index/resource_index/packages/gazebo_plugin_sim")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_index/share/ament_index/resource_index/packages/gazebo_plugin_sim")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim/cmake" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_export_libraries/ament_cmake_export_libraries-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim/cmake" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_export_libraries/ament_cmake_export_libraries-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim/cmake" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_export_include_directories/ament_cmake_export_include_directories-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim/cmake" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_export_include_directories/ament_cmake_export_include_directories-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim/cmake" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_export_dependencies/ament_cmake_export_dependencies-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim/cmake" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_export_dependencies/ament_cmake_export_dependencies-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim/cmake" TYPE FILE FILES
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_core/gazebo_plugin_simConfig.cmake"
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_core/gazebo_plugin_simConfig-version.cmake"
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_core/gazebo_plugin_simConfig.cmake"
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_core/gazebo_plugin_simConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/include/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/include/")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -135,7 +135,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libplatform_plugin_test.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/libplatform_plugin_test.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/libplatform_plugin_test.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libplatform_plugin_test.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libplatform_plugin_test.so")
     file(RPATH_CHANGE
@@ -158,12 +158,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libplatform1_plugin.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/libplatform1_plugin.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/libplatform1_plugin.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libplatform1_plugin.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libplatform1_plugin.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libplatform1_plugin.so"
-         OLD_RPATH "/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/lib:/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:"
+         OLD_RPATH "/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/lib:/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libplatform1_plugin.so")
@@ -181,12 +181,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libplatform2_plugin.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/libplatform2_plugin.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/libplatform2_plugin.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libplatform2_plugin.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libplatform2_plugin.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libplatform2_plugin.so"
-         OLD_RPATH "/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/lib:/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:"
+         OLD_RPATH "/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/lib:/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libplatform2_plugin.so")
@@ -204,12 +204,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/librobot1_plugin.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/librobot1_plugin.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/librobot1_plugin.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/librobot1_plugin.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/librobot1_plugin.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/librobot1_plugin.so"
-         OLD_RPATH "/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/lib:/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:"
+         OLD_RPATH "/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/lib:/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/librobot1_plugin.so")
@@ -227,12 +227,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/librobot2_plugin.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/librobot2_plugin.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/librobot2_plugin.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/librobot2_plugin.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/librobot2_plugin.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/librobot2_plugin.so"
-         OLD_RPATH "/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/lib:/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:"
+         OLD_RPATH "/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/lib:/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/librobot2_plugin.so")
@@ -244,7 +244,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim/" TYPE DIRECTORY FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/worlds")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gazebo_plugin_sim/" TYPE DIRECTORY FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/worlds")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -255,5 +255,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

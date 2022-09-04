@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg
+CMAKE_SOURCE_DIR = /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg
+CMAKE_BINARY_DIR = /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg
 
 # Include any dependencies generated for this target.
 include CMakeFiles/robot1_vel_server.dir/depend.make
@@ -58,17 +58,17 @@ include CMakeFiles/robot1_vel_server.dir/progress.make
 include CMakeFiles/robot1_vel_server.dir/flags.make
 
 CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.o: CMakeFiles/robot1_vel_server.dir/flags.make
-CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.o: /home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/robot1_vel_server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/robot1_vel_server.cpp
+CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.o: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/robot1_vel_server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.o -c /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/robot1_vel_server.cpp
 
 CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/robot1_vel_server.cpp > CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/robot1_vel_server.cpp > CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.i
 
 CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/robot1_vel_server.cpp -o CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/robot1_vel_server.cpp -o CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.s
 
 # Object files for target robot1_vel_server
 robot1_vel_server_OBJECTS = \
@@ -80,10 +80,10 @@ robot1_vel_server_EXTERNAL_OBJECTS =
 robot1_vel_server: CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.o
 robot1_vel_server: CMakeFiles/robot1_vel_server.dir/build.make
 robot1_vel_server: /opt/ros/foxy/lib/librclcpp.so
-robot1_vel_server: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_introspection_c.so
-robot1_vel_server: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_c.so
-robot1_vel_server: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_introspection_cpp.so
-robot1_vel_server: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_cpp.so
+robot1_vel_server: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_introspection_c.so
+robot1_vel_server: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_c.so
+robot1_vel_server: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_introspection_cpp.so
+robot1_vel_server: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_cpp.so
 robot1_vel_server: /opt/ros/foxy/lib/libgeometry_msgs__rosidl_typesupport_introspection_c.so
 robot1_vel_server: /opt/ros/foxy/lib/libgeometry_msgs__rosidl_typesupport_c.so
 robot1_vel_server: /opt/ros/foxy/lib/libgeometry_msgs__rosidl_typesupport_introspection_cpp.so
@@ -117,7 +117,7 @@ robot1_vel_server: /opt/ros/foxy/lib/libstatistics_msgs__rosidl_typesupport_c.so
 robot1_vel_server: /opt/ros/foxy/lib/libstatistics_msgs__rosidl_typesupport_introspection_cpp.so
 robot1_vel_server: /opt/ros/foxy/lib/libstatistics_msgs__rosidl_typesupport_cpp.so
 robot1_vel_server: /opt/ros/foxy/lib/libtracetools.so
-robot1_vel_server: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_generator_c.so
+robot1_vel_server: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_generator_c.so
 robot1_vel_server: /opt/ros/foxy/lib/libgeometry_msgs__rosidl_generator_c.so
 robot1_vel_server: /opt/ros/foxy/lib/libstd_msgs__rosidl_typesupport_introspection_c.so
 robot1_vel_server: /opt/ros/foxy/lib/libstd_msgs__rosidl_generator_c.so
@@ -137,7 +137,7 @@ robot1_vel_server: /opt/ros/foxy/lib/librcpputils.so
 robot1_vel_server: /opt/ros/foxy/lib/librosidl_runtime_c.so
 robot1_vel_server: /opt/ros/foxy/lib/librcutils.so
 robot1_vel_server: CMakeFiles/robot1_vel_server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable robot1_vel_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable robot1_vel_server"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/robot1_vel_server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -150,6 +150,6 @@ CMakeFiles/robot1_vel_server.dir/clean:
 .PHONY : CMakeFiles/robot1_vel_server.dir/clean
 
 CMakeFiles/robot1_vel_server.dir/depend:
-	cd /home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg /home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg /home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg /home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg /home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg/CMakeFiles/robot1_vel_server.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg/CMakeFiles/robot1_vel_server.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/robot1_vel_server.dir/depend
 

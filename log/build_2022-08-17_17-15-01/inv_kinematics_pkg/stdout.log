@@ -1,0 +1,6 @@
+[ 16%] Built target platform2_vel_server
+[ 33%] Built target robot1_vel_server
+[ 50%] Built target platform1_vel_server
+[ 66%] Built target platform2_vel_test_client
+[100%] Built target platform1_vel_test_client
+[100%] Built target robot2_vel_server

@@ -1,0 +1,187 @@
+[0.000000] (-) TimerEvent: {}
+[0.000248] (gazebo_plugin_sim) JobQueued: {'identifier': 'gazebo_plugin_sim', 'dependencies': OrderedDict()}
+[0.000434] (img_proc_pkg) JobQueued: {'identifier': 'img_proc_pkg', 'dependencies': OrderedDict()}
+[0.000591] (interfaces) JobQueued: {'identifier': 'interfaces', 'dependencies': OrderedDict()}
+[0.000924] (control_pkg) JobQueued: {'identifier': 'control_pkg', 'dependencies': OrderedDict([('interfaces', '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/interfaces')])}
+[0.001170] (inv_kinematics_pkg) JobQueued: {'identifier': 'inv_kinematics_pkg', 'dependencies': OrderedDict([('interfaces', '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/interfaces')])}
+[0.001527] (interfaces) JobStarted: {'identifier': 'interfaces'}
+[0.052019] (gazebo_plugin_sim) JobStarted: {'identifier': 'gazebo_plugin_sim'}
+[0.099950] (img_proc_pkg) JobStarted: {'identifier': 'img_proc_pkg'}
+[0.105775] (-) TimerEvent: {}
+[0.149067] (interfaces) JobProgress: {'identifier': 'interfaces', 'progress': 'cmake'}
+[0.149475] (interfaces) Command: {'cmd': ['/usr/bin/cmake', '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/interfaces', '-DCMAKE_INSTALL_PREFIX=/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/interfaces'], 'cwd': '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'duvanmarrugo'), ('SSH_AGENT_PID', '1486'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/duvanmarrugo'), ('OLDPWD', '/home/duvanmarrugo'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1305'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2876'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/duvanmarrugo/ros2_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'duvanmarrugo'), ('JOURNAL_STREAM', '8:45091'), ('_', '/home/duvanmarrugo/.local/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'duvanmarrugo'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/home/duvanmarrugo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/DM:@/tmp/.ICE-unix/1524,unix/DM:/tmp/.ICE-unix/1524'), ('INVOCATION_ID', '09475270572a4121888e3b5bb3e76a8a'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/home/duvanmarrugo/ros2_ws/install/my_cpp_pkg:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:7c53ed73-7691-4e90-b37b-298cac8f859a'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/duvanmarrugo/ros2_ws/install/my_py_pkg/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/duvanmarrugo/ros2_ws/install/my_cpp_pkg:/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/opt/ros/foxy')]), 'shell': False}
+[0.160424] (gazebo_plugin_sim) JobProgress: {'identifier': 'gazebo_plugin_sim', 'progress': 'cmake'}
+[0.161195] (gazebo_plugin_sim) Command: {'cmd': ['/usr/bin/cmake', '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim', '-DCMAKE_INSTALL_PREFIX=/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim'], 'cwd': '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'duvanmarrugo'), ('SSH_AGENT_PID', '1486'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/duvanmarrugo'), ('OLDPWD', '/home/duvanmarrugo'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1305'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2876'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/duvanmarrugo/ros2_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'duvanmarrugo'), ('JOURNAL_STREAM', '8:45091'), ('_', '/home/duvanmarrugo/.local/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'duvanmarrugo'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/home/duvanmarrugo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/DM:@/tmp/.ICE-unix/1524,unix/DM:/tmp/.ICE-unix/1524'), ('INVOCATION_ID', '09475270572a4121888e3b5bb3e76a8a'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/home/duvanmarrugo/ros2_ws/install/my_cpp_pkg:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:7c53ed73-7691-4e90-b37b-298cac8f859a'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/duvanmarrugo/ros2_ws/install/my_py_pkg/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/duvanmarrugo/ros2_ws/install/my_cpp_pkg:/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/opt/ros/foxy')]), 'shell': False}
+[0.167536] (img_proc_pkg) JobProgress: {'identifier': 'img_proc_pkg', 'progress': 'cmake'}
+[0.167930] (img_proc_pkg) Command: {'cmd': ['/usr/bin/cmake', '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/img_proc_pkg', '-DCMAKE_INSTALL_PREFIX=/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg'], 'cwd': '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/img_proc_pkg', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'duvanmarrugo'), ('SSH_AGENT_PID', '1486'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/duvanmarrugo'), ('OLDPWD', '/home/duvanmarrugo'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1305'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2876'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/duvanmarrugo/ros2_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'duvanmarrugo'), ('JOURNAL_STREAM', '8:45091'), ('_', '/home/duvanmarrugo/.local/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'duvanmarrugo'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/home/duvanmarrugo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/DM:@/tmp/.ICE-unix/1524,unix/DM:/tmp/.ICE-unix/1524'), ('INVOCATION_ID', '09475270572a4121888e3b5bb3e76a8a'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/home/duvanmarrugo/ros2_ws/install/my_cpp_pkg:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:7c53ed73-7691-4e90-b37b-298cac8f859a'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/img_proc_pkg'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/duvanmarrugo/ros2_ws/install/my_py_pkg/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/duvanmarrugo/ros2_ws/install/my_cpp_pkg:/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/opt/ros/foxy')]), 'shell': False}
+[0.205938] (-) TimerEvent: {}
+[0.306382] (-) TimerEvent: {}
+[0.406969] (-) TimerEvent: {}
+[0.507732] (-) TimerEvent: {}
+[0.587401] (gazebo_plugin_sim) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[0.594593] (interfaces) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[0.595206] (img_proc_pkg) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[0.607820] (-) TimerEvent: {}
+[0.708406] (-) TimerEvent: {}
+[0.809351] (-) TimerEvent: {}
+[0.886992] (interfaces) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[0.899615] (interfaces) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[0.901544] (img_proc_pkg) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[0.903290] (gazebo_plugin_sim) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[0.909132] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[0.909402] (-) TimerEvent: {}
+[0.910814] (img_proc_pkg) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[1.009541] (-) TimerEvent: {}
+[1.016387] (interfaces) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[1.020560] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[1.021558] (interfaces) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.022708] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.028750] (img_proc_pkg) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[1.030406] (img_proc_pkg) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.109657] (-) TimerEvent: {}
+[1.137152] (img_proc_pkg) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.140934] (interfaces) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.151319] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.159293] (img_proc_pkg) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.160149] (img_proc_pkg) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.163954] (img_proc_pkg) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[1.165845] (interfaces) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.166483] (interfaces) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.171040] (interfaces) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[1.177171] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.178484] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.189090] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[1.209766] (-) TimerEvent: {}
+[1.308562] (img_proc_pkg) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[1.308847] (img_proc_pkg) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[1.311346] (-) TimerEvent: {}
+[1.354615] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[1.357797] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[1.361880] (interfaces) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[1.363993] (interfaces) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[1.411454] (-) TimerEvent: {}
+[1.481167] (img_proc_pkg) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[1.507323] (img_proc_pkg) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[1.507514] (img_proc_pkg) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[1.507646] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[1.510424] (img_proc_pkg) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[1.511539] (-) TimerEvent: {}
+[1.520560] (interfaces) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[1.526373] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[1.527424] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[1.531301] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[1.544226] (interfaces) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[1.544944] (interfaces) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[1.547941] (interfaces) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[1.549743] (img_proc_pkg) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[1.550025] (img_proc_pkg) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[1.569393] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[1.569735] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[1.589622] (interfaces) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[1.589964] (interfaces) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[1.611640] (-) TimerEvent: {}
+[1.712321] (-) TimerEvent: {}
+[1.812776] (-) TimerEvent: {}
+[1.862031] (gazebo_plugin_sim) StderrLine: {'line': b'CMake Error at CMakeLists.txt:25 (find_package):\n'}
+[1.862301] (gazebo_plugin_sim) StderrLine: {'line': b'  By not providing "Findcamera_info_manager.cmake" in CMAKE_MODULE_PATH this\n'}
+[1.862478] (gazebo_plugin_sim) StderrLine: {'line': b'  project has asked CMake to find a package configuration file provided by\n'}
+[1.862961] (gazebo_plugin_sim) StderrLine: {'line': b'  "camera_info_manager", but CMake did not find one.\n'}
+[1.863124] (gazebo_plugin_sim) StderrLine: {'line': b'\n'}
+[1.863422] (gazebo_plugin_sim) StderrLine: {'line': b'  Could not find a package configuration file provided by\n'}
+[1.863548] (gazebo_plugin_sim) StderrLine: {'line': b'  "camera_info_manager" with any of the following names:\n'}
+[1.863687] (gazebo_plugin_sim) StderrLine: {'line': b'\n'}
+[1.863840] (gazebo_plugin_sim) StderrLine: {'line': b'    camera_info_managerConfig.cmake\n'}
+[1.863968] (gazebo_plugin_sim) StderrLine: {'line': b'    camera_info_manager-config.cmake\n'}
+[1.864093] (gazebo_plugin_sim) StderrLine: {'line': b'\n'}
+[1.864211] (gazebo_plugin_sim) StderrLine: {'line': b'  Add the installation prefix of "camera_info_manager" to CMAKE_PREFIX_PATH\n'}
+[1.864331] (gazebo_plugin_sim) StderrLine: {'line': b'  or set "camera_info_manager_DIR" to a directory containing one of the above\n'}
+[1.864442] (gazebo_plugin_sim) StderrLine: {'line': b'  files.  If "camera_info_manager" provides a separate development package or\n'}
+[1.864551] (gazebo_plugin_sim) StderrLine: {'line': b'  SDK, be sure it has been installed.\n'}
+[1.864664] (gazebo_plugin_sim) StderrLine: {'line': b'\n'}
+[1.864767] (gazebo_plugin_sim) StderrLine: {'line': b'\n'}
+[1.864874] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[1.865007] (gazebo_plugin_sim) StdoutLine: {'line': b'See also "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/CMakeFiles/CMakeOutput.log".\n'}
+[1.868242] (gazebo_plugin_sim) CommandEnded: {'returncode': 1}
+[1.912908] (-) TimerEvent: {}
+[1.922365] (gazebo_plugin_sim) JobEnded: {'identifier': 'gazebo_plugin_sim', 'rc': 1}
+[1.968141] (img_proc_pkg) StdoutLine: {'line': b'-- Found OpenCV: /usr (found suitable version "4.2.0", minimum required is "4.2") \n'}
+[1.970118] (img_proc_pkg) StdoutLine: {'line': b'-- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)\n'}
+[1.971072] (interfaces) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)\n'}
+[1.977501] (interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.989365] (interfaces) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[2.012076] (img_proc_pkg) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.012964] (-) TimerEvent: {}
+[2.020305] (img_proc_pkg) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[2.113080] (-) TimerEvent: {}
+[2.132622] (img_proc_pkg) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[2.132940] (interfaces) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[2.169170] (interfaces) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[2.169430] (img_proc_pkg) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[2.213189] (-) TimerEvent: {}
+[2.275062] (interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.275388] (img_proc_pkg) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.313284] (-) TimerEvent: {}
+[2.343254] (interfaces) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") \n'}
+[2.413381] (-) TimerEvent: {}
+[2.513683] (-) TimerEvent: {}
+[2.562939] (img_proc_pkg) StdoutLine: {'line': b'-- Found rclcpp: 2.4.1 (/opt/ros/foxy/share/rclcpp/cmake)\n'}
+[2.613801] (-) TimerEvent: {}
+[2.623635] (interfaces) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)\n'}
+[2.674881] (img_proc_pkg) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)\n'}
+[2.677773] (img_proc_pkg) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[2.681629] (img_proc_pkg) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[2.713906] (-) TimerEvent: {}
+[2.802974] (interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.814005] (-) TimerEvent: {}
+[2.823336] (img_proc_pkg) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[2.823645] (img_proc_pkg) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[2.827606] (interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.870491] (interfaces) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[2.873581] (interfaces) StdoutLine: {'line': b'-- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)\n'}
+[2.914114] (-) TimerEvent: {}
+[2.927966] (interfaces) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[2.928939] (interfaces) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[2.929207] (interfaces) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8\n'}
+[2.929304] (interfaces) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so\n'}
+[2.957058] (img_proc_pkg) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed\n'}
+[2.957819] (img_proc_pkg) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads\n'}
+[2.971453] (interfaces) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[3.014215] (-) TimerEvent: {}
+[3.049081] (img_proc_pkg) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads - not found\n'}
+[3.049393] (img_proc_pkg) StdoutLine: {'line': b'-- Looking for pthread_create in pthread\n'}
+[3.060097] (interfaces) StdoutLine: {'line': b'-- Configuring done\n'}
+[3.114327] (-) TimerEvent: {}
+[3.131713] (interfaces) StdoutLine: {'line': b'-- Generating done\n'}
+[3.134972] (interfaces) StdoutLine: {'line': b'-- Build files have been written to: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces\n'}
+[3.142609] (img_proc_pkg) StdoutLine: {'line': b'-- Looking for pthread_create in pthread - found\n'}
+[3.144449] (img_proc_pkg) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[3.146471] (interfaces) JobEnded: {'identifier': 'interfaces', 'rc': 'SIGINT'}
+[3.214451] (-) TimerEvent: {}
+[3.314723] (-) TimerEvent: {}
+[3.355459] (img_proc_pkg) StdoutLine: {'line': b'-- Found image_transport: 2.3.0 (/opt/ros/foxy/share/image_transport/cmake)\n'}
+[3.414866] (-) TimerEvent: {}
+[3.425570] (img_proc_pkg) StdoutLine: {'line': b'-- Found cv_bridge: 2.2.1 (/opt/ros/foxy/share/cv_bridge/cmake)\n'}
+[3.442846] (img_proc_pkg) StderrLine: {'line': b'CMake Error at CMakeLists.txt:26 (find_package):\n'}
+[3.443126] (img_proc_pkg) StderrLine: {'line': b'  By not providing "Findinterfaces.cmake" in CMAKE_MODULE_PATH this project\n'}
+[3.443351] (img_proc_pkg) StderrLine: {'line': b'  has asked CMake to find a package configuration file provided by\n'}
+[3.443513] (img_proc_pkg) StderrLine: {'line': b'  "interfaces", but CMake did not find one.\n'}
+[3.443670] (img_proc_pkg) StderrLine: {'line': b'\n'}
+[3.443825] (img_proc_pkg) StderrLine: {'line': b'  Could not find a package configuration file provided by "interfaces" with\n'}
+[3.443981] (img_proc_pkg) StderrLine: {'line': b'  any of the following names:\n'}
+[3.444136] (img_proc_pkg) StderrLine: {'line': b'\n'}
+[3.444287] (img_proc_pkg) StderrLine: {'line': b'    interfacesConfig.cmake\n'}
+[3.444438] (img_proc_pkg) StderrLine: {'line': b'    interfaces-config.cmake\n'}
+[3.444591] (img_proc_pkg) StderrLine: {'line': b'\n'}
+[3.444743] (img_proc_pkg) StderrLine: {'line': b'  Add the installation prefix of "interfaces" to CMAKE_PREFIX_PATH or set\n'}
+[3.444896] (img_proc_pkg) StderrLine: {'line': b'  "interfaces_DIR" to a directory containing one of the above files.  If\n'}
+[3.445047] (img_proc_pkg) StderrLine: {'line': b'  "interfaces" provides a separate development package or SDK, be sure it has\n'}
+[3.445201] (img_proc_pkg) StderrLine: {'line': b'  been installed.\n'}
+[3.445353] (img_proc_pkg) StderrLine: {'line': b'\n'}
+[3.445505] (img_proc_pkg) StderrLine: {'line': b'\n'}
+[3.446586] (img_proc_pkg) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[3.446719] (img_proc_pkg) StdoutLine: {'line': b'See also "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/img_proc_pkg/CMakeFiles/CMakeOutput.log".\n'}
+[3.446801] (img_proc_pkg) StdoutLine: {'line': b'See also "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/img_proc_pkg/CMakeFiles/CMakeError.log".\n'}
+[3.457485] (img_proc_pkg) JobEnded: {'identifier': 'img_proc_pkg', 'rc': 'SIGINT'}
+[3.468246] (control_pkg) JobSkipped: {'identifier': 'control_pkg'}
+[3.468343] (inv_kinematics_pkg) JobSkipped: {'identifier': 'inv_kinematics_pkg'}
+[3.468391] (-) EventReactorShutdown: {}

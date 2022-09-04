@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg
+CMAKE_SOURCE_DIR = /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/control_pkg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg
+CMAKE_BINARY_DIR = /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg
 
 # Utility rule file for uninstall.
 
@@ -67,6 +67,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg /home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg /home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg /home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg /home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/control_pkg /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/control_pkg /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/uninstall.dir/depend
 

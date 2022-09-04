@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/include/gazebo_plugin_sim/platform_plugin_test.hpp
+/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/include/gazebo_plugin_sim/platform_plugin_test.hpp
 gazebo/common/Plugin.hh
 -
 memory
 -
 
-/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/src/platform_plugin_test.cpp
+/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/src/platform_plugin_test.cpp
 gazebo/common/Time.hh
 -
 gazebo/physics/Joint.hh

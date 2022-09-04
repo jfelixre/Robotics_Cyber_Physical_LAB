@@ -1,18 +1,18 @@
 {
   "package_name": "interfaces",
-  "output_dir": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces",
+  "output_dir": "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces",
   "template_dir": "/opt/ros/foxy/share/rosidl_generator_c/cmake/../resource",
   "idl_tuples": [
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces:srv/PlatformVel.idl",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces:msg/MotorVels.idl",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces:msg/ImgData.idl",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces:srv/ControlPidStart.idl",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces:msg/PlatState.idl",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces:msg/ControlData.idl",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces:msg/MotorVelsWArm.idl",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces:msg/LimitSwitch.idl",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces:srv/RobotVel.idl",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces:msg/RobotState.idl"
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces:srv/PlatformVel.idl",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces:msg/MotorVels.idl",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces:msg/ImgData.idl",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces:srv/ControlPidStart.idl",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces:msg/PlatState.idl",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces:msg/ControlData.idl",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces:msg/MotorVelsWArm.idl",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces:msg/LimitSwitch.idl",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces:srv/RobotVel.idl",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces:msg/RobotState.idl"
   ],
   "target_dependencies": [
     "/opt/ros/foxy/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c",
@@ -28,15 +28,15 @@
     "/opt/ros/foxy/share/rosidl_generator_c/cmake/../resource/msg__struct.h.em",
     "/opt/ros/foxy/share/rosidl_generator_c/cmake/../resource/msg__type_support.h.em",
     "/opt/ros/foxy/share/rosidl_generator_c/cmake/../resource/srv__type_support.h.em",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces/srv/PlatformVel.idl",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces/msg/MotorVels.idl",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces/msg/ImgData.idl",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces/srv/ControlPidStart.idl",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces/msg/PlatState.idl",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces/msg/ControlData.idl",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces/msg/MotorVelsWArm.idl",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces/msg/LimitSwitch.idl",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces/srv/RobotVel.idl",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces/msg/RobotState.idl"
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces/srv/PlatformVel.idl",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces/msg/MotorVels.idl",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces/msg/ImgData.idl",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces/srv/ControlPidStart.idl",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces/msg/PlatState.idl",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces/msg/ControlData.idl",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces/msg/MotorVelsWArm.idl",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces/msg/LimitSwitch.idl",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces/srv/RobotVel.idl",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_adapter/interfaces/msg/RobotState.idl"
   ]
 }

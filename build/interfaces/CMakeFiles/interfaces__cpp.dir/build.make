@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/javierfr/Robotics_Cyber_Physical_LAB/src/interfaces
+CMAKE_SOURCE_DIR = /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/interfaces
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces
+CMAKE_BINARY_DIR = /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces
 
 # Utility rule file for interfaces__cpp.
 
@@ -120,8 +120,8 @@ rosidl_generator_cpp/interfaces/srv/platform_vel.hpp: rosidl_adapter/interfaces/
 rosidl_generator_cpp/interfaces/srv/platform_vel.hpp: rosidl_adapter/interfaces/msg/LimitSwitch.idl
 rosidl_generator_cpp/interfaces/srv/platform_vel.hpp: rosidl_adapter/interfaces/srv/RobotVel.idl
 rosidl_generator_cpp/interfaces/srv/platform_vel.hpp: rosidl_adapter/interfaces/msg/RobotState.idl
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code for ROS interfaces"
-	/usr/bin/python3 /opt/ros/foxy/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp__arguments.json
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code for ROS interfaces"
+	/usr/bin/python3 /opt/ros/foxy/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp__arguments.json
 
 rosidl_generator_cpp/interfaces/srv/detail/platform_vel__builder.hpp: rosidl_generator_cpp/interfaces/srv/platform_vel.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/interfaces/srv/detail/platform_vel__builder.hpp
@@ -295,6 +295,6 @@ CMakeFiles/interfaces__cpp.dir/clean:
 .PHONY : CMakeFiles/interfaces__cpp.dir/clean
 
 CMakeFiles/interfaces__cpp.dir/depend:
-	cd /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/javierfr/Robotics_Cyber_Physical_LAB/src/interfaces /home/javierfr/Robotics_Cyber_Physical_LAB/src/interfaces /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/CMakeFiles/interfaces__cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/interfaces /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/interfaces /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces/CMakeFiles/interfaces__cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/interfaces__cpp.dir/depend
 

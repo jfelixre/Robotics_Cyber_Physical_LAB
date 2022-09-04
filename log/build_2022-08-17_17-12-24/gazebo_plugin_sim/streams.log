@@ -1,0 +1,31 @@
+[0.092s] Invoking command in '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/opt/ros/foxy /usr/bin/cmake /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim -DCMAKE_INSTALL_PREFIX=/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim
+[0.119s] -- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.162s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.785s] -- Found camera_info_manager: 2.3.0 (/opt/ros/foxy/share/camera_info_manager/cmake)
+[0.877s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.885s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.197s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.321s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[1.326s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.102s] -- Setting yaml-cpp_DIR to: '/opt/ros/foxy/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/lib/cmake/yaml-cpp'
+[2.297s] CMake Error at CMakeLists.txt:26 (find_package):
+[2.297s]   By not providing "Findgazebo_dev.cmake" in CMAKE_MODULE_PATH this project
+[2.297s]   has asked CMake to find a package configuration file provided by
+[2.297s]   "gazebo_dev", but CMake did not find one.
+[2.297s] 
+[2.298s]   Could not find a package configuration file provided by "gazebo_dev" with
+[2.298s]   any of the following names:
+[2.298s] 
+[2.298s]     gazebo_devConfig.cmake
+[2.298s]     gazebo_dev-config.cmake
+[2.298s] 
+[2.299s]   Add the installation prefix of "gazebo_dev" to CMAKE_PREFIX_PATH or set
+[2.299s]   "gazebo_dev_DIR" to a directory containing one of the above files.  If
+[2.299s]   "gazebo_dev" provides a separate development package or SDK, be sure it has
+[2.299s]   been installed.
+[2.299s] 
+[2.299s] 
+[2.309s] -- Configuring incomplete, errors occurred!
+[2.310s] See also "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/CMakeFiles/CMakeOutput.log".
+[2.310s] See also "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/CMakeFiles/CMakeError.log".
+[2.326s] Invoked command in '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/opt/ros/foxy /usr/bin/cmake /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim -DCMAKE_INSTALL_PREFIX=/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim

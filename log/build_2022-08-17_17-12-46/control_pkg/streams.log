@@ -1,0 +1,17 @@
+[0.077s] Invoking command in '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/opt/ros/foxy /usr/bin/cmake --build /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg -- -j4 -l4
+[0.211s] [35m[1mScanning dependencies of target control_pid_p2_node[0m
+[0.212s] [35m[1mScanning dependencies of target control_pid_p1_node[0m
+[0.225s] [35m[1mScanning dependencies of target control_pid_r2_node[0m
+[0.227s] [35m[1mScanning dependencies of target control_pid_r1_node[0m
+[0.320s] [ 12%] [32mBuilding CXX object CMakeFiles/control_pid_p2_node.dir/src/control_pid_p2_node.cpp.o[0m
+[0.401s] [ 25%] [32mBuilding CXX object CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o[0m
+[0.433s] [ 37%] [32mBuilding CXX object CMakeFiles/control_pid_r1_node.dir/src/control_pid_r1_node.cpp.o[0m
+[0.434s] [ 50%] [32mBuilding CXX object CMakeFiles/control_pid_r2_node.dir/src/control_pid_r2_node.cpp.o[0m
+[25.304s] [ 62%] [32m[1mLinking CXX executable control_pid_p1_node[0m
+[26.207s] [ 75%] [32m[1mLinking CXX executable control_pid_p2_node[0m
+[26.443s] [ 75%] Built target control_pid_p1_node
+[27.063s] [ 75%] Built target control_pid_p2_node
+[29.915s] [ 87%] [32m[1mLinking CXX executable control_pid_r2_node[0m
+[30.080s] [100%] [32m[1mLinking CXX executable control_pid_r1_node[0m
+[30.869s] [100%] Built target control_pid_r2_node
+[31.128s] [100%] Built target control_pid_r1_node

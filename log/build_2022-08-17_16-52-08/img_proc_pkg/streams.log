@@ -1,0 +1,59 @@
+[0.071s] Invoking command in '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/opt/ros/foxy /usr/bin/cmake /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/img_proc_pkg -DCMAKE_INSTALL_PREFIX=/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg
+[0.495s] -- The C compiler identification is GNU 9.4.0
+[0.801s] -- The CXX compiler identification is GNU 9.4.0
+[0.811s] -- Check for working C compiler: /usr/bin/cc
+[0.928s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.930s] -- Detecting C compiler ABI info
+[1.037s] -- Detecting C compiler ABI info - done
+[1.059s] -- Detecting C compile features
+[1.060s] -- Detecting C compile features - done
+[1.064s] -- Check for working CXX compiler: /usr/bin/c++
+[1.208s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[1.209s] -- Detecting CXX compiler ABI info
+[1.381s] -- Detecting CXX compiler ABI info - done
+[1.407s] -- Detecting CXX compile features
+[1.407s] -- Detecting CXX compile features - done
+[1.410s] -- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)
+[1.450s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[1.450s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.868s] -- Found OpenCV: /usr (found suitable version "4.2.0", minimum required is "4.2") 
+[1.870s] -- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[1.912s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.920s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[2.032s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[2.069s] -- Found FastRTPS: /opt/ros/foxy/include  
+[2.175s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.463s] -- Found rclcpp: 2.4.1 (/opt/ros/foxy/share/rclcpp/cmake)
+[2.575s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[2.577s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.581s] -- Looking for pthread.h
+[2.723s] -- Looking for pthread.h - found
+[2.723s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[2.857s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[2.857s] -- Looking for pthread_create in pthreads
+[2.949s] -- Looking for pthread_create in pthreads - not found
+[2.949s] -- Looking for pthread_create in pthread
+[3.042s] -- Looking for pthread_create in pthread - found
+[3.044s] -- Found Threads: TRUE  
+[3.255s] -- Found image_transport: 2.3.0 (/opt/ros/foxy/share/image_transport/cmake)
+[3.325s] -- Found cv_bridge: 2.2.1 (/opt/ros/foxy/share/cv_bridge/cmake)
+[3.343s] CMake Error at CMakeLists.txt:26 (find_package):
+[3.343s]   By not providing "Findinterfaces.cmake" in CMAKE_MODULE_PATH this project
+[3.343s]   has asked CMake to find a package configuration file provided by
+[3.343s]   "interfaces", but CMake did not find one.
+[3.343s] 
+[3.343s]   Could not find a package configuration file provided by "interfaces" with
+[3.344s]   any of the following names:
+[3.344s] 
+[3.344s]     interfacesConfig.cmake
+[3.344s]     interfaces-config.cmake
+[3.344s] 
+[3.344s]   Add the installation prefix of "interfaces" to CMAKE_PREFIX_PATH or set
+[3.345s]   "interfaces_DIR" to a directory containing one of the above files.  If
+[3.345s]   "interfaces" provides a separate development package or SDK, be sure it has
+[3.345s]   been installed.
+[3.345s] 
+[3.345s] 
+[3.346s] -- Configuring incomplete, errors occurred!
+[3.346s] See also "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/img_proc_pkg/CMakeFiles/CMakeOutput.log".
+[3.346s] See also "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/img_proc_pkg/CMakeFiles/CMakeError.log".

@@ -1,15 +1,15 @@
 {
   "package_name": "interfaces",
   "non_idl_tuples": [
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/src/interfaces:srv/PlatformVel.srv",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/src/interfaces:msg/MotorVels.msg",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/src/interfaces:msg/ImgData.msg",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/src/interfaces:srv/ControlPidStart.srv",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/src/interfaces:msg/PlatState.msg",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/src/interfaces:msg/ControlData.msg",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/src/interfaces:msg/MotorVelsWArm.msg",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/src/interfaces:msg/LimitSwitch.msg",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/src/interfaces:srv/RobotVel.srv",
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/src/interfaces:msg/RobotState.msg"
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/interfaces:srv/PlatformVel.srv",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/interfaces:msg/MotorVels.msg",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/interfaces:msg/ImgData.msg",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/interfaces:srv/ControlPidStart.srv",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/interfaces:msg/PlatState.msg",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/interfaces:msg/ControlData.msg",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/interfaces:msg/MotorVelsWArm.msg",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/interfaces:msg/LimitSwitch.msg",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/interfaces:srv/RobotVel.srv",
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/interfaces:msg/RobotState.msg"
   ]
 }

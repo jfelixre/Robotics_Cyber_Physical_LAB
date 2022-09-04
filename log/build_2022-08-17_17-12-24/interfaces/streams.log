@@ -1,0 +1,16 @@
+[0.112s] Invoking command in '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/opt/ros/foxy /usr/bin/cmake --build /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces -- -j4 -l4
+[0.208s] [  0%] Built target interfaces__cpp
+[0.212s] [ 12%] Built target interfaces__rosidl_generator_c
+[0.307s] [ 24%] Built target interfaces__rosidl_typesupport_introspection_cpp
+[0.314s] [ 36%] Built target interfaces__rosidl_typesupport_introspection_c
+[0.323s] [ 48%] Built target interfaces__rosidl_typesupport_cpp
+[0.344s] [ 59%] Built target interfaces__rosidl_typesupport_fastrtps_cpp
+[0.358s] [ 70%] Built target interfaces__rosidl_typesupport_c
+[0.418s] [ 82%] Built target interfaces__rosidl_typesupport_fastrtps_c
+[0.496s] [ 82%] Built target interfaces
+[0.661s] [ 83%] Built target interfaces__py
+[0.824s] [ 94%] Built target interfaces__python
+[0.919s] [ 96%] Built target interfaces__rosidl_typesupport_introspection_c__pyext
+[0.935s] [ 98%] Built target interfaces__rosidl_typesupport_c__pyext
+[0.950s] [100%] Built target interfaces__rosidl_typesupport_fastrtps_c__pyext
+[0.976s] Invoked command in '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/opt/ros/foxy /usr/bin/cmake --build /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/interfaces -- -j4 -l4

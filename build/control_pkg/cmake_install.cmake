@@ -1,8 +1,8 @@
-# Install script for directory: /home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg
+# Install script for directory: /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/control_pkg
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg")
+  set(CMAKE_INSTALL_PREFIX "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/control_pkg")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -44,12 +44,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/control_pkg/control_pid_p1_node"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/control_pkg" TYPE EXECUTABLE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg/control_pid_p1_node")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/control_pkg" TYPE EXECUTABLE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg/control_pid_p1_node")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/control_pkg/control_pid_p1_node" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/control_pkg/control_pid_p1_node")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/control_pkg/control_pid_p1_node"
-         OLD_RPATH "/opt/ros/foxy/lib:/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:"
+         OLD_RPATH "/opt/ros/foxy/lib:/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/interfaces/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/control_pkg/control_pid_p1_node")
@@ -64,12 +64,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/control_pkg/control_pid_p2_node"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/control_pkg" TYPE EXECUTABLE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg/control_pid_p2_node")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/control_pkg" TYPE EXECUTABLE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg/control_pid_p2_node")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/control_pkg/control_pid_p2_node" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/control_pkg/control_pid_p2_node")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/control_pkg/control_pid_p2_node"
-         OLD_RPATH "/opt/ros/foxy/lib:/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:"
+         OLD_RPATH "/opt/ros/foxy/lib:/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/interfaces/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/control_pkg/control_pid_p2_node")
@@ -84,12 +84,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/control_pkg/control_pid_r1_node"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/control_pkg" TYPE EXECUTABLE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg/control_pid_r1_node")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/control_pkg" TYPE EXECUTABLE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg/control_pid_r1_node")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/control_pkg/control_pid_r1_node" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/control_pkg/control_pid_r1_node")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/control_pkg/control_pid_r1_node"
-         OLD_RPATH "/opt/ros/foxy/lib:/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:"
+         OLD_RPATH "/opt/ros/foxy/lib:/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/interfaces/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/control_pkg/control_pid_r1_node")
@@ -104,12 +104,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/control_pkg/control_pid_r2_node"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/control_pkg" TYPE EXECUTABLE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg/control_pid_r2_node")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/control_pkg" TYPE EXECUTABLE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg/control_pid_r2_node")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/control_pkg/control_pid_r2_node" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/control_pkg/control_pid_r2_node")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/control_pkg/control_pid_r2_node"
-         OLD_RPATH "/opt/ros/foxy/lib:/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:"
+         OLD_RPATH "/opt/ros/foxy/lib:/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/interfaces/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/control_pkg/control_pid_r2_node")
@@ -118,11 +118,11 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/control_pkg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/control_pkg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/control_pkg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/control_pkg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -130,7 +130,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/control_pkg/environment" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_environment_hooks/ament_prefix_path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/control_pkg/environment" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_environment_hooks/ament_prefix_path.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -138,42 +138,42 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/control_pkg/environment" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_environment_hooks/path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/control_pkg/environment" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_environment_hooks/path.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/control_pkg" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_environment_hooks/local_setup.bash")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/control_pkg" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_environment_hooks/local_setup.bash")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/control_pkg" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_environment_hooks/local_setup.sh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/control_pkg" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_environment_hooks/local_setup.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/control_pkg" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_environment_hooks/local_setup.zsh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/control_pkg" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_environment_hooks/local_setup.zsh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/control_pkg" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_environment_hooks/local_setup.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/control_pkg" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_environment_hooks/local_setup.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/control_pkg" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_environment_hooks/package.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/control_pkg" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_environment_hooks/package.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_index/share/ament_index/resource_index/packages/control_pkg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_index/share/ament_index/resource_index/packages/control_pkg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/control_pkg/cmake" TYPE FILE FILES
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_core/control_pkgConfig.cmake"
-    "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_core/control_pkgConfig-version.cmake"
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_core/control_pkgConfig.cmake"
+    "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg/ament_cmake_core/control_pkgConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/control_pkg" TYPE FILE FILES "/home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/control_pkg" TYPE FILE FILES "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/src/control_pkg/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -184,5 +184,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/control_pkg/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

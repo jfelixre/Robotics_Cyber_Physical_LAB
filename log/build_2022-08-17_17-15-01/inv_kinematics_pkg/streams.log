@@ -1,0 +1,7 @@
+[0.061s] Invoking command in '/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg': CMAKE_PREFIX_PATH=/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/interfaces:/home/duvanmarrugo/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/duvanmarrugo/ros2_ws/install/my_cpp_pkg:/home/duvanmarrugo/ros2_ws/install/my_py_pkg:/opt/ros/foxy /usr/bin/cmake --build /home/duvanmarrugo/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg -- -j4 -l4
+[0.237s] [ 16%] Built target platform2_vel_server
+[0.251s] [ 33%] Built target robot1_vel_server
+[0.251s] [ 50%] Built target platform1_vel_server
+[0.253s] [ 66%] Built target platform2_vel_test_client
+[0.304s] [100%] Built target platform1_vel_test_client
+[0.305s] [100%] Built target robot2_vel_server
