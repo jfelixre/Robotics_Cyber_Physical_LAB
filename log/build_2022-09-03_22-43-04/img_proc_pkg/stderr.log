@@ -1,0 +1,26 @@
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp: In member function ‘void Img_Proc_Id_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const’:
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:130:22: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::vector<cv::Point_<int> > >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  130 |       for (int i=0; i<red_contours.size(); i++)
+      |                     ~^~~~~~~~~~~~~~~~~~~~
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:163:26: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::vector<cv::Point_<int> > >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  163 |         for (int ii=1; ii<red_subcontours.size(); ii++)
+      |                        ~~^~~~~~~~~~~~~~~~~~~~~~~
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:257:22: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::vector<cv::Point_<int> > >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  257 |       for (int i=0; i<blue_contours.size(); i++)
+      |                     ~^~~~~~~~~~~~~~~~~~~~~
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:290:26: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::vector<cv::Point_<int> > >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  290 |         for (int ii=1; ii<blue_subcontours.size(); ii++)
+      |                        ~~^~~~~~~~~~~~~~~~~~~~~~~~
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:385:22: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::vector<cv::Point_<int> > >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  385 |       for (int i=0; i<green_contours.size(); i++)
+      |                     ~^~~~~~~~~~~~~~~~~~~~~~
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:417:26: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::vector<cv::Point_<int> > >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  417 |         for (int ii=1; ii<green_subcontours.size(); ii++)
+      |                        ~~^~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/bin/ld: warning: libopencv_imgcodecs.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgcodecs.so.4.5
+/usr/bin/ld: warning: libopencv_core.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_core.so.4.5
+/usr/bin/ld: warning: libopencv_imgcodecs.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgcodecs.so.4.5
+/usr/bin/ld: warning: libopencv_imgproc.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.4.5
+/usr/bin/ld: warning: libopencv_core.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_core.so.4.5
+/usr/bin/ld: warning: libopencv_imgproc.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.4.5
+/usr/bin/ld: warning: libopencv_core.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_core.so.4.5
