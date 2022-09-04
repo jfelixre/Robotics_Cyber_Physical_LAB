@@ -1,4 +1,0 @@
-/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp: In member function ‘void Control_PID_P1_node::subs_callback(interfaces::msg::ImgData_<std::allocator<void> >::SharedPtr) const’:
-/home/javierfr/Tesis_ws/V1/src/control_pkg/src/control_pid_p1_node.cpp:24:64: warning: unused parameter ‘data_msg’ [-Wunused-parameter]
-   24 |   void subs_callback(const interfaces::msg::ImgData::SharedPtr data_msg) const
-      |                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~

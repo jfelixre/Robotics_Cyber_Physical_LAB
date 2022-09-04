@@ -1,7 +1,0 @@
-[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:[m[K In member function ‘[01m[Kvoid Img_Proc_Qr_Detector::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
-[01m[K/home/javierfr/Tesis_ws/V1/src/img_proc_pkg/src/img_proc_qr_detector.cpp:64:25:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kstd::__cxx11::basic_string<char>::length[m[K’ from type ‘[01m[Kstd::__cxx11::basic_string<char>::size_type (std::__cxx11::basic_string<char>::)() const noexcept[m[K’ {aka ‘[01m[Klong unsigned int (std::__cxx11::basic_string<char>::)() const[m[K’} to type ‘[01m[Kfloat[m[K’
-   64 |         float sdls=data.[01;31m[Klength[m[K;
-      |                         [01;31m[K^~~~~~[m[K
-make[2]: *** [CMakeFiles/img_proc_qr_detector.dir/build.make:63: CMakeFiles/img_proc_qr_detector.dir/src/img_proc_qr_detector.cpp.o] Error 1
-make[1]: *** [CMakeFiles/Makefile2:84: CMakeFiles/img_proc_qr_detector.dir/all] Error 2
-make: *** [Makefile:141: all] Error 2

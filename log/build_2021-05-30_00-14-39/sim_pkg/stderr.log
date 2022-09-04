@@ -1,7 +1,0 @@
-/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp: In function ‘void setvel(std::shared_ptr<interfaces::srv::Platform1Vel_Request_<std::allocator<void> > >, std::shared_ptr<interfaces::srv::Platform1Vel_Response_<std::allocator<void> > >)’:
-/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:6:75: warning: unused parameter ‘request’ [-Wunused-parameter]
-    6 | void setvel(const std::shared_ptr<interfaces::srv::Platform1Vel::Request> request,     // CHANGE
-      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
-/home/javierfr/Tesis_ws/V1/src/sim_pkg/src/plat1_send_vel_node.cpp:7:74: warning: unused parameter ‘response’ [-Wunused-parameter]
-    7 |           std::shared_ptr<interfaces::srv::Platform1Vel::Response>       response)  // CHANGE
-      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~

@@ -1,5 +1,0 @@
-make[2]: *** [CMakeFiles/platform1_plugin.dir/build.make:63: CMakeFiles/platform1_plugin.dir/src/platform1_plugin.cpp.o] Interrupt
-make[2]: *** [CMakeFiles/platform2_plugin.dir/build.make:63: CMakeFiles/platform2_plugin.dir/src/platform2_plugin.cpp.o] Interrupt
-make[1]: *** [CMakeFiles/Makefile2:82: CMakeFiles/platform1_plugin.dir/all] Interrupt
-make[1]: *** [CMakeFiles/Makefile2:163: CMakeFiles/platform2_plugin.dir/all] Interrupt
-make: *** [Makefile:141: all] Interrupt

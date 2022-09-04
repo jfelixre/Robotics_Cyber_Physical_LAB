@@ -1,7 +1,0 @@
--- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
--- Using PYTHON_EXECUTABLE: /usr/bin/python3
--- Configuring done
--- Generating done
--- Build files have been written to: /home/javierfr/Tesis_ws/V1/build/img_proc_pkg
-[35m[1mScanning dependencies of target img_proc_node[0m
-[ 50%] [32mBuilding CXX object CMakeFiles/img_proc_node.dir/src/img_proc_node.cpp.o[0m
