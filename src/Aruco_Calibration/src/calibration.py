@@ -7,7 +7,7 @@ import time
 
 class calibration():
     def __init__(self):
-        self.tablero = (8,5)
+        self.tablero = (9,6)
         self.tam_frame = (1280, 720)
         #Criterio
         self.criterio = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
@@ -35,9 +35,9 @@ class calibration():
                 esquinas2 = cv2.cornerSubPix(gray, esquinas, (11, 11), (-1, -1), self.criterio)
                 self.puntos_img.append(esquinas)
                 cv2.drawChessboardCorners(img, self.tablero, esquinas2, ret)
-                #cv2.imshow("img", img)
-                #cv2.imwrite('Grises.png',img)
-                #cv2.waitKey(0)
+                cv2.imshow("img", img)
+                cv2.imwrite('Grises.png',img)
+                cv2.waitKey(0)
                 
         ret, cameraMatrix, dist, rvecs, tvecs = cv2.calibrateCamera(self.puntos_3d, self.puntos_img, self.tam_frame, None, None)
 

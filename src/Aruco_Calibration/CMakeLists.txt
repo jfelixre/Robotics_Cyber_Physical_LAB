@@ -14,8 +14,8 @@ MACRO(add_example name)
   TARGET_LINK_LIBRARIES(${name} ${OpenCV_LIBS})
 ENDMACRO()
 
-#add_example(CalibrationUsingCpp1)
+add_example(CalibrationUsingCpp1)
 #add_example(CalibrationUsingCpp2)
-#add_example(ArucoDetectionCpp)
+add_example(ArucoDetectionCpp)
 
 
