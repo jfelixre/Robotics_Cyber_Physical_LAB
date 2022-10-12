@@ -17,7 +17,7 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(OpenCV 4.2 REQUIRED)
+find_package(OpenCV 4.6 REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
@@ -80,6 +80,19 @@ ament_target_dependencies(img_proc_id_node
   cv_bridge
   interfaces)
 
+add_executable(aruco_detector src/aruco_detector.cpp)
+target_include_directories(aruco_detector PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+ament_target_dependencies(aruco_detector
+  "OpenCV"
+  sensor_msgs
+  std_msgs
+  rclcpp
+  cv_bridge
+  interfaces)
+
 
 #include_directories(·${OpenCV_INCLUDE_DIRS}·)
 
@@ -88,6 +101,7 @@ install(TARGETS
   img_publ_test_node
   img_subs_test_node
   img_proc_id_node
+  aruco_detector
   DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY 
