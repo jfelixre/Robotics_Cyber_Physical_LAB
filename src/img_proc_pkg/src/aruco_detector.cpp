@@ -61,6 +61,16 @@ class Aruco_Detector : public rclcpp::Node
 
       img_mod=img_original.clone();
       //publisher->publish(data_image);
+
+      std::vector<int> markerIds;
+      std::vector<std::vector<cv::Point2f>> markerCorners, rejectedCandidates;
+      cv::Ptr<cv::aruco::DetectorParameters> parameters = cv::aruco::DetectorParameters::create();
+      cv::Ptr<cv::aruco::Dictionary> dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_6X6_250);
+      cv::aruco::detectMarkers(img_original, dictionary, markerCorners, markerIds, parameters, rejectedCandidates);
+
+      if (markerIds.size() > 0)
+        cv::aruco::drawDetectedMarkers(img_mod, markerCorners, markerIds);
+
   
   	  cv::namedWindow("Display Image", cv::WINDOW_AUTOSIZE );
   	  cv::imshow("Display Image", img_mod);
