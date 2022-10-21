@@ -22,6 +22,7 @@
 //#include <image_transport/image_transport.h>
 #include <cv_bridge/cv_bridge.h>
 #include <interfaces/msg/img_data.hpp>
+#include "/opt/opencv_contrib/modules/aruco/samples/aruco_samples_utility.hpp"
 
 using std::placeholders::_1;
 
@@ -32,6 +33,10 @@ namespace enc = sensor_msgs::image_encodings;
 
 cv::Mat img_original;
 cv::Mat img_mod;
+cv::Mat cameraMatrix;
+cv::Mat distCoeffs;
+
+
 
 
 class Aruco_Detector : public rclcpp::Node
@@ -39,6 +44,8 @@ class Aruco_Detector : public rclcpp::Node
   public:
     Aruco_Detector() : Node("aruco_detector")
     {
+      bool readOk = readCameraParameters("src/img_proc_pkg/config/camera_calib_charuco.yaml", cameraMatrix, distCoeffs);
+
       subscription_ = this->create_subscription<sensor_msgs::msg::Image>(
       "/image_raw", 10, std::bind(&Aruco_Detector::topic_callback, this, _1));
       //publisher = this->create_publisher<interfaces::msg::ImgData>("image_data",1);
@@ -65,11 +72,22 @@ class Aruco_Detector : public rclcpp::Node
       std::vector<int> markerIds;
       std::vector<std::vector<cv::Point2f>> markerCorners, rejectedCandidates;
       cv::Ptr<cv::aruco::DetectorParameters> parameters = cv::aruco::DetectorParameters::create();
-      cv::Ptr<cv::aruco::Dictionary> dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_6X6_250);
+      cv::Ptr<cv::aruco::Dictionary> dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_4X4_50);
       cv::aruco::detectMarkers(img_original, dictionary, markerCorners, markerIds, parameters, rejectedCandidates);
 
-      if (markerIds.size() > 0)
-        cv::aruco::drawDetectedMarkers(img_mod, markerCorners, markerIds);
+      if (markerIds.size() > 0){
+
+        cv::aruco::drawDetectedMarkers(img_mod, markerCorners, markerIds); 
+
+        std::vector<cv::Vec3d> rvecs, tvecs;
+        cv::aruco::estimatePoseSingleMarkers(markerCorners, 0.05, cameraMatrix, distCoeffs, rvecs, tvecs);
+ 
+        for (int i = 0; i < rvecs.size(); ++i) {
+          auto rvec = rvecs[i];
+          auto tvec = tvecs[i];
+          cv::drawFrameAxes(img_mod, cameraMatrix, distCoeffs, rvec, tvec, 0.1);
+        }
+      }
 
   
   	  cv::namedWindow("Display Image", cv::WINDOW_AUTOSIZE );

@@ -1,5 +1,5 @@
 /*
-ros2 run img_proc_pkg calibrate_camera_charuco "src/img_proc_pkg/config/camera_calib_charuco.txt" -x=5 -y=8 -ml=0.022 -sl=0.027 -d=1
+ros2 run img_proc_pkg calibrate_camera_charuco "src/img_proc_pkg/config/camera_calib_charuco.yaml" -x=5 -y=8 -ml=0.022 -sl=0.027 -d=1
 
 
 By downloading, copying, installing or using the software you agree to this
