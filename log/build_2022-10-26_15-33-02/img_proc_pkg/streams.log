@@ -1,0 +1,59 @@
+[0.033s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg -- -j8 -l8
+[0.139s] [35m[1mScanning dependencies of target calibrate_camera_charuco_node[0m
+[0.185s] [ 14%] Built target img_proc_node
+[0.202s] [ 28%] Built target img_publ_test_node
+[0.202s] [ 42%] Built target img_proc_id_node
+[0.214s] [ 57%] Built target aruco_detector
+[0.216s] [ 71%] Built target img_subs_test_node
+[0.216s] [ 85%] Built target calibrate_camera_charuco
+[0.221s] [ 92%] [32mBuilding CXX object CMakeFiles/calibrate_camera_charuco_node.dir/src/calibrate_camera_charuco_node.cpp.o[0m
+[2.429s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:[m[K In member function ‘[01m[Kvoid Calibrate_Camera_Charuco_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)[m[K’:
+[2.429s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:146:16:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KrepError[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[2.429s]   146 |         double [01;35m[KrepError[m[K;
+[2.429s]       |                [01;35m[K^~~~~~~~[m[K
+[2.429s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:104:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn_cols[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[2.429s]   104 |       int [01;35m[Kn_cols[m[K = img_original.cols;
+[2.429s]       |           [01;35m[K^~~~~~[m[K
+[2.429s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:105:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn_rows[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[2.429s]   105 |       int [01;35m[Kn_rows[m[K = img_original.rows;
+[2.429s]       |           [01;35m[K^~~~~~[m[K
+[6.683s] [100%] [32m[1mLinking CXX executable calibrate_camera_charuco_node[0m
+[7.309s] /usr/bin/ld: warning: libopencv_imgproc.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.406
+[7.309s] /usr/bin/ld: warning: libopencv_core.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_core.so.406
+[7.321s] [100%] Built target calibrate_camera_charuco_node
+[7.337s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg -- -j8 -l8
+[7.383s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg
+[7.396s] -- Install configuration: ""
+[7.396s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_proc_node
+[7.396s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_publ_test_node
+[7.397s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_subs_test_node
+[7.398s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_proc_id_node
+[7.398s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/aruco_detector
+[7.399s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/calibrate_camera_charuco
+[7.399s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/calibrate_camera_charuco_node
+[7.402s] -- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/calibrate_camera_charuco_node" to ""
+[7.402s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/launch
+[7.402s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/launch/demo_cam_launch.py
+[7.402s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/launch/__pycache__
+[7.402s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/launch/__pycache__/demo_launch.cpython-38.pyc
+[7.402s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/config
+[7.402s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/config/camera_info_old.yaml
+[7.403s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/config/params.yaml
+[7.403s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/config/camera_info.yaml
+[7.403s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/config/camera_calib_charuco.yaml
+[7.403s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/ament_index/resource_index/package_run_dependencies/img_proc_pkg
+[7.403s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/ament_index/resource_index/parent_prefix_path/img_proc_pkg
+[7.403s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/environment/ament_prefix_path.sh
+[7.403s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/environment/ament_prefix_path.dsv
+[7.403s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/environment/path.sh
+[7.403s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/environment/path.dsv
+[7.403s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/local_setup.bash
+[7.403s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/local_setup.sh
+[7.403s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/local_setup.zsh
+[7.403s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/local_setup.dsv
+[7.403s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/package.dsv
+[7.404s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/ament_index/resource_index/packages/img_proc_pkg
+[7.404s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/cmake/img_proc_pkgConfig.cmake
+[7.404s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/cmake/img_proc_pkgConfig-version.cmake
+[7.404s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/package.xml
+[7.407s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg

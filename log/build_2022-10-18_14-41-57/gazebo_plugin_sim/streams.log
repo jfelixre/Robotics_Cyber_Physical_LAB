@@ -1,0 +1,24 @@
+[0.030s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim': /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim -- -j8 -l8
+[0.192s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.215s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.372s] Traceback (most recent call last):
+[0.372s]   File "/opt/ros/foxy/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py", line 21, in <module>
+[0.373s]     from ament_package.templates import get_environment_hook_template_path
+[0.373s] ModuleNotFoundError: No module named 'ament_package'
+[0.405s] CMake Error at /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_package_templates-extras.cmake:41 (message):
+[0.405s]   execute_process(/usr/bin/python3
+[0.405s]   /opt/ros/foxy/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py
+[0.406s]   /home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/ament_cmake_package_templates/templates.cmake)
+[0.406s]   returned error code 1
+[0.406s] Call Stack (most recent call first):
+[0.406s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)
+[0.406s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)
+[0.406s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)
+[0.406s]   CMakeLists.txt:24 (find_package)
+[0.406s] 
+[0.407s] 
+[0.407s] -- Configuring incomplete, errors occurred!
+[0.407s] See also "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/CMakeFiles/CMakeOutput.log".
+[0.407s] See also "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/CMakeFiles/CMakeError.log".
+[0.407s] make: *** [Makefile:442: cmake_check_build_system] Error 1
+[0.419s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim' returned '2': /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim -- -j8 -l8

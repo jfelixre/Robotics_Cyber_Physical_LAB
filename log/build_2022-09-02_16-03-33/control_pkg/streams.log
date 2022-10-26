@@ -1,0 +1,42 @@
+[0.025s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg': CMAKE_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy /usr/bin/cmake /home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_INSTALL_PREFIX=/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg
+[0.042s] -- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.067s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.258s] -- Found rclcpp: 2.4.1 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.293s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.297s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.422s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.475s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.477s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.628s] -- Found interfaces: 0.0.0 (/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake)
+[0.703s] -- Configuring done
+[0.723s] -- Generating done
+[0.726s] -- Build files have been written to: /home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg
+[0.733s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg' returned '0': CMAKE_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy /usr/bin/cmake /home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_INSTALL_PREFIX=/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg
+[0.736s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg': CMAKE_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg -- -j8 -l8
+[0.807s] [ 25%] Built target control_pid_p2_node
+[0.807s] [ 50%] Built target control_pid_r2_node
+[0.816s] [ 75%] Built target control_pid_r1_node
+[0.817s] [100%] Built target control_pid_p1_node
+[0.826s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg' returned '0': CMAKE_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg -- -j8 -l8
+[0.862s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg': CMAKE_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg
+[0.875s] -- Install configuration: ""
+[0.876s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_p1_node
+[0.877s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_p2_node
+[0.877s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_r1_node
+[0.878s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/control_pkg/control_pid_r2_node
+[0.878s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/ament_index/resource_index/package_run_dependencies/control_pkg
+[0.879s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/ament_index/resource_index/parent_prefix_path/control_pkg
+[0.879s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/environment/ament_prefix_path.sh
+[0.880s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/environment/ament_prefix_path.dsv
+[0.880s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/environment/path.sh
+[0.880s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/environment/path.dsv
+[0.881s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/local_setup.bash
+[0.881s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/local_setup.sh
+[0.881s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/local_setup.zsh
+[0.881s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/local_setup.dsv
+[0.881s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/package.dsv
+[0.881s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/ament_index/resource_index/packages/control_pkg
+[0.882s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/cmake/control_pkgConfig.cmake
+[0.882s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/cmake/control_pkgConfig-version.cmake
+[0.882s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/package.xml
+[0.892s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg' returned '0': CMAKE_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg

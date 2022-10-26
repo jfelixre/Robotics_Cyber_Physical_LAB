@@ -8,10 +8,10 @@ from calibration import *
 parametros = cv2.aruco.DetectorParameters_create()
 
 #cargando el diccionario de nuestro aruco
-diccionario = cv2.aruco.Dictionary_get(cv2.aruco.DICT_5X5_100)
+diccionario = cv2.aruco.Dictionary_get(cv2.aruco.DICT_4X4_50)
 
 #Lectura de camara
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(2)
 cap.set(3,1280)
 cap.set(4,720)
 cont = 0

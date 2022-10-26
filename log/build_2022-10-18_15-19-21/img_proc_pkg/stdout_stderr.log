@@ -1,0 +1,105 @@
+-- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Found OpenCV: /usr/local (found suitable version "4.6.0", minimum required is "4.6.0") 
+-- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rclcpp: 2.4.2 (/opt/ros/foxy/share/rclcpp/cmake)
+-- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found image_transport: 2.4.0 (/opt/ros/foxy/share/image_transport/cmake)
+-- Found cv_bridge: 3.0.6 (/opt/ros/foxy/share/cv_bridge/cmake)
+-- Found interfaces: 0.0.0 (/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg
+[35m[1mScanning dependencies of target aruco_detector[0m
+[35m[1mScanning dependencies of target img_subs_test_node[0m
+[35m[1mScanning dependencies of target img_proc_node[0m
+[35m[1mScanning dependencies of target img_publ_test_node[0m
+[35m[1mScanning dependencies of target img_proc_id_node[0m
+[ 10%] [32mBuilding CXX object CMakeFiles/img_proc_node.dir/src/img_proc_node.cpp.o[0m
+[ 20%] [32mBuilding CXX object CMakeFiles/img_publ_test_node.dir/src/img_publ_test_node.cpp.o[0m
+[ 30%] [32mBuilding CXX object CMakeFiles/aruco_detector.dir/src/aruco_detector.cpp.o[0m
+[ 40%] [32mBuilding CXX object CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o[0m
+[ 60%] [32m[1mLinking CXX executable img_proc_node[0m
+[ 60%] Built target img_proc_node
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:[m[K In member function ‘[01m[Kvoid Aruco_Detector::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:59:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn_cols[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   59 |       int [01;35m[Kn_cols[m[K = img_original.cols;
+      |           [01;35m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:60:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn_rows[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   60 |       int [01;35m[Kn_rows[m[K = img_original.rows;
+      |           [01;35m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Proc_Id_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:130:22:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  130 |       for (int i=0; [01;35m[Ki<red_contours.size()[m[K; i++)
+      |                     [01;35m[K~^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:163:26:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  163 |         for (int ii=1; [01;35m[Kii<red_subcontours.size()[m[K; ii++)
+      |                        [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:257:22:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  257 |       for (int i=0; [01;35m[Ki<blue_contours.size()[m[K; i++)
+      |                     [01;35m[K~^~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:290:26:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  290 |         for (int ii=1; [01;35m[Kii<blue_subcontours.size()[m[K; ii++)
+      |                        [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:385:22:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  385 |       for (int i=0; [01;35m[Ki<green_contours.size()[m[K; i++)
+      |                     [01;35m[K~^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:417:26:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  417 |         for (int ii=1; [01;35m[Kii<green_subcontours.size()[m[K; ii++)
+      |                        [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[ 70%] [32m[1mLinking CXX executable img_publ_test_node[0m
+/usr/bin/ld: warning: libopencv_imgcodecs.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgcodecs.so.406
+/usr/bin/ld: warning: libopencv_core.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_core.so.406
+[ 70%] Built target img_publ_test_node
+[ 80%] [32m[1mLinking CXX executable aruco_detector[0m
+[ 90%] [32m[1mLinking CXX executable img_subs_test_node[0m
+/usr/bin/ld: warning: libopencv_imgproc.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.406
+/usr/bin/ld: warning: libopencv_core.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_core.so.406
+[ 90%] Built target aruco_detector
+/usr/bin/ld: warning: libopencv_imgcodecs.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgcodecs.so.406
+/usr/bin/ld: warning: libopencv_imgproc.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.406
+/usr/bin/ld: warning: libopencv_core.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_core.so.406
+[ 90%] Built target img_subs_test_node
+[100%] [32m[1mLinking CXX executable img_proc_id_node[0m
+/usr/bin/ld: warning: libopencv_imgproc.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.406
+/usr/bin/ld: warning: libopencv_core.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_core.so.406
+[100%] Built target img_proc_id_node
+-- Install configuration: ""
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_proc_node
+-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_proc_node" to ""
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_publ_test_node
+-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_publ_test_node" to ""
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_subs_test_node
+-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_subs_test_node" to ""
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_proc_id_node
+-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/img_proc_id_node" to ""
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/aruco_detector
+-- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/img_proc_pkg/aruco_detector" to ""
+-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/launch
+-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/launch/demo_cam_launch.py
+-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/launch/__pycache__
+-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/launch/__pycache__/demo_launch.cpython-38.pyc
+-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/config
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/config/camera_info_old.yaml
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/config/params.yaml
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/config/camera_info.yaml
+-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/ament_index/resource_index/package_run_dependencies/img_proc_pkg
+-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/ament_index/resource_index/parent_prefix_path/img_proc_pkg
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/environment/ament_prefix_path.sh
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/environment/ament_prefix_path.dsv
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/environment/path.sh
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/environment/path.dsv
+-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/local_setup.bash
+-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/local_setup.sh
+-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/local_setup.zsh
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/local_setup.dsv
+-- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/package.dsv
+-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/ament_index/resource_index/packages/img_proc_pkg
+-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/cmake/img_proc_pkgConfig.cmake
+-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/cmake/img_proc_pkgConfig-version.cmake
+-- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/package.xml

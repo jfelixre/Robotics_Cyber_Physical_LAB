@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/control_pid_r2_node.dir/src/control_pid_r2_node.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg/src/control_pid_r2_node.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg/src/control_pid_r2_node.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/control_pid_p2_node.dir/src/control_pid_p2_node.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg/src/control_pid_p2_node.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg/src/control_pid_p2_node.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg/src/control_pid_p1_node.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg/src/control_pid_p1_node.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/control_pid_r1_node.dir/src/control_pid_r1_node.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg/src/control_pid_r1_node.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg/src/control_pid_r1_node.cpp"
+}
+]

@@ -1,0 +1,16 @@
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:[m[K In member function ‘[01m[Kvoid Calibrate_Camera_Charuco_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:189:20:[m[K [01;31m[Kerror: [m[Kreturn-statement with a value, in function returning ‘[01m[Kvoid[m[K’ [[01;31m[K-fpermissive[m[K]
+  189 |             return [01;31m[K0[m[K;
+      |                    [01;31m[K^[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:201:20:[m[K [01;31m[Kerror: [m[Kreturn-statement with a value, in function returning ‘[01m[Kvoid[m[K’ [[01;31m[K-fpermissive[m[K]
+  201 |             return [01;31m[K0[m[K;
+      |                    [01;31m[K^[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:104:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn_cols[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  104 |       int [01;35m[Kn_cols[m[K = img_original.cols;
+      |           [01;35m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:105:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn_rows[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  105 |       int [01;35m[Kn_rows[m[K = img_original.rows;
+      |           [01;35m[K^~~~~~[m[K
+make[2]: *** [CMakeFiles/calibrate_camera_charuco_node.dir/build.make:63: CMakeFiles/calibrate_camera_charuco_node.dir/src/calibrate_camera_charuco_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:279: CMakeFiles/calibrate_camera_charuco_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

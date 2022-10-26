@@ -1,0 +1,632 @@
+[0.000000] (-) TimerEvent: {}
+[0.000328] (gazebo_plugin_sim) JobQueued: {'identifier': 'gazebo_plugin_sim', 'dependencies': OrderedDict()}
+[0.000365] (img_proc_pkg) JobQueued: {'identifier': 'img_proc_pkg', 'dependencies': OrderedDict()}
+[0.000419] (interfaces) JobQueued: {'identifier': 'interfaces', 'dependencies': OrderedDict()}
+[0.000444] (control_pkg) JobQueued: {'identifier': 'control_pkg', 'dependencies': OrderedDict([('interfaces', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces')])}
+[0.000496] (inv_kinematics_pkg) JobQueued: {'identifier': 'inv_kinematics_pkg', 'dependencies': OrderedDict([('interfaces', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces')])}
+[0.000522] (interfaces) JobStarted: {'identifier': 'interfaces'}
+[0.013525] (gazebo_plugin_sim) JobStarted: {'identifier': 'gazebo_plugin_sim'}
+[0.021806] (img_proc_pkg) JobStarted: {'identifier': 'img_proc_pkg'}
+[0.030662] (interfaces) JobProgress: {'identifier': 'interfaces', 'progress': 'cmake'}
+[0.031463] (interfaces) JobProgress: {'identifier': 'interfaces', 'progress': 'build'}
+[0.032338] (interfaces) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces', '--', '-j8', '-l8'], 'cwd': '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '1579'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/javierfr'), ('OLDPWD', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '1397'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2026'), ('MANDATORY_PATH', '/usr/share/gconf/ubuntu.mandatory.path'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:40847'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('DEFAULTS_PATH', '/usr/share/gconf/ubuntu.default.path'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfr-Lenovo-Y50-70:@/tmp/.ICE-unix/1616,unix/javierfr-Lenovo-Y50-70:/tmp/.ICE-unix/1616'), ('INVOCATION_ID', 'e5fb2bbf7c9a4a24b37661305697a471'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:e47ef4be-34a8-4330-8a8d-8dd5c0804587'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy')]), 'shell': False}
+[0.038241] (gazebo_plugin_sim) JobProgress: {'identifier': 'gazebo_plugin_sim', 'progress': 'cmake'}
+[0.039552] (gazebo_plugin_sim) JobProgress: {'identifier': 'gazebo_plugin_sim', 'progress': 'build'}
+[0.040103] (gazebo_plugin_sim) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim', '--', '-j8', '-l8'], 'cwd': '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '1579'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/javierfr'), ('OLDPWD', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '1397'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2026'), ('MANDATORY_PATH', '/usr/share/gconf/ubuntu.mandatory.path'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:40847'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('DEFAULTS_PATH', '/usr/share/gconf/ubuntu.default.path'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfr-Lenovo-Y50-70:@/tmp/.ICE-unix/1616,unix/javierfr-Lenovo-Y50-70:/tmp/.ICE-unix/1616'), ('INVOCATION_ID', 'e5fb2bbf7c9a4a24b37661305697a471'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:e47ef4be-34a8-4330-8a8d-8dd5c0804587'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy')]), 'shell': False}
+[0.046464] (img_proc_pkg) JobProgress: {'identifier': 'img_proc_pkg', 'progress': 'cmake'}
+[0.047195] (img_proc_pkg) JobProgress: {'identifier': 'img_proc_pkg', 'progress': 'build'}
+[0.047511] (img_proc_pkg) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg', '--', '-j8', '-l8'], 'cwd': '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'javierfr'), ('LC_TIME', 'es_MX.UTF-8'), ('SSH_AGENT_PID', '1579'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/javierfr'), ('OLDPWD', '/home/javierfr'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_MX.UTF-8'), ('MANAGERPID', '1397'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2026'), ('MANDATORY_PATH', '/usr/share/gconf/ubuntu.mandatory.path'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'javierfr'), ('JOURNAL_STREAM', '8:40847'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('DEFAULTS_PATH', '/usr/share/gconf/ubuntu.default.path'), ('USERNAME', 'javierfr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/javierfr-Lenovo-Y50-70:@/tmp/.ICE-unix/1616,unix/javierfr-Lenovo-Y50-70:/tmp/.ICE-unix/1616'), ('INVOCATION_ID', 'e5fb2bbf7c9a4a24b37661305697a471'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_MX.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_MX.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_MX.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:e47ef4be-34a8-4330-8a8d-8dd5c0804587'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_MX.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'es_MX.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'es_MX.UTF-8'), ('LC_PAPER', 'es_MX.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy')]), 'shell': False}
+[0.069815] (interfaces) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.072925] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.076649] (img_proc_pkg) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.093067] (interfaces) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.097341] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.099272] (-) TimerEvent: {}
+[0.100690] (img_proc_pkg) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.199380] (-) TimerEvent: {}
+[0.299685] (-) TimerEvent: {}
+[0.305971] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found camera_info_manager: 2.4.0 (/opt/ros/foxy/share/camera_info_manager/cmake)\n'}
+[0.306249] (interfaces) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)\n'}
+[0.311185] (interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.317160] (interfaces) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[0.317593] (img_proc_pkg) StderrLine: {'line': b'CMake Error at CMakeLists.txt:20 (find_package):\n'}
+[0.317793] (img_proc_pkg) StderrLine: {'line': b'  Could not find a configuration file for package "OpenCV" that is compatible\n'}
+[0.317936] (img_proc_pkg) StderrLine: {'line': b'  with requested version "4.6.0".\n'}
+[0.318072] (img_proc_pkg) StderrLine: {'line': b'\n'}
+[0.318248] (img_proc_pkg) StderrLine: {'line': b'  The following configuration files were considered but not accepted:\n'}
+[0.318379] (img_proc_pkg) StderrLine: {'line': b'\n'}
+[0.318498] (img_proc_pkg) StderrLine: {'line': b'    /usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVConfig.cmake, version: 4.2.0\n'}
+[0.318618] (img_proc_pkg) StderrLine: {'line': b'    /lib/x86_64-linux-gnu/cmake/opencv4/OpenCVConfig.cmake, version: 4.2.0\n'}
+[0.318738] (img_proc_pkg) StderrLine: {'line': b'\n'}
+[0.318866] (img_proc_pkg) StderrLine: {'line': b'\n'}
+[0.318986] (img_proc_pkg) StderrLine: {'line': b'\n'}
+[0.319094] (img_proc_pkg) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.319211] (img_proc_pkg) StdoutLine: {'line': b'See also "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg/CMakeFiles/CMakeOutput.log".\n'}
+[0.319339] (img_proc_pkg) StdoutLine: {'line': b'See also "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg/CMakeFiles/CMakeError.log".\n'}
+[0.320716] (img_proc_pkg) StderrLine: {'line': b'make: *** [Makefile:398: cmake_check_build_system] Error 1\n'}
+[0.322599] (img_proc_pkg) CommandEnded: {'returncode': 2}
+[0.368227] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.371511] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[0.373027] (img_proc_pkg) JobEnded: {'identifier': 'img_proc_pkg', 'rc': 2}
+[0.399814] (-) TimerEvent: {}
+[0.493801] (interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.497628] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.499893] (-) TimerEvent: {}
+[0.552487] (interfaces) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") \n'}
+[0.567727] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)\n'}
+[0.570956] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.600013] (-) TimerEvent: {}
+[0.700299] (-) TimerEvent: {}
+[0.745800] (interfaces) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)\n'}
+[0.800418] (-) TimerEvent: {}
+[0.854749] (interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.867152] (interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.890530] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Setting yaml-cpp_DIR to: '/opt/ros/foxy/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/lib/cmake/yaml-cpp'\n"}
+[0.892389] (interfaces) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[0.893452] (interfaces) StdoutLine: {'line': b'-- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)\n'}
+[0.900518] (-) TimerEvent: {}
+[0.918729] (interfaces) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.918906] (interfaces) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8\n'}
+[0.918994] (interfaces) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so\n'}
+[0.955644] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found gazebo_dev: 3.5.3 (/opt/ros/foxy/share/gazebo_dev/cmake)\n'}
+[0.957082] (interfaces) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.000646] (-) TimerEvent: {}
+[1.038154] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found DART: /usr/include (Required is at least version "6.6") found components: dart \n'}
+[1.080104] (interfaces) StdoutLine: {'line': b'-- Generating done\n'}
+[1.086516] (interfaces) StdoutLine: {'line': b'-- Build files have been written to: /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces\n'}
+[1.100762] (-) TimerEvent: {}
+[1.106460] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "3.6.1") \n'}
+[1.111141] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.13.0\n'}
+[1.120194] (interfaces) StdoutLine: {'line': b'[  1%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[1.122037] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for dependencies of ignition-math6\n'}
+[1.126235] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE...\n'}
+[1.132114] (interfaces) StdoutLine: {'line': b'[  1%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[1.133091] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found Ogre Ghadamon (1.9.0)\n'}
+[1.134008] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so\n'}
+[1.145691] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE_Paging...\n'}
+[1.146021] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so\n'}
+[1.146312] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE_Terrain...\n'}
+[1.146481] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so\n'}
+[1.146633] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE_Property...\n'}
+[1.147173] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so\n'}
+[1.147385] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE_RTShaderSystem...\n'}
+[1.147599] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so\n'}
+[1.147755] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE_Volume...\n'}
+[1.147974] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so\n'}
+[1.148160] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for OGRE_Overlay...\n'}
+[1.148299] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so\n'}
+[1.200867] (-) TimerEvent: {}
+[1.301139] (-) TimerEvent: {}
+[1.315750] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.13.0\n'}
+[1.316897] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-transport8 -- found version 8.3.0\n'}
+[1.317466] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for dependencies of ignition-transport8\n'}
+[1.335888] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found suitable version "3.6.1", minimum required is "3") \n'}
+[1.347257] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Config-file not installed for ZeroMQ -- checking for pkg-config\n'}
+[1.351981] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Checking for module 'libzmq >= 4'\n"}
+[1.369349] (gazebo_plugin_sim) StdoutLine: {'line': b'--   Found libzmq , version 4.3.2\n'}
+[1.401253] (-) TimerEvent: {}
+[1.414598] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Checking for module 'uuid'\n"}
+[1.431001] (gazebo_plugin_sim) StdoutLine: {'line': b'--   Found uuid, version 2.34.0\n'}
+[1.468491] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.11.0\n'}
+[1.468966] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for dependencies of ignition-msgs5\n'}
+[1.488223] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.13.0\n'}
+[1.493444] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Checking for module 'tinyxml2'\n"}
+[1.501354] (-) TimerEvent: {}
+[1.511611] (gazebo_plugin_sim) StdoutLine: {'line': b'--   Found tinyxml2, version 6.2.0\n'}
+[1.552216] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.11.0\n'}
+[1.553535] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-common3 -- found version 3.15.1\n'}
+[1.554133] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for dependencies of ignition-common3\n'}
+[1.554515] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for dlfcn.h - found\n'}
+[1.554672] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for libdl - found\n'}
+[1.566945] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for <ignition-common3> component [graphics]\n'}
+[1.567710] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-common3-graphics -- found version 3.15.1\n'}
+[1.568244] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for dependencies of ignition-common3-graphics\n'}
+[1.568586] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.13.0\n'}
+[1.570890] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-fuel_tools4 -- found version 4.6.0\n'}
+[1.571350] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Searching for dependencies of ignition-fuel_tools4\n'}
+[1.601467] (-) TimerEvent: {}
+[1.605150] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Checking for module 'jsoncpp'\n"}
+[1.621266] (gazebo_plugin_sim) StdoutLine: {'line': b'--   Found jsoncpp, version 1.7.4\n'}
+[1.664063] (gazebo_plugin_sim) StdoutLine: {'line': b"-- Checking for module 'libzip'\n"}
+[1.680209] (gazebo_plugin_sim) StdoutLine: {'line': b'--   Found libzip, version 1.5.1\n'}
+[1.701533] (-) TimerEvent: {}
+[1.717209] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-common3 -- found version 3.15.1\n'}
+[1.717711] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.13.0\n'}
+[1.718139] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.11.0\n'}
+[1.720610] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Gazebo version: 11.12\n'}
+[1.721251] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found gazebo_msgs: 3.5.3 (/opt/ros/foxy/share/gazebo_msgs/cmake)\n'}
+[1.801633] (-) TimerEvent: {}
+[1.901967] (-) TimerEvent: {}
+[2.002354] (-) TimerEvent: {}
+[2.002942] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found gazebo_ros: 3.5.3 (/opt/ros/foxy/share/gazebo_ros/cmake)\n'}
+[2.043008] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found image_transport: 2.4.0 (/opt/ros/foxy/share/image_transport/cmake)\n'}
+[2.069923] (interfaces) StdoutLine: {'line': b'[  1%] Built target interfaces__cpp\n'}
+[2.072529] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target interfaces__rosidl_generator_c\x1b[0m\n'}
+[2.082910] (interfaces) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[2.086244] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target interfaces__rosidl_typesupport_cpp\x1b[0m\n'}
+[2.087847] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target interfaces__rosidl_typesupport_fastrtps_cpp\x1b[0m\n'}
+[2.098680] (interfaces) StdoutLine: {'line': b'[  5%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/platform_vel__functions.c.o\x1b[0m\n'}
+[2.098971] (interfaces) StdoutLine: {'line': b'[  5%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/control_pid_start__functions.c.o\x1b[0m\n'}
+[2.099242] (interfaces) StdoutLine: {'line': b'[  5%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/msg/detail/motor_vels__functions.c.o\x1b[0m\n'}
+[2.099923] (interfaces) StdoutLine: {'line': b'[  6%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/msg/detail/img_data__functions.c.o\x1b[0m\n'}
+[2.100160] (interfaces) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/msg/detail/plat_state__functions.c.o\x1b[0m\n'}
+[2.102433] (-) TimerEvent: {}
+[2.111307] (interfaces) StdoutLine: {'line': b'[  8%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/srv/platform_vel__type_support.cpp.o\x1b[0m\n'}
+[2.116705] (interfaces) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/srv/detail/dds_fastrtps/platform_vel__type_support.cpp.o\x1b[0m\n'}
+[2.123171] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found cv_bridge: 3.0.6 (/opt/ros/foxy/share/cv_bridge/cmake)\n'}
+[2.167966] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)\n'}
+[2.202535] (-) TimerEvent: {}
+[2.266135] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found std_srvs: 2.0.5 (/opt/ros/foxy/share/std_srvs/cmake)\n'}
+[2.289638] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found tf2: 0.13.13 (/opt/ros/foxy/share/tf2/cmake)\n'}
+[2.302648] (-) TimerEvent: {}
+[2.306548] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found tf2_geometry_msgs: 0.13.13 (/opt/ros/foxy/share/tf2_geometry_msgs/cmake)\n'}
+[2.318696] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/foxy/share/eigen3_cmake_module/cmake)\n'}
+[2.402761] (-) TimerEvent: {}
+[2.417304] (interfaces) StdoutLine: {'line': b'[ 11%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/motor_vels__type_support.cpp.o\x1b[0m\n'}
+[2.417678] (interfaces) StdoutLine: {'line': b'[ 11%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/msg/motor_vels__type_support.cpp.o\x1b[0m\n'}
+[2.417875] (interfaces) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/msg/detail/control_data__functions.c.o\x1b[0m\n'}
+[2.422957] (interfaces) StdoutLine: {'line': b'[ 13%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/msg/detail/motor_vels_w_arm__functions.c.o\x1b[0m\n'}
+[2.423348] (interfaces) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/msg/detail/limit_switch__functions.c.o\x1b[0m\n'}
+[2.498903] (interfaces) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/img_data__type_support.cpp.o\x1b[0m\n'}
+[2.502870] (-) TimerEvent: {}
+[2.515255] (interfaces) StdoutLine: {'line': b'[ 15%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/srv/detail/dds_fastrtps/control_pid_start__type_support.cpp.o\x1b[0m\n'}
+[2.578641] (interfaces) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/robot_vel__functions.c.o\x1b[0m\n'}
+[2.602974] (-) TimerEvent: {}
+[2.703339] (-) TimerEvent: {}
+[2.754354] (interfaces) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/msg/detail/robot_state__functions.c.o\x1b[0m\n'}
+[2.803462] (-) TimerEvent: {}
+[2.903990] (-) TimerEvent: {}
+[2.939005] (interfaces) StdoutLine: {'line': b'[ 18%] \x1b[32m\x1b[1mLinking C shared library libinterfaces__rosidl_generator_c.so\x1b[0m\n'}
+[2.963915] (interfaces) StdoutLine: {'line': b'[ 19%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/msg/img_data__type_support.cpp.o\x1b[0m\n'}
+[3.004114] (-) TimerEvent: {}
+[3.005263] (interfaces) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/srv/control_pid_start__type_support.cpp.o\x1b[0m\n'}
+[3.056893] (interfaces) StdoutLine: {'line': b'[ 20%] Built target interfaces__rosidl_generator_c\n'}
+[3.077271] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target interfaces__rosidl_typesupport_c\x1b[0m\n'}
+[3.104242] (-) TimerEvent: {}
+[3.129055] (interfaces) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/srv/platform_vel__type_support.cpp.o\x1b[0m\n'}
+[3.172609] (interfaces) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/msg/motor_vels__type_support.cpp.o\x1b[0m\n'}
+[3.174029] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Found interfaces: 0.0.0 (/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake)\n'}
+[3.188878] (interfaces) StdoutLine: {'line': b'[ 23%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/msg/img_data__type_support.cpp.o\x1b[0m\n'}
+[3.204381] (-) TimerEvent: {}
+[3.223047] (interfaces) StdoutLine: {'line': b'[ 24%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/srv/control_pid_start__type_support.cpp.o\x1b[0m\n'}
+[3.244613] (interfaces) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/plat_state__type_support.cpp.o\x1b[0m\n'}
+[3.258193] (interfaces) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/control_data__type_support.cpp.o\x1b[0m\n'}
+[3.304523] (-) TimerEvent: {}
+[3.306316] (interfaces) StdoutLine: {'line': b'[ 27%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/msg/plat_state__type_support.cpp.o\x1b[0m\n'}
+[3.310077] (interfaces) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/motor_vels_w_arm__type_support.cpp.o\x1b[0m\n'}
+[3.347515] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target interfaces__rosidl_typesupport_introspection_cpp\x1b[0m\n'}
+[3.357243] (interfaces) StdoutLine: {'line': b'[ 29%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/limit_switch__type_support.cpp.o\x1b[0m\n'}
+[3.380601] (interfaces) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/msg/control_data__type_support.cpp.o\x1b[0m\n'}
+[3.394970] (interfaces) StdoutLine: {'line': b'[ 31%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/srv/detail/platform_vel__type_support.cpp.o\x1b[0m\n'}
+[3.404642] (-) TimerEvent: {}
+[3.463271] (interfaces) StdoutLine: {'line': b'[ 32%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/msg/motor_vels_w_arm__type_support.cpp.o\x1b[0m\n'}
+[3.499081] (interfaces) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/motor_vels__type_support.cpp.o\x1b[0m\n'}
+[3.502882] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Configuring done\n'}
+[3.504919] (-) TimerEvent: {}
+[3.518946] (interfaces) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/msg/plat_state__type_support.cpp.o\x1b[0m\n'}
+[3.540344] (interfaces) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/msg/limit_switch__type_support.cpp.o\x1b[0m\n'}
+[3.605044] (-) TimerEvent: {}
+[3.666276] (interfaces) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/srv/robot_vel__type_support.cpp.o\x1b[0m\n'}
+[3.705193] (-) TimerEvent: {}
+[3.805636] (-) TimerEvent: {}
+[3.829658] (interfaces) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/msg/robot_state__type_support.cpp.o\x1b[0m\n'}
+[3.835127] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Generating done\n'}
+[3.841196] (gazebo_plugin_sim) StdoutLine: {'line': b'-- Build files have been written to: /home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim\n'}
+[3.905849] (-) TimerEvent: {}
+[3.947082] (interfaces) StdoutLine: {'line': b'[ 37%] \x1b[32m\x1b[1mLinking CXX shared library libinterfaces__rosidl_typesupport_c.so\x1b[0m\n'}
+[3.959207] (interfaces) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/msg/control_data__type_support.cpp.o\x1b[0m\n'}
+[3.996694] (gazebo_plugin_sim) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot2_plugin\x1b[0m\n'}
+[3.997992] (gazebo_plugin_sim) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target platform1_plugin\x1b[0m\n'}
+[3.998274] (gazebo_plugin_sim) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot1_plugin\x1b[0m\n'}
+[3.999969] (gazebo_plugin_sim) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target platform_plugin_test\x1b[0m\n'}
+[4.002157] (gazebo_plugin_sim) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target platform2_plugin\x1b[0m\n'}
+[4.005972] (-) TimerEvent: {}
+[4.041795] (interfaces) StdoutLine: {'line': b'[ 39%] Built target interfaces__rosidl_typesupport_c\n'}
+[4.047325] (interfaces) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/msg/motor_vels_w_arm__type_support.cpp.o\x1b[0m\n'}
+[4.061131] (interfaces) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/img_data__type_support.cpp.o\x1b[0m\n'}
+[4.069257] (interfaces) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/plat_state__type_support.cpp.o\x1b[0m\n'}
+[4.069978] (interfaces) StdoutLine: {'line': b'[ 43%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/srv/detail/control_pid_start__type_support.cpp.o\x1b[0m\n'}
+[4.074212] (interfaces) StdoutLine: {'line': b'[ 44%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[4.106073] (-) TimerEvent: {}
+[4.122552] (interfaces) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/srv/detail/dds_fastrtps/robot_vel__type_support.cpp.o\x1b[0m\n'}
+[4.159066] (interfaces) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/robot_state__type_support.cpp.o\x1b[0m\n'}
+[4.206189] (-) TimerEvent: {}
+[4.306603] (-) TimerEvent: {}
+[4.407015] (-) TimerEvent: {}
+[4.507862] (-) TimerEvent: {}
+[4.573556] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding CXX object CMakeFiles/platform1_plugin.dir/src/platform1_plugin.cpp.o\x1b[0m\n'}
+[4.573894] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/robot2_plugin.dir/src/robot2_plugin.cpp.o\x1b[0m\n'}
+[4.583305] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o\x1b[0m\n'}
+[4.584684] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/platform2_plugin.dir/src/platform2_plugin.cpp.o\x1b[0m\n'}
+[4.607988] (-) TimerEvent: {}
+[4.639861] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/robot1_plugin.dir/src/robot1_plugin.cpp.o\x1b[0m\n'}
+[4.659670] (interfaces) StdoutLine: {'line': b'[ 47%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/msg/limit_switch__type_support.cpp.o\x1b[0m\n'}
+[4.678859] (interfaces) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/control_data__type_support.cpp.o\x1b[0m\n'}
+[4.708659] (-) TimerEvent: {}
+[4.809164] (-) TimerEvent: {}
+[4.856061] (interfaces) StdoutLine: {'line': b'[ 49%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/srv/robot_vel__type_support.cpp.o\x1b[0m\n'}
+[4.909285] (-) TimerEvent: {}
+[4.933590] (interfaces) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/motor_vels_w_arm__type_support.cpp.o\x1b[0m\n'}
+[5.009395] (-) TimerEvent: {}
+[5.109912] (-) TimerEvent: {}
+[5.187033] (interfaces) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/msg/robot_state__type_support.cpp.o\x1b[0m\n'}
+[5.210019] (-) TimerEvent: {}
+[5.225676] (interfaces) StdoutLine: {'line': b'[ 52%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/limit_switch__type_support.cpp.o\x1b[0m\n'}
+[5.310144] (-) TimerEvent: {}
+[5.375294] (interfaces) StdoutLine: {'line': b'[ 53%] \x1b[32m\x1b[1mLinking CXX shared library libinterfaces__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[5.410257] (-) TimerEvent: {}
+[5.471547] (interfaces) StdoutLine: {'line': b'[ 54%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/srv/detail/robot_vel__type_support.cpp.o\x1b[0m\n'}
+[5.487148] (interfaces) StdoutLine: {'line': b'[ 55%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/robot_state__type_support.cpp.o\x1b[0m\n'}
+[5.510366] (-) TimerEvent: {}
+[5.610834] (-) TimerEvent: {}
+[5.673984] (interfaces) StdoutLine: {'line': b'[ 56%] Built target interfaces__rosidl_typesupport_fastrtps_cpp\n'}
+[5.710948] (-) TimerEvent: {}
+[5.712469] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target interfaces__rosidl_typesupport_fastrtps_c\x1b[0m\n'}
+[5.789694] (interfaces) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/motor_vels__type_support_c.cpp.o\x1b[0m\n'}
+[5.791325] (interfaces) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/srv/detail/platform_vel__type_support_c.cpp.o\x1b[0m\n'}
+[5.803869] (interfaces) StdoutLine: {'line': b'[ 59%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/img_data__type_support_c.cpp.o\x1b[0m\n'}
+[5.811077] (-) TimerEvent: {}
+[5.879086] (interfaces) StdoutLine: {'line': b'[ 60%] \x1b[32m\x1b[1mLinking CXX shared library libinterfaces__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[5.911203] (-) TimerEvent: {}
+[5.999463] (interfaces) StdoutLine: {'line': b'[ 61%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/srv/detail/control_pid_start__type_support_c.cpp.o\x1b[0m\n'}
+[6.011349] (-) TimerEvent: {}
+[6.078514] (interfaces) StdoutLine: {'line': b'[ 62%] Built target interfaces__rosidl_typesupport_cpp\n'}
+[6.111493] (-) TimerEvent: {}
+[6.142488] (interfaces) StdoutLine: {'line': b'[ 63%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/plat_state__type_support_c.cpp.o\x1b[0m\n'}
+[6.167371] (interfaces) StdoutLine: {'line': b'[ 64%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/control_data__type_support_c.cpp.o\x1b[0m\n'}
+[6.175081] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target interfaces__rosidl_typesupport_introspection_c\x1b[0m\n'}
+[6.211639] (-) TimerEvent: {}
+[6.261694] (interfaces) StdoutLine: {'line': b'[ 65%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/srv/detail/platform_vel__type_support.c.o\x1b[0m\n'}
+[6.311774] (-) TimerEvent: {}
+[6.404916] (interfaces) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/msg/detail/motor_vels__type_support.c.o\x1b[0m\n'}
+[6.411896] (-) TimerEvent: {}
+[6.444428] (interfaces) StdoutLine: {'line': b'[ 67%] \x1b[32m\x1b[1mLinking CXX shared library libinterfaces__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[6.482693] (interfaces) StdoutLine: {'line': b'[ 68%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/msg/detail/img_data__type_support.c.o\x1b[0m\n'}
+[6.512033] (-) TimerEvent: {}
+[6.545378] (interfaces) StdoutLine: {'line': b'[ 68%] Built target interfaces__rosidl_typesupport_introspection_cpp\n'}
+[6.560576] (interfaces) StdoutLine: {'line': b'[ 69%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/srv/detail/control_pid_start__type_support.c.o\x1b[0m\n'}
+[6.612166] (-) TimerEvent: {}
+[6.621677] (interfaces) StdoutLine: {'line': b'[ 70%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/motor_vels_w_arm__type_support_c.cpp.o\x1b[0m\n'}
+[6.634303] (interfaces) StdoutLine: {'line': b'[ 71%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/msg/detail/plat_state__type_support.c.o\x1b[0m\n'}
+[6.652563] (interfaces) StdoutLine: {'line': b'[ 72%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/msg/detail/control_data__type_support.c.o\x1b[0m\n'}
+[6.717560] (-) TimerEvent: {}
+[6.817537] (interfaces) StdoutLine: {'line': b'[ 73%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/msg/detail/motor_vels_w_arm__type_support.c.o\x1b[0m\n'}
+[6.817845] (-) TimerEvent: {}
+[6.883194] (interfaces) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/msg/detail/limit_switch__type_support.c.o\x1b[0m\n'}
+[6.917984] (-) TimerEvent: {}
+[6.930978] (interfaces) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/limit_switch__type_support_c.cpp.o\x1b[0m\n'}
+[6.980251] (interfaces) StdoutLine: {'line': b'[ 76%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/srv/detail/robot_vel__type_support_c.cpp.o\x1b[0m\n'}
+[6.988612] (interfaces) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/srv/detail/robot_vel__type_support.c.o\x1b[0m\n'}
+[7.018121] (-) TimerEvent: {}
+[7.039036] (interfaces) StdoutLine: {'line': b'[ 78%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/msg/detail/robot_state__type_support.c.o\x1b[0m\n'}
+[7.071431] (interfaces) StdoutLine: {'line': b'[ 79%] \x1b[32mBuilding CXX object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/robot_state__type_support_c.cpp.o\x1b[0m\n'}
+[7.118247] (-) TimerEvent: {}
+[7.168832] (interfaces) StdoutLine: {'line': b'[ 80%] \x1b[32m\x1b[1mLinking C shared library libinterfaces__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[7.218513] (-) TimerEvent: {}
+[7.319718] (-) TimerEvent: {}
+[7.349976] (interfaces) StdoutLine: {'line': b'[ 80%] Built target interfaces__rosidl_typesupport_introspection_c\n'}
+[7.419855] (-) TimerEvent: {}
+[7.520382] (-) TimerEvent: {}
+[7.620915] (-) TimerEvent: {}
+[7.721631] (-) TimerEvent: {}
+[7.822221] (-) TimerEvent: {}
+[7.841016] (interfaces) StdoutLine: {'line': b'[ 81%] \x1b[32m\x1b[1mLinking CXX shared library libinterfaces__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[7.922390] (-) TimerEvent: {}
+[8.005758] (interfaces) StdoutLine: {'line': b'[ 82%] Built target interfaces__rosidl_typesupport_fastrtps_c\n'}
+[8.022478] (-) TimerEvent: {}
+[8.034672] (interfaces) StdoutLine: {'line': b'[ 82%] Built target interfaces\n'}
+[8.059940] (interfaces) StdoutLine: {'line': b'[ 83%] Built target interfaces__py\n'}
+[8.082158] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target interfaces__python\x1b[0m\n'}
+[8.122601] (-) TimerEvent: {}
+[8.132885] (interfaces) StdoutLine: {'line': b'[ 86%] \x1b[32mBuilding C object CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/srv/_platform_vel_s.c.o\x1b[0m\n'}
+[8.133294] (interfaces) StdoutLine: {'line': b'[ 86%] \x1b[32mBuilding C object CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/srv/_control_pid_start_s.c.o\x1b[0m\n'}
+[8.133638] (interfaces) StdoutLine: {'line': b'[ 86%] \x1b[32mBuilding C object CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/msg/_img_data_s.c.o\x1b[0m\n'}
+[8.145946] (interfaces) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/msg/_motor_vels_s.c.o\x1b[0m\n'}
+[8.146370] (interfaces) StdoutLine: {'line': b'[ 88%] \x1b[32mBuilding C object CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/msg/_motor_vels_w_arm_s.c.o\x1b[0m\n'}
+[8.147896] (interfaces) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding C object CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/msg/_control_data_s.c.o\x1b[0m\n'}
+[8.158905] (interfaces) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/msg/_plat_state_s.c.o\x1b[0m\n'}
+[8.222738] (-) TimerEvent: {}
+[8.223804] (interfaces) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding C object CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/msg/_limit_switch_s.c.o\x1b[0m\n'}
+[8.322860] (-) TimerEvent: {}
+[8.423334] (-) TimerEvent: {}
+[8.427173] (interfaces) StdoutLine: {'line': b'[ 92%] \x1b[32mBuilding C object CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/srv/_robot_vel_s.c.o\x1b[0m\n'}
+[8.432042] (interfaces) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/msg/_robot_state_s.c.o\x1b[0m\n'}
+[8.523452] (-) TimerEvent: {}
+[8.612544] (interfaces) StdoutLine: {'line': b'[ 94%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/interfaces/libinterfaces__python.so\x1b[0m\n'}
+[8.623596] (-) TimerEvent: {}
+[8.684636] (interfaces) StdoutLine: {'line': b'[ 94%] Built target interfaces__python\n'}
+[8.703191] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target interfaces__rosidl_typesupport_fastrtps_c__pyext\x1b[0m\n'}
+[8.703446] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target interfaces__rosidl_typesupport_introspection_c__pyext\x1b[0m\n'}
+[8.703579] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target interfaces__rosidl_typesupport_c__pyext\x1b[0m\n'}
+[8.723710] (-) TimerEvent: {}
+[8.732416] (interfaces) StdoutLine: {'line': b'[ 95%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/interfaces/_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[8.737457] (interfaces) StdoutLine: {'line': b'[ 97%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/interfaces/_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[8.737816] (interfaces) StdoutLine: {'line': b'[ 97%] \x1b[32mBuilding C object CMakeFiles/interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/interfaces/_interfaces_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[8.823889] (-) TimerEvent: {}
+[8.924701] (-) TimerEvent: {}
+[8.944938] (interfaces) StdoutLine: {'line': b'[ 98%] \x1b[32m\x1b[1mLinking CXX shared library rosidl_generator_py/interfaces/interfaces_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so\x1b[0m\n'}
+[8.952666] (interfaces) StdoutLine: {'line': b'[ 99%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/interfaces/interfaces_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so\x1b[0m\n'}
+[8.972752] (interfaces) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/interfaces/interfaces_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so\x1b[0m\n'}
+[9.024847] (-) TimerEvent: {}
+[9.045664] (interfaces) StdoutLine: {'line': b'[100%] Built target interfaces__rosidl_typesupport_c__pyext\n'}
+[9.056314] (interfaces) StdoutLine: {'line': b'[100%] Built target interfaces__rosidl_typesupport_introspection_c__pyext\n'}
+[9.068349] (interfaces) StdoutLine: {'line': b'[100%] Built target interfaces__rosidl_typesupport_fastrtps_c__pyext\n'}
+[9.089051] (interfaces) JobEnded: {'identifier': 'interfaces', 'rc': 'SIGINT'}
+[9.124996] (-) TimerEvent: {}
+[9.225429] (-) TimerEvent: {}
+[9.325856] (-) TimerEvent: {}
+[9.426253] (-) TimerEvent: {}
+[9.526664] (-) TimerEvent: {}
+[9.627046] (-) TimerEvent: {}
+[9.727584] (-) TimerEvent: {}
+[9.828114] (-) TimerEvent: {}
+[9.928823] (-) TimerEvent: {}
+[10.029204] (-) TimerEvent: {}
+[10.129562] (-) TimerEvent: {}
+[10.229927] (-) TimerEvent: {}
+[10.330293] (-) TimerEvent: {}
+[10.430676] (-) TimerEvent: {}
+[10.531133] (-) TimerEvent: {}
+[10.631634] (-) TimerEvent: {}
+[10.732025] (-) TimerEvent: {}
+[10.832411] (-) TimerEvent: {}
+[10.932806] (-) TimerEvent: {}
+[11.033208] (-) TimerEvent: {}
+[11.133627] (-) TimerEvent: {}
+[11.234102] (-) TimerEvent: {}
+[11.334481] (-) TimerEvent: {}
+[11.434884] (-) TimerEvent: {}
+[11.535279] (-) TimerEvent: {}
+[11.635667] (-) TimerEvent: {}
+[11.736073] (-) TimerEvent: {}
+[11.836482] (-) TimerEvent: {}
+[11.936906] (-) TimerEvent: {}
+[12.037333] (-) TimerEvent: {}
+[12.137748] (-) TimerEvent: {}
+[12.238118] (-) TimerEvent: {}
+[12.338506] (-) TimerEvent: {}
+[12.438956] (-) TimerEvent: {}
+[12.539339] (-) TimerEvent: {}
+[12.639744] (-) TimerEvent: {}
+[12.740151] (-) TimerEvent: {}
+[12.841156] (-) TimerEvent: {}
+[12.941788] (-) TimerEvent: {}
+[13.042198] (-) TimerEvent: {}
+[13.142647] (-) TimerEvent: {}
+[13.243072] (-) TimerEvent: {}
+[13.343485] (-) TimerEvent: {}
+[13.443862] (-) TimerEvent: {}
+[13.544468] (-) TimerEvent: {}
+[13.644872] (-) TimerEvent: {}
+[13.745254] (-) TimerEvent: {}
+[13.845642] (-) TimerEvent: {}
+[13.946041] (-) TimerEvent: {}
+[14.046459] (-) TimerEvent: {}
+[14.146822] (-) TimerEvent: {}
+[14.247191] (-) TimerEvent: {}
+[14.347574] (-) TimerEvent: {}
+[14.447960] (-) TimerEvent: {}
+[14.548351] (-) TimerEvent: {}
+[14.648776] (-) TimerEvent: {}
+[14.749197] (-) TimerEvent: {}
+[14.849681] (-) TimerEvent: {}
+[14.950094] (-) TimerEvent: {}
+[15.050545] (-) TimerEvent: {}
+[15.150967] (-) TimerEvent: {}
+[15.251398] (-) TimerEvent: {}
+[15.351902] (-) TimerEvent: {}
+[15.452282] (-) TimerEvent: {}
+[15.552662] (-) TimerEvent: {}
+[15.653040] (-) TimerEvent: {}
+[15.753435] (-) TimerEvent: {}
+[15.853842] (-) TimerEvent: {}
+[15.954219] (-) TimerEvent: {}
+[16.054767] (-) TimerEvent: {}
+[16.155180] (-) TimerEvent: {}
+[16.255571] (-) TimerEvent: {}
+[16.355979] (-) TimerEvent: {}
+[16.456366] (-) TimerEvent: {}
+[16.556783] (-) TimerEvent: {}
+[16.657532] (-) TimerEvent: {}
+[16.757945] (-) TimerEvent: {}
+[16.858349] (-) TimerEvent: {}
+[16.958755] (-) TimerEvent: {}
+[17.059175] (-) TimerEvent: {}
+[17.159583] (-) TimerEvent: {}
+[17.259992] (-) TimerEvent: {}
+[17.360408] (-) TimerEvent: {}
+[17.460816] (-) TimerEvent: {}
+[17.561223] (-) TimerEvent: {}
+[17.661614] (-) TimerEvent: {}
+[17.762026] (-) TimerEvent: {}
+[17.862443] (-) TimerEvent: {}
+[17.962849] (-) TimerEvent: {}
+[18.063260] (-) TimerEvent: {}
+[18.163665] (-) TimerEvent: {}
+[18.264074] (-) TimerEvent: {}
+[18.364495] (-) TimerEvent: {}
+[18.464888] (-) TimerEvent: {}
+[18.565298] (-) TimerEvent: {}
+[18.668541] (-) TimerEvent: {}
+[18.773563] (-) TimerEvent: {}
+[18.873937] (-) TimerEvent: {}
+[18.974353] (-) TimerEvent: {}
+[19.074747] (-) TimerEvent: {}
+[19.175135] (-) TimerEvent: {}
+[19.275532] (-) TimerEvent: {}
+[19.377585] (-) TimerEvent: {}
+[19.478012] (-) TimerEvent: {}
+[19.578407] (-) TimerEvent: {}
+[19.680470] (-) TimerEvent: {}
+[19.780855] (-) TimerEvent: {}
+[19.897611] (-) TimerEvent: {}
+[19.998249] (-) TimerEvent: {}
+[20.099146] (-) TimerEvent: {}
+[20.199633] (-) TimerEvent: {}
+[20.300062] (-) TimerEvent: {}
+[20.400461] (-) TimerEvent: {}
+[20.503574] (-) TimerEvent: {}
+[20.604088] (-) TimerEvent: {}
+[20.709563] (-) TimerEvent: {}
+[20.809963] (-) TimerEvent: {}
+[20.917739] (-) TimerEvent: {}
+[21.025572] (-) TimerEvent: {}
+[21.127345] (-) TimerEvent: {}
+[21.227731] (-) TimerEvent: {}
+[21.328375] (-) TimerEvent: {}
+[21.428820] (-) TimerEvent: {}
+[21.532956] (-) TimerEvent: {}
+[21.636405] (-) TimerEvent: {}
+[21.745560] (-) TimerEvent: {}
+[21.845946] (-) TimerEvent: {}
+[21.950556] (-) TimerEvent: {}
+[22.057557] (-) TimerEvent: {}
+[22.164504] (-) TimerEvent: {}
+[22.269668] (-) TimerEvent: {}
+[22.370087] (-) TimerEvent: {}
+[22.471017] (-) TimerEvent: {}
+[22.571557] (-) TimerEvent: {}
+[22.672007] (-) TimerEvent: {}
+[22.772488] (-) TimerEvent: {}
+[22.873807] (-) TimerEvent: {}
+[22.974452] (-) TimerEvent: {}
+[23.075413] (-) TimerEvent: {}
+[23.175885] (-) TimerEvent: {}
+[23.276261] (-) TimerEvent: {}
+[23.376649] (-) TimerEvent: {}
+[23.478212] (-) TimerEvent: {}
+[23.581567] (-) TimerEvent: {}
+[23.682123] (-) TimerEvent: {}
+[23.782806] (-) TimerEvent: {}
+[23.883364] (-) TimerEvent: {}
+[23.983758] (-) TimerEvent: {}
+[24.084148] (-) TimerEvent: {}
+[24.184707] (-) TimerEvent: {}
+[24.285126] (-) TimerEvent: {}
+[24.385564] (-) TimerEvent: {}
+[24.485951] (-) TimerEvent: {}
+[24.586363] (-) TimerEvent: {}
+[24.686798] (-) TimerEvent: {}
+[24.787308] (-) TimerEvent: {}
+[24.887698] (-) TimerEvent: {}
+[24.988047] (-) TimerEvent: {}
+[25.088364] (-) TimerEvent: {}
+[25.188708] (-) TimerEvent: {}
+[25.289084] (-) TimerEvent: {}
+[25.389506] (-) TimerEvent: {}
+[25.490208] (-) TimerEvent: {}
+[25.590619] (-) TimerEvent: {}
+[25.691041] (-) TimerEvent: {}
+[25.791430] (-) TimerEvent: {}
+[25.891865] (-) TimerEvent: {}
+[25.992258] (-) TimerEvent: {}
+[26.092673] (-) TimerEvent: {}
+[26.192996] (-) TimerEvent: {}
+[26.293359] (-) TimerEvent: {}
+[26.393729] (-) TimerEvent: {}
+[26.496204] (-) TimerEvent: {}
+[26.601570] (-) TimerEvent: {}
+[26.705558] (-) TimerEvent: {}
+[26.809560] (-) TimerEvent: {}
+[26.910773] (-) TimerEvent: {}
+[27.013574] (-) TimerEvent: {}
+[27.114095] (-) TimerEvent: {}
+[27.214736] (-) TimerEvent: {}
+[27.315438] (-) TimerEvent: {}
+[27.415862] (-) TimerEvent: {}
+[27.516283] (-) TimerEvent: {}
+[27.616703] (-) TimerEvent: {}
+[27.717099] (-) TimerEvent: {}
+[27.817574] (-) TimerEvent: {}
+[27.918234] (-) TimerEvent: {}
+[28.018745] (-) TimerEvent: {}
+[28.119208] (-) TimerEvent: {}
+[28.219640] (-) TimerEvent: {}
+[28.320033] (-) TimerEvent: {}
+[28.420437] (-) TimerEvent: {}
+[28.520851] (-) TimerEvent: {}
+[28.621381] (-) TimerEvent: {}
+[28.724479] (-) TimerEvent: {}
+[28.824912] (-) TimerEvent: {}
+[28.925330] (-) TimerEvent: {}
+[29.033590] (-) TimerEvent: {}
+[29.136624] (-) TimerEvent: {}
+[29.237172] (-) TimerEvent: {}
+[29.337544] (-) TimerEvent: {}
+[29.441443] (-) TimerEvent: {}
+[29.541864] (-) TimerEvent: {}
+[29.642337] (-) TimerEvent: {}
+[29.742885] (-) TimerEvent: {}
+[29.843951] (-) TimerEvent: {}
+[29.944390] (-) TimerEvent: {}
+[30.044833] (-) TimerEvent: {}
+[30.145226] (-) TimerEvent: {}
+[30.246304] (-) TimerEvent: {}
+[30.346749] (-) TimerEvent: {}
+[30.447674] (-) TimerEvent: {}
+[30.549230] (-) TimerEvent: {}
+[30.649643] (-) TimerEvent: {}
+[30.750023] (-) TimerEvent: {}
+[30.853557] (-) TimerEvent: {}
+[30.953918] (-) TimerEvent: {}
+[31.054299] (-) TimerEvent: {}
+[31.156903] (-) TimerEvent: {}
+[31.261569] (-) TimerEvent: {}
+[31.364689] (-) TimerEvent: {}
+[31.450765] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 60%] \x1b[32m\x1b[1mLinking CXX shared library librobot1_plugin.so\x1b[0m\n'}
+[31.465242] (-) TimerEvent: {}
+[31.569249] (-) TimerEvent: {}
+[31.669668] (-) TimerEvent: {}
+[31.770618] (-) TimerEvent: {}
+[31.870985] (-) TimerEvent: {}
+[31.973972] (-) TimerEvent: {}
+[32.075583] (-) TimerEvent: {}
+[32.176026] (-) TimerEvent: {}
+[32.276589] (-) TimerEvent: {}
+[32.376953] (-) TimerEvent: {}
+[32.478983] (-) TimerEvent: {}
+[32.579586] (-) TimerEvent: {}
+[32.607103] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 70%] \x1b[32m\x1b[1mLinking CXX shared library libplatform_plugin_test.so\x1b[0m\n'}
+[32.679700] (-) TimerEvent: {}
+[32.780375] (-) TimerEvent: {}
+[32.881633] (-) TimerEvent: {}
+[32.933166] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 80%] \x1b[32m\x1b[1mLinking CXX shared library librobot2_plugin.so\x1b[0m\n'}
+[32.991294] (-) TimerEvent: {}
+[33.100292] (-) TimerEvent: {}
+[33.205566] (-) TimerEvent: {}
+[33.309622] (-) TimerEvent: {}
+[33.410150] (-) TimerEvent: {}
+[33.427204] (gazebo_plugin_sim) StdoutLine: {'line': b'[ 90%] \x1b[32m\x1b[1mLinking CXX shared library libplatform2_plugin.so\x1b[0m\n'}
+[33.510295] (-) TimerEvent: {}
+[33.610796] (-) TimerEvent: {}
+[33.711258] (-) TimerEvent: {}
+[33.811737] (-) TimerEvent: {}
+[33.851471] (gazebo_plugin_sim) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX shared library libplatform1_plugin.so\x1b[0m\n'}
+[33.911868] (-) TimerEvent: {}
+[34.012285] (-) TimerEvent: {}
+[34.112946] (-) TimerEvent: {}
+[34.217913] (-) TimerEvent: {}
+[34.318446] (-) TimerEvent: {}
+[34.419396] (-) TimerEvent: {}
+[34.520034] (-) TimerEvent: {}
+[34.542222] (gazebo_plugin_sim) StdoutLine: {'line': b'[100%] Built target robot1_plugin\n'}
+[34.620186] (-) TimerEvent: {}
+[34.720754] (-) TimerEvent: {}
+[34.821283] (-) TimerEvent: {}
+[34.921737] (-) TimerEvent: {}
+[35.022181] (-) TimerEvent: {}
+[35.122770] (-) TimerEvent: {}
+[35.157367] (gazebo_plugin_sim) StdoutLine: {'line': b'[100%] Built target platform_plugin_test\n'}
+[35.222933] (-) TimerEvent: {}
+[35.323482] (-) TimerEvent: {}
+[35.423901] (-) TimerEvent: {}
+[35.447897] (gazebo_plugin_sim) StdoutLine: {'line': b'[100%] Built target robot2_plugin\n'}
+[35.524023] (-) TimerEvent: {}
+[35.588556] (gazebo_plugin_sim) StdoutLine: {'line': b'[100%] Built target platform2_plugin\n'}
+[35.624151] (-) TimerEvent: {}
+[35.719077] (gazebo_plugin_sim) StdoutLine: {'line': b'[100%] Built target platform1_plugin\n'}
+[35.724253] (-) TimerEvent: {}
+[35.732699] (gazebo_plugin_sim) JobEnded: {'identifier': 'gazebo_plugin_sim', 'rc': 'SIGINT'}
+[35.743686] (control_pkg) JobSkipped: {'identifier': 'control_pkg'}
+[35.743830] (inv_kinematics_pkg) JobSkipped: {'identifier': 'inv_kinematics_pkg'}
+[35.743890] (-) EventReactorShutdown: {}

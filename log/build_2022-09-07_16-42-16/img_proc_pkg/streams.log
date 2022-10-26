@@ -1,0 +1,33 @@
+[0.029s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg -DCMAKE_INSTALL_PREFIX=/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg
+[0.044s] -- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.069s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.306s] -- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[0.328s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.332s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.481s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.636s] -- Found rclcpp: 2.4.1 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.674s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.676s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.824s] -- Found image_transport: 2.3.0 (/opt/ros/foxy/share/image_transport/cmake)
+[0.866s] -- Found cv_bridge: 2.2.1 (/opt/ros/foxy/share/cv_bridge/cmake)
+[0.880s] CMake Error at CMakeLists.txt:26 (find_package):
+[0.880s]   By not providing "Findinterfaces.cmake" in CMAKE_MODULE_PATH this project
+[0.880s]   has asked CMake to find a package configuration file provided by
+[0.881s]   "interfaces", but CMake did not find one.
+[0.881s] 
+[0.881s]   Could not find a package configuration file provided by "interfaces" with
+[0.881s]   any of the following names:
+[0.881s] 
+[0.881s]     interfacesConfig.cmake
+[0.881s]     interfaces-config.cmake
+[0.881s] 
+[0.881s]   Add the installation prefix of "interfaces" to CMAKE_PREFIX_PATH or set
+[0.882s]   "interfaces_DIR" to a directory containing one of the above files.  If
+[0.882s]   "interfaces" provides a separate development package or SDK, be sure it has
+[0.882s]   been installed.
+[0.882s] 
+[0.882s] 
+[0.882s] -- Configuring incomplete, errors occurred!
+[0.882s] See also "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg/CMakeFiles/CMakeOutput.log".
+[0.883s] See also "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg/CMakeFiles/CMakeError.log".
+[0.891s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg' returned '1': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg -DCMAKE_INSTALL_PREFIX=/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg

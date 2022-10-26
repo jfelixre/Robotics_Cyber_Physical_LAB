@@ -1,0 +1,96 @@
+[0.030s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim -- -j8 -l8
+[0.059s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.084s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.292s] -- Found camera_info_manager: 2.4.0 (/opt/ros/foxy/share/camera_info_manager/cmake)
+[0.355s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.358s] -- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.484s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.554s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.557s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.877s] -- Setting yaml-cpp_DIR to: '/opt/ros/foxy/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/lib/cmake/yaml-cpp'
+[0.942s] -- Found gazebo_dev: 3.5.3 (/opt/ros/foxy/share/gazebo_dev/cmake)
+[1.025s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[1.093s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "3.6.1") 
+[1.098s] -- Looking for ignition-math6 -- found version 6.13.0
+[1.108s] -- Searching for dependencies of ignition-math6
+[1.113s] -- Looking for OGRE...
+[1.119s] -- Found Ogre Ghadamon (1.9.0)
+[1.120s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[1.132s] -- Looking for OGRE_Paging...
+[1.132s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[1.133s] -- Looking for OGRE_Terrain...
+[1.133s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[1.133s] -- Looking for OGRE_Property...
+[1.134s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[1.134s] -- Looking for OGRE_RTShaderSystem...
+[1.134s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[1.134s] -- Looking for OGRE_Volume...
+[1.134s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[1.135s] -- Looking for OGRE_Overlay...
+[1.135s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[1.302s] -- Looking for ignition-math6 -- found version 6.13.0
+[1.303s] -- Looking for ignition-transport8 -- found version 8.3.0
+[1.304s] -- Searching for dependencies of ignition-transport8
+[1.322s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found suitable version "3.6.1", minimum required is "3") 
+[1.334s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[1.338s] -- Checking for module 'libzmq >= 4'
+[1.356s] --   Found libzmq , version 4.3.2
+[1.401s] -- Checking for module 'uuid'
+[1.417s] --   Found uuid, version 2.34.0
+[1.455s] -- Looking for ignition-msgs5 -- found version 5.11.0
+[1.455s] -- Searching for dependencies of ignition-msgs5
+[1.475s] -- Looking for ignition-math6 -- found version 6.13.0
+[1.480s] -- Checking for module 'tinyxml2'
+[1.498s] --   Found tinyxml2, version 6.2.0
+[1.539s] -- Looking for ignition-msgs5 -- found version 5.11.0
+[1.540s] -- Looking for ignition-common3 -- found version 3.15.1
+[1.540s] -- Searching for dependencies of ignition-common3
+[1.541s] -- Looking for dlfcn.h - found
+[1.541s] -- Looking for libdl - found
+[1.553s] -- Searching for <ignition-common3> component [graphics]
+[1.554s] -- Looking for ignition-common3-graphics -- found version 3.15.1
+[1.555s] -- Searching for dependencies of ignition-common3-graphics
+[1.555s] -- Looking for ignition-math6 -- found version 6.13.0
+[1.557s] -- Looking for ignition-fuel_tools4 -- found version 4.6.0
+[1.558s] -- Searching for dependencies of ignition-fuel_tools4
+[1.592s] -- Checking for module 'jsoncpp'
+[1.608s] --   Found jsoncpp, version 1.7.4
+[1.650s] -- Checking for module 'libzip'
+[1.667s] --   Found libzip, version 1.5.1
+[1.704s] -- Looking for ignition-common3 -- found version 3.15.1
+[1.704s] -- Looking for ignition-math6 -- found version 6.13.0
+[1.704s] -- Looking for ignition-msgs5 -- found version 5.11.0
+[1.707s] -- Gazebo version: 11.12
+[1.708s] -- Found gazebo_msgs: 3.5.3 (/opt/ros/foxy/share/gazebo_msgs/cmake)
+[1.989s] -- Found gazebo_ros: 3.5.3 (/opt/ros/foxy/share/gazebo_ros/cmake)
+[2.029s] -- Found image_transport: 2.4.0 (/opt/ros/foxy/share/image_transport/cmake)
+[2.110s] -- Found cv_bridge: 3.0.6 (/opt/ros/foxy/share/cv_bridge/cmake)
+[2.154s] -- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+[2.253s] -- Found std_srvs: 2.0.5 (/opt/ros/foxy/share/std_srvs/cmake)
+[2.276s] -- Found tf2: 0.13.13 (/opt/ros/foxy/share/tf2/cmake)
+[2.293s] -- Found tf2_geometry_msgs: 0.13.13 (/opt/ros/foxy/share/tf2_geometry_msgs/cmake)
+[2.305s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/foxy/share/eigen3_cmake_module/cmake)
+[3.160s] -- Found interfaces: 0.0.0 (/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake)
+[3.489s] -- Configuring done
+[3.822s] -- Generating done
+[3.828s] -- Build files have been written to: /home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim
+[3.983s] [35m[1mScanning dependencies of target robot2_plugin[0m
+[3.984s] [35m[1mScanning dependencies of target platform1_plugin[0m
+[3.985s] [35m[1mScanning dependencies of target robot1_plugin[0m
+[3.986s] [35m[1mScanning dependencies of target platform_plugin_test[0m
+[3.989s] [35m[1mScanning dependencies of target platform2_plugin[0m
+[4.560s] [ 10%] [32mBuilding CXX object CMakeFiles/platform1_plugin.dir/src/platform1_plugin.cpp.o[0m
+[4.560s] [ 20%] [32mBuilding CXX object CMakeFiles/robot2_plugin.dir/src/robot2_plugin.cpp.o[0m
+[4.570s] [ 30%] [32mBuilding CXX object CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o[0m
+[4.571s] [ 40%] [32mBuilding CXX object CMakeFiles/platform2_plugin.dir/src/platform2_plugin.cpp.o[0m
+[4.626s] [ 50%] [32mBuilding CXX object CMakeFiles/robot1_plugin.dir/src/robot1_plugin.cpp.o[0m
+[31.437s] [ 60%] [32m[1mLinking CXX shared library librobot1_plugin.so[0m
+[32.594s] [ 70%] [32m[1mLinking CXX shared library libplatform_plugin_test.so[0m
+[32.920s] [ 80%] [32m[1mLinking CXX shared library librobot2_plugin.so[0m
+[33.414s] [ 90%] [32m[1mLinking CXX shared library libplatform2_plugin.so[0m
+[33.838s] [100%] [32m[1mLinking CXX shared library libplatform1_plugin.so[0m
+[34.529s] [100%] Built target robot1_plugin
+[35.144s] [100%] Built target platform_plugin_test
+[35.434s] [100%] Built target robot2_plugin
+[35.575s] [100%] Built target platform2_plugin
+[35.705s] [100%] Built target platform1_plugin

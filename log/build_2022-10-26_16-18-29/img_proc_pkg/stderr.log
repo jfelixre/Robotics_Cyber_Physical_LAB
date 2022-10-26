@@ -1,0 +1,19 @@
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:[m[K In constructor ‘[01m[KAruco_Detector::Aruco_Detector()[m[K’:
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:54:12:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KreadOk[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   54 |       bool [01;35m[KreadOk[m[K = readCameraParameters("src/img_proc_pkg/config/camera_calib_charuco.yaml", cameraMatrix, distCoeffs);
+      |            [01;35m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:[m[K In member function ‘[01m[Kvoid Aruco_Detector::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:97:79:[m[K [01;35m[Kwarning: [m[Kleft operand of comma operator has no effect [[01;35m[K-Wunused-value[m[K]
+   97 |         std::cout << "markerCorners = " << std::endl << " "  << markerCorners[[01;35m[K0[m[K,0] << std::endl << std::endl;
+      |                                                                               [01;35m[K^[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:100:27:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<cv::Vec<double, 3> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  100 |         for (int i = 0; [01;35m[Ki < rvecs.size()[m[K; ++i) {
+      |                         [01;35m[K~~^~~~~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:78:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn_cols[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   78 |       int [01;35m[Kn_cols[m[K = img_original.cols;
+      |           [01;35m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:79:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn_rows[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   79 |       int [01;35m[Kn_rows[m[K = img_original.rows;
+      |           [01;35m[K^~~~~~[m[K
+/usr/bin/ld: warning: libopencv_imgproc.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.406
+/usr/bin/ld: warning: libopencv_core.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_core.so.406

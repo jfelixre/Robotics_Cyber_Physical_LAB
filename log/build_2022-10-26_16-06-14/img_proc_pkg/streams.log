@@ -1,0 +1,1002 @@
+[0.038s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg -- -j8 -l8
+[0.126s] [35m[1mScanning dependencies of target aruco_detector[0m
+[0.175s] [ 14%] Built target img_proc_node
+[0.204s] [ 28%] Built target img_proc_id_node
+[0.228s] [ 42%] Built target img_publ_test_node
+[0.235s] [ 57%] Built target calibrate_camera_charuco_node
+[0.237s] [ 64%] [32mBuilding CXX object CMakeFiles/aruco_detector.dir/src/aruco_detector.cpp.o[0m
+[0.241s] [ 78%] Built target calibrate_camera_charuco
+[0.241s] [ 92%] Built target img_subs_test_node
+[2.890s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:[m[K In constructor ‘[01m[KAruco_Detector::Aruco_Detector()[m[K’:
+[2.890s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:54:12:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KreadOk[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[2.890s]    54 |       bool [01;35m[KreadOk[m[K = readCameraParameters("src/img_proc_pkg/config/camera_calib_charuco.yaml", cameraMatrix, distCoeffs);
+[2.890s]       |            [01;35m[K^~~~~~[m[K
+[2.916s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:[m[K In member function ‘[01m[Kvoid Aruco_Detector::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)[m[K’:
+[2.917s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:97:79:[m[K [01;35m[Kwarning: [m[Kleft operand of comma operator has no effect [[01;35m[K-Wunused-value[m[K]
+[2.917s]    97 |         std::cout << "markerCorners = " << std::endl << " "  << markerCorners[[01;35m[K0[m[K,0] << std::endl << std::endl;
+[2.917s]       |                                                                               [01;35m[K^[m[K
+[2.922s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:54:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator<<[m[K’ (operand types are ‘[01m[Kstd::basic_ostream<char>[m[K’ and ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’)
+[2.922s]    98 |         [32m[Kstd::cout << "rvecs = " << std::endl << " "[m[K  [01;31m[K<<[m[K [34m[Krvecs[m[K << std::endl << std::endl;
+[2.922s]       |         [32m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K  [01;31m[K^~[m[K [34m[K~~~~~[m[K
+[2.923s]       |                                              [32m[K|[m[K          [34m[K|[m[K
+[2.923s]       |                                              [32m[K|[m[K          [34m[Kstd::vector<cv::Vec<double, 3> >[m[K
+[2.924s]       |                                              [32m[Kstd::basic_ostream<char>[m[K
+[2.924s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.924s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.924s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.925s] [01m[K/usr/include/c++/9/ostream:108:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ostream_type& (*)(std::basic_ostream<_CharT, _Traits>::__ostream_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.925s]   108 |       [01;36m[Koperator[m[K<<(__ostream_type& (*__pf)(__ostream_type&))
+[2.925s]       |       [01;36m[K^~~~~~~~[m[K
+[2.925s] [01m[K/usr/include/c++/9/ostream:108:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kstd::basic_ostream<char>::__ostream_type& (*)(std::basic_ostream<char>::__ostream_type&)[m[K’ {aka ‘[01m[Kstd::basic_ostream<char>& (*)(std::basic_ostream<char>&)[m[K’}
+[2.926s]   108 |       operator<<([01;36m[K__ostream_type& (*__pf)(__ostream_type&)[m[K)
+[2.927s]       |                  [01;36m[K~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.928s] [01m[K/usr/include/c++/9/ostream:117:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ios_type& (*)(std::basic_ostream<_CharT, _Traits>::__ios_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>; std::basic_ostream<_CharT, _Traits>::__ios_type = std::basic_ios<char>][m[K’
+[2.928s]   117 |       [01;36m[Koperator[m[K<<(__ios_type& (*__pf)(__ios_type&))
+[2.928s]       |       [01;36m[K^~~~~~~~[m[K
+[2.928s] [01m[K/usr/include/c++/9/ostream:117:32:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kstd::basic_ostream<char>::__ios_type& (*)(std::basic_ostream<char>::__ios_type&)[m[K’ {aka ‘[01m[Kstd::basic_ios<char>& (*)(std::basic_ios<char>&)[m[K’}
+[2.928s]   117 |       operator<<([01;36m[K__ios_type& (*__pf)(__ios_type&)[m[K)
+[2.928s]       |                  [01;36m[K~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~[m[K
+[2.928s] [01m[K/usr/include/c++/9/ostream:127:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::ios_base& (*)(std::ios_base&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.928s]   127 |       [01;36m[Koperator[m[K<<(ios_base& (*__pf) (ios_base&))
+[2.928s]       |       [01;36m[K^~~~~~~~[m[K
+[2.928s] [01m[K/usr/include/c++/9/ostream:127:30:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kstd::ios_base& (*)(std::ios_base&)[m[K’
+[2.928s]   127 |       operator<<([01;36m[Kios_base& (*__pf) (ios_base&)[m[K)
+[2.928s]       |                  [01;36m[K~~~~~~~~~~~~^~~~~~~~~~~~~~~~~[m[K
+[2.928s] [01m[K/usr/include/c++/9/ostream:166:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.929s]   166 |       [01;36m[Koperator[m[K<<(long __n)
+[2.929s]       |       [01;36m[K^~~~~~~~[m[K
+[2.929s] [01m[K/usr/include/c++/9/ostream:166:23:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Klong int[m[K’
+[2.929s]   166 |       operator<<([01;36m[Klong __n[m[K)
+[2.929s]       |                  [01;36m[K~~~~~^~~[m[K
+[2.929s] [01m[K/usr/include/c++/9/ostream:170:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.929s]   170 |       [01;36m[Koperator[m[K<<(unsigned long __n)
+[2.929s]       |       [01;36m[K^~~~~~~~[m[K
+[2.929s] [01m[K/usr/include/c++/9/ostream:170:32:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Klong unsigned int[m[K’
+[2.929s]   170 |       operator<<([01;36m[Kunsigned long __n[m[K)
+[2.929s]       |                  [01;36m[K~~~~~~~~~~~~~~^~~[m[K
+[2.929s] [01m[K/usr/include/c++/9/ostream:174:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(bool) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.929s]   174 |       [01;36m[Koperator[m[K<<(bool __n)
+[2.930s]       |       [01;36m[K^~~~~~~~[m[K
+[2.930s] [01m[K/usr/include/c++/9/ostream:174:23:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kbool[m[K’
+[2.930s]   174 |       operator<<([01;36m[Kbool __n[m[K)
+[2.930s]       |                  [01;36m[K~~~~~^~~[m[K
+[2.930s] In file included from [01m[K/usr/include/c++/9/ostream:702[m[K,
+[2.930s]                  from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.930s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.930s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.930s] [01m[K/usr/include/c++/9/bits/ostream.tcc:91:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(short int) [with _CharT = char; _Traits = std::char_traits<char>][m[K’
+[2.930s]    91 |     [01;36m[Kbasic_ostream<_CharT, _Traits>[m[K::
+[2.930s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.930s] [01m[K/usr/include/c++/9/bits/ostream.tcc:92:22:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kshort int[m[K’
+[2.931s]    92 |     operator<<([01;36m[Kshort __n[m[K)
+[2.931s]       |                [01;36m[K~~~~~~^~~[m[K
+[2.931s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.931s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.931s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.931s] [01m[K/usr/include/c++/9/ostream:181:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(short unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.931s]   181 |       [01;36m[Koperator[m[K<<(unsigned short __n)
+[2.931s]       |       [01;36m[K^~~~~~~~[m[K
+[2.931s] [01m[K/usr/include/c++/9/ostream:181:33:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kshort unsigned int[m[K’
+[2.931s]   181 |       operator<<([01;36m[Kunsigned short __n[m[K)
+[2.932s]       |                  [01;36m[K~~~~~~~~~~~~~~~^~~[m[K
+[2.932s] In file included from [01m[K/usr/include/c++/9/ostream:702[m[K,
+[2.932s]                  from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.932s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.932s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.932s] [01m[K/usr/include/c++/9/bits/ostream.tcc:105:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(int) [with _CharT = char; _Traits = std::char_traits<char>][m[K’
+[2.932s]   105 |     [01;36m[Kbasic_ostream<_CharT, _Traits>[m[K::
+[2.932s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.932s] [01m[K/usr/include/c++/9/bits/ostream.tcc:106:20:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kint[m[K’
+[2.932s]   106 |     operator<<([01;36m[Kint __n[m[K)
+[2.932s]       |                [01;36m[K~~~~^~~[m[K
+[2.932s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.932s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.933s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.933s] [01m[K/usr/include/c++/9/ostream:192:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.933s]   192 |       [01;36m[Koperator[m[K<<(unsigned int __n)
+[2.933s]       |       [01;36m[K^~~~~~~~[m[K
+[2.933s] [01m[K/usr/include/c++/9/ostream:192:31:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kunsigned int[m[K’
+[2.933s]   192 |       operator<<([01;36m[Kunsigned int __n[m[K)
+[2.933s]       |                  [01;36m[K~~~~~~~~~~~~~^~~[m[K
+[2.933s] [01m[K/usr/include/c++/9/ostream:201:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.933s]   201 |       [01;36m[Koperator[m[K<<(long long __n)
+[2.933s]       |       [01;36m[K^~~~~~~~[m[K
+[2.933s] [01m[K/usr/include/c++/9/ostream:201:28:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Klong long int[m[K’
+[2.933s]   201 |       operator<<([01;36m[Klong long __n[m[K)
+[2.933s]       |                  [01;36m[K~~~~~~~~~~^~~[m[K
+[2.933s] [01m[K/usr/include/c++/9/ostream:205:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.933s]   205 |       [01;36m[Koperator[m[K<<(unsigned long long __n)
+[2.934s]       |       [01;36m[K^~~~~~~~[m[K
+[2.934s] [01m[K/usr/include/c++/9/ostream:205:37:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Klong long unsigned int[m[K’
+[2.934s]   205 |       operator<<([01;36m[Kunsigned long long __n[m[K)
+[2.934s]       |                  [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[2.934s] [01m[K/usr/include/c++/9/ostream:220:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.934s]   220 |       [01;36m[Koperator[m[K<<(double __f)
+[2.934s]       |       [01;36m[K^~~~~~~~[m[K
+[2.934s] [01m[K/usr/include/c++/9/ostream:220:25:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kdouble[m[K’
+[2.934s]   220 |       operator<<([01;36m[Kdouble __f[m[K)
+[2.934s]       |                  [01;36m[K~~~~~~~^~~[m[K
+[2.934s] [01m[K/usr/include/c++/9/ostream:224:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(float) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.934s]   224 |       [01;36m[Koperator[m[K<<(float __f)
+[2.934s]       |       [01;36m[K^~~~~~~~[m[K
+[2.934s] [01m[K/usr/include/c++/9/ostream:224:24:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kfloat[m[K’
+[2.934s]   224 |       operator<<([01;36m[Kfloat __f[m[K)
+[2.934s]       |                  [01;36m[K~~~~~~^~~[m[K
+[2.935s] [01m[K/usr/include/c++/9/ostream:232:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.935s]   232 |       [01;36m[Koperator[m[K<<(long double __f)
+[2.935s]       |       [01;36m[K^~~~~~~~[m[K
+[2.935s] [01m[K/usr/include/c++/9/ostream:232:30:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Klong double[m[K’
+[2.935s]   232 |       operator<<([01;36m[Klong double __f[m[K)
+[2.935s]       |                  [01;36m[K~~~~~~~~~~~~^~~[m[K
+[2.935s] [01m[K/usr/include/c++/9/ostream:245:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(const void*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.935s]   245 |       [01;36m[Koperator[m[K<<(const void* __p)
+[2.935s]       |       [01;36m[K^~~~~~~~[m[K
+[2.935s] [01m[K/usr/include/c++/9/ostream:245:30:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kconst void*[m[K’
+[2.935s]   245 |       operator<<([01;36m[Kconst void* __p[m[K)
+[2.935s]       |                  [01;36m[K~~~~~~~~~~~~^~~[m[K
+[2.935s] In file included from [01m[K/usr/include/c++/9/ostream:702[m[K,
+[2.935s]                  from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.935s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.936s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.936s] [01m[K/usr/include/c++/9/bits/ostream.tcc:119:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__streambuf_type*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__streambuf_type = std::basic_streambuf<char>][m[K’
+[2.936s]   119 |     [01;36m[Kbasic_ostream<_CharT, _Traits>[m[K::
+[2.936s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.936s] [01m[K/usr/include/c++/9/bits/ostream.tcc:120:34:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kstd::basic_ostream<char>::__streambuf_type*[m[K’ {aka ‘[01m[Kstd::basic_streambuf<char>*[m[K’}
+[2.936s]   120 |     operator<<([01;36m[K__streambuf_type* __sbin[m[K)
+[2.936s]       |                [01;36m[K~~~~~~~~~~~~~~~~~~^~~~~~[m[K
+[2.936s] In file included from [01m[K/usr/include/c++/9/string:55[m[K,
+[2.937s]                  from [01m[K/usr/include/c++/9/stdexcept:39[m[K,
+[2.937s]                  from [01m[K/usr/include/c++/9/array:39[m[K,
+[2.937s]                  from [01m[K/usr/include/c++/9/tuple:39[m[K,
+[2.937s]                  from [01m[K/usr/include/c++/9/functional:54[m[K,
+[2.937s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:3[m[K:
+[2.937s] [01m[K/usr/include/c++/9/bits/basic_string.h:6419:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _CharT, class _Traits, class _Alloc> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)[m[K’
+[2.937s]  6419 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __os,
+[2.937s]       |     [01;36m[K^~~~~~~~[m[K
+[2.937s] [01m[K/usr/include/c++/9/bits/basic_string.h:6419:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.937s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ is not derived from ‘[01m[Kconst std::__cxx11::basic_string<_CharT, _Traits, _Alloc>[m[K’
+[2.937s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.937s]       |                                                         [01;36m[K^~~~~[m[K
+[2.937s] In file included from [01m[K/usr/include/c++/9/memory:81[m[K,
+[2.937s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:4[m[K:
+[2.938s] [01m[K/usr/include/c++/9/bits/shared_ptr.h:66:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Ch, class _Tr, class _Tp, __gnu_cxx::_Lock_policy _Lp> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::__shared_ptr<_Tp, _Lp>&)[m[K’
+[2.938s]    66 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_Ch, _Tr>& __os,
+[2.938s]       |     [01;36m[K^~~~~~~~[m[K
+[2.938s] [01m[K/usr/include/c++/9/bits/shared_ptr.h:66:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.938s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ is not derived from ‘[01m[Kconst std::__shared_ptr<_Tp, _Lp>[m[K’
+[2.938s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.938s]       |                                                         [01;36m[K^~~~~[m[K
+[2.938s] In file included from [01m[K/usr/include/c++/9/bits/ios_base.h:46[m[K,
+[2.938s]                  from [01m[K/usr/include/c++/9/ios:42[m[K,
+[2.938s]                  from [01m[K/usr/include/c++/9/istream:38[m[K,
+[2.938s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.938s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.938s] [01m[K/usr/include/c++/9/system_error:217:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::error_code&)[m[K’
+[2.938s]   217 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __os, const error_code& __e)
+[2.938s]       |     [01;36m[K^~~~~~~~[m[K
+[2.939s] [01m[K/usr/include/c++/9/system_error:217:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.939s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Krvecs[m[K’ (type ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’) to type ‘[01m[Kconst std::error_code&[m[K’
+[2.939s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.939s]       |                                                         [01;36m[K^~~~~[m[K
+[2.939s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.939s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.939s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.939s] [01m[K/usr/include/c++/9/ostream:506:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, _CharT)[m[K’
+[2.939s]   506 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __out, _CharT __c)
+[2.939s]       |     [01;36m[K^~~~~~~~[m[K
+[2.939s] [01m[K/usr/include/c++/9/ostream:506:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.939s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  deduced conflicting types for parameter ‘[01m[K_CharT[m[K’ (‘[01m[Kchar[m[K’ and ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’)
+[2.940s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.940s]       |                                                         [01;36m[K^~~~~[m[K
+[2.940s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.940s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.940s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.940s] [01m[K/usr/include/c++/9/ostream:511:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, char)[m[K’
+[2.940s]   511 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __out, char __c)
+[2.940s]       |     [01;36m[K^~~~~~~~[m[K
+[2.940s] [01m[K/usr/include/c++/9/ostream:511:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.940s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Krvecs[m[K’ (type ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’) to type ‘[01m[Kchar[m[K’
+[2.941s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.941s]       |                                                         [01;36m[K^~~~~[m[K
+[2.941s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.941s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.941s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.941s] [01m[K/usr/include/c++/9/ostream:517:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, char)[m[K’
+[2.941s]   517 |     [01;36m[Koperator[m[K<<(basic_ostream<char, _Traits>& __out, char __c)
+[2.941s]       |     [01;36m[K^~~~~~~~[m[K
+[2.941s] [01m[K/usr/include/c++/9/ostream:517:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.941s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Krvecs[m[K’ (type ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’) to type ‘[01m[Kchar[m[K’
+[2.941s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.941s]       |                                                         [01;36m[K^~~~~[m[K
+[2.941s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.941s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.942s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.942s] [01m[K/usr/include/c++/9/ostream:523:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, signed char)[m[K’
+[2.942s]   523 |     [01;36m[Koperator[m[K<<(basic_ostream<char, _Traits>& __out, signed char __c)
+[2.942s]       |     [01;36m[K^~~~~~~~[m[K
+[2.942s] [01m[K/usr/include/c++/9/ostream:523:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.942s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Krvecs[m[K’ (type ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’) to type ‘[01m[Ksigned char[m[K’
+[2.942s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.942s]       |                                                         [01;36m[K^~~~~[m[K
+[2.942s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.942s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.942s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.942s] [01m[K/usr/include/c++/9/ostream:528:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, unsigned char)[m[K’
+[2.942s]   528 |     [01;36m[Koperator[m[K<<(basic_ostream<char, _Traits>& __out, unsigned char __c)
+[2.942s]       |     [01;36m[K^~~~~~~~[m[K
+[2.942s] [01m[K/usr/include/c++/9/ostream:528:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.943s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Krvecs[m[K’ (type ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’) to type ‘[01m[Kunsigned char[m[K’
+[2.943s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.943s]       |                                                         [01;36m[K^~~~~[m[K
+[2.943s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.943s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.943s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.943s] [01m[K/usr/include/c++/9/ostream:548:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const _CharT*)[m[K’
+[2.943s]   548 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __out, const _CharT* __s)
+[2.943s]       |     [01;36m[K^~~~~~~~[m[K
+[2.943s] [01m[K/usr/include/c++/9/ostream:548:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.943s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kconst _CharT*[m[K’ and ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’
+[2.943s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.943s]       |                                                         [01;36m[K^~~~~[m[K
+[2.943s] In file included from [01m[K/usr/include/c++/9/ostream:702[m[K,
+[2.943s]                  from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.944s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.944s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.944s] [01m[K/usr/include/c++/9/bits/ostream.tcc:321:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const char*)[m[K’
+[2.944s]   321 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __out, const char* __s)
+[2.944s]       |     [01;36m[K^~~~~~~~[m[K
+[2.944s] [01m[K/usr/include/c++/9/bits/ostream.tcc:321:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.944s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Krvecs[m[K’ (type ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’) to type ‘[01m[Kconst char*[m[K’
+[2.944s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.944s]       |                                                         [01;36m[K^~~~~[m[K
+[2.944s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.944s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.944s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.944s] [01m[K/usr/include/c++/9/ostream:565:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const char*)[m[K’
+[2.945s]   565 |     [01;36m[Koperator[m[K<<(basic_ostream<char, _Traits>& __out, const char* __s)
+[2.945s]       |     [01;36m[K^~~~~~~~[m[K
+[2.945s] [01m[K/usr/include/c++/9/ostream:565:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.945s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Krvecs[m[K’ (type ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’) to type ‘[01m[Kconst char*[m[K’
+[2.945s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.945s]       |                                                         [01;36m[K^~~~~[m[K
+[2.945s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.945s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.945s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.945s] [01m[K/usr/include/c++/9/ostream:578:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const signed char*)[m[K’
+[2.945s]   578 |     [01;36m[Koperator[m[K<<(basic_ostream<char, _Traits>& __out, const signed char* __s)
+[2.945s]       |     [01;36m[K^~~~~~~~[m[K
+[2.945s] [01m[K/usr/include/c++/9/ostream:578:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.945s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Krvecs[m[K’ (type ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’) to type ‘[01m[Kconst signed char*[m[K’
+[2.946s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.946s]       |                                                         [01;36m[K^~~~~[m[K
+[2.946s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.946s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.946s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.946s] [01m[K/usr/include/c++/9/ostream:583:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const unsigned char*)[m[K’
+[2.946s]   583 |     [01;36m[Koperator[m[K<<(basic_ostream<char, _Traits>& __out, const unsigned char* __s)
+[2.946s]       |     [01;36m[K^~~~~~~~[m[K
+[2.946s] [01m[K/usr/include/c++/9/ostream:583:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.946s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Krvecs[m[K’ (type ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’) to type ‘[01m[Kconst unsigned char*[m[K’
+[2.946s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.946s]       |                                                         [01;36m[K^~~~~[m[K
+[2.947s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.947s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.947s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.947s] [01m[K/usr/include/c++/9/ostream:691:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Ostream, class _Tp> typename std::enable_if<std::__and_<std::__not_<std::is_lvalue_reference<_Tp> >, std::__is_convertible_to_basic_ostream<_Ostream>, std::__is_insertable<typename std::__is_convertible_to_basic_ostream<_Tp>::__ostream_type, const _Tp&, void> >::value, typename std::__is_convertible_to_basic_ostream<_Tp>::__ostream_type>::type std::operator<<(_Ostream&&, const _Tp&)[m[K’
+[2.947s]   691 |     [01;36m[Koperator[m[K<<(_Ostream&& __os, const _Tp& __x)
+[2.947s]       |     [01;36m[K^~~~~~~~[m[K
+[2.947s] [01m[K/usr/include/c++/9/ostream:691:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.947s] /usr/include/c++/9/ostream: In substitution of ‘[01m[Ktemplate<class _Ostream, class _Tp> typename std::enable_if<std::__and_<std::__not_<std::is_lvalue_reference<_Tp> >, std::__is_convertible_to_basic_ostream<_Ostream>, std::__is_insertable<typename std::__is_convertible_to_basic_ostream<_Tp>::__ostream_type, const _Tp&, void> >::value, typename std::__is_convertible_to_basic_ostream<_Tp>::__ostream_type>::type std::operator<<(_Ostream&&, const _Tp&) [with _Ostream = std::basic_ostream<char>&; _Tp = std::vector<cv::Vec<double, 3> >][m[K’:
+[2.948s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K   required from here
+[2.948s] [01m[K/usr/include/c++/9/ostream:691:5:[m[K [01;31m[Kerror: [m[Kno type named ‘[01m[Ktype[m[K’ in ‘[01m[Kstruct std::enable_if<false, std::basic_ostream<char>&>[m[K’
+[2.948s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:47[m[K,
+[2.948s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[2.948s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[2.948s] [01m[K/usr/include/c++/9/complex:552:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::complex<_Tp>&)[m[K’
+[2.948s]   552 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __os, const complex<_Tp>& __x)
+[2.949s]       |     [01;36m[K^~~~~~~~[m[K
+[2.949s] [01m[K/usr/include/c++/9/complex:552:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.949s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ is not derived from ‘[01m[Kconst std::complex<_Tp>[m[K’
+[2.949s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.949s]       |                                                         [01;36m[K^~~~~[m[K
+[2.949s] In file included from [01m[K/usr/include/c++/9/future:39[m[K,
+[2.949s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:18[m[K,
+[2.949s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[2.950s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:18[m[K:
+[2.950s] [01m[K/usr/include/c++/9/thread:322:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::thread::id)[m[K’
+[2.950s]   322 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __out, thread::id __id)
+[2.950s]       |     [01;36m[K^~~~~~~~[m[K
+[2.950s] [01m[K/usr/include/c++/9/thread:322:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.950s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Krvecs[m[K’ (type ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’) to type ‘[01m[Kstd::thread::id[m[K’
+[2.950s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.951s]       |                                                         [01;36m[K^~~~~[m[K
+[2.951s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.951s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[2.951s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:963:33:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, class _T2, int m, int n> cv::MatxCommaInitializer<_Tp, m, n> cv::operator<<(const cv::Matx<_Tp, m, n>&, _T2)[m[K’
+[2.951s]   963 | MatxCommaInitializer<_Tp, m, n> [01;36m[Koperator[m[K << (const Matx<_Tp, m, n>& mtx, _T2 val)
+[2.951s]       |                                 [01;36m[K^~~~~~~~[m[K
+[2.951s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:963:33:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.951s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::basic_ostream<char>[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, m, n>[m[K’
+[2.951s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.952s]       |                                                         [01;36m[K^~~~~[m[K
+[2.952s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.952s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[2.952s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:1188:30:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, class _T2, int cn> cv::VecCommaInitializer<_Tp, cn> cv::operator<<(const cv::Vec<_Tp, n>&, _T2)[m[K’
+[2.952s]  1188 | VecCommaInitializer<_Tp, cn> [01;36m[Koperator[m[K << (const Vec<_Tp, cn>& vec, _T2 val)
+[2.952s]       |                              [01;36m[K^~~~~~~~[m[K
+[2.952s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:1188:30:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.952s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::basic_ostream<char>[m[K’ is not derived from ‘[01m[Kconst cv::Vec<_Tp, n>[m[K’
+[2.952s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.952s]       |                                                         [01;36m[K^~~~~[m[K
+[2.953s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3773[m[K,
+[2.953s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:58[m[K,
+[2.953s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[2.953s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:2997:27:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, class T2> cv::MatCommaInitializer_<_Tp> cv::operator<<(const cv::Mat_<_Tp>&, T2)[m[K’
+[2.953s]  2997 | MatCommaInitializer_<_Tp> [01;36m[Koperator[m[K << (const Mat_<_Tp>& m, T2 val)
+[2.953s]       |                           [01;36m[K^~~~~~~~[m[K
+[2.953s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:2997:27:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.953s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::basic_ostream<char>[m[K’ is not derived from ‘[01m[Kconst cv::Mat_<_Tp>[m[K’
+[2.953s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.953s]       |                                                         [01;36m[K^~~~~[m[K
+[2.954s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:59[m[K,
+[2.954s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[2.954s] [01m[K/usr/local/include/opencv4/opencv2/core/persistence.hpp:804:25:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::FileStorage& cv::operator<<(cv::FileStorage&, const String&)[m[K’
+[2.954s]   804 | CV_EXPORTS FileStorage& [01;36m[Koperator[m[K << (FileStorage& fs, const String& str);
+[2.954s]       |                         [01;36m[K^~~~~~~~[m[K
+[2.954s] [01m[K/usr/local/include/opencv4/opencv2/core/persistence.hpp:804:51:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::basic_ostream<char>[m[K’ to ‘[01m[Kcv::FileStorage&[m[K’
+[2.954s]   804 | CV_EXPORTS FileStorage& operator << ([01;36m[KFileStorage& fs[m[K, const String& str);
+[2.954s]       |                                      [01;36m[K~~~~~~~~~~~~~^~[m[K
+[2.954s] [01m[K/usr/local/include/opencv4/opencv2/core/persistence.hpp:1219:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::FileStorage& cv::operator<<(cv::FileStorage&, const _Tp&)[m[K’
+[2.954s]  1219 | FileStorage& [01;36m[Koperator[m[K << (FileStorage& fs, const _Tp& value)
+[2.955s]       |              [01;36m[K^~~~~~~~[m[K
+[2.955s] [01m[K/usr/local/include/opencv4/opencv2/core/persistence.hpp:1219:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.955s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:46:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Kstd::operator<< <std::char_traits<char> >((* &(& std::operator<< <std::char_traits<char> >(std::cout, ((const char*)"rvecs = ")))->std::basic_ostream<char>::operator<<(std::endl<char, std::char_traits<char> >)), ((const char*)" "))[m[K’ (type ‘[01m[Kstd::basic_ostream<char>[m[K’) to type ‘[01m[Kcv::FileStorage&[m[K’
+[2.955s]    98 |         [01;36m[Kstd::cout << "rvecs = " << std::endl << " "[m[K  << rvecs << std::endl << std::endl;
+[2.955s]       |         [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~[m[K
+[2.955s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:59[m[K,
+[2.955s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[2.955s] [01m[K/usr/local/include/opencv4/opencv2/core/persistence.hpp:1234:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::FileStorage& cv::operator<<(cv::FileStorage&, const char*)[m[K’
+[2.955s]  1234 | FileStorage& [01;36m[Koperator[m[K << (FileStorage& fs, const char* str)
+[2.955s]       |              [01;36m[K^~~~~~~~[m[K
+[2.955s] [01m[K/usr/local/include/opencv4/opencv2/core/persistence.hpp:1234:40:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::basic_ostream<char>[m[K’ to ‘[01m[Kcv::FileStorage&[m[K’
+[2.956s]  1234 | FileStorage& operator << ([01;36m[KFileStorage& fs[m[K, const char* str)
+[2.956s]       |                           [01;36m[K~~~~~~~~~~~~~^~[m[K
+[2.956s] [01m[K/usr/local/include/opencv4/opencv2/core/persistence.hpp:1242:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::FileStorage& cv::operator<<(cv::FileStorage&, char*)[m[K’
+[2.956s]  1242 | FileStorage& [01;36m[Koperator[m[K << (FileStorage& fs, char* value)
+[2.956s]       |              [01;36m[K^~~~~~~~[m[K
+[2.956s] [01m[K/usr/local/include/opencv4/opencv2/core/persistence.hpp:1242:40:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::basic_ostream<char>[m[K’ to ‘[01m[Kcv::FileStorage&[m[K’
+[2.956s]  1242 | FileStorage& operator << ([01;36m[KFileStorage& fs[m[K, char* value)
+[2.956s]       |                           [01;36m[K~~~~~~~~~~~~~^~[m[K
+[2.956s] In file included from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[2.957s] [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3101:9:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::String& cv::operator<<(cv::String&, cv::Ptr<cv::Formatted>)[m[K’
+[2.957s]  3101 | String& [01;36m[Koperator[m[K << (String& out, Ptr<Formatted> fmtd)
+[2.957s]       |         [01;36m[K^~~~~~~~[m[K
+[2.957s] [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3101:30:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::basic_ostream<char>[m[K’ to ‘[01m[Kcv::String&[m[K’ {aka ‘[01m[Kstd::__cxx11::basic_string<char>&[m[K’}
+[2.957s]  3101 | String& operator << ([01;36m[KString& out[m[K, Ptr<Formatted> fmtd)
+[2.957s]       |                      [01;36m[K~~~~~~~~^~~[m[K
+[2.957s] [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3110:9:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::String& cv::operator<<(cv::String&, const cv::Mat&)[m[K’
+[2.957s]  3110 | String& [01;36m[Koperator[m[K << (String& out, const Mat& mtx)
+[2.957s]       |         [01;36m[K^~~~~~~~[m[K
+[2.958s] [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3110:30:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::basic_ostream<char>[m[K’ to ‘[01m[Kcv::String&[m[K’ {aka ‘[01m[Kstd::__cxx11::basic_string<char>&[m[K’}
+[2.958s]  3110 | String& operator << ([01;36m[KString& out[m[K, const Mat& mtx)
+[2.958s]       |                      [01;36m[K~~~~~~~~^~~[m[K
+[2.958s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[2.958s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[2.958s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:78:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& cv::operator<<(std::ostream&, cv::Ptr<cv::Formatted>)[m[K’
+[2.958s]    78 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, Ptr<Formatted> fmtd)
+[2.958s]       |               [01;36m[K^~~~~~~~[m[K
+[2.958s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:78:62:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kcv::Ptr<cv::Formatted>[m[K’
+[2.958s]    78 | std::ostream& operator << (std::ostream& out, [01;36m[KPtr<Formatted> fmtd[m[K)
+[2.958s]       |                                               [01;36m[K~~~~~~~~~~~~~~~^~~~[m[K
+[2.959s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:87:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& cv::operator<<(std::ostream&, const cv::Mat&)[m[K’
+[2.959s]    87 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const Mat& mtx)
+[2.959s]       |               [01;36m[K^~~~~~~~[m[K
+[2.959s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:87:58:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kconst cv::Mat&[m[K’
+[2.959s]    87 | std::ostream& operator << (std::ostream& out, [01;36m[Kconst Mat& mtx[m[K)
+[2.959s]       |                                               [01;36m[K~~~~~~~~~~~^~~[m[K
+[2.959s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:93:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& cv::operator<<(std::ostream&, const cv::UMat&)[m[K’
+[2.959s]    93 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const UMat& m)
+[2.959s]       |               [01;36m[K^~~~~~~~[m[K
+[2.959s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:93:59:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kconst cv::UMat&[m[K’
+[2.960s]    93 | std::ostream& operator << (std::ostream& out, [01;36m[Kconst UMat& m[m[K)
+[2.960s]       |                                               [01;36m[K~~~~~~~~~~~~^[m[K
+[2.960s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:99:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::ostream& cv::operator<<(std::ostream&, const cv::Complex<_Tp>&)[m[K’
+[2.960s]    99 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const Complex<_Tp>& c)
+[2.960s]       |               [01;36m[K^~~~~~~~[m[K
+[2.960s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:99:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.960s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ is not derived from ‘[01m[Kconst cv::Complex<_Tp>[m[K’
+[2.960s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.960s]       |                                                         [01;36m[K^~~~~[m[K
+[2.960s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[2.961s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[2.961s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:105:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::ostream& cv::operator<<(std::ostream&, const std::vector<cv::Point_<_Tp> >&)[m[K’
+[2.961s]   105 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const std::vector<Point_<_Tp> >& vec)
+[2.961s]       |               [01;36m[K^~~~~~~~[m[K
+[2.961s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:105:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.961s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kcv::Point_<_Tp>[m[K’ and ‘[01m[Kcv::Vec<double, 3>[m[K’
+[2.961s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.961s]       |                                                         [01;36m[K^~~~~[m[K
+[2.961s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[2.961s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[2.962s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:112:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::ostream& cv::operator<<(std::ostream&, const std::vector<cv::Point3_<_Tp> >&)[m[K’
+[2.962s]   112 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const std::vector<Point3_<_Tp> >& vec)
+[2.962s]       |               [01;36m[K^~~~~~~~[m[K
+[2.962s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:112:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.962s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kcv::Point3_<_Tp>[m[K’ and ‘[01m[Kcv::Vec<double, 3>[m[K’
+[2.962s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.962s]       |                                                         [01;36m[K^~~~~[m[K
+[2.962s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[2.962s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[2.963s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:119:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n> std::ostream& cv::operator<<(std::ostream&, const cv::Matx<_Tp, m, n>&)[m[K’
+[2.963s]   119 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const Matx<_Tp, m, n>& matx)
+[2.963s]       |               [01;36m[K^~~~~~~~[m[K
+[2.963s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:119:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.963s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, m, n>[m[K’
+[2.963s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.963s]       |                                                         [01;36m[K^~~~~[m[K
+[2.963s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[2.963s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[2.963s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:125:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::ostream& cv::operator<<(std::ostream&, const cv::Point_<_Tp>&)[m[K’
+[2.963s]   125 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const Point_<_Tp>& p)
+[2.964s]       |               [01;36m[K^~~~~~~~[m[K
+[2.964s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:125:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.964s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ is not derived from ‘[01m[Kconst cv::Point_<_Tp>[m[K’
+[2.964s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.964s]       |                                                         [01;36m[K^~~~~[m[K
+[2.964s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[2.964s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[2.964s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:132:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::ostream& cv::operator<<(std::ostream&, const cv::Point3_<_Tp>&)[m[K’
+[2.964s]   132 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const Point3_<_Tp>& p)
+[2.964s]       |               [01;36m[K^~~~~~~~[m[K
+[2.965s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:132:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.965s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ is not derived from ‘[01m[Kconst cv::Point3_<_Tp>[m[K’
+[2.965s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.965s]       |                                                         [01;36m[K^~~~~[m[K
+[2.965s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[2.965s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[2.965s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:139:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int n> std::ostream& cv::operator<<(std::ostream&, const cv::Vec<_Tp, m>&)[m[K’
+[2.965s]   139 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const Vec<_Tp, n>& vec)
+[2.965s]       |               [01;36m[K^~~~~~~~[m[K
+[2.965s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:139:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.966s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ is not derived from ‘[01m[Kconst cv::Vec<_Tp, m>[m[K’
+[2.966s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.966s]       |                                                         [01;36m[K^~~~~[m[K
+[2.966s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[2.966s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[2.966s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:161:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::ostream& cv::operator<<(std::ostream&, const cv::Size_<_Tp>&)[m[K’
+[2.966s]   161 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const Size_<_Tp>& size)
+[2.966s]       |               [01;36m[K^~~~~~~~[m[K
+[2.966s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:161:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.966s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ is not derived from ‘[01m[Kconst cv::Size_<_Tp>[m[K’
+[2.967s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.967s]       |                                                         [01;36m[K^~~~~[m[K
+[2.967s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[2.967s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[2.967s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:167:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::ostream& cv::operator<<(std::ostream&, const cv::Rect_<_Tp>&)[m[K’
+[2.967s]   167 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const Rect_<_Tp>& rect)
+[2.967s]       |               [01;36m[K^~~~~~~~[m[K
+[2.967s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:167:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.967s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:98:57:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ is not derived from ‘[01m[Kconst cv::Rect_<_Tp>[m[K’
+[2.967s]    98 |         std::cout << "rvecs = " << std::endl << " "  << [01;36m[Krvecs[m[K << std::endl << std::endl;
+[2.968s]       |                                                         [01;36m[K^~~~~[m[K
+[2.968s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[2.968s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[2.968s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:172:29:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& cv::operator<<(std::ostream&, const cv::MatSize&)[m[K’
+[2.968s]   172 | static inline std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const MatSize& msize)
+[2.968s]       |                             [01;36m[K^~~~~~~~[m[K
+[2.968s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:172:76:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kconst cv::MatSize&[m[K’
+[2.969s]   172 | static inline std::ostream& operator << (std::ostream& out, [01;36m[Kconst MatSize& msize[m[K)
+[2.969s]       |                                                             [01;36m[K~~~~~~~~~~~~~~~^~~~~[m[K
+[2.969s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:184:29:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& cv::operator<<(std::ostream&, cv::Range&)[m[K’
+[2.969s]   184 | static inline std::ostream &[01;36m[Koperator[m[K<< (std::ostream &s, cv::Range &r)
+[2.969s]       |                             [01;36m[K^~~~~~~~[m[K
+[2.969s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:184:69:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kcv::Range&[m[K’
+[2.969s]   184 | static inline std::ostream &operator<< (std::ostream &s, [01;36m[Kcv::Range &r[m[K)
+[2.969s]       |                                                          [01;36m[K~~~~~~~~~~~^[m[K
+[2.970s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3350[m[K,
+[2.970s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[2.970s] [01m[K/usr/local/include/opencv4/opencv2/core/utility.hpp:398:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& cv::operator<<(std::ostream&, const cv::TickMeter&)[m[K’
+[2.970s]   398 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const TickMeter& tm)
+[2.970s]       |               [01;36m[K^~~~~~~~[m[K
+[2.970s] [01m[K/usr/local/include/opencv4/opencv2/core/utility.hpp:398:64:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kconst cv::TickMeter&[m[K’
+[2.970s]   398 | std::ostream& operator << (std::ostream& out, [01;36m[Kconst TickMeter& tm[m[K)
+[2.970s]       |                                               [01;36m[K~~~~~~~~~~~~~~~~~^~[m[K
+[2.970s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:56:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator<<[m[K’ (operand types are ‘[01m[Kstd::basic_ostream<char>[m[K’ and ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’)
+[2.971s]    99 |           [32m[Kstd::cout << "tvecs = " << std::endl << " "[m[K  [01;31m[K<<[m[K [34m[Ktvecs[m[K << std::endl << std::endl;
+[2.971s]       |           [32m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K  [01;31m[K^~[m[K [34m[K~~~~~[m[K
+[2.971s]       |                                                [32m[K|[m[K          [34m[K|[m[K
+[2.971s]       |                                                [32m[K|[m[K          [34m[Kstd::vector<cv::Vec<double, 3> >[m[K
+[2.971s]       |                                                [32m[Kstd::basic_ostream<char>[m[K
+[2.971s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.971s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.971s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.971s] [01m[K/usr/include/c++/9/ostream:108:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ostream_type& (*)(std::basic_ostream<_CharT, _Traits>::__ostream_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.971s]   108 |       [01;36m[Koperator[m[K<<(__ostream_type& (*__pf)(__ostream_type&))
+[2.972s]       |       [01;36m[K^~~~~~~~[m[K
+[2.972s] [01m[K/usr/include/c++/9/ostream:108:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kstd::basic_ostream<char>::__ostream_type& (*)(std::basic_ostream<char>::__ostream_type&)[m[K’ {aka ‘[01m[Kstd::basic_ostream<char>& (*)(std::basic_ostream<char>&)[m[K’}
+[2.972s]   108 |       operator<<([01;36m[K__ostream_type& (*__pf)(__ostream_type&)[m[K)
+[2.972s]       |                  [01;36m[K~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.972s] [01m[K/usr/include/c++/9/ostream:117:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ios_type& (*)(std::basic_ostream<_CharT, _Traits>::__ios_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>; std::basic_ostream<_CharT, _Traits>::__ios_type = std::basic_ios<char>][m[K’
+[2.972s]   117 |       [01;36m[Koperator[m[K<<(__ios_type& (*__pf)(__ios_type&))
+[2.972s]       |       [01;36m[K^~~~~~~~[m[K
+[2.972s] [01m[K/usr/include/c++/9/ostream:117:32:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kstd::basic_ostream<char>::__ios_type& (*)(std::basic_ostream<char>::__ios_type&)[m[K’ {aka ‘[01m[Kstd::basic_ios<char>& (*)(std::basic_ios<char>&)[m[K’}
+[2.972s]   117 |       operator<<([01;36m[K__ios_type& (*__pf)(__ios_type&)[m[K)
+[2.972s]       |                  [01;36m[K~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~[m[K
+[2.973s] [01m[K/usr/include/c++/9/ostream:127:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::ios_base& (*)(std::ios_base&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.973s]   127 |       [01;36m[Koperator[m[K<<(ios_base& (*__pf) (ios_base&))
+[2.973s]       |       [01;36m[K^~~~~~~~[m[K
+[2.973s] [01m[K/usr/include/c++/9/ostream:127:30:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kstd::ios_base& (*)(std::ios_base&)[m[K’
+[2.973s]   127 |       operator<<([01;36m[Kios_base& (*__pf) (ios_base&)[m[K)
+[2.973s]       |                  [01;36m[K~~~~~~~~~~~~^~~~~~~~~~~~~~~~~[m[K
+[2.973s] [01m[K/usr/include/c++/9/ostream:166:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.973s]   166 |       [01;36m[Koperator[m[K<<(long __n)
+[2.973s]       |       [01;36m[K^~~~~~~~[m[K
+[2.973s] [01m[K/usr/include/c++/9/ostream:166:23:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Klong int[m[K’
+[2.974s]   166 |       operator<<([01;36m[Klong __n[m[K)
+[2.974s]       |                  [01;36m[K~~~~~^~~[m[K
+[2.974s] [01m[K/usr/include/c++/9/ostream:170:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.974s]   170 |       [01;36m[Koperator[m[K<<(unsigned long __n)
+[2.974s]       |       [01;36m[K^~~~~~~~[m[K
+[2.974s] [01m[K/usr/include/c++/9/ostream:170:32:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Klong unsigned int[m[K’
+[2.974s]   170 |       operator<<([01;36m[Kunsigned long __n[m[K)
+[2.974s]       |                  [01;36m[K~~~~~~~~~~~~~~^~~[m[K
+[2.974s] [01m[K/usr/include/c++/9/ostream:174:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(bool) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.974s]   174 |       [01;36m[Koperator[m[K<<(bool __n)
+[2.975s]       |       [01;36m[K^~~~~~~~[m[K
+[2.975s] [01m[K/usr/include/c++/9/ostream:174:23:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kbool[m[K’
+[2.975s]   174 |       operator<<([01;36m[Kbool __n[m[K)
+[2.975s]       |                  [01;36m[K~~~~~^~~[m[K
+[2.975s] In file included from [01m[K/usr/include/c++/9/ostream:702[m[K,
+[2.975s]                  from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.975s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.975s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.975s] [01m[K/usr/include/c++/9/bits/ostream.tcc:91:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(short int) [with _CharT = char; _Traits = std::char_traits<char>][m[K’
+[2.976s]    91 |     [01;36m[Kbasic_ostream<_CharT, _Traits>[m[K::
+[2.976s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.976s] [01m[K/usr/include/c++/9/bits/ostream.tcc:92:22:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kshort int[m[K’
+[2.976s]    92 |     operator<<([01;36m[Kshort __n[m[K)
+[2.976s]       |                [01;36m[K~~~~~~^~~[m[K
+[2.976s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.976s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.976s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.976s] [01m[K/usr/include/c++/9/ostream:181:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(short unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.976s]   181 |       [01;36m[Koperator[m[K<<(unsigned short __n)
+[2.977s]       |       [01;36m[K^~~~~~~~[m[K
+[2.977s] [01m[K/usr/include/c++/9/ostream:181:33:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kshort unsigned int[m[K’
+[2.977s]   181 |       operator<<([01;36m[Kunsigned short __n[m[K)
+[2.977s]       |                  [01;36m[K~~~~~~~~~~~~~~~^~~[m[K
+[2.977s] In file included from [01m[K/usr/include/c++/9/ostream:702[m[K,
+[2.978s]                  from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.978s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.978s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.978s] [01m[K/usr/include/c++/9/bits/ostream.tcc:105:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(int) [with _CharT = char; _Traits = std::char_traits<char>][m[K’
+[2.978s]   105 |     [01;36m[Kbasic_ostream<_CharT, _Traits>[m[K::
+[2.979s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.979s] [01m[K/usr/include/c++/9/bits/ostream.tcc:106:20:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kint[m[K’
+[2.979s]   106 |     operator<<([01;36m[Kint __n[m[K)
+[2.979s]       |                [01;36m[K~~~~^~~[m[K
+[2.979s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.979s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.979s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.980s] [01m[K/usr/include/c++/9/ostream:192:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.980s]   192 |       [01;36m[Koperator[m[K<<(unsigned int __n)
+[2.980s]       |       [01;36m[K^~~~~~~~[m[K
+[2.980s] [01m[K/usr/include/c++/9/ostream:192:31:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kunsigned int[m[K’
+[2.980s]   192 |       operator<<([01;36m[Kunsigned int __n[m[K)
+[2.980s]       |                  [01;36m[K~~~~~~~~~~~~~^~~[m[K
+[2.980s] [01m[K/usr/include/c++/9/ostream:201:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.980s]   201 |       [01;36m[Koperator[m[K<<(long long __n)
+[2.980s]       |       [01;36m[K^~~~~~~~[m[K
+[2.980s] [01m[K/usr/include/c++/9/ostream:201:28:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Klong long int[m[K’
+[2.980s]   201 |       operator<<([01;36m[Klong long __n[m[K)
+[2.980s]       |                  [01;36m[K~~~~~~~~~~^~~[m[K
+[2.981s] [01m[K/usr/include/c++/9/ostream:205:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.981s]   205 |       [01;36m[Koperator[m[K<<(unsigned long long __n)
+[2.981s]       |       [01;36m[K^~~~~~~~[m[K
+[2.981s] [01m[K/usr/include/c++/9/ostream:205:37:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Klong long unsigned int[m[K’
+[2.981s]   205 |       operator<<([01;36m[Kunsigned long long __n[m[K)
+[2.981s]       |                  [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[2.981s] [01m[K/usr/include/c++/9/ostream:220:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.981s]   220 |       [01;36m[Koperator[m[K<<(double __f)
+[2.981s]       |       [01;36m[K^~~~~~~~[m[K
+[2.981s] [01m[K/usr/include/c++/9/ostream:220:25:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kdouble[m[K’
+[2.982s]   220 |       operator<<([01;36m[Kdouble __f[m[K)
+[2.982s]       |                  [01;36m[K~~~~~~~^~~[m[K
+[2.982s] [01m[K/usr/include/c++/9/ostream:224:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(float) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.982s]   224 |       [01;36m[Koperator[m[K<<(float __f)
+[2.982s]       |       [01;36m[K^~~~~~~~[m[K
+[2.982s] [01m[K/usr/include/c++/9/ostream:224:24:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kfloat[m[K’
+[2.983s]   224 |       operator<<([01;36m[Kfloat __f[m[K)
+[2.983s]       |                  [01;36m[K~~~~~~^~~[m[K
+[2.983s] [01m[K/usr/include/c++/9/ostream:232:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.983s]   232 |       [01;36m[Koperator[m[K<<(long double __f)
+[2.983s]       |       [01;36m[K^~~~~~~~[m[K
+[2.983s] [01m[K/usr/include/c++/9/ostream:232:30:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Klong double[m[K’
+[2.984s]   232 |       operator<<([01;36m[Klong double __f[m[K)
+[2.984s]       |                  [01;36m[K~~~~~~~~~~~~^~~[m[K
+[2.984s] [01m[K/usr/include/c++/9/ostream:245:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(const void*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K’
+[2.984s]   245 |       [01;36m[Koperator[m[K<<(const void* __p)
+[2.985s]       |       [01;36m[K^~~~~~~~[m[K
+[2.985s] [01m[K/usr/include/c++/9/ostream:245:30:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kconst void*[m[K’
+[2.985s]   245 |       operator<<([01;36m[Kconst void* __p[m[K)
+[2.985s]       |                  [01;36m[K~~~~~~~~~~~~^~~[m[K
+[2.985s] In file included from [01m[K/usr/include/c++/9/ostream:702[m[K,
+[2.985s]                  from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.985s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.986s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.986s] [01m[K/usr/include/c++/9/bits/ostream.tcc:119:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__streambuf_type*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__streambuf_type = std::basic_streambuf<char>][m[K’
+[2.986s]   119 |     [01;36m[Kbasic_ostream<_CharT, _Traits>[m[K::
+[2.986s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.986s] [01m[K/usr/include/c++/9/bits/ostream.tcc:120:34:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kstd::basic_ostream<char>::__streambuf_type*[m[K’ {aka ‘[01m[Kstd::basic_streambuf<char>*[m[K’}
+[2.986s]   120 |     operator<<([01;36m[K__streambuf_type* __sbin[m[K)
+[2.987s]       |                [01;36m[K~~~~~~~~~~~~~~~~~~^~~~~~[m[K
+[2.987s] In file included from [01m[K/usr/include/c++/9/string:55[m[K,
+[2.987s]                  from [01m[K/usr/include/c++/9/stdexcept:39[m[K,
+[2.987s]                  from [01m[K/usr/include/c++/9/array:39[m[K,
+[2.987s]                  from [01m[K/usr/include/c++/9/tuple:39[m[K,
+[2.987s]                  from [01m[K/usr/include/c++/9/functional:54[m[K,
+[2.988s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:3[m[K:
+[2.988s] [01m[K/usr/include/c++/9/bits/basic_string.h:6419:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _CharT, class _Traits, class _Alloc> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)[m[K’
+[2.988s]  6419 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __os,
+[2.988s]       |     [01;36m[K^~~~~~~~[m[K
+[2.988s] [01m[K/usr/include/c++/9/bits/basic_string.h:6419:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.988s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ is not derived from ‘[01m[Kconst std::__cxx11::basic_string<_CharT, _Traits, _Alloc>[m[K’
+[2.988s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[2.989s]       |                                                           [01;36m[K^~~~~[m[K
+[2.989s] In file included from [01m[K/usr/include/c++/9/memory:81[m[K,
+[2.989s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:4[m[K:
+[2.989s] [01m[K/usr/include/c++/9/bits/shared_ptr.h:66:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Ch, class _Tr, class _Tp, __gnu_cxx::_Lock_policy _Lp> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::__shared_ptr<_Tp, _Lp>&)[m[K’
+[2.989s]    66 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_Ch, _Tr>& __os,
+[2.989s]       |     [01;36m[K^~~~~~~~[m[K
+[2.989s] [01m[K/usr/include/c++/9/bits/shared_ptr.h:66:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.989s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ is not derived from ‘[01m[Kconst std::__shared_ptr<_Tp, _Lp>[m[K’
+[2.989s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[2.990s]       |                                                           [01;36m[K^~~~~[m[K
+[2.990s] In file included from [01m[K/usr/include/c++/9/bits/ios_base.h:46[m[K,
+[2.990s]                  from [01m[K/usr/include/c++/9/ios:42[m[K,
+[2.990s]                  from [01m[K/usr/include/c++/9/istream:38[m[K,
+[2.990s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.990s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.990s] [01m[K/usr/include/c++/9/system_error:217:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::error_code&)[m[K’
+[2.990s]   217 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __os, const error_code& __e)
+[2.990s]       |     [01;36m[K^~~~~~~~[m[K
+[2.990s] [01m[K/usr/include/c++/9/system_error:217:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.990s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Ktvecs[m[K’ (type ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’) to type ‘[01m[Kconst std::error_code&[m[K’
+[2.991s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[2.991s]       |                                                           [01;36m[K^~~~~[m[K
+[2.991s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.991s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.991s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.991s] [01m[K/usr/include/c++/9/ostream:506:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, _CharT)[m[K’
+[2.991s]   506 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __out, _CharT __c)
+[2.991s]       |     [01;36m[K^~~~~~~~[m[K
+[2.991s] [01m[K/usr/include/c++/9/ostream:506:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.991s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  deduced conflicting types for parameter ‘[01m[K_CharT[m[K’ (‘[01m[Kchar[m[K’ and ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’)
+[2.992s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[2.992s]       |                                                           [01;36m[K^~~~~[m[K
+[2.992s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.992s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.992s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.992s] [01m[K/usr/include/c++/9/ostream:511:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, char)[m[K’
+[2.992s]   511 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __out, char __c)
+[2.992s]       |     [01;36m[K^~~~~~~~[m[K
+[2.992s] [01m[K/usr/include/c++/9/ostream:511:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.992s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Ktvecs[m[K’ (type ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’) to type ‘[01m[Kchar[m[K’
+[2.992s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[2.993s]       |                                                           [01;36m[K^~~~~[m[K
+[2.993s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.993s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.993s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.993s] [01m[K/usr/include/c++/9/ostream:517:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, char)[m[K’
+[2.993s]   517 |     [01;36m[Koperator[m[K<<(basic_ostream<char, _Traits>& __out, char __c)
+[2.993s]       |     [01;36m[K^~~~~~~~[m[K
+[2.993s] [01m[K/usr/include/c++/9/ostream:517:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.993s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Ktvecs[m[K’ (type ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’) to type ‘[01m[Kchar[m[K’
+[2.993s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[2.994s]       |                                                           [01;36m[K^~~~~[m[K
+[2.994s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.994s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.994s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.994s] [01m[K/usr/include/c++/9/ostream:523:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, signed char)[m[K’
+[2.994s]   523 |     [01;36m[Koperator[m[K<<(basic_ostream<char, _Traits>& __out, signed char __c)
+[2.994s]       |     [01;36m[K^~~~~~~~[m[K
+[2.994s] [01m[K/usr/include/c++/9/ostream:523:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.994s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Ktvecs[m[K’ (type ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’) to type ‘[01m[Ksigned char[m[K’
+[2.995s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[2.995s]       |                                                           [01;36m[K^~~~~[m[K
+[2.995s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.995s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.995s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.995s] [01m[K/usr/include/c++/9/ostream:528:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, unsigned char)[m[K’
+[2.995s]   528 |     [01;36m[Koperator[m[K<<(basic_ostream<char, _Traits>& __out, unsigned char __c)
+[2.995s]       |     [01;36m[K^~~~~~~~[m[K
+[2.995s] [01m[K/usr/include/c++/9/ostream:528:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.995s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Ktvecs[m[K’ (type ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’) to type ‘[01m[Kunsigned char[m[K’
+[2.995s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[2.996s]       |                                                           [01;36m[K^~~~~[m[K
+[2.996s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.996s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.996s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.996s] [01m[K/usr/include/c++/9/ostream:548:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const _CharT*)[m[K’
+[2.996s]   548 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __out, const _CharT* __s)
+[2.996s]       |     [01;36m[K^~~~~~~~[m[K
+[2.996s] [01m[K/usr/include/c++/9/ostream:548:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.996s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kconst _CharT*[m[K’ and ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’
+[2.996s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[2.997s]       |                                                           [01;36m[K^~~~~[m[K
+[2.997s] In file included from [01m[K/usr/include/c++/9/ostream:702[m[K,
+[2.997s]                  from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.997s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.997s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.997s] [01m[K/usr/include/c++/9/bits/ostream.tcc:321:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const char*)[m[K’
+[2.997s]   321 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __out, const char* __s)
+[2.997s]       |     [01;36m[K^~~~~~~~[m[K
+[2.997s] [01m[K/usr/include/c++/9/bits/ostream.tcc:321:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.997s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Ktvecs[m[K’ (type ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’) to type ‘[01m[Kconst char*[m[K’
+[2.998s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[2.998s]       |                                                           [01;36m[K^~~~~[m[K
+[2.998s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.998s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.998s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.998s] [01m[K/usr/include/c++/9/ostream:565:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const char*)[m[K’
+[2.998s]   565 |     [01;36m[Koperator[m[K<<(basic_ostream<char, _Traits>& __out, const char* __s)
+[2.998s]       |     [01;36m[K^~~~~~~~[m[K
+[2.998s] [01m[K/usr/include/c++/9/ostream:565:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.998s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Ktvecs[m[K’ (type ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’) to type ‘[01m[Kconst char*[m[K’
+[2.999s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[2.999s]       |                                                           [01;36m[K^~~~~[m[K
+[2.999s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[2.999s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[2.999s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[2.999s] [01m[K/usr/include/c++/9/ostream:578:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const signed char*)[m[K’
+[2.999s]   578 |     [01;36m[Koperator[m[K<<(basic_ostream<char, _Traits>& __out, const signed char* __s)
+[2.999s]       |     [01;36m[K^~~~~~~~[m[K
+[2.999s] [01m[K/usr/include/c++/9/ostream:578:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.999s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Ktvecs[m[K’ (type ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’) to type ‘[01m[Kconst signed char*[m[K’
+[3.000s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[3.000s]       |                                                           [01;36m[K^~~~~[m[K
+[3.000s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[3.000s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[3.000s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[3.000s] [01m[K/usr/include/c++/9/ostream:583:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const unsigned char*)[m[K’
+[3.000s]   583 |     [01;36m[Koperator[m[K<<(basic_ostream<char, _Traits>& __out, const unsigned char* __s)
+[3.000s]       |     [01;36m[K^~~~~~~~[m[K
+[3.001s] [01m[K/usr/include/c++/9/ostream:583:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.001s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Ktvecs[m[K’ (type ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’) to type ‘[01m[Kconst unsigned char*[m[K’
+[3.001s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[3.001s]       |                                                           [01;36m[K^~~~~[m[K
+[3.001s] In file included from [01m[K/usr/include/c++/9/istream:39[m[K,
+[3.001s]                  from [01m[K/usr/include/c++/9/sstream:38[m[K,
+[3.001s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:6[m[K:
+[3.001s] [01m[K/usr/include/c++/9/ostream:691:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Ostream, class _Tp> typename std::enable_if<std::__and_<std::__not_<std::is_lvalue_reference<_Tp> >, std::__is_convertible_to_basic_ostream<_Ostream>, std::__is_insertable<typename std::__is_convertible_to_basic_ostream<_Tp>::__ostream_type, const _Tp&, void> >::value, typename std::__is_convertible_to_basic_ostream<_Tp>::__ostream_type>::type std::operator<<(_Ostream&&, const _Tp&)[m[K’
+[3.001s]   691 |     [01;36m[Koperator[m[K<<(_Ostream&& __os, const _Tp& __x)
+[3.001s]       |     [01;36m[K^~~~~~~~[m[K
+[3.002s] [01m[K/usr/include/c++/9/ostream:691:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.002s] /usr/include/c++/9/ostream: In substitution of ‘[01m[Ktemplate<class _Ostream, class _Tp> typename std::enable_if<std::__and_<std::__not_<std::is_lvalue_reference<_Tp> >, std::__is_convertible_to_basic_ostream<_Ostream>, std::__is_insertable<typename std::__is_convertible_to_basic_ostream<_Tp>::__ostream_type, const _Tp&, void> >::value, typename std::__is_convertible_to_basic_ostream<_Tp>::__ostream_type>::type std::operator<<(_Ostream&&, const _Tp&) [with _Ostream = std::basic_ostream<char>&; _Tp = std::vector<cv::Vec<double, 3> >][m[K’:
+[3.002s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K   required from here
+[3.002s] [01m[K/usr/include/c++/9/ostream:691:5:[m[K [01;31m[Kerror: [m[Kno type named ‘[01m[Ktype[m[K’ in ‘[01m[Kstruct std::enable_if<false, std::basic_ostream<char>&>[m[K’
+[3.002s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:47[m[K,
+[3.002s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[3.002s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[3.002s] [01m[K/usr/include/c++/9/complex:552:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::complex<_Tp>&)[m[K’
+[3.002s]   552 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __os, const complex<_Tp>& __x)
+[3.002s]       |     [01;36m[K^~~~~~~~[m[K
+[3.003s] [01m[K/usr/include/c++/9/complex:552:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.003s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ is not derived from ‘[01m[Kconst std::complex<_Tp>[m[K’
+[3.003s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[3.003s]       |                                                           [01;36m[K^~~~~[m[K
+[3.003s] In file included from [01m[K/usr/include/c++/9/future:39[m[K,
+[3.003s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:18[m[K,
+[3.003s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[3.003s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:18[m[K:
+[3.003s] [01m[K/usr/include/c++/9/thread:322:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::thread::id)[m[K’
+[3.003s]   322 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __out, thread::id __id)
+[3.004s]       |     [01;36m[K^~~~~~~~[m[K
+[3.004s] [01m[K/usr/include/c++/9/thread:322:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.004s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Ktvecs[m[K’ (type ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’) to type ‘[01m[Kstd::thread::id[m[K’
+[3.004s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[3.004s]       |                                                           [01;36m[K^~~~~[m[K
+[3.004s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[3.004s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[3.004s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:963:33:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, class _T2, int m, int n> cv::MatxCommaInitializer<_Tp, m, n> cv::operator<<(const cv::Matx<_Tp, m, n>&, _T2)[m[K’
+[3.004s]   963 | MatxCommaInitializer<_Tp, m, n> [01;36m[Koperator[m[K << (const Matx<_Tp, m, n>& mtx, _T2 val)
+[3.004s]       |                                 [01;36m[K^~~~~~~~[m[K
+[3.005s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:963:33:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.005s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::basic_ostream<char>[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, m, n>[m[K’
+[3.005s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[3.005s]       |                                                           [01;36m[K^~~~~[m[K
+[3.005s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[3.005s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[3.005s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:1188:30:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, class _T2, int cn> cv::VecCommaInitializer<_Tp, cn> cv::operator<<(const cv::Vec<_Tp, n>&, _T2)[m[K’
+[3.005s]  1188 | VecCommaInitializer<_Tp, cn> [01;36m[Koperator[m[K << (const Vec<_Tp, cn>& vec, _T2 val)
+[3.005s]       |                              [01;36m[K^~~~~~~~[m[K
+[3.005s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:1188:30:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.006s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::basic_ostream<char>[m[K’ is not derived from ‘[01m[Kconst cv::Vec<_Tp, n>[m[K’
+[3.006s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[3.006s]       |                                                           [01;36m[K^~~~~[m[K
+[3.006s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3773[m[K,
+[3.006s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:58[m[K,
+[3.006s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[3.006s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:2997:27:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, class T2> cv::MatCommaInitializer_<_Tp> cv::operator<<(const cv::Mat_<_Tp>&, T2)[m[K’
+[3.007s]  2997 | MatCommaInitializer_<_Tp> [01;36m[Koperator[m[K << (const Mat_<_Tp>& m, T2 val)
+[3.007s]       |                           [01;36m[K^~~~~~~~[m[K
+[3.007s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:2997:27:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.007s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::basic_ostream<char>[m[K’ is not derived from ‘[01m[Kconst cv::Mat_<_Tp>[m[K’
+[3.007s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[3.008s]       |                                                           [01;36m[K^~~~~[m[K
+[3.008s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:59[m[K,
+[3.008s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[3.008s] [01m[K/usr/local/include/opencv4/opencv2/core/persistence.hpp:804:25:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::FileStorage& cv::operator<<(cv::FileStorage&, const String&)[m[K’
+[3.008s]   804 | CV_EXPORTS FileStorage& [01;36m[Koperator[m[K << (FileStorage& fs, const String& str);
+[3.008s]       |                         [01;36m[K^~~~~~~~[m[K
+[3.009s] [01m[K/usr/local/include/opencv4/opencv2/core/persistence.hpp:804:51:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::basic_ostream<char>[m[K’ to ‘[01m[Kcv::FileStorage&[m[K’
+[3.009s]   804 | CV_EXPORTS FileStorage& operator << ([01;36m[KFileStorage& fs[m[K, const String& str);
+[3.009s]       |                                      [01;36m[K~~~~~~~~~~~~~^~[m[K
+[3.009s] [01m[K/usr/local/include/opencv4/opencv2/core/persistence.hpp:1219:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::FileStorage& cv::operator<<(cv::FileStorage&, const _Tp&)[m[K’
+[3.009s]  1219 | FileStorage& [01;36m[Koperator[m[K << (FileStorage& fs, const _Tp& value)
+[3.009s]       |              [01;36m[K^~~~~~~~[m[K
+[3.010s] [01m[K/usr/local/include/opencv4/opencv2/core/persistence.hpp:1219:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.010s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:48:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Kstd::operator<< <std::char_traits<char> >((* &(& std::operator<< <std::char_traits<char> >(std::cout, ((const char*)"tvecs = ")))->std::basic_ostream<char>::operator<<(std::endl<char, std::char_traits<char> >)), ((const char*)" "))[m[K’ (type ‘[01m[Kstd::basic_ostream<char>[m[K’) to type ‘[01m[Kcv::FileStorage&[m[K’
+[3.010s]    99 |           [01;36m[Kstd::cout << "tvecs = " << std::endl << " "[m[K  << tvecs << std::endl << std::endl;
+[3.010s]       |           [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~[m[K
+[3.010s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:59[m[K,
+[3.011s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[3.011s] [01m[K/usr/local/include/opencv4/opencv2/core/persistence.hpp:1234:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::FileStorage& cv::operator<<(cv::FileStorage&, const char*)[m[K’
+[3.011s]  1234 | FileStorage& [01;36m[Koperator[m[K << (FileStorage& fs, const char* str)
+[3.011s]       |              [01;36m[K^~~~~~~~[m[K
+[3.011s] [01m[K/usr/local/include/opencv4/opencv2/core/persistence.hpp:1234:40:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::basic_ostream<char>[m[K’ to ‘[01m[Kcv::FileStorage&[m[K’
+[3.011s]  1234 | FileStorage& operator << ([01;36m[KFileStorage& fs[m[K, const char* str)
+[3.012s]       |                           [01;36m[K~~~~~~~~~~~~~^~[m[K
+[3.012s] [01m[K/usr/local/include/opencv4/opencv2/core/persistence.hpp:1242:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::FileStorage& cv::operator<<(cv::FileStorage&, char*)[m[K’
+[3.012s]  1242 | FileStorage& [01;36m[Koperator[m[K << (FileStorage& fs, char* value)
+[3.012s]       |              [01;36m[K^~~~~~~~[m[K
+[3.012s] [01m[K/usr/local/include/opencv4/opencv2/core/persistence.hpp:1242:40:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::basic_ostream<char>[m[K’ to ‘[01m[Kcv::FileStorage&[m[K’
+[3.012s]  1242 | FileStorage& operator << ([01;36m[KFileStorage& fs[m[K, char* value)
+[3.012s]       |                           [01;36m[K~~~~~~~~~~~~~^~[m[K
+[3.012s] In file included from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[3.013s] [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3101:9:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::String& cv::operator<<(cv::String&, cv::Ptr<cv::Formatted>)[m[K’
+[3.013s]  3101 | String& [01;36m[Koperator[m[K << (String& out, Ptr<Formatted> fmtd)
+[3.013s]       |         [01;36m[K^~~~~~~~[m[K
+[3.013s] [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3101:30:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::basic_ostream<char>[m[K’ to ‘[01m[Kcv::String&[m[K’ {aka ‘[01m[Kstd::__cxx11::basic_string<char>&[m[K’}
+[3.013s]  3101 | String& operator << ([01;36m[KString& out[m[K, Ptr<Formatted> fmtd)
+[3.013s]       |                      [01;36m[K~~~~~~~~^~~[m[K
+[3.013s] [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3110:9:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::String& cv::operator<<(cv::String&, const cv::Mat&)[m[K’
+[3.013s]  3110 | String& [01;36m[Koperator[m[K << (String& out, const Mat& mtx)
+[3.013s]       |         [01;36m[K^~~~~~~~[m[K
+[3.013s] [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3110:30:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::basic_ostream<char>[m[K’ to ‘[01m[Kcv::String&[m[K’ {aka ‘[01m[Kstd::__cxx11::basic_string<char>&[m[K’}
+[3.014s]  3110 | String& operator << ([01;36m[KString& out[m[K, const Mat& mtx)
+[3.014s]       |                      [01;36m[K~~~~~~~~^~~[m[K
+[3.014s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[3.014s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[3.014s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:78:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& cv::operator<<(std::ostream&, cv::Ptr<cv::Formatted>)[m[K’
+[3.014s]    78 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, Ptr<Formatted> fmtd)
+[3.014s]       |               [01;36m[K^~~~~~~~[m[K
+[3.014s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:78:62:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kcv::Ptr<cv::Formatted>[m[K’
+[3.014s]    78 | std::ostream& operator << (std::ostream& out, [01;36m[KPtr<Formatted> fmtd[m[K)
+[3.014s]       |                                               [01;36m[K~~~~~~~~~~~~~~~^~~~[m[K
+[3.014s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:87:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& cv::operator<<(std::ostream&, const cv::Mat&)[m[K’
+[3.014s]    87 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const Mat& mtx)
+[3.014s]       |               [01;36m[K^~~~~~~~[m[K
+[3.014s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:87:58:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kconst cv::Mat&[m[K’
+[3.015s]    87 | std::ostream& operator << (std::ostream& out, [01;36m[Kconst Mat& mtx[m[K)
+[3.015s]       |                                               [01;36m[K~~~~~~~~~~~^~~[m[K
+[3.015s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:93:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& cv::operator<<(std::ostream&, const cv::UMat&)[m[K’
+[3.015s]    93 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const UMat& m)
+[3.015s]       |               [01;36m[K^~~~~~~~[m[K
+[3.015s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:93:59:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kconst cv::UMat&[m[K’
+[3.015s]    93 | std::ostream& operator << (std::ostream& out, [01;36m[Kconst UMat& m[m[K)
+[3.015s]       |                                               [01;36m[K~~~~~~~~~~~~^[m[K
+[3.015s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:99:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::ostream& cv::operator<<(std::ostream&, const cv::Complex<_Tp>&)[m[K’
+[3.015s]    99 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const Complex<_Tp>& c)
+[3.015s]       |               [01;36m[K^~~~~~~~[m[K
+[3.015s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:99:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.015s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ is not derived from ‘[01m[Kconst cv::Complex<_Tp>[m[K’
+[3.015s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[3.015s]       |                                                           [01;36m[K^~~~~[m[K
+[3.016s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[3.016s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[3.016s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:105:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::ostream& cv::operator<<(std::ostream&, const std::vector<cv::Point_<_Tp> >&)[m[K’
+[3.016s]   105 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const std::vector<Point_<_Tp> >& vec)
+[3.016s]       |               [01;36m[K^~~~~~~~[m[K
+[3.016s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:105:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.016s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kcv::Point_<_Tp>[m[K’ and ‘[01m[Kcv::Vec<double, 3>[m[K’
+[3.016s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[3.016s]       |                                                           [01;36m[K^~~~~[m[K
+[3.016s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[3.017s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[3.017s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:112:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::ostream& cv::operator<<(std::ostream&, const std::vector<cv::Point3_<_Tp> >&)[m[K’
+[3.017s]   112 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const std::vector<Point3_<_Tp> >& vec)
+[3.017s]       |               [01;36m[K^~~~~~~~[m[K
+[3.017s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:112:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.017s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kcv::Point3_<_Tp>[m[K’ and ‘[01m[Kcv::Vec<double, 3>[m[K’
+[3.018s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[3.018s]       |                                                           [01;36m[K^~~~~[m[K
+[3.018s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[3.018s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[3.018s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:119:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n> std::ostream& cv::operator<<(std::ostream&, const cv::Matx<_Tp, m, n>&)[m[K’
+[3.018s]   119 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const Matx<_Tp, m, n>& matx)
+[3.018s]       |               [01;36m[K^~~~~~~~[m[K
+[3.018s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:119:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.019s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, m, n>[m[K’
+[3.019s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[3.019s]       |                                                           [01;36m[K^~~~~[m[K
+[3.019s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[3.019s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[3.019s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:125:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::ostream& cv::operator<<(std::ostream&, const cv::Point_<_Tp>&)[m[K’
+[3.019s]   125 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const Point_<_Tp>& p)
+[3.020s]       |               [01;36m[K^~~~~~~~[m[K
+[3.020s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:125:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.020s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ is not derived from ‘[01m[Kconst cv::Point_<_Tp>[m[K’
+[3.020s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[3.020s]       |                                                           [01;36m[K^~~~~[m[K
+[3.020s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[3.020s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[3.020s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:132:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::ostream& cv::operator<<(std::ostream&, const cv::Point3_<_Tp>&)[m[K’
+[3.021s]   132 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const Point3_<_Tp>& p)
+[3.021s]       |               [01;36m[K^~~~~~~~[m[K
+[3.021s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:132:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.021s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ is not derived from ‘[01m[Kconst cv::Point3_<_Tp>[m[K’
+[3.021s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[3.021s]       |                                                           [01;36m[K^~~~~[m[K
+[3.021s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[3.021s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[3.022s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:139:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int n> std::ostream& cv::operator<<(std::ostream&, const cv::Vec<_Tp, m>&)[m[K’
+[3.022s]   139 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const Vec<_Tp, n>& vec)
+[3.022s]       |               [01;36m[K^~~~~~~~[m[K
+[3.022s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:139:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.022s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ is not derived from ‘[01m[Kconst cv::Vec<_Tp, m>[m[K’
+[3.022s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[3.022s]       |                                                           [01;36m[K^~~~~[m[K
+[3.022s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[3.022s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[3.023s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:161:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::ostream& cv::operator<<(std::ostream&, const cv::Size_<_Tp>&)[m[K’
+[3.023s]   161 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const Size_<_Tp>& size)
+[3.023s]       |               [01;36m[K^~~~~~~~[m[K
+[3.023s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:161:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.023s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ is not derived from ‘[01m[Kconst cv::Size_<_Tp>[m[K’
+[3.023s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[3.023s]       |                                                           [01;36m[K^~~~~[m[K
+[3.023s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[3.023s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[3.023s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:167:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::ostream& cv::operator<<(std::ostream&, const cv::Rect_<_Tp>&)[m[K’
+[3.023s]   167 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const Rect_<_Tp>& rect)
+[3.024s]       |               [01;36m[K^~~~~~~~[m[K
+[3.024s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:167:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.024s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:99:59:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ is not derived from ‘[01m[Kconst cv::Rect_<_Tp>[m[K’
+[3.024s]    99 |           std::cout << "tvecs = " << std::endl << " "  << [01;36m[Ktvecs[m[K << std::endl << std::endl;
+[3.024s]       |                                                           [01;36m[K^~~~~[m[K
+[3.024s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3349[m[K,
+[3.024s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[3.024s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:172:29:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& cv::operator<<(std::ostream&, const cv::MatSize&)[m[K’
+[3.024s]   172 | static inline std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const MatSize& msize)
+[3.024s]       |                             [01;36m[K^~~~~~~~[m[K
+[3.025s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:172:76:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kconst cv::MatSize&[m[K’
+[3.025s]   172 | static inline std::ostream& operator << (std::ostream& out, [01;36m[Kconst MatSize& msize[m[K)
+[3.025s]       |                                                             [01;36m[K~~~~~~~~~~~~~~~^~~~~[m[K
+[3.025s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:184:29:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& cv::operator<<(std::ostream&, cv::Range&)[m[K’
+[3.025s]   184 | static inline std::ostream &[01;36m[Koperator[m[K<< (std::ostream &s, cv::Range &r)
+[3.025s]       |                             [01;36m[K^~~~~~~~[m[K
+[3.025s] [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:184:69:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kcv::Range&[m[K’
+[3.025s]   184 | static inline std::ostream &operator<< (std::ostream &s, [01;36m[Kcv::Range &r[m[K)
+[3.025s]       |                                                          [01;36m[K~~~~~~~~~~~^[m[K
+[3.025s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3350[m[K,
+[3.025s]                  from [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:11[m[K:
+[3.026s] [01m[K/usr/local/include/opencv4/opencv2/core/utility.hpp:398:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& cv::operator<<(std::ostream&, const cv::TickMeter&)[m[K’
+[3.026s]   398 | std::ostream& [01;36m[Koperator[m[K << (std::ostream& out, const TickMeter& tm)
+[3.026s]       |               [01;36m[K^~~~~~~~[m[K
+[3.026s] [01m[K/usr/local/include/opencv4/opencv2/core/utility.hpp:398:64:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from ‘[01m[Kstd::vector<cv::Vec<double, 3> >[m[K’ to ‘[01m[Kconst cv::TickMeter&[m[K’
+[3.026s]   398 | std::ostream& operator << (std::ostream& out, [01;36m[Kconst TickMeter& tm[m[K)
+[3.026s]       |                                               [01;36m[K~~~~~~~~~~~~~~~~~^~[m[K
+[3.026s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:101:27:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<cv::Vec<double, 3> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+[3.026s]   101 |         for (int i = 0; [01;35m[Ki < rvecs.size()[m[K; ++i) {
+[3.026s]       |                         [01;35m[K~~^~~~~~~~~~~~~~[m[K
+[3.026s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:78:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn_cols[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[3.027s]    78 |       int [01;35m[Kn_cols[m[K = img_original.cols;
+[3.027s]       |           [01;35m[K^~~~~~[m[K
+[3.027s] [01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:79:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn_rows[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[3.027s]    79 |       int [01;35m[Kn_rows[m[K = img_original.rows;
+[3.027s]       |           [01;35m[K^~~~~~[m[K
+[4.936s] make[2]: *** [CMakeFiles/aruco_detector.dir/build.make:63: CMakeFiles/aruco_detector.dir/src/aruco_detector.cpp.o] Error 1
+[4.936s] make[1]: *** [CMakeFiles/Makefile2:252: CMakeFiles/aruco_detector.dir/all] Error 2
+[4.936s] make: *** [Makefile:141: all] Error 2
+[4.938s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg -- -j8 -l8

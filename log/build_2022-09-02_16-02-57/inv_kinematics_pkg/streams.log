@@ -1,0 +1,57 @@
+[0.032s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg': CMAKE_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg -- -j8 -l8
+[0.059s] -- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.095s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.291s] -- Found rclcpp: 2.4.1 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.327s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.331s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.475s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.555s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.557s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.745s] -- Found interfaces: 0.0.0 (/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake)
+[0.752s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[0.904s] -- Configuring done
+[0.990s] -- Generating done
+[0.997s] -- Build files have been written to: /home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg
+[1.160s] [  8%] [32m[1mLinking CXX executable platform2_vel_server[0m
+[1.160s] [ 16%] [32m[1mLinking CXX executable platform1_vel_server[0m
+[1.190s] [ 25%] [32m[1mLinking CXX executable robot1_vel_server[0m
+[1.197s] [ 33%] [32m[1mLinking CXX executable platform2_vel_test_client[0m
+[1.211s] [ 41%] [32m[1mLinking CXX executable robot2_vel_server[0m
+[1.246s] [ 50%] [32m[1mLinking CXX executable platform1_vel_test_client[0m
+[2.018s] [ 58%] Built target robot1_vel_server
+[2.054s] [ 66%] Built target platform1_vel_server
+[2.070s] [ 75%] Built target platform1_vel_test_client
+[2.172s] [ 83%] Built target platform2_vel_server
+[2.185s] [ 91%] Built target platform2_vel_test_client
+[2.277s] [100%] Built target robot2_vel_server
+[2.311s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg' returned '0': CMAKE_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg -- -j8 -l8
+[2.411s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg': CMAKE_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg
+[2.430s] -- Install configuration: ""
+[2.431s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform1_vel_server
+[2.431s] -- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform1_vel_server" to ""
+[2.431s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform1_vel_test_client
+[2.431s] -- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform1_vel_test_client" to ""
+[2.431s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform2_vel_server
+[2.431s] -- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform2_vel_server" to ""
+[2.431s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform2_vel_test_client
+[2.432s] -- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/platform2_vel_test_client" to ""
+[2.433s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/robot1_vel_server
+[2.434s] -- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/robot1_vel_server" to ""
+[2.435s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/robot2_vel_server
+[2.437s] -- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/inv_kinematics_pkg/robot2_vel_server" to ""
+[2.437s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/ament_index/resource_index/package_run_dependencies/inv_kinematics_pkg
+[2.438s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/ament_index/resource_index/parent_prefix_path/inv_kinematics_pkg
+[2.438s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/environment/ament_prefix_path.sh
+[2.438s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/environment/ament_prefix_path.dsv
+[2.438s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/environment/path.sh
+[2.438s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/environment/path.dsv
+[2.438s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/local_setup.bash
+[2.439s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/local_setup.sh
+[2.439s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/local_setup.zsh
+[2.439s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/local_setup.dsv
+[2.439s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/package.dsv
+[2.439s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/ament_index/resource_index/packages/inv_kinematics_pkg
+[2.440s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/cmake/inv_kinematics_pkgConfig.cmake
+[2.440s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/cmake/inv_kinematics_pkgConfig-version.cmake
+[2.440s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/package.xml
+[2.447s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg' returned '0': CMAKE_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg

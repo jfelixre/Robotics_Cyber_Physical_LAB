@@ -1,0 +1,5 @@
+-- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Configuring incomplete, errors occurred!
+See also "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/CMakeFiles/CMakeOutput.log".
+See also "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/CMakeFiles/CMakeError.log".

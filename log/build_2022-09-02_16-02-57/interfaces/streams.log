@@ -1,0 +1,334 @@
+[0.044s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces -- -j8 -l8
+[0.136s] -- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.161s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.161s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.356s] -- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)
+[0.359s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.363s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.544s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.612s] -- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") 
+[0.803s] -- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)
+[0.948s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.969s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.996s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") 
+[0.996s] -- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)
+[1.025s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.026s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8
+[1.026s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so
+[1.071s] -- Configuring done
+[1.172s] -- Generating done
+[1.177s] -- Build files have been written to: /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces
+[1.208s] [35m[1mScanning dependencies of target interfaces__cpp[0m
+[1.220s] [  1%] Built target interfaces__cpp
+[1.220s] [ 12%] Built target interfaces__rosidl_generator_c
+[1.248s] [ 24%] Built target interfaces__rosidl_typesupport_cpp
+[1.250s] [ 36%] Built target interfaces__rosidl_typesupport_introspection_cpp
+[1.253s] [ 48%] Built target interfaces__rosidl_typesupport_introspection_c
+[1.257s] [ 59%] Built target interfaces__rosidl_typesupport_fastrtps_cpp
+[1.279s] [ 70%] Built target interfaces__rosidl_typesupport_c
+[1.290s] [ 71%] [32m[1mLinking CXX shared library libinterfaces__rosidl_typesupport_fastrtps_c.so[0m
+[1.414s] [ 82%] Built target interfaces__rosidl_typesupport_fastrtps_c
+[1.426s] [35m[1mScanning dependencies of target interfaces[0m
+[1.439s] [ 82%] Built target interfaces
+[1.452s] [35m[1mScanning dependencies of target interfaces__py[0m
+[1.465s] [ 83%] Built target interfaces__py
+[1.505s] [ 94%] Built target interfaces__python
+[1.536s] [ 95%] [32m[1mLinking C shared library rosidl_generator_py/interfaces/interfaces_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so[0m
+[1.538s] [ 96%] [32m[1mLinking CXX shared library rosidl_generator_py/interfaces/interfaces_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so[0m
+[1.544s] [ 98%] Built target interfaces__rosidl_typesupport_introspection_c__pyext
+[1.587s] [ 99%] Built target interfaces__rosidl_typesupport_c__pyext
+[1.610s] [100%] Built target interfaces__rosidl_typesupport_fastrtps_c__pyext
+[1.624s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces -- -j8 -l8
+[1.817s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces
+[1.827s] -- Install configuration: ""
+[1.828s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/ament_index/resource_index/rosidl_interfaces/interfaces
+[1.828s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces
+[1.829s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg
+[1.829s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/motor_vels_w_arm.h
+[1.829s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/control_data.h
+[1.829s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/robot_state.h
+[1.830s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail
+[1.830s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__struct.h
+[1.830s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__functions.c
+[1.831s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__functions.h
+[1.831s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__functions.c
+[1.831s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__type_support.h
+[1.831s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__type_support.h
+[1.831s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__type_support.h
+[1.831s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__functions.h
+[1.832s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__functions.h
+[1.832s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__functions.c
+[1.832s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__functions.h
+[1.832s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__type_support.h
+[1.833s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__functions.c
+[1.833s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__type_support.h
+[1.833s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__functions.h
+[1.833s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__struct.h
+[1.833s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__functions.h
+[1.833s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__type_support.h
+[1.834s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__functions.h
+[1.834s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__functions.c
+[1.834s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__struct.h
+[1.834s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__struct.h
+[1.834s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__functions.c
+[1.835s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__struct.h
+[1.835s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__struct.h
+[1.835s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__type_support.h
+[1.835s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__struct.h
+[1.835s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__functions.c
+[1.836s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/plat_state.h
+[1.836s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/img_data.h
+[1.836s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/rosidl_generator_c__visibility_control.h
+[1.836s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/limit_switch.h
+[1.837s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/motor_vels.h
+[1.837s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv
+[1.837s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail
+[1.837s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__struct.h
+[1.837s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__functions.c
+[1.837s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__functions.c
+[1.838s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__struct.h
+[1.838s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__functions.h
+[1.838s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__functions.h
+[1.838s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__type_support.h
+[1.839s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__type_support.h
+[1.839s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__struct.h
+[1.839s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__type_support.h
+[1.839s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__functions.h
+[1.840s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__functions.c
+[1.840s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/robot_vel.h
+[1.840s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/control_pid_start.h
+[1.840s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/platform_vel.h
+[1.841s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/environment/library_path.sh
+[1.841s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/environment/library_path.dsv
+[1.841s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_generator_c.so
+[1.841s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces
+[1.841s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg
+[1.841s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail
+[1.841s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__rosidl_typesupport_fastrtps_c.h
+[1.842s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__rosidl_typesupport_fastrtps_c.h
+[1.842s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__rosidl_typesupport_fastrtps_c.h
+[1.842s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__rosidl_typesupport_fastrtps_c.h
+[1.842s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__rosidl_typesupport_fastrtps_c.h
+[1.842s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__rosidl_typesupport_fastrtps_c.h
+[1.842s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__rosidl_typesupport_fastrtps_c.h
+[1.842s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[1.842s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv
+[1.843s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail
+[1.843s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__rosidl_typesupport_fastrtps_c.h
+[1.843s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__rosidl_typesupport_fastrtps_c.h
+[1.843s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__rosidl_typesupport_fastrtps_c.h
+[1.843s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_fastrtps_c.so
+[1.843s] -- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[1.843s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces
+[1.844s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg
+[1.844s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[1.844s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail
+[1.844s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__rosidl_typesupport_fastrtps_cpp.hpp
+[1.844s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__rosidl_typesupport_fastrtps_cpp.hpp
+[1.844s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/dds_fastrtps
+[1.844s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__rosidl_typesupport_fastrtps_cpp.hpp
+[1.845s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__rosidl_typesupport_fastrtps_cpp.hpp
+[1.845s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__rosidl_typesupport_fastrtps_cpp.hpp
+[1.845s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__rosidl_typesupport_fastrtps_cpp.hpp
+[1.845s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__rosidl_typesupport_fastrtps_cpp.hpp
+[1.845s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv
+[1.845s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail
+[1.845s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__rosidl_typesupport_fastrtps_cpp.hpp
+[1.846s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__rosidl_typesupport_fastrtps_cpp.hpp
+[1.846s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/dds_fastrtps
+[1.846s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__rosidl_typesupport_fastrtps_cpp.hpp
+[1.846s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_fastrtps_cpp.so
+[1.846s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces
+[1.846s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg
+[1.846s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail
+[1.847s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__type_support.c
+[1.847s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__rosidl_typesupport_introspection_c.h
+[1.847s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__rosidl_typesupport_introspection_c.h
+[1.847s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__type_support.c
+[1.847s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__rosidl_typesupport_introspection_c.h
+[1.847s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__rosidl_typesupport_introspection_c.h
+[1.847s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__type_support.c
+[1.848s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__rosidl_typesupport_introspection_c.h
+[1.848s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__rosidl_typesupport_introspection_c.h
+[1.848s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__type_support.c
+[1.848s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__type_support.c
+[1.848s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__type_support.c
+[1.848s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__type_support.c
+[1.848s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__rosidl_typesupport_introspection_c.h
+[1.849s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[1.849s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv
+[1.849s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail
+[1.849s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__rosidl_typesupport_introspection_c.h
+[1.849s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__rosidl_typesupport_introspection_c.h
+[1.849s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__rosidl_typesupport_introspection_c.h
+[1.850s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__type_support.c
+[1.850s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__type_support.c
+[1.850s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__type_support.c
+[1.850s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_introspection_c.so
+[1.850s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_c.so
+[1.850s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces
+[1.850s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg
+[1.851s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/limit_switch.hpp
+[1.851s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/control_data.hpp
+[1.851s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail
+[1.851s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__builder.hpp
+[1.851s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__builder.hpp
+[1.851s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__struct.hpp
+[1.851s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__struct.hpp
+[1.852s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__traits.hpp
+[1.852s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__builder.hpp
+[1.852s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__struct.hpp
+[1.852s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__struct.hpp
+[1.852s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__struct.hpp
+[1.852s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__traits.hpp
+[1.852s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__traits.hpp
+[1.853s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__traits.hpp
+[1.853s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__traits.hpp
+[1.853s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__builder.hpp
+[1.853s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__builder.hpp
+[1.853s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__struct.hpp
+[1.853s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__traits.hpp
+[1.853s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__struct.hpp
+[1.854s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__builder.hpp
+[1.854s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__traits.hpp
+[1.854s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__builder.hpp
+[1.854s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/robot_state.hpp
+[1.854s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/motor_vels.hpp
+[1.854s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/img_data.hpp
+[1.855s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/plat_state.hpp
+[1.855s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/motor_vels_w_arm.hpp
+[1.855s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv
+[1.855s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/platform_vel.hpp
+[1.855s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail
+[1.855s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__builder.hpp
+[1.855s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__traits.hpp
+[1.856s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__struct.hpp
+[1.856s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__builder.hpp
+[1.856s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__traits.hpp
+[1.856s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__traits.hpp
+[1.856s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__struct.hpp
+[1.856s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__struct.hpp
+[1.856s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__builder.hpp
+[1.857s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/robot_vel.hpp
+[1.857s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/control_pid_start.hpp
+[1.857s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces
+[1.857s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg
+[1.857s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail
+[1.857s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__rosidl_typesupport_introspection_cpp.hpp
+[1.857s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__type_support.cpp
+[1.858s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__type_support.cpp
+[1.858s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__type_support.cpp
+[1.858s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__rosidl_typesupport_introspection_cpp.hpp
+[1.858s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__rosidl_typesupport_introspection_cpp.hpp
+[1.858s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/plat_state__type_support.cpp
+[1.858s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/img_data__type_support.cpp
+[1.859s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels__rosidl_typesupport_introspection_cpp.hpp
+[1.859s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/robot_state__rosidl_typesupport_introspection_cpp.hpp
+[1.859s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/control_data__rosidl_typesupport_introspection_cpp.hpp
+[1.859s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/motor_vels_w_arm__type_support.cpp
+[1.859s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__rosidl_typesupport_introspection_cpp.hpp
+[1.859s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/msg/detail/limit_switch__type_support.cpp
+[1.859s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv
+[1.860s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail
+[1.860s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__rosidl_typesupport_introspection_cpp.hpp
+[1.860s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/robot_vel__type_support.cpp
+[1.860s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__rosidl_typesupport_introspection_cpp.hpp
+[1.860s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__rosidl_typesupport_introspection_cpp.hpp
+[1.860s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/control_pid_start__type_support.cpp
+[1.860s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/interfaces/srv/detail/platform_vel__type_support.cpp
+[1.861s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_introspection_cpp.so
+[1.861s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__rosidl_typesupport_cpp.so
+[1.861s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/environment/pythonpath.sh
+[1.861s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/environment/pythonpath.dsv
+[1.861s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/__init__.py
+[1.882s] Compiling '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/__init__.py'...
+[1.887s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/srv
+[1.888s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/srv/_robot_vel_s.c
+[1.888s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/srv/_control_pid_start_s.c
+[1.888s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/srv/_platform_vel_s.c
+[1.888s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/srv/_platform_vel.py
+[1.888s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/srv/_robot_vel.py
+[1.888s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/srv/__init__.py
+[1.888s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/srv/_control_pid_start.py
+[1.888s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg
+[1.888s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_motor_vels.py
+[1.889s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_limit_switch.py
+[1.889s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_robot_state.py
+[1.889s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_motor_vels_w_arm.py
+[1.889s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_control_data.py
+[1.889s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_control_data_s.c
+[1.889s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_img_data_s.c
+[1.889s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_motor_vels_s.c
+[1.889s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_motor_vels_w_arm_s.c
+[1.889s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_plat_state.py
+[1.889s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_limit_switch_s.c
+[1.889s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/__init__.py
+[1.889s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_robot_state_s.c
+[1.890s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_plat_state_s.c
+[1.890s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/msg/_img_data.py
+[1.890s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/interfaces_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so
+[1.890s] -- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/interfaces_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so" to ""
+[1.890s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/interfaces_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so
+[1.891s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/interfaces_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so
+[1.891s] -- Set runtime path of "/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages/interfaces/interfaces_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so" to ""
+[1.892s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/libinterfaces__python.so
+[1.892s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/PlatformVel.idl
+[1.892s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/MotorVels.idl
+[1.892s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/ImgData.idl
+[1.893s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/ControlPidStart.idl
+[1.893s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/PlatState.idl
+[1.893s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/ControlData.idl
+[1.893s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/MotorVelsWArm.idl
+[1.893s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/LimitSwitch.idl
+[1.893s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/RobotVel.idl
+[1.894s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/RobotState.idl
+[1.894s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/PlatformVel.srv
+[1.894s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/PlatformVel_Request.msg
+[1.894s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/PlatformVel_Response.msg
+[1.894s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/MotorVels.msg
+[1.894s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/ImgData.msg
+[1.894s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/ControlPidStart.srv
+[1.895s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/ControlPidStart_Request.msg
+[1.895s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/ControlPidStart_Response.msg
+[1.895s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/PlatState.msg
+[1.895s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/ControlData.msg
+[1.895s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/MotorVelsWArm.msg
+[1.895s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/LimitSwitch.msg
+[1.895s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/RobotVel.srv
+[1.896s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/RobotVel_Request.msg
+[1.896s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/srv/RobotVel_Response.msg
+[1.896s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/msg/RobotState.msg
+[1.896s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/ament_index/resource_index/package_run_dependencies/interfaces
+[1.896s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/ament_index/resource_index/parent_prefix_path/interfaces
+[1.896s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/environment/ament_prefix_path.sh
+[1.897s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/environment/ament_prefix_path.dsv
+[1.897s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/environment/path.sh
+[1.897s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/environment/path.dsv
+[1.897s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/local_setup.bash
+[1.897s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/local_setup.sh
+[1.897s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/local_setup.zsh
+[1.897s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/local_setup.dsv
+[1.897s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/package.dsv
+[1.898s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/ament_index/resource_index/packages/interfaces
+[1.898s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_generator_cExport.cmake
+[1.898s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_generator_cExport-noconfig.cmake
+[1.899s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_introspection_cExport.cmake
+[1.899s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[1.899s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_cExport.cmake
+[1.899s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[1.899s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_generator_cppExport.cmake
+[1.899s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[1.899s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[1.900s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_cppExport.cmake
+[1.900s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[1.900s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/rosidl_cmake-extras.cmake
+[1.900s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[1.900s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[1.900s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[1.901s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[1.901s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[1.901s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[1.901s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfacesConfig.cmake
+[1.901s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake/interfacesConfig-version.cmake
+[1.901s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/package.xml
+[1.904s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces

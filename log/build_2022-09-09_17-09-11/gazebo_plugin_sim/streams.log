@@ -1,0 +1,135 @@
+[0.030s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim -DCMAKE_INSTALL_PREFIX=/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim
+[0.304s] -- The C compiler identification is GNU 9.4.0
+[0.471s] -- The CXX compiler identification is GNU 9.4.0
+[0.480s] -- Check for working C compiler: /usr/bin/cc
+[0.558s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.559s] -- Detecting C compiler ABI info
+[0.636s] -- Detecting C compiler ABI info - done
+[0.659s] -- Detecting C compile features
+[0.660s] -- Detecting C compile features - done
+[0.664s] -- Check for working CXX compiler: /usr/bin/c++
+[0.755s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.756s] -- Detecting CXX compiler ABI info
+[0.847s] -- Detecting CXX compiler ABI info - done
+[0.868s] -- Detecting CXX compile features
+[0.869s] -- Detecting CXX compile features - done
+[0.871s] -- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.898s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.898s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.129s] -- Found camera_info_manager: 2.3.0 (/opt/ros/foxy/share/camera_info_manager/cmake)
+[1.206s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.212s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.303s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[1.341s] -- Found FastRTPS: /opt/ros/foxy/include  
+[1.433s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.518s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[1.521s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.523s] -- Looking for pthread.h
+[1.607s] -- Looking for pthread.h - found
+[1.608s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.681s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[1.681s] -- Looking for pthread_create in pthreads
+[1.743s] -- Looking for pthread_create in pthreads - not found
+[1.743s] -- Looking for pthread_create in pthread
+[1.816s] -- Looking for pthread_create in pthread - found
+[1.818s] -- Found Threads: TRUE  
+[2.175s] -- Setting yaml-cpp_DIR to: '/opt/ros/foxy/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/lib/cmake/yaml-cpp'
+[2.262s] -- Found gazebo_dev: 3.5.3 (/opt/ros/foxy/share/gazebo_dev/cmake)
+[2.271s] -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.1") 
+[2.274s] -- Checking for module 'bullet>=2.82'
+[2.294s] --   Found bullet, version 2.88
+[2.455s] -- Found ccd: /usr/include (found suitable version "2.0", minimum required is "2.0") 
+[2.516s] -- Found fcl: /usr/include (found suitable version "0.5.0", minimum required is "0.3.2") 
+[2.577s] -- Found assimp: /usr/include (found version "5.0.0") 
+[2.609s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[2.641s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake (found suitable version "1.71.0", minimum required is "1.40.0") found components: thread system filesystem program_options regex iostreams date_time 
+[2.676s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "3.6.1") 
+[2.683s] -- Looking for ignition-math6 -- found version 6.13.0
+[2.694s] -- Searching for dependencies of ignition-math6
+[2.698s] -- Looking for OGRE...
+[2.698s] -- OGRE_PREFIX_WATCH changed.
+[2.704s] -- Checking for module 'OGRE'
+[2.720s] --   Found OGRE, version 1.9.0
+[2.764s] -- Found Ogre Ghadamon (1.9.0)
+[2.777s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[2.788s] -- Looking for OGRE_Paging...
+[2.800s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[2.800s] -- Looking for OGRE_Terrain...
+[2.810s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[2.810s] -- Looking for OGRE_Property...
+[2.820s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[2.820s] -- Looking for OGRE_RTShaderSystem...
+[2.829s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[2.829s] -- Looking for OGRE_Volume...
+[2.838s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[2.839s] -- Looking for OGRE_Overlay...
+[2.847s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[3.198s] -- Looking for ignition-math6 -- found version 6.13.0
+[3.202s] -- Looking for ignition-transport8 -- found version 8.3.0
+[3.203s] -- Searching for dependencies of ignition-transport8
+[3.234s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found suitable version "3.6.1", minimum required is "3") 
+[3.251s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[3.273s] -- Checking for module 'libzmq >= 4'
+[3.316s] --   Found libzmq , version 4.3.2
+[3.396s] -- Found ZeroMQ: TRUE (Required is at least version "4") 
+[3.406s] -- Checking for module 'uuid'
+[3.430s] --   Found uuid, version 2.34.0
+[3.497s] -- Found UUID: TRUE  
+[3.500s] -- Looking for ignition-msgs5 -- found version 5.10.0
+[3.501s] -- Searching for dependencies of ignition-msgs5
+[3.532s] -- Looking for ignition-math6 -- found version 6.13.0
+[3.540s] -- Checking for module 'tinyxml2'
+[3.565s] --   Found tinyxml2, version 6.2.0
+[3.638s] -- Looking for ignition-msgs5 -- found version 5.10.0
+[3.642s] -- Looking for ignition-common3 -- found version 3.14.2
+[3.643s] -- Searching for dependencies of ignition-common3
+[3.643s] -- Looking for dlfcn.h - found
+[3.646s] -- Looking for libdl - found
+[3.648s] -- Found DL: TRUE  
+[3.664s] -- Searching for <ignition-common3> component [graphics]
+[3.667s] -- Looking for ignition-common3-graphics -- found version 3.14.2
+[3.668s] -- Searching for dependencies of ignition-common3-graphics
+[3.669s] -- Looking for ignition-math6 -- found version 6.13.0
+[3.674s] -- Looking for ignition-fuel_tools4 -- found version 4.6.0
+[3.675s] -- Searching for dependencies of ignition-fuel_tools4
+[3.828s] -- Found CURL: /usr/lib/x86_64-linux-gnu/libcurl.so (found version "7.68.0")  
+[3.864s] -- Checking for module 'jsoncpp'
+[3.949s] --   Found jsoncpp, version 1.7.4
+[4.138s] -- Found JSONCPP: TRUE  
+[4.158s] -- Checking for module 'libzip'
+[4.216s] --   Found libzip, version 1.5.1
+[4.333s] -- Found ZIP: TRUE  
+[4.334s] -- Looking for ignition-common3 -- found version 3.14.2
+[4.335s] -- Looking for ignition-math6 -- found version 6.13.0
+[4.337s] -- Looking for ignition-msgs5 -- found version 5.10.0
+[4.340s] -- Gazebo version: 11.11
+[4.349s] -- Found gazebo_msgs: 3.5.3 (/opt/ros/foxy/share/gazebo_msgs/cmake)
+[4.828s] -- Found gazebo_ros: 3.5.3 (/opt/ros/foxy/share/gazebo_ros/cmake)
+[4.847s] -- Found image_transport: 2.3.0 (/opt/ros/foxy/share/image_transport/cmake)
+[4.931s] -- Found cv_bridge: 2.2.1 (/opt/ros/foxy/share/cv_bridge/cmake)
+[4.966s] -- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+[5.125s] -- Found std_srvs: 2.0.5 (/opt/ros/foxy/share/std_srvs/cmake)
+[5.156s] -- Found tf2: 0.13.13 (/opt/ros/foxy/share/tf2/cmake)
+[5.178s] -- Found tf2_geometry_msgs: 0.13.13 (/opt/ros/foxy/share/tf2_geometry_msgs/cmake)
+[5.219s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/foxy/share/eigen3_cmake_module/cmake)
+[5.222s] -- Found Eigen3: TRUE (found version "3.3.7") 
+[6.182s] CMake Error at CMakeLists.txt:42 (find_package):
+[6.182s]   By not providing "Findinterfaces.cmake" in CMAKE_MODULE_PATH this project
+[6.182s]   has asked CMake to find a package configuration file provided by
+[6.182s]   "interfaces", but CMake did not find one.
+[6.183s] 
+[6.183s]   Could not find a package configuration file provided by "interfaces" with
+[6.183s]   any of the following names:
+[6.183s] 
+[6.183s]     interfacesConfig.cmake
+[6.183s]     interfaces-config.cmake
+[6.183s] 
+[6.184s]   Add the installation prefix of "interfaces" to CMAKE_PREFIX_PATH or set
+[6.184s]   "interfaces_DIR" to a directory containing one of the above files.  If
+[6.184s]   "interfaces" provides a separate development package or SDK, be sure it has
+[6.184s]   been installed.
+[6.184s] 
+[6.184s] 
+[6.187s] -- Configuring incomplete, errors occurred!
+[6.187s] See also "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/CMakeFiles/CMakeOutput.log".
+[6.187s] See also "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim/CMakeFiles/CMakeError.log".

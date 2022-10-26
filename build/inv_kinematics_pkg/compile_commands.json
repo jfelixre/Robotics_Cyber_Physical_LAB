@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/robot1_vel_server.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/robot1_vel_server.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/platform1_vel_server.dir/src/platform1_vel_server.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/platform1_vel_server.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/platform1_vel_server.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/platform2_vel_server.dir/src/platform2_vel_server.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/platform2_vel_server.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/platform2_vel_server.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/platform2_vel_test_client.dir/src/platform2_vel_test_client.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/platform2_vel_test_client.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/platform2_vel_test_client.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/platform1_vel_test_client.dir/src/platform1_vel_test_client.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/platform1_vel_test_client.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/platform1_vel_test_client.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/robot2_vel_server.dir/src/robot2_vel_server.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/robot2_vel_server.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/robot2_vel_server.cpp"
+}
+]

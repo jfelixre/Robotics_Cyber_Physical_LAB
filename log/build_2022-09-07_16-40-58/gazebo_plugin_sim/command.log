@@ -1,0 +1,1 @@
+Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim': /usr/bin/cmake /home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim -DCMAKE_INSTALL_PREFIX=/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim

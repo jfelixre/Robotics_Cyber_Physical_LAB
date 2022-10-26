@@ -1,0 +1,533 @@
+[0.144s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.144s] DEBUG:colcon:Parsed command line arguments: Namespace(allow_overriding=[], ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7fcdd1b677f0>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=8, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7fcdd1b677f0>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7fcdd1af94f0>)
+[0.168s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.168s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.168s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.168s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.168s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.169s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.169s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/javierfr/Robotics_Cyber_Physical_LAB'
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration) by extensions ['ignore', 'ignore_ament_install']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration) by extension 'ignore'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration) by extension 'ignore_ament_install'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration) by extensions ['colcon_pkg']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration) by extension 'colcon_pkg'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration) by extensions ['colcon_meta']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration) by extension 'colcon_meta'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration) by extensions ['ros']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration) by extension 'ros'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration) by extensions ['cmake', 'python']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration) by extension 'cmake'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration) by extension 'python'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration) by extensions ['python_setup_py']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration) by extension 'python_setup_py'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles) by extensions ['ignore', 'ignore_ament_install']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles) by extension 'ignore'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles) by extension 'ignore_ament_install'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles) by extensions ['colcon_pkg']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles) by extension 'colcon_pkg'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles) by extensions ['colcon_meta']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles) by extension 'colcon_meta'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles) by extensions ['ros']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles) by extension 'ros'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles) by extensions ['cmake', 'python']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles) by extension 'cmake'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles) by extension 'python'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles) by extensions ['python_setup_py']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles) by extension 'python_setup_py'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3) by extensions ['ignore', 'ignore_ament_install']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3) by extension 'ignore'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3) by extension 'ignore_ament_install'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3) by extensions ['colcon_pkg']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3) by extension 'colcon_pkg'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3) by extensions ['colcon_meta']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3) by extension 'colcon_meta'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3) by extensions ['ros']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3) by extension 'ros'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3) by extensions ['cmake', 'python']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3) by extension 'cmake'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3) by extension 'python'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3) by extensions ['python_setup_py']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3) by extension 'python_setup_py'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC) by extensions ['ignore', 'ignore_ament_install']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC) by extension 'ignore'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC) by extension 'ignore_ament_install'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC) by extensions ['colcon_pkg']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC) by extension 'colcon_pkg'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC) by extensions ['colcon_meta']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC) by extension 'colcon_meta'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC) by extensions ['ros']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC) by extension 'ros'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC) by extensions ['cmake', 'python']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC) by extension 'cmake'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC) by extension 'python'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC) by extensions ['python_setup_py']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC) by extension 'python_setup_py'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC/tmp) by extensions ['ignore', 'ignore_ament_install']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC/tmp) by extension 'ignore'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC/tmp) by extension 'ignore_ament_install'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC/tmp) by extensions ['colcon_pkg']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC/tmp) by extension 'colcon_pkg'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC/tmp) by extensions ['colcon_meta']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC/tmp) by extension 'colcon_meta'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC/tmp) by extensions ['ros']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC/tmp) by extension 'ros'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC/tmp) by extensions ['cmake', 'python']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC/tmp) by extension 'cmake'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC/tmp) by extension 'python'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC/tmp) by extensions ['python_setup_py']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdC/tmp) by extension 'python_setup_py'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX) by extensions ['ignore', 'ignore_ament_install']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX) by extension 'ignore'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX) by extension 'ignore_ament_install'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX) by extensions ['colcon_pkg']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX) by extension 'colcon_pkg'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX) by extensions ['colcon_meta']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX) by extension 'colcon_meta'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX) by extensions ['ros']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX) by extension 'ros'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX) by extensions ['cmake', 'python']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX) by extension 'cmake'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX) by extension 'python'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX) by extensions ['python_setup_py']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX) by extension 'python_setup_py'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX/tmp) by extensions ['ignore', 'ignore_ament_install']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX/tmp) by extension 'ignore'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX/tmp) by extension 'ignore_ament_install'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX/tmp) by extensions ['colcon_pkg']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX/tmp) by extension 'colcon_pkg'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX/tmp) by extensions ['colcon_meta']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX/tmp) by extension 'colcon_meta'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX/tmp) by extensions ['ros']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX/tmp) by extension 'ros'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX/tmp) by extensions ['cmake', 'python']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX/tmp) by extension 'cmake'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX/tmp) by extension 'python'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX/tmp) by extensions ['python_setup_py']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/3.16.3/CompilerIdCXX/tmp) by extension 'python_setup_py'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/CMakeTmp) by extensions ['ignore', 'ignore_ament_install']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/CMakeTmp) by extension 'ignore'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/CMakeTmp) by extension 'ignore_ament_install'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/CMakeTmp) by extensions ['colcon_pkg']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/CMakeTmp) by extension 'colcon_pkg'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/CMakeTmp) by extensions ['colcon_meta']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/CMakeTmp) by extension 'colcon_meta'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/CMakeTmp) by extensions ['ros']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/CMakeTmp) by extension 'ros'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/CMakeTmp) by extensions ['cmake', 'python']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/CMakeTmp) by extension 'cmake'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/CMakeTmp) by extension 'python'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/CMakeTmp) by extensions ['python_setup_py']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/Aruco_Calibration/CMakeFiles/CMakeTmp) by extension 'python_setup_py'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/control_pkg) by extensions ['ignore', 'ignore_ament_install']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/control_pkg) by extension 'ignore'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/control_pkg) by extension 'ignore_ament_install'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/control_pkg) by extensions ['colcon_pkg']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/control_pkg) by extension 'colcon_pkg'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/control_pkg) by extensions ['colcon_meta']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/control_pkg) by extension 'colcon_meta'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/control_pkg) by extensions ['ros']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/control_pkg) by extension 'ros'
+[0.190s] DEBUG:colcon.colcon_core.package_identification:Package 'src/control_pkg' with type 'ros.ament_cmake' and name 'control_pkg'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/gazebo_plugin_sim) by extensions ['ignore', 'ignore_ament_install']
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/gazebo_plugin_sim) by extension 'ignore'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/gazebo_plugin_sim) by extension 'ignore_ament_install'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/gazebo_plugin_sim) by extensions ['colcon_pkg']
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/gazebo_plugin_sim) by extension 'colcon_pkg'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/gazebo_plugin_sim) by extensions ['colcon_meta']
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/gazebo_plugin_sim) by extension 'colcon_meta'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/gazebo_plugin_sim) by extensions ['ros']
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/gazebo_plugin_sim) by extension 'ros'
+[0.192s] DEBUG:colcon.colcon_core.package_identification:Package 'src/gazebo_plugin_sim' with type 'ros.ament_cmake' and name 'gazebo_plugin_sim'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/img_proc_pkg) by extensions ['ignore', 'ignore_ament_install']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/img_proc_pkg) by extension 'ignore'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/img_proc_pkg) by extension 'ignore_ament_install'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/img_proc_pkg) by extensions ['colcon_pkg']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/img_proc_pkg) by extension 'colcon_pkg'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/img_proc_pkg) by extensions ['colcon_meta']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/img_proc_pkg) by extension 'colcon_meta'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/img_proc_pkg) by extensions ['ros']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/img_proc_pkg) by extension 'ros'
+[0.193s] DEBUG:colcon.colcon_core.package_identification:Package 'src/img_proc_pkg' with type 'ros.ament_cmake' and name 'img_proc_pkg'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extension 'ignore'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extension 'ignore_ament_install'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extensions ['colcon_pkg']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extension 'colcon_pkg'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extensions ['colcon_meta']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extension 'colcon_meta'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extensions ['ros']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extension 'ros'
+[0.194s] DEBUG:colcon.colcon_core.package_identification:Package 'src/interfaces' with type 'ros.ament_cmake' and name 'interfaces'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src/inv_kinematics_pkg) by extensions ['ignore', 'ignore_ament_install']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src/inv_kinematics_pkg) by extension 'ignore'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src/inv_kinematics_pkg) by extension 'ignore_ament_install'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src/inv_kinematics_pkg) by extensions ['colcon_pkg']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src/inv_kinematics_pkg) by extension 'colcon_pkg'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src/inv_kinematics_pkg) by extensions ['colcon_meta']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src/inv_kinematics_pkg) by extension 'colcon_meta'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src/inv_kinematics_pkg) by extensions ['ros']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src/inv_kinematics_pkg) by extension 'ros'
+[0.195s] DEBUG:colcon.colcon_core.package_identification:Package 'src/inv_kinematics_pkg' with type 'ros.ament_cmake' and name 'inv_kinematics_pkg'
+[0.195s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.195s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.195s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.195s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.195s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.224s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.224s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.227s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 5 installed packages in /home/javierfr/Robotics_Cyber_Physical_LAB/install
+[0.228s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 268 installed packages in /opt/ros/foxy
+[0.230s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'gazebo_plugin_sim' build argument 'cmake_args' from command line to 'None'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'gazebo_plugin_sim' build argument 'cmake_target' from command line to 'None'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'gazebo_plugin_sim' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'gazebo_plugin_sim' build argument 'cmake_clean_cache' from command line to 'False'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'gazebo_plugin_sim' build argument 'cmake_clean_first' from command line to 'False'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'gazebo_plugin_sim' build argument 'cmake_force_configure' from command line to 'False'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'gazebo_plugin_sim' build argument 'ament_cmake_args' from command line to 'None'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'gazebo_plugin_sim' build argument 'catkin_cmake_args' from command line to 'None'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'gazebo_plugin_sim' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.297s] DEBUG:colcon.colcon_core.verb:Building package 'gazebo_plugin_sim' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim', 'merge_install': False, 'path': '/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim', 'symlink_install': False, 'test_result_base': None}
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'img_proc_pkg' build argument 'cmake_args' from command line to 'None'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'img_proc_pkg' build argument 'cmake_target' from command line to 'None'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'img_proc_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'img_proc_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'img_proc_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'img_proc_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'img_proc_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'img_proc_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'img_proc_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.299s] DEBUG:colcon.colcon_core.verb:Building package 'img_proc_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg', 'merge_install': False, 'path': '/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg', 'symlink_install': False, 'test_result_base': None}
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'cmake_args' from command line to 'None'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'cmake_target' from command line to 'None'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.300s] DEBUG:colcon.colcon_core.verb:Building package 'interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces', 'merge_install': False, 'path': '/home/javierfr/Robotics_Cyber_Physical_LAB/src/interfaces', 'symlink_install': False, 'test_result_base': None}
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'control_pkg' build argument 'cmake_args' from command line to 'None'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'control_pkg' build argument 'cmake_target' from command line to 'None'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'control_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'control_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'control_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'control_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'control_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'control_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'control_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.301s] DEBUG:colcon.colcon_core.verb:Building package 'control_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg', 'merge_install': False, 'path': '/home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg', 'symlink_install': False, 'test_result_base': None}
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'inv_kinematics_pkg' build argument 'cmake_args' from command line to 'None'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'inv_kinematics_pkg' build argument 'cmake_target' from command line to 'None'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'inv_kinematics_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'inv_kinematics_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'inv_kinematics_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'inv_kinematics_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'inv_kinematics_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'inv_kinematics_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'inv_kinematics_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.302s] DEBUG:colcon.colcon_core.verb:Building package 'inv_kinematics_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg', 'merge_install': False, 'path': '/home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg', 'symlink_install': False, 'test_result_base': None}
+[0.303s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.307s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.307s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/javierfr/Robotics_Cyber_Physical_LAB/src/interfaces' with build type 'ament_cmake'
+[0.307s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/javierfr/Robotics_Cyber_Physical_LAB/src/interfaces'
+[0.312s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.312s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.312s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.317s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim' with build type 'ament_cmake'
+[0.318s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim'
+[0.319s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.320s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.326s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg' with build type 'ament_cmake'
+[0.327s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg'
+[0.328s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.328s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.342s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces -- -j8 -l8
+[0.352s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim -- -j8 -l8
+[0.359s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg -- -j8 -l8
+[0.502s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg -- -j8 -l8
+[0.509s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim -- -j8 -l8
+[0.546s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg
+[0.553s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim
+[0.563s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(img_proc_pkg)
+[0.572s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg' for CMake module files
+[0.574s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg' for CMake config files
+[0.576s] Level 1:colcon.colcon_core.shell:create_environment_hook('img_proc_pkg', 'cmake_prefix_path')
+[0.578s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/hook/cmake_prefix_path.ps1'
+[0.579s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg
+[0.579s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/hook/cmake_prefix_path.dsv'
+[0.580s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/hook/cmake_prefix_path.sh'
+[0.582s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib'
+[0.582s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/bin'
+[0.583s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/pkgconfig/img_proc_pkg.pc'
+[0.583s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/python3.8/site-packages'
+[0.583s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/bin'
+[0.585s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/package.ps1'
+[0.586s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/package.dsv'
+[0.587s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/package.sh'
+[0.588s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/package.bash'
+[0.589s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/package.zsh'
+[0.589s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/colcon-core/packages/img_proc_pkg)
+[0.593s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(gazebo_plugin_sim)
+[0.596s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim' for CMake module files
+[0.597s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim
+[0.597s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim' for CMake config files
+[0.598s] Level 1:colcon.colcon_core.shell:create_environment_hook('gazebo_plugin_sim', 'cmake_prefix_path')
+[0.599s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/cmake_prefix_path.ps1'
+[0.600s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/cmake_prefix_path.dsv'
+[0.600s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/cmake_prefix_path.sh'
+[0.600s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib'
+[0.601s] Level 1:colcon.colcon_core.shell:create_environment_hook('gazebo_plugin_sim', 'ld_library_path_lib')
+[0.602s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/ld_library_path_lib.ps1'
+[0.602s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/ld_library_path_lib.dsv'
+[0.603s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/ld_library_path_lib.sh'
+[0.603s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/bin'
+[0.603s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib/pkgconfig/gazebo_plugin_sim.pc'
+[0.603s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib/python3.8/site-packages'
+[0.603s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/bin'
+[0.605s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.ps1'
+[0.605s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.dsv'
+[0.606s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.sh'
+[0.606s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.bash'
+[0.607s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.zsh'
+[0.607s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/colcon-core/packages/gazebo_plugin_sim)
+[0.625s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(img_proc_pkg)
+[0.627s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg' for CMake module files
+[0.628s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg' for CMake config files
+[0.628s] Level 1:colcon.colcon_core.shell:create_environment_hook('img_proc_pkg', 'cmake_prefix_path')
+[0.629s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/hook/cmake_prefix_path.ps1'
+[0.630s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/hook/cmake_prefix_path.dsv'
+[0.630s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/hook/cmake_prefix_path.sh'
+[0.631s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib'
+[0.631s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/bin'
+[0.631s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/pkgconfig/img_proc_pkg.pc'
+[0.631s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/lib/python3.8/site-packages'
+[0.632s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/bin'
+[0.633s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/package.ps1'
+[0.634s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/package.dsv'
+[0.635s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/package.sh'
+[0.636s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/package.bash'
+[0.636s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/img_proc_pkg/package.zsh'
+[0.637s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg/share/colcon-core/packages/img_proc_pkg)
+[0.647s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(gazebo_plugin_sim)
+[0.649s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim' for CMake module files
+[0.650s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim' for CMake config files
+[0.650s] Level 1:colcon.colcon_core.shell:create_environment_hook('gazebo_plugin_sim', 'cmake_prefix_path')
+[0.651s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/cmake_prefix_path.ps1'
+[0.652s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/cmake_prefix_path.dsv'
+[0.652s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/cmake_prefix_path.sh'
+[0.653s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib'
+[0.653s] Level 1:colcon.colcon_core.shell:create_environment_hook('gazebo_plugin_sim', 'ld_library_path_lib')
+[0.654s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/ld_library_path_lib.ps1'
+[0.655s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/ld_library_path_lib.dsv'
+[0.655s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/hook/ld_library_path_lib.sh'
+[0.655s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/bin'
+[0.655s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib/pkgconfig/gazebo_plugin_sim.pc'
+[0.656s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib/python3.8/site-packages'
+[0.656s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/bin'
+[0.657s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.ps1'
+[0.658s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.dsv'
+[0.658s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.sh'
+[0.659s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.bash'
+[0.659s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.zsh'
+[0.660s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/colcon-core/packages/gazebo_plugin_sim)
+[0.662s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces -- -j8 -l8
+[0.832s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces
+[0.893s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(interfaces)
+[0.896s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces' for CMake module files
+[0.897s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces
+[0.897s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces' for CMake config files
+[0.898s] Level 1:colcon.colcon_core.shell:create_environment_hook('interfaces', 'cmake_prefix_path')
+[0.900s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/hook/cmake_prefix_path.ps1'
+[0.900s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/hook/cmake_prefix_path.dsv'
+[0.901s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/hook/cmake_prefix_path.sh'
+[0.901s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib'
+[0.902s] Level 1:colcon.colcon_core.shell:create_environment_hook('interfaces', 'ld_library_path_lib')
+[0.903s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/hook/ld_library_path_lib.ps1'
+[0.904s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/hook/ld_library_path_lib.dsv'
+[0.904s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/hook/ld_library_path_lib.sh'
+[0.905s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/bin'
+[0.905s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/pkgconfig/interfaces.pc'
+[0.905s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages'
+[0.905s] Level 1:colcon.colcon_core.shell:create_environment_hook('interfaces', 'pythonpath')
+[0.906s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/hook/pythonpath.ps1'
+[0.906s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/hook/pythonpath.dsv'
+[0.907s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/hook/pythonpath.sh'
+[0.907s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/bin'
+[0.909s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/package.ps1'
+[0.910s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/package.dsv'
+[0.910s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/package.sh'
+[0.910s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/package.bash'
+[0.911s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/package.zsh'
+[0.911s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/colcon-core/packages/interfaces)
+[1.086s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(interfaces)
+[1.088s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces' for CMake module files
+[1.089s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces' for CMake config files
+[1.089s] Level 1:colcon.colcon_core.shell:create_environment_hook('interfaces', 'cmake_prefix_path')
+[1.091s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/hook/cmake_prefix_path.ps1'
+[1.091s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/hook/cmake_prefix_path.dsv'
+[1.092s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/hook/cmake_prefix_path.sh'
+[1.092s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib'
+[1.093s] Level 1:colcon.colcon_core.shell:create_environment_hook('interfaces', 'ld_library_path_lib')
+[1.094s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/hook/ld_library_path_lib.ps1'
+[1.094s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/hook/ld_library_path_lib.dsv'
+[1.095s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/hook/ld_library_path_lib.sh'
+[1.095s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/bin'
+[1.095s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/pkgconfig/interfaces.pc'
+[1.095s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/lib/python3.8/site-packages'
+[1.096s] Level 1:colcon.colcon_core.shell:create_environment_hook('interfaces', 'pythonpath')
+[1.098s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/hook/pythonpath.ps1'
+[1.098s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/hook/pythonpath.dsv'
+[1.099s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/hook/pythonpath.sh'
+[1.100s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/bin'
+[1.101s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/package.ps1'
+[1.102s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/package.dsv'
+[1.102s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/package.sh'
+[1.103s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/package.bash'
+[1.103s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/package.zsh'
+[1.104s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/colcon-core/packages/interfaces)
+[1.104s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg' with build type 'ament_cmake'
+[1.104s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg'
+[1.105s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.105s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.112s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg' with build type 'ament_cmake'
+[1.112s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg'
+[1.114s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.114s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.130s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg': CMAKE_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg -- -j8 -l8
+[1.136s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg': CMAKE_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg -- -j8 -l8
+[1.234s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg' returned '0': CMAKE_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg -- -j8 -l8
+[1.246s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg' returned '0': CMAKE_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg -- -j8 -l8
+[1.271s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg': CMAKE_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg
+[1.288s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(control_pkg)
+[1.291s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg' for CMake module files
+[1.291s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg': CMAKE_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg
+[1.292s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg' returned '0': CMAKE_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg
+[1.292s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg' for CMake config files
+[1.292s] Level 1:colcon.colcon_core.shell:create_environment_hook('control_pkg', 'cmake_prefix_path')
+[1.294s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/hook/cmake_prefix_path.ps1'
+[1.294s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/hook/cmake_prefix_path.dsv'
+[1.295s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/hook/cmake_prefix_path.sh'
+[1.295s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib'
+[1.296s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/bin'
+[1.296s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/pkgconfig/control_pkg.pc'
+[1.296s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/python3.8/site-packages'
+[1.296s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/bin'
+[1.298s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/package.ps1'
+[1.299s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/package.dsv'
+[1.300s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/package.sh'
+[1.301s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/package.bash'
+[1.301s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/package.zsh'
+[1.302s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/colcon-core/packages/control_pkg)
+[1.307s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(inv_kinematics_pkg)
+[1.309s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg' for CMake module files
+[1.310s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg' returned '0': CMAKE_PREFIX_PATH=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces:/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg:/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg
+[1.311s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg' for CMake config files
+[1.311s] Level 1:colcon.colcon_core.shell:create_environment_hook('inv_kinematics_pkg', 'cmake_prefix_path')
+[1.312s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/hook/cmake_prefix_path.ps1'
+[1.313s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/hook/cmake_prefix_path.dsv'
+[1.313s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/hook/cmake_prefix_path.sh'
+[1.314s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib'
+[1.314s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/bin'
+[1.314s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/pkgconfig/inv_kinematics_pkg.pc'
+[1.314s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/python3.8/site-packages'
+[1.315s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/bin'
+[1.316s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/package.ps1'
+[1.317s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/package.dsv'
+[1.317s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/package.sh'
+[1.318s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/package.bash'
+[1.318s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/package.zsh'
+[1.318s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/colcon-core/packages/inv_kinematics_pkg)
+[1.338s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(control_pkg)
+[1.340s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg' for CMake module files
+[1.341s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg' for CMake config files
+[1.341s] Level 1:colcon.colcon_core.shell:create_environment_hook('control_pkg', 'cmake_prefix_path')
+[1.342s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/hook/cmake_prefix_path.ps1'
+[1.343s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/hook/cmake_prefix_path.dsv'
+[1.343s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/hook/cmake_prefix_path.sh'
+[1.344s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib'
+[1.344s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/bin'
+[1.344s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/pkgconfig/control_pkg.pc'
+[1.344s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/lib/python3.8/site-packages'
+[1.345s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/bin'
+[1.346s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/package.ps1'
+[1.347s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/package.dsv'
+[1.347s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/package.sh'
+[1.348s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/package.bash'
+[1.348s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/control_pkg/package.zsh'
+[1.348s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/javierfr/Robotics_Cyber_Physical_LAB/install/control_pkg/share/colcon-core/packages/control_pkg)
+[1.355s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(inv_kinematics_pkg)
+[1.357s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg' for CMake module files
+[1.358s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg' for CMake config files
+[1.358s] Level 1:colcon.colcon_core.shell:create_environment_hook('inv_kinematics_pkg', 'cmake_prefix_path')
+[1.359s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/hook/cmake_prefix_path.ps1'
+[1.360s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/hook/cmake_prefix_path.dsv'
+[1.360s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/hook/cmake_prefix_path.sh'
+[1.361s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib'
+[1.361s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/bin'
+[1.361s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/pkgconfig/inv_kinematics_pkg.pc'
+[1.361s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/lib/python3.8/site-packages'
+[1.361s] Level 1:colcon.colcon_core.environment:checking '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/bin'
+[1.363s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/package.ps1'
+[1.364s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/package.dsv'
+[1.364s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/package.sh'
+[1.365s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/package.bash'
+[1.365s] INFO:colcon.colcon_core.shell:Creating package script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/inv_kinematics_pkg/package.zsh'
+[1.366s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/javierfr/Robotics_Cyber_Physical_LAB/install/inv_kinematics_pkg/share/colcon-core/packages/inv_kinematics_pkg)
+[1.366s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.366s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.366s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[1.367s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.375s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.376s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.376s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[1.395s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.397s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/local_setup.ps1'
+[1.398s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/javierfr/Robotics_Cyber_Physical_LAB/install/_local_setup_util_ps1.py'
+[1.400s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/setup.ps1'
+[1.404s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/local_setup.sh'
+[1.405s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/javierfr/Robotics_Cyber_Physical_LAB/install/_local_setup_util_sh.py'
+[1.406s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/setup.sh'
+[1.409s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/local_setup.bash'
+[1.410s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/setup.bash'
+[1.411s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/local_setup.zsh'
+[1.412s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/javierfr/Robotics_Cyber_Physical_LAB/install/setup.zsh'

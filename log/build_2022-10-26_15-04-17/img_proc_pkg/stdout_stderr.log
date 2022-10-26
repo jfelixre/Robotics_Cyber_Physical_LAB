@@ -1,0 +1,72 @@
+-- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rclcpp: 2.4.2 (/opt/ros/foxy/share/rclcpp/cmake)
+-- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found image_transport: 2.4.0 (/opt/ros/foxy/share/image_transport/cmake)
+-- Found cv_bridge: 3.0.6 (/opt/ros/foxy/share/cv_bridge/cmake)
+-- Found interfaces: 0.0.0 (/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake)
+-- Found tf2: 0.13.13 (/opt/ros/foxy/share/tf2/cmake)
+-- Found tf2_ros: 0.13.13 (/opt/ros/foxy/share/tf2_ros/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg
+[35m[1mScanning dependencies of target calibrate_camera_charuco_node[0m
+[ 14%] Built target calibrate_camera_charuco
+[ 28%] Built target img_proc_node
+[ 42%] Built target img_proc_id_node
+[ 57%] Built target aruco_detector
+[ 71%] Built target img_publ_test_node
+[ 85%] Built target img_subs_test_node
+[ 92%] [32mBuilding CXX object CMakeFiles/calibrate_camera_charuco_node.dir/src/calibrate_camera_charuco_node.cpp.o[0m
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:50:1:[m[K [01;31m[Kerror: [m[K‘[01m[Kstring[m[K’ does not name a type; did you mean ‘[01m[Kstdin[m[K’?
+   50 | [01;31m[Kstring[m[K outputFile = "src/img_proc_pkg/config/camera_calib_charuco.yaml";
+      | [01;31m[K^~~~~~[m[K
+      | [32m[Kstdin[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:53:1:[m[K [01;31m[Kerror: [m[K‘[01m[KPtr[m[K’ does not name a type
+   53 | [01;31m[KPtr[m[K<aruco::DetectorParameters> detectorParams = aruco::DetectorParameters::create();
+      | [01;31m[K^~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:54:1:[m[K [01;31m[Kerror: [m[K‘[01m[KPtr[m[K’ does not name a type
+   54 | [01;31m[KPtr[m[K<aruco::Dictionary> dictionary = aruco::getPredefinedDictionary(0);
+      | [01;31m[K^~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:56:1:[m[K [01;31m[Kerror: [m[K‘[01m[Kdictionary[m[K’ does not name a type; did you mean ‘[01m[KdictionaryId[m[K’?
+   56 | [01;31m[Kdictionary[m[K = aruco::getPredefinedDictionary(aruco::PREDEFINED_DICTIONARY_NAME(dictionaryId));
+      | [01;31m[K^~~~~~~~~~[m[K
+      | [32m[KdictionaryId[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:59:1:[m[K [01;31m[Kerror: [m[K‘[01m[KPtr[m[K’ does not name a type
+   59 | [01;31m[KPtr[m[K<aruco::CharucoBoard> charucoboard = aruco::CharucoBoard::create(squaresX, squaresY, squareLength, markerLength, dictionary);
+      | [01;31m[K^~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:60:1:[m[K [01;31m[Kerror: [m[K‘[01m[KPtr[m[K’ does not name a type
+   60 | [01;31m[KPtr[m[K<aruco::Board> board = charucoboard.staticCast<aruco::Board>();
+      | [01;31m[K^~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:63:1:[m[K [01;31m[Kerror: [m[K‘[01m[Kvector[m[K’ does not name a type
+   63 | [01;31m[Kvector[m[K< vector< vector< Point2f > > > allCorners;
+      | [01;31m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:64:1:[m[K [01;31m[Kerror: [m[K‘[01m[Kvector[m[K’ does not name a type
+   64 | [01;31m[Kvector[m[K< vector< int > > allIds;
+      | [01;31m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:65:1:[m[K [01;31m[Kerror: [m[K‘[01m[Kvector[m[K’ does not name a type
+   65 | [01;31m[Kvector[m[K< Mat > allImgs;
+      | [01;31m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:66:1:[m[K [01;31m[Kerror: [m[K‘[01m[KSize[m[K’ does not name a type; did you mean ‘[01m[KcvSize[m[K’?
+   66 | [01;31m[KSize[m[K imgSize;
+      | [01;31m[K^~~~[m[K
+      | [32m[KcvSize[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:[m[K In constructor ‘[01m[KCalibrate_Camera_Charuco_Node::Calibrate_Camera_Charuco_Node()[m[K’:
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:75:12:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KreadOk[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   75 |       bool [01;35m[KreadOk[m[K = readCameraParameters("src/img_proc_pkg/config/camera_calib_charuco.yaml", cameraMatrix, distCoeffs);
+      |            [01;35m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:[m[K In member function ‘[01m[Kvoid Calibrate_Camera_Charuco_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:96:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn_cols[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   96 |       int [01;35m[Kn_cols[m[K = img_original.cols;
+      |           [01;35m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:97:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn_rows[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   97 |       int [01;35m[Kn_rows[m[K = img_original.rows;
+      |           [01;35m[K^~~~~~[m[K
+make[2]: *** [CMakeFiles/calibrate_camera_charuco_node.dir/build.make:63: CMakeFiles/calibrate_camera_charuco_node.dir/src/calibrate_camera_charuco_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:279: CMakeFiles/calibrate_camera_charuco_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

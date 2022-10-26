@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /opt/ros/foxy/include -isystem /usr/include/opencv4    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_subs_test_node.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_subs_test_node.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /opt/ros/foxy/include -isystem /usr/include/opencv4    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/img_publ_test_node.dir/src/img_publ_test_node.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_publ_test_node.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_publ_test_node.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -I/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/include -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include -isystem /usr/include/opencv4    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -I/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/include -isystem /opt/ros/foxy/include -isystem /usr/include/opencv4    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/img_proc_node.dir/src/img_proc_node.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_node.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_node.cpp"
+}
+]

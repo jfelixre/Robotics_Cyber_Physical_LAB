@@ -1,0 +1,127 @@
+[0.031s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_INSTALL_PREFIX=/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim
+[0.047s] -- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.072s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.266s] -- Found camera_info_manager: 2.3.0 (/opt/ros/foxy/share/camera_info_manager/cmake)
+[0.309s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.313s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.438s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.491s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.493s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.787s] -- Setting yaml-cpp_DIR to: '/opt/ros/foxy/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/lib/cmake/yaml-cpp'
+[0.856s] -- Found gazebo_dev: 3.5.3 (/opt/ros/foxy/share/gazebo_dev/cmake)
+[0.912s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[0.949s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "3.6.1") 
+[0.952s] -- Looking for ignition-math6 -- found version 6.13.0
+[0.960s] -- Searching for dependencies of ignition-math6
+[0.963s] -- Looking for OGRE...
+[0.969s] -- Found Ogre Ghadamon (1.9.0)
+[0.970s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[0.982s] -- Looking for OGRE_Paging...
+[0.982s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[0.982s] -- Looking for OGRE_Terrain...
+[0.982s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[0.983s] -- Looking for OGRE_Property...
+[0.983s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[0.983s] -- Looking for OGRE_RTShaderSystem...
+[0.983s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[0.984s] -- Looking for OGRE_Volume...
+[0.984s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[0.984s] -- Looking for OGRE_Overlay...
+[0.984s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[1.247s] -- Looking for ignition-math6 -- found version 6.13.0
+[1.248s] -- Looking for ignition-transport8 -- found version 8.3.0
+[1.248s] -- Searching for dependencies of ignition-transport8
+[1.267s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found suitable version "3.6.1", minimum required is "3") 
+[1.278s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[1.285s] -- Checking for module 'libzmq >= 4'
+[1.302s] --   Found libzmq , version 4.3.2
+[1.350s] -- Checking for module 'uuid'
+[1.366s] --   Found uuid, version 2.34.0
+[1.403s] -- Looking for ignition-msgs5 -- found version 5.10.0
+[1.404s] -- Searching for dependencies of ignition-msgs5
+[1.424s] -- Looking for ignition-math6 -- found version 6.13.0
+[1.430s] -- Checking for module 'tinyxml2'
+[1.446s] --   Found tinyxml2, version 6.2.0
+[1.492s] -- Looking for ignition-msgs5 -- found version 5.10.0
+[1.492s] -- Looking for ignition-common3 -- found version 3.14.2
+[1.493s] -- Searching for dependencies of ignition-common3
+[1.493s] -- Looking for dlfcn.h - found
+[1.493s] -- Looking for libdl - found
+[1.505s] -- Searching for <ignition-common3> component [graphics]
+[1.506s] -- Looking for ignition-common3-graphics -- found version 3.14.2
+[1.507s] -- Searching for dependencies of ignition-common3-graphics
+[1.507s] -- Looking for ignition-math6 -- found version 6.13.0
+[1.509s] -- Looking for ignition-fuel_tools4 -- found version 4.6.0
+[1.510s] -- Searching for dependencies of ignition-fuel_tools4
+[1.547s] -- Checking for module 'jsoncpp'
+[1.562s] --   Found jsoncpp, version 1.7.4
+[1.606s] -- Checking for module 'libzip'
+[1.622s] --   Found libzip, version 1.5.1
+[1.662s] -- Looking for ignition-common3 -- found version 3.14.2
+[1.662s] -- Looking for ignition-math6 -- found version 6.13.0
+[1.663s] -- Looking for ignition-msgs5 -- found version 5.10.0
+[1.670s] -- Gazebo version: 11.11
+[1.671s] -- Found gazebo_msgs: 3.5.3 (/opt/ros/foxy/share/gazebo_msgs/cmake)
+[1.914s] -- Found gazebo_ros: 3.5.3 (/opt/ros/foxy/share/gazebo_ros/cmake)
+[1.924s] -- Found image_transport: 2.3.0 (/opt/ros/foxy/share/image_transport/cmake)
+[1.965s] -- Found cv_bridge: 2.2.1 (/opt/ros/foxy/share/cv_bridge/cmake)
+[1.984s] -- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+[2.062s] -- Found std_srvs: 2.0.5 (/opt/ros/foxy/share/std_srvs/cmake)
+[2.077s] -- Found tf2: 0.13.13 (/opt/ros/foxy/share/tf2/cmake)
+[2.089s] -- Found tf2_geometry_msgs: 0.13.13 (/opt/ros/foxy/share/tf2_geometry_msgs/cmake)
+[2.097s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/foxy/share/eigen3_cmake_module/cmake)
+[2.498s] -- Found interfaces: 0.0.0 (/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake)
+[2.738s] -- Configuring done
+[2.875s] -- Generating done
+[2.878s] -- Build files have been written to: /home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim
+[2.892s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_INSTALL_PREFIX=/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim
+[2.895s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim -- -j8 -l8
+[2.982s] [ 20%] Built target platform2_plugin
+[2.989s] [ 40%] Built target robot2_plugin
+[2.989s] [ 60%] Built target platform1_plugin
+[2.994s] [100%] Built target robot1_plugin
+[2.994s] [100%] Built target platform_plugin_test
+[3.006s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim -- -j8 -l8
+[3.053s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim
+[3.062s] -- Install configuration: ""
+[3.063s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/library_path.sh
+[3.063s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/library_path.dsv
+[3.063s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/gazebo_plugin_sim.sh
+[3.063s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/gazebo_plugin_sim.dsv
+[3.063s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/ament_index/resource_index/package_run_dependencies/gazebo_plugin_sim
+[3.064s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/ament_index/resource_index/parent_prefix_path/gazebo_plugin_sim
+[3.064s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/ament_prefix_path.sh
+[3.064s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/ament_prefix_path.dsv
+[3.064s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/path.sh
+[3.064s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/environment/path.dsv
+[3.064s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/local_setup.bash
+[3.065s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/local_setup.sh
+[3.065s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/local_setup.zsh
+[3.065s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/local_setup.dsv
+[3.065s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.dsv
+[3.066s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/ament_index/resource_index/packages/gazebo_plugin_sim
+[3.066s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/cmake/ament_cmake_export_libraries-extras.cmake
+[3.066s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/cmake/ament_cmake_export_include_directories-extras.cmake
+[3.066s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/cmake/ament_cmake_export_dependencies-extras.cmake
+[3.066s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/cmake/gazebo_plugin_simConfig.cmake
+[3.066s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/cmake/gazebo_plugin_simConfig-version.cmake
+[3.066s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim/package.xml
+[3.066s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/include
+[3.067s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/include/gazebo_plugin_sim
+[3.067s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/include/gazebo_plugin_sim/robot2_plugin.hpp
+[3.067s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/include/gazebo_plugin_sim/platform_plugin_test.hpp
+[3.067s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/include/gazebo_plugin_sim/platform1_plugin.hpp
+[3.067s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/include/gazebo_plugin_sim/platform2_plugin.hpp
+[3.067s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/include/gazebo_plugin_sim/robot1_plugin.hpp
+[3.067s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib/libplatform_plugin_test.so
+[3.067s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib/libplatform1_plugin.so
+[3.068s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib/libplatform2_plugin.so
+[3.068s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib/librobot1_plugin.so
+[3.068s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/lib/librobot2_plugin.so
+[3.069s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim//worlds
+[3.069s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim//worlds/2platform_old.world
+[3.069s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim//worlds/2robots_mod.world
+[3.069s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim//worlds/2platform.world
+[3.069s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim//worlds/test_mecanum_platform.world
+[3.069s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/share/gazebo_plugin_sim//worlds/2robots.world
+[3.073s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim

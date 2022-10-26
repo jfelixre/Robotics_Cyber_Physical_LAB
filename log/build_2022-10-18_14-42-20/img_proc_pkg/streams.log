@@ -1,0 +1,19 @@
+[0.030s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg -- -j8 -l8
+[0.055s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.079s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.296s] CMake Error at CMakeLists.txt:20 (find_package):
+[0.296s]   Could not find a configuration file for package "OpenCV" that is compatible
+[0.296s]   with requested version "4.6.0".
+[0.296s] 
+[0.297s]   The following configuration files were considered but not accepted:
+[0.297s] 
+[0.297s]     /usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVConfig.cmake, version: 4.2.0
+[0.297s]     /lib/x86_64-linux-gnu/cmake/opencv4/OpenCVConfig.cmake, version: 4.2.0
+[0.297s] 
+[0.297s] 
+[0.297s] 
+[0.297s] -- Configuring incomplete, errors occurred!
+[0.297s] See also "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg/CMakeFiles/CMakeOutput.log".
+[0.298s] See also "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg/CMakeFiles/CMakeError.log".
+[0.299s] make: *** [Makefile:398: cmake_check_build_system] Error 1
+[0.301s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg -- -j8 -l8

@@ -1,0 +1,34 @@
+[35m[1mScanning dependencies of target calibrate_camera_charuco_node[0m
+[ 14%] Built target calibrate_camera_charuco
+[ 28%] Built target img_proc_node
+[ 42%] Built target img_proc_id_node
+[ 57%] Built target img_publ_test_node
+[ 71%] Built target img_subs_test_node
+[ 85%] Built target aruco_detector
+[ 92%] [32mBuilding CXX object CMakeFiles/calibrate_camera_charuco_node.dir/src/calibrate_camera_charuco_node.cpp.o[0m
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:[m[K In constructor ‘[01m[KCalibrate_Camera_Charuco_Node::Calibrate_Camera_Charuco_Node()[m[K’:
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:82:12:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KreadOk[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   82 |       bool [01;35m[KreadOk[m[K = readCameraParameters("src/img_proc_pkg/config/camera_calib_charuco.yaml", cameraMatrix, distCoeffs);
+      |            [01;35m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:[m[K In member function ‘[01m[Kvoid Calibrate_Camera_Charuco_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:129:32:[m[K [01;31m[Kerror: [m[K‘[01m[KwaitTime[m[K’ was not declared in this scope
+  129 |       char key = (char)waitKey([01;31m[KwaitTime[m[K);
+      |                                [01;31m[K^~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:130:21:[m[K [01;31m[Kerror: [m[Kbreak statement not within loop or switch
+  130 |       if(key == 27) [01;31m[Kbreak[m[K;
+      |                     [01;31m[K^~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:135:31:[m[K [01;31m[Kerror: [m[K‘[01m[Kimage[m[K’ was not declared in this scope
+  135 |             allImgs.push_back([01;31m[Kimage[m[K);
+      |                               [01;31m[K^~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:146:34:[m[K [01;31m[Kerror: [m[K‘[01m[Kimg_mod[m[K’ was not declared in this scope
+  146 |      cv::imshow("Display Image", [01;31m[Kimg_mod[m[K);
+      |                                  [01;31m[K^~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:103:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn_cols[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  103 |       int [01;35m[Kn_cols[m[K = img_original.cols;
+      |           [01;35m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/calibrate_camera_charuco_node.cpp:104:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn_rows[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  104 |       int [01;35m[Kn_rows[m[K = img_original.rows;
+      |           [01;35m[K^~~~~~[m[K
+make[2]: *** [CMakeFiles/calibrate_camera_charuco_node.dir/build.make:63: CMakeFiles/calibrate_camera_charuco_node.dir/src/calibrate_camera_charuco_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:279: CMakeFiles/calibrate_camera_charuco_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

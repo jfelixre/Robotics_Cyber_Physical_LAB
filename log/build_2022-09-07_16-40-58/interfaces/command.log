@@ -1,0 +1,2 @@
+Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces': /usr/bin/cmake /home/javierfr/Robotics_Cyber_Physical_LAB/src/interfaces -DCMAKE_INSTALL_PREFIX=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces
+Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces' returned '1': /usr/bin/cmake /home/javierfr/Robotics_Cyber_Physical_LAB/src/interfaces -DCMAKE_INSTALL_PREFIX=/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces

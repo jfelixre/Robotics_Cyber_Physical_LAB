@@ -1,0 +1,31 @@
+Traceback (most recent call last):
+  File "/opt/ros/foxy/share/rosidl_generator_py/cmake/../../../lib/rosidl_generator_py/rosidl_generator_py", line 40, in <module>
+    sys.exit(main())
+  File "/opt/ros/foxy/share/rosidl_generator_py/cmake/../../../lib/rosidl_generator_py/rosidl_generator_py", line 36, in main
+    return generate_py(args.generator_arguments_file, args.typesupport_impls.split(';'))
+  File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_generator_py/generate_py_impl.py", line 61, in generate_py
+    generate_files(generator_arguments_file, mapping)
+  File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_cmake/__init__.py", line 74, in generate_files
+    idl_file = parse_idl_file(locator)
+  File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_parser/parser.py", line 64, in parse_idl_file
+    content = parse_idl_string(string, png_file=png_file)
+  File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_parser/parser.py", line 72, in parse_idl_string
+    tree = get_ast_from_idl_string(idl_string)
+  File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_parser/parser.py", line 89, in get_ast_from_idl_string
+    return _parser.parse(idl_string)
+  File "/usr/lib/python3/dist-packages/lark/lark.py", line 293, in parse
+    return self.parser.parse(text, start=start)
+  File "/usr/lib/python3/dist-packages/lark/parser_frontends.py", line 193, in parse
+    return self._parse(text, start)
+  File "/usr/lib/python3/dist-packages/lark/parser_frontends.py", line 54, in _parse
+    return self.parser.parse(input, start, *args)
+  File "/usr/lib/python3/dist-packages/lark/parsers/earley.py", line 292, in parse
+    to_scan = self._parse(stream, columns, to_scan, start_symbol)
+  File "/usr/lib/python3/dist-packages/lark/parsers/xearley.py", line 135, in _parse
+    self.predict_and_complete(i, to_scan, columns, transitives)
+  File "/usr/lib/python3/dist-packages/lark/parsers/earley.py", line 130, in predict_and_complete
+    new_items.append(new_item)
+KeyboardInterrupt
+make[2]: *** [interfaces__py/CMakeFiles/interfaces__py.dir/build.make:107: rosidl_generator_py/interfaces/_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c] Interrupt
+make[1]: *** [CMakeFiles/Makefile2:553: interfaces__py/CMakeFiles/interfaces__py.dir/all] Interrupt
+make: *** [Makefile:141: all] Interrupt

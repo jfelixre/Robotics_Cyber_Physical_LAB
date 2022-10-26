@@ -1,0 +1,60 @@
+[0.027s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg -DCMAKE_INSTALL_PREFIX=/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg
+[0.293s] -- The C compiler identification is GNU 9.4.0
+[0.463s] -- The CXX compiler identification is GNU 9.4.0
+[0.471s] -- Check for working C compiler: /usr/bin/cc
+[0.549s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.550s] -- Detecting C compiler ABI info
+[0.628s] -- Detecting C compiler ABI info - done
+[0.643s] -- Detecting C compile features
+[0.644s] -- Detecting C compile features - done
+[0.647s] -- Check for working CXX compiler: /usr/bin/c++
+[0.732s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.734s] -- Detecting CXX compiler ABI info
+[0.822s] -- Detecting CXX compiler ABI info - done
+[0.840s] -- Detecting CXX compile features
+[0.841s] -- Detecting CXX compile features - done
+[0.847s] -- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.877s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.877s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.134s] -- Found OpenCV: /usr (found suitable version "4.2.0", minimum required is "4.2") 
+[1.136s] -- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[1.175s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.181s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.266s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[1.299s] -- Found FastRTPS: /opt/ros/foxy/include  
+[1.427s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.693s] -- Found rclcpp: 2.4.1 (/opt/ros/foxy/share/rclcpp/cmake)
+[1.740s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[1.742s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.743s] -- Looking for pthread.h
+[1.818s] -- Looking for pthread.h - found
+[1.818s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.893s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[1.893s] -- Looking for pthread_create in pthreads
+[1.954s] -- Looking for pthread_create in pthreads - not found
+[1.954s] -- Looking for pthread_create in pthread
+[2.033s] -- Looking for pthread_create in pthread - found
+[2.034s] -- Found Threads: TRUE  
+[2.211s] -- Found image_transport: 2.3.0 (/opt/ros/foxy/share/image_transport/cmake)
+[2.296s] -- Found cv_bridge: 2.2.1 (/opt/ros/foxy/share/cv_bridge/cmake)
+[2.313s] CMake Error at CMakeLists.txt:26 (find_package):
+[2.313s]   By not providing "Findinterfaces.cmake" in CMAKE_MODULE_PATH this project
+[2.313s]   has asked CMake to find a package configuration file provided by
+[2.313s]   "interfaces", but CMake did not find one.
+[2.313s] 
+[2.313s]   Could not find a package configuration file provided by "interfaces" with
+[2.313s]   any of the following names:
+[2.314s] 
+[2.314s]     interfacesConfig.cmake
+[2.314s]     interfaces-config.cmake
+[2.314s] 
+[2.314s]   Add the installation prefix of "interfaces" to CMAKE_PREFIX_PATH or set
+[2.314s]   "interfaces_DIR" to a directory containing one of the above files.  If
+[2.314s]   "interfaces" provides a separate development package or SDK, be sure it has
+[2.315s]   been installed.
+[2.315s] 
+[2.315s] 
+[2.315s] -- Configuring incomplete, errors occurred!
+[2.315s] See also "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg/CMakeFiles/CMakeOutput.log".
+[2.315s] See also "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg/CMakeFiles/CMakeError.log".
+[2.326s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg -DCMAKE_INSTALL_PREFIX=/home/javierfr/Robotics_Cyber_Physical_LAB/install/img_proc_pkg

@@ -1,0 +1,516 @@
+[
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/control_pid_r2_node.dir/src/control_pid_r2_node.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg/src/control_pid_r2_node.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg/src/control_pid_r2_node.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/control_pid_p2_node.dir/src/control_pid_p2_node.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg/src/control_pid_p2_node.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg/src/control_pid_p2_node.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/control_pid_p1_node.dir/src/control_pid_p1_node.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg/src/control_pid_p1_node.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg/src/control_pid_p1_node.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/control_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/control_pid_r1_node.dir/src/control_pid_r1_node.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg/src/control_pid_r1_node.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/control_pkg/src/control_pid_r1_node.cpp"
+},
+
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim",
+  "command": "/usr/bin/c++  -DBOOST_ALL_NO_LIB -DBOOST_ATOMIC_DYN_LINK -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_IOSTREAMS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_REGEX_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_TEST_DYN_LINK -DBOOST_THREAD_DYN_LINK -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DLIBBULLET_VERSION=2.88 -DLIBBULLET_VERSION_GT_282 -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -Dplatform2_plugin_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/include -I/usr/include/gazebo-11 -I/usr/include/bullet -I/usr/include/sdformat-9.8 -I/usr/include/OGRE -I/usr/include/OGRE/Terrain -I/usr/include/OGRE/Paging -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include -isystem /usr/include/simbody -isystem /usr/include/ignition/math6 -isystem /usr/include/ignition/transport8 -isystem /usr/include/ignition/msgs5 -isystem /usr/include/ignition/common3 -isystem /usr/include/ignition/fuel_tools4 -isystem /usr/include/eigen3 -isystem /usr/include/sdformat-9.8/sdf/.. -isystem /usr/include/ignition/cmake2 -isystem /usr/include/uuid   -Wall -Wextra -Wpedantic -Wno-inconsistent-missing-override  -fPIC   -I/usr/include/uuid -std=gnu++17 -o CMakeFiles/platform2_plugin.dir/src/platform2_plugin.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/src/platform2_plugin.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/src/platform2_plugin.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim",
+  "command": "/usr/bin/c++  -DBOOST_ALL_NO_LIB -DBOOST_ATOMIC_DYN_LINK -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_IOSTREAMS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_REGEX_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_TEST_DYN_LINK -DBOOST_THREAD_DYN_LINK -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DLIBBULLET_VERSION=2.88 -DLIBBULLET_VERSION_GT_282 -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -Dplatform1_plugin_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/include -I/usr/include/gazebo-11 -I/usr/include/bullet -I/usr/include/sdformat-9.8 -I/usr/include/OGRE -I/usr/include/OGRE/Terrain -I/usr/include/OGRE/Paging -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include -isystem /usr/include/simbody -isystem /usr/include/ignition/math6 -isystem /usr/include/ignition/transport8 -isystem /usr/include/ignition/msgs5 -isystem /usr/include/ignition/common3 -isystem /usr/include/ignition/fuel_tools4 -isystem /usr/include/eigen3 -isystem /usr/include/sdformat-9.8/sdf/.. -isystem /usr/include/ignition/cmake2 -isystem /usr/include/uuid   -Wall -Wextra -Wpedantic -Wno-inconsistent-missing-override  -fPIC   -I/usr/include/uuid -std=gnu++17 -o CMakeFiles/platform1_plugin.dir/src/platform1_plugin.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/src/platform1_plugin.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/src/platform1_plugin.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim",
+  "command": "/usr/bin/c++  -DBOOST_ALL_NO_LIB -DBOOST_ATOMIC_DYN_LINK -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_IOSTREAMS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_REGEX_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_TEST_DYN_LINK -DBOOST_THREAD_DYN_LINK -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DLIBBULLET_VERSION=2.88 -DLIBBULLET_VERSION_GT_282 -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -Drobot1_plugin_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/include -I/usr/include/gazebo-11 -I/usr/include/bullet -I/usr/include/sdformat-9.8 -I/usr/include/OGRE -I/usr/include/OGRE/Terrain -I/usr/include/OGRE/Paging -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include -isystem /usr/include/simbody -isystem /usr/include/ignition/math6 -isystem /usr/include/ignition/transport8 -isystem /usr/include/ignition/msgs5 -isystem /usr/include/ignition/common3 -isystem /usr/include/ignition/fuel_tools4 -isystem /usr/include/eigen3 -isystem /usr/include/sdformat-9.8/sdf/.. -isystem /usr/include/ignition/cmake2 -isystem /usr/include/uuid   -Wall -Wextra -Wpedantic -Wno-inconsistent-missing-override  -fPIC   -I/usr/include/uuid -std=gnu++17 -o CMakeFiles/robot1_plugin.dir/src/robot1_plugin.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/src/robot1_plugin.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/src/robot1_plugin.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim",
+  "command": "/usr/bin/c++  -DBOOST_ALL_NO_LIB -DBOOST_ATOMIC_DYN_LINK -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_IOSTREAMS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_REGEX_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_TEST_DYN_LINK -DBOOST_THREAD_DYN_LINK -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DLIBBULLET_VERSION=2.88 -DLIBBULLET_VERSION_GT_282 -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -Drobot2_plugin_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/include -I/usr/include/gazebo-11 -I/usr/include/bullet -I/usr/include/sdformat-9.8 -I/usr/include/OGRE -I/usr/include/OGRE/Terrain -I/usr/include/OGRE/Paging -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include -isystem /usr/include/simbody -isystem /usr/include/ignition/math6 -isystem /usr/include/ignition/transport8 -isystem /usr/include/ignition/msgs5 -isystem /usr/include/ignition/common3 -isystem /usr/include/ignition/fuel_tools4 -isystem /usr/include/eigen3 -isystem /usr/include/sdformat-9.8/sdf/.. -isystem /usr/include/ignition/cmake2 -isystem /usr/include/uuid   -Wall -Wextra -Wpedantic -Wno-inconsistent-missing-override  -fPIC   -I/usr/include/uuid -std=gnu++17 -o CMakeFiles/robot2_plugin.dir/src/robot2_plugin.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/src/robot2_plugin.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/src/robot2_plugin.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/gazebo_plugin_sim",
+  "command": "/usr/bin/c++  -DBOOST_ALL_NO_LIB -DBOOST_ATOMIC_DYN_LINK -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_IOSTREAMS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_REGEX_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_TEST_DYN_LINK -DBOOST_THREAD_DYN_LINK -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DLIBBULLET_VERSION=2.88 -DLIBBULLET_VERSION_GT_282 -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -Dplatform_plugin_test_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/include -I/usr/include/gazebo-11 -I/usr/include/bullet -I/usr/include/sdformat-9.8 -I/usr/include/OGRE -I/usr/include/OGRE/Terrain -I/usr/include/OGRE/Paging -isystem /opt/ros/foxy/include -isystem /usr/include/simbody -isystem /usr/include/ignition/math6 -isystem /usr/include/ignition/transport8 -isystem /usr/include/ignition/msgs5 -isystem /usr/include/ignition/common3 -isystem /usr/include/ignition/fuel_tools4 -isystem /usr/include/eigen3 -isystem /usr/include/sdformat-9.8/sdf/.. -isystem /usr/include/ignition/cmake2 -isystem /usr/include/uuid   -Wall -Wextra -Wpedantic -Wno-inconsistent-missing-override  -fPIC   -I/usr/include/uuid -std=gnu++17 -o CMakeFiles/platform_plugin_test.dir/src/platform_plugin_test.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/src/platform_plugin_test.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/src/platform_plugin_test.cpp"
+},
+
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /opt/ros/foxy/include -isystem /usr/include/opencv4    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/img_subs_test_node.dir/src/img_subs_test_node.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_subs_test_node.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_subs_test_node.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /opt/ros/foxy/include -isystem /usr/include/opencv4    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/img_publ_test_node.dir/src/img_publ_test_node.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_publ_test_node.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_publ_test_node.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -I/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/include -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include -isystem /usr/include/opencv4    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/img_proc_id_node.dir/src/img_proc_id_node.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/img_proc_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -I/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/include -isystem /opt/ros/foxy/include -isystem /usr/include/opencv4    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/img_proc_node.dir/src/img_proc_node.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_node.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_node.cpp"
+},
+
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_c__pyext_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py -I/usr/include/python3.8 -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -Wextra -std=gnu99 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/interfaces/_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/_interfaces_s.ep.rosidl_typesupport_introspection_c.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/_interfaces_s.ep.rosidl_typesupport_introspection_c.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/srv/platform_vel__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c/interfaces/srv/platform_vel__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c/interfaces/srv/platform_vel__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/msg/motor_vels__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c/interfaces/msg/motor_vels__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c/interfaces/msg/motor_vels__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/msg/img_data__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c/interfaces/msg/img_data__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c/interfaces/msg/img_data__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/srv/control_pid_start__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c/interfaces/srv/control_pid_start__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c/interfaces/srv/control_pid_start__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/msg/plat_state__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c/interfaces/msg/plat_state__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c/interfaces/msg/plat_state__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/msg/control_data__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c/interfaces/msg/control_data__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c/interfaces/msg/control_data__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/msg/motor_vels_w_arm__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c/interfaces/msg/motor_vels_w_arm__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c/interfaces/msg/motor_vels_w_arm__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/msg/limit_switch__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c/interfaces/msg/limit_switch__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c/interfaces/msg/limit_switch__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/srv/robot_vel__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c/interfaces/srv/robot_vel__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c/interfaces/srv/robot_vel__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/interfaces/msg/robot_state__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c/interfaces/msg/robot_state__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c/interfaces/msg/robot_state__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_c__pyext_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py -I/usr/include/python3.8 -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -Wextra -std=gnu99 -o CMakeFiles/interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/interfaces/_interfaces_s.ep.rosidl_typesupport_c.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/_interfaces_s.ep.rosidl_typesupport_c.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/_interfaces_s.ep.rosidl_typesupport_c.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_generator_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu11 -o CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/platform_vel__functions.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces/srv/detail/platform_vel__functions.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces/srv/detail/platform_vel__functions.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_generator_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu11 -o CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/msg/detail/motor_vels__functions.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces/msg/detail/motor_vels__functions.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces/msg/detail/motor_vels__functions.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_generator_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu11 -o CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/msg/detail/img_data__functions.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces/msg/detail/img_data__functions.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces/msg/detail/img_data__functions.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_generator_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu11 -o CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/control_pid_start__functions.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces/srv/detail/control_pid_start__functions.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces/srv/detail/control_pid_start__functions.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_generator_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu11 -o CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/msg/detail/plat_state__functions.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces/msg/detail/plat_state__functions.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces/msg/detail/plat_state__functions.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_generator_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu11 -o CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/msg/detail/control_data__functions.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces/msg/detail/control_data__functions.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces/msg/detail/control_data__functions.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_generator_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu11 -o CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/msg/detail/motor_vels_w_arm__functions.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces/msg/detail/motor_vels_w_arm__functions.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces/msg/detail/motor_vels_w_arm__functions.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_generator_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu11 -o CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/msg/detail/limit_switch__functions.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces/msg/detail/limit_switch__functions.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces/msg/detail/limit_switch__functions.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_generator_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu11 -o CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/robot_vel__functions.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces/srv/detail/robot_vel__functions.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces/srv/detail/robot_vel__functions.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_generator_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu11 -o CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/msg/detail/robot_state__functions.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces/msg/detail/robot_state__functions.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c/interfaces/msg/detail/robot_state__functions.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -Wpedantic -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/srv/detail/platform_vel__type_support_c.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/srv/detail/platform_vel__type_support_c.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/srv/detail/platform_vel__type_support_c.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -Wpedantic -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/motor_vels__type_support_c.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/motor_vels__type_support_c.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/motor_vels__type_support_c.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -Wpedantic -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/img_data__type_support_c.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/img_data__type_support_c.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/img_data__type_support_c.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -Wpedantic -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/srv/detail/control_pid_start__type_support_c.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/srv/detail/control_pid_start__type_support_c.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/srv/detail/control_pid_start__type_support_c.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -Wpedantic -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/plat_state__type_support_c.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/plat_state__type_support_c.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/plat_state__type_support_c.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -Wpedantic -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/control_data__type_support_c.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/control_data__type_support_c.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/control_data__type_support_c.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -Wpedantic -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/motor_vels_w_arm__type_support_c.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/motor_vels_w_arm__type_support_c.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/motor_vels_w_arm__type_support_c.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -Wpedantic -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/limit_switch__type_support_c.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/limit_switch__type_support_c.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/limit_switch__type_support_c.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -Wpedantic -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/srv/detail/robot_vel__type_support_c.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/srv/detail/robot_vel__type_support_c.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/srv/detail/robot_vel__type_support_c.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -Wpedantic -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/robot_state__type_support_c.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/robot_state__type_support_c.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/robot_state__type_support_c.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu11 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/srv/detail/platform_vel__type_support.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c/interfaces/srv/detail/platform_vel__type_support.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c/interfaces/srv/detail/platform_vel__type_support.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu11 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/msg/detail/motor_vels__type_support.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c/interfaces/msg/detail/motor_vels__type_support.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c/interfaces/msg/detail/motor_vels__type_support.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu11 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/msg/detail/img_data__type_support.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c/interfaces/msg/detail/img_data__type_support.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c/interfaces/msg/detail/img_data__type_support.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu11 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/srv/detail/control_pid_start__type_support.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c/interfaces/srv/detail/control_pid_start__type_support.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c/interfaces/srv/detail/control_pid_start__type_support.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu11 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/msg/detail/plat_state__type_support.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c/interfaces/msg/detail/plat_state__type_support.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c/interfaces/msg/detail/plat_state__type_support.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu11 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/msg/detail/control_data__type_support.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c/interfaces/msg/detail/control_data__type_support.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c/interfaces/msg/detail/control_data__type_support.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu11 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/msg/detail/motor_vels_w_arm__type_support.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c/interfaces/msg/detail/motor_vels_w_arm__type_support.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c/interfaces/msg/detail/motor_vels_w_arm__type_support.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu11 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/msg/detail/limit_switch__type_support.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c/interfaces/msg/detail/limit_switch__type_support.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c/interfaces/msg/detail/limit_switch__type_support.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu11 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/srv/detail/robot_vel__type_support.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c/interfaces/srv/detail/robot_vel__type_support.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c/interfaces/srv/detail/robot_vel__type_support.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_c_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu11 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interfaces/msg/detail/robot_state__type_support.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c/interfaces/msg/detail/robot_state__type_support.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_c/interfaces/msg/detail/robot_state__type_support.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_c__pyext_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py -I/usr/include/python3.8 -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -std=gnu99 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/interfaces/_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/srv/platform_vel__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_cpp/interfaces/srv/platform_vel__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_cpp/interfaces/srv/platform_vel__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/msg/motor_vels__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_cpp/interfaces/msg/motor_vels__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_cpp/interfaces/msg/motor_vels__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/msg/img_data__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_cpp/interfaces/msg/img_data__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_cpp/interfaces/msg/img_data__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/srv/control_pid_start__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_cpp/interfaces/srv/control_pid_start__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_cpp/interfaces/srv/control_pid_start__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/msg/plat_state__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_cpp/interfaces/msg/plat_state__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_cpp/interfaces/msg/plat_state__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/msg/control_data__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_cpp/interfaces/msg/control_data__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_cpp/interfaces/msg/control_data__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/msg/motor_vels_w_arm__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_cpp/interfaces/msg/motor_vels_w_arm__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_cpp/interfaces/msg/motor_vels_w_arm__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/msg/limit_switch__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_cpp/interfaces/msg/limit_switch__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_cpp/interfaces/msg/limit_switch__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/srv/robot_vel__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_cpp/interfaces/srv/robot_vel__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_cpp/interfaces/srv/robot_vel__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interfaces/msg/robot_state__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_cpp/interfaces/msg/robot_state__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_cpp/interfaces/msg/robot_state__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -Wpedantic -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/srv/detail/dds_fastrtps/platform_vel__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp/interfaces/srv/detail/dds_fastrtps/platform_vel__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp/interfaces/srv/detail/dds_fastrtps/platform_vel__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -Wpedantic -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/motor_vels__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/motor_vels__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/motor_vels__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -Wpedantic -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/img_data__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/img_data__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/img_data__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -Wpedantic -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/srv/detail/dds_fastrtps/control_pid_start__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp/interfaces/srv/detail/dds_fastrtps/control_pid_start__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp/interfaces/srv/detail/dds_fastrtps/control_pid_start__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -Wpedantic -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/plat_state__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/plat_state__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/plat_state__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -Wpedantic -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/control_data__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/control_data__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/control_data__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -Wpedantic -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/motor_vels_w_arm__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/motor_vels_w_arm__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/motor_vels_w_arm__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -Wpedantic -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/limit_switch__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/limit_switch__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/limit_switch__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -Wpedantic -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/srv/detail/dds_fastrtps/robot_vel__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp/interfaces/srv/detail/dds_fastrtps/robot_vel__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp/interfaces/srv/detail/dds_fastrtps/robot_vel__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=1 -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_fastrtps_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/foxy/include -isystem /opt/ros/foxy/include/foonathan_memory  -fPIC   -Wall -Wextra -Wpedantic -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/robot_state__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/robot_state__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_fastrtps_cpp/interfaces/msg/detail/dds_fastrtps/robot_state__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/srv/detail/platform_vel__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/srv/detail/platform_vel__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/srv/detail/platform_vel__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/motor_vels__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/motor_vels__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/motor_vels__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/img_data__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/img_data__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/img_data__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/srv/detail/control_pid_start__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/srv/detail/control_pid_start__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/srv/detail/control_pid_start__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/plat_state__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/plat_state__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/plat_state__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/control_data__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/control_data__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/control_data__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/motor_vels_w_arm__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/motor_vels_w_arm__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/motor_vels_w_arm__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/limit_switch__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/limit_switch__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/limit_switch__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/srv/detail/robot_vel__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/srv/detail/robot_vel__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/srv/detail/robot_vel__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/c++  -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__rosidl_typesupport_introspection_cpp_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_cpp -isystem /opt/ros/foxy/include  -fPIC   -Wall -std=gnu++14 -o CMakeFiles/interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/robot_state__type_support.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/robot_state__type_support.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/robot_state__type_support.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__python_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py -I/usr/include/python3.8 -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -Wextra -std=gnu99 -o CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/srv/_platform_vel_s.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/srv/_platform_vel_s.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/srv/_platform_vel_s.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__python_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py -I/usr/include/python3.8 -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -Wextra -std=gnu99 -o CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/msg/_motor_vels_s.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/msg/_motor_vels_s.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/msg/_motor_vels_s.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__python_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py -I/usr/include/python3.8 -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -Wextra -std=gnu99 -o CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/msg/_img_data_s.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/msg/_img_data_s.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/msg/_img_data_s.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__python_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py -I/usr/include/python3.8 -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -Wextra -std=gnu99 -o CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/srv/_control_pid_start_s.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/srv/_control_pid_start_s.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/srv/_control_pid_start_s.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__python_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py -I/usr/include/python3.8 -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -Wextra -std=gnu99 -o CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/msg/_plat_state_s.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/msg/_plat_state_s.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/msg/_plat_state_s.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__python_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py -I/usr/include/python3.8 -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -Wextra -std=gnu99 -o CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/msg/_control_data_s.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/msg/_control_data_s.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/msg/_control_data_s.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__python_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py -I/usr/include/python3.8 -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -Wextra -std=gnu99 -o CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/msg/_motor_vels_w_arm_s.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/msg/_motor_vels_w_arm_s.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/msg/_motor_vels_w_arm_s.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__python_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py -I/usr/include/python3.8 -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -Wextra -std=gnu99 -o CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/msg/_limit_switch_s.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/msg/_limit_switch_s.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/msg/_limit_switch_s.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__python_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py -I/usr/include/python3.8 -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -Wextra -std=gnu99 -o CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/srv/_robot_vel_s.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/srv/_robot_vel_s.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/srv/_robot_vel_s.c"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces",
+  "command": "/usr/bin/cc -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\\\"interfaces\\\" -Dinterfaces__python_EXPORTS -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_c -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py -I/usr/include/python3.8 -I/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_typesupport_c -isystem /opt/ros/foxy/include  -fPIC   -Wall -Wextra -std=gnu99 -o CMakeFiles/interfaces__python.dir/rosidl_generator_py/interfaces/msg/_robot_state_s.c.o   -c /home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/msg/_robot_state_s.c",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/interfaces/rosidl_generator_py/interfaces/msg/_robot_state_s.c"
+},
+
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/robot1_vel_server.dir/src/robot1_vel_server.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/robot1_vel_server.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/robot1_vel_server.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/platform1_vel_server.dir/src/platform1_vel_server.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/platform1_vel_server.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/platform1_vel_server.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/platform2_vel_server.dir/src/platform2_vel_server.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/platform2_vel_server.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/platform2_vel_server.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/platform2_vel_test_client.dir/src/platform2_vel_test_client.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/platform2_vel_test_client.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/platform2_vel_test_client.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/platform1_vel_test_client.dir/src/platform1_vel_test_client.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/platform1_vel_test_client.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/platform1_vel_test_client.cpp"
+},
+{
+  "directory": "/home/javierfr/Robotics_Cyber_Physical_LAB/build/inv_kinematics_pkg",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include -isystem /opt/ros/foxy/include    -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/robot2_vel_server.dir/src/robot2_vel_server.cpp.o -c /home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/robot2_vel_server.cpp",
+  "file": "/home/javierfr/Robotics_Cyber_Physical_LAB/src/inv_kinematics_pkg/src/robot2_vel_server.cpp"
+}
+]

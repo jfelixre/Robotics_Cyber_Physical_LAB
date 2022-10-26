@@ -1,0 +1,8 @@
+[35m[1mScanning dependencies of target aruco_detector[0m
+[ 14%] Built target img_proc_node
+[ 28%] Built target img_proc_id_node
+[ 42%] Built target img_publ_test_node
+[ 57%] Built target calibrate_camera_charuco_node
+[ 64%] [32mBuilding CXX object CMakeFiles/aruco_detector.dir/src/aruco_detector.cpp.o[0m
+[ 78%] Built target calibrate_camera_charuco
+[ 92%] Built target img_subs_test_node
