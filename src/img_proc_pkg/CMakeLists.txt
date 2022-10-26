@@ -109,6 +109,22 @@ ament_target_dependencies(calibrate_camera_charuco
   std_msgs
   cv_bridge)
 
+add_executable(calibrate_camera_charuco_node src/calibrate_camera_charuco_node.cpp)
+target_include_directories(calibrate_camera_charuco_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+ament_target_dependencies(calibrate_camera_charuco_node
+  "OpenCV"
+  sensor_msgs
+  std_msgs
+  rclcpp
+  cv_bridge
+  interfaces
+  tf2
+  tf2_ros
+  geometry_msgs)
+
 
 #include_directories(·${OpenCV_INCLUDE_DIRS}·)
 
@@ -119,6 +135,7 @@ install(TARGETS
   img_proc_id_node
   aruco_detector
   calibrate_camera_charuco
+  calibrate_camera_charuco_node
   DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY 

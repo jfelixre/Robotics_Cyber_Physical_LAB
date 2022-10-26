@@ -116,7 +116,8 @@ int main(int argc, char *argv[]) {
     }
 
     bool refindStrategy = parser.get<bool>("rs");
-    int camId = parser.get<int>("ci");
+    //int camId = parser.get<int>("ci");
+    int camId = 0;
     String video;
 
     if(parser.has("v")) {
@@ -135,7 +136,7 @@ int main(int argc, char *argv[]) {
         inputVideo.open(video);
         waitTime = 0;
     } else {
-        inputVideo.open(camId);
+        inputVideo.open(camId,0);
         //codec = VideoWriter_fourcc( 'M', 'J', 'P', 'G'  );
         //inputVideo.set(6, codec);
         //inputVideo.set(5, 60);
