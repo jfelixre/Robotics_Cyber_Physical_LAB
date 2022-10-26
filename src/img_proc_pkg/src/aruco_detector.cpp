@@ -98,7 +98,7 @@ class Aruco_Detector : public rclcpp::Node
         for (int i = 0; i < rvecs.size(); ++i) {
           auto rvec = rvecs[i];
           auto tvec = tvecs[i];
-          //cv::drawFrameAxes(img_mod, cameraMatrix, distCoeffs, rvec, tvec, 0.1);
+          cv::drawFrameAxes(img_mod, cameraMatrix, distCoeffs, rvec, tvec, 0.1);
           std::cout << "rvec = " << std::endl << " "  << rvec << std::endl << std::endl;
           std::cout << "tvec = " << std::endl << " "  << tvec << std::endl << std::endl;
 
