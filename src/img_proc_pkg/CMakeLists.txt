@@ -24,6 +24,9 @@ find_package(rclcpp REQUIRED)
 find_package(image_transport REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(interfaces REQUIRED)
+find_package(tf2 REQUIRED)
+find_package(tf2_ros REQUIRED)
+find_package(geometry_msgs REQUIRED)
 
 
 
@@ -91,7 +94,10 @@ ament_target_dependencies(aruco_detector
   std_msgs
   rclcpp
   cv_bridge
-  interfaces)
+  interfaces
+  tf2
+  tf2_ros
+  geometry_msgs)
 
 add_executable(calibrate_camera_charuco src/calibrate_camera_charuco.cpp)
 target_include_directories(calibrate_camera_charuco PUBLIC

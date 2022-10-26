@@ -129,12 +129,18 @@ int main(int argc, char *argv[]) {
     }
 
     VideoCapture inputVideo;
+
     int waitTime;
     if(!video.empty()) {
         inputVideo.open(video);
         waitTime = 0;
     } else {
         inputVideo.open(camId);
+        //codec = VideoWriter_fourcc( 'M', 'J', 'P', 'G'  );
+        //inputVideo.set(6, codec);
+        //inputVideo.set(5, 60);
+        inputVideo.set(3, 1280);
+        inputVideo.set(4, 720);
         waitTime = 10;
     }
 
