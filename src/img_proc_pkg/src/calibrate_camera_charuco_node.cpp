@@ -52,8 +52,8 @@ cv::Mat distCoeffs;
 
 int squaresX = 5;
 int squaresY = 8;
-float squareLength = 0.027;
-float markerLength = 0.022;
+float squareLength = 0.05;
+float markerLength = 0.039;
 string outputFile = "src/img_proc_pkg/config/camera_calib_charuco.yaml";
 int calibrationFlags = 0;
 float aspectRatio = 1;

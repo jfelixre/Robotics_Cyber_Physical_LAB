@@ -67,7 +67,7 @@ class Aruco_Detector : public rclcpp::Node
   private:
     void topic_callback(const sensor_msgs::msg::Image::SharedPtr msg)
     {
-      //RCLCPP_INFO(this->get_logger(), "Received image" );
+      RCLCPP_INFO(this->get_logger(), "Received image" );
       
       cv_bridge::CvImageConstPtr image_bridge;
 	    //cv_bridge::toCvCopy(msg, RGB8)->image;
@@ -93,9 +93,7 @@ class Aruco_Detector : public rclcpp::Node
         //cv::aruco::drawDetectedMarkers(img_mod, rejectedCandidates); 
 
         std::vector<cv::Vec3d> rvecs, tvecs;
-        cv::aruco::estimatePoseSingleMarkers(markerCorners, 0.01, cameraMatrix, distCoeffs, rvecs, tvecs);
-        std::cout << "markerCorners = " << std::endl << " "  << markerCorners[0,0] << std::endl << std::endl;
-        //std::cout << "cammatrx = " << std::endl << " "  << cameraMatrix << std::endl << std::endl;
+        cv::aruco::estimatePoseSingleMarkers(markerCorners, 0.10, cameraMatrix, distCoeffs, rvecs, tvecs);
  
         for (int i = 0; i < rvecs.size(); ++i) {
           auto rvec = rvecs[i];
@@ -140,6 +138,7 @@ class Aruco_Detector : public rclcpp::Node
         //fmt->set64fPrecision(4);
         //fmt->set32fPrecision(4);
         //std::cout << fmt->format(markerCorners) << std::endl;
+        std::cout << "markerCorners = " << std::endl << " "  << markerCorners[0,0] << std::endl << std::endl;
         //std::cout << "markerIds = " << std::endl << " "  << markerIds.size << std::endl << std::endl;
         //RCLCPP_INFO(this->get_logger(), "markerIds %f", markerIds);
         //RCLCPP_INFO(this->get_logger(), "Rotation Vector %f", rvecs);
