@@ -58,8 +58,12 @@ class Aruco_Detector : public rclcpp::Node
       //publisher = this->create_publisher<interfaces::msg::ImgData>("image_data",1);
       
       // Initialize the transform broadcaster
-      tf_broadcaster_ =
-      std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+      tf_cam_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+      tf_aruco_0_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+      tf_aruco_1_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+      tf_aruco_2_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+      tf_aruco_3_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+      tf_aruco_4_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
 
 
     }
@@ -98,7 +102,9 @@ class Aruco_Detector : public rclcpp::Node
         for (int i = 0; i < rvecs.size(); ++i) {
           auto rvec = rvecs[i];
           auto tvec = tvecs[i];
+          auto Id= markerIds[i];
           cv::drawFrameAxes(img_mod, cameraMatrix, distCoeffs, rvec, tvec, 0.1);
+          std::cout << "Id = " << std::endl << " "  << Id << std::endl << std::endl;
           std::cout << "rvec = " << std::endl << " "  << rvec << std::endl << std::endl;
           std::cout << "tvec = " << std::endl << " "  << tvec << std::endl << std::endl;
 
@@ -107,22 +113,66 @@ class Aruco_Detector : public rclcpp::Node
           // corresponding tf variables
           //rclcpp::Time now = this->get_clock()->now();
           t.header.stamp = this->get_clock()->now();
-          t.header.frame_id = "world";
-          t.child_frame_id = "aruco1_pose";
+          
 
           t.transform.translation.x = tvec[0];
           t.transform.translation.y = tvec[1];
           t.transform.translation.z = tvec[2];
 
           tf2::Quaternion q;
-          q.setRPY(rvec[0], rvec[1], rvec[2]);
+          q.setRPY(rvec[2], rvec[1], rvec[0]);
           t.transform.rotation.x = q.x();
           t.transform.rotation.y = q.y();
           t.transform.rotation.z = q.z();
           t.transform.rotation.w = q.w();
 
-          // Send the transformation
-          tf_broadcaster_->sendTransform(t);
+          std::cout << "rx = " << std::endl << " "  << t.transform.rotation.x << std::endl << std::endl;
+          std::cout << "ry = " << std::endl << " "  << t.transform.rotation.y << std::endl << std::endl;
+          std::cout << "rz = " << std::endl << " "  << t.transform.rotation.z << std::endl << std::endl;
+          std::cout << "rw = " << std::endl << " "  << t.transform.rotation.w << std::endl << std::endl;
+
+
+          if (Id==0){
+            t.header.frame_id = "cam";
+            t.child_frame_id = "aruco0_pose";
+
+            // Send the transformation
+            tf_aruco_0_->sendTransform(t);
+
+          }
+          if (Id==1){
+            t.header.frame_id = "cam";
+            t.child_frame_id = "aruco1_pose";
+
+            // Send the transformation
+            tf_aruco_1_->sendTransform(t);
+
+          }
+          if (Id==2){
+            t.header.frame_id = "cam";
+            t.child_frame_id = "aruco2_pose";
+
+            // Send the transformation
+            tf_aruco_2_->sendTransform(t);
+
+          }
+          if (Id==3){
+            t.header.frame_id = "cam";
+            t.child_frame_id = "aruco3_pose";
+
+            // Send the transformation
+            tf_aruco_3_->sendTransform(t);
+
+          }
+          if (Id==4){
+            t.header.frame_id = "cam";
+            t.child_frame_id = "aruco4_pose";
+
+            // Send the transformation
+            tf_aruco_4_->sendTransform(t);
+
+          }
+          
 
 
 
@@ -153,7 +203,12 @@ class Aruco_Detector : public rclcpp::Node
     }
     rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr subscription_;
     //rclcpp::Publisher<interfaces::msg::ImgData>::SharedPtr publisher;
-    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
+    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_cam_;
+    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_0_;
+    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_1_;
+    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_2_;
+    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_3_;
+    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_4_;
 };
 
 int main(int argc, char * argv[])
