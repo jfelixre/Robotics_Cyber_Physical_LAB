@@ -98,6 +98,7 @@ class Aruco_Detector : public rclcpp::Node
 
         std::vector<cv::Vec3d> rvecs, tvecs;
         cv::aruco::estimatePoseSingleMarkers(markerCorners, 0.10, cameraMatrix, distCoeffs, rvecs, tvecs);
+        //cv::solvePnP(markerCorners)
  
         for (int i = 0; i < rvecs.size(); ++i) {
           auto rvec = rvecs[i];
