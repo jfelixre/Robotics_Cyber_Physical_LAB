@@ -794,7 +794,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Blender_Qr/Base.dae</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Base.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -894,7 +894,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Blender_Qr/Target1.dae</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Target1.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -988,7 +988,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Plataforma.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Plataforma.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -1006,7 +1006,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Plataforma.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Plataforma.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -1080,7 +1080,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Brazo1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Brazo1.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -1097,7 +1097,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Brazo1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Brazo1.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -1171,7 +1171,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Brazo2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Brazo2.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -1188,7 +1188,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Brazo2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Brazo2.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -1262,7 +1262,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Brazo3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Brazo3.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -1279,7 +1279,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Brazo3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Brazo3.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -1352,7 +1352,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W1.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -1367,7 +1367,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W1.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -1440,7 +1440,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W2.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -1455,7 +1455,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W2.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -1528,7 +1528,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W3.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -1543,7 +1543,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W3.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -1616,7 +1616,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W4.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W4.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -1631,7 +1631,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W4.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W4.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -1704,7 +1704,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W5.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W5.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -1719,7 +1719,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W5.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W5.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -1792,7 +1792,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W6.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W6.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -1807,7 +1807,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W6.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W6.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -1880,7 +1880,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W7.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W7.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -1895,7 +1895,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W7.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W7.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -1968,7 +1968,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W8.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W8.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -1983,7 +1983,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W8.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W8.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2056,7 +2056,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W9.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W9.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -2071,7 +2071,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W9.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W9.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2144,7 +2144,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W1.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -2159,7 +2159,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W1.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2232,7 +2232,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W2.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -2247,7 +2247,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W2.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2320,7 +2320,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W3.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -2335,7 +2335,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W3.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2408,7 +2408,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W4.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W4.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -2423,7 +2423,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W4.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W4.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2496,7 +2496,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W5.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W5.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -2511,7 +2511,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W5.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W5.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2584,7 +2584,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W6.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W6.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -2599,7 +2599,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W6.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W6.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2672,7 +2672,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W7.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W7.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -2687,7 +2687,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W7.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W7.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2760,7 +2760,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W8.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W8.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -2775,7 +2775,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W8.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W8.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2848,7 +2848,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W9.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W9.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -2863,7 +2863,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W9.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W9.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2936,7 +2936,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W1.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -2951,7 +2951,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W1.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -3024,7 +3024,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W2.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -3039,7 +3039,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W2.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -3112,7 +3112,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W3.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -3127,7 +3127,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W3.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -3200,7 +3200,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W4.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W4.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -3215,7 +3215,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W4.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W4.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -3288,7 +3288,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W5.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W5.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -3303,7 +3303,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W5.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W5.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -3376,7 +3376,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W6.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W6.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -3391,7 +3391,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W6.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W6.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -3464,7 +3464,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W7.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W7.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -3479,7 +3479,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W7.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W7.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -3552,7 +3552,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W8.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W8.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -3567,7 +3567,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W8.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W8.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -3640,7 +3640,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W9.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W9.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -3655,7 +3655,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W9.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W9.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -3728,7 +3728,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W1.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -3743,7 +3743,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W1.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -3816,7 +3816,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W2.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -3831,7 +3831,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W2.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -3904,7 +3904,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W3.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -3919,7 +3919,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W3.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -3992,7 +3992,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W4.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W4.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -4007,7 +4007,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W4.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W4.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -4080,7 +4080,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W5.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W5.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -4095,7 +4095,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W5.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W5.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -4168,7 +4168,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W6.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W6.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -4183,7 +4183,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W6.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W6.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -4256,7 +4256,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W7.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W7.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -4271,7 +4271,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W7.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W7.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -4344,7 +4344,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W8.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W8.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -4359,7 +4359,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W8.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W8.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -4432,7 +4432,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W9.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W9.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -4447,7 +4447,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W9.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W9.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -4520,7 +4520,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Mecanum1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Mecanum1.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -4535,7 +4535,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Mecanum1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Mecanum1.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -4608,7 +4608,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Mecanum2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Mecanum2.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -4623,7 +4623,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Mecanum2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Mecanum2.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -4696,7 +4696,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Mecanum3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Mecanum3.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -4711,7 +4711,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Mecanum3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Mecanum3.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -4784,7 +4784,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Mecanum4.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Mecanum4.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -4799,7 +4799,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Mecanum4.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Mecanum4.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -4873,7 +4873,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Pinza1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Pinza1.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -4890,7 +4890,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Pinza1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Pinza1.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -4964,7 +4964,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Pinza2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Pinza2.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -4981,7 +4981,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Pinza2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Pinza2.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -5054,7 +5054,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Blender_Qr/R1.dae</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/R1.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -5073,7 +5073,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Blender_Qr/R1.dae</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/R1.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -6619,7 +6619,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Plataforma.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Plataforma.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -6637,7 +6637,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Plataforma.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Plataforma.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -6711,7 +6711,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Brazo1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Brazo1.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -6728,7 +6728,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Brazo1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Brazo1.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -6802,7 +6802,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Brazo2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Brazo2.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -6819,7 +6819,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Brazo2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Brazo2.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -6893,7 +6893,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Brazo3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Brazo3.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -6910,7 +6910,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Brazo3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Brazo3.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -6983,7 +6983,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W1.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -6998,7 +6998,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W1.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -7071,7 +7071,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W2.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -7086,7 +7086,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W2.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -7159,7 +7159,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W3.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -7174,7 +7174,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W3.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -7247,7 +7247,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W4.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W4.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -7262,7 +7262,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W4.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W4.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -7335,7 +7335,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W5.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W5.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -7350,7 +7350,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W5.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W5.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -7423,7 +7423,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W6.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W6.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -7438,7 +7438,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W6.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W6.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -7511,7 +7511,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W7.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W7.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -7526,7 +7526,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W7.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W7.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -7599,7 +7599,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W8.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W8.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -7614,7 +7614,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W8.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W8.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -7687,7 +7687,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W9.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W9.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -7702,7 +7702,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca1_W9.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca1_W9.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -7775,7 +7775,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W1.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -7790,7 +7790,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W1.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -7863,7 +7863,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W2.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -7878,7 +7878,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W2.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -7951,7 +7951,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W3.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -7966,7 +7966,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W3.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -8039,7 +8039,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W4.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W4.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -8054,7 +8054,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W4.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W4.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -8127,7 +8127,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W5.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W5.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -8142,7 +8142,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W5.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W5.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -8215,7 +8215,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W6.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W6.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -8230,7 +8230,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W6.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W6.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -8303,7 +8303,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W7.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W7.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -8318,7 +8318,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W7.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W7.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -8391,7 +8391,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W8.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W8.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -8406,7 +8406,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W8.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W8.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -8479,7 +8479,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W9.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W9.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -8494,7 +8494,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca2_W9.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca2_W9.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -8567,7 +8567,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W1.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -8582,7 +8582,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W1.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -8655,7 +8655,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W2.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -8670,7 +8670,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W2.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -8743,7 +8743,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W3.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -8758,7 +8758,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W3.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -8831,7 +8831,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W4.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W4.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -8846,7 +8846,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W4.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W4.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -8919,7 +8919,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W5.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W5.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -8934,7 +8934,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W5.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W5.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -9007,7 +9007,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W6.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W6.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -9022,7 +9022,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W6.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W6.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -9095,7 +9095,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W7.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W7.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -9110,7 +9110,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W7.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W7.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -9183,7 +9183,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W8.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W8.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -9198,7 +9198,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W8.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W8.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -9271,7 +9271,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W9.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W9.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -9286,7 +9286,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca3_W9.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca3_W9.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -9359,7 +9359,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W1.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -9374,7 +9374,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W1.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -9447,7 +9447,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W2.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -9462,7 +9462,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W2.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -9535,7 +9535,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W3.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -9550,7 +9550,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W3.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -9623,7 +9623,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W4.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W4.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -9638,7 +9638,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W4.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W4.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -9711,7 +9711,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W5.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W5.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -9726,7 +9726,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W5.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W5.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -9799,7 +9799,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W6.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W6.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -9814,7 +9814,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W6.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W6.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -9887,7 +9887,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W7.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W7.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -9902,7 +9902,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W7.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W7.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -9975,7 +9975,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W8.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W8.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -9990,7 +9990,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W8.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W8.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -10063,7 +10063,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W9.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W9.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -10078,7 +10078,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Meca4_W9.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Meca4_W9.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -10151,7 +10151,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Mecanum1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Mecanum1.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -10166,7 +10166,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Mecanum1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Mecanum1.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -10239,7 +10239,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Mecanum2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Mecanum2.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -10254,7 +10254,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Mecanum2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Mecanum2.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -10327,7 +10327,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Mecanum3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Mecanum3.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -10342,7 +10342,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Mecanum3.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Mecanum3.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -10415,7 +10415,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Mecanum4.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Mecanum4.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -10430,7 +10430,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Mecanum4.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Mecanum4.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -10504,7 +10504,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Pinza1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Pinza1.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -10521,7 +10521,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Pinza1.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Pinza1.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -10595,7 +10595,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Pinza2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Pinza2.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -10612,7 +10612,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Gazebo_robot7/meshes/Pinza2.STL</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Pinza2.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -10685,7 +10685,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Blender_Qr/R2.dae</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/R2.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -10702,7 +10702,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Blender_Qr/R2.dae</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/R2.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -12247,7 +12247,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Blender_Qr/Cubo1.dae</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Cubo1.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -12447,7 +12447,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/javierfr/model_editor_models/Blender_Qr/Cubo2.dae</uri>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Cubo2.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
