@@ -28,7 +28,7 @@
           <camera name='head'>
             <horizontal_fov>1.39626</horizontal_fov>
             <image>
-              <width>1080</width>
+              <width>1280</width>
               <height>720</height>
               <format>R8G8B8</format>
             </image>
@@ -44,8 +44,8 @@
           </camera>
           <plugin name='camera_controller' filename='libgazebo_ros_camera.so'>
             <ros>
-              <namespace>demo_cam</namespace>
-              <remapping>image_raw:=image_demo</remapping>
+              <namespace>cameras</namespace>
+              <remapping>/image_raw:=image_demo</remapping>
               <remapping>camera_info:=camera_info_demo</remapping>
             </ros>
           </plugin>
@@ -741,10 +741,10 @@
         </link>
       </model>
       <model name='camera_model'>
-        <pose>0 0 1.5 0 1.57 0</pose>
+        <pose>0 0 2 0 1.57 0</pose>
         <scale>1 1 1</scale>
         <link name='camera_link'>
-          <pose>0 0 1.5 0 1.57 0</pose>
+          <pose>0 0 2 0 1.57 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>

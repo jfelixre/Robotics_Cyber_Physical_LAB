@@ -83,7 +83,7 @@ class Calibrate_Camera_Charuco_Node : public rclcpp::Node
       //bool readOk = readCameraParameters("src/img_proc_pkg/config/camera_calib_charuco.yaml", cameraMatrix, distCoeffs);
 
       subscription_ = this->create_subscription<sensor_msgs::msg::Image>(
-      "/image_raw", 10, std::bind(&Calibrate_Camera_Charuco_Node::topic_callback, this, _1));
+      "/cameras/camera1/image_raw", 10, std::bind(&Calibrate_Camera_Charuco_Node::topic_callback, this, _1));
       
   
 

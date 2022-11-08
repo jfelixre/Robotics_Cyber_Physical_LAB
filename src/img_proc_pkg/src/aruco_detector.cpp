@@ -54,7 +54,7 @@ class Aruco_Detector : public rclcpp::Node
       bool readOk = readCameraParameters("src/img_proc_pkg/config/camera_calib_charuco.yaml", cameraMatrix, distCoeffs);
 
       subscription_ = this->create_subscription<sensor_msgs::msg::Image>(
-      "/image_raw", 10, std::bind(&Aruco_Detector::topic_callback, this, _1));
+      "cameras/camera1/image_raw", 10, std::bind(&Aruco_Detector::topic_callback, this, _1));
       //publisher = this->create_publisher<interfaces::msg::ImgData>("image_data",1);
       
       // Initialize the transform broadcaster
@@ -64,6 +64,7 @@ class Aruco_Detector : public rclcpp::Node
       tf_aruco_2_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
       tf_aruco_3_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
       tf_aruco_4_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+      tf_aruco_5_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
 
 
     }
@@ -135,7 +136,7 @@ class Aruco_Detector : public rclcpp::Node
 
           if (Id==0){
             t.header.frame_id = "cam";
-            t.child_frame_id = "aruco0_pose";
+            t.child_frame_id = "Origin";
 
             // Send the transformation
             tf_aruco_0_->sendTransform(t);
@@ -143,7 +144,7 @@ class Aruco_Detector : public rclcpp::Node
           }
           if (Id==1){
             t.header.frame_id = "cam";
-            t.child_frame_id = "aruco1_pose";
+            t.child_frame_id = "Robot1";
 
             // Send the transformation
             tf_aruco_1_->sendTransform(t);
@@ -151,7 +152,7 @@ class Aruco_Detector : public rclcpp::Node
           }
           if (Id==2){
             t.header.frame_id = "cam";
-            t.child_frame_id = "aruco2_pose";
+            t.child_frame_id = "Robot2";
 
             // Send the transformation
             tf_aruco_2_->sendTransform(t);
@@ -159,7 +160,7 @@ class Aruco_Detector : public rclcpp::Node
           }
           if (Id==3){
             t.header.frame_id = "cam";
-            t.child_frame_id = "aruco3_pose";
+            t.child_frame_id = "Object1";
 
             // Send the transformation
             tf_aruco_3_->sendTransform(t);
@@ -167,10 +168,19 @@ class Aruco_Detector : public rclcpp::Node
           }
           if (Id==4){
             t.header.frame_id = "cam";
-            t.child_frame_id = "aruco4_pose";
+            t.child_frame_id = "Object2";
 
             // Send the transformation
             tf_aruco_4_->sendTransform(t);
+
+          }
+
+          if (Id==5){
+            t.header.frame_id = "cam";
+            t.child_frame_id = "Target";
+
+            // Send the transformation
+            tf_aruco_5_->sendTransform(t);
 
           }
           
@@ -210,6 +220,7 @@ class Aruco_Detector : public rclcpp::Node
     std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_2_;
     std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_3_;
     std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_4_;
+    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_5_;
 };
 
 int main(int argc, char * argv[])
