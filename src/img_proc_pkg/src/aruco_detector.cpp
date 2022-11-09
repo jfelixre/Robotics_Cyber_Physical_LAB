@@ -43,6 +43,7 @@ cv::Mat img_mod;
 cv::Mat cameraMatrix;
 cv::Mat distCoeffs;
 
+double pi = 3.14159265358979323846;
 
 
 
@@ -110,6 +111,9 @@ class Aruco_Detector : public rclcpp::Node
           std::cout << "rvec = " << std::endl << " "  << rvec << std::endl << std::endl;
           std::cout << "tvec = " << std::endl << " "  << tvec << std::endl << std::endl;
 
+          //rvec[1]=rvec[1]+pi; 
+          //rvec[0]=rvec[0]-(pi/2);
+
           geometry_msgs::msg::TransformStamped t;
           // Read message content and assign it to
           // corresponding tf variables
@@ -135,8 +139,35 @@ class Aruco_Detector : public rclcpp::Node
 
 
           if (Id==0){
+            /*t.transform.translation.x = tvec[0];
+            t.transform.translation.y = tvec[1];
+            t.transform.translation.z = tvec[2];
+
+            q.setRPY(rvec[2], rvec[1], rvec[0]);
+            t.transform.rotation.x = q.x();
+            t.transform.rotation.y = q.y();
+            t.transform.rotation.z = q.z();
+            t.transform.rotation.w = q.w();
+
+            t.header.frame_id = "world";
+            t.child_frame_id = "cam";
+
+            // Send the transformation
+            tf_cam_->sendTransform(t);
+
+            t.transform.translation.x = tvec[0];
+            t.transform.translation.y = tvec[1];
+            t.transform.translation.z = tvec[2];
+
+            q.setRPY(rvec[2], rvec[1], rvec[0]);
+            t.transform.rotation.x = q.x();
+            t.transform.rotation.y = q.y();
+            t.transform.rotation.z = q.z();
+            t.transform.rotation.w = q.w();
+            */
             t.header.frame_id = "cam";
-            t.child_frame_id = "Origin";
+            t.child_frame_id = "origin_check";
+            
 
             // Send the transformation
             tf_aruco_0_->sendTransform(t);
