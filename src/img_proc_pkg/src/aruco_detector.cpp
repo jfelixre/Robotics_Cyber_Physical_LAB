@@ -7,6 +7,7 @@
 #include <utility>
 #include <vector>
 #include <cmath>
+#include <iostream>
 
 #include <opencv2/core.hpp>
 #include <opencv2/imgcodecs.hpp>
@@ -99,8 +100,13 @@ class Aruco_Detector : public rclcpp::Node
         //cv::aruco::drawDetectedMarkers(img_mod, rejectedCandidates); 
 
         std::vector<cv::Vec3d> rvecs, tvecs;
-        cv::aruco::estimatePoseSingleMarkers(markerCorners, 0.10, cameraMatrix, distCoeffs, rvecs, tvecs);
-        //cv::solvePnP(markerCorners)
+        //cv::aruco::estimatePoseSingleMarkers(markerCorners, 0.10, cameraMatrix, distCoeffs, rvecs, tvecs);
+        
+         std::vector<std::vector<cv::Point2f>> imgpoints;   //No sirve esta declaración de imgpoints
+        std::cout << "aqui no"<<std::endl;
+        //imgpoints[0]=vector<Point3f>(0,0,0);
+        cv::solvePnP(imgpoints, markerCorners, cameraMatrix, distCoeffs,rvecs,tvecs);
+        std::cout << "aqui"<<std::endl;
  
         for (int i = 0; i < rvecs.size(); ++i) {
           auto rvec = rvecs[i];
