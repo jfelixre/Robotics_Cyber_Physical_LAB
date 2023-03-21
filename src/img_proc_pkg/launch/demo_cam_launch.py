@@ -74,7 +74,7 @@ def generate_launch_description():
         package='usb_cam', executable='show_image.py', output='screen',
         # namespace=ns,
         # arguments=[image_manip_dir + "/data/mosaic.jpg"])
-        # remappings=[('image_in', 'image_raw')]
+        # remappings=[('image_in', '/cameras/camera1/image_raw')]
         ))
 
     return ld
