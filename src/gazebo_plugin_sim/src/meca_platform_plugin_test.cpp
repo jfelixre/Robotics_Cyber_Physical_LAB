@@ -21,6 +21,7 @@ namespace gazebo
 
 
 
+
   /// \brief A plugin to control a Velodyne sensor.
   class MecaPlatformTestPlugin : public ModelPlugin
   {
