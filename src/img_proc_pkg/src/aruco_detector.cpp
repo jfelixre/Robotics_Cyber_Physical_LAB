@@ -28,6 +28,7 @@
 #include "geometry_msgs/msg/transform_stamped.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "tf2/LinearMath/Quaternion.h"
+#include "tf2/LinearMath/Matrix3x3.h"
 #include "tf2_ros/transform_broadcaster.h"
 
 
@@ -43,6 +44,7 @@ cv::Mat img_original;
 cv::Mat img_mod;
 cv::Mat cameraMatrix;
 cv::Mat distCoeffs;
+cv::Mat tvec_origin, rvec_origin;
 
 double pi = 3.14159265358979323846;
 
@@ -60,13 +62,14 @@ class Aruco_Detector : public rclcpp::Node
       //publisher = this->create_publisher<interfaces::msg::ImgData>("image_data",1);
       
       // Initialize the transform broadcaster
-      tf_cam_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
-      tf_aruco_0_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
-      tf_aruco_1_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
-      tf_aruco_2_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
-      tf_aruco_3_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
-      tf_aruco_4_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
-      tf_aruco_5_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+      //tf_cam_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+      //tf_aruco_0_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+      //tf_aruco_1_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+      //tf_aruco_2_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+      //tf_aruco_3_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+      //tf_aruco_4_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+      //tf_aruco_5_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+      tf_broadcaster = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
 
 
     }
@@ -119,7 +122,7 @@ class Aruco_Detector : public rclcpp::Node
 
           //rvec[1]=rvec[1]+pi; 
           //rvec[0]=rvec[0]-(pi/2);
-
+          /*
           geometry_msgs::msg::TransformStamped t;
           // Read message content and assign it to
           // corresponding tf variables
@@ -142,7 +145,7 @@ class Aruco_Detector : public rclcpp::Node
           std::cout << "ry = " << std::endl << " "  << t.transform.rotation.y << std::endl << std::endl;
           std::cout << "rz = " << std::endl << " "  << t.transform.rotation.z << std::endl << std::endl;
           std::cout << "rw = " << std::endl << " "  << t.transform.rotation.w << std::endl << std::endl;
-
+          */
 
           if (Id==0){
             /*t.transform.translation.x = tvec[0];
@@ -171,28 +174,76 @@ class Aruco_Detector : public rclcpp::Node
             t.transform.rotation.z = q.z();
             t.transform.rotation.w = q.w();
             */
-            t.header.frame_id = "cam";
-            t.child_frame_id = "origin_check";
+            //t.header.frame_id = "cam";
+            //t.child_frame_id = "origin_check";
+
+            rvec_origin=rvec;
+            tvec_origin=tvec;
+
+            cv::Mat rmat;
+            cv::Rodrigues(rvec,rmat);
+            cv::Mat camera_rotation_matrix = rmat.t();
+            cv::Mat camera_translation_vector = -camera_rotation_matrix * tvec;
+
+            geometry_msgs::msg::TransformStamped camera_tf;
+            camera_tf.header.stamp = msg->header.stamp;
+            camera_tf.header.frame_id = "origin_aruco_tag";
+            camera_tf.child_frame_id = "cam";
             
 
+            std::cout << "rotation = " << std::endl << " "  << camera_rotation_matrix << std::endl << std::endl;
+            std::cout << "translation = " << std::endl << " "  << camera_translation_vector << std::endl << std::endl;
+
+
+            tf2::Matrix3x3 mat(camera_rotation_matrix.at<double>(0,0), camera_rotation_matrix.at<double>(0,1), camera_rotation_matrix.at<double>(0,2),
+                   camera_rotation_matrix.at<double>(1,0), camera_rotation_matrix.at<double>(1,1), camera_rotation_matrix.at<double>(1,2),
+                   camera_rotation_matrix.at<double>(2,0), camera_rotation_matrix.at<double>(2,1), camera_rotation_matrix.at<double>(2,2));
+            tf2::Quaternion qu;
+            mat.getRotation(qu);
+
+
+            camera_tf.transform.rotation.x = qu.x();
+            camera_tf.transform.rotation.y = qu.y();
+            camera_tf.transform.rotation.z = qu.z();
+            camera_tf.transform.rotation.w = qu.w();
+            camera_tf.transform.translation.x = camera_translation_vector.at<double>(0);
+            camera_tf.transform.translation.y = camera_translation_vector.at<double>(1);
+            camera_tf.transform.translation.z = camera_translation_vector.at<double>(2);
+
+
+
+
             // Send the transformation
-            tf_aruco_0_->sendTransform(t);
+            tf_broadcaster->sendTransform(camera_tf);
 
           }
           if (Id==1){
-            t.header.frame_id = "cam";
-            t.child_frame_id = "Robot1";
+
+            geometry_msgs::msg::TransformStamped r1_tf;
+            r1_tf.header.stamp = msg->header.stamp;
+            r1_tf.header.frame_id = "origin_aruco_tag";
+            r1_tf.child_frame_id = "Robot1";
+
+
+            //t.header.frame_id = "cam";
+            //t.child_frame_id = "Robot1";
+
+            cv::Mat position = tvec_origin-tvec;
+            cv::Mat rmat;
+            cv::Rodrigues(rvec,rmat);
 
             // Send the transformation
-            tf_aruco_1_->sendTransform(t);
+            tf_broadcaster->sendTransform(r1_tf);
 
           }
+
+          /*
           if (Id==2){
             t.header.frame_id = "cam";
             t.child_frame_id = "Robot2";
 
             // Send the transformation
-            tf_aruco_2_->sendTransform(t);
+            tf_broadcaster->sendTransform(t);
 
           }
           if (Id==3){
@@ -200,7 +251,7 @@ class Aruco_Detector : public rclcpp::Node
             t.child_frame_id = "Object1";
 
             // Send the transformation
-            tf_aruco_3_->sendTransform(t);
+            tf_broadcaster->sendTransform(t);
 
           }
           if (Id==4){
@@ -208,7 +259,7 @@ class Aruco_Detector : public rclcpp::Node
             t.child_frame_id = "Object2";
 
             // Send the transformation
-            tf_aruco_4_->sendTransform(t);
+            tf_broadcaster->sendTransform(t);
 
           }
 
@@ -217,11 +268,11 @@ class Aruco_Detector : public rclcpp::Node
             t.child_frame_id = "Target";
 
             // Send the transformation
-            tf_aruco_5_->sendTransform(t);
+            tf_broadcaster  ->sendTransform(t);
 
           }
           
-
+        */
 
 
 
@@ -251,13 +302,14 @@ class Aruco_Detector : public rclcpp::Node
     }
     rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr subscription_;
     //rclcpp::Publisher<interfaces::msg::ImgData>::SharedPtr publisher;
-    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_cam_;
-    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_0_;
-    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_1_;
-    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_2_;
-    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_3_;
-    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_4_;
-    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_5_;
+    //std::unique_ptr<tf2_ros::TransformBroadcaster> tf_cam_;
+    //std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_0_;
+    //std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_1_;
+    //std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_2_;
+    //std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_3_;
+    //std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_4_;
+    //std::unique_ptr<tf2_ros::TransformBroadcaster> tf_aruco_5_;
+    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster;
 };
 
 int main(int argc, char * argv[])
