@@ -44,7 +44,7 @@ cv::Mat img_original;
 cv::Mat img_mod;
 cv::Mat cameraMatrix;
 cv::Mat distCoeffs;
-cv::Mat tvec_origin, rvec_origin;
+cv::Vec<double, 3> tvec_origin, rvec_origin;
 
 double pi = 3.14159265358979323846;
 
@@ -93,17 +93,35 @@ class Aruco_Detector : public rclcpp::Node
 
       std::vector<int> markerIds;
       std::vector<std::vector<cv::Point2f>> markerCorners, rejectedCandidates;
-      cv::Ptr<cv::aruco::DetectorParameters> parameters = cv::aruco::DetectorParameters::create();
-      cv::Ptr<cv::aruco::Dictionary> dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_4X4_50);
-      cv::aruco::detectMarkers(img_original, dictionary, markerCorners, markerIds, parameters, rejectedCandidates);
+      cv::aruco::DetectorParameters parameters = cv::aruco::DetectorParameters();
+      cv::aruco::Dictionary dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_4X4_50);
+      cv::aruco::ArucoDetector detector(dictionary, parameters);
+      detector.detectMarkers(img_original, markerCorners, markerIds, rejectedCandidates);
 
       if (markerIds.size() > 0){
 
         cv::aruco::drawDetectedMarkers(img_mod, markerCorners, markerIds); 
         //cv::aruco::drawDetectedMarkers(img_mod, rejectedCandidates); 
 
-        std::vector<cv::Vec3d> rvecs, tvecs;
-        cv::aruco::estimatePoseSingleMarkers(markerCorners, 0.10, cameraMatrix, distCoeffs, rvecs, tvecs);
+        //std::vector<cv::Vec3d> rvecs, tvecs;
+        std::vector<cv::Vec3d> rvecs(markerIds.size()), tvecs(markerIds.size());
+        //cv::aruco::estimatePoseSingleMarkers(markerCorners, 0.10, cameraMatrix, distCoeffs, rvecs, tvecs);
+
+        float markerLength = 0.10;
+
+        // Set coordinate system
+        cv::Mat objPoints(4, 1, CV_32FC3);
+        objPoints.ptr<cv::Vec3f>(0)[0] = cv::Vec3f(-markerLength/2.f, markerLength/2.f, 0);
+        objPoints.ptr<cv::Vec3f>(0)[1] = cv::Vec3f(markerLength/2.f, markerLength/2.f, 0);
+        objPoints.ptr<cv::Vec3f>(0)[2] = cv::Vec3f(markerLength/2.f, -markerLength/2.f, 0);
+        objPoints.ptr<cv::Vec3f>(0)[3] = cv::Vec3f(-markerLength/2.f, -markerLength/2.f, 0);
+        // Calculate pose for each marker
+        
+        for (int i = 0; i < markerIds.size(); i++) {
+            solvePnP(objPoints, markerCorners.at(i), cameraMatrix, distCoeffs, rvecs.at(i), tvecs.at(i));
+        }
+
+
         
          //std::vector<std::vector<cv::Point2f>> imgpoints;   //No sirve esta declaración de imgpoints
         //std::cout << "aqui no"<<std::endl;
@@ -113,7 +131,7 @@ class Aruco_Detector : public rclcpp::Node
  
         for (int i = 0; i < rvecs.size(); ++i) {
           auto rvec = rvecs[i];
-          auto tvec = tvecs[i];
+          cv::Vec<double, 3> tvec = tvecs[i];
           auto Id= markerIds[i];
           cv::drawFrameAxes(img_mod, cameraMatrix, distCoeffs, rvec, tvec, 0.1);
           std::cout << "Id = " << std::endl << " "  << Id << std::endl << std::endl;
@@ -177,8 +195,14 @@ class Aruco_Detector : public rclcpp::Node
             //t.header.frame_id = "cam";
             //t.child_frame_id = "origin_check";
 
-            rvec_origin=rvec;
-            tvec_origin=tvec;
+            rvec_origin(0)=rvec[0];
+            rvec_origin(1)=rvec[1];
+            rvec_origin(2)=rvec[2];
+            tvec_origin(0)=tvec[0];
+            tvec_origin(1)=tvec[1];
+            tvec_origin(2)=tvec[2];
+
+
 
             cv::Mat rmat;
             cv::Rodrigues(rvec,rmat);
@@ -190,9 +214,9 @@ class Aruco_Detector : public rclcpp::Node
             camera_tf.header.frame_id = "origin_aruco_tag";
             camera_tf.child_frame_id = "cam";
             
-
-            std::cout << "rotation = " << std::endl << " "  << camera_rotation_matrix << std::endl << std::endl;
-            std::cout << "translation = " << std::endl << " "  << camera_translation_vector << std::endl << std::endl;
+           //   std::cout << "rotation org = " << std::endl << " "  << rmat << std::endl << std::endl;
+            //std::cout << "rotation = " << std::endl << " "  << camera_rotation_matrix << std::endl << std::endl;
+            //std::cout << "translation = " << std::endl << " "  << camera_translation_vector << std::endl << std::endl;
 
 
             tf2::Matrix3x3 mat(camera_rotation_matrix.at<double>(0,0), camera_rotation_matrix.at<double>(0,1), camera_rotation_matrix.at<double>(0,2),
@@ -221,58 +245,198 @@ class Aruco_Detector : public rclcpp::Node
 
             geometry_msgs::msg::TransformStamped r1_tf;
             r1_tf.header.stamp = msg->header.stamp;
-            r1_tf.header.frame_id = "origin_aruco_tag";
+            r1_tf.header.frame_id = "cam";
             r1_tf.child_frame_id = "Robot1";
 
-
+            //std::cout << "tvec_origin = " << std::endl << " "  << tvec_origin << std::endl << std::endl;
             //t.header.frame_id = "cam";
             //t.child_frame_id = "Robot1";
-
-            cv::Mat position = tvec_origin-tvec;
+            //cv::Vec<double, 3> position = tvec;
             cv::Mat rmat;
             cv::Rodrigues(rvec,rmat);
+
+            cv::Mat rmat_origin;
+            cv::Rodrigues(rvec_origin,rmat_origin);
+
+            cv::Mat camera_rotation_matrix = rmat.t();
+            cv::Mat camera_rotation_matrix_origin = rmat_origin.t();
+
+            cv::Mat camera_translation_vector =   camera_rotation_matrix * tvec ;
+
+            //std::cout << "rotation = " << std::endl << " "  << camera_rotation_matrix << std::endl << std::endl;
+            //std::cout << "translation = " << std::endl << " "  << camera_translation_vector << std::endl << std::endl;
+
+
+            tf2::Matrix3x3 mat(camera_rotation_matrix.at<double>(0,0), camera_rotation_matrix.at<double>(0,1), camera_rotation_matrix.at<double>(0,2),
+                   camera_rotation_matrix.at<double>(1,0), camera_rotation_matrix.at<double>(1,1), camera_rotation_matrix.at<double>(1,2),
+                   camera_rotation_matrix.at<double>(2,0), camera_rotation_matrix.at<double>(2,1), camera_rotation_matrix.at<double>(2,2));
+
+
+
+            tf2::Quaternion qu;
+            mat.getRotation(qu);
+
+            r1_tf.transform.rotation.x = qu.x();
+            r1_tf.transform.rotation.y = qu.y();
+            r1_tf.transform.rotation.z = qu.z();
+            r1_tf.transform.rotation.w = qu.w();
+            //r1_tf.transform.translation.x = camera_translation_vector.at<double>(0);
+            //r1_tf.transform.translation.y = camera_translation_vector.at<double>(1);
+            //r1_tf.transform.translation.z = camera_translation_vector.at<double>(2);
+            r1_tf.transform.translation.x = tvec(0);
+            r1_tf.transform.translation.y = tvec(1);
+            r1_tf.transform.translation.z = tvec(2);
 
             // Send the transformation
             tf_broadcaster->sendTransform(r1_tf);
 
           }
 
-          /*
+          
           if (Id==2){
-            t.header.frame_id = "cam";
-            t.child_frame_id = "Robot2";
+            geometry_msgs::msg::TransformStamped r2_tf;
+            r2_tf.header.stamp = msg->header.stamp;
+            r2_tf.header.frame_id = "cam";
+            r2_tf.child_frame_id = "Robot2";
+
+            cv::Mat rmat;
+            cv::Rodrigues(rvec,rmat);
+
+            cv::Mat camera_rotation_matrix = rmat.t();
+
+            cv::Mat camera_translation_vector =   camera_rotation_matrix * tvec ;
+
+    
+            tf2::Matrix3x3 mat(camera_rotation_matrix.at<double>(0,0), camera_rotation_matrix.at<double>(0,1), camera_rotation_matrix.at<double>(0,2),
+                   camera_rotation_matrix.at<double>(1,0), camera_rotation_matrix.at<double>(1,1), camera_rotation_matrix.at<double>(1,2),
+                   camera_rotation_matrix.at<double>(2,0), camera_rotation_matrix.at<double>(2,1), camera_rotation_matrix.at<double>(2,2));
+
+
+
+            tf2::Quaternion qu;
+            mat.getRotation(qu);
+
+            r2_tf.transform.rotation.x = qu.x();
+            r2_tf.transform.rotation.y = qu.y();
+            r2_tf.transform.rotation.z = qu.z();
+            r2_tf.transform.rotation.w = qu.w();
+            r2_tf.transform.translation.x = tvec(0);
+            r2_tf.transform.translation.y = tvec(1);
+            r2_tf.transform.translation.z = tvec(2);
 
             // Send the transformation
-            tf_broadcaster->sendTransform(t);
+            tf_broadcaster->sendTransform(r2_tf);
+
 
           }
           if (Id==3){
-            t.header.frame_id = "cam";
-            t.child_frame_id = "Object1";
+            geometry_msgs::msg::TransformStamped o1_tf;
+            o1_tf.header.stamp = msg->header.stamp;
+            o1_tf.header.frame_id = "cam";
+            o1_tf.child_frame_id = "Object1";
+
+            cv::Mat rmat;
+            cv::Rodrigues(rvec,rmat);
+
+            cv::Mat camera_rotation_matrix = rmat.t();
+
+            cv::Mat camera_translation_vector =   camera_rotation_matrix * tvec ;
+
+    
+            tf2::Matrix3x3 mat(camera_rotation_matrix.at<double>(0,0), camera_rotation_matrix.at<double>(0,1), camera_rotation_matrix.at<double>(0,2),
+                   camera_rotation_matrix.at<double>(1,0), camera_rotation_matrix.at<double>(1,1), camera_rotation_matrix.at<double>(1,2),
+                   camera_rotation_matrix.at<double>(2,0), camera_rotation_matrix.at<double>(2,1), camera_rotation_matrix.at<double>(2,2));
+
+
+
+            tf2::Quaternion qu;
+            mat.getRotation(qu);
+
+            o1_tf.transform.rotation.x = qu.x();
+            o1_tf.transform.rotation.y = qu.y();
+            o1_tf.transform.rotation.z = qu.z();
+            o1_tf.transform.rotation.w = qu.w();
+            o1_tf.transform.translation.x = tvec(0);
+            o1_tf.transform.translation.y = tvec(1);
+            o1_tf.transform.translation.z = tvec(2);
 
             // Send the transformation
-            tf_broadcaster->sendTransform(t);
+            tf_broadcaster->sendTransform(o1_tf);
 
           }
           if (Id==4){
-            t.header.frame_id = "cam";
-            t.child_frame_id = "Object2";
+            geometry_msgs::msg::TransformStamped o2_tf;
+            o2_tf.header.stamp = msg->header.stamp;
+            o2_tf.header.frame_id = "cam";
+            o2_tf.child_frame_id = "Object2";
+
+            cv::Mat rmat;
+            cv::Rodrigues(rvec,rmat);
+
+            cv::Mat camera_rotation_matrix = rmat.t();
+
+            cv::Mat camera_translation_vector =   camera_rotation_matrix * tvec ;
+
+    
+            tf2::Matrix3x3 mat(camera_rotation_matrix.at<double>(0,0), camera_rotation_matrix.at<double>(0,1), camera_rotation_matrix.at<double>(0,2),
+                   camera_rotation_matrix.at<double>(1,0), camera_rotation_matrix.at<double>(1,1), camera_rotation_matrix.at<double>(1,2),
+                   camera_rotation_matrix.at<double>(2,0), camera_rotation_matrix.at<double>(2,1), camera_rotation_matrix.at<double>(2,2));
+
+
+
+            tf2::Quaternion qu;
+            mat.getRotation(qu);
+
+            o2_tf.transform.rotation.x = qu.x();
+            o2_tf.transform.rotation.y = qu.y();
+            o2_tf.transform.rotation.z = qu.z();
+            o2_tf.transform.rotation.w = qu.w();
+            o2_tf.transform.translation.x = tvec(0);
+            o2_tf.transform.translation.y = tvec(1);
+            o2_tf.transform.translation.z = tvec(2);
 
             // Send the transformation
-            tf_broadcaster->sendTransform(t);
+            tf_broadcaster->sendTransform(o2_tf);
 
           }
 
           if (Id==5){
-            t.header.frame_id = "cam";
-            t.child_frame_id = "Target";
+            geometry_msgs::msg::TransformStamped tj_tf;
+            tj_tf.header.stamp = msg->header.stamp;
+            tj_tf.header.frame_id = "cam";
+            tj_tf.child_frame_id = "Target";
+
+            cv::Mat rmat;
+            cv::Rodrigues(rvec,rmat);
+
+            cv::Mat camera_rotation_matrix = rmat.t();
+
+            cv::Mat camera_translation_vector =   camera_rotation_matrix * tvec ;
+
+    
+            tf2::Matrix3x3 mat(camera_rotation_matrix.at<double>(0,0), camera_rotation_matrix.at<double>(0,1), camera_rotation_matrix.at<double>(0,2),
+                   camera_rotation_matrix.at<double>(1,0), camera_rotation_matrix.at<double>(1,1), camera_rotation_matrix.at<double>(1,2),
+                   camera_rotation_matrix.at<double>(2,0), camera_rotation_matrix.at<double>(2,1), camera_rotation_matrix.at<double>(2,2));
+
+
+
+            tf2::Quaternion qu;
+            mat.getRotation(qu);
+
+            tj_tf.transform.rotation.x = qu.x();
+            tj_tf.transform.rotation.y = qu.y();
+            tj_tf.transform.rotation.z = qu.z();
+            tj_tf.transform.rotation.w = qu.w();
+            tj_tf.transform.translation.x = tvec(0);
+            tj_tf.transform.translation.y = tvec(1);
+            tj_tf.transform.translation.z = tvec(2);
 
             // Send the transformation
-            tf_broadcaster  ->sendTransform(t);
+            tf_broadcaster->sendTransform(tj_tf);
 
           }
           
-        */
+        
 
 
 
