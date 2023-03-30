@@ -165,7 +165,7 @@ class Aruco_Detector : public rclcpp::Node
           std::cout << "rw = " << std::endl << " "  << t.transform.rotation.w << std::endl << std::endl;
           */
 
-          if (Id==0){
+          if (Id==6){
             /*t.transform.translation.x = tvec[0];
             t.transform.translation.y = tvec[1];
             t.transform.translation.z = tvec[2];
@@ -241,7 +241,7 @@ class Aruco_Detector : public rclcpp::Node
             tf_broadcaster->sendTransform(camera_tf);
 
           }
-          if (Id==1){
+          if (Id==7){
 
             geometry_msgs::msg::TransformStamped r1_tf;
             r1_tf.header.stamp = msg->header.stamp;
@@ -293,7 +293,7 @@ class Aruco_Detector : public rclcpp::Node
           }
 
           
-          if (Id==2){
+          if (Id==8){
             geometry_msgs::msg::TransformStamped r2_tf;
             r2_tf.header.stamp = msg->header.stamp;
             r2_tf.header.frame_id = "cam";
@@ -329,7 +329,7 @@ class Aruco_Detector : public rclcpp::Node
 
 
           }
-          if (Id==3){
+          if (Id==9){
             geometry_msgs::msg::TransformStamped o1_tf;
             o1_tf.header.stamp = msg->header.stamp;
             o1_tf.header.frame_id = "cam";

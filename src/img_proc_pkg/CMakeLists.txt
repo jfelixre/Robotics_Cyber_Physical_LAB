@@ -27,6 +27,8 @@ find_package(interfaces REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(Eigen3 REQUIRED)
+
 
 
 
@@ -98,6 +100,7 @@ ament_target_dependencies(aruco_detector
   tf2
   tf2_ros
   geometry_msgs)
+  
 
 #add_executable(calibrate_camera_charuco src/calibrate_camera_charuco.cpp)
 #target_include_directories(calibrate_camera_charuco PUBLIC
@@ -125,6 +128,22 @@ ament_target_dependencies(aruco_detector
 #  tf2_ros
 #  geometry_msgs)
 
+add_executable(compute_position src/compute_position.cpp)
+target_include_directories(compute_position PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+ament_target_dependencies(compute_position
+  "OpenCV"
+  sensor_msgs
+  std_msgs
+  rclcpp
+  cv_bridge
+  interfaces
+  tf2
+  tf2_ros
+  geometry_msgs)
+
 
 #include_directories(·${OpenCV_INCLUDE_DIRS}·)
 
@@ -136,6 +155,7 @@ install(TARGETS
   aruco_detector
   #calibrate_camera_charuco
   #calibrate_camera_charuco_node
+  compute_position
   DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY 
