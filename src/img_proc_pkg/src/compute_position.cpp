@@ -19,12 +19,14 @@
 #include <tf2_ros/transform_listener.h>
 #include <tf2_sensor_msgs/tf2_sensor_msgs.h>
 #include <geometry_msgs/msg/pose.hpp>
+#include <interfaces/msg/positions.hpp>
 
 using std::placeholders::_1;
 using namespace std::chrono_literals;
 
-geometry_msgs::msg::Pose Robot1, Robot2, Object1, Object2, Target;
 
+geometry_msgs::msg::Pose Robot1, Robot2, Object1, Object2, Target;
+interfaces::msg::Positions msg_pos;
 
 class Compute_Position : public rclcpp::Node
 {
@@ -33,6 +35,7 @@ class Compute_Position : public rclcpp::Node
         {
             tf_buffer_ = std::make_shared<tf2_ros::Buffer>(this->get_clock());
             tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
+            publisher_ = this->create_publisher<interfaces::msg::Positions>("positions",10);
 
              timer_ = this->create_wall_timer(
              50ms, std::bind(&Compute_Position::timer_callback, this));
@@ -138,11 +141,20 @@ class Compute_Position : public rclcpp::Node
         {
            
         }
+
+        msg_pos.pos_robot1 = Robot1;
+        msg_pos.pos_robot2 = Robot2;
+        msg_pos.pos_object1 = Object1;
+        msg_pos.pos_object2 = Object2;
+        msg_pos.pos_target = Target;
+
+        publisher_->publish(msg_pos);
     }
 
 
     std::shared_ptr<tf2_ros::Buffer> tf_buffer_;
     std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
+    rclcpp::Publisher<interfaces::msg::Positions>::SharedPtr publisher_;
     rclcpp::TimerBase::SharedPtr timer_;
 
 };
