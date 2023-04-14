@@ -246,7 +246,7 @@ class Aruco_Detector : public rclcpp::Node
           
 
 
-          if (Id==6){
+          if (Id==0){
 
 
             rvec_origin(0)=rvec[0];
@@ -288,7 +288,7 @@ class Aruco_Detector : public rclcpp::Node
             
 
           }
-          if (Id==7){
+          if (Id==1){
 
             
 
@@ -327,7 +327,7 @@ class Aruco_Detector : public rclcpp::Node
           }
 
           
-          if (Id==8){
+          if (Id==2){
             
 
             cv::Mat rmat;
@@ -359,7 +359,7 @@ class Aruco_Detector : public rclcpp::Node
 
 
           }
-          if (Id==9){
+          if (Id==3){
             
 
             cv::Mat rmat;
@@ -390,7 +390,7 @@ class Aruco_Detector : public rclcpp::Node
 
 
           }
-          if (Id==10){
+          if (Id==4){
             
 
             cv::Mat rmat;
@@ -422,7 +422,7 @@ class Aruco_Detector : public rclcpp::Node
 
           }
 
-          if (Id==11){
+          if (Id==5){
             
 
             cv::Mat rmat;
