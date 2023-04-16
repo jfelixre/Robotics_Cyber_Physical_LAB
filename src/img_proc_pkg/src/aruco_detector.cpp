@@ -270,7 +270,9 @@ class Aruco_Detector : public rclcpp::Node
             tf2::Matrix3x3 mat(camera_rotation_matrix.at<double>(0,0), camera_rotation_matrix.at<double>(0,1), camera_rotation_matrix.at<double>(0,2),
                    camera_rotation_matrix.at<double>(1,0), camera_rotation_matrix.at<double>(1,1), camera_rotation_matrix.at<double>(1,2),
                    camera_rotation_matrix.at<double>(2,0), camera_rotation_matrix.at<double>(2,1), camera_rotation_matrix.at<double>(2,2));
+            
             tf2::Quaternion qu;
+            
             mat.getRotation(qu);
 
 
@@ -645,7 +647,8 @@ class Aruco_Detector : public rclcpp::Node
       }
 
   
-  	  cv::namedWindow("Display Image", cv::WINDOW_AUTOSIZE );
+  	  cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
+     // cv::resizeWindow("Display Image" 1280,720);
   	  cv::imshow("Display Image", img_mod);
   	  cv::waitKey(1);
       

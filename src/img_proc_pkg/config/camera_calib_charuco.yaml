@@ -8,13 +8,13 @@ camera_matrix: !!opencv-matrix
    rows: 3
    cols: 3
    dt: d
-   data: [ 2491.66339, 0., 561.415827, 0.,
-       244.741677, 386.382514, 0., 0., 1. ]
+   data: [ 762.7249337622711, 0., 640.5, 0.,
+       762.7249337622711, 360.5, 0., 0., 1. ]
 distortion_coefficients: !!opencv-matrix
    rows: 1
    cols: 5
    dt: d
-   data: [ 0.13172189, 0.05264223,
-       0.06466582, 0.14646155,
-       -0.02832502 ]
+   data: [ 0, 0,
+       0, 0,
+       0 ]
 avg_reprojection_error: 1.9313805881497359e+01

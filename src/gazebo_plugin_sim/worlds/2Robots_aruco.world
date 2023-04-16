@@ -41,6 +41,15 @@
               <mean>0</mean>
               <stddev>0</stddev>
             </noise>
+            <lens>
+              <intrinsics>
+                <fx>762.7249337622711</fx>
+                <fy>762.7249337622711</fy>
+                <cx>640.5</cx>
+                <cy>360.5</cy>
+                <s>0</s>
+              </intrinsics>
+            </lens>
           </camera>
           <plugin name='camera_controller' filename='libgazebo_ros_camera.so'>
             <ros>
@@ -48,6 +57,9 @@
               <remapping>/image_raw:=image_demo</remapping>
               <remapping>camera_info:=camera_info_demo</remapping>
             </ros>
+          <Cx>640.5</Cx>
+          <Cy>360.5</Cy>
+          <focalLength>762.7249337622711</focalLength>
           </plugin>
         </sensor>
         <self_collide>0</self_collide>
