@@ -210,7 +210,7 @@ class Compute_Trajectory : public rclcpp::Node
 
             Tg_m.getRPY(Tg_orientation_x, Tg_orientation_y, Tg_orientation_z);
             double Tg_angle_degrees= (Tg_orientation_z*180)/PI * -1;
-            cv::Size Tg_size(4,4);
+            cv::Size Tg_size(5,5);
             cv::RotatedRect Tg_rectangle(Tg_point, Tg_size, Tg_angle_degrees);
             cv::Point2f vertices2f_Tg[4];
             Tg_rectangle.points(vertices2f_Tg);
