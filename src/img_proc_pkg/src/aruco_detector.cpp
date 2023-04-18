@@ -301,7 +301,7 @@ class Aruco_Detector : public rclcpp::Node
             cv::Mat rmat_origin;
             cv::Rodrigues(rvec_origin,rmat_origin);
 
-            cv::Mat camera_rotation_matrix = rmat.t();
+            cv::Mat camera_rotation_matrix = rmat;
             cv::Mat camera_rotation_matrix_origin = rmat_origin.t();
 
             cv::Mat camera_translation_vector =   camera_rotation_matrix * tvec ;
@@ -335,7 +335,7 @@ class Aruco_Detector : public rclcpp::Node
             cv::Mat rmat;
             cv::Rodrigues(rvec,rmat);
 
-            cv::Mat camera_rotation_matrix = rmat.t();
+            cv::Mat camera_rotation_matrix = rmat;
 
             cv::Mat camera_translation_vector =   camera_rotation_matrix * tvec ;
 
@@ -367,7 +367,7 @@ class Aruco_Detector : public rclcpp::Node
             cv::Mat rmat;
             cv::Rodrigues(rvec,rmat);
 
-            cv::Mat camera_rotation_matrix = rmat.t();
+            cv::Mat camera_rotation_matrix = rmat;
 
             cv::Mat camera_translation_vector =   camera_rotation_matrix * tvec ;
 
@@ -398,7 +398,7 @@ class Aruco_Detector : public rclcpp::Node
             cv::Mat rmat;
             cv::Rodrigues(rvec,rmat);
 
-            cv::Mat camera_rotation_matrix = rmat.t();
+            cv::Mat camera_rotation_matrix = rmat;
 
             cv::Mat camera_translation_vector =   camera_rotation_matrix * tvec ;
 
@@ -430,7 +430,7 @@ class Aruco_Detector : public rclcpp::Node
             cv::Mat rmat;
             cv::Rodrigues(rvec,rmat);
 
-            cv::Mat camera_rotation_matrix = rmat.t();
+            cv::Mat camera_rotation_matrix = rmat;
 
             cv::Mat camera_translation_vector =   camera_rotation_matrix * tvec ;
 
