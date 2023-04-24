@@ -31,7 +31,7 @@ using namespace std::chrono_literals;
 geometry_msgs::msg::Pose Robot1, Robot2, Object1, Object2, Target;
 
 
-float x_grid = 0.025;  //All dimensions in meters
+float x_grid = 0.025;    //All dimensions in meters
 float y_grid = 0.025;
 float x_world = 3;        
 float y_world = 3;          
@@ -90,8 +90,11 @@ class Compute_Trajectory : public rclcpp::Node
 
             R1_m.getRPY(R1_orientation_x, R1_orientation_y, R1_orientation_z);
             double R1_angle_degrees= (R1_orientation_z*180)/PI * -1;
+
+            cv::Point R1_center_point(((int)((5*cos(R1_angle_degrees))+R1_x_map)),((int)((4*(sin(R1_angle_degrees)))+R1_y_map)));
+
             cv::Size R1_size(12,14);
-            cv::RotatedRect R1_rectangle(R1_point, R1_size, R1_angle_degrees);
+            cv::RotatedRect R1_rectangle(R1_center_point, R1_size, R1_angle_degrees);
             cv::Point2f vertices2f_R1[4];
             R1_rectangle.points(vertices2f_R1);
 
@@ -118,8 +121,12 @@ class Compute_Trajectory : public rclcpp::Node
 
             R2_m.getRPY(R2_orientation_x, R2_orientation_y, R2_orientation_z);
             double R2_angle_degrees= (R2_orientation_z*180)/PI * -1;
+
+            cv::Point R2_center_point(((int)((5*cos(R2_angle_degrees))+R2_x_map)),((int)((4*(sin(R2_angle_degrees)))+R2_y_map)));
+
+
             cv::Size R2_size(12,14);
-            cv::RotatedRect R2_rectangle(R2_point, R2_size, R2_angle_degrees);
+            cv::RotatedRect R2_rectangle(R2_center_point, R2_size, R2_angle_degrees);
             cv::Point2f vertices2f_R2[4];
             R2_rectangle.points(vertices2f_R2);
 
