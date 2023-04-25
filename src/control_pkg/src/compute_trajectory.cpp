@@ -23,6 +23,7 @@
 #include <tf2/LinearMath/Matrix3x3.h>
 #include <geometry_msgs/msg/pose.hpp>
 #include <interfaces/msg/positions.hpp>
+#include <interfaces/srv/a_star_service.hpp>
 
 using std::placeholders::_1;
 using namespace std::chrono_literals;
@@ -52,11 +53,15 @@ class Compute_Trajectory : public rclcpp::Node
             subs_position = this->create_subscription<interfaces::msg::Positions>(
                 "/positions", 1, std::bind(&Compute_Trajectory::subs_callback,this,_1));
 
-            std::cout<<n_x_spaces<< std::endl;
+            client = this -> create_client<interfaces::srv::AStarService>("a_star_server");
+
+            //std::cout<<n_x_spaces<< std::endl;
         }
     
 
     private:
+
+        rclcpp::Client<interfaces::srv::AStarService>::SharedPtr client;
 
 
         void subs_callback(const interfaces::msg::Positions::SharedPtr pos_msg)
@@ -66,6 +71,7 @@ class Compute_Trajectory : public rclcpp::Node
             cv::Mat map_bin = cv::Mat::zeros(n_x_spaces, n_y_spaces, CV_8UC1);
 
              map = cv::Scalar(255);
+             map_bin = cv::Scalar(1);
 
 
             Robot1=pos_msg->pos_robot1;
@@ -80,7 +86,7 @@ class Compute_Trajectory : public rclcpp::Node
             //ROBOT 1
             int R1_x_map = ((int)((Robot1.position.x * n_x_spaces)/x_world)) + (n_x_spaces/2);
             int R1_y_map = 120 - (((int)((Robot1.position.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
-            cv::Point R1_point(R1_x_map,R1_y_map);   //Falta obtener centro de robot
+            cv::Point R1_point(R1_x_map,R1_y_map); 
             
             tf2::Quaternion R1_quat(Robot1.orientation.x, Robot1.orientation.y, Robot1.orientation.z, Robot1.orientation.w);
 
@@ -137,6 +143,7 @@ class Compute_Trajectory : public rclcpp::Node
             }
 
             cv::fillConvexPoly(map,vertices_R2, cv::Scalar(2));
+            cv::fillConvexPoly(map_bin,vertices_R2, cv::Scalar(0));
 
 
 
@@ -198,6 +205,7 @@ class Compute_Trajectory : public rclcpp::Node
             }
 
             cv::fillConvexPoly(map,vertices_O2, cv::Scalar(4));
+            cv::fillConvexPoly(map_bin,vertices_O2, cv::Scalar(0));
 
 
 
@@ -229,14 +237,58 @@ class Compute_Trajectory : public rclcpp::Node
             }
 
             cv::fillConvexPoly(map,vertices_Tg, cv::Scalar(5));
+            cv::fillConvexPoly(map_bin,vertices_Tg, cv::Scalar(0));
 
 
 
 
+            //call a_star_service
+            auto request = std::make_shared<interfaces::srv::AStarService::Request>();
+            request->src_x = R1_center_point.x;
+            request->src_y = R1_center_point.y;
+            request->dst_x = O1_point.x;
+            request->dst_y = O1_point.y;
+            
+            std::vector<int> grid_vect;
+
+            
+            int grid_index = 0;
+            for (int i=0; i<120; i++){
+                for (int j=0; j<120; j++){
+                   // grid_vect[grid_index] = map_bin.at<int32_t>(i,j);
+                   std::cout << map_bin.at<u_int8_t>(i,j) << std::endl;
+                }
+            }
+
+           // std::cout << grid_vect[5] << std::endl;
 
 
+
+            /*
+            request->grid = grid_vect;
+
+            while (!client->wait_for_service(1s)){
+                if (!rclcpp::ok()){
+                    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service A_Star. Exiting.");
+                }
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service A_Star not available, waiting again...");
+            }
+
+            auto result = client->async_send_request(request);
+
+            if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), result) ==
+                rclcpp::FutureReturnCode::SUCCESS){
+                    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "A_Star complete");
+                }
+                else{
+                    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service A_Star");
+                }
+            ///////////////////////////////////////////////
+*/
             cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
             cv::imshow("Display Image", map);
+            cv::namedWindow("Display bin", cv::WINDOW_NORMAL );
+            cv::imshow("Display bin", map_bin);
             cv::waitKey(1);
 
         }

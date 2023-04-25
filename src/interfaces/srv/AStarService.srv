@@ -1,4 +1,8 @@
 int32[] grid
+int32 src_x
+int32 src_y
+int32 dst_x
+int32 dst_y
 ---
 int32[] path_x
 int32[] path_y

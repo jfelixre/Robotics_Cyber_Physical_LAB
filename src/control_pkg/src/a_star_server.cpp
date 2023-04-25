@@ -10,8 +10,8 @@
 using namespace std;
 //rclcpp::Node::SharedPtr AStarServer = nullptr;
 
-#define ROW 9
-#define COL 10
+#define ROW 120
+#define COL 120
 
 // Creating a shortcut for int, int pair type
 typedef pair<int, int> Pair;
@@ -48,8 +48,39 @@ class AStarServer : public rclcpp::Node
     void a_star_caller(const std::shared_ptr<interfaces::srv::AStarService::Request> request,
           std::shared_ptr<interfaces::srv::AStarService::Response>      response)
 		{
+            int src_x = request->src_x;
+            int src_y = request->src_y;
+            int dst_x = request->dst_x;
+            int dst_y = request->dst_y;
+
+            std::vector<int> grid_vect;
+            grid_vect = request->grid;
             
-            
+            int grid_index = 0;
+            int grid[ROW][COL];
+
+            for (int i=0;i<120;i++){
+                for (int j=0; j<120; j++){
+                    grid[i][j]=grid_vect[grid_index];
+                    grid_index++;
+                }
+            } 
+
+            Pair src = make_pair(src_x, src_y);
+
+            Pair dest = make_pair(dst_x, dst_y);
+
+            aStarSearch(grid, src, dest);
+
+
+
+                /*
+
+                 //Description of the Grid-
+                 //   1--> The cell is not blocked
+                 //   0--> The cell is blocked    
+
+
             int grid[ROW][COL]
                     = { { 1, 0, 1, 1, 1, 1, 0, 1, 1, 1 },
                         { 1, 1, 1, 0, 1, 1, 1, 0, 1, 1 },
@@ -70,7 +101,7 @@ class AStarServer : public rclcpp::Node
                 aStarSearch(grid, src, dest);
 
 
-
+                */
 		  
 			
 		  	// sent=sent+1;
