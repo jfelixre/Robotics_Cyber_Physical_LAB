@@ -69,12 +69,23 @@ ament_target_dependencies(compute_trajectory
   geometry_msgs
   )
 
+  add_executable(a_star_server src/a_star_server.cpp)
+  ament_target_dependencies(a_star_server
+    sensor_msgs
+    std_msgs
+    rclcpp
+    interfaces
+    tf2
+    tf2_ros
+    )
+
 install(TARGETS
   control_pid_p1_node
   control_pid_p2_node
   control_pid_r1_node
   control_pid_r2_node
   compute_trajectory
+  a_star_server
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

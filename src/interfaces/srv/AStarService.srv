@@ -1,5 +1,3 @@
-int32 cols
-int32 rows
 int32[] grid
 ---
 int32[] path_x

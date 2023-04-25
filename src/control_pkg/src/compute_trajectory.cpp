@@ -52,7 +52,7 @@ class Compute_Trajectory : public rclcpp::Node
             subs_position = this->create_subscription<interfaces::msg::Positions>(
                 "/positions", 1, std::bind(&Compute_Trajectory::subs_callback,this,_1));
 
-            //std::cout<<n_x_spaces<< std::endl;
+            std::cout<<n_x_spaces<< std::endl;
         }
     
 
