@@ -69,6 +69,7 @@ class Compute_Trajectory : public rclcpp::Node
 
             cv::Mat map = cv::Mat::zeros(n_x_spaces, n_y_spaces, CV_8UC1);
             cv::Mat map_bin = cv::Mat::zeros(n_x_spaces, n_y_spaces, CV_8UC1);
+            cv::Mat map_color(120, 120, CV_8UC3, cv::Scalar(255, 255, 255));
 
              map = cv::Scalar(255);
              map_bin = cv::Scalar(1);
@@ -249,22 +250,28 @@ class Compute_Trajectory : public rclcpp::Node
             request->dst_x = O1_point.x;
             request->dst_y = O1_point.y;
             
-            std::vector<int> grid_vect;
+            std::vector<int> grid_vect(14400,1);
 
             
             int grid_index = 0;
+
+            
             for (int i=0; i<120; i++){
                 for (int j=0; j<120; j++){
-                   // grid_vect[grid_index] = map_bin.at<int32_t>(i,j);
-                   std::cout << map_bin.at<u_int8_t>(i,j) << std::endl;
+                   
+                   if (map_bin.at<int>(i,j) == 0){
+
+                    grid_vect[grid_index] = 0;
+                   }
+
+        
                 }
             }
 
-           // std::cout << grid_vect[5] << std::endl;
 
 
 
-            /*
+
             request->grid = grid_vect;
 
             while (!client->wait_for_service(1s)){
@@ -274,8 +281,11 @@ class Compute_Trajectory : public rclcpp::Node
                 RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service A_Star not available, waiting again...");
             }
 
-            auto result = client->async_send_request(request);
 
+             std::cout << "enviar request" << std::endl;
+
+            auto result = client->async_send_request(request);
+/*
             if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), result) ==
                 rclcpp::FutureReturnCode::SUCCESS){
                     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "A_Star complete");
@@ -283,8 +293,55 @@ class Compute_Trajectory : public rclcpp::Node
                 else{
                     RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service A_Star");
                 }
-            ///////////////////////////////////////////////
 */
+
+             std::cout << "esperar" << std::endl;
+            //result.wait();
+           // while( result.get()->path_x.empty()){
+            //   std::cout << "esperando" << std::endl;
+            //}
+
+            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+
+             std::cout << "termina espera" << std::endl;
+
+            std::vector<int> path_x;
+            std::vector<int> path_y;
+            
+            int path_size = result.get()->path_x.size();
+
+            std::cout << "path_size" << std::endl;
+
+
+            path_x.resize(path_size);
+            path_y.resize(path_size);
+
+            std::cout << "rezise" << std::endl;
+
+
+            path_x = result.get()->path_x;
+            path_y = result.get()->path_y;
+
+            //int path_size = path_x.size();
+
+            for (int i=0; i<path_x.size(); i++){
+                std::cout << "x = " << path_x[i] << std::endl;
+                std::cout << "y = " << path_y[i] << std::endl;
+            }
+
+        
+
+            for (int i=0; i<path_size; i++){
+                map_color.at<int>(path_x[i],path_y[i],0) = 0;
+                map_color.at<int>(path_x[i],path_y[i],0) = 0;
+                map_color.at<int>(path_x[i],path_y[i],0) = 255;
+
+            }
+
+            
+            ///////////////////////////////////////////////
+
             cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
             cv::imshow("Display Image", map);
             cv::namedWindow("Display bin", cv::WINDOW_NORMAL );

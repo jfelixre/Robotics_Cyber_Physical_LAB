@@ -13,6 +13,9 @@ using namespace std;
 #define ROW 120
 #define COL 120
 
+
+std::vector<int> path_x, path_y; 
+
 // Creating a shortcut for int, int pair type
 typedef pair<int, int> Pair;
 
@@ -53,6 +56,7 @@ class AStarServer : public rclcpp::Node
             int dst_x = request->dst_x;
             int dst_y = request->dst_y;
 
+
             std::vector<int> grid_vect;
             grid_vect = request->grid;
             
@@ -72,6 +76,19 @@ class AStarServer : public rclcpp::Node
 
             aStarSearch(grid, src, dest);
 
+            std::cout << "antes de responder" << std::endl;
+
+
+            response->path_x = path_x;
+            response->path_y = path_y;
+
+            for (int i=0; i<path_x.size(); i++){
+                std::cout << "x = " << path_x[i] << std::endl;
+                std::cout << "y = " << path_y[i] << std::endl;
+            }
+
+
+            std::cout << "despues de responder" << std::endl;
 
 
                 /*
@@ -166,13 +183,39 @@ class AStarServer : public rclcpp::Node
                 row = temp_row;
                 col = temp_col;
             }
-        
+
+            path_x.resize(0);
+            path_y.resize(0);
+
+            int path_index = 0;
+
+            path_x.resize(1);
+            path_y.resize(1);
+
             Path.push(make_pair(row, col));
+
+            std::cout << "antes path empty" << std::endl;
+
+
             while (!Path.empty()) {
                 pair<int, int> p = Path.top();
                 Path.pop();
                 printf("-> (%d,%d) ", p.first, p.second);
+
+                std::cout << "despues de imprimir" << std::endl;
+
+                path_x[path_index] = p.first;
+                path_y[path_index] = p.second;
+
+                path_index++;
+
+                path_x.resize(path_index+1);
+                path_y.resize(path_index+1);
+
+                std::cout << "despues path index" << std::endl;
             }
+
+            std::cout << "antes del return" << std::endl;
         
             return;
         }
