@@ -60,11 +60,13 @@ class AStarServer : public rclcpp::Node
             std::vector<int> grid_vect;
             grid_vect = request->grid;
             
+            
             int grid_index = 0;
             int grid[ROW][COL];
 
-            for (int i=0;i<120;i++){
-                for (int j=0; j<120; j++){
+
+            for (int i=0;i<ROW;i++){
+                for (int j=0; j<COL; j++){
                     grid[i][j]=grid_vect[grid_index];
                     grid_index++;
                 }
@@ -76,19 +78,11 @@ class AStarServer : public rclcpp::Node
 
             aStarSearch(grid, src, dest);
 
-            std::cout << "antes de responder" << std::endl;
-
 
             response->path_x = path_x;
             response->path_y = path_y;
+            response->path_size = path_x.size();
 
-            for (int i=0; i<path_x.size(); i++){
-                std::cout << "x = " << path_x[i] << std::endl;
-                std::cout << "y = " << path_y[i] << std::endl;
-            }
-
-
-            std::cout << "despues de responder" << std::endl;
 
 
                 /*
@@ -194,28 +188,26 @@ class AStarServer : public rclcpp::Node
 
             Path.push(make_pair(row, col));
 
-            std::cout << "antes path empty" << std::endl;
 
 
             while (!Path.empty()) {
                 pair<int, int> p = Path.top();
                 Path.pop();
-                printf("-> (%d,%d) ", p.first, p.second);
+                //printf("-> (%d,%d) ", p.first, p.second);
 
-                std::cout << "despues de imprimir" << std::endl;
+                path_x.resize(path_index+1);
+                path_y.resize(path_index+1);
+
 
                 path_x[path_index] = p.first;
                 path_y[path_index] = p.second;
 
                 path_index++;
 
-                path_x.resize(path_index+1);
-                path_y.resize(path_index+1);
 
-                std::cout << "despues path index" << std::endl;
             }
 
-            std::cout << "antes del return" << std::endl;
+
         
             return;
         }

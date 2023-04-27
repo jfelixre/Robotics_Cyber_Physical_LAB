@@ -6,3 +6,4 @@ int32 dst_y
 ---
 int32[] path_x
 int32[] path_y
+int32 path_size
