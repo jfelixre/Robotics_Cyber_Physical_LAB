@@ -34,6 +34,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/RobotState.msg"
   "msg/Positions.msg"
   "srv/AStarService.srv"
+  "msg/Path.msg"
   DEPENDENCIES geometry_msgs
  )
 

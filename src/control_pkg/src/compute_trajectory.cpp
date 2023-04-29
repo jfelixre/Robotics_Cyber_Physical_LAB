@@ -24,6 +24,7 @@
 #include <geometry_msgs/msg/pose.hpp>
 #include <interfaces/msg/positions.hpp>
 #include <interfaces/srv/a_star_service.hpp>
+#include <interfaces/msg/path.hpp>
 
 using std::placeholders::_1;
 using namespace std::chrono_literals;
@@ -396,10 +397,11 @@ class Compute_Trajectory : public rclcpp::Node
                 std::cout << "y = " << path_y[i] << std::endl;
             }
 */
-
+            interfaces::msg::Path path_msg;
 
             for (int i=0; i<path_size; i++){
                 map_color.at<cv::Vec3b>(path_x[i],path_y[i]) = cv::Vec3b(0,0,255);
+                path_msg[i].x = path_x[i];
 
             }
 
