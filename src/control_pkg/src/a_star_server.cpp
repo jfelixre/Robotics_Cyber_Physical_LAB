@@ -67,9 +67,11 @@ class AStarServer : public rclcpp::Node
 
             for (int i=0;i<ROW;i++){
                 for (int j=0; j<COL; j++){
-                    grid[i][j]=grid_vect[grid_index];
+                    grid[i][j]=(int)grid_vect[grid_index];
                     grid_index++;
-                }
+                   // std::cout << grid_vect[grid_index];
+                }   
+                //std::cout<<std::endl;
             } 
 
             Pair src = make_pair(src_x, src_y);
@@ -134,10 +136,13 @@ class AStarServer : public rclcpp::Node
         bool isUnBlocked(int grid[][COL], int row, int col)
         {
             // Returns true if the cell is not blocked else false
-            if (grid[row][col] == 1)
+            if (grid[row][col] == 1){
                 return (true);
-            else
+                }
+            else{
+                std::cout << "bloq" << row << col << std::endl;
                 return (false);
+            }
         }
 
         // A Utility Function to check whether destination cell has
@@ -163,7 +168,7 @@ class AStarServer : public rclcpp::Node
         // to destination
         void tracePath(cell cellDetails[][COL], Pair dest)
         {
-            printf("\nThe Path is ");
+            //printf("\nThe Path is ");
             int row = dest.first;
             int col = dest.second;
         
