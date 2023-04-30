@@ -58,6 +58,11 @@ ament_target_dependencies(
   )
 
 add_executable(compute_trajectory src/compute_trajectory.cpp)
+target_include_directories(compute_trajectory PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+
 ament_target_dependencies(compute_trajectory
   sensor_msgs
   std_msgs
@@ -70,6 +75,10 @@ ament_target_dependencies(compute_trajectory
   )
 
   add_executable(a_star_server src/a_star_server.cpp)
+  target_include_directories(a_star_server PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
+
   ament_target_dependencies(a_star_server
     sensor_msgs
     std_msgs
@@ -80,6 +89,10 @@ ament_target_dependencies(compute_trajectory
     )
 
   add_executable(compute_trajectory_r1 src/compute_trajectory_r1.cpp)
+  target_include_directories(compute_trajectory_r1 PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
+
   ament_target_dependencies(compute_trajectory_r1
     sensor_msgs
     std_msgs
@@ -92,6 +105,10 @@ ament_target_dependencies(compute_trajectory
     )
 
   add_executable(event_driven_control_r1 src/event_driven_control_r1.cpp)
+  target_include_directories(event_driven_control_r1 PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
   ament_target_dependencies(event_driven_control_r1
     sensor_msgs
     std_msgs

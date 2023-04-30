@@ -4,7 +4,7 @@
 #include <tf2_ros/transform_listener.h>
 #include <tf2_sensor_msgs/tf2_sensor_msgs.h>
 #include <tf2/LinearMath/Matrix3x3.h>
-
+#include <interfaces/msg/robot_objective.hpp>
 
 #include <memory>
 #include <cinttypes>
@@ -35,6 +35,7 @@ float ANGtgt=-1;
 int Xgoal=-1;
 int Ygoal=-1;
 float ANGgoal=-1;
+interfaces::msg::RobotObjective RO_msg;
 
 class Event_Driven_Control_R1 : public rclcpp::Node
 {
@@ -43,149 +44,110 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 		{
 
       		state_robot1_publisher = create_publisher<interfaces::msg::RobotState>("robot_1/state",1);
+			objective_robot1_publisher = create_publisher<interfaces::msg::RobotObjective>("robot_1/objective",1);
       		
 
+
+			/////////////////////ROBOT STATE -1/////////////////////////////     CALIBRAR BRAZO
+			state_robot1_publisher -> publish(robot1_state);
+
+			RCLCPP_INFO(this->get_logger(), "Iniciando Nodo de Control de Robot 1 y Calibrando Brazo");
+			//FALTA CALIBRAR BRAZO
 			
+			robot1_state = 0;    //Poner en 0 cuando termine la calibracion del brazo.
+
+
+
+
+			///////////////////////ROBOT STATE 0//////////////////////////////  INICIALIZAR BRAZO Y ESPERAR CONEXIÓN DE ROBOT 2
+			state_robot1_publisher -> publish(robot1_state);
+
+
+				RCLCPP_INFO(this->get_logger(), "Inicializando Brazo y Esperando Conexion de Robot 2");
+
+				while (robot2_state<0)
+				{
+					RCLCPP_INFO(this->get_logger(), "Esperando Conexion de Robot 2");
+				}
+				
+				robot1_state=1;
+
+				RCLCPP_INFO(this->get_logger(), "Iniciando Control de Robot 1");
+
+
+
+			///////////////////////ROBOT STATE 1//////////////////////////////  CONTROL FASE 1  Aproximacion al objeto
+			state_robot1_publisher -> publish(robot1_state);
+
+			Xgoal=Xobj1-(0.3*cos(ANGobj1));
+			Ygoal=Yobj1-(0.3*sin(ANGobj1));
+			ANGgoal=ANGobj1;
+
+			RO_msg.point.x = Xgoal;
+			RO_msg.point.y = Ygoal;
+			RO_msg.angle = ANGgoal;
+
+			objective_robot1_publisher -> publish(RO_msg);
+
+
+			//cliente control trayectoria
+
+
+
+
+			robot1_state=2;
+
+
+
+			///////////////////////ROBOT STATE 2//////////////////////////////  CONTROL FASE 2  Tomar objeto
+			state_robot1_publisher -> publish(robot1_state);
+
+
+			robot1_state=3;
+
+
+			///////////////////////ROBOT STATE 3//////////////////////////////  CONTROL FASE 3  Retirarse de la base del objeto
+			state_robot1_publisher -> publish(robot1_state);
+
+
+			robot1_state=4;
+
+			///////////////////////ROBOT STATE 4//////////////////////////////  CONTROL FASE 4  Aproximacion objetivo
+			state_robot1_publisher -> publish(robot1_state);
+
+			robot1_state=5;
+
+
+			///////////////////////ROBOT STATE 5//////////////////////////////  CONTROL FASE 5  Soltar objeto
+			state_robot1_publisher -> publish(robot1_state);
+
+			robot1_state=6;
+
+
+			///////////////////////ROBOT STATE 6//////////////////////////////  CONTROL FASE 6  Retirarse de la base objetivo
+			state_robot1_publisher -> publish(robot1_state);
+
+			robot1_state=7;
+
+			///////////////////////ROBOT STATE 7//////////////////////////////  CONTROL FASE 7  Regresar a la posicion inicial
+			state_robot1_publisher -> publish(robot1_state);
+
+			robot1_state=8;
+
+			///////////////////////ROBOT STATE 8//////////////////////////////  CONTROL FASE 8  Control Terminado
+			state_robot1_publisher -> publish(robot1_state);
+
+
+			/////////////////FIN DE CONTROL///////////////////////////////////////////////////////////
+
+
 		}
+
 
 	private:
 
 
-
-		void timer_callback()
-		{
-			if (robot1_state==-1)
-			{
-				RCLCPP_INFO(this->get_logger(), "Iniciando Nodo de Control de Robot 1 y Calibrando Brazo");
-
-				sumPIDb1=-5;
-				sumPIDb2=5;
-				sumPIDb3=5;
-				//send_vel();
-
-				if(LS_B1_min==1 and LS_B2_max==1 and LS_B3_max==1){
-					armcal=1;
-				}
-
-				if (armcal==1)
-				{
-					robot1_state = 0;
-					sumPIDb1=0;
-					sumPIDb2=0;
-					sumPIDb3=0;
-					//send_vel();
-				}
-
-			}
-
-			if (robot1_state==0)
-			{
-				RCLCPP_INFO(this->get_logger(), "Inicializando Brazo y Esperando Conexion de Robot 2");
-
-				B1goal=0;
-				B2goal=0;
-				B3goal=0;
-
-				PIDcicleArm();
-
-				RCLCPP_INFO(this->get_logger(), "Error B1 R1 = %f", errorB1);
-				RCLCPP_INFO(this->get_logger(), "Error B2 R1 = %f", errorB2);
-				RCLCPP_INFO(this->get_logger(), "Error B3 R1 = %f", errorB3);
-
-				
-
-				if (abs(errorB1)<0.1 and abs(errorB2)<0.1 and abs(errorB3)<0.1)
-				{
-					arminit=1;
-				}
-
-				if (arminit==1)
-				{
-					if (robot2_state==0 or robot2_state==1)
-					{
-						robot1_state=1;
-						RCLCPP_INFO(this->get_logger(), "Iniciando Control de Robot 1");
-						Xinit=Xrobot1;
-						Yinit=Yrobot1;
-						ANGinit=ANGrobot1;
-					}
-				}
-
-				//send_vel();
-				
-			}
-
-			if (robot1_state==1)
-			{
-				RCLCPP_INFO(this->get_logger(), "Control Fase 1 en Proceso");
-				control_F1();			//Aproximación a objeto
-			}
-
-			if (robot1_state==2)
-			{
-				RCLCPP_INFO(this->get_logger(), "Control Fase 2 en Proceso");
-				control_F2();			//Tomar objeto
-			}
-
-			if (robot1_state==3)
-			{
-				RCLCPP_INFO(this->get_logger(), "Control Fase 3 en Proceso");
-				control_F3();			//Retirarse de la base del objeto
-			}
-
-			if (robot1_state==4)
-			{
-				RCLCPP_INFO(this->get_logger(), "Control Fase 4 en Proceso");
-				control_F4();			//Aproximación a objetivo
-			}
-
-			if (robot1_state==5)
-			{
-				RCLCPP_INFO(this->get_logger(), "Control Fase 5 en Proceso");
-				control_F5();			//Soltar objeto
-			}
-
-			if (robot1_state==6)
-			{
-				RCLCPP_INFO(this->get_logger(), "Control Fase 6 en Proceso");
-				control_F6();			//Retirarse de la base objetivo
-			}
-
-			if (robot1_state==7)
-			{
-				RCLCPP_INFO(this->get_logger(), "Control Fase 7 en Proceso");
-				control_F7();			//Regresar a posición inicial
-			}
-
-			if (robot1_state==8)
-			{
-				RCLCPP_INFO(this->get_logger(), "Control Plataforma 1 Terminado");
-				velx=0;
-				vely=0;
-				velang=0;
-				
-				sumPIDx=0;
-				sumPIDy=0;
-				sumPIDang=0;
-
-				send_vel();
-			}
-
-
-			conv_world_2_robot();
-			send_vel();
-
-
-
-			 interfaces::msg::RobotState msg_publ;
-			 msg_publ.robot_state=robot1_state;	
-			 state_robot1_publisher->publish(msg_publ);
-
-			 save_data();
-			 //RCLCPP_INFO(this->get_logger(), "Fase %d", robot1_state);
-		}
-
-
+/*\
 		void control_F1()  //Aproximacion a objeto
 		{
 			Xgoal=Xobj1-(220*cos(ANGobj1)) -10;
@@ -269,7 +231,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 					}
 
 
-				
+				state_robot1_publisher
 			}
 
 
@@ -406,9 +368,10 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 		}
 
 		
-
+*/
 
 		rclcpp::Publisher<interfaces::msg::RobotState>::SharedPtr state_robot1_publisher;
+		rclcpp::Publisher<interfaces::msg::RobotObjective>::SharedPtr objective_robot1_publisher;
 
 };
 
