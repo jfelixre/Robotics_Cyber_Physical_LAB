@@ -24,7 +24,8 @@
 #include <geometry_msgs/msg/pose.hpp>
 #include <interfaces/msg/positions.hpp>
 #include <interfaces/srv/a_star_service.hpp>
-#include <interfaces/msg/path.hpp>
+#include <geometry_msgs/msg/polygon.hpp>
+#include <geometry_msgs/msg/point32.h>
 
 using std::placeholders::_1;
 using namespace std::chrono_literals;
@@ -54,6 +55,8 @@ class Compute_Trajectory : public rclcpp::Node
 
            subs_position = this->create_subscription<interfaces::msg::Positions>(
                "/positions", 1, std::bind(&Compute_Trajectory::subs_callback,this,_1));
+
+            publisher_path = this->create_publisher<geometry_msgs::msg::Polygon>("/robot_1/path",10);
 
             //client = this -> create_client<interfaces::srv::AStarService>("a_star_server");
 
@@ -390,6 +393,7 @@ class Compute_Trajectory : public rclcpp::Node
             path_x = result.get()->path_y;
             path_y = result.get()->path_x;
 
+
             //int path_size = path_x.size();
 /*
             for (int i=0; i<path_x.size(); i++){
@@ -397,14 +401,18 @@ class Compute_Trajectory : public rclcpp::Node
                 std::cout << "y = " << path_y[i] << std::endl;
             }
 */
-            interfaces::msg::Path path_msg;
+            geometry_msgs::msg::Polygon path_msg;
 
             for (int i=0; i<path_size; i++){
-                map_color.at<cv::Vec3b>(path_x[i],path_y[i]) = cv::Vec3b(0,0,255);
-                path_msg[i].x = path_x[i];
+                map_color.at<cv::Vec3b>(path_x[i], path_y[i]) = cv::Vec3b(0,0,255);
+                geometry_msgs::msg::Point32 point;
+                point.y = ((path_x[i]-(n_x_spaces/2))*x_world)/n_x_spaces * -1;
+                point.x = ((path_y[i]-(n_y_spaces/2))*y_world)/n_y_spaces;
+                path_msg.points.push_back(point);
 
             }
 
+           publisher_path -> publish(path_msg);
 
             ///////////////////////////////////////////////
 
@@ -424,6 +432,8 @@ class Compute_Trajectory : public rclcpp::Node
 
 
     rclcpp::Subscription<interfaces::msg::Positions>::SharedPtr subs_position;
+
+    rclcpp::Publisher<geometry_msgs::msg::Polygon>::SharedPtr publisher_path;
 };
 
 
