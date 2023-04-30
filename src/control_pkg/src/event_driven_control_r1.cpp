@@ -1,5 +1,9 @@
 #include "rclcpp/rclcpp.hpp"
 #include <interfaces/msg/robot_state.hpp>
+#include <interfaces/msg/positions.hpp>
+#include <tf2_ros/transform_listener.h>
+#include <tf2_sensor_msgs/tf2_sensor_msgs.h>
+#include <tf2/LinearMath/Matrix3x3.h>
 
 
 #include <memory>
@@ -20,11 +24,11 @@ int robot2_state=-1;
 
 
 //Variables de posición
-int Xobj1=-1;
-int Yobj1=-1;
+float Xobj1=-1;
+float Yobj1=-1;
 float ANGobj1=-1;
-int Xtgt=-1;
-int Ytgt=-1;
+float Xtgt=-1;
+float Ytgt=-1;
 float ANGtgt=-1;
 
 //Variables para objetivos
@@ -38,21 +42,13 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 		Event_Driven_Control_R1() : Node("event_driven_control_r1")
 		{
 
-      		state_robot1_publisher = create_publisher<interfaces::msg::RobotState>("robot1_state",1);
+      		state_robot1_publisher = create_publisher<interfaces::msg::RobotState>("robot_1/state",1);
       		
-      		state_robot2_subscriber= create_subscription<interfaces::msg::RobotState>(
-      			"/robot2_state", 1, std::bind(&Event_Driven_Control_R1::r2_subs,this,_1));
+
 			
 		}
 
 	private:
-
-		void r2_subs(const interfaces::msg::RobotState::SharedPtr msg) const
-		{
-			robot2_state=msg->robot_state;
-		}
-
-		
 
 
 
@@ -351,12 +347,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 		void control_F5()  //Soltar objeto
 		{
 			Xgoal=Xtgt-(150*cos(ANGtgt));
-			Ygoal=Ytgt-(150*sin(ANGtgt));
-			ANGgoal=ANGtgt;
-			//RCLCPP_INFO(this->get_logger(), "Entro a control_F1");
-			PIDcicle();
-			RCLCPP_INFO(this->get_logger(), "Error X R1 = %d", errorX);
-			RCLCPP_INFO(this->get_logger(), "Error Y R1 = %d", errorY);
+			Ygoal=Ytgt-(150*sin(ANGtgt));robot2_state=msg->robot_state;, "Error Y R1 = %d", errorY);
 			RCLCPP_INFO(this->get_logger(), "Error Ang R1 = %f", errorAng);
 
 			if (abs(errorX)<8 && abs(errorY)<8 && abs(errorAng)<0.2)
@@ -417,36 +408,49 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 		
 
 
-
-
-		rclcpp::Subscription<interfaces::msg::ImgData>::SharedPtr subs_img_data;
-		rclcpp::TimerBase::SharedPtr timer_;
-		size_t count_;
 		rclcpp::Publisher<interfaces::msg::RobotState>::SharedPtr state_robot1_publisher;
-		rclcpp::Subscription<interfaces::msg::RobotState>::SharedPtr state_robot2_subscriber;
 
 };
 
 
-class Event_Driven_Control_R1 : public rclcpp::Node
+class Node_Subs_Pose_R1 : public rclcpp::Node
 {
 	public:
-		Event_Driven_Control_R1() : Node("event_driven_control_r1")
+		Node_Subs_Pose_R1() : Node("node_subs_pose_r1")
 		{
-
-      		state_robot1_publisher = create_publisher<interfaces::msg::RobotState>("robot1_state",1);
-      		
-      		state_robot2_subscriber= create_subscription<interfaces::msg::RobotState>(
-      			"/robot2_state", 1, std::bind(&Event_Driven_Control_R1::r2_subs,this,_1));
+     		
+      		poses_subscriber= create_subscription<interfaces::msg::Positions>(
+      			"/positions", 1, std::bind(&Node_Subs_Pose_R1::pose_subs,this,_1));
 			
 		}
 
 	private:
 
-		void r2_subs(const interfaces::msg::RobotState::SharedPtr msg) const
+		void pose_subs(const interfaces::msg::Positions::SharedPtr msg) const
 		{
-			robot2_state=msg->robot_state;
+			Xobj1= msg->pos_object1.position.x;
+			Yobj1= msg->pos_object1.position.y;
+			tf2::Quaternion Obj_quat(msg->pos_object1.orientation.x, msg->pos_object1.orientation.y, msg->pos_object1.orientation.z, msg->pos_object1.orientation.w);
+            tf2::Matrix3x3 Obj_m(Obj_quat);
+            double Obj_orientation_x, Obj_orientation_y, Obj_orientation_z;
+            Obj_m.getRPY(Obj_orientation_x, Obj_orientation_y, Obj_orientation_z);
+			ANGobj1= Obj_orientation_z;
+
+
+
+			Xtgt=msg->pos_object1.position.x;
+			Ytgt=msg->pos_object1.position.y;
+			tf2::Quaternion Tgt_quat(msg->pos_target.orientation.x, msg->pos_target.orientation.y, msg->pos_target.orientation.z, msg->pos_target.orientation.w);
+            tf2::Matrix3x3 Tgt_m(Tgt_quat);
+            double Tgt_orientation_x, Tgt_orientation_y, Tgt_orientation_z;
+            Obj_m.getRPY(Obj_orientation_x, Obj_orientation_y, Obj_orientation_z);
+			ANGtgt=Obj_orientation_z;
 		}
+
+
+
+		rclcpp::Subscription<interfaces::msg::Positions>::SharedPtr poses_subscriber;
+
 
 };
 
@@ -457,7 +461,7 @@ class Node_Subs_State_R2 : public rclcpp::Node
 		{
      		
       		state_robot2_subscriber= create_subscription<interfaces::msg::RobotState>(
-      			"/robot2_state", 1, std::bind(&Node_Subs_State_R2::r2_subs,this,_1));
+      			"/robot_2/state", 1, std::bind(&Node_Subs_State_R2::r2_subs,this,_1));
 			
 		}
 
