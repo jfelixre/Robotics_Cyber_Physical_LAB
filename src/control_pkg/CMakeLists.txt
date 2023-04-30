@@ -79,6 +79,30 @@ ament_target_dependencies(compute_trajectory
     tf2_ros
     )
 
+  add_executable(compute_trajectory_r1 src/compute_trajectory_r1.cpp)
+  ament_target_dependencies(compute_trajectory_r1
+    sensor_msgs
+    std_msgs
+    rclcpp
+    cv_bridge
+    interfaces
+    tf2
+    tf2_ros
+    geometry_msgs
+    )
+
+  add_executable(event_driven_control_r1 src/event_driven_control_r1.cpp)
+  ament_target_dependencies(event_driven_control_r1
+    sensor_msgs
+    std_msgs
+    rclcpp
+    cv_bridge
+    interfaces
+    tf2
+    tf2_ros
+    geometry_msgs
+    )
+
 install(TARGETS
   control_pid_p1_node
   control_pid_p2_node
@@ -86,6 +110,8 @@ install(TARGETS
   control_pid_r2_node
   compute_trajectory
   a_star_server
+  compute_trajectory_r1
+  event_driven_control_r1
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
