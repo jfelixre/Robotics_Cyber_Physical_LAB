@@ -36,6 +36,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/AStarService.srv"
   "msg/Path.msg"
   "msg/RobotObjective.msg"
+  "srv/EventControlR1.srv"
   DEPENDENCIES geometry_msgs
  )
 

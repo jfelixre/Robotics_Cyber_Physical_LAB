@@ -5,6 +5,7 @@
 #include <tf2_sensor_msgs/tf2_sensor_msgs.h>
 #include <tf2/LinearMath/Matrix3x3.h>
 #include <interfaces/msg/robot_objective.hpp>
+#include <interfaces/srv/event_control_r1.hpp>
 
 #include <memory>
 #include <cinttypes>
@@ -44,9 +45,15 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 		{
 
       		state_robot1_publisher = create_publisher<interfaces::msg::RobotState>("robot_1/state",1);
-			objective_robot1_publisher = create_publisher<interfaces::msg::RobotObjective>("robot_1/objective",1);
-      		
 
+			objective_robot1_publisher = create_publisher<interfaces::msg::RobotObjective>("robot_1/objective",1);
+
+			 service_ = this->create_service<interfaces::srv::AStarService>(
+                "a_star_server", std::bind(&AStarServer::a_star_caller, this,
+                std::placeholders::_1, std::placeholders::_2));
+
+      		
+			
 
 			/////////////////////ROBOT STATE -1/////////////////////////////     CALIBRAR BRAZO
 			state_robot1_publisher -> publish(robot1_state);
@@ -58,7 +65,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 
 
 
-
+/*
 			///////////////////////ROBOT STATE 0//////////////////////////////  INICIALIZAR BRAZO Y ESPERAR CONEXIÓN DE ROBOT 2
 			state_robot1_publisher -> publish(robot1_state);
 
@@ -73,6 +80,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 				robot1_state=1;
 
 				RCLCPP_INFO(this->get_logger(), "Iniciando Control de Robot 1");
+
 
 
 
@@ -139,7 +147,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 
 
 			/////////////////FIN DE CONTROL///////////////////////////////////////////////////////////
-
+*/
 
 		}
 
@@ -184,7 +192,9 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 			
 		}
 
-		void control_F2()  //Tomar objeto
+		void control_F2()  //Tomar objetoterminate called after throwing an instance of 'rclcpp::exceptions::RCLBadAlloc'
+  what():  std::bad_alloc
+
 		{
 			Xgoal=Xobj1-(190*cos(ANGobj1))-10;
 			Ygoal=Yobj1-(190*sin(ANGobj1));

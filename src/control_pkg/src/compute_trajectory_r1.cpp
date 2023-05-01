@@ -367,10 +367,7 @@ class Compute_Trajectory_R1 : public rclcpp::Node
          //    std::cout << "esperar" << std::endl;
             result.wait();
            // while( result.get()->path_x.empty()){
-            //   std::cout << "esperando" << std::endl;
-            //}
-
-          //  std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            //   std::cout << "esperainterfaces_for(std::chrono::milliseconds(1000));
 
 
            //  std::cout << "termina espera" << std::endl;
