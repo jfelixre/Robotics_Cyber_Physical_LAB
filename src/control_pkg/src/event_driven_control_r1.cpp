@@ -5,7 +5,7 @@
 #include <tf2_sensor_msgs/tf2_sensor_msgs.h>
 #include <tf2/LinearMath/Matrix3x3.h>
 #include <interfaces/msg/robot_objective.hpp>
-#include <interfaces/srv/event_control_r1.hpp>
+#include <interfaces/srv/event_control.hpp>
 
 #include <memory>
 #include <cinttypes>
@@ -17,11 +17,12 @@
 
 using std::placeholders::_1;
 using namespace std::chrono_literals;
+using namespace std;
 
 
 //Variables estados de robots
-int robot1_state=-1;
-int robot2_state=-1;
+int32_t robot1_state=-1;
+int32_t robot2_state=-1;
 
 
 //Variables de posición
@@ -48,112 +49,124 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 
 			objective_robot1_publisher = create_publisher<interfaces::msg::RobotObjective>("robot_1/objective",1);
 
-			 service_ = this->create_service<interfaces::srv::AStarService>(
-                "a_star_server", std::bind(&AStarServer::a_star_caller, this,
+			service_event_control = this->create_service<interfaces::srv::EventControl>(
+                "event_control_r1", std::bind(&Event_Driven_Control_R1::event_control_handler, this,
                 std::placeholders::_1, std::placeholders::_2));
 
       		
 			
 
-			/////////////////////ROBOT STATE -1/////////////////////////////     CALIBRAR BRAZO
-			state_robot1_publisher -> publish(robot1_state);
-
-			RCLCPP_INFO(this->get_logger(), "Iniciando Nodo de Control de Robot 1 y Calibrando Brazo");
-			//FALTA CALIBRAR BRAZO
 			
-			robot1_state = 0;    //Poner en 0 cuando termine la calibracion del brazo.
-
-
-
-/*
-			///////////////////////ROBOT STATE 0//////////////////////////////  INICIALIZAR BRAZO Y ESPERAR CONEXIÓN DE ROBOT 2
-			state_robot1_publisher -> publish(robot1_state);
-
-
-				RCLCPP_INFO(this->get_logger(), "Inicializando Brazo y Esperando Conexion de Robot 2");
-
-				while (robot2_state<0)
-				{
-					RCLCPP_INFO(this->get_logger(), "Esperando Conexion de Robot 2");
-				}
-				
-				robot1_state=1;
-
-				RCLCPP_INFO(this->get_logger(), "Iniciando Control de Robot 1");
-
-
-
-
-			///////////////////////ROBOT STATE 1//////////////////////////////  CONTROL FASE 1  Aproximacion al objeto
-			state_robot1_publisher -> publish(robot1_state);
-
-			Xgoal=Xobj1-(0.3*cos(ANGobj1));
-			Ygoal=Yobj1-(0.3*sin(ANGobj1));
-			ANGgoal=ANGobj1;
-
-			RO_msg.point.x = Xgoal;
-			RO_msg.point.y = Ygoal;
-			RO_msg.angle = ANGgoal;
-
-			objective_robot1_publisher -> publish(RO_msg);
-
-
-			//cliente control trayectoria
-
-
-
-
-			robot1_state=2;
-
-
-
-			///////////////////////ROBOT STATE 2//////////////////////////////  CONTROL FASE 2  Tomar objeto
-			state_robot1_publisher -> publish(robot1_state);
-
-
-			robot1_state=3;
-
-
-			///////////////////////ROBOT STATE 3//////////////////////////////  CONTROL FASE 3  Retirarse de la base del objeto
-			state_robot1_publisher -> publish(robot1_state);
-
-
-			robot1_state=4;
-
-			///////////////////////ROBOT STATE 4//////////////////////////////  CONTROL FASE 4  Aproximacion objetivo
-			state_robot1_publisher -> publish(robot1_state);
-
-			robot1_state=5;
-
-
-			///////////////////////ROBOT STATE 5//////////////////////////////  CONTROL FASE 5  Soltar objeto
-			state_robot1_publisher -> publish(robot1_state);
-
-			robot1_state=6;
-
-
-			///////////////////////ROBOT STATE 6//////////////////////////////  CONTROL FASE 6  Retirarse de la base objetivo
-			state_robot1_publisher -> publish(robot1_state);
-
-			robot1_state=7;
-
-			///////////////////////ROBOT STATE 7//////////////////////////////  CONTROL FASE 7  Regresar a la posicion inicial
-			state_robot1_publisher -> publish(robot1_state);
-
-			robot1_state=8;
-
-			///////////////////////ROBOT STATE 8//////////////////////////////  CONTROL FASE 8  Control Terminado
-			state_robot1_publisher -> publish(robot1_state);
-
-
-			/////////////////FIN DE CONTROL///////////////////////////////////////////////////////////
-*/
 
 		}
 
 
 	private:
 
+		rclcpp::Publisher<interfaces::msg::RobotState>::SharedPtr state_robot1_publisher;
+		rclcpp::Publisher<interfaces::msg::RobotObjective>::SharedPtr objective_robot1_publisher;
+		rclcpp::Service<interfaces::srv::EventControl>::SharedPtr service_event_control;
+
+		void event_control_handler(const std::shared_ptr<interfaces::srv::EventControl::Request> request,
+			std::shared_ptr<interfaces::srv::EventControl::Response>      response)
+			{
+
+				/////////////////////ROBOT STATE -1/////////////////////////////     CALIBRAR BRAZO
+				//state_robot1_publisher -> publish(robot1_state);
+
+				RCLCPP_INFO(this->get_logger(), "Iniciando Nodo de Control de Robot 1 y Calibrando Brazo");
+				//FALTA CALIBRAR BRAZO
+				
+				robot1_state = 0;    //Poner en 0 cuando termine la calibracion del brazo.
+
+
+
+	
+				///////////////////////ROBOT STATE 0//////////////////////////////  INICIALIZAR BRAZO Y ESPERAR CONEXIÓN DE ROBOT 2
+				state_robot1_publisher -> publish(robot1_state);
+
+
+					RCLCPP_INFO(this->get_logger(), "Inicializando Brazo y Esperando Conexion de Robot 2");
+
+					while (robot2_state<0)
+					{
+						RCLCPP_INFO(this->get_logger(), "Esperando Conexion de Robot 2");
+					}
+					
+					robot1_state=1;
+
+					RCLCPP_INFO(this->get_logger(), "Iniciando Control de Robot 1");
+
+
+
+
+				///////////////////////ROBOT STATE 1//////////////////////////////  CONTROL FASE 1  Aproximacion al objeto
+				state_robot1_publisher -> publish(robot1_state);
+
+				Xgoal=Xobj1-(0.3*cos(ANGobj1));
+				Ygoal=Yobj1-(0.3*sin(ANGobj1));
+				ANGgoal=ANGobj1;
+
+				RO_msg.point.x = Xgoal;
+				RO_msg.point.y = Ygoal;
+				RO_msg.angle = ANGgoal;
+
+				objective_robot1_publisher -> publish(RO_msg);
+
+
+				//cliente control trayectoria
+
+
+
+
+				robot1_state=2;
+
+
+
+				///////////////////////ROBOT STATE 2//////////////////////////////  CONTROL FASE 2  Tomar objeto
+				state_robot1_publisher -> publish(robot1_state);
+
+
+				robot1_state=3;
+
+
+				///////////////////////ROBOT STATE 3//////////////////////////////  CONTROL FASE 3  Retirarse de la base del objeto
+				state_robot1_publisher -> publish(robot1_state);
+
+
+				robot1_state=4;
+
+				///////////////////////ROBOT STATE 4//////////////////////////////  CONTROL FASE 4  Aproximacion objetivo
+				state_robot1_publisher -> publish(robot1_state);
+
+				robot1_state=5;
+
+
+				///////////////////////ROBOT STATE 5//////////////////////////////  CONTROL FASE 5  Soltar objeto
+				state_robot1_publisher -> publish(robot1_state);
+
+				robot1_state=6;
+
+
+				///////////////////////ROBOT STATE 6//////////////////////////////  CONTROL FASE 6  Retirarse de la base objetivo
+				state_robot1_publisher -> publish(robot1_state);
+
+				robot1_state=7;
+
+				///////////////////////ROBOT STATE 7//////////////////////////////  CONTROL FASE 7  Regresar a la posicion inicial
+				state_robot1_publisher -> publish(robot1_state);
+
+				robot1_state=8;
+
+				///////////////////////ROBOT STATE 8//////////////////////////////  CONTROL FASE 8  Control Terminado
+				state_robot1_publisher -> publish(robot1_state);
+
+
+				/////////////////FIN DE CONTROL///////////////////////////////////////////////////////////
+	
+
+
+			}
 
 /*\
 		void control_F1()  //Aproximacion a objeto
@@ -380,8 +393,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 		
 */
 
-		rclcpp::Publisher<interfaces::msg::RobotState>::SharedPtr state_robot1_publisher;
-		rclcpp::Publisher<interfaces::msg::RobotObjective>::SharedPtr objective_robot1_publisher;
+
 
 };
 
@@ -435,6 +447,8 @@ class Node_Subs_State_R2 : public rclcpp::Node
      		
       		state_robot2_subscriber= create_subscription<interfaces::msg::RobotState>(
       			"/robot_2/state", 1, std::bind(&Node_Subs_State_R2::r2_subs,this,_1));
+
+				std::cout<<"Listo"<<std::endl;
 			
 		}
 
@@ -443,6 +457,7 @@ class Node_Subs_State_R2 : public rclcpp::Node
 		void r2_subs(const interfaces::msg::RobotState::SharedPtr msg) const
 		{
 			robot2_state=msg->robot_state;
+			std::cout<<"R2_State_received"<<std::endl;
 		}
 
 		rclcpp::Subscription<interfaces::msg::RobotState>::SharedPtr state_robot2_subscriber;
@@ -455,7 +470,7 @@ int main(int argc, char * argv[])
 {
 
   	rclcpp::init(argc, argv);
-  	rclcpp::spin(std::make_shared<Event_Driven_Control_R1>());
+  	//rclcpp::spin(std::make_shared<Event_Driven_Control_R1>());
 	
 	auto node = std::make_shared<Event_Driven_Control_R1>();
     auto node_subs_pose_r1 = std::make_shared<Node_Subs_Pose_R1>();
