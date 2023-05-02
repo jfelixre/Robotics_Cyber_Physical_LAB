@@ -37,6 +37,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Path.msg"
   "msg/RobotObjective.msg"
   "srv/EventControl.srv"
+  "srv/TrajectoryControl.srv"
   DEPENDENCIES geometry_msgs
  )
 

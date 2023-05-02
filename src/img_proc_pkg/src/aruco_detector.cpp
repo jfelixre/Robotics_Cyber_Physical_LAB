@@ -151,7 +151,7 @@ class Aruco_Detector : public rclcpp::Node
 
     void topic_callback(const sensor_msgs::msg::Image::SharedPtr msg)
     {
-      RCLCPP_INFO(this->get_logger(), "Received image" );
+      //RCLCPP_INFO(this->get_logger(), "Received image" );
       
       cv_bridge::CvImageConstPtr image_bridge;
 	    //cv_bridge::toCvCopy(msg, RGB8)->image;

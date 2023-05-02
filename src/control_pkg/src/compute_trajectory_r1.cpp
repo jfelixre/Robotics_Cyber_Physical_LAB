@@ -378,9 +378,6 @@ class Compute_Trajectory_R1 : public rclcpp::Node
 
             int path_size = result.get()->path_size;
 
-           // std::cout << "path_size" << std::endl;
-
-
             path_x.resize(path_size);
             path_y.resize(path_size);
 
@@ -409,7 +406,10 @@ class Compute_Trajectory_R1 : public rclcpp::Node
 
             }
 
-           publisher_path -> publish(path_msg);
+            if (!path_msg.points.empty()){
+                publisher_path -> publish(path_msg);
+            }
+            
 
             ///////////////////////////////////////////////
 

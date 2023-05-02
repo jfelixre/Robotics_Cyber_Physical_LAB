@@ -6,6 +6,7 @@
 #include <tf2/LinearMath/Matrix3x3.h>
 #include <interfaces/msg/robot_objective.hpp>
 #include <geometry_msgs/msg/polygon.hpp>
+#include <interfaces/srv/trajectory_control.hpp>
 
 #include <memory>
 #include <cinttypes>
@@ -26,22 +27,39 @@ float Y_Robot=-1;
 float ANG_Robot=-1;
 
 //Variables de tiempo y control
-    const double tf = 60; // tiempo de simulacion
+    const double tf = 30; // tiempo de simulacion
     const double ts = 0.05; // tiempo de muestreo
-    const int N = std::round((tf + ts) / ts); // cantidad de muestras
+    //const int N = std::round((tf + ts) / ts); // cantidad de muestras 
+    const int N = 601;     //N = 1201 para 60 s y 601 para 30s
     std::vector<std::vector<double>> he(2, std::vector<double>(1));
     std::vector<std::vector<double>> J(2, std::vector<double>(2));
     std::vector<std::vector<double>> K(2, std::vector<double>(2));
     std::vector<std::vector<double>> qpRef(2, std::vector<double>(1));
 
-    //double x1p[N] = {};
-    //double y1p[N] = {};
 
-    //double t[N+1];
+    // TRAYECTORIA DESEADA
+    double hxd[N] = {};
+    double hyd[N] = {};
 
-    //for (int i = 0; i <= N; ++i) {
-    //    t[i] = i * ts;
-    //}
+    double hxdp[N] = {};
+    double hydp[N] = {};
+
+    // ERRORES
+    double hxe[N] = {};
+    double hye[N] = {};
+
+
+
+    double t[N];
+
+    int k = 0;  //Step control
+
+    bool control_active = false;
+
+    double uRef[N] = {};  // Velocidad lineal en metros/segundos [m/s]
+    double wRef[N] = {};  // Velocidad angular en radianes/segundos [rad/s]
+    
+
 
 
 
@@ -50,13 +68,32 @@ class Control_Trajectory_R1 : public rclcpp::Node
 	public:
 		Control_Trajectory_R1() : Node("control_trajectory_r1")
 		{
-           // service_ = this->create_service<interfaces::srv::AStarService>(
-             //   "a_star_server", std::bind(&AStarServer::a_star_caller, this,
-               // std::placeholders::_1, std::placeholders::_2));
+           service_trajectory_control = this->create_service<interfaces::srv::TrajectoryControl>(
+                "trajectory_control_server_R1", std::bind(&Control_Trajectory_R1::trajectory_control_caller, this,
+                std::placeholders::_1, std::placeholders::_2));
+
+            
 
         }
 
     private:
+
+        rclcpp::Service<interfaces::srv::TrajectoryControl>::SharedPtr service_trajectory_control;
+        
+        
+        void trajectory_control_caller(const std::shared_ptr<interfaces::srv::TrajectoryControl::Request> request,
+          std::shared_ptr<interfaces::srv::TrajectoryControl::Response>      response)
+		{
+            std::cout << "service start" << std::endl;
+            control_active = true;
+            rclcpp::sleep_for(std::chrono::seconds(30));
+            response -> success = control_active;
+            std::cout << "service finish" << std::endl;
+
+        }
+
+
+
 
 };
 
@@ -76,8 +113,101 @@ class Node_Subs_Path : public rclcpp::Node
     rclcpp::Subscription<geometry_msgs::msg::Polygon>::SharedPtr subs_path;
 
      void subs_path_callback(const geometry_msgs::msg::Polygon::SharedPtr path_msg)
-        {
-        //    path = path_msg->points;
+        {   
+
+           // std::cout << "subs path" << k << std::endl;
+
+            memset(hxd, 0, sizeof(hxd));
+            memset(hyd, 0, sizeof(hyd));
+
+
+            
+            int n_points= path_msg->points.size();
+           
+            
+            //colocar primer punto del mensaje en el espacio actual (k) de la trayectoria deseada
+            hxd[k] = path_msg->points[0].x;
+            hyd[k] = path_msg->points[0].y;
+            
+
+            //colocar el ultimo punto del mensaje en el ultimo espacio de la trayectoria deseada
+            hxd[N] = path_msg->points[n_points-1].x;
+            hyd[N] = path_msg->points[n_points-1].y;
+           
+
+            //calcular espacios entre puntos
+            
+
+            int step_size = floor((N - k)/n_points);
+            
+
+            //Colocar los puntos del mensaje en el espacio que corresponden
+            int max_size_i;
+
+            for (int i = 1; i<(n_points); i++){
+                hxd[k+(step_size*i)] = path_msg->points[i].x;
+                hyd[k+(step_size*i)] = path_msg->points[i].y;
+                max_size_i = k + (step_size*(i));
+            }
+
+            //for (int i=0; i<=N; i++){
+            //    std::cout << hxd[i] << "  " << hyd[i] << std::endl;
+            //}
+
+            for (int i = 0; i<(n_points-1); i++){
+                hxd[k+(step_size*i)] = path_msg->points[i].x;
+
+                double dx = (hxd[k+(step_size*(i+1))] - hxd[k+(step_size*i)])/(step_size+1);
+                double dy = (hyd[k+(step_size*(i+1))] - hyd[k+(step_size*i)])/(step_size+1);
+
+                for (int j=1; j<step_size; j++){
+                    hxd[(k+(step_size*i))+j] = hxd[(k+(step_size*i))+j-1]+dx;
+                    hyd[(k+(step_size*i))+j] = hyd[(k+(step_size*i))+j-1]+dy;
+                }
+            }
+                
+
+            //std::cout<<max_size_i<<std::endl;
+
+                double dx_l = (hxd[N] - hxd[max_size_i])/(N-max_size_i);
+                double dy_l = (hyd[N] - hyd[max_size_i])/(N-max_size_i);
+
+                for (int i=(max_size_i+1); i<N; i++){
+                    hxd[i] = hxd[i-1]+dx_l;
+                    hyd[i] = hyd[i-1]+dy_l;
+                }
+
+
+           
+
+            //for (int i=0; i<=N; i++){
+            //     std::cout << hxd[i] << "  " << hyd[i] << std::endl;
+            //}
+            
+
+            //Derivadas
+
+            hxdp[0]= 0;
+            hydp[0]= 0;
+
+            hxdp[N]= 0;
+            hydp[N]= 0;
+
+            for (int i=0; i<=N; i++){
+                hxdp[i]= (hxd[i+1] - hxd[i]) /ts;
+                hydp[i]= (hyd[i+1] - hyd[i]) /ts;
+            }
+
+            hxdp[N]= 0;
+            hydp[N]= 0;
+
+            //for (int i=0; i<=N; i++){
+            //     std::cout << hxdp[i] << "  " << hydp[i] << std::endl;
+            //}
+
+            
+
+
         }
 
 };
@@ -99,6 +229,8 @@ class Node_Subs_Positions : public rclcpp::Node
 
      void subs_pos_callback(const interfaces::msg::Positions::SharedPtr pos_msg)
         {
+
+          //   std::cout << "subs pos" << std::endl;
             X_Robot= pos_msg->pos_robot1.position.x;
 			Y_Robot= pos_msg->pos_robot1.position.y;
 			tf2::Quaternion Robot_quat(pos_msg->pos_robot1.orientation.x, pos_msg->pos_robot1.orientation.y, pos_msg->pos_robot1.orientation.z, pos_msg->pos_robot1.orientation.w);
@@ -111,6 +243,63 @@ class Node_Subs_Positions : public rclcpp::Node
 };
 
 
+class Node_Control_Timer : public rclcpp::Node
+{
+	public:
+		Node_Control_Timer() : Node("node_control_timer")
+		{
+            timer_ = this->create_wall_timer(
+                 50ms, std::bind(&Node_Control_Timer::timer_callback, this));
+          
+
+        }
+
+    private:
+
+    rclcpp::TimerBase::SharedPtr timer_;
+
+    void timer_callback()   //////CONTROL/////////
+    {   
+       if (control_active == true){
+
+            // Errores
+            hxe[k] = hxd[k] - X_Robot;
+            hye[k] = hyd[k] - Y_Robot;
+            std::vector<std::vector<double>> he {{hxe[k]}, {hye[k]}};
+
+            // Matriz Jacobiana
+            double a = 0;
+            std::vector<std::vector<double>> J {{cos(ANG_Robot), -a*sin(ANG_Robot)}, {sin(ANG_Robot), a*cos(ANG_Robot)}};
+            
+            // Parametros de control
+            std::vector<std::vector<double>> K {{1, 0}, {0, 1}};
+            
+            // Velocidades deseadas
+            std::vector<std::vector<double>> hdp {{hxdp[k]}, {hydp[k]}};
+            
+            // Ley de control
+            std::vector<std::vector<double>> qpRef = {{0}, {0}};
+            qpRef[0][0] = J[0][0]*(hdp[0][0]+K[0][0]*he[0][0]) + J[0][1]*(hdp[1][0]+K[0][1]*he[1][0]);
+            qpRef[1][0] = J[1][0]*(hdp[0][0]+K[1][0]*he[0][0]) + J[1][1]*(hdp[1][0]+K[1][1]*he[1][0]);
+            
+            // APLICAR ACCIONES DE CONTROL
+            uRef[k] = qpRef[0][0];
+            wRef[k] = qpRef[1][0];
+
+           // std::cout << "U" << uRef[k] << "  W" << wRef[k] << std::endl;
+
+            k++;
+
+            if (k>N){
+                k=0;
+                control_active = false;
+            }
+
+       }
+    }
+
+};
+
 int main(int argc, char * argv[])
 {
 
@@ -120,11 +309,13 @@ int main(int argc, char * argv[])
 	auto node = std::make_shared<Control_Trajectory_R1>();
     auto node_subs_path = std::make_shared<Node_Subs_Path>();
 	auto node_subs_positions = std::make_shared<Node_Subs_Positions>();
+    auto node_control_timer = std::make_shared<Node_Control_Timer>();
 
     rclcpp::executors::MultiThreadedExecutor executor;
     executor.add_node(node);
     executor.add_node(node_subs_path);
 	executor.add_node(node_subs_positions);
+    executor.add_node(node_control_timer);
     executor.spin();
 
  	rclcpp::shutdown();
