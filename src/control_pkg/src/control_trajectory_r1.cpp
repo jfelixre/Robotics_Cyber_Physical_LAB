@@ -7,6 +7,8 @@
 #include <interfaces/msg/robot_objective.hpp>
 #include <geometry_msgs/msg/polygon.hpp>
 #include <interfaces/srv/trajectory_control.hpp>
+#include <interfaces/srv/robot_vel.hpp>
+#include <Eigen/Dense>
 
 #include <memory>
 #include <cinttypes>
@@ -27,14 +29,14 @@ float Y_Robot=-1;
 float ANG_Robot=-1;
 
 //Variables de tiempo y control
-    const double tf = 30; // tiempo de simulacion
+    const double tf = 60; // tiempo de simulacion
     const double ts = 0.05; // tiempo de muestreo
     //const int N = std::round((tf + ts) / ts); // cantidad de muestras 
-    const int N = 601;     //N = 1201 para 60 s y 601 para 30s
-    std::vector<std::vector<double>> he(2, std::vector<double>(1));
-    std::vector<std::vector<double>> J(2, std::vector<double>(2));
-    std::vector<std::vector<double>> K(2, std::vector<double>(2));
-    std::vector<std::vector<double>> qpRef(2, std::vector<double>(1));
+    const int N = 1201;     //N = 1201 para 60 s y 601 para 30s
+   // std::vector<std::vector<double>> he(2, std::vector<double>(1));
+   // std::vector<std::vector<double>> J(2, std::vector<double>(2));
+   // std::vector<std::vector<double>> K(2, std::vector<double>(2));
+   // std::vector<std::vector<double>> qpRef(2, std::vector<double>(1));
 
 
     // TRAYECTORIA DESEADA
@@ -86,7 +88,7 @@ class Control_Trajectory_R1 : public rclcpp::Node
 		{
             std::cout << "service start" << std::endl;
             control_active = true;
-            rclcpp::sleep_for(std::chrono::seconds(30));
+            rclcpp::sleep_for(std::chrono::seconds(60));
             response -> success = control_active;
             std::cout << "service finish" << std::endl;
 
@@ -248,6 +250,8 @@ class Node_Control_Timer : public rclcpp::Node
 	public:
 		Node_Control_Timer() : Node("node_control_timer")
 		{
+            client_vel = this->create_client<interfaces::srv::RobotVel>("robot1_vel");
+
             timer_ = this->create_wall_timer(
                  50ms, std::bind(&Node_Control_Timer::timer_callback, this));
           
@@ -257,36 +261,78 @@ class Node_Control_Timer : public rclcpp::Node
     private:
 
     rclcpp::TimerBase::SharedPtr timer_;
+    rclcpp::Client<interfaces::srv::RobotVel>::SharedPtr client_vel;
 
     void timer_callback()   //////CONTROL/////////
     {   
        if (control_active == true){
 
+
+            std::cout<< "aqui1" << std::endl;
             // Errores
             hxe[k] = hxd[k] - X_Robot;
             hye[k] = hyd[k] - Y_Robot;
-            std::vector<std::vector<double>> he {{hxe[k]}, {hye[k]}};
+            Eigen::MatrixX2d he(2,1);
+            std::cout<< "aqui1.5" << std::endl;
+            he << hxe[k],hye[k];
+
+            std::cout<< "aqui2" << std::endl;
+
 
             // Matriz Jacobiana
-            double a = 0;
-            std::vector<std::vector<double>> J {{cos(ANG_Robot), -a*sin(ANG_Robot)}, {sin(ANG_Robot), a*cos(ANG_Robot)}};
+            double a = 1;
             
+            Eigen::MatrixXd J(2,2);
+            J << std::cos(ANG_Robot), -a*std::sin(ANG_Robot),
+                std::sin(ANG_Robot),  a*std::cos(ANG_Robot);
+            
+
+            std::cout<< "aqui3" << std::endl;
             // Parametros de control
-            std::vector<std::vector<double>> K {{1, 0}, {0, 1}};
+            Eigen::Matrix2d K(2,2);
+            K << 10, 0,
+                0, 10;
             
+
+            std::cout<< "aqui4" << std::endl;
             // Velocidades deseadas
-            std::vector<std::vector<double>> hdp {{hxdp[k]}, {hydp[k]}};
+            Eigen::MatrixX2d hdp(2,1);
+            hdp << hxdp[k], hydp[k];
             
+
+            std::cout<< "aqui5" << std::endl;
             // Ley de control
-            std::vector<std::vector<double>> qpRef = {{0}, {0}};
-            qpRef[0][0] = J[0][0]*(hdp[0][0]+K[0][0]*he[0][0]) + J[0][1]*(hdp[1][0]+K[0][1]*he[1][0]);
-            qpRef[1][0] = J[1][0]*(hdp[0][0]+K[1][0]*he[0][0]) + J[1][1]*(hdp[1][0]+K[1][1]*he[1][0]);
+            Eigen::MatrixXd qpRef(2, 1);
+            qpRef = J.completeOrthogonalDecomposition().pseudoInverse() * (hdp + K * he);
             
+
+            std::cout<< "aqui6" << std::endl;
             // APLICAR ACCIONES DE CONTROL
-            uRef[k] = qpRef[0][0];
-            wRef[k] = qpRef[1][0];
+            uRef[k] = qpRef(0,0);
+            wRef[k] = qpRef(1,0);
 
            // std::cout << "U" << uRef[k] << "  W" << wRef[k] << std::endl;
+
+                   // Integral numerica
+            double angle = ANG_Robot + ts*wRef[k];
+            
+            // Modelo cinematico
+            double velx = uRef[k]*cos(angle);
+            double vely = uRef[k]*sin(angle);
+
+            auto request = std::make_shared<interfaces::srv::RobotVel::Request>();
+
+            request->x_vel = velx;
+            request->y_vel = vely;
+            request->ang_vel = wRef[k];
+            request->b1_vel = 0;
+			request->b2_vel = 0;
+			request->b3_vel = 0;
+			request->g1_vel = 0;
+
+
+            auto result = client_vel->async_send_request(request);
+
 
             k++;
 
