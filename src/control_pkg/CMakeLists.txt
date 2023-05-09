@@ -134,6 +134,39 @@ ament_target_dependencies(compute_trajectory
       tf2
       tf2_ros
       geometry_msgs
+      Eigen3
+      )
+
+  add_executable(test_control2 src/test_control2.cpp)
+  target_include_directories(test_control2 PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+  ament_target_dependencies(test_control2
+    sensor_msgs
+    std_msgs
+    rclcpp
+    cv_bridge
+    interfaces
+    tf2
+    tf2_ros
+    geometry_msgs
+    )
+
+    add_executable(test_control3 src/test_control3.cpp)
+    target_include_directories(test_control3 PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
+  
+    ament_target_dependencies(test_control3
+      sensor_msgs
+      std_msgs
+      rclcpp
+      cv_bridge
+      interfaces
+      tf2
+      tf2_ros
+      geometry_msgs
       )
 
 
@@ -148,6 +181,8 @@ install(TARGETS
   compute_trajectory_r1
   event_driven_control_r1
   control_trajectory_r1
+  test_control2
+  test_control3
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

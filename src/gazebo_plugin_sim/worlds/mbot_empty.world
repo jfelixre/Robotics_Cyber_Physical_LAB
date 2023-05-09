@@ -1,0 +1,391 @@
+<sdf version='1.7'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <model name='mbot'>
+      <link name='base_link'>
+        <inertial>
+          <pose>0.00332 -0.001888 0.003192 0 -0 0</pose>
+          <mass>0.17034</mass>
+          <inertia>
+            <ixx>8.7355e-05</ixx>
+            <ixy>2.5867e-09</ixy>
+            <ixz>2.493e-06</ixz>
+            <iyy>0.00014112</iyy>
+            <iyz>-2.6468e-08</iyz>
+            <izz>0.00021152</izz>
+          </inertia>
+        </inertial>
+        <collision name='base_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/javierfr/Documents/MBOT_Assemble/meshes/base_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='base_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/javierfr/Documents/MBOT_Assemble/meshes/base_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='caster_wheel_joint' type='revolute'>
+        <pose relative_to='base_link'>0.037793 3.2e-05 -0.041118 1.5708 -0 0</pose>
+        <parent>base_link</parent>
+        <child>caster_wheel_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='caster_wheel_link'>
+        <pose relative_to='caster_wheel_joint'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 -0 0 -0 0</pose>
+          <mass>0.0024831</mass>
+          <inertia>
+            <ixx>9.4618e-08</ixx>
+            <ixy>-1.1137e-24</ixy>
+            <ixz>-5.8584e-23</ixz>
+            <iyy>9.4618e-08</iyy>
+            <iyz>1.4572e-23</iyz>
+            <izz>6.6527e-08</izz>
+          </inertia>
+        </inertial>
+        <collision name='caster_wheel_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/javierfr/Documents/MBOT_Assemble/meshes/caster_wheel_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='caster_wheel_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/javierfr/Documents/MBOT_Assemble/meshes/caster_wheel_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='left_wheel_joint' type='revolute'>
+        <pose relative_to='base_link'>-0.023348 0.057482 -0.017197 -1.5708 0 0</pose>
+        <parent>base_link</parent>
+        <child>left_wheel_link</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='left_wheel_link'>
+        <pose relative_to='left_wheel_joint'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0 -0 -0.001749 0 -0 0</pose>
+          <mass>0.023654</mass>
+          <inertia>
+            <ixx>7.7059e-06</ixx>
+            <ixy>-5.5402e-21</ixy>
+            <ixz>4.1918e-24</ixz>
+            <iyy>7.7057e-06</iyy>
+            <iyz>-1.708e-20</iyz>
+            <izz>1.4742e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='left_wheel_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/javierfr/Documents/MBOT_Assemble/meshes/left_wheel_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='left_wheel_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/javierfr/Documents/MBOT_Assemble/meshes/left_wheel_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='right_wheel_joint' type='revolute'>
+        <pose relative_to='base_link'>-0.023348 -0.057518 -0.017197 1.5708 -0 0</pose>
+        <parent>base_link</parent>
+        <child>right_wheel_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='right_wheel_link'>
+        <pose relative_to='right_wheel_joint'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0 0 -0.001722 0 -0 0</pose>
+          <mass>0.023483</mass>
+          <inertia>
+            <ixx>7.7036e-06</ixx>
+            <ixy>2.2739e-11</ixy>
+            <ixz>-1.2185e-22</ixz>
+            <iyy>7.7034e-06</iyy>
+            <iyz>3.1797e-22</iyz>
+            <izz>1.4742e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='right_wheel_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/javierfr/Documents/MBOT_Assemble/meshes/right_wheel_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='right_wheel_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/javierfr/Documents/MBOT_Assemble/meshes/right_wheel_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>-0.004946 -0.09681 0 0 -0 0</pose>
+    </model>
+    <state world_name='default'>
+      <sim_time>25 66000000</sim_time>
+      <real_time>25 190879246</real_time>
+      <wall_time>1683330397 817622435</wall_time>
+      <iterations>25066</iterations>
+      <model name='ground_plane'>
+        <pose>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='mbot'>
+        <pose>0 0 0.049302 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='base_link'>
+          <pose>0 0 0.049302 0 -0 0</pose>
+          <velocity>-0.014748 -7.2e-05 0.002709 -0.002953 -0.122778 -0.007618</velocity>
+          <acceleration>-1.93407 -0.25293 6.69179 2.8647 0.002952 -0.178098</acceleration>
+          <wrench>-0.329449 -0.043084 1.13988 0 -0 0</wrench>
+        </link>
+        <link name='caster_wheel_link'>
+          <pose>0.037792 3.2e-05 0.008191 1.57108 -0.493373 -0.00012</pose>
+          <velocity>-0.009739 -0.000579 0.009675 0.072373 -1.21701 -0.008134</velocity>
+          <acceleration>8.90182 -0.446172 18.654 0.858891 0.296129 0.069593</acceleration>
+          <wrench>0.022104 -0.001108 0.04632 0 -0 0</wrench>
+        </link>
+        <link name='left_wheel_link'>
+          <pose>-0.023348 0.057481 0.032105 -1.57094 -0.157753 1.9e-05</pose>
+          <velocity>-0.012267 8.3e-05 -0.000321 -0.001918 -0.380928 -0.007395</velocity>
+          <acceleration>3.21088 -0.13728 0.077109 1.13026 1.285 -2.83995</acceleration>
+          <wrench>0.07595 -0.003247 0.001824 0 -0 0</wrench>
+        </link>
+        <link name='right_wheel_link'>
+          <pose>-0.023348 -0.057516 0.032105 1.57097 -0.18067 -3.3e-05</pose>
+          <velocity>-0.013164 8e-05 -3.2e-05 -0.003105 -0.408335 -0.007951</velocity>
+          <acceleration>2.80305 -0.132787 -0.004083 -2.19704 1.36233 -1.14642</acceleration>
+          <wrench>0.065824 -0.003118 -9.6e-05 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>0.355736 -0.388722 0.272042 -0 0.443642 2.10819</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+  </world>
+</sdf>
