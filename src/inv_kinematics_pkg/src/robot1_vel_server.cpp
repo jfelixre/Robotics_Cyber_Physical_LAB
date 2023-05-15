@@ -28,7 +28,7 @@ void send_vel(const std::shared_ptr<interfaces::srv::RobotVel::Request> request,
 			vel_M.vel_m1=(velx + vely + ((La+Lb)*velang))/R;
 			vel_M.vel_m2=(-velx + vely - ((La+Lb)*velang))/R;
 			vel_M.vel_m3=(-velx + vely + ((La+Lb)*velang))/R;
-			vel_M.vel_m4=(+velx + vely - ((La+Lb)*velang))/R;
+			vel_M.vel_m4=(velx + vely - ((La+Lb)*velang))/R;
 
 			vel_M.vel_b1 = request->b1_vel;
 			vel_M.vel_b2 = request->b2_vel;

@@ -18,6 +18,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <math.h>
 
 using std::placeholders::_1;
 using namespace std::chrono_literals;
@@ -40,8 +41,11 @@ double ANG_Robot=-1;
 
 
     // TRAYECTORIA DESEADA
-    //double hxd[N] = {};
-    //double hyd[N] = {};
+    double hx[N] = {};
+    double hy[N] = {};
+    double phi[N] = {};
+
+   
 
     double hxdp[N] = {};
     double hydp[N] = {};
@@ -51,16 +55,19 @@ double ANG_Robot=-1;
     //double hye[N] = {};
 
     // Posición deseada
-    const double hxd = 1;
-    const double hyd = 1;
+   // const double hxd = 1;
+   // const double hyd = 1;
+   // const double hwd = 0;
 
     // Velocidades de referecias - El algoritmo debe calcular las velocidades necesarias. 
-    std::vector<double> uRef(N, 1.0);
+    std::vector<double> uxRef(N, 1.0);
+    std::vector<double> uyRef(N, 1.0);
     std::vector<double> wRef(N, 1.0);
 
     // Errores 
     std::vector<double> hxe(N, 0);
     std::vector<double> hye(N, 0);
+    std::vector<double> hwe(N, 0);
 
     //Variable adicional
     std::vector<double> gain(N, 0);
@@ -297,79 +304,92 @@ class Node_Control_Timer : public rclcpp::Node
        if (control_active == true){
 
 
+        //################### POSICION DESEADA ####################
+        double hxd = 2* cos(t[k]); //0*t
+        double hyd = 1.5 * sin(2*t[k]); //0*t
+        double phid = 0*t[k];
+
+        //################### VELOCIDAD DESEADA ####################
+        double vxd = -2 * sin(t[k]);  //#0 * t
+        double vyd = 3 * cos(2*t[k]); // #0 * t
+        double vwd = 0 * t[k];
+
+
+
             // Parametros Robot
             const double a = 0.15; //meters
 
             //Errores!
-                hxe[k] = hxd - X_Robot;
-                hye[k] = hyd - Y_Robot;
+                hxe[k] = hxd - hx[k];
+                hye[k] = hyd - hy[k];
 
-            Eigen::MatrixXd he(2,1);
-            he << hxe[k], 
-                hye[k];
+                double ErrAng = phid - phi[k];
 
-            std::cout << "Error x = " << hxe[k] << "  Error y = " << hye[k] << std::endl;
-           int sign_cos = 1;
-           int sign_sin = 1;
+                    if (ErrAng >= (1.1 * M_PI)){
+                        ErrAng -= 2 * M_PI;
+                    }
 
-           if ((ANG_Robot > M_PI_2 && ANG_Robot <= M_PI) || (ANG_Robot > -M_PI && ANG_Robot <= -M_PI_2)){
-                sign_cos = -1;
-                std::cout << "cos negativo" << std::endl;
-           }
-
-            if (ANG_Robot < 0){
-                sign_sin = -1;
-                std::cout << "sin negativo" << std::endl;
-           }
+                    if (ErrAng <= (-1.1 * M_PI)){
+                        ErrAng += 2 * M_PI;
+                    }
 
 
-            double cos_ang_robot = cos(ANG_Robot) * sign_cos;
-            double sin_ang_robot = sin(ANG_Robot) * sign_sin;
+                hwe[k] = ErrAng;
+                
+            std::cout << "error x = " <<  hxe[k] << "  error y = " <<hye[k] << " error w = " << hwe[k];
+            
+
+            //Ganancias
+            double Kx = 60;
+            double Ky = 60;
+            double Kw = 30;
+
+
+            Eigen::MatrixXd he(3,1);
+            he << vxd + Kx * tanh(hxe[k]), 
+                  vyd + Ky * tanh(hye[k]),
+                  vwd + Kw * tanh(hwe[k]);
+
+
+
+           
 
             // Matriz Jacobiana
-            Eigen::MatrixXd J(2,2);
-            J << cos_ang_robot, -a * sin_ang_robot,
-                sin_ang_robot, a * cos_ang_robot;
+            Eigen::MatrixXd J(3,3);
+            J << cos(ANG_Robot), -sin(ANG_Robot), 0,
+                 sin(ANG_Robot),  cos(ANG_Robot), 0,
+                 0,                 0,            1;
 
-            double distance = std::sqrt(std::pow(hxd - X_Robot, 2) + std::pow(hyd - Y_Robot, 2));
-
-            const int kmax = 2;
-            const int k1 = 100;
- 
-            gain[k] = kmax / (1 + k1 * distance);
-
-
-            //Parametros de control
-            Eigen::MatrixXd K(2,2);
-
-            K<< gain[k], 0,
-                0, gain[k];
+        
 
             // Define variables
             Eigen::MatrixXd qpRef;
-            double x1p,y1p;
+            
 
             // Ley de control
-            qpRef = J.inverse() * K * he; 
+            qpRef = J.inverse() * he; 
 
             // Aplicar control
-            uRef[k] = qpRef(0, 0);
-            wRef[k] = qpRef(1, 0);
+            uxRef[k] = qpRef(0, 0);
+            uyRef[k] = qpRef(1, 0);
+            wRef[k] = qpRef(2, 0);
 
-            double phi_n = ANG_Robot + ts*wRef[k];
+            //#Velocidades Lineales Actuales
+            double xp = uxRef[k] * cos(phi[k]) - uyRef[k] * sin(phi[k]);
+            double yp = uxRef[k] * sin(phi[k]) + uyRef[k] * cos(phi[k]);
 
+            //#Posicion actual
+            hx[k+1]=hx[k]+xp*ts;
+            hy[k+1]=hy[k]+yp*ts;
+            phi[k+1]=phi[k]+wRef[k]*ts;
 
-            // Modelo cinematico
-            double velx = uRef[k]*cos_ang_robot*100000;
-            double vely = uRef[k]*sin_ang_robot*100000;
-
-            std::cout << "vel x = " << velx << "  vel y = " << vely << std::endl;
+            std::cout << " vel x = " << uxRef[k] << "  vel y = " << uyRef[k] << std::endl;
 
             auto request = std::make_shared<interfaces::srv::RobotVel::Request>();
 
-            request->x_vel = velx;
-            request->y_vel = vely;
-            request->ang_vel = wRef[k]*100;
+            request->x_vel = uxRef[k];
+            request->y_vel = uyRef[k];
+            request->ang_vel = wRef[k];
             request->b1_vel = 0;
 			request->b2_vel = 0;
 			request->b3_vel = 0;
@@ -403,6 +423,10 @@ int main(int argc, char * argv[])
     for (int i = 0; i < N; i++) {
         t[i] = i * ts;
     }
+
+    hx[0] = 0.9; // # Posicion inicial en el eje x en metros [m]
+    hy[0] = -0.7;  //# Posicion inicial en el eje y en metros [m]
+    phi[0] = 180*(M_PI/180); //# Orientacion inicial en radianes [rad]
 	
 	auto node = std::make_shared<Control_Trajectory_R1>();
     auto node_subs_path = std::make_shared<Node_Subs_Path>();
