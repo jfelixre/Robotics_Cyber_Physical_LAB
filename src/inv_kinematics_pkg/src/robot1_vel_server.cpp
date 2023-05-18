@@ -24,11 +24,29 @@ void send_vel(const std::shared_ptr<interfaces::srv::RobotVel::Request> request,
 
 			interfaces::msg::MotorVelsWArm vel_M;
 
-
+			/*
 			vel_M.vel_m1=(velx + vely + ((La+Lb)*velang))/R;
 			vel_M.vel_m2=(-velx + vely - ((La+Lb)*velang))/R;
 			vel_M.vel_m3=(-velx + vely + ((La+Lb)*velang))/R;
 			vel_M.vel_m4=(velx + vely - ((La+Lb)*velang))/R;
+				*/
+
+
+			vel_M.vel_m1=(velx - vely - ((La+Lb)*velang))/R * -1;
+			vel_M.vel_m2=(velx + vely + ((La+Lb)*velang))/R * -1;
+			vel_M.vel_m3=(velx + vely - ((La+Lb)*velang))/R * -1;
+			vel_M.vel_m4=(velx - vely + ((La+Lb)*velang))/R * -1;
+
+			if (vel_M.vel_m1 > 20) { vel_M.vel_m1 = 20;}
+			if (vel_M.vel_m1 < -20) { vel_M.vel_m1 = -20;}
+			if (vel_M.vel_m2 > 20) { vel_M.vel_m2 = 20;}
+			if (vel_M.vel_m2 < -20) { vel_M.vel_m2 = -20;}
+			if (vel_M.vel_m3 > 20) { vel_M.vel_m3 = 20;}
+			if (vel_M.vel_m3 < -20) { vel_M.vel_m3 = -20;}
+			if (vel_M.vel_m4 > 20) { vel_M.vel_m4 = 20;}
+			if (vel_M.vel_m4 < -20) { vel_M.vel_m4 = -20;}
+
+
 
 			vel_M.vel_b1 = request->b1_vel;
 			vel_M.vel_b2 = request->b2_vel;

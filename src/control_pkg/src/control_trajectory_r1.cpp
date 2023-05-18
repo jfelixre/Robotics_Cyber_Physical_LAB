@@ -30,10 +30,10 @@ double Y_Robot=-1;
 double ANG_Robot=-1;
 
 //Variables de tiempo y control
-    const double tf = 60; // tiempo de simulacion
-    const double ts = 0.1; // tiempo de muestreo
+    const double tf = 10800; // tiempo de simulacion
+    const double ts = 0.5; // tiempo de muestreo
     //const int N = std::round((tf + ts) / ts); // cantidad de muestras 
-    const int N = 601;     //N = 1201 para 60 s y 601 para 30s
+    const int N = 21601;     //N = 1201 para 60 s y 601 para 30s
    // std::vector<std::vector<double>> he(2, std::vector<double>(1));
    // std::vector<std::vector<double>> J(2, std::vector<double>(2));
    // std::vector<std::vector<double>> K(2, std::vector<double>(2));
@@ -303,27 +303,37 @@ class Node_Control_Timer : public rclcpp::Node
         
        if (control_active == true){
 
+        
+
 
         //################### POSICION DESEADA ####################
-        double hxd = 2* cos(t[k]); //0*t
-        double hyd = 1.5 * sin(2*t[k]); //0*t
+        double hxd = t[k]; //0*t
+        double hyd = t[k]; //0*t
         double phid = 0*t[k];
 
         //################### VELOCIDAD DESEADA ####################
-        double vxd = -2 * sin(t[k]);  //#0 * t
-        double vyd = 3 * cos(2*t[k]); // #0 * t
+        double vxd = 1 * t[k];  //#0 * t
+        double vyd = 1 * t[k]; // #0 * t
         double vwd = 0 * t[k];
 
+        hx[0]=0*t[k];
+        hy[0]=0*t[k];
+        phi[0]= 0*t[k];
 
 
             // Parametros Robot
             const double a = 0.15; //meters
 
             //Errores!
-                hxe[k] = hxd - hx[k];
-                hye[k] = hyd - hy[k];
+               // hxe[k] = hxd - hx[k];
+               // hye[k] = hyd - hy[k];
 
-                double ErrAng = phid - phi[k];
+                //double ErrAng = phid - phi[k];
+
+                 hxe[k] = hxd - X_Robot;
+                 hye[k] = hyd - Y_Robot;
+
+                 double ErrAng = phid - ANG_Robot;
 
                     if (ErrAng >= (1.1 * M_PI)){
                         ErrAng -= 2 * M_PI;
@@ -340,9 +350,9 @@ class Node_Control_Timer : public rclcpp::Node
             
 
             //Ganancias
-            double Kx = 60;
-            double Ky = 60;
-            double Kw = 30;
+            double Kx = 20;
+            double Ky = 20;
+            double Kw = 10;
 
 
             Eigen::MatrixXd he(3,1);
@@ -383,13 +393,13 @@ class Node_Control_Timer : public rclcpp::Node
             hy[k+1]=hy[k]+yp*ts;
             phi[k+1]=phi[k]+wRef[k]*ts;
 
-            std::cout << " vel x = " << uxRef[k] << "  vel y = " << uyRef[k] << std::endl;
+            std::cout << " vel x = " << uxRef[k] << "  vel y = " << uyRef[k] <<  " vel w = " << wRef[k] << "  t = " << t[k] <<  "   hx[k] = " << hx[k] <<    std::endl;
 
             auto request = std::make_shared<interfaces::srv::RobotVel::Request>();
 
-            request->x_vel = uxRef[k];
-            request->y_vel = uyRef[k];
-            request->ang_vel = wRef[k];
+            request->x_vel = 100; //request->x_vel = uxRef[k]*1;
+            request->y_vel = 0; //request->y_vel = uyRef[k]*1;
+            request->ang_vel = 0; //request->ang_vel = wRef[k]*1;
             request->b1_vel = 0;
 			request->b2_vel = 0;
 			request->b3_vel = 0;
@@ -424,9 +434,9 @@ int main(int argc, char * argv[])
         t[i] = i * ts;
     }
 
-    hx[0] = 0.9; // # Posicion inicial en el eje x en metros [m]
-    hy[0] = -0.7;  //# Posicion inicial en el eje y en metros [m]
-    phi[0] = 180*(M_PI/180); //# Orientacion inicial en radianes [rad]
+   // hx[0] = 0.9; // # Posicion inicial en el eje x en metros [m]
+    //hy[0] = -0.7;  //# Posicion inicial en el eje y en metros [m]
+    //phi[0] = 180*(M_PI/180); //# Orientacion inicial en radianes [rad]
 	
 	auto node = std::make_shared<Control_Trajectory_R1>();
     auto node_subs_path = std::make_shared<Node_Subs_Path>();
