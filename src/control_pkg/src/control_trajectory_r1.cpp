@@ -30,10 +30,10 @@ double Y_Robot=-1;
 double ANG_Robot=-1;
 
 //Variables de tiempo y control
-    const double tf = 10800; // tiempo de simulacion
-    const double ts = 0.5; // tiempo de muestreo
+    const double tf = 180; // tiempo de simulacion
+    const double ts = 0.05; // tiempo de muestreo
     //const int N = std::round((tf + ts) / ts); // cantidad de muestras 
-    const int N = 21601;     //N = 1201 para 60 s y 601 para 30s
+    const int N = 3601;     //N = 1201 para 60 s y 601 para 30s
    // std::vector<std::vector<double>> he(2, std::vector<double>(1));
    // std::vector<std::vector<double>> J(2, std::vector<double>(2));
    // std::vector<std::vector<double>> K(2, std::vector<double>(2));
@@ -78,6 +78,9 @@ double ANG_Robot=-1;
    // double t[N];
 
     int k = 0;  //Step control
+    double hxa = 0;
+    double hya = 0;
+    double phia = 0;
 
 
     //double uRef[N] = {};  // Velocidad lineal en metros/segundos [m/s]
@@ -110,7 +113,10 @@ class Control_Trajectory_R1 : public rclcpp::Node
         void trajectory_control_caller(const std::shared_ptr<interfaces::srv::TrajectoryControl::Request> request,
           std::shared_ptr<interfaces::srv::TrajectoryControl::Response>      response)
 		{
-            
+            hxa = 0;
+            hya = 0;
+            phia = 0;
+
             std::cout << "service start" << std::endl;
             control_active = true;
             rclcpp::sleep_for(std::chrono::seconds(60));
@@ -173,7 +179,7 @@ class Node_Subs_Path : public rclcpp::Node
 
             //Colocar los puntos del mensaje en el espacio que corresponden
             int max_size_i;
-
+el x = 224.26
             for (int i = 1; i<(n_points); i++){
                 hxd[k+(step_size*i)] = path_msg->points[i].x;
                 hyd[k+(step_size*i)] = path_msg->points[i].y;
@@ -287,7 +293,7 @@ class Node_Control_Timer : public rclcpp::Node
 
 
             timer_ = this->create_wall_timer(
-                 100ms, std::bind(&Node_Control_Timer::timer_callback, this));
+                 50ms, std::bind(&Node_Control_Timer::timer_callback, this));
           
 
         }
@@ -307,14 +313,17 @@ class Node_Control_Timer : public rclcpp::Node
 
 
         //################### POSICION DESEADA ####################
-        double hxd = t[k]; //0*t
-        double hyd = t[k]; //0*t
-        double phid = 0*t[k];
+        double hxd = 0.01*t[k]; //0*t
+        double hyd = cos(t[k]/16)*0.5; //0*t
+        double phid = -2.8;
 
         //################### VELOCIDAD DESEADA ####################
-        double vxd = 1 * t[k];  //#0 * t
-        double vyd = 1 * t[k]; // #0 * t
-        double vwd = 0 * t[k];
+
+
+
+        double vxd = (hxd - hxa)/ts;    // double vxd = 1 ;  //#0 * t
+        double vyd = (hyd - hya)/ts;   // double vyd = 1 ; // #0 * t
+        double vwd = (phid - phia)/ts;   // double vwd = 0 ;
 
         hx[0]=0*t[k];
         hy[0]=0*t[k];
@@ -334,7 +343,7 @@ class Node_Control_Timer : public rclcpp::Node
                  hye[k] = hyd - Y_Robot;
 
                  double ErrAng = phid - ANG_Robot;
-
+                /*
                     if (ErrAng >= (1.1 * M_PI)){
                         ErrAng -= 2 * M_PI;
                     }
@@ -342,16 +351,25 @@ class Node_Control_Timer : public rclcpp::Node
                     if (ErrAng <= (-1.1 * M_PI)){
                         ErrAng += 2 * M_PI;
                     }
-
+                */
 
                 hwe[k] = ErrAng;
-                
-            std::cout << "error x = " <<  hxe[k] << "  error y = " <<hye[k] << " error w = " << hwe[k];
+
+                double grados = (ANG_Robot * 180)/M_PI;
+                double cos_val = cos(ANG_Robot);
+                double sin_val = sin(ANG_Robot);
+            
+            
+            std::cout << " Grados= " << grados << " cos = " << cos_val << " sin =" << sin_val;
+            
+
+
+        //    std::cout << "error x = " <<  hxe[k] << "  error y = " <<hye[k] << " error w = " << hwe[k] << " Grados= " << grados;
             
 
             //Ganancias
-            double Kx = 20;
-            double Ky = 20;
+            double Kx = 300;
+            double Ky = 300;
             double Kw = 10;
 
 
@@ -362,12 +380,43 @@ class Node_Control_Timer : public rclcpp::Node
 
 
 
+            
+            int sign_cos = 1;
+            int sign_sin = 1;
+
+
+           if ((ANG_Robot >= 0 && ANG_Robot <= M_PI_2) ){
+                sign_sin = -1;
+                std::cout << "cos negativo" << std::endl;
+           }
+
+           if ((ANG_Robot > M_PI_2 && ANG_Robot <= M_PI) ){
+                sign_sin = -1;
+                sign_cos = -1;
+           }
+
+           
+/*
+            if (ANG_Robot < 0){
+                sign_sin = -1;
+                std::cout << "sin negativo" << std::endl;
+           }
+
+*/
+            double cos_ang_robot = cos(ANG_Robot) * sign_cos;
+            double sin_ang_robot = sin(ANG_Robot) * sign_sin;
+
+            if ((ANG_Robot <= -M_PI_2 && ANG_Robot >= -M_PI) ){
+               cos_ang_robot = sin(ANG_Robot) * -1;
+               sin_ang_robot = cos(ANG_Robot) * -1;
+           }
+
            
 
             // Matriz Jacobiana
             Eigen::MatrixXd J(3,3);
-            J << cos(ANG_Robot), -sin(ANG_Robot), 0,
-                 sin(ANG_Robot),  cos(ANG_Robot), 0,
+            J << cos_ang_robot, -sin_ang_robot, 0,
+                 sin_ang_robot,  cos_ang_robot, 0,
                  0,                 0,            1;
 
         
@@ -393,13 +442,23 @@ class Node_Control_Timer : public rclcpp::Node
             hy[k+1]=hy[k]+yp*ts;
             phi[k+1]=phi[k]+wRef[k]*ts;
 
-            std::cout << " vel x = " << uxRef[k] << "  vel y = " << uyRef[k] <<  " vel w = " << wRef[k] << "  t = " << t[k] <<  "   hx[k] = " << hx[k] <<    std::endl;
+           // std::cout << " vel x = " << uxRef[k] << "  vel y = " << uyRef[k] <<  " vel w = " << wRef[k] << "  t = " << t[k] <<  "   hx[k] = " << hx[k] <<    std::endl;
+            std::cout << " vel x = " << uxRef[k] << "  vel y = " << uyRef[k] <<  " vel w = " << wRef[k] << std::endl;
+
+            float z = sqrt((uxRef[k]*uxRef[k])+(uyRef[k]*uyRef[k]));
+			float Beta = atan2(uyRef[k],uxRef[k]);
+			float Gamma = ANG_Robot - (M_PI/2);
+			float Delta = Beta-Gamma;
+
+			float velx = z * cos(Delta) * -1;
+			float vely = z * sin(Delta);
 
             auto request = std::make_shared<interfaces::srv::RobotVel::Request>();
 
-            request->x_vel = 100; //request->x_vel = uxRef[k]*1;
-            request->y_vel = 0; //request->y_vel = uyRef[k]*1;
-            request->ang_vel = 0; //request->ang_vel = wRef[k]*1;
+
+            request->x_vel = velx * -10;
+            request->y_vel = vely * 10;
+            request->ang_vel = wRef[k]* -1;
             request->b1_vel = 0;
 			request->b2_vel = 0;
 			request->b3_vel = 0;
@@ -410,6 +469,10 @@ class Node_Control_Timer : public rclcpp::Node
 
 
             k++;
+
+            hxa = hxd;
+            hya = hyd;
+            phia = phid;
 
             if (k>N){
                 k=0;
@@ -433,6 +496,8 @@ int main(int argc, char * argv[])
     for (int i = 0; i < N; i++) {
         t[i] = i * ts;
     }
+
+
 
    // hx[0] = 0.9; // # Posicion inicial en el eje x en metros [m]
     //hy[0] = -0.7;  //# Posicion inicial en el eje y en metros [m]
