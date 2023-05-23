@@ -383,7 +383,7 @@ class Node_Control_Timer : public rclcpp::Node
             
             int sign_cos = 1;
             int sign_sin = 1;
-
+/*
 
            if ((ANG_Robot >= 0 && ANG_Robot <= M_PI_2) ){
                 sign_sin = -1;
@@ -395,7 +395,7 @@ class Node_Control_Timer : public rclcpp::Node
                 sign_cos = -1;
            }
 
-           
+         **/  
 /*
             if (ANG_Robot < 0){
                 sign_sin = -1;
@@ -406,12 +406,14 @@ class Node_Control_Timer : public rclcpp::Node
             double cos_ang_robot = cos(ANG_Robot) * sign_cos;
             double sin_ang_robot = sin(ANG_Robot) * sign_sin;
 
+
+/*
             if ((ANG_Robot <= -M_PI_2 && ANG_Robot >= -M_PI) ){
                cos_ang_robot = sin(ANG_Robot) * -1;
                sin_ang_robot = cos(ANG_Robot) * -1;
            }
 
-           
+           */
 
             // Matriz Jacobiana
             Eigen::MatrixXd J(3,3);
@@ -443,7 +445,8 @@ class Node_Control_Timer : public rclcpp::Node
             phi[k+1]=phi[k]+wRef[k]*ts;
 
            // std::cout << " vel x = " << uxRef[k] << "  vel y = " << uyRef[k] <<  " vel w = " << wRef[k] << "  t = " << t[k] <<  "   hx[k] = " << hx[k] <<    std::endl;
-            std::cout << " vel x = " << uxRef[k] << "  vel y = " << uyRef[k] <<  " vel w = " << wRef[k] << std::endl;
+            std::cout << " vel x = " << uxRef[k] << "  vel y = " << uyRef[k] <<  " vel w = " << wRef[k];
+
 
             float z = sqrt((uxRef[k]*uxRef[k])+(uyRef[k]*uyRef[k]));
 			float Beta = atan2(uyRef[k],uxRef[k]);
@@ -453,12 +456,14 @@ class Node_Control_Timer : public rclcpp::Node
 			float velx = z * cos(Delta) * -1;
 			float vely = z * sin(Delta);
 
+            std::cout << " vel x = " << velx << "  vel y = " << vely <<  std::endl;
+
             auto request = std::make_shared<interfaces::srv::RobotVel::Request>();
 
 
-            request->x_vel = velx * -10;
-            request->y_vel = vely * 10;
-            request->ang_vel = wRef[k]* -1;
+            request->x_vel = uxRef[k] * 10;
+            request->y_vel = uyRef[k] * 10;
+            request->ang_vel = wRef[k];
             request->b1_vel = 0;
 			request->b2_vel = 0;
 			request->b3_vel = 0;

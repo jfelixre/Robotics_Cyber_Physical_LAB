@@ -32,10 +32,10 @@ void send_vel(const std::shared_ptr<interfaces::srv::RobotVel::Request> request,
 				*/
 
 
-			vel_M.vel_m1=(velx - vely - ((La+Lb)*velang))/R * -1;
-			vel_M.vel_m2=(velx + vely + ((La+Lb)*velang))/R * -1;
-			vel_M.vel_m3=(velx + vely - ((La+Lb)*velang))/R * -1;
-			vel_M.vel_m4=(velx - vely + ((La+Lb)*velang))/R * -1;
+			vel_M.vel_m1=(velx - vely - ((La+Lb)*velang))/R ;
+			vel_M.vel_m2=(velx + vely + ((La+Lb)*velang))/R ;
+			vel_M.vel_m3=(velx + vely - ((La+Lb)*velang))/R ;
+			vel_M.vel_m4=(velx - vely + ((La+Lb)*velang))/R ;
 
 			if (vel_M.vel_m1 > 20) { vel_M.vel_m1 = 20;}
 			if (vel_M.vel_m1 < -20) { vel_M.vel_m1 = -20;}

@@ -5031,7 +5031,7 @@
         <kinematic>0</kinematic>
         <enable_wind>0</enable_wind>
         <visual name='visual'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0 0 -0 1.57</pose>
           <geometry>
             <mesh>
               <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/R1.dae</uri>
