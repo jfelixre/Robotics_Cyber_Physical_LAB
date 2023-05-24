@@ -179,7 +179,7 @@ class Node_Subs_Path : public rclcpp::Node
 
             //Colocar los puntos del mensaje en el espacio que corresponden
             int max_size_i;
-el x = 224.26
+
             for (int i = 1; i<(n_points); i++){
                 hxd[k+(step_size*i)] = path_msg->points[i].x;
                 hyd[k+(step_size*i)] = path_msg->points[i].y;
