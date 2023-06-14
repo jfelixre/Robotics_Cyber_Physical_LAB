@@ -31,9 +31,9 @@ double ANG_Robot=-1;
 
 //Variables de tiempo y control
     const double tf = 180; // tiempo de simulacion
-    const double ts = 0.05; // tiempo de muestreo
+    const double ts = 0.1; // tiempo de muestreo
     //const int N = std::round((tf + ts) / ts); // cantidad de muestras 
-    const int N = 3601;     //N = 1201 para 60 s y 601 para 30s
+    const int N = 1801;     //N = 1201 para 60 s y 601 para 30s
    // std::vector<std::vector<double>> he(2, std::vector<double>(1));
    // std::vector<std::vector<double>> J(2, std::vector<double>(2));
    // std::vector<std::vector<double>> K(2, std::vector<double>(2));
@@ -92,6 +92,9 @@ double ANG_Robot=-1;
 
     bool control_active = false;
 
+    rclcpp::Client<interfaces::srv::RobotVel>::SharedPtr client_vel;
+
+
 class Control_Trajectory_R1 : public rclcpp::Node
 {
 	public:
@@ -116,6 +119,7 @@ class Control_Trajectory_R1 : public rclcpp::Node
             hxa = 0;
             hya = 0;
             phia = 0;
+            k=0;
 
             std::cout << "service start" << std::endl;
             control_active = true;
@@ -214,11 +218,11 @@ class Node_Subs_Path : public rclcpp::Node
 
            
 
-            //for (int i=0; i<=N; i++){
-            //     std::cout << hxd[i] << ";" << hyd[i] << std::endl;
-            //}
+            for (int i=0; i<=N; i++){
+                 std::cout << hxd[i] << ";" << hyd[i] << std::endl;
+            }
 
-            //std::cout << "fin" << std::endl;
+           RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "path received");
             
 
             //Derivadas
@@ -265,7 +269,7 @@ class Node_Subs_Positions : public rclcpp::Node
 
      void subs_pos_callback(const interfaces::msg::Positions::SharedPtr pos_msg)
         {
-
+            
           //   std::cout << "subs pos" << std::endl;
             X_Robot= pos_msg->pos_robot1.position.x;
 			Y_Robot= pos_msg->pos_robot1.position.y;
@@ -286,12 +290,15 @@ class Node_Control_Timer : public rclcpp::Node
 	public:
 		Node_Control_Timer() : Node("node_control_timer")
 		{
-            client_vel = this->create_client<interfaces::srv::RobotVel>("robot1_vel");
+
+           client_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
+           timer_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);;
+           client_vel = this->create_client<interfaces::srv::RobotVel>("robot1_vel", rmw_qos_profile_services_default, client_cb_group_);
 
 
 
             timer_ = this->create_wall_timer(
-                 50ms, std::bind(&Node_Control_Timer::timer_callback, this));
+                 100ms, std::bind(&Node_Control_Timer::timer_callback, this), timer_cb_group_);
           
 
         }
@@ -301,13 +308,18 @@ class Node_Control_Timer : public rclcpp::Node
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::Client<interfaces::srv::RobotVel>::SharedPtr client_vel;
 
+    rclcpp::CallbackGroup::SharedPtr client_cb_group_;
+    rclcpp::CallbackGroup::SharedPtr timer_cb_group_;
+
     void timer_callback()   //////CONTROL/////////
     { 
+
+        std::cout << " Callback de tiempo" << std::endl;
 
         
        if (control_active == true){
 
-        
+        std::cout << "inicio " << std::endl;
 
 /*
         //################### POSICION DESEADA ####################
@@ -335,7 +347,7 @@ class Node_Control_Timer : public rclcpp::Node
             double vwd = (phid - phia)/ts;
 
             // Parametros Robot
-            const double a = 0.15; //meters
+            //const double a = 0.15; //meters
 
             //Errores!
                // hxe[k] = hxd - hx[k];
@@ -364,7 +376,7 @@ class Node_Control_Timer : public rclcpp::Node
                 double sin_val = sin(ANG_Robot);
             
             
-            std::cout << " Grados= " << grados << " cos = " << cos_val << " sin =" << sin_val;
+            std::cout << " Grados= " << grados << " cos = " << cos_val << " sin =" << sin_val << std::endl;
             
 
 
@@ -381,6 +393,8 @@ class Node_Control_Timer : public rclcpp::Node
             he << vxd + Kx * tanh(hxe[k]), 
                   vyd + Ky * tanh(hye[k]),
                   vwd + Kw * tanh(hwe[k]);
+
+            std::cout << "he =" << he << std::endl;
 
 
 
@@ -400,6 +414,7 @@ class Node_Control_Timer : public rclcpp::Node
                  sin_ang_robot,  cos_ang_robot, 0,
                  0,                 0,            1;
 
+            std::cout<< " J  = " << J << std::endl;
         
 
             // Define variables
@@ -408,6 +423,9 @@ class Node_Control_Timer : public rclcpp::Node
 
             // Ley de control
             qpRef = J.inverse() * he; 
+
+
+            std::cout << "qpRef = " << qpRef << std::endl;
 
             // Aplicar control
             uxRef[k] = qpRef(0, 0);
@@ -445,33 +463,61 @@ class Node_Control_Timer : public rclcpp::Node
             request->x_vel = uxRef[k] * 10;
             request->y_vel = uyRef[k] * 10;
             request->ang_vel = wRef[k];
-            request->b1_vel = 0;
-			request->b2_vel = 0;
-			request->b3_vel = 0;
-			request->g1_vel = 0;
+            request->b1_vel = 0.0;
+			request->b2_vel = 0.0;
+			request->b3_vel = 0.0;
+			request->g1_vel = 0.0;
 
 
+            //auto result = client_vel->async_send_request(request);
+
+            std::cout << " Antes de async request" << std::endl;
             auto result = client_vel->async_send_request(request);
+            std::cout << " Despues de async request" << std::endl;
 
+            std::future_status status = result.wait_for(3s);  // timeout to guarantee a graceful finish
+            if (status == std::future_status::ready) {
+                RCLCPP_INFO(this->get_logger(), "Received response");
+            }
 
+            std::cout << "k = " << k << std::endl;
             k++;
 
             hxa = hxd[k];
             hya = hyd[k];
             phia = phid;
 
+            std::cout << "Despues de asignar valorees anteriores" << std::endl;
+
+            if (k==N){
+
+                request->x_vel = 0.0;
+                request->y_vel = 0.0;
+                request->ang_vel = 0.0;
+                request->b1_vel = 0.0;
+                request->b2_vel = 0.0;
+                request->b3_vel = 0.0;
+                request->g1_vel = 0.0;
+                auto result = client_vel->async_send_request(request);
+                std::cout << "k=N" << k << N << std::endl;
+
+
+            }
+
             if (k>N){
                 k=0;
-                request->x_vel = 0;
-                request->y_vel = 0;
-                request->ang_vel = 0;
-                request->b1_vel = 0;
-                request->b2_vel = 0;
-                request->b3_vel = 0;
-                request->g1_vel = 0;
+                request->x_vel = 0.0;
+                request->y_vel = 0.0;
+                request->ang_vel = 0.0;
+                request->b1_vel = 0.0;
+                request->b2_vel = 0.0;
+                request->b3_vel = 0.0;
+                request->g1_vel = 0.0;
                 auto result = client_vel->async_send_request(request);
                 control_active = false;
             }
+
+            std::cout << "Despues de los ifss" << std::endl;
 
        }
         
@@ -480,16 +526,38 @@ class Node_Control_Timer : public rclcpp::Node
 
  
 };
+/*
+class Node_Client_Vel : public rclcpp::Node
+{
+	public:
+		Node_Client_Vel() : Node("node_client_vel")
+		{
+            client_vel = this->create_client<interfaces::srv::RobotVel>("robot1_vel");
+
+        }
+
+    private:
+
+    
+
+
+};
+*/
+
 
 int main(int argc, char * argv[])
 {
 
-  	rclcpp::init(argc, argv);
+
+    rclcpp::init(argc, argv);
+
+   
   	//rclcpp::spin(std::make_shared<Control_Trajectory_R1>());
 
     for (int i = 0; i < N; i++) {
         t[i] = i * ts;
     }
+    k=0;
 
 
 
@@ -501,12 +569,14 @@ int main(int argc, char * argv[])
     auto node_subs_path = std::make_shared<Node_Subs_Path>();
 	auto node_subs_positions = std::make_shared<Node_Subs_Positions>();
     auto node_control_timer = std::make_shared<Node_Control_Timer>();
+   // auto node_client_vel = std::make_shared<Node_Client_Vel>();
 
     rclcpp::executors::MultiThreadedExecutor executor;
     executor.add_node(node);
     executor.add_node(node_subs_path);
 	executor.add_node(node_subs_positions);
     executor.add_node(node_control_timer);
+    //executor.add_node(node_client_vel);
     executor.spin();
 
  	rclcpp::shutdown();

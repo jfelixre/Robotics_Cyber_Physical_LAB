@@ -42,6 +42,8 @@ float y_world = 3;
 int n_x_spaces = (int)x_world/x_grid;
 float n_y_spaces = (int)y_world/y_grid;
 
+geometry_msgs::msg::Polygon path_ant;
+
 rclcpp::Client<interfaces::srv::AStarService>::SharedPtr client;
 
 
@@ -82,8 +84,12 @@ class Compute_Trajectory_R1 : public rclcpp::Node
              map_bin_ext = cv::Scalar(255);
 
 
-            Robot1=pos_msg->pos_robot1;
-            Robot2=pos_msg->pos_robot2;
+            //if (pos_msg->pos_robot1.orientation.x >= 0 && pos_msg->pos_robot1.orientation.y >=0 && pos_msg->pos_robot1.orientation.z >=0){
+                Robot1=pos_msg->pos_robot1;
+            //}
+            //if (pos_msg->pos_robot2.orientation.x >= 0 && pos_msg->pos_robot2.orientation.y >=0 && pos_msg->pos_robot2.orientation.z >=0){
+                Robot2=pos_msg->pos_robot2;
+            //}
             Object1=pos_msg->pos_object1;
             Object2=pos_msg->pos_object2;
             Target=pos_msg->pos_target;
@@ -397,7 +403,7 @@ class Compute_Trajectory_R1 : public rclcpp::Node
 */
             geometry_msgs::msg::Polygon path_msg;
 
-            for (int i=0; i<path_size; i++){
+            for (int i=5; i<path_size; i++){
                 map_color.at<cv::Vec3b>(path_x[i], path_y[i]) = cv::Vec3b(0,0,255);
                 geometry_msgs::msg::Point32 point;
                 point.y = ((path_x[i]-(n_x_spaces/2))*x_world)/n_x_spaces * -1;
@@ -406,10 +412,20 @@ class Compute_Trajectory_R1 : public rclcpp::Node
 
             }
 
+            int size_path = path_msg.points.size();
+            int size_path_ant = path_ant.points.size();
+
             if (!path_msg.points.empty()){
-                publisher_path -> publish(path_msg);
+                if (size_path != size_path_ant){
+                    publisher_path -> publish(path_msg);
+                    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path send");
+                }
+            }
+            else {
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path empty......");
             }
             
+            path_ant = path_msg;
 
             ///////////////////////////////////////////////
 

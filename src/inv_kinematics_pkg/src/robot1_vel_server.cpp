@@ -61,7 +61,7 @@ void send_vel(const std::shared_ptr<interfaces::srv::RobotVel::Request> request,
 				vel_M.vel_m1, vel_M.vel_m2, vel_M.vel_m3, vel_M.vel_m4, vel_M.vel_b1, vel_M.vel_b2, vel_M.vel_b3, vel_M.vel_g1);
 
 			sent=sent+1;
-			response-> sent;
+			//response-> sent;
 		}
 
 
