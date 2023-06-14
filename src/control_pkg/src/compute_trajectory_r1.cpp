@@ -113,7 +113,7 @@ class Compute_Trajectory_R1 : public rclcpp::Node
 
             cv::Point R1_center_point(((int)((5*cos(R1_angle_degrees))+R1_x_map)),((int)((4*(sin(R1_angle_degrees)))+R1_y_map)));
 
-            cv::Size R1_size(12,14);
+            cv::Size R1_size(14,12);
             cv::RotatedRect R1_rectangle(R1_center_point, R1_size, R1_angle_degrees);
             cv::Point2f vertices2f_R1[4];
             R1_rectangle.points(vertices2f_R1);
@@ -146,7 +146,7 @@ class Compute_Trajectory_R1 : public rclcpp::Node
             cv::Point R2_center_point(((int)((5*cos(R2_angle_degrees))+R2_x_map)),((int)((4*(sin(R2_angle_degrees)))+R2_y_map)));
 
 
-            cv::Size R2_size(12,14);
+            cv::Size R2_size(14,12);
             cv::RotatedRect R2_rectangle(R2_center_point, R2_size, R2_angle_degrees);
             cv::Point2f vertices2f_R2[4];
             R2_rectangle.points(vertices2f_R2);

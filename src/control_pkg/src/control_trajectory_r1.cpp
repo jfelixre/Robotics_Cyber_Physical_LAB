@@ -217,10 +217,11 @@ class Node_Subs_Path : public rclcpp::Node
 
 
            
-
+            /*
             for (int i=0; i<=N; i++){
                  std::cout << hxd[i] << ";" << hyd[i] << std::endl;
             }
+            */
 
            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "path received");
             
@@ -314,12 +315,12 @@ class Node_Control_Timer : public rclcpp::Node
     void timer_callback()   //////CONTROL/////////
     { 
 
-        std::cout << " Callback de tiempo" << std::endl;
+        //std::cout << " Callback de tiempo" << std::endl;
 
         
        if (control_active == true){
 
-        std::cout << "inicio " << std::endl;
+        //std::cout << "inicio " << std::endl;
 
 /*
         //################### POSICION DESEADA ####################
@@ -376,7 +377,7 @@ class Node_Control_Timer : public rclcpp::Node
                 double sin_val = sin(ANG_Robot);
             
             
-            std::cout << " Grados= " << grados << " cos = " << cos_val << " sin =" << sin_val << std::endl;
+           // std::cout << " Grados= " << grados << " cos = " << cos_val << " sin =" << sin_val << std::endl;
             
 
 
@@ -394,7 +395,7 @@ class Node_Control_Timer : public rclcpp::Node
                   vyd + Ky * tanh(hye[k]),
                   vwd + Kw * tanh(hwe[k]);
 
-            std::cout << "he =" << he << std::endl;
+            //std::cout << "he =" << he << std::endl;
 
 
 
@@ -414,7 +415,7 @@ class Node_Control_Timer : public rclcpp::Node
                  sin_ang_robot,  cos_ang_robot, 0,
                  0,                 0,            1;
 
-            std::cout<< " J  = " << J << std::endl;
+            //std::cout<< " J  = " << J << std::endl;
         
 
             // Define variables
@@ -425,7 +426,7 @@ class Node_Control_Timer : public rclcpp::Node
             qpRef = J.inverse() * he; 
 
 
-            std::cout << "qpRef = " << qpRef << std::endl;
+           // std::cout << "qpRef = " << qpRef << std::endl;
 
             // Aplicar control
             uxRef[k] = qpRef(0, 0);
@@ -444,7 +445,7 @@ class Node_Control_Timer : public rclcpp::Node
             phi[k+1]=phi[k]+wRef[k]*ts;
 */
            // std::cout << " vel x = " << uxRef[k] << "  vel y = " << uyRef[k] <<  " vel w = " << wRef[k] << "  t = " << t[k] <<  "   hx[k] = " << hx[k] <<    std::endl;
-            std::cout << " vel x = " << uxRef[k] << "  vel y = " << uyRef[k] <<  " vel w = " << wRef[k] << std::endl;
+           // std::cout << " vel x = " << uxRef[k] << "  vel y = " << uyRef[k] <<  " vel w = " << wRef[k] << std::endl;
 
 /*
             float z = sqrt((uxRef[k]*uxRef[k])+(uyRef[k]*uyRef[k]));
@@ -471,9 +472,9 @@ class Node_Control_Timer : public rclcpp::Node
 
             //auto result = client_vel->async_send_request(request);
 
-            std::cout << " Antes de async request" << std::endl;
+            //std::cout << " Antes de async request" << std::endl;
             auto result = client_vel->async_send_request(request);
-            std::cout << " Despues de async request" << std::endl;
+            //std::cout << " Despues de async request" << std::endl;
 
             std::future_status status = result.wait_for(3s);  // timeout to guarantee a graceful finish
             if (status == std::future_status::ready) {
@@ -487,7 +488,7 @@ class Node_Control_Timer : public rclcpp::Node
             hya = hyd[k];
             phia = phid;
 
-            std::cout << "Despues de asignar valorees anteriores" << std::endl;
+           // std::cout << "Despues de asignar valorees anteriores" << std::endl;
 
             if (k==N){
 
@@ -517,7 +518,7 @@ class Node_Control_Timer : public rclcpp::Node
                 control_active = false;
             }
 
-            std::cout << "Despues de los ifss" << std::endl;
+          //  std::cout << "Despues de los ifss" << std::endl;
 
        }
         
