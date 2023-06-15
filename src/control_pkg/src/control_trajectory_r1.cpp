@@ -7,7 +7,7 @@
 #include <interfaces/msg/robot_objective.hpp>
 #include <geometry_msgs/msg/polygon.hpp>
 #include <interfaces/srv/trajectory_control.hpp>
-#include <interfaces/srv/robot_vel.hpp>
+#include <interfaces/srv/platform_vel.hpp>
 #include <Eigen/Dense>
 
 #include <memory>
@@ -92,7 +92,7 @@ double ANG_Robot=-1;
 
     bool control_active = false;
 
-    rclcpp::Client<interfaces::srv::RobotVel>::SharedPtr client_vel;
+    rclcpp::Client<interfaces::srv::PlatformVel>::SharedPtr client_vel;
 
 
 class Control_Trajectory_R1 : public rclcpp::Node
@@ -223,7 +223,7 @@ class Node_Subs_Path : public rclcpp::Node
             }
             */
 
-           RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "path received");
+            RCLCPP_INFO(this->get_logger(), "path received");
             
 
             //Derivadas
@@ -294,7 +294,7 @@ class Node_Control_Timer : public rclcpp::Node
 
            client_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
            timer_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);;
-           client_vel = this->create_client<interfaces::srv::RobotVel>("robot1_vel", rmw_qos_profile_services_default, client_cb_group_);
+           client_vel = this->create_client<interfaces::srv::PlatformVel>("robot_1_platform_vel", rmw_qos_profile_services_default, client_cb_group_);
 
 
 
@@ -307,7 +307,7 @@ class Node_Control_Timer : public rclcpp::Node
     private:
 
     rclcpp::TimerBase::SharedPtr timer_;
-    rclcpp::Client<interfaces::srv::RobotVel>::SharedPtr client_vel;
+    rclcpp::Client<interfaces::srv::PlatformVel>::SharedPtr client_vel;
 
     rclcpp::CallbackGroup::SharedPtr client_cb_group_;
     rclcpp::CallbackGroup::SharedPtr timer_cb_group_;
@@ -458,17 +458,13 @@ class Node_Control_Timer : public rclcpp::Node
 */
             //std::cout << " vel x = " << velx << "  vel y = " << vely <<  std::endl;
 
-            auto request = std::make_shared<interfaces::srv::RobotVel::Request>();
+            auto request = std::make_shared<interfaces::srv::PlatformVel::Request>();
 
 
             request->x_vel = uxRef[k] * 10;
             request->y_vel = uyRef[k] * 10;
             request->ang_vel = wRef[k];
-            request->b1_vel = 0.0;
-			request->b2_vel = 0.0;
-			request->b3_vel = 0.0;
-			request->g1_vel = 0.0;
-
+            
 
             //auto result = client_vel->async_send_request(request);
 
@@ -495,10 +491,7 @@ class Node_Control_Timer : public rclcpp::Node
                 request->x_vel = 0.0;
                 request->y_vel = 0.0;
                 request->ang_vel = 0.0;
-                request->b1_vel = 0.0;
-                request->b2_vel = 0.0;
-                request->b3_vel = 0.0;
-                request->g1_vel = 0.0;
+
                 auto result = client_vel->async_send_request(request);
                 std::cout << "k=N" << k << N << std::endl;
 
@@ -510,10 +503,7 @@ class Node_Control_Timer : public rclcpp::Node
                 request->x_vel = 0.0;
                 request->y_vel = 0.0;
                 request->ang_vel = 0.0;
-                request->b1_vel = 0.0;
-                request->b2_vel = 0.0;
-                request->b3_vel = 0.0;
-                request->g1_vel = 0.0;
+
                 auto result = client_vel->async_send_request(request);
                 control_active = false;
             }
@@ -533,7 +523,7 @@ class Node_Client_Vel : public rclcpp::Node
 	public:
 		Node_Client_Vel() : Node("node_client_vel")
 		{
-            client_vel = this->create_client<interfaces::srv::RobotVel>("robot1_vel");
+            client_vel = this->create_client<interfaces::srv::PlatformVel>("robot1_vel");
 
         }
 

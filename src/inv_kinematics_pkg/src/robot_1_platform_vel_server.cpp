@@ -43,7 +43,7 @@ void send_vel(const std::shared_ptr<interfaces::srv::PlatformVel::Request> reque
 			publisher_M->publish(vel_M);
 
 
-			RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Velocities sent to robot 1:  M1=%f M2=%f M3=%f M4=%f",
+			RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Velocities sent to Robot 1 Platform:  M1=%f M2=%f M3=%f M4=%f",
 				vel_M.vel_m1, vel_M.vel_m2, vel_M.vel_m3, vel_M.vel_m4);
 
 			sent=sent+1;
@@ -56,15 +56,15 @@ int main(int argc, char **argv)
   rclcpp::init(argc, argv);
 
  
-  Robot1PlatformVelServer_node = rclcpp::Node::make_shared("robot1_vel_server");
+  Robot1PlatformVelServer_node = rclcpp::Node::make_shared("robot_1_platform_vel_server");
 
 
   rclcpp::Service<interfaces::srv::PlatformVel>::SharedPtr service =
-    Robot1PlatformVelServer_node->create_service<interfaces::srv::PlatformVel>("robot1_vel", &send_vel);
+    Robot1PlatformVelServer_node->create_service<interfaces::srv::PlatformVel>("robot_1_platform_vel", &send_vel);
 
   publisher_M = Robot1PlatformVelServer_node->create_publisher<interfaces::msg::MotorPlatformVels>("/robot_1/vel_Motors",1);
 
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to send velocities to Robot 1.");
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to send velocities to Robot 1 Platform.");
 
   rclcpp::spin(Robot1PlatformVelServer_node);
   rclcpp::shutdown();
