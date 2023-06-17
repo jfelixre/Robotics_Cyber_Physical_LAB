@@ -169,6 +169,23 @@ ament_target_dependencies(compute_trajectory
       geometry_msgs
       )
 
+    add_executable(control_arm_pid_r1 src/control_arm_pid_r1.cpp)
+    target_include_directories(control_arm_pid_r1 PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
+  
+    ament_target_dependencies(control_arm_pid_r1
+      sensor_msgs
+      std_msgs
+      rclcpp
+      cv_bridge
+      interfaces
+      tf2
+      tf2_ros
+      geometry_msgs
+      Eigen3
+      )
+
 
 
 install(TARGETS
@@ -183,6 +200,7 @@ install(TARGETS
   control_trajectory_r1
   test_control2
   test_control3
+  control_arm_pid_r1
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
