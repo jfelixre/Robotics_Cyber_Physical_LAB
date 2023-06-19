@@ -70,11 +70,11 @@ int main(int argc, char **argv)
   rclcpp::init(argc, argv);
 
  
-  Robot1VelServer_node = rclcpp::Node::make_shared("robot1_vel_server");
+  Robot1VelServer_node = rclcpp::Node::make_shared("robot_1_vel_server");
 
 
   rclcpp::Service<interfaces::srv::RobotVel>::SharedPtr service =
-    Robot1VelServer_node->create_service<interfaces::srv::RobotVel>("robot1_vel", &send_vel);
+    Robot1VelServer_node->create_service<interfaces::srv::RobotVel>("robot_1_vel", &send_vel);
 
   publisher_M = Robot1VelServer_node->create_publisher<interfaces::msg::MotorVelsWArm>("/robot_1/vel_Motors",1);
 

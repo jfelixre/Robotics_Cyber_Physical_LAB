@@ -1,7 +1,7 @@
 //Example set velocity 
 //ros2 topic pub --once  /robot_platform_1/vel_Motors interfaces/msg/MotorPlatformVels "{vel_m1: 20}"
 //Example get velocity
-//ros2 topic echo /robot_platform_1/sim_vel_Motors 
+//ros2 topic echo /robot_platform_1/encoders 
 
 
 #include <gazebo/common/Time.hh>
@@ -211,7 +211,7 @@ namespace gazebo_plugin_sim
 
       	//publishers
       	impl_->sim_vel_M_ = impl_->ros_node_->create_publisher<interfaces::msg::MotorVelsWArm>(
-      		"~/sim_vel_Motors", qos.get_publisher_qos("~/sim_vel_Motors", rclcpp::QoS(1)));
+      		"~/encoders", qos.get_publisher_qos("~/encoders", rclcpp::QoS(1)));
 
       	impl_->LmSw_ = impl_->ros_node_->create_publisher<interfaces::msg::LimitSwitch>(
       		"~/limit_switch", qos.get_publisher_qos("~/limit_switch", rclcpp::QoS(1)));

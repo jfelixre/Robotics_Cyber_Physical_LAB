@@ -60,7 +60,7 @@ int main(int argc, char **argv)
 
 
   rclcpp::Service<interfaces::srv::PlatformVel>::SharedPtr service =
-    Robot1PlatformVelServer_node->create_service<interfaces::srv::PlatformVel>("robot_1_platform_vel", &send_vel);
+    Robot1PlatformVelServer_node->create_service<interfaces::srv::PlatformVel>("robot_1/set_platform_vel", &send_vel);
 
   publisher_M = Robot1PlatformVelServer_node->create_publisher<interfaces::msg::MotorPlatformVels>("/robot_1/platform_vel_motors",1);
 

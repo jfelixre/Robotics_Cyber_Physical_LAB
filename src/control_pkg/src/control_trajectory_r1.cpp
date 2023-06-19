@@ -294,7 +294,7 @@ class Node_Control_Timer : public rclcpp::Node
 
            client_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
            timer_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);;
-           client_vel = this->create_client<interfaces::srv::PlatformVel>("robot_1_platform_vel", rmw_qos_profile_services_default, client_cb_group_);
+           client_vel = this->create_client<interfaces::srv::PlatformVel>("robot_1/set_platform_vel", rmw_qos_profile_services_default, client_cb_group_);
 
 
 
