@@ -1103,6 +1103,22 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
+        <visual name='Brazo1_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Brazo1.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <shader type='pixel'>
+              <normal_map>__default__</normal_map>
+            </shader>
+          </material>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+        </visual>
         <collision name='Brazo1_collision'>
           <laser_retro>0</laser_retro>
           <max_contacts>10</max_contacts>
@@ -1178,6 +1194,22 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
+        <visual name='Brazo2_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Brazo2.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <shader type='pixel'>
+              <normal_map>__default__</normal_map>
+            </shader>
+          </material>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+        </visual>
         <collision name='Brazo2_collision'>
           <laser_retro>0</laser_retro>
           <max_contacts>10</max_contacts>
@@ -1253,6 +1285,22 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
+        <visual name='Brazo3_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/meshes/Brazo3.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <shader type='pixel'>
+              <normal_map>__default__</normal_map>
+            </shader>
+          </material>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+        </visual>
         <collision name='Brazo3_collision'>
           <laser_retro>0</laser_retro>
           <max_contacts>10</max_contacts>

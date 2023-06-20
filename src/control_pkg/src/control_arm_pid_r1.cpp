@@ -10,6 +10,8 @@
 #include <interfaces/srv/platform_vel.hpp>
 #include <interfaces/msg/limit_switch.hpp>
 #include <interfaces/msg/motor_vels_w_arm.hpp>
+#include <interfaces/msg/arm_joints_positions.hpp>
+#include <interfaces/msg/motor_arm_vels.hpp>
 #include <Eigen/Dense>
 
 #include <memory>
@@ -41,6 +43,7 @@ float velG1=1;
 float B1goal=0;
 float B2goal=0;
 float B3goal=0;
+float G1goal=1;
 
 //Variables PID
 float KPb1=150;
@@ -103,12 +106,20 @@ class Control_Arm_Pid_R1 : public rclcpp::Node
             timer_pid_ = this->create_wall_timer(
                 50ms, std::bind(&Control_Arm_Pid_R1::timer_pid_callback, this), timer_pid_cb_group_);
 
+            arm_position_subs= create_subscription<interfaces::msg::ArmJointsPositions>(
+      			"/robot_1/set_arm_joints_position", 1, std::bind(&Control_Arm_Pid_R1::arm_pos_callback,this,_1));
+
+            publisher_vel = this->create_publisher<interfaces::msg::MotorArmVels>("/robot_1/set_arm_joints_vel",10);
+
         }
 
     private:
 
         rclcpp::TimerBase::SharedPtr timer_pid_;
         rclcpp::CallbackGroup::SharedPtr timer_pid_cb_group_;
+        rclcpp::Subscription<interfaces::msg::ArmJointsPositions>::SharedPtr arm_position_subs;
+        rclcpp::Publisher<interfaces::msg::MotorArmVels>::SharedPtr publisher_vel;
+
 
 
         void timer_pid_callback()   //CONTROL PID//
@@ -178,6 +189,25 @@ class Control_Arm_Pid_R1 : public rclcpp::Node
 			if (sumPIDb3>10) {sumPIDb3=10;}
 			if (sumPIDb3<-10) {sumPIDb3=-10;}
 
+            //Send joint vel
+            interfaces::msg::MotorArmVels vel_msg;
+
+            vel_msg.vel_b1 = sumPIDb1;
+			vel_msg.vel_b2 = sumPIDb2 * -1;
+			vel_msg.vel_b3 = sumPIDb3;
+			vel_msg.vel_g1 = velG1;
+
+            publisher_vel->publish(vel_msg);
+
+
+        }
+
+        void arm_pos_callback(const interfaces::msg::ArmJointsPositions::SharedPtr msg)   //CONTROL PID//
+        {
+            B1goal=msg->pos_b1;
+            B2goal=msg->pos_b2;
+            B3goal=msg->pos_b3;
+            G1goal=msg->pos_g1;
         }
 
 };

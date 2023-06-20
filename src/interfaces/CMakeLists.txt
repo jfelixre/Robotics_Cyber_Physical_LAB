@@ -40,6 +40,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/TrajectoryControl.srv"
   "msg/MotorPlatformVels.msg"
   "msg/MotorArmVels.msg"
+  "msg/ArmJointsPositions.msg"
   DEPENDENCIES geometry_msgs
  )
 

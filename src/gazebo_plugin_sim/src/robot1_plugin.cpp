@@ -206,7 +206,7 @@ namespace gazebo_plugin_sim
     		std::bind(&Robot1PluginPrivate::OnMsgVelM, impl_.get(), std::placeholders::_1));
 
 		impl_->vel_Arm_ = impl_->ros_node_->create_subscription<interfaces::msg::MotorArmVels>(
-    		"~/arm_vel_motors", qos.get_subscription_qos("~/arm_vel_motors", rclcpp::QoS(1)),
+    		"~/set_arm_joints_vel", qos.get_subscription_qos("~/set_arm_joints_vel", rclcpp::QoS(1)),
     		std::bind(&Robot1PluginPrivate::OnMsgVelArm, impl_.get(), std::placeholders::_1));
 
       	//publishers
