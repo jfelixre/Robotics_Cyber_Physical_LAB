@@ -262,6 +262,28 @@ class Node_Estimate_Position : public rclcpp::Node
                 LS_B3_min=msg->b3_min;
                 LS_B3_max=msg->b3_max;
 
+                
+
+            }
+
+            void encoders_subs(const interfaces::msg::MotorVelsWArm::SharedPtr msg) const
+            {
+                vel_B1=msg->vel_b1;
+                vel_B2=msg->vel_b2;
+                vel_B3=msg->vel_b3;
+                vel_G1=msg->vel_g1;
+
+                vel_B2=vel_B2*-1;
+
+
+                //Cálculo de posiciones
+                //B1_pos=B1_pos+(vel_B1*dt_sec);
+                B1_pos=vel_B1+0.1;
+                //B2_pos=B2_pos+(vel_B2*dt_sec);
+                B2_pos=(vel_B2+0.1)*-1;
+                //B3_pos=B3_pos+(vel_B3*dt_sec);
+                B3_pos=vel_B3+0.1;
+
                 if (LS_B1_min==1) { 
                     B1_pos=-1.4;
                 }
@@ -285,26 +307,6 @@ class Node_Estimate_Position : public rclcpp::Node
                 if (LS_B3_max==1) { 
                     B3_pos=1.5;
                 }
-
-            }
-
-            void encoders_subs(const interfaces::msg::MotorVelsWArm::SharedPtr msg) const
-            {
-                vel_B1=msg->vel_b1;
-                vel_B2=msg->vel_b2;
-                vel_B3=msg->vel_b3;
-                vel_G1=msg->vel_g1;
-
-                vel_B2=vel_B2*-1;
-
-
-                //Cálculo de posiciones
-                //B1_pos=B1_pos+(vel_B1*dt_sec);
-                B1_pos=vel_B1+0.1;
-                //B2_pos=B2_pos+(vel_B2*dt_sec);
-                B2_pos=(vel_B2+0.1)*-1;
-                //B3_pos=B3_pos+(vel_B3*dt_sec);
-                B3_pos=vel_B3+0.1;
 
                 std::cout << "B1 = " << B1_pos << " B2 = " << B2_pos << " B3 = " << B3_pos << std::endl;
             }
