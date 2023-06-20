@@ -303,9 +303,6 @@ namespace gazebo_plugin_sim
 		Robot1PluginPrivate::SetVelocityB2(_msgArm->vel_b2);
 		Robot1PluginPrivate::SetVelocityB3(_msgArm->vel_b3);
 		Robot1PluginPrivate::SetVelocityG1(_msgArm->vel_g1);
-
-		std::cout << "G1 = " << _msgArm->vel_g1 << std::endl;
-
 	}
 
 	//Event update callback for publishers
