@@ -195,7 +195,7 @@ class Control_Arm_Pid_R1 : public rclcpp::Node
             vel_msg.vel_b1 = sumPIDb1;
 			vel_msg.vel_b2 = sumPIDb2 * -1;
 			vel_msg.vel_b3 = sumPIDb3;
-			vel_msg.vel_g1 = velG1;
+			vel_msg.vel_g1 = G1goal;
 
             publisher_vel->publish(vel_msg);
 
@@ -305,6 +305,8 @@ class Node_Estimate_Position : public rclcpp::Node
                 B2_pos=(vel_B2+0.1)*-1;
                 //B3_pos=B3_pos+(vel_B3*dt_sec);
                 B3_pos=vel_B3+0.1;
+
+                std::cout << "B1 = " << B1_pos << " B2 = " << B2_pos << " B3 = " << B3_pos << std::endl;
             }
 
 
@@ -325,7 +327,7 @@ int main(int argc, char * argv[])
 
     rclcpp::executors::MultiThreadedExecutor executor;
     executor.add_node(node_control_arm_pid_r1);
-   // executor.add_node(node_subs_path);
+    executor.add_node(node_estimate_position);
 	//executor.add_node(node_subs_positions);
    // executor.add_node(node_control_timer);
     //executor.add_node(node_client_vel);

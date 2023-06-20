@@ -277,10 +277,10 @@ namespace gazebo_plugin_sim
 	{
 		Robot1PluginPrivate::model_->GetJointController()->SetVelocityTarget(
 			Robot1PluginPrivate::jointG1->GetScopedName(),_velG1);
-		if (_velG1==1){
+		if (_velG1==1.0){
 			RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "\nGripper= Open");
 		}
-		if (_velG1==-1){
+		if (_velG1==-1.0){
 			RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "\nGripper= Close");
 		}
 	}
@@ -303,6 +303,8 @@ namespace gazebo_plugin_sim
 		Robot1PluginPrivate::SetVelocityB2(_msgArm->vel_b2);
 		Robot1PluginPrivate::SetVelocityB3(_msgArm->vel_b3);
 		Robot1PluginPrivate::SetVelocityG1(_msgArm->vel_g1);
+
+		std::cout << "G1 = " << _msgArm->vel_g1 << std::endl;
 
 	}
 
