@@ -328,15 +328,19 @@ namespace gazebo_plugin_sim
 		velM.vel_b2=Robot1PluginPrivate::jointB2->GetVelocity(0);
 		velM.vel_b3=Robot1PluginPrivate::jointB3->GetVelocity(0);
 		velM.vel_g1=Robot1PluginPrivate::jointG1->GetVelocity(0);
+		velM.vel_b1=Robot1PluginPrivate::jointB1->GetVelocity(0);
+		velM.vel_b2=Robot1PluginPrivate::jointB2->GetVelocity(0);
+		velM.vel_b3=Robot1PluginPrivate::jointB3->GetVelocity(0);
 
 		//Get arm positions
 		B1_pos=Robot1PluginPrivate::jointB1->Position(0);
 		B2_pos=Robot1PluginPrivate::jointB2->Position(0);
 		B3_pos=Robot1PluginPrivate::jointB3->Position(0);
 
-		velM.vel_b1=B1_pos;
-		velM.vel_b2=B2_pos*-1;
-		velM.vel_b3=B3_pos;
+		//velM.vel_b1=B1_pos;
+		//velM.vel_b2=B2_pos*-1;
+		//velM.vel_b3=B3_pos;
+		//B2_pos=B2_pos*-1;
 
 		if (B1_pos<-1.79){
 			LSB1_min=1;

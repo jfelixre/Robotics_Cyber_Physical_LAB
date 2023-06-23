@@ -40,23 +40,23 @@ float B3_pos=0;
 float velG1=1;
 
 //Variables para objetivos
-float B1goal=0;
-float B2goal=0;
-float B3goal=0;
+float B1goal=-2;
+float B2goal=-2;
+float B3goal=-2;
 float G1goal=1;
 
 //Variables PID
-float KPb1=150;
-float KIb1=80;
-float KDb1=350;
+float KPb1=10;
+float KIb1=0;
+float KDb1=0;
 
-float KPb2=120;
-float KIb2=30;
-float KDb2=200;
+float KPb2=10;
+float KIb2=0;
+float KDb2=0;
 
-float KPb3=70;
-float KIb3=5;
-float KDb3=50;
+float KPb3=10;
+float KIb3=0;
+float KDb3=0;
 
 float Pb1=0;
 float Ib1=0;
@@ -189,6 +189,40 @@ class Control_Arm_Pid_R1 : public rclcpp::Node
 			if (sumPIDb3>10) {sumPIDb3=10;}
 			if (sumPIDb3<-10) {sumPIDb3=-10;}
 
+            std::cout << "B1a=" << sumPIDb1 << "  B2a=" << sumPIDb2 << "  B3a=" << sumPIDb3 << std::endl;
+
+            if (LS_B1_min==1 && sumPIDb1<=0) { 
+                    sumPIDb1=0;
+                    std::cout << "b1_min" << std::endl;
+            }
+
+            if (LS_B1_max==1 && sumPIDb1>=0) { 
+                  sumPIDb1=0;
+                  std::cout << "b1_max" << std::endl;
+            }
+
+            if (LS_B2_min==1 && sumPIDb2<=0) { 
+                 sumPIDb2=0;
+                 std::cout << "b2_min" << std::endl;
+            }
+
+            if (LS_B2_max==1 && sumPIDb2>=0) { 
+                 sumPIDb2=0;
+                 std::cout << "b2_max" << std::endl;
+            }
+
+            if (LS_B3_min==1 && sumPIDb3<=0) { 
+                  sumPIDb3=0;
+                  std::cout << "b3_min" << std::endl;
+            }
+
+            if (LS_B3_max==1 && sumPIDb3>=0) { 
+                 sumPIDb3=0;
+                 std::cout << "b3_max" << std::endl;
+            }
+
+            std::cout << "B1b=" << sumPIDb1 << "  B2b=" << sumPIDb2 << "  B3b=" << sumPIDb3 << std::endl;
+
             //Send joint vel
             interfaces::msg::MotorArmVels vel_msg;
 
@@ -223,10 +257,10 @@ class Node_Estimate_Position : public rclcpp::Node
 			encoders_subscriber= create_subscription<interfaces::msg::MotorVelsWArm>(
       			"/robot_1/encoders", 1, std::bind(&Node_Estimate_Position::encoders_subs,this,_1));
 
-          //  timer_ep_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
+            timer_ep_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
 
-            //timer_estimate_pos_ = this->create_wall_timer(
-             //    100ms, std::bind(&Node_Estimate_Position::timer_ep_callback, this), timer_ep_cb_group_);
+            timer_estimate_pos_ = this->create_wall_timer(
+                 50ms, std::bind(&Node_Estimate_Position::timer_ep_callback, this), timer_ep_cb_group_);
                        
         }
 
@@ -234,56 +268,23 @@ class Node_Estimate_Position : public rclcpp::Node
 
         rclcpp::Subscription<interfaces::msg::LimitSwitch>::SharedPtr LmSw_subscriber;
         rclcpp::Subscription<interfaces::msg::MotorVelsWArm>::SharedPtr encoders_subscriber;
-        //rclcpp::TimerBase::SharedPtr timer_estimate_pos_;
-        //rclcpp::CallbackGroup::SharedPtr timer_ep_cb_group_;
+        rclcpp::TimerBase::SharedPtr timer_estimate_pos_;
+        rclcpp::CallbackGroup::SharedPtr timer_ep_cb_group_;
 
-    /*
+    
         //Encoder envia los mensajes con la posicion, no con velocidades, Se necesita corregir para implementacion
         //Checar Robot plugin
         void timer_ep_callback()
         { 
             //
             //Cálculo de posiciones
-            //B1_pos=B1_pos+(vel_B1*dt_sec);
-            B1_pos=vel_B1+0.1;
-            //B2_pos=B2_pos+(vel_B2*dt_sec);
-            B2_pos=(vel_B2+0.1)*-1;
-            //B3_pos=B3_pos+(vel_B3*dt_sec);
-            B3_pos=vel_B3+0.1;
-
-        }
-    */
-        void LmSw_subs(const interfaces::msg::LimitSwitch::SharedPtr msg) const
-            {
-                LS_B1_min=msg->b1_min;
-                LS_B1_max=msg->b1_max;
-                LS_B2_min=msg->b2_min;
-                LS_B2_max=msg->b2_max;
-                LS_B3_min=msg->b3_min;
-                LS_B3_max=msg->b3_max;
-
-                
-
-            }
-
-            void encoders_subs(const interfaces::msg::MotorVelsWArm::SharedPtr msg) const
-            {
-                vel_B1=msg->vel_b1;
-                vel_B2=msg->vel_b2;
-                vel_B3=msg->vel_b3;
-                vel_G1=msg->vel_g1;
-
-                vel_B2=vel_B2*-1;
+            B1_pos=B1_pos+(vel_B1*dt_sec);
+            B2_pos=B2_pos+(vel_B2*dt_sec);
+            B3_pos=B3_pos+(vel_B3*dt_sec);
 
 
-                //Cálculo de posiciones
-                //B1_pos=B1_pos+(vel_B1*dt_sec);
-                B1_pos=vel_B1+0.1;
-                //B2_pos=B2_pos+(vel_B2*dt_sec);
-                B2_pos=(vel_B2+0.1)*-1;
-                //B3_pos=B3_pos+(vel_B3*dt_sec);
-                B3_pos=vel_B3+0.1;
 
+            
                 if (LS_B1_min==1) { 
                     B1_pos=-1.4;
                 }
@@ -308,7 +309,45 @@ class Node_Estimate_Position : public rclcpp::Node
                     B3_pos=1.5;
                 }
 
+                std::cout << "B1p = " << B1_pos << " B2p = " << B2_pos << " B3p = " << B3_pos << std::endl;
+
+
+        }
+    
+        void LmSw_subs(const interfaces::msg::LimitSwitch::SharedPtr msg) const
+            {
+                LS_B1_min=msg->b1_min;
+                LS_B1_max=msg->b1_max;
+                LS_B2_min=msg->b2_min;
+                LS_B2_max=msg->b2_max;
+                LS_B3_min=msg->b3_min;
+                LS_B3_max=msg->b3_max;
+
+                
+
+            }
+
+            void encoders_subs(const interfaces::msg::MotorVelsWArm::SharedPtr msg) const
+            {
+                vel_B1=msg->vel_b1;
+                vel_B2=msg->vel_b2;
+                vel_B3=msg->vel_b3;
+                vel_G1=msg->vel_g1;
+
+                vel_B2=vel_B2*-1;
+
+/*
+                //Cálculo de posiciones
+                //B1_pos=B1_pos+(vel_B1*dt_sec);
+                B1_pos=vel_B1+0.1;
+                //B2_pos=B2_pos+(vel_B2*dt_sec);
+                B2_pos=(vel_B2+0.1)*-1;
+                //B3_pos=B3_pos+(vel_B3*dt_sec);
+                B3_pos=vel_B3+0.1;
+
                 std::cout << "B1 = " << B1_pos << " B2 = " << B2_pos << " B3 = " << B3_pos << std::endl;
+
+                */
             }
 
 
