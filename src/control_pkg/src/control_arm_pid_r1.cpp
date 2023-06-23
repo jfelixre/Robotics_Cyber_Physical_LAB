@@ -31,7 +31,7 @@ using namespace std::chrono_literals;
 int LS_B1_min, LS_B1_max, LS_B2_min, LS_B2_max, LS_B3_min, LS_B3_max;
 
 //Variables velocidades de encoders
-float vel_B1,vel_B2,vel_B3,vel_G1;
+float Vel_B1,Vel_B2,Vel_B3,Vel_G1;
 
 //Variables de posición de brazo
 float B1_pos=0;
@@ -42,19 +42,19 @@ float velG1=1;
 //Variables para objetivos
 float B1goal=-2;
 float B2goal=-2;
-float B3goal=-2;
+float B3goal=0;
 float G1goal=1;
 
 //Variables PID
-float KPb1=10;
+float KPb1=0;
 float KIb1=0;
 float KDb1=0;
 
-float KPb2=10;
+float KPb2=0;
 float KIb2=0;
 float KDb2=0;
 
-float KPb3=10;
+float KPb3=2;
 float KIb3=0;
 float KDb3=0;
 
@@ -128,6 +128,8 @@ class Control_Arm_Pid_R1 : public rclcpp::Node
 			errorB1 = B1goal - B1_pos;
 			errorB2 = B2goal - B2_pos;
 			errorB3 = B3goal - B3_pos;
+
+            std::cout << "pos= " << B3_pos << "  goal= " << B3goal << "  Error= " << errorB3 << std::endl;
 
 			//RCLCPP_INFO(this->get_logger(), "velB1= %f", vel_B1);
 			//RCLCPP_INFO(this->get_logger(), "goal B1= %f", B1goal);
@@ -226,6 +228,8 @@ class Control_Arm_Pid_R1 : public rclcpp::Node
             //Send joint vel
             interfaces::msg::MotorArmVels vel_msg;
 
+            sumPIDb2= 1;
+
             vel_msg.vel_b1 = sumPIDb1;
 			vel_msg.vel_b2 = sumPIDb2 * -1;
 			vel_msg.vel_b3 = sumPIDb3;
@@ -278,9 +282,9 @@ class Node_Estimate_Position : public rclcpp::Node
         { 
             //
             //Cálculo de posiciones
-            B1_pos=B1_pos+(vel_B1*dt_sec);
-            B2_pos=B2_pos+(vel_B2*dt_sec);
-            B3_pos=B3_pos+(vel_B3*dt_sec);
+            B1_pos=B1_pos+(Vel_B1*dt_sec);
+            B2_pos=B2_pos+(Vel_B2*dt_sec);
+            B3_pos=B3_pos+(Vel_B3*dt_sec);
 
 
 
@@ -302,11 +306,11 @@ class Node_Estimate_Position : public rclcpp::Node
                 }
 
                 if (LS_B3_min==1) { 
-                    B3_pos=-1.5;
+                    B3_pos=(-1.5 + 0.3);
                 }
 
                 if (LS_B3_max==1) { 
-                    B3_pos=1.5;
+                    B3_pos=(1.5 - 0.3);
                 }
 
                 std::cout << "B1p = " << B1_pos << " B2p = " << B2_pos << " B3p = " << B3_pos << std::endl;
@@ -329,12 +333,12 @@ class Node_Estimate_Position : public rclcpp::Node
 
             void encoders_subs(const interfaces::msg::MotorVelsWArm::SharedPtr msg) const
             {
-                vel_B1=msg->vel_b1;
-                vel_B2=msg->vel_b2;
-                vel_B3=msg->vel_b3;
-                vel_G1=msg->vel_g1;
+                Vel_B1=msg->vel_b1;
+                Vel_B2=msg->vel_b2;
+                Vel_B3=msg->vel_b3;
+                Vel_G1=msg->vel_g1;
 
-                vel_B2=vel_B2*-1;
+                Vel_B2=Vel_B2*-1;
 
 /*
                 //Cálculo de posiciones
