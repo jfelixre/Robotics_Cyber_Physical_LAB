@@ -32,6 +32,9 @@
 #include <vector>
 #include <chrono>
 
+const float real_time_factor = 0.04;  //Laptop
+//const float real_time_factor = 0.02;  //Desktop
+
 namespace gazebo_plugin_sim
 {
 	class Robot1PluginPrivate
@@ -328,9 +331,9 @@ namespace gazebo_plugin_sim
 		velM.vel_b2=Robot1PluginPrivate::jointB2->GetVelocity(0);
 		velM.vel_b3=Robot1PluginPrivate::jointB3->GetVelocity(0);
 		velM.vel_g1=Robot1PluginPrivate::jointG1->GetVelocity(0);
-		velM.vel_b1=Robot1PluginPrivate::jointB1->GetVelocity(0);
-		velM.vel_b2=Robot1PluginPrivate::jointB2->GetVelocity(0);
-		velM.vel_b3=(Robot1PluginPrivate::jointB3->GetVelocity(0)) * 0.02;
+		velM.vel_b1=Robot1PluginPrivate::jointB1->GetVelocity(0) * real_time_factor;
+		velM.vel_b2=Robot1PluginPrivate::jointB2->GetVelocity(0) * real_time_factor;
+		velM.vel_b3=(Robot1PluginPrivate::jointB3->GetVelocity(0)) * real_time_factor;
 
 		//Get arm positions
 		B1_pos=Robot1PluginPrivate::jointB1->Position(0);

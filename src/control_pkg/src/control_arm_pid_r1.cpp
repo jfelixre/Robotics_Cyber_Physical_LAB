@@ -40,23 +40,23 @@ float B3_pos=0;
 float velG1=1;
 
 //Variables para objetivos
-float B1goal=-2;
-float B2goal=-2;
+float B1goal=0;
+float B2goal=0;
 float B3goal=0;
 float G1goal=1;
 
 //Variables PID
-float KPb1=0;
-float KIb1=0;
-float KDb1=0;
+float KPb1=20;
+float KIb1=10;
+float KDb1=50;
 
-float KPb2=0;
-float KIb2=0;
-float KDb2=0;
+float KPb2=20;
+float KIb2=1;
+float KDb2=15;
 
-float KPb3=2;
-float KIb3=0;
-float KDb3=0;
+float KPb3=20;
+float KIb3=10;
+float KDb3=20;
 
 float Pb1=0;
 float Ib1=0;
@@ -129,7 +129,9 @@ class Control_Arm_Pid_R1 : public rclcpp::Node
 			errorB2 = B2goal - B2_pos;
 			errorB3 = B3goal - B3_pos;
 
-            std::cout << "pos= " << B3_pos << "  goal= " << B3goal << "  Error= " << errorB3 << std::endl;
+            std::cout << "posB1= " << B1_pos << "  goalB1= " << B1goal << "  ErrorB1= " << errorB1 << std::endl;
+            std::cout << "posB2= " << B2_pos << "  goalB2= " << B2goal << "  ErrorB2= " << errorB2 << std::endl;
+            std::cout << "posB3= " << B3_pos << "  goalB3= " << B3goal << "  ErrorB3= " << errorB3 << std::endl;
 
 			//RCLCPP_INFO(this->get_logger(), "velB1= %f", vel_B1);
 			//RCLCPP_INFO(this->get_logger(), "goal B1= %f", B1goal);
@@ -191,7 +193,7 @@ class Control_Arm_Pid_R1 : public rclcpp::Node
 			if (sumPIDb3>10) {sumPIDb3=10;}
 			if (sumPIDb3<-10) {sumPIDb3=-10;}
 
-            std::cout << "B1a=" << sumPIDb1 << "  B2a=" << sumPIDb2 << "  B3a=" << sumPIDb3 << std::endl;
+            //std::cout << "B1a=" << sumPIDb1 << "  B2a=" << sumPIDb2 << "  B3a=" << sumPIDb3 << std::endl;
 
             if (LS_B1_min==1 && sumPIDb1<=0) { 
                     sumPIDb1=0;
@@ -225,10 +227,12 @@ class Control_Arm_Pid_R1 : public rclcpp::Node
 
             std::cout << "B1b=" << sumPIDb1 << "  B2b=" << sumPIDb2 << "  B3b=" << sumPIDb3 << std::endl;
 
+
+            std::cout << "-------------------------" << std::endl;
             //Send joint vel
             interfaces::msg::MotorArmVels vel_msg;
 
-            sumPIDb2= 1;
+            
 
             vel_msg.vel_b1 = sumPIDb1;
 			vel_msg.vel_b2 = sumPIDb2 * -1;
@@ -306,14 +310,14 @@ class Node_Estimate_Position : public rclcpp::Node
                 }
 
                 if (LS_B3_min==1) { 
-                    B3_pos=(-1.5 + 0.3);
+                    B3_pos=(-1.5);
                 }
 
                 if (LS_B3_max==1) { 
-                    B3_pos=(1.5 - 0.3);
+                    B3_pos=(1.5);
                 }
 
-                std::cout << "B1p = " << B1_pos << " B2p = " << B2_pos << " B3p = " << B3_pos << std::endl;
+               // std::cout << "B1p = " << B1_pos << " B2p = " << B2_pos << " B3p = " << B3_pos << std::endl;
 
 
         }
