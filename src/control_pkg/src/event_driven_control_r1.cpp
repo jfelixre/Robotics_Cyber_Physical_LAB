@@ -6,6 +6,7 @@
 #include <tf2/LinearMath/Matrix3x3.h>
 #include <interfaces/msg/robot_objective.hpp>
 #include <interfaces/srv/event_control.hpp>
+#include <interfaces/msg/arm_joints_positions.hpp>
 
 #include <memory>
 #include <cinttypes>
@@ -39,6 +40,9 @@ int Ygoal=-1;
 float ANGgoal=-1;
 interfaces::msg::RobotObjective RO_msg;
 
+//Variables posicion brazo
+interfaces::msg::ArmJointsPositions arm_joints_position;
+
 class Event_Driven_Control_R1 : public rclcpp::Node
 {
 	public:
@@ -53,7 +57,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
                 "event_control_r1", std::bind(&Event_Driven_Control_R1::event_control_handler, this,
                 std::placeholders::_1, std::placeholders::_2));
 
-      		
+      		publisher_arm_pos = this->create_publisher<interfaces::msg::ArmJointsPositions>("/robot_1/set_arm_joints_position",10);
 			
 
 			
@@ -66,6 +70,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 		rclcpp::Publisher<interfaces::msg::RobotState>::SharedPtr state_robot1_publisher;
 		rclcpp::Publisher<interfaces::msg::RobotObjective>::SharedPtr objective_robot1_publisher;
 		rclcpp::Service<interfaces::srv::EventControl>::SharedPtr service_event_control;
+		rclcpp::Publisher<interfaces::msg::ArmJointsPositions>::SharedPtr publisher_arm_pos;
 
 		void event_control_handler(const std::shared_ptr<interfaces::srv::EventControl::Request> request,
 			std::shared_ptr<interfaces::srv::EventControl::Response>      response)
@@ -75,7 +80,15 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 				//state_robot1_publisher -> publish(robot1_state);
 
 				RCLCPP_INFO(this->get_logger(), "Iniciando Nodo de Control de Robot 1 y Calibrando Brazo");
-				//FALTA CALIBRAR BRAZO
+				
+				//Home calibración brazo
+				arm_joints_position.pos_b1 = 2;
+				arm_joints_position.pos_b2 = -2;
+				arm_joints_position.pos_b3 = -2;
+				arm_joints_position.pos_g1 = 1;
+
+				publisher_arm_pos->publish(arm_joints_position);
+				
 				
 				robot1_state = 0;    //Poner en 0 cuando termine la calibracion del brazo.
 

@@ -66,6 +66,10 @@ def generate_launch_description():
         Node(
             package='control_pkg',
             executable='a_star_server'),
+
+        Node(
+            package='control_pkg',
+            executable='control_arm_pid_r1'),
     
        # launch.actions.TimerAction(
        #     period=60.0,

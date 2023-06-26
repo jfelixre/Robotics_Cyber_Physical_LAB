@@ -40,9 +40,9 @@ float B3_pos=0;
 float velG1=1;
 
 //Variables para objetivos
-float B1goal=0;
-float B2goal=0;
-float B3goal=0;
+float B1goal=-2;
+float B2goal=2;
+float B3goal=2;
 float G1goal=1;
 
 //Variables PID

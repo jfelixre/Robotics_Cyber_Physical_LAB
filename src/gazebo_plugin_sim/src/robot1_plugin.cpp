@@ -32,8 +32,8 @@
 #include <vector>
 #include <chrono>
 
-const float real_time_factor = 0.04;  //Laptop
-//const float real_time_factor = 0.02;  //Desktop
+//const float real_time_factor = 0.04;  //Laptop
+const float real_time_factor = 0.02;  //Desktop
 
 namespace gazebo_plugin_sim
 {
