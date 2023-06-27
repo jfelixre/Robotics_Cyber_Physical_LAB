@@ -26,12 +26,16 @@
 #include <interfaces/srv/a_star_service.hpp>
 #include <geometry_msgs/msg/polygon.hpp>
 #include <geometry_msgs/msg/point32.h>
+#include <interfaces/msg/robot_objective.hpp>
 
 using std::placeholders::_1;
 using namespace std::chrono_literals;
 # define PI 3.14159265358979323846
 
-geometry_msgs::msg::Pose Robot1, Robot2, Object1, Object2, Target;
+geometry_msgs::msg::Pose Robot1, Robot2, Object1, Object2, Target, Initial;
+int n_objective = -1;
+float distance_objective = 0;
+
 
 
 float x_grid = 0.025;    //All dimensions in meters
@@ -44,7 +48,7 @@ float n_y_spaces = (int)y_world/y_grid;
 
 geometry_msgs::msg::Polygon path_ant;
 
-rclcpp::Client<interfaces::srv::AStarService>::SharedPtr client;
+//rclcpp::Client<interfaces::srv::AStarService>::SharedPtr client;
 
 
 
@@ -60,7 +64,12 @@ class Compute_Trajectory_R1 : public rclcpp::Node
 
             publisher_path = this->create_publisher<geometry_msgs::msg::Polygon>("/robot_1/path",10);
 
-            //client = this -> create_client<interfaces::srv::AStarService>("a_star_server");
+            client_cb_group = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
+
+            subs_objective = this->create_subscription<interfaces::msg::RobotObjective>(
+                "robot_1/objective", 1, std::bind(&Compute_Trajectory_R1::subs_obj_callback,this,_1));
+
+            client = this -> create_client<interfaces::srv::AStarService>("a_star_server", rmw_qos_profile_services_default, client_cb_group);
 
             //std::cout<<n_x_spaces<< std::endl;
         }
@@ -68,8 +77,14 @@ class Compute_Trajectory_R1 : public rclcpp::Node
 
     private:
 
-        //rclcpp::Client<interfaces::srv::AStarService>::SharedPtr client;
+        rclcpp::Client<interfaces::srv::AStarService>::SharedPtr client;
+        rclcpp::CallbackGroup::SharedPtr client_cb_group;
 
+        void subs_obj_callback(const interfaces::msg::RobotObjective::SharedPtr obj_msg){
+            n_objective = obj_msg->objective;
+            distance_objective = obj_msg->distance;
+             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Update objective");
+        }
 
         void subs_callback(const interfaces::msg::Positions::SharedPtr pos_msg)
         {
@@ -252,19 +267,55 @@ class Compute_Trajectory_R1 : public rclcpp::Node
             }
 
             cv::fillConvexPoly(map,vertices_Tg, cv::Scalar(5));
-            cv::fillConvexPoly(map_bin,vertices_Tg, cv::Scalar(0));
+            //cv::fillConvexPoly(map_bin,vertices_Tg, cv::Scalar(0));
 
 
             cv::namedWindow("Display bin", cv::WINDOW_NORMAL );
             cv::imshow("Display bin", map_bin);
 
 
+            cv::Point goal;
+
+            switch (n_objective)
+            {
+            case -1:
+                Initial.position.x = R1_center_point.x;
+                Initial.position.y = R1_center_point.y;
+                goal.x = Initial.position.x;
+                goal.y = Initial.position.y;
+                break;
+
+            case 0:
+                goal.x = Initial.position.x;
+                goal.y = Initial.position.y;
+                break;
+
+            case 1:
+                goal.x = O1_point.x;
+                goal.y = O1_point.y;
+                break;
+
+            case 2:
+                goal.x = Tg_point.x;
+                goal.y = Tg_point.y;
+                break;               
+            
+            default:
+                break;
+            }
+
+            //std::cout<<"nobj= " << n_objective << std::endl;
+            //std::cout<<"goalx = " << goal.x << " goaly = " << goal.y << std::endl;
+
+
+
+
             //call a_star_service
             auto request = std::make_shared<interfaces::srv::AStarService::Request>();
             request->src_x = R1_center_point.x;
             request->src_y = R1_center_point.y;
-            request->dst_x = O1_point.x;
-            request->dst_y = O1_point.y;
+            request->dst_x = goal.x;
+            request->dst_y = goal.y;
 
             std::vector<int> grid_vect(14400,1);
 
@@ -376,7 +427,7 @@ class Compute_Trajectory_R1 : public rclcpp::Node
             //   std::cout << "esperainterfaces_for(std::chrono::milliseconds(1000));
 
 
-           //  std::cout << "termina espera" << std::endl;
+           // std::cout << "termina espera" << std::endl;
 
             std::vector<int> path_x;
             std::vector<int> path_y;
@@ -445,11 +496,14 @@ class Compute_Trajectory_R1 : public rclcpp::Node
 
 
     rclcpp::Subscription<interfaces::msg::Positions>::SharedPtr subs_position;
+    rclcpp::Subscription<interfaces::msg::RobotObjective>::SharedPtr subs_objective;
+    
+
 
     rclcpp::Publisher<geometry_msgs::msg::Polygon>::SharedPtr publisher_path;
 };
 
-
+/*
 class Node_Client_A_Star : public rclcpp::Node
 {
     public:
@@ -465,19 +519,22 @@ class Node_Client_A_Star : public rclcpp::Node
 
     private:
 
+            
         
 
 };
+*/
+
 
 int main(int argc, char * argv[])
 {
     rclcpp::init(argc, argv);
     auto node = std::make_shared<Compute_Trajectory_R1>();
-    auto node_client_a_star = std::make_shared<Node_Client_A_Star>();
+    //auto node_client_a_star = std::make_shared<Node_Client_A_Star>();
 
     rclcpp::executors::MultiThreadedExecutor executor;
     executor.add_node(node);
-    executor.add_node(node_client_a_star);
+    //executor.add_node(node_client_a_star);
     executor.spin();
     //rclcpp::spin(std::make_shared<Compute_Trajectory_R1>());
     rclcpp::shutdown();

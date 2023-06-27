@@ -51,6 +51,9 @@ class AStarServer : public rclcpp::Node
     void a_star_caller(const std::shared_ptr<interfaces::srv::AStarService::Request> request,
           std::shared_ptr<interfaces::srv::AStarService::Response>      response)
 		{
+
+            std::cout << "Llamada a servicio" << std::endl;
+
             int src_x = request->src_x;
             int src_y = request->src_y;
             int dst_x = request->dst_x;
@@ -140,7 +143,7 @@ class AStarServer : public rclcpp::Node
                 return (true);
                 }
             else{
-                std::cout << "bloq" << row << col << std::endl;
+                //std::cout << "bloq" << row << col << std::endl;
                 return (false);
             }
         }

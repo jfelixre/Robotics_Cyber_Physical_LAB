@@ -115,7 +115,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 
 				///////////////////////ROBOT STATE 1//////////////////////////////  CONTROL FASE 1  Aproximacion al objeto
 				state_robot1_publisher -> publish(robot1_state);
-
+				/*
 				Xgoal=Xobj1-(0.3*cos(ANGobj1));
 				Ygoal=Yobj1-(0.3*sin(ANGobj1));
 				ANGgoal=ANGobj1;
@@ -123,6 +123,12 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 				RO_msg.point.x = Xgoal;
 				RO_msg.point.y = Ygoal;
 				RO_msg.angle = ANGgoal;
+				*/
+
+				RO_msg.objective = 1;  //Objeto 1
+				RO_msg.distance = 0.3; //Distancia al objeto
+
+
 
 				objective_robot1_publisher -> publish(RO_msg);
 
