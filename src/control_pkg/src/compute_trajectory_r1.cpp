@@ -291,13 +291,13 @@ class Compute_Trajectory_R1 : public rclcpp::Node
                 break;
 
             case 1:
-                goal.x = O1_point.x;
-                goal.y = O1_point.y;
+                goal.x = O1_point.x + (distance_objective * sin(O1_orientation_z));
+                goal.y = O1_point.y + (distance_objective * cos(O1_orientation_z));
                 break;
 
             case 2:
-                goal.x = Tg_point.x;
-                goal.y = Tg_point.y;
+                goal.x = Tg_point.x + (distance_objective * sin(Tg_orientation_z));
+                goal.y = Tg_point.y + (distance_objective * cos(Tg_orientation_z));
                 break;               
             
             default:
@@ -329,8 +329,8 @@ class Compute_Trajectory_R1 : public rclcpp::Node
             for (int i=0; i<120; i++){
                 for (int j=0; j<120; j++){
                     if (map_bin.at<cv::uint8_t>(i,j)==0){
-                        for (int k = -7; k < 8; k++){
-                            for (int l= -7; l < 8; l++){
+                        for (int k = -2; k < 3; k++){
+                            for (int l= -2; l < 3; l++){
                                 //std::cout << k << l << std::endl;
 
                                 int i_k = i+k;

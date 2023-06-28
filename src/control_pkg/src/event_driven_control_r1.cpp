@@ -126,7 +126,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 				*/
 
 				RO_msg.objective = 1;  //Objeto 1
-				RO_msg.distance = 0.3; //Distancia al objeto
+				RO_msg.distance = 10; //Distancia al objeto
 
 
 

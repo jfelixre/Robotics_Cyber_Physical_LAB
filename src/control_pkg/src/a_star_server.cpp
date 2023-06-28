@@ -52,7 +52,7 @@ class AStarServer : public rclcpp::Node
           std::shared_ptr<interfaces::srv::AStarService::Response>      response)
 		{
 
-            std::cout << "Llamada a servicio" << std::endl;
+            //std::cout << "Llamada a servicio" << std::endl;
 
             int src_x = request->src_x;
             int src_y = request->src_y;

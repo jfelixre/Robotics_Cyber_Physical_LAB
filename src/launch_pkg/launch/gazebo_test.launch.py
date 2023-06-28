@@ -63,9 +63,9 @@ def generate_launch_description():
             executable='compute_trajectory_r1'),
 
 
-        #Node(
-        #    package='control_pkg',
-        #    executable='a_star_server'),
+        Node(
+            package='control_pkg',
+            executable='a_star_server'),
 
         Node(
             package='control_pkg',
