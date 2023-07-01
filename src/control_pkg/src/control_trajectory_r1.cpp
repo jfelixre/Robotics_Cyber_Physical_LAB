@@ -9,6 +9,7 @@
 #include <interfaces/srv/trajectory_control.hpp>
 #include <interfaces/srv/platform_vel.hpp>
 #include <Eigen/Dense>
+#include <interfaces/msg/robot_objective.hpp>
 
 #include <memory>
 #include <cinttypes>
@@ -29,6 +30,13 @@ double X_Robot=-1;
 double Y_Robot=-1;
 double ANG_Robot=-1;
 
+double ANG_Ob = -1;
+double ANG_Tg = -1;
+
+int n_objective = -1;
+float distance_objective = 0;
+ double phid = 0;
+
 //Variables de tiempo y control
     const double tf = 180; // tiempo de simulacion
     const double ts = 0.1; // tiempo de muestreo
@@ -43,7 +51,7 @@ double ANG_Robot=-1;
     // TRAYECTORIA DESEADA
     double hxd[N] = {};
     double hyd[N] = {};
-    double phid[N] = {};
+//    double phid[N] = {};
 
    
 
@@ -123,7 +131,7 @@ class Control_Trajectory_R1 : public rclcpp::Node
 
             std::cout << "service start" << std::endl;
             control_active = true;
-            rclcpp::sleep_for(std::chrono::seconds(60));
+            rclcpp::sleep_for(std::chrono::seconds(180));
             response -> success = control_active;
             std::cout << "service finish" << std::endl;
 
@@ -262,12 +270,48 @@ class Node_Subs_Positions : public rclcpp::Node
             subs_pos = this->create_subscription<interfaces::msg::Positions>(
                "/positions", 1, std::bind(&Node_Subs_Positions::subs_pos_callback,this,_1));
 
+            subs_objective = this->create_subscription<interfaces::msg::RobotObjective>(
+                "robot_1/objective", 1, std::bind(&Node_Subs_Positions::subs_obj_callback,this,_1));
+
         }
 
     private:
 
     rclcpp::Subscription<interfaces::msg::Positions>::SharedPtr subs_pos;
+    rclcpp::Subscription<interfaces::msg::RobotObjective>::SharedPtr subs_objective;
 
+
+    void subs_obj_callback(const interfaces::msg::RobotObjective::SharedPtr obj_msg){
+            n_objective = obj_msg->objective;
+            distance_objective = obj_msg->distance;
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Update objective");
+
+            switch (n_objective)
+            {
+            case -1:
+                phid= 0;
+                break;
+
+            case 0:
+                phid= 0;
+                break;
+
+            case 1:
+                phid= ANG_Ob + M_PI_2;
+                break;
+
+            case 2:
+                phid= ANG_Tg + M_PI_2;
+                break;               
+            
+            default:
+                break;
+            }
+
+
+
+    }
+    
      void subs_pos_callback(const interfaces::msg::Positions::SharedPtr pos_msg)
         {
             
@@ -279,6 +323,18 @@ class Node_Subs_Positions : public rclcpp::Node
             double Robot_orientation_x, Robot_orientation_y, Robot_orientation_z;
             Robot_m.getRPY(Robot_orientation_x, Robot_orientation_y, Robot_orientation_z);
 			ANG_Robot= Robot_orientation_z;
+            
+            tf2::Quaternion Object_quat(pos_msg->pos_object1.orientation.x, pos_msg->pos_object1.orientation.y, pos_msg->pos_object1.orientation.z, pos_msg->pos_object1.orientation.w);
+            tf2::Matrix3x3 Object_m(Object_quat);
+            double Object_orientation_x, Object_orientation_y, Object_orientation_z;
+            Object_m.getRPY(Object_orientation_x, Object_orientation_y, Object_orientation_z);
+			ANG_Ob= Object_orientation_z;
+
+            tf2::Quaternion Target_quat(pos_msg->pos_target.orientation.x, pos_msg->pos_target.orientation.y, pos_msg->pos_target.orientation.z, pos_msg->pos_target.orientation.w);
+            tf2::Matrix3x3 Target_m(Target_quat);
+            double Target_orientation_x, Target_orientation_y, Target_orientation_z;
+            Target_m.getRPY(Target_orientation_x, Target_orientation_y, Target_orientation_z);
+			ANG_Tg= Target_orientation_z;
 
           //  std::cout << ANG_Robot << std::endl;
         }
@@ -322,53 +378,23 @@ class Node_Control_Timer : public rclcpp::Node
 
         //std::cout << "inicio " << std::endl;
 
-/*
-        //################### POSICION DESEADA ####################
-        double hxd = 0.01*t[k]; //0*t
-        double hyd = cos(t[k]/16)*0.5; //0*t
-        double phid = -2.8;
-
-        //################### VELOCIDAD DESEADA ####################
 
 
-
-        double vxd = (hxd - hxa)/ts;    // double vxd = 1 ;  //#0 * t
-        double vyd = (hyd - hya)/ts;   // double vyd = 1 ; // #0 * t
-        double vwd = (phid - phia)/ts;   // double vwd = 0 ;
-
-        hx[0]=0*t[k];
-        hy[0]=0*t[k];
-        phi[0]= 0*t[k];
-
-*/
-
-            double phid = 0;
+           
             double vxd = (hxd[k] - hxa)/ts;    
             double vyd = (hyd[k] - hya)/ts;
             double vwd = (phid - phia)/ts;
 
             // Parametros Robot
-            //const double a = 0.15; //meters
+
 
             //Errores!
-               // hxe[k] = hxd - hx[k];
-               // hye[k] = hyd - hy[k];
 
-                //double ErrAng = phid - phi[k];
 
                  hxe[k] = hxd[k] - X_Robot;
                  hye[k] = hyd[k] - Y_Robot;
 
                  double ErrAng = phid - ANG_Robot;
-                /*
-                    if (ErrAng >= (1.1 * M_PI)){
-                        ErrAng -= 2 * M_PI;
-                    }
-
-                    if (ErrAng <= (-1.1 * M_PI)){
-                        ErrAng += 2 * M_PI;
-                    }
-                */
 
                 hwe[k] = ErrAng;
 
@@ -415,7 +441,7 @@ class Node_Control_Timer : public rclcpp::Node
                  sin_ang_robot,  cos_ang_robot, 0,
                  0,                 0,            1;
 
-            //std::cout<< " J  = " << J << std::endl;
+
         
 
             // Define variables
@@ -426,37 +452,13 @@ class Node_Control_Timer : public rclcpp::Node
             qpRef = J.inverse() * he; 
 
 
-           // std::cout << "qpRef = " << qpRef << std::endl;
+
 
             // Aplicar control
             uxRef[k] = qpRef(0, 0);
             uyRef[k] = qpRef(1, 0);
             wRef[k] = qpRef(2, 0);
 
-
-/*
-            //#Velocidades Lineales Actuales
-            double xp = uxRef[k] * cos(phi[k]) - uyRef[k] * sin(phi[k]);
-            double yp = uxRef[k] * sin(phi[k]) + uyRef[k] * cos(phi[k]);
-
-            //#Posicion actual
-            hx[k+1]=hx[k]+xp*ts;
-            hy[k+1]=hy[k]+yp*ts;
-            phi[k+1]=phi[k]+wRef[k]*ts;
-*/
-           // std::cout << " vel x = " << uxRef[k] << "  vel y = " << uyRef[k] <<  " vel w = " << wRef[k] << "  t = " << t[k] <<  "   hx[k] = " << hx[k] <<    std::endl;
-           // std::cout << " vel x = " << uxRef[k] << "  vel y = " << uyRef[k] <<  " vel w = " << wRef[k] << std::endl;
-
-/*
-            float z = sqrt((uxRef[k]*uxRef[k])+(uyRef[k]*uyRef[k]));
-			float Beta = atan2(uyRef[k],uxRef[k]);
-			float Gamma = ANG_Robot - (M_PI/2);
-			float Delta = Beta-Gamma;
-
-			float velx = z * cos(Delta) * -1;
-			float vely = z * sin(Delta);
-*/
-            //std::cout << " vel x = " << velx << "  vel y = " << vely <<  std::endl;
 
             auto request = std::make_shared<interfaces::srv::PlatformVel::Request>();
 
@@ -466,11 +468,9 @@ class Node_Control_Timer : public rclcpp::Node
             request->ang_vel = wRef[k];
             
 
-            //auto result = client_vel->async_send_request(request);
 
-            //std::cout << " Antes de async request" << std::endl;
             auto result = client_vel->async_send_request(request);
-            //std::cout << " Despues de async request" << std::endl;
+
 
             std::future_status status = result.wait_for(3s);  // timeout to guarantee a graceful finish
             if (status == std::future_status::ready) {
@@ -517,23 +517,7 @@ class Node_Control_Timer : public rclcpp::Node
 
  
 };
-/*
-class Node_Client_Vel : public rclcpp::Node
-{
-	public:
-		Node_Client_Vel() : Node("node_client_vel")
-		{
-            client_vel = this->create_client<interfaces::srv::PlatformVel>("robot1_vel");
 
-        }
-
-    private:
-
-    
-
-
-};
-*/
 
 
 int main(int argc, char * argv[])

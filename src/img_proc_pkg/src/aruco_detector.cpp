@@ -288,7 +288,7 @@ class Aruco_Detector : public rclcpp::Node
 
 
             
-
+  
           }
           if (Id==1){
 

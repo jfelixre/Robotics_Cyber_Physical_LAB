@@ -69,6 +69,14 @@ def generate_launch_description():
 
         Node(
             package='control_pkg',
+            executable='control_trajectory_r1'),
+
+        Node(
+            package='inv_kinematics_pkg',
+            executable='robot_1_platform_vel_server'),
+
+        Node(
+            package='control_pkg',
             executable='control_arm_pid_r1'),
     
        # launch.actions.TimerAction(
