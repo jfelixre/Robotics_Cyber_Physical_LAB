@@ -23,7 +23,8 @@ using namespace std;
 
 
 //Variables estados de robots
-int32_t robot1_state=-1;
+interfaces::msg::RobotState robot1_state;
+//int32_t robot1_state=-1;
 int32_t robot2_state=-1;
 
 
@@ -53,9 +54,9 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 		Event_Driven_Control_R1() : Node("event_driven_control_r1")
 		{
 
-      		state_robot1_publisher = create_publisher<interfaces::msg::RobotState>("robot_1/state",1);
+      		state_robot1_publisher = create_publisher<interfaces::msg::RobotState>("robot_1/state", 10);
 
-			objective_robot1_publisher = create_publisher<interfaces::msg::RobotObjective>("robot_1/objective",1);
+			objective_robot1_publisher = create_publisher<interfaces::msg::RobotObjective>("robot_1/objective", 1);
 
 			service_event_control = this->create_service<interfaces::srv::EventControl>(
                 "event_control_r1", std::bind(&Event_Driven_Control_R1::event_control_handler, this,
@@ -83,13 +84,12 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 		void event_control_handler(const std::shared_ptr<interfaces::srv::EventControl::Request> request,
 			std::shared_ptr<interfaces::srv::EventControl::Response>      response)
 			{
-
-
+				
 				/////////////////////ROBOT STATE -1/////////////////////////////     CALIBRAR BRAZO
 				state_robot1_publisher -> publish(robot1_state);
 
 				RCLCPP_INFO(this->get_logger(), "Iniciando Nodo de Control de Robot 1 y Calibrando Brazo");
-				
+					
 				//Home calibración brazo
 				arm_joints_position.pos_b1 = 2;
 				arm_joints_position.pos_b2 = -2;
@@ -99,7 +99,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 				publisher_arm_pos->publish(arm_joints_position);
 				
 				
-				robot1_state = 0;    //Poner en 0 cuando termine la calibracion del brazo.
+				robot1_state.robot_state= 0;    //Poner en 0 cuando termine la calibracion del brazo.
 
 
 
@@ -115,7 +115,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 						RCLCPP_INFO(this->get_logger(), "Esperando Conexion de Robot 2");
 					}
 					
-					robot1_state=1;
+					robot1_state.robot_state=1;
 
 					RCLCPP_INFO(this->get_logger(), "Iniciando Control de Robot 1");
 
@@ -126,6 +126,8 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 				state_robot1_publisher -> publish(robot1_state);
 
 				std::cout << "FASE 1" << std::endl;
+
+
 				/*
 				Xgoal=Xobj1-(0.3*cos(ANGobj1));
 				Ygoal=Yobj1-(0.3*sin(ANGobj1));
@@ -147,7 +149,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 
 
 				//cliente control trayectoria
-				request_ctl->time = 1;
+				//request_ctl->time = 1;
 
 				while (!client_trajectory_ctrl->wait_for_service(1s)){
                 if (!rclcpp::ok()){
@@ -168,7 +170,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 
 				std::cout << "Timer end" << std::endl;
 
-				robot1_state=2;
+				robot1_state.robot_state=2;
 
 
 
@@ -194,15 +196,16 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 				arm_joints_position.pos_g1 = -1;
 
 
-				robot1_state=3;
+				robot1_state.robot_state=3;
 
 
 				///////////////////////ROBOT STATE 3//////////////////////////////  CONTROL FASE 3  Retirarse de la base del objeto
+				/*
 				state_robot1_publisher -> publish(robot1_state);
 				std::cout << "FASE 3" << std::endl;
 
 				RO_msg.objective = 1;  //Objeto 1
-				RO_msg.distance = 25; //Distancia al objeto
+				RO_msg.distance = 35; //Distancia al objeto
 
 
 
@@ -212,7 +215,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 
 
 				//cliente control trayectoria
-				request_ctl->time = 1;
+				//request_ctl->time = 1;
 
 				while (!client_trajectory_ctrl->wait_for_service(1s)){
                 if (!rclcpp::ok()){
@@ -229,13 +232,13 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 
 				std::cout << " Result control" << std::endl;
 
-				robot1_state=4;
-
+				robot1_state.robot_state=4;
+*/
 				///////////////////////ROBOT STATE 4//////////////////////////////  CONTROL FASE 4  Aproximacion objetivo
 				state_robot1_publisher -> publish(robot1_state);
 				std::cout << "FASE 4" << std::endl;
 
-				RO_msg.objective = 2;  //Objeto 1
+				RO_msg.objective = 2;  //Objeto 2
 				RO_msg.distance = 25; //Distancia al objeto
 
 
@@ -246,7 +249,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 
 
 				//cliente control trayectoria
-				request_ctl->time = 1;
+				//request_ctl->time = 1;
 
 				while (!client_trajectory_ctrl->wait_for_service(1s)){
                 if (!rclcpp::ok()){
@@ -263,7 +266,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 
 				std::cout << " Result control" << std::endl;
 
-				robot1_state=5;
+				robot1_state.robot_state=5;
 
 
 				///////////////////////ROBOT STATE 5//////////////////////////////  CONTROL FASE 5  Soltar objeto
@@ -288,17 +291,18 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 				arm_joints_position.pos_g1 = 1;
 
 
-				robot1_state=3;
+				robot1_state.robot_state=3;
 
-				robot1_state=6;
+				robot1_state.robot_state=6;
 
 
 				///////////////////////ROBOT STATE 6//////////////////////////////  CONTROL FASE 6  Retirarse de la base objetivo
+				/*
 				state_robot1_publisher -> publish(robot1_state);
 				std::cout << "FASE 6" << std::endl;
 
 				RO_msg.objective = 2;  //Objeto 1
-				RO_msg.distance = 25; //Distancia al objeto
+				RO_msg.distance = 35; //Distancia al objeto
 
 
 
@@ -308,7 +312,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 
 
 				//cliente control trayectoria
-				request_ctl->time = 1;
+				//request_ctl->time = 1;
 
 				while (!client_trajectory_ctrl->wait_for_service(1s)){
                 if (!rclcpp::ok()){
@@ -333,8 +337,8 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 
 				publisher_arm_pos->publish(arm_joints_position);
 
-				robot1_state=7;
-
+				robot1_state.robot_state=7;
+*/
 				///////////////////////ROBOT STATE 7//////////////////////////////  CONTROL FASE 7  Regresar a la posicion inicial
 				state_robot1_publisher -> publish(robot1_state);
 				std::cout << "FASE 7" << std::endl;
@@ -350,7 +354,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 
 
 				//cliente control trayectoria
-				request_ctl->time = 1;
+				//request_ctl->time = 1;
 
 				while (!client_trajectory_ctrl->wait_for_service(1s)){
                 if (!rclcpp::ok()){
@@ -367,7 +371,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 
 				std::cout << " Result control" << std::endl;
 
-				robot1_state=8;
+				robot1_state.robot_state=8;
 
 				///////////////////////ROBOT STATE 8//////////////////////////////  CONTROL FASE 8  Control Terminado
 				state_robot1_publisher -> publish(robot1_state);
@@ -379,234 +383,6 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 
 
 			}
-
-/*\
-		void control_F1()  //Aproximacion a objeto
-		{
-			Xgoal=Xobj1-(220*cos(ANGobj1)) -10;
-			Ygoal=Yobj1-(220*sin(ANGobj1));
-			ANGgoal=ANGobj1;
-			//RCLCPP_INFO(this->get_logger(), "Entro a control_F1");
-			PIDcicle();
-			RCLCPP_INFO(this->get_logger(), "Error X R1 = %d", errorX);
-			RCLCPP_INFO(this->get_logger(), "Error Y R1 = %d", errorY);
-			RCLCPP_INFO(this->get_logger(), "Error Ang R1 = %f", errorAng);
-
-
-			B1goal=1.05;
-			B2goal=1.15;
-			B3goal=-0.63;
-			velG1=1;
-
-			PIDcicleArm();
-
-			RCLCPP_INFO(this->get_logger(), "Error B1 R1 = %f", errorB1);
-			RCLCPP_INFO(this->get_logger(), "Error B2 R1 = %f", errorB2);
-			RCLCPP_INFO(this->get_logger(), "Error B3 R1 = %f", errorB3);
-
-
-			if (abs(errorX)<8 && abs(errorY)<8 && abs(errorAng)<0.04)
-			{
-				error_count++;
-			}
-
-			if (error_count>10){
-				robot1_state=2;
-				error_count=0;
-			}
-			
-		}
-
-		void control_F2()  //Tomar objetoterminate called after throwing an instance of 'rclcpp::exceptions::RCLBadAlloc'
-  what():  std::bad_alloc
-
-		{
-			Xgoal=Xobj1-(190*cos(ANGobj1))-10;
-			Ygoal=Yobj1-(190*sin(ANGobj1));
-			ANGgoal=ANGobj1;
-			//RCLCPP_INFO(this->get_logger(), "Entro a control_F1");
-			
-			RCLCPP_INFO(this->get_logger(), "Error X R1 = %d", errorX);
-			RCLCPP_INFO(this->get_logger(), "Error Y R1 = %d", errorY);
-			RCLCPP_INFO(this->get_logger(), "Error Ang R1 = %f", errorAng);
-
-			RCLCPP_INFO(this->get_logger(), "Error B1 R1 = %f", errorB1);
-			RCLCPP_INFO(this->get_logger(), "Error B2 R1 = %f", errorB2);
-			RCLCPP_INFO(this->get_logger(), "Error B3 R1 = %f", errorB3);
-
-			B1goal=1.05;
-			B2goal=1.15;
-			B3goal=-0.63;
-			//velG1=-1;
-
-			
-
-			if (abs(errorX)<8 && abs(errorY)<8 && abs(errorAng)<0.04)
-			{
-				error_count++;
-			}
-
-			if (error_count>10){
-
-					velG1=-1;
-					i_gripper++;
-
-					if (i_gripper>=1000)
-					{
-						B1goal=0.785;
-						B2goal=0.785;
-						B3goal=0;
-
-						//RCLCPP_INFO(this->get_logger(), "Subiendo brazo");
-					}
-
-					else
-					{
-						//RCLCPP_INFO(this->get_logger(), "Cerrando pinza");
-					}
-
-
-				state_robot1_publisher
-			}
-
-
-			PIDcicle();
-			PIDcicleArm();
-
-
-			if (abs(errorB1)<0.09 and abs(errorB2)<0.09 and abs(errorB3)<0.09 and i_gripper>=1000)
-			{
-				robot1_state=3;
-				error_count=0;
-				i_gripper=0;
-			}
-		}
-
-		void control_F3()  //Retirarse de la base del objeto
-		{
-			Xgoal=Xobj1-(210*cos(ANGobj1));
-			Ygoal=Yobj1-(210*sin(ANGobj1));
-			ANGgoal=ANGobj1;
-			//RCLCPP_INFO(this->get_logger(), "Entro a control_F1");
-			PIDcicle();
-			RCLCPP_INFO(this->get_logger(), "Error X R1 = %d", errorX);
-			RCLCPP_INFO(this->get_logger(), "Error Y R1 = %d", errorY);
-			RCLCPP_INFO(this->get_logger(), "Error Ang R1 = %f", errorAng);
-
-			B1goal=0.785;
-			B2goal=0.785;
-			B3goal=0;	
-
-			PIDcicleArm();
-
-			if (abs(errorX)<8 && abs(errorY)<8 && abs(errorAng)<0.04)
-			{
-				error_count++;
-			}
-
-			if (error_count>10){
-				robot1_state=4;
-				error_count=0;
-			}
-
-		}
-
-		void control_F4()  //Aproximación a objetivo
-		{
-			Xgoal=Xtgt-(210*cos(ANGtgt));
-			Ygoal=Ytgt-(210*sin(ANGtgt));
-			ANGgoal=ANGtgt;
-			//RCLCPP_INFO(this->get_logger(), "Entro a control_F1");
-			PIDcicle();
-			RCLCPP_INFO(this->get_logger(), "Error X R1 = %d", errorX);
-			RCLCPP_INFO(this->get_logger(), "Error Y R1 = %d", errorY);
-			RCLCPP_INFO(this->get_logger(), "Error Ang R1 = %f", errorAng);
-
-
-			B1goal=0.9;
-			B2goal=0.9;
-			B3goal=-0.9;
-
-			PIDcicleArm();
-
-
-			if (abs(errorX)<8 && abs(errorY)<8 && abs(errorAng)<0.2)
-			{
-				error_count++;
-			}
-
-			if (error_count>10){
-				robot1_state=5;
-				error_count=0;
-			}
-		}
-
-		void control_F5()  //Soltar objeto
-		{
-			Xgoal=Xtgt-(150*cos(ANGtgt));
-			Ygoal=Ytgt-(150*sin(ANGtgt));robot2_state=msg->robot_state;, "Error Y R1 = %d", errorY);
-			RCLCPP_INFO(this->get_logger(), "Error Ang R1 = %f", errorAng);
-
-			if (abs(errorX)<8 && abs(errorY)<8 && abs(errorAng)<0.2)
-			{
-				error_count++;
-			}
-
-			if (error_count>10){
-				robot1_state=6;
-				error_count=0;
-			}
-		}
-
-		void control_F6()  //Retirarse de la base objetivo
-		{
-			Xgoal=Xtgt-(250*cos(ANGtgt));
-			Ygoal=Ytgt-(250*sin(ANGtgt));
-			ANGgoal=ANGtgt;
-			//RCLCPP_INFO(this->get_logger(), "Entro a control_F1");
-			PIDcicle();
-			RCLCPP_INFO(this->get_logger(), "Error X R1 = %d", errorX);
-			RCLCPP_INFO(this->get_logger(), "Error Y R1 = %d", errorY);
-			RCLCPP_INFO(this->get_logger(), "Error Ang R1 = %f", errorAng);
-
-			if (abs(errorX)<8 && abs(errorY)<8 && abs(errorAng)<0.2)
-			{
-				error_count++;
-			}
-
-			if (error_count>10){
-				robot1_state=7;
-				error_count=0;
-			}
-		}
-
-		void control_F7()  //Regresar a posición inicial
-		{
-			Xgoal=Xinit;
-			Ygoal=Yinit;
-			ANGgoal=-pi/2;
-			//RCLCPP_INFO(this->get_logger(), "Entro a control_F1");
-			PIDcicle();
-			RCLCPP_INFO(this->get_logger(), "Error X R1 = %d", errorX);
-			RCLCPP_INFO(this->get_logger(), "Error Y R1 = %d", errorY);
-			RCLCPP_INFO(this->get_logger(), "Error Ang R1 = %f", errorAng);
-
-			if (abs(errorX)<8 && abs(errorY)<8 && abs(errorAng)<0.2)
-			{
-				error_count++;
-			}
-
-			if (error_count>10){
-				robot1_state=8;
-				error_count=0;
-			}
-		}
-
-		
-*/
-
-
-
 };
 
 
@@ -684,7 +460,7 @@ int main(int argc, char * argv[])
   	//rclcpp::spin(std::make_shared<Event_Driven_Control_R1>());
 
 	
-	
+	robot1_state.robot_state=-1;
 	auto node = std::make_shared<Event_Driven_Control_R1>();
     auto node_subs_pose_r1 = std::make_shared<Node_Subs_Pose_R1>();
 	auto node_subs_state_r2 = std::make_shared<Node_Subs_State_R2>();
