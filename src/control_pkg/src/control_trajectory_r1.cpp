@@ -38,10 +38,10 @@ float distance_objective = 0;
  double phid = 0;
 
 //Variables de tiempo y control
-    const double tf = 180; // tiempo de simulacion
-    const double ts = 0.1; // tiempo de muestreo
+    int tf = 180; // tiempo de simulacion
+    double ts = 0.1; // tiempo de muestreo
     //const int N = std::round((tf + ts) / ts); // cantidad de muestras 
-    const int N = 1801;     //N = 1201 para 60 s y 601 para 30s
+    int N = std::round((tf+ts)/ts); //1801;     //N = 1201 para 60 s y 601 para 30s
    // std::vector<std::vector<double>> he(2, std::vector<double>(1));
    // std::vector<std::vector<double>> J(2, std::vector<double>(2));
    // std::vector<std::vector<double>> K(2, std::vector<double>(2));
@@ -49,14 +49,20 @@ float distance_objective = 0;
 
 
     // TRAYECTORIA DESEADA
-    double hxd[N] = {};
-    double hyd[N] = {};
+    //double hxd[N] = {};
+    //double hyd[N] = {};
+
+    std::vector<double> hxd(N);
+    std::vector<double> hyd(N);
 //    double phid[N] = {};
 
    
 
-    double hxdp[N] = {};
-    double hydp[N] = {};
+    //double hxdp[N] = {};
+    //double hydp[N] = {};
+
+    std::vector<double>  hxdp(N);
+    std::vector<double>  hydp(N);
 
     // ERRORES
     //double hxe[N] = {};
@@ -124,6 +130,21 @@ class Control_Trajectory_R1 : public rclcpp::Node
         void trajectory_control_caller(const std::shared_ptr<interfaces::srv::TrajectoryControl::Request> request,
           std::shared_ptr<interfaces::srv::TrajectoryControl::Response>      response)
 		{
+            tf = request->time;
+
+            N = std::round((tf+ts)/ts);
+            hxd.resize(N,0);
+            hyd.resize(N,0);
+            hxdp.resize(N,0);
+            hydp.resize(N,0);
+            uxRef.resize(N,1.0);
+            uyRef.resize(N,1.0);
+            wRef.resize(N,1.0);
+            hxe.resize(N,0);
+            hye.resize(N,0);
+            hwe.resize(N,0);
+            gain.resize(N,0);
+
             hxa = 0;
             hya = 0;
             phia = 0;
@@ -131,7 +152,7 @@ class Control_Trajectory_R1 : public rclcpp::Node
 
             std::cout << "service start" << std::endl;
             control_active = true;
-            rclcpp::sleep_for(std::chrono::seconds(180));
+            rclcpp::sleep_for(std::chrono::seconds(tf));
             response -> success = control_active;
             std::cout << "service finish" << std::endl;
 
@@ -165,8 +186,10 @@ class Node_Subs_Path : public rclcpp::Node
 
            // std::cout << "subs path" << k << std::endl;
 
-            memset(hxd, 0, sizeof(hxd));
-            memset(hyd, 0, sizeof(hyd));
+            //memset(hxd, 0, sizeof(hxd));
+            //memset(hyd, 0, sizeof(hyd));
+            hxd.resize(N,0);
+            hyd.resize(N,0);
             
             int n_points= path_msg->points.size();
            
@@ -297,7 +320,8 @@ class Node_Subs_Positions : public rclcpp::Node
                 break;
 
             case 1:
-                phid= ANG_Ob + M_PI_2;
+                //phid= ANG_Ob + M_PI_2;
+                phid= M_PI_2;
                 break;
 
             case 2:
@@ -323,6 +347,8 @@ class Node_Subs_Positions : public rclcpp::Node
             double Robot_orientation_x, Robot_orientation_y, Robot_orientation_z;
             Robot_m.getRPY(Robot_orientation_x, Robot_orientation_y, Robot_orientation_z);
 			ANG_Robot= Robot_orientation_z;
+            X_Robot = X_Robot + (0.125 * cos(ANG_Robot)) - 0.02;
+            Y_Robot = Y_Robot + (0.125 * sin(ANG_Robot));
             
             tf2::Quaternion Object_quat(pos_msg->pos_object1.orientation.x, pos_msg->pos_object1.orientation.y, pos_msg->pos_object1.orientation.z, pos_msg->pos_object1.orientation.w);
             tf2::Matrix3x3 Object_m(Object_quat);
@@ -406,13 +432,15 @@ class Node_Control_Timer : public rclcpp::Node
            // std::cout << " Grados= " << grados << " cos = " << cos_val << " sin =" << sin_val << std::endl;
             
 
-
-        //    std::cout << "error x = " <<  hxe[k] << "  error y = " <<hye[k] << " error w = " << hwe[k] << " Grados= " << grados;
+            std::cout << "x deseada = " << hxd[k]  << "  X_Rob = " << X_Robot << std::endl;
+            std::cout << "y deseada = " << hyd[k]  << "  Y_Rob = " << Y_Robot << std::endl;
+            std::cout << "phi deseada = " << phid  << "  ANG_Rob = " << ANG_Robot << std::endl;
+            std::cout << "error x = " <<  hxe[k] << "  error y = " <<hye[k] << " error w = " << hwe[k] << " Grados= " << grados << std::endl;
             
 
             //Ganancias
-            double Kx = 300;
-            double Ky = 300;
+            double Kx = 400;
+            double Ky = 400;
             double Kw = 10;
 
 
@@ -463,18 +491,18 @@ class Node_Control_Timer : public rclcpp::Node
             auto request = std::make_shared<interfaces::srv::PlatformVel::Request>();
 
 
-            request->x_vel = uxRef[k] * 10;
-            request->y_vel = uyRef[k] * 10;
+            request->x_vel = uxRef[k] * 35;
+            request->y_vel = uyRef[k] * 35;
             request->ang_vel = wRef[k];
             
-
+            std::cout << " Xvel = " << uxRef[k] << "  Yvel = " << uyRef[k] <<  "  ANG_vel = " << wRef[k] << std::endl;
 
             auto result = client_vel->async_send_request(request);
 
 
             std::future_status status = result.wait_for(3s);  // timeout to guarantee a graceful finish
             if (status == std::future_status::ready) {
-                RCLCPP_INFO(this->get_logger(), "Received response");
+               // RCLCPP_INFO(this->get_logger(), "Received response");
             }
 
             std::cout << "k = " << k << std::endl;

@@ -93,7 +93,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 				//Home calibración brazo
 				arm_joints_position.pos_b1 = 2;
 				arm_joints_position.pos_b2 = -2;
-				arm_joints_position.pos_b3 = -2;
+				arm_joints_position.pos_b3 = 2;
 				arm_joints_position.pos_g1 = 1;
 
 				publisher_arm_pos->publish(arm_joints_position);
@@ -141,15 +141,11 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 				RO_msg.objective = 1;  //Objeto 1
 				RO_msg.distance = 25; //Distancia al objeto
 
-
-
 				objective_robot1_publisher -> publish(RO_msg);
 
 				
-
-
 				//cliente control trayectoria
-				//request_ctl->time = 1;
+				request_ctl->time = 140;
 
 				while (!client_trajectory_ctrl->wait_for_service(1s)){
                 if (!rclcpp::ok()){
@@ -166,10 +162,6 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 
 				std::cout << " Result control" << std::endl;
 
-				rclcpp::sleep_for(std::chrono::seconds(10));
-
-				std::cout << "Timer end" << std::endl;
-
 				robot1_state.robot_state=2;
 
 
@@ -180,32 +172,66 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 
 				//Posicion del brazo
 				arm_joints_position.pos_b1 = 0.9;
-				arm_joints_position.pos_b2 = 0.9;
+				arm_joints_position.pos_b2 = 0.5;
 				arm_joints_position.pos_b3 = -0.4;
 				arm_joints_position.pos_g1 = 1;
 
 				publisher_arm_pos->publish(arm_joints_position);
+				rclcpp::sleep_for(std::chrono::seconds(45));
 
 
 				//Control last distance
 
+				RO_msg.objective = 1;  //Objeto 1
+				RO_msg.distance = 16; //Distancia al objeto
+
+				objective_robot1_publisher -> publish(RO_msg);
+
+				
+				//cliente control trayectoria
+				request_ctl->time = 30;
+
+				while (!client_trajectory_ctrl->wait_for_service(1s)){
+                if (!rclcpp::ok()){
+                    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service Control Trajectory.");
+                }
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service Control Trajectory not available, waiting again...");
+          		}
+				
+				auto result2 = client_trajectory_ctrl->async_send_request(request_ctl);
+				
+				result2.wait();
+
+				result_control = result.get()->success;
+
 				//Cerrar brazo
 				arm_joints_position.pos_b1 = 0.9;
-				arm_joints_position.pos_b2 = 0.9;
-				arm_joints_position.pos_b3 = -0.4;
+				arm_joints_position.pos_b2 = 0.15;
+				arm_joints_position.pos_b3 = 0;
 				arm_joints_position.pos_g1 = -1;
+
+				publisher_arm_pos->publish(arm_joints_position);
+				rclcpp::sleep_for(std::chrono::seconds(50));
+
+				arm_joints_position.pos_b1 = 0.9;
+				arm_joints_position.pos_b2 = -0.1;
+				arm_joints_position.pos_b3 = 0.1;
+				arm_joints_position.pos_g1 = -1;
+
+				publisher_arm_pos->publish(arm_joints_position);
+				rclcpp::sleep_for(std::chrono::seconds(50));
 
 
 				robot1_state.robot_state=3;
 
 
 				///////////////////////ROBOT STATE 3//////////////////////////////  CONTROL FASE 3  Retirarse de la base del objeto
-				/*
+				
 				state_robot1_publisher -> publish(robot1_state);
 				std::cout << "FASE 3" << std::endl;
 
 				RO_msg.objective = 1;  //Objeto 1
-				RO_msg.distance = 35; //Distancia al objeto
+				RO_msg.distance = 18; //Distancia al objeto
 
 
 
@@ -230,10 +256,8 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 
 				result_control = result.get()->success;
 
-				std::cout << " Result control" << std::endl;
-
 				robot1_state.robot_state=4;
-*/
+
 				///////////////////////ROBOT STATE 4//////////////////////////////  CONTROL FASE 4  Aproximacion objetivo
 				state_robot1_publisher -> publish(robot1_state);
 				std::cout << "FASE 4" << std::endl;

@@ -126,7 +126,7 @@ class Compute_Trajectory_R1 : public rclcpp::Node
             R1_m.getRPY(R1_orientation_x, R1_orientation_y, R1_orientation_z);
             double R1_angle_degrees= (R1_orientation_z*180)/PI * -1;
 
-            cv::Point R1_center_point(((int)((5*cos(R1_angle_degrees))+R1_x_map)),((int)((4*(sin(R1_angle_degrees)))+R1_y_map)));
+            cv::Point R1_center_point(((int)((5*cos(R1_orientation_z))+R1_x_map)),((int)((-5*(sin(R1_orientation_z)))+R1_y_map)));
 
             cv::Size R1_size(14,12);
             cv::RotatedRect R1_rectangle(R1_center_point, R1_size, R1_angle_degrees);
@@ -139,6 +139,7 @@ class Compute_Trajectory_R1 : public rclcpp::Node
                 vertices_R1.push_back(vertices2f_R1[i]);
             }
 
+            
             cv::fillConvexPoly(map,vertices_R1, cv::Scalar(1));
             
 
@@ -158,7 +159,7 @@ class Compute_Trajectory_R1 : public rclcpp::Node
             R2_m.getRPY(R2_orientation_x, R2_orientation_y, R2_orientation_z);
             double R2_angle_degrees= (R2_orientation_z*180)/PI * -1;
 
-            cv::Point R2_center_point(((int)((5*cos(R2_angle_degrees))+R2_x_map)),((int)((4*(sin(R2_angle_degrees)))+R2_y_map)));
+            cv::Point R2_center_point(((int)((5*cos(R2_orientation_z))+R2_x_map)),((int)((-5*(sin(R2_orientation_z)))+R2_y_map)));
 
 
             cv::Size R2_size(14,12);
@@ -270,8 +271,8 @@ class Compute_Trajectory_R1 : public rclcpp::Node
             //cv::fillConvexPoly(map_bin,vertices_Tg, cv::Scalar(0));
 
 
-            cv::namedWindow("Display bin", cv::WINDOW_NORMAL );
-            cv::imshow("Display bin", map_bin);
+            //cv::namedWindow("Display bin", cv::WINDOW_NORMAL );
+            //cv::imshow("Display bin", map_bin);
 
 
             cv::Point goal;
@@ -291,7 +292,7 @@ class Compute_Trajectory_R1 : public rclcpp::Node
                 break;
 
             case 1:
-                goal.x = O1_point.x + (distance_objective * sin(O1_orientation_z));
+                goal.x = O1_point.x;// + (distance_objective * sin(O1_orientation_z));
                 goal.y = O1_point.y + (distance_objective * cos(O1_orientation_z));
                 break;
 
@@ -348,8 +349,8 @@ class Compute_Trajectory_R1 : public rclcpp::Node
             }
 
 
-            cv::namedWindow("Display bin_ext", cv::WINDOW_NORMAL );
-            cv::imshow("Display bin_ext", map_bin_ext);
+            //cv::namedWindow("Display bin_ext", cv::WINDOW_NORMAL );
+            //cv::imshow("Display bin_ext", map_bin_ext);
 
 
 
@@ -454,7 +455,7 @@ class Compute_Trajectory_R1 : public rclcpp::Node
 */
             geometry_msgs::msg::Polygon path_msg;
 
-            for (int i=5; i<path_size; i++){
+            for (int i=2; i<path_size; i++){
                 map_color.at<cv::Vec3b>(path_x[i], path_y[i]) = cv::Vec3b(0,0,255);
                 geometry_msgs::msg::Point32 point;
                 point.y = ((path_x[i]-(n_x_spaces/2))*x_world)/n_x_spaces * -1;
@@ -480,8 +481,12 @@ class Compute_Trajectory_R1 : public rclcpp::Node
 
             ///////////////////////////////////////////////
 
-            cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
-            cv::imshow("Display Image", map);
+            cv::circle(map_color,R1_point,1,cv::Scalar(0,0,255),1);
+            cv::circle(map_color,R1_center_point,1,cv::Scalar(255,0,0),1);
+            cv::circle(map_color,goal,1,cv::Scalar(255,0,0),1);
+
+            //cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
+            //cv::imshow("Display Image", map);
 
             cv::namedWindow("Display color", cv::WINDOW_NORMAL );
             cv::imshow("Display color", map_color);

@@ -51,12 +51,12 @@ float KIb1=10;
 float KDb1=50;
 
 float KPb2=20;
-float KIb2=1;
-float KDb2=15;
+float KIb2=10;
+float KDb2=50;
 
-float KPb3=20;
-float KIb3=10;
-float KDb3=20;
+float KPb3=10;
+float KIb3=0;
+float KDb3=50;
 
 float Pb1=0;
 float Ib1=0;
