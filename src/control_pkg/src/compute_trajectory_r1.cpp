@@ -32,7 +32,7 @@ using std::placeholders::_1;
 using namespace std::chrono_literals;
 # define PI 3.14159265358979323846
 
-geometry_msgs::msg::Pose Robot1, Robot2, Object1, Object2, Target, Initial;
+geometry_msgs::msg::Pose Robot1, Robot2, Object1, Object2, Target, Initial, Saved;
 int n_objective = -1;
 float distance_objective = 0;
 
@@ -294,12 +294,20 @@ class Compute_Trajectory_R1 : public rclcpp::Node
             case 1:
                 goal.x = O1_point.x;// + (distance_objective * sin(O1_orientation_z));
                 goal.y = O1_point.y + (distance_objective * cos(O1_orientation_z));
+                Saved.position.x = O1_point.x;
+                Saved.position.y = O1_point.y;
+                //Saved.orientation.z = O1_orientation_z;
                 break;
 
             case 2:
                 goal.x = Tg_point.x + (distance_objective * sin(Tg_orientation_z));
                 goal.y = Tg_point.y + (distance_objective * cos(Tg_orientation_z));
-                break;               
+                break;    
+
+            case 3:
+                goal.x = Saved.position.x;
+                goal.y = Saved.position.y + (distance_objective * sin(M_PI_2));
+                break;            
             
             default:
                 break;
