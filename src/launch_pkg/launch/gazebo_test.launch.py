@@ -67,9 +67,9 @@ def generate_launch_description():
             package='control_pkg',
             executable='a_star_server'),
 
-        #Node(
-         #   package='control_pkg',
-          #  executable='control_trajectory_r1'),
+        Node(
+            package='control_pkg',
+            executable='control_trajectory_r1'),
 
         Node(
             package='inv_kinematics_pkg',
@@ -78,6 +78,10 @@ def generate_launch_description():
         Node(
             package='control_pkg',
             executable='control_arm_pid_r1'),
+
+        Node(
+            package='control_pkg',
+            executable='event_driven_control_r1'),
     
        # launch.actions.TimerAction(
        #     period=60.0,
@@ -88,8 +92,8 @@ def generate_launch_description():
        #             parameters= [config]
        #             )
        #     ]),
-        Node(
-            package='rviz2',
-            executable='rviz2'),
+        #Node(
+        #    package='rviz2',
+        #    executable='rviz2'),
         
     ])
