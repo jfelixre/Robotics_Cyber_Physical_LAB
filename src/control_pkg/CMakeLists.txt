@@ -104,6 +104,22 @@ ament_target_dependencies(compute_trajectory
     geometry_msgs
     )
 
+  add_executable(compute_trajectory_r2 src/compute_trajectory_r2.cpp)
+  target_include_directories(compute_trajectory_r2 PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
+
+  ament_target_dependencies(compute_trajectory_r2
+    sensor_msgs
+    std_msgs
+    rclcpp
+    cv_bridge
+    interfaces
+    tf2
+    tf2_ros
+    geometry_msgs
+    )
+
   add_executable(event_driven_control_r1 src/event_driven_control_r1.cpp)
   target_include_directories(event_driven_control_r1 PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -189,18 +205,19 @@ ament_target_dependencies(compute_trajectory
 
 
 install(TARGETS
-  control_pid_p1_node
-  control_pid_p2_node
-  control_pid_r1_node
-  control_pid_r2_node
-  compute_trajectory
+  #control_pid_p1_node
+  #control_pid_p2_node
+  #control_pid_r1_node
+  #control_pid_r2_node
+  #compute_trajectory
   a_star_server
   compute_trajectory_r1
   event_driven_control_r1
   control_trajectory_r1
-  test_control2
-  test_control3
+  #test_control2
+  #test_control3
   control_arm_pid_r1
+  compute_trajectory_r2
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

@@ -62,7 +62,6 @@ def generate_launch_description():
             package='control_pkg',
             executable='compute_trajectory_r1'),
 
-
         Node(
             package='control_pkg',
             executable='a_star_server'),
@@ -82,6 +81,11 @@ def generate_launch_description():
         Node(
             package='control_pkg',
             executable='event_driven_control_r1'),
+
+        Node(
+            package='control_pkg',
+            executable='compute_trajectory_r2'),
+
     
        # launch.actions.TimerAction(
        #     period=60.0,
