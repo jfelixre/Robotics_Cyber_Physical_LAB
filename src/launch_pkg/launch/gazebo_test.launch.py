@@ -94,6 +94,10 @@ def generate_launch_description():
             package='inv_kinematics_pkg',
             executable='robot_2_platform_vel_server'),
 
+        Node(
+            package='control_pkg',
+            executable='control_arm_pid_r2'),
+
     
        # launch.actions.TimerAction(
        #     period=60.0,
