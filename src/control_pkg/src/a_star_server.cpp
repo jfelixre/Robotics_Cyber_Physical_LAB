@@ -13,6 +13,8 @@ using namespace std;
 #define ROW 120
 #define COL 120
 
+bool success = false;
+
 
 std::vector<int> path_x, path_y; 
 
@@ -82,6 +84,11 @@ class AStarServer : public rclcpp::Node
             Pair dest = make_pair(dst_x, dst_y);
 
             aStarSearch(grid, src, dest);
+
+            if (success == false) {
+                path_x.resize(0);
+                path_y.resize(0);
+            }
 
 
             response->path_x = path_x;
@@ -229,12 +236,14 @@ class AStarServer : public rclcpp::Node
             // If the source is out of range
             if (isValid(src.first, src.second) == false) {
                 printf("Source is invalid\n");
+                success = false;
                 return;
             }
         
             // If the destination is out of range
             if (isValid(dest.first, dest.second) == false) {
                 printf("Destination is invalid\n");
+                success = false;
                 return;
             }
         
@@ -243,6 +252,7 @@ class AStarServer : public rclcpp::Node
                 || isUnBlocked(grid, dest.first, dest.second)
                     == false) {
                 printf("Source or the destination is blocked\n");
+                success = false;
                 return;
             }
         
@@ -250,6 +260,7 @@ class AStarServer : public rclcpp::Node
             if (isDestination(src.first, src.second, dest)
                 == true) {
                 printf("We are already at the destination\n");
+                success = false;
                 return;
             }
         
@@ -734,8 +745,13 @@ class AStarServer : public rclcpp::Node
             // reach the destination cell. This may happen when the
             // there is no way to destination cell (due to
             // blockages)
-            if (foundDest == false)
+            if (foundDest == false){
+                success = false;
                 printf("Failed to find the Destination Cell\n");
+            }
+            else {
+                success = true;
+                }
         
             return;
         }
