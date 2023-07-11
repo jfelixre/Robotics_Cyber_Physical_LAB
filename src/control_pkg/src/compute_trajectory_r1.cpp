@@ -496,8 +496,8 @@ class Compute_Trajectory_R1 : public rclcpp::Node
             //cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
             //cv::imshow("Display Image", map);
 
-            cv::namedWindow("Display color", cv::WINDOW_NORMAL );
-            cv::imshow("Display color", map_color);
+            cv::namedWindow("MAP_R1", cv::WINDOW_NORMAL );
+            cv::imshow("MAP_R1", map_color);
             cv::waitKey(1);
 
         }
