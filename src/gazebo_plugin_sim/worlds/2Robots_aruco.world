@@ -23,13 +23,13 @@
       <static>1</static>
       <link name='camera_link'>
         <sensor name='camera1' type='camera'>
-          <update_rate>120</update_rate>
+          <update_rate>1500</update_rate>
           <visualize>1</visualize>
           <camera name='head'>
             <horizontal_fov>1.39626</horizontal_fov>
             <image>
-              <width>960</width>
-              <height>480</height>
+              <width>1280</width>
+              <height>720</height>
               <format>R8G8B8</format>
             </image>
             <clip>
