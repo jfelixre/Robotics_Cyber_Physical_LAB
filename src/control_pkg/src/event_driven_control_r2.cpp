@@ -109,17 +109,21 @@ class Event_Driven_Control_R2 : public rclcpp::Node
 
 
 					RCLCPP_INFO(this->get_logger(), "Inicializando Brazo y Esperando Conexion de Robot 2");
+					
+					RCLCPP_INFO(this->get_logger(), "Esperando Conexion de Robot 1");
 
 					while (robot1_state<0)
 					{
-						RCLCPP_INFO(this->get_logger(), "Esperando Conexion de Robot 1");
+						
 					}
 
 					RCLCPP_INFO(this->get_logger(), "Iniciando Control de Robot 2");
 
+					RCLCPP_INFO(this->get_logger(), "Esperando completar tarea de Robot 1");
+
 					while (robot1_state<5)
 					{
-						RCLCPP_INFO(this->get_logger(), "Esperando completar tarea de Robot 1");
+						
 					}
 					
 					robot2_state.robot_state=1;
