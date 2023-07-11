@@ -8,7 +8,7 @@
 #include <cfloat>
 
 using namespace std;
-//rclcpp::Node::SharedPtr AStarServer = nullptr;
+//rclcpp::Node::SharedPtr AStarServer2 = nullptr;
 
 #define ROW 120
 #define COL 120
@@ -34,13 +34,13 @@ struct cell {
 };
 
 
-class AStarServer : public rclcpp::Node
+class AStarServer2 : public rclcpp::Node
 {
     public:
-        AStarServer() : Node("a_star_server")
+        AStarServer2() : Node("a_star_server_2")
         {
             service_ = this->create_service<interfaces::srv::AStarService>(
-                "a_star_server", std::bind(&AStarServer::a_star_caller, this,
+                "a_star_server_2", std::bind(&AStarServer2::a_star_caller, this,
                 std::placeholders::_1, std::placeholders::_2));
 
 
@@ -772,21 +772,21 @@ int main(int argc, char **argv)
   rclcpp::init(argc, argv);
 
  
-  //AStarServer = rclcpp::Node::make_shared("a_star_server");
+  //AStarServer2 = rclcpp::Node::make_shared("a_star_server_2");
 
 
   //rclcpp::Service<interfaces::srv::AStarService>::SharedPtr service =
-    //AStarServer->create_service<interfaces::srv::AStarService>("a_star_service", &a_star_caller);
+    //AStarServer2->create_service<interfaces::srv::AStarService>("a_star_service", &a_star_caller);
 
 
   //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to send velocities to platform 1.");
 
-  //rclcpp::spin(AStarServer);
+  //rclcpp::spin(AStarServer2);
 
     
 
 
-    auto node = std::make_shared<AStarServer>();
+    auto node = std::make_shared<AStarServer2>();
     rclcpp::spin(node);
 
   rclcpp::shutdown();

@@ -69,7 +69,7 @@ class Compute_Trajectory_R2 : public rclcpp::Node
             subs_objective = this->create_subscription<interfaces::msg::RobotObjective>(
                 "robot_2/objective", 1, std::bind(&Compute_Trajectory_R2::subs_obj_callback,this,_1));
 
-            client = this -> create_client<interfaces::srv::AStarService>("a_star_server", rmw_qos_profile_services_default, client_cb_group);
+            client = this -> create_client<interfaces::srv::AStarService>("a_star_server_2", rmw_qos_profile_services_default, client_cb_group);
 
             //std::cout<<n_x_spaces<< std::endl;
         }

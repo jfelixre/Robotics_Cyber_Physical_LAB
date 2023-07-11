@@ -88,6 +88,20 @@ ament_target_dependencies(compute_trajectory
     tf2_ros
     )
 
+  add_executable(a_star_server_2 src/a_star_server_2.cpp)
+  target_include_directories(a_star_server_2 PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
+
+  ament_target_dependencies(a_star_server_2
+    sensor_msgs
+    std_msgs
+    rclcpp
+    interfaces
+    tf2
+    tf2_ros
+    )
+
   add_executable(compute_trajectory_r1 src/compute_trajectory_r1.cpp)
   target_include_directories(compute_trajectory_r1 PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -267,6 +281,7 @@ install(TARGETS
   #test_control2
   #test_control3
   control_arm_pid_r1
+  a_star_server_2
   compute_trajectory_r2
   control_trajectory_r2
   control_arm_pid_r2
