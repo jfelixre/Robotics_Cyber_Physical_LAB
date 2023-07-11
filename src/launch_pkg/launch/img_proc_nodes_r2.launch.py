@@ -48,14 +48,15 @@ def generate_launch_description():
        
 
 
-        Node(
-            package='img_proc_pkg',
-            executable='aruco_detector'),
-       
 
         Node(
-            package='img_proc_pkg',
-            executable='compute_position'),
+            package='control_pkg',
+            executable='compute_trajectory_r2'),
+
+        Node(
+            package='control_pkg',
+            executable='a_star_server_2'),
+
        
         
     ])

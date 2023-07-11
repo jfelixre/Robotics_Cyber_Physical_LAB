@@ -45,17 +45,19 @@ def generate_launch_description():
            # arguments=[urdf_origin]),
         
 
-       
+  
 
 
         Node(
-            package='img_proc_pkg',
-            executable='aruco_detector'),
-       
+            package='control_pkg',
+            executable='compute_trajectory_r1'),
 
         Node(
-            package='img_proc_pkg',
-            executable='compute_position'),
+            package='control_pkg',
+            executable='a_star_server'),
+
+
+
        
         
     ])
