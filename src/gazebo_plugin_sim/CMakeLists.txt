@@ -172,6 +172,29 @@ if(ENABLE_PROFILER)
   target_link_libraries(robot2_plugin ${ignition-common3_LIBRARIES})
 endif()
 
+# Real Time Factor Pulgin
+add_library(real_time_factor_plugin SHARED
+  src/real_time_factor_plugin.cpp
+)
+target_include_directories(real_time_factor_plugin PUBLIC include)
+ament_target_dependencies(real_time_factor_plugin
+  "gazebo_dev"
+  "gazebo_ros"
+  "geometry_msgs"
+  "nav_msgs"
+  "rclcpp"
+  "tf2"
+  "tf2_geometry_msgs"
+  "tf2_ros"
+  "std_msgs"
+  "interfaces"
+)
+ament_export_libraries(real_time_factor_plugin)
+if(ENABLE_PROFILER)
+  target_include_directories(real_time_factor_plugin PUBLIC ${ignition-common3_INCLUDE_DIRS})
+  target_link_libraries(real_time_factor_plugin ${ignition-common3_LIBRARIES})
+endif()
+
 
 ament_export_include_directories(include)
 ament_export_dependencies(rclcpp)
@@ -206,6 +229,7 @@ install(TARGETS
   platform2_plugin
   robot1_plugin
   robot2_plugin
+  real_time_factor_plugin
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin)

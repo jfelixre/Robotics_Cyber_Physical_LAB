@@ -12687,5 +12687,7 @@
       <allow_auto_disable>1</allow_auto_disable>
       <pose>0.565125 -0.489071 0.137001 1.1e-05 4e-06 -1.57082</pose>
     </model>
+    <plugin name="real_time_factor_plugin" filename="libreal_time_factor_plugin.so">
+    </plugin>
   </world>
 </sdf>
