@@ -119,8 +119,8 @@
     <atmosphere type='adiabatic'/>
     <physics type='ode'>
       <max_step_size>0.001</max_step_size>
-      <real_time_factor>1</real_time_factor>
-      <real_time_update_rate>1000</real_time_update_rate>
+      <real_time_factor>0.03</real_time_factor>
+      <real_time_update_rate>30</real_time_update_rate>
       <ode>
         <solver>
           <thread_position_correction>1</thread_position_correction>
