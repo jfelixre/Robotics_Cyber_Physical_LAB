@@ -12455,14 +12455,14 @@
     <model name='Cubo2_mod'>
       <link name='link_0'>
         <inertial>
-          <mass>0.01</mass>
+          <mass>0.001</mass>
           <inertia>
-            <ixx>0.166667</ixx>
+            <ixx>0.000166667</ixx>
             <ixy>0</ixy>
             <ixz>0</ixz>
-            <iyy>0.166667</iyy>
+            <iyy>0.000166667</iyy>
             <iyz>0</iyz>
-            <izz>0.166667</izz>
+            <izz>0.000166667</izz>
           </inertia>
           <pose>0 0 0 0 -0 0</pose>
         </inertial>
@@ -12687,7 +12687,7 @@
       <allow_auto_disable>1</allow_auto_disable>
       <pose>0.565125 -0.489071 0.137001 1.1e-05 4e-06 -1.57082</pose>
     </model>
-    <plugin name="real_time_factor_plugin" filename="libreal_time_factor_plugin.so">
-    </plugin>
+    <!--<plugin name="real_time_factor_plugin" filename="libreal_time_factor_plugin.so">
+    </plugin>-->
   </world>
 </sdf>
