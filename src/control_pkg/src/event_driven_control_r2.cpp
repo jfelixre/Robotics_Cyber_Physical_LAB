@@ -310,7 +310,7 @@ class Event_Driven_Control_R2 : public rclcpp::Node
 				
 				//Control last distance
 				RO_msg.objective = 2;  //Objeto 2
-				RO_msg.distance = 13; //Distancia al objeto
+				RO_msg.distance = 12; //Distancia al objeto
 
 				objective_robot2_publisher -> publish(RO_msg);
 
@@ -341,8 +341,8 @@ class Event_Driven_Control_R2 : public rclcpp::Node
 				rclcpp::sleep_for(std::chrono::seconds(30));
 
 				arm_joints_position.pos_b1 = 0.9;
-				arm_joints_position.pos_b2 = 0.9;
-				arm_joints_position.pos_b3 = -0.5;
+				arm_joints_position.pos_b2 = 0.15;
+				arm_joints_position.pos_b3 = 0;
 				arm_joints_position.pos_g1 = 1;
 
 				publisher_arm_pos->publish(arm_joints_position);

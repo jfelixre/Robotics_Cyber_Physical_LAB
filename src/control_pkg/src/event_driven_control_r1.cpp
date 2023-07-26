@@ -301,7 +301,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 				
 				//Control last distance
 				RO_msg.objective = 2;  //Objeto 2
-				RO_msg.distance = 15; //Distancia al objeto
+				RO_msg.distance = 14; //Distancia al objeto
 
 				objective_robot1_publisher -> publish(RO_msg);
 
