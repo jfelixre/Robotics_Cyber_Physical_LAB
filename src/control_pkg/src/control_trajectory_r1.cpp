@@ -439,8 +439,8 @@ class Node_Control_Timer : public rclcpp::Node
             
 
             //Ganancias
-            double Kx = 400;
-            double Ky = 400;
+            double Kx = 350;
+            double Ky = 350;
             double Kw = 10;
 
 
