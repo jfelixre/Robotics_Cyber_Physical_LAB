@@ -121,7 +121,7 @@ class Event_Driven_Control_R2 : public rclcpp::Node
 
 					RCLCPP_INFO(this->get_logger(), "Esperando completar tarea de Robot 1");
 
-					while (robot1_state<5)
+					while (robot1_state<=4)
 					{
 						
 					}
@@ -310,7 +310,7 @@ class Event_Driven_Control_R2 : public rclcpp::Node
 				//Posicion del brazo
 				arm_joints_position.pos_b1 = 2;
 				arm_joints_position.pos_b2 = -2;
-				arm_joints_position.pos_b3 = 2;
+				arm_joints_position.pos_b3 = 1.2;
 				arm_joints_position.pos_g1 = 1;
 
 				publisher_arm_pos->publish(arm_joints_position);
