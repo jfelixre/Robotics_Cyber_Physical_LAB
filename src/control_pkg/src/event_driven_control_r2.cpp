@@ -307,10 +307,18 @@ class Event_Driven_Control_R2 : public rclcpp::Node
 				state_robot2_publisher -> publish(robot2_state);
 				std::cout << "FASE 5" << std::endl;
 
+				//Posicion del brazo
+				arm_joints_position.pos_b1 = 2;
+				arm_joints_position.pos_b2 = -2;
+				arm_joints_position.pos_b3 = 2;
+				arm_joints_position.pos_g1 = 1;
+
+				publisher_arm_pos->publish(arm_joints_position);
+
 				
 				//Control last distance
 				RO_msg.objective = 2;  //Objeto 2
-				RO_msg.distance = 12; //Distancia al objeto
+				RO_msg.distance = 8; //Distancia al objeto
 
 				objective_robot2_publisher -> publish(RO_msg);
 
@@ -331,18 +339,18 @@ class Event_Driven_Control_R2 : public rclcpp::Node
 				result_control = result.get()->success;
 
 
-				arm_joints_position.pos_b1 = 0.9;
-				arm_joints_position.pos_b2 = 0.15;
-				arm_joints_position.pos_b3 = 0;
+				arm_joints_position.pos_b1 = 2;
+				arm_joints_position.pos_b2 = -2;
+				arm_joints_position.pos_b3 = 2;
 				arm_joints_position.pos_g1 = -1;
 
 				publisher_arm_pos->publish(arm_joints_position);
 
-				rclcpp::sleep_for(std::chrono::seconds(30));
+				rclcpp::sleep_for(std::chrono::seconds(2));
 
-				arm_joints_position.pos_b1 = 0.9;
-				arm_joints_position.pos_b2 = 0.15;
-				arm_joints_position.pos_b3 = 0;
+				arm_joints_position.pos_b1 = 2;
+				arm_joints_position.pos_b2 = -2;
+				arm_joints_position.pos_b3 = 2;
 				arm_joints_position.pos_g1 = 1;
 
 				publisher_arm_pos->publish(arm_joints_position);

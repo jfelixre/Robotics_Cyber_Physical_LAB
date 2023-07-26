@@ -333,7 +333,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 
 				arm_joints_position.pos_b1 = 0.9;
 				arm_joints_position.pos_b2 = 0.9;
-				arm_joints_position.pos_b3 = -0.5;
+				arm_joints_position.pos_b3 = -0.6;
 				arm_joints_position.pos_g1 = 1;
 
 				publisher_arm_pos->publish(arm_joints_position);
