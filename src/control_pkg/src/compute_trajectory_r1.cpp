@@ -244,7 +244,7 @@ class Compute_Trajectory_R1 : public rclcpp::Node
 
             //TARGET
 
-            int Tg_x_map = ((int)((Target.position.x * n_x_spaces)/x_world)) + (n_x_spaces/2);
+            int Tg_x_map = ((int)((Target.position.x * n_x_spaces)/x_world)) + (n_x_spaces/2) -2;
             int Tg_y_map = 120 - (((int)((Target.position.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
             cv::Point Tg_point(Tg_x_map,Tg_y_map);
 
