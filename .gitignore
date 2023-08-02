@@ -3,3 +3,4 @@ log/*
 install/*
 src/.vscode/*
 src/.vscode
+csv/*
