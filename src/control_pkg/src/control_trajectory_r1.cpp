@@ -21,6 +21,8 @@
 #include <vector>
 #include <math.h>
 
+std::ofstream myfile;
+
 using std::placeholders::_1;
 using namespace std::chrono_literals;
 geometry_msgs::msg::Polygon path;
@@ -490,9 +492,12 @@ class Node_Control_Timer_R1 : public rclcpp::Node
 
             auto request = std::make_shared<interfaces::srv::PlatformVel::Request>();
 
+            
+            uxRef[k] = uxRef[k] * 35;
+            uyRef[k] = uyRef[k] * 35;
 
-            request->x_vel = uxRef[k] * 35;
-            request->y_vel = uyRef[k] * 35;
+            request->x_vel = uxRef[k];
+            request->y_vel = uyRef[k];
             request->ang_vel = wRef[k];
             
             std::cout << " Xvel = " << uxRef[k] << "  Yvel = " << uyRef[k] <<  "  ANG_vel = " << wRef[k] << std::endl;
@@ -553,6 +558,35 @@ int main(int argc, char * argv[])
 
 
     rclcpp::init(argc, argv);
+    myfile.open ("csv/Control_Trajectory_R1.csv");
+
+    myfile << "Time";
+    myfile << "_";
+    myfile << "X-Des";
+    myfile << "_";
+    myfile << "X-Rob";
+    myfile << "_";
+    myfile << "X-Err";
+    myfile << "_";
+    myfile << "Y-Des";
+    myfile << "_";
+    myfile << "Y-Rob";
+    myfile << "_";
+    myfile << "Y-Err";
+    myfile << "_";
+    myfile << "Ang-Des";
+    myfile << "_";
+    myfile << "Ang-Rob";
+    myfile << "_";
+    myfile << "Ang-Err";
+    myfile << "_";
+    myfile << "X-vel";
+    myfile << "_";
+    myfile << "Y-vel";
+    myfile << "_";
+    myfile << "Ang-vel";
+    myfile << "_";
+    myfile << "\n";
 
    
   	//rclcpp::spin(std::make_shared<Control_Trajectory_R1>());
@@ -583,5 +617,6 @@ int main(int argc, char * argv[])
     executor.spin();
 
  	rclcpp::shutdown();
+    myfile.close();
   
 }
