@@ -543,9 +543,50 @@ class Node_Control_Timer_R1 : public rclcpp::Node
 
           //  std::cout << "Despues de los ifss" << std::endl;
 
+          save_data(k, hxd[k], X_Robot, hxe[k], hyd[k], Y_Robot, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
+
        }
         
     }
+
+
+    void save_data(int k, double x_des, double x_rob, double x_err, double y_des, double y_rob, double y_err, double ang_des, double ang_rob, double ang_err, double x_vel, double y_vel, double ang_vel)
+		{
+    		auto time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count();
+
+
+			myfile << time;
+            myfile << "_";
+            myfile << k;
+            myfile << "_";
+            myfile << x_des;
+            myfile << "_";
+            myfile << x_rob;
+            myfile << "_";
+            myfile << x_err;
+            myfile << "_";
+            myfile << y_des;
+            myfile << "_";
+            myfile << y_rob;
+            myfile << "_";
+            myfile << y_err;
+            myfile << "_";
+            myfile << ang_des;
+            myfile << "_";
+            myfile << ang_rob;
+            myfile << "_";
+            myfile << ang_err;
+            myfile << "_";
+            myfile << x_vel;
+            myfile << "_";
+            myfile << y_vel;
+            myfile << "_";
+            myfile << ang_vel;
+            myfile << "_";
+            myfile << "\n";
+
+
+		}
     
 
  
@@ -561,6 +602,8 @@ int main(int argc, char * argv[])
     myfile.open ("csv/Control_Trajectory_R1.csv");
 
     myfile << "Time";
+    myfile << "_";
+    myfile << "K";
     myfile << "_";
     myfile << "X-Des";
     myfile << "_";
