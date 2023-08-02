@@ -254,21 +254,21 @@ class Control_Arm_Pid_R2 : public rclcpp::Node
 
 };
 
-class Node_Estimate_Position : public rclcpp::Node
+class Node_Estimate_Position_R2 : public rclcpp::Node
 {
 	public:
-		Node_Estimate_Position() : Node("node_estimate_position")
+		Node_Estimate_Position_R2() : Node("node_estimate_position_r2")
 		{
             LmSw_subscriber= create_subscription<interfaces::msg::LimitSwitch>(
-      			"/robot_2/limit_switch", 1, std::bind(&Node_Estimate_Position::LmSw_subs,this,_1));
+      			"/robot_2/limit_switch", 1, std::bind(&Node_Estimate_Position_R2::LmSw_subs,this,_1));
 
 			encoders_subscriber= create_subscription<interfaces::msg::MotorVelsWArm>(
-      			"/robot_2/encoders", 1, std::bind(&Node_Estimate_Position::encoders_subs,this,_1));
+      			"/robot_2/encoders", 1, std::bind(&Node_Estimate_Position_R2::encoders_subs,this,_1));
 
             timer_ep_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
 
             timer_estimate_pos_ = this->create_wall_timer(
-                 50ms, std::bind(&Node_Estimate_Position::timer_ep_callback, this), timer_ep_cb_group_);
+                 50ms, std::bind(&Node_Estimate_Position_R2::timer_ep_callback, this), timer_ep_cb_group_);
                        
         }
 
@@ -369,14 +369,14 @@ int main(int argc, char * argv[])
     rclcpp::init(argc, argv);
 
 	auto node_control_arm_pid_r2 = std::make_shared<Control_Arm_Pid_R2>();
-    auto node_estimate_position = std::make_shared<Node_Estimate_Position>();
+    auto node_estimate_position_r2 = std::make_shared<Node_Estimate_Position_R2>();
 	//auto node_subs_positions = std::make_shared<Node_Subs_Positions>();
    // auto node_control_timer = std::make_shared<Node_Control_Timer>();
    // auto node_client_vel = std::make_shared<Node_Client_Vel>();
 
     rclcpp::executors::MultiThreadedExecutor executor;
     executor.add_node(node_control_arm_pid_r2);
-    executor.add_node(node_estimate_position);
+    executor.add_node(node_estimate_position_r2);
 	//executor.add_node(node_subs_positions);
    // executor.add_node(node_control_timer);
     //executor.add_node(node_client_vel);

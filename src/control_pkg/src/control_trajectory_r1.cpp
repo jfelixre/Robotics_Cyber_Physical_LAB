@@ -166,14 +166,14 @@ class Control_Trajectory_R1 : public rclcpp::Node
 
 };
 
-class Node_Subs_Path : public rclcpp::Node
+class Node_Subs_Path_R1 : public rclcpp::Node
 {
 	public:
-		Node_Subs_Path() : Node("node_subs_path")
+		Node_Subs_Path_R1() : Node("node_subs_path_r1")
 		{
 
             subs_path = this->create_subscription<geometry_msgs::msg::Polygon>(
-               "/robot_1/path", 1, std::bind(&Node_Subs_Path::subs_path_callback,this,_1));
+               "/robot_1/path", 1, std::bind(&Node_Subs_Path_R1::subs_path_callback,this,_1));
 
         }
 
@@ -284,17 +284,17 @@ class Node_Subs_Path : public rclcpp::Node
 
 };
 
-class Node_Subs_Positions : public rclcpp::Node
+class Node_Subs_Positions_R1 : public rclcpp::Node
 {
 	public:
-		Node_Subs_Positions() : Node("node_subs_positions")
+		Node_Subs_Positions_R1() : Node("node_subs_positions_r1")
 		{
 
             subs_pos = this->create_subscription<interfaces::msg::Positions>(
-               "/positions", 1, std::bind(&Node_Subs_Positions::subs_pos_callback,this,_1));
+               "/positions", 1, std::bind(&Node_Subs_Positions_R1::subs_pos_callback,this,_1));
 
             subs_objective = this->create_subscription<interfaces::msg::RobotObjective>(
-                "robot_1/objective", 1, std::bind(&Node_Subs_Positions::subs_obj_callback,this,_1));
+                "robot_1/objective", 1, std::bind(&Node_Subs_Positions_R1::subs_obj_callback,this,_1));
 
         }
 
@@ -368,10 +368,10 @@ class Node_Subs_Positions : public rclcpp::Node
 };
 
 
-class Node_Control_Timer : public rclcpp::Node
+class Node_Control_Timer_R1 : public rclcpp::Node
 {
 	public:
-		Node_Control_Timer() : Node("node_control_timer")
+		Node_Control_Timer_R1() : Node("node_control_timer_r1")
 		{
 
            client_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
@@ -381,7 +381,7 @@ class Node_Control_Timer : public rclcpp::Node
 
 
             timer_ = this->create_wall_timer(
-                 100ms, std::bind(&Node_Control_Timer::timer_callback, this), timer_cb_group_);
+                 100ms, std::bind(&Node_Control_Timer_R1::timer_callback, this), timer_cb_group_);
           
 
         }
@@ -569,16 +569,16 @@ int main(int argc, char * argv[])
     //phi[0] = 180*(M_PI/180); //# Orientacion inicial en radianes [rad]
 	
 	auto node = std::make_shared<Control_Trajectory_R1>();
-    auto node_subs_path = std::make_shared<Node_Subs_Path>();
-	auto node_subs_positions = std::make_shared<Node_Subs_Positions>();
-    auto node_control_timer = std::make_shared<Node_Control_Timer>();
+    auto node_subs_path_r1 = std::make_shared<Node_Subs_Path_R1>();
+	auto node_subs_positions_r1 = std::make_shared<Node_Subs_Positions_R1>();
+    auto node_control_timer_r1 = std::make_shared<Node_Control_Timer_R1>();
    // auto node_client_vel = std::make_shared<Node_Client_Vel>();
 
     rclcpp::executors::MultiThreadedExecutor executor;
     executor.add_node(node);
-    executor.add_node(node_subs_path);
-	executor.add_node(node_subs_positions);
-    executor.add_node(node_control_timer);
+    executor.add_node(node_subs_path_r1);
+	executor.add_node(node_subs_positions_r1);
+    executor.add_node(node_control_timer_r1);
     //executor.add_node(node_client_vel);
     executor.spin();
 
