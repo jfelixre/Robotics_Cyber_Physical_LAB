@@ -45,9 +45,9 @@ def generate_launch_description():
            # arguments=[urdf_origin]),
         
 
-        Node(
-            package='control_pkg',
-            executable='control_trajectory_r1'),
+        #Node(
+        #    package='control_pkg',
+        #    executable='control_trajectory_r1'),
 
         Node(
             package='inv_kinematics_pkg',
@@ -60,6 +60,10 @@ def generate_launch_description():
         Node(
             package='control_pkg',
             executable='event_driven_control_r1'),
+
+        Node(
+            package='control_pkg',
+            executable='csv_r1'),
 
   
         

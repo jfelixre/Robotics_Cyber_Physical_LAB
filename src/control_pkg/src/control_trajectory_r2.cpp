@@ -8,6 +8,7 @@
 #include <geometry_msgs/msg/polygon.hpp>
 #include <interfaces/srv/trajectory_control.hpp>
 #include <interfaces/srv/platform_vel.hpp>
+#include <interfaces/msg/data_control.hpp>
 #include <Eigen/Dense>
 #include <interfaces/msg/robot_objective.hpp>
 
@@ -21,7 +22,7 @@
 #include <vector>
 #include <math.h>
 
-std::ofstream myfile;
+//std::ofstream myfile;
 
 using std::placeholders::_1;
 using namespace std::chrono_literals;
@@ -384,6 +385,8 @@ class Node_Control_Timer_R2 : public rclcpp::Node
 
             timer_ = this->create_wall_timer(
                  100ms, std::bind(&Node_Control_Timer_R2::timer_callback, this), timer_cb_group_);
+
+            data_control_robot2_publisher = create_publisher<interfaces::msg::DataControl>("robot_2/data_control", 10);
           
 
         }
@@ -395,16 +398,17 @@ class Node_Control_Timer_R2 : public rclcpp::Node
 
     rclcpp::CallbackGroup::SharedPtr client_cb_group_;
     rclcpp::CallbackGroup::SharedPtr timer_cb_group_;
+    rclcpp::Publisher<interfaces::msg::DataControl>::SharedPtr data_control_robot2_publisher;
 
     void timer_callback()   //////CONTROL/////////
     { 
 
-        //std::cout << " Callback de tiempo" << std::endl;
+        std::cout << " Callback de tiempo" << std::endl;
 
         
        if (control_active == true){
 
-        //std::cout << "inicio " << std::endl;
+        std::cout << "inicio " << std::endl;
 
 
 
@@ -493,8 +497,11 @@ class Node_Control_Timer_R2 : public rclcpp::Node
             auto request = std::make_shared<interfaces::srv::PlatformVel::Request>();
 
 
-            request->x_vel = uxRef[k] * 35;
-            request->y_vel = uyRef[k] * 35;
+            uxRef[k] = uxRef[k] * 35;
+            uyRef[k] = uyRef[k] * 35;
+
+            request->x_vel = uxRef[k];
+            request->y_vel = uyRef[k];
             request->ang_vel = wRef[k];
             
             std::cout << " Xvel = " << uxRef[k] << "  Yvel = " << uyRef[k] <<  "  ANG_vel = " << wRef[k] << std::endl;
@@ -508,13 +515,36 @@ class Node_Control_Timer_R2 : public rclcpp::Node
             }
 
             std::cout << "k = " << k << std::endl;
+            //save_data(k, hxd[k], X_Robot, hxe[k], hyd[k], Y_Robot, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
+            //SEND DATA 
+            interfaces::msg::DataControl Data;
+            auto time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count();
+            Data.time = time;
+            Data.k = k;
+            Data.x_goal= hxd[k];
+            Data.x_robot= X_Robot;
+            Data.x_error= hxe[k];
+            Data.y_goal= hyd[k];
+            Data.y_robot= Y_Robot;
+            Data.y_error= hye[k];
+            Data.ang_goal= phid;
+            Data.ang_robot= ANG_Robot;
+            Data.ang_error= hwe[k];
+            Data.vel_x = uxRef[k];
+            Data.vel_y = uyRef[k];
+            Data.vel_ang = wRef[k];
+            data_control_robot2_publisher->publish(Data);
+            //////////////////////////
+
             k++;
 
             hxa = hxd[k];
             hya = hyd[k];
             phia = phid;
 
-           // std::cout << "Despues de asignar valorees anteriores" << std::endl;
+            std::cout << "Despues de asignar valorees anteriores" << std::endl;
+
+           
 
             if (k==N){
 
@@ -524,6 +554,9 @@ class Node_Control_Timer_R2 : public rclcpp::Node
 
                 auto result = client_vel->async_send_request(request);
                 std::cout << "k=N" << k << N << std::endl;
+                control_active = false;
+
+                //save_data(k, hxd[k], X_Robot, hxe[k], hyd[k], Y_Robot, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
 
 
             }
@@ -536,17 +569,19 @@ class Node_Control_Timer_R2 : public rclcpp::Node
 
                 auto result = client_vel->async_send_request(request);
                 control_active = false;
+
+                //save_data(k, hxd[k], X_Robot, hxe[k], hyd[k], Y_Robot, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
             }
 
-          //  std::cout << "Despues de los ifss" << std::endl;
+            std::cout << "Despues de los ifss" << std::endl;
 
-          save_data(k, hxd[k], X_Robot, hxe[k], hyd[k], Y_Robot, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
+          
 
        }
         
     }
 
-    void save_data(int k, double x_des, double x_rob, double x_err, double y_des, double y_rob, double y_err, double ang_des, double ang_rob, double ang_err, double x_vel, double y_vel, double ang_vel)
+    /* void save_data(int k, double x_des, double x_rob, double x_err, double y_des, double y_rob, double y_err, double ang_des, double ang_rob, double ang_err, double x_vel, double y_vel, double ang_vel)
 		{
     		auto time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count();
 
@@ -578,11 +613,10 @@ class Node_Control_Timer_R2 : public rclcpp::Node
             myfile << y_vel;
             myfile << "_";
             myfile << ang_vel;
-            myfile << "_";
             myfile << "\n";
 
 
-		}
+		} */
     
 
  
@@ -595,7 +629,7 @@ int main(int argc, char * argv[])
 
 
     rclcpp::init(argc, argv);
-    myfile.open ("csv/Control_Trajectory_R1.csv");
+    /* myfile.open ("csv/Control_Trajectory_R2.csv");
 
     myfile << "Time";
     myfile << "_";
@@ -624,8 +658,7 @@ int main(int argc, char * argv[])
     myfile << "Y-vel";
     myfile << "_";
     myfile << "Ang-vel";
-    myfile << "_";
-    myfile << "\n";
+    myfile << "\n"; */
 
    
   	//rclcpp::spin(std::make_shared<Control_Trajectory_R2>());
@@ -656,6 +689,6 @@ int main(int argc, char * argv[])
     executor.spin();
 
  	rclcpp::shutdown();
-    myfile.close();
+    //myfile.close();
   
 }

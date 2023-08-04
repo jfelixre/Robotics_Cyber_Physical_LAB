@@ -206,6 +206,22 @@ ament_target_dependencies(compute_trajectory
   $<INSTALL_INTERFACE:include>)
 
   ament_target_dependencies(test_control2
+  sensor_msgs
+  std_msgs
+  rclcpp
+  cv_bridge
+  interfaces
+  tf2
+  tf2_ros
+  geometry_msgs
+  )
+
+  add_executable(test_control3 src/test_control3.cpp)
+  target_include_directories(test_control3 PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+  ament_target_dependencies(test_control3
     sensor_msgs
     std_msgs
     rclcpp
@@ -216,55 +232,63 @@ ament_target_dependencies(compute_trajectory
     geometry_msgs
     )
 
-    add_executable(test_control3 src/test_control3.cpp)
-    target_include_directories(test_control3 PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    $<INSTALL_INTERFACE:include>)
-  
-    ament_target_dependencies(test_control3
-      sensor_msgs
-      std_msgs
-      rclcpp
-      cv_bridge
-      interfaces
-      tf2
-      tf2_ros
-      geometry_msgs
-      )
+  add_executable(control_arm_pid_r1 src/control_arm_pid_r1.cpp)
+  target_include_directories(control_arm_pid_r1 PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
 
-    add_executable(control_arm_pid_r1 src/control_arm_pid_r1.cpp)
-    target_include_directories(control_arm_pid_r1 PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    $<INSTALL_INTERFACE:include>)
-  
-    ament_target_dependencies(control_arm_pid_r1
-      sensor_msgs
-      std_msgs
-      rclcpp
-      cv_bridge
-      interfaces
-      tf2
-      tf2_ros
-      geometry_msgs
-      Eigen3
-      )
+  ament_target_dependencies(control_arm_pid_r1
+    sensor_msgs
+    std_msgs
+    rclcpp
+    cv_bridge
+    interfaces
+    tf2
+    tf2_ros
+    geometry_msgs
+    Eigen3
+    )
 
-      add_executable(control_arm_pid_r2 src/control_arm_pid_r2.cpp)
-      target_include_directories(control_arm_pid_r2 PUBLIC
-      $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-      $<INSTALL_INTERFACE:include>)
-    
-      ament_target_dependencies(control_arm_pid_r2
-        sensor_msgs
-        std_msgs
-        rclcpp
-        cv_bridge
-        interfaces
-        tf2
-        tf2_ros
-        geometry_msgs
-        Eigen3
-        )
+  add_executable(control_arm_pid_r2 src/control_arm_pid_r2.cpp)
+  target_include_directories(control_arm_pid_r2 PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+  ament_target_dependencies(control_arm_pid_r2
+    sensor_msgs
+    std_msgs
+    rclcpp
+    cv_bridge
+    interfaces
+    tf2
+    tf2_ros
+    geometry_msgs
+    Eigen3
+    )
+
+  add_executable(csv_r1 src/csv_r1.cpp)
+  target_include_directories(csv_r1 PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+  ament_target_dependencies(csv_r1
+    sensor_msgs
+    std_msgs
+    rclcpp
+    interfaces
+    )
+
+  add_executable(csv_r2 src/csv_r2.cpp)
+  target_include_directories(csv_r2 PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+  ament_target_dependencies(csv_r2
+    sensor_msgs
+    std_msgs
+    rclcpp
+    interfaces
+    )
 
 
 
@@ -286,6 +310,8 @@ install(TARGETS
   control_trajectory_r2
   control_arm_pid_r2
   event_driven_control_r2
+  csv_r1
+  csv_r2
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
