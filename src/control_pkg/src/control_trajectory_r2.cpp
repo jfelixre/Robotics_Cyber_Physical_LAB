@@ -257,7 +257,7 @@ class Node_Subs_Path_R2 : public rclcpp::Node
             }
             */
 
-            RCLCPP_INFO(this->get_logger(), "path received");
+            //RCLCPP_INFO(this->get_logger(), "path received");
             
 
             //Derivadas
@@ -310,7 +310,7 @@ class Node_Subs_Positions_R2 : public rclcpp::Node
     void subs_obj_callback(const interfaces::msg::RobotObjective::SharedPtr obj_msg){
             n_objective = obj_msg->objective;
             distance_objective = obj_msg->distance;
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Update objective");
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Update objective");
 
             switch (n_objective)
             {
@@ -376,7 +376,8 @@ class Node_Control_Timer_R2 : public rclcpp::Node
 	public:
 		Node_Control_Timer_R2() : Node("node_control_timer_r2")
 		{
-
+            
+            data_control_robot2_publisher = create_publisher<interfaces::msg::DataControl>("robot_2/data_control", 1);
            client_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
            timer_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
            client_vel = this->create_client<interfaces::srv::PlatformVel>("robot_2/set_platform_vel", rmw_qos_profile_services_default, client_cb_group_);
@@ -386,7 +387,7 @@ class Node_Control_Timer_R2 : public rclcpp::Node
             timer_ = this->create_wall_timer(
                  100ms, std::bind(&Node_Control_Timer_R2::timer_callback, this), timer_cb_group_);
 
-            data_control_robot2_publisher = create_publisher<interfaces::msg::DataControl>("robot_2/data_control", 10);
+            
           
 
         }
@@ -403,12 +404,12 @@ class Node_Control_Timer_R2 : public rclcpp::Node
     void timer_callback()   //////CONTROL/////////
     { 
 
-        std::cout << " Callback de tiempo" << std::endl;
+        //std::cout << " Callback de tiempo" << std::endl;
 
         
        if (control_active == true){
 
-        std::cout << "inicio " << std::endl;
+        //std::cout << "inicio " << std::endl;
 
 
 
@@ -438,10 +439,10 @@ class Node_Control_Timer_R2 : public rclcpp::Node
            // std::cout << " Grados= " << grados << " cos = " << cos_val << " sin =" << sin_val << std::endl;
             
 
-            std::cout << "x deseada = " << hxd[k]  << "  X_Rob = " << X_Robot << std::endl;
-            std::cout << "y deseada = " << hyd[k]  << "  Y_Rob = " << Y_Robot << std::endl;
-            std::cout << "phi deseada = " << phid  << "  ANG_Rob = " << ANG_Robot << std::endl;
-            std::cout << "error x = " <<  hxe[k] << "  error y = " <<hye[k] << " error w = " << hwe[k] << " Grados= " << grados << std::endl;
+            //std::cout << "x deseada = " << hxd[k]  << "  X_Rob = " << X_Robot << std::endl;
+            //std::cout << "y deseada = " << hyd[k]  << "  Y_Rob = " << Y_Robot << std::endl;
+            //std::cout << "phi deseada = " << phid  << "  ANG_Rob = " << ANG_Robot << std::endl;
+            //std::cout << "error x = " <<  hxe[k] << "  error y = " <<hye[k] << " error w = " << hwe[k] << " Grados= " << grados << std::endl;
             
 
             //Ganancias
@@ -504,7 +505,7 @@ class Node_Control_Timer_R2 : public rclcpp::Node
             request->y_vel = uyRef[k];
             request->ang_vel = wRef[k];
             
-            std::cout << " Xvel = " << uxRef[k] << "  Yvel = " << uyRef[k] <<  "  ANG_vel = " << wRef[k] << std::endl;
+            //std::cout << " Xvel = " << uxRef[k] << "  Yvel = " << uyRef[k] <<  "  ANG_vel = " << wRef[k] << std::endl;
 
             auto result = client_vel->async_send_request(request);
 
@@ -514,27 +515,31 @@ class Node_Control_Timer_R2 : public rclcpp::Node
                // RCLCPP_INFO(this->get_logger(), "Received response");
             }
 
-            std::cout << "k = " << k << std::endl;
+            // std::cout << "Antes de publicar" << std::endl;
+            //std::cout << "k = " << k << std::endl;
             //save_data(k, hxd[k], X_Robot, hxe[k], hyd[k], Y_Robot, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
-            //SEND DATA 
-            interfaces::msg::DataControl Data;
-            auto time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count();
-            Data.time = time;
-            Data.k = k;
-            Data.x_goal= hxd[k];
-            Data.x_robot= X_Robot;
-            Data.x_error= hxe[k];
-            Data.y_goal= hyd[k];
-            Data.y_robot= Y_Robot;
-            Data.y_error= hye[k];
-            Data.ang_goal= phid;
-            Data.ang_robot= ANG_Robot;
-            Data.ang_error= hwe[k];
-            Data.vel_x = uxRef[k];
-            Data.vel_y = uyRef[k];
-            Data.vel_ang = wRef[k];
-            data_control_robot2_publisher->publish(Data);
+            // //SEND DATA 
+            // interfaces::msg::DataControl Data;
+             auto time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count();
+            // Data.time = time;
+            // Data.k = k;
+            // Data.x_goal= hxd[k];
+            // Data.x_robot= X_Robot;
+            // Data.x_error= hxe[k];
+            // Data.y_goal= hyd[k];
+            // Data.y_robot= Y_Robot;
+            // Data.y_error= hye[k];
+            // Data.ang_goal= phid;
+            // Data.ang_robot= ANG_Robot;
+            // Data.ang_error= hwe[k];
+            // Data.vel_x = uxRef[k];
+            // Data.vel_y = uyRef[k];
+            // Data.vel_ang = wRef[k];
+            // data_control_robot2_publisher->publish(Data);
+            std::cout << time << "_" << k << "_" << hxd[k] << "_" << X_Robot << "_" << hxe[k] << "_" << hyd[k] << "_" << Y_Robot << "_" << hye[k] << "_" << 
+                phid << "_" << ANG_Robot << "_" << hwe[k] << "_" << uxRef[k] << "_" << uyRef[k] << "_" << wRef[k] << std::endl;
             //////////////////////////
+            //std::cout << "Despues de publicar" << std::endl;
 
             k++;
 
@@ -542,7 +547,7 @@ class Node_Control_Timer_R2 : public rclcpp::Node
             hya = hyd[k];
             phia = phid;
 
-            std::cout << "Despues de asignar valorees anteriores" << std::endl;
+            //std::cout << "Despues de asignar valorees anteriores" << std::endl;
 
            
 
@@ -553,7 +558,7 @@ class Node_Control_Timer_R2 : public rclcpp::Node
                 request->ang_vel = 0.0;
 
                 auto result = client_vel->async_send_request(request);
-                std::cout << "k=N" << k << N << std::endl;
+                //std::cout << "k=N" << k << N << std::endl;
                 control_active = false;
 
                 //save_data(k, hxd[k], X_Robot, hxe[k], hyd[k], Y_Robot, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
@@ -573,7 +578,7 @@ class Node_Control_Timer_R2 : public rclcpp::Node
                 //save_data(k, hxd[k], X_Robot, hxe[k], hyd[k], Y_Robot, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
             }
 
-            std::cout << "Despues de los ifss" << std::endl;
+            //std::cout << "Despues de los ifss" << std::endl;
 
           
 

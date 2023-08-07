@@ -431,8 +431,8 @@ class Node_Control_Timer_R1 : public rclcpp::Node
                 hwe[k] = ErrAng;
 
                 double grados = (ANG_Robot * 180)/M_PI;
-                double cos_val = cos(ANG_Robot);
-                double sin_val = sin(ANG_Robot);
+                //double cos_val = cos(ANG_Robot);
+                //double sin_val = sin(ANG_Robot);
             
             
            // std::cout << " Grados= " << grados << " cos = " << cos_val << " sin =" << sin_val << std::endl;
