@@ -7,7 +7,7 @@
 #include <interfaces/msg/robot_objective.hpp>
 #include <geometry_msgs/msg/polygon.hpp>
 #include <interfaces/srv/trajectory_control.hpp>
-#include <interfaces/srv/platform_vel.hpp>
+#include <interfaces/msg/platform_vel.hpp>
 #include <interfaces/msg/data_control.hpp>
 #include <Eigen/Dense>
 #include <interfaces/msg/robot_objective.hpp>
@@ -42,7 +42,7 @@ float distance_objective = 0;
 
 //Variables de tiempo y control
     int tf = 180; // tiempo de simulacion
-    double ts = 0.1; // tiempo de muestreo
+    double ts = 0.2; // tiempo de muestreo
     //const int N = std::round((tf + ts) / ts); // cantidad de muestras 
     int N = std::round((tf+ts)/ts); //1801;     //N = 1201 para 60 s y 601 para 30s
    // std::vector<std::vector<double>> he(2, std::vector<double>(1));
@@ -109,7 +109,7 @@ float distance_objective = 0;
 
     bool control_active = false;
 
-    rclcpp::Client<interfaces::srv::PlatformVel>::SharedPtr client_vel;
+    //rclcpp::Client<interfaces::srv::PlatformVel>::SharedPtr client_vel;
 
 
 class Control_Trajectory_R1 : public rclcpp::Node
@@ -155,7 +155,7 @@ class Control_Trajectory_R1 : public rclcpp::Node
 
             std::cout << "service start" << std::endl;
             control_active = true;
-            rclcpp::sleep_for(std::chrono::seconds(tf));
+            rclcpp::sleep_for(std::chrono::seconds(tf+3));
             response -> success = control_active;
             std::cout << "service finish" << std::endl;
 
@@ -257,7 +257,7 @@ class Node_Subs_Path_R1 : public rclcpp::Node
             }
             */
 
-            RCLCPP_INFO(this->get_logger(), "path received");
+            //RCLCPP_INFO(this->get_logger(), "path received");
             
 
             //Derivadas
@@ -310,7 +310,7 @@ class Node_Subs_Positions_R1 : public rclcpp::Node
     void subs_obj_callback(const interfaces::msg::RobotObjective::SharedPtr obj_msg){
             n_objective = obj_msg->objective;
             distance_objective = obj_msg->distance;
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Update objective");
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Update objective");
 
             switch (n_objective)
             {
@@ -377,16 +377,15 @@ class Node_Control_Timer_R1 : public rclcpp::Node
 		Node_Control_Timer_R1() : Node("node_control_timer_r1")
 		{
 
-           client_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
+           //client_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
            timer_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
-           client_vel = this->create_client<interfaces::srv::PlatformVel>("robot_1/set_platform_vel", rmw_qos_profile_services_default, client_cb_group_);
-
-
+           //client_vel = this->create_client<interfaces::srv::PlatformVel>("robot_1/set_platform_vel", rmw_qos_profile_services_default, client_cb_group_);
+            publisher_vel = this->create_publisher<interfaces::msg::PlatformVel>("robot_1/set_platform_vel",1);
 
             timer_ = this->create_wall_timer(
-                 100ms, std::bind(&Node_Control_Timer_R1::timer_callback, this), timer_cb_group_);
+                 200ms, std::bind(&Node_Control_Timer_R1::timer_callback, this), timer_cb_group_);
 
-            data_control_robot1_publisher = create_publisher<interfaces::msg::DataControl>("robot_1/data_control", 10);
+ 
           
 
         }
@@ -394,21 +393,23 @@ class Node_Control_Timer_R1 : public rclcpp::Node
     private:
 
     rclcpp::TimerBase::SharedPtr timer_;
-    rclcpp::Client<interfaces::srv::PlatformVel>::SharedPtr client_vel;
+    //rclcpp::Client<interfaces::srv::PlatformVel>::SharedPtr client_vel;
 
-    rclcpp::CallbackGroup::SharedPtr client_cb_group_;
+    //rclcpp::CallbackGroup::SharedPtr client_cb_group_;
     rclcpp::CallbackGroup::SharedPtr timer_cb_group_;
-    rclcpp::Publisher<interfaces::msg::DataControl>::SharedPtr data_control_robot1_publisher;
+    //rclcpp::Publisher<interfaces::msg::DataControl>::SharedPtr data_control_robot1_publisher;
+    rclcpp::Publisher<interfaces::msg::PlatformVel>::SharedPtr publisher_vel;
+
 
     void timer_callback()   //////CONTROL/////////
     { 
 
-        std::cout << " Callback de tiempo" << std::endl;
+        //std::cout << " Callback de tiempo" << std::endl;
 
         
        if (control_active == true){
 
-        std::cout << "inicio " << std::endl;
+        //std::cout << "inicio " << std::endl;
 
 
 
@@ -438,10 +439,10 @@ class Node_Control_Timer_R1 : public rclcpp::Node
            // std::cout << " Grados= " << grados << " cos = " << cos_val << " sin =" << sin_val << std::endl;
             
 
-            std::cout << "x deseada = " << hxd[k]  << "  X_Rob = " << X_Robot << std::endl;
-            std::cout << "y deseada = " << hyd[k]  << "  Y_Rob = " << Y_Robot << std::endl;
-            std::cout << "phi deseada = " << phid  << "  ANG_Rob = " << ANG_Robot << std::endl;
-            std::cout << "error x = " <<  hxe[k] << "  error y = " <<hye[k] << " error w = " << hwe[k] << " Grados= " << grados << std::endl;
+            //std::cout << "x deseada = " << hxd[k]  << "  X_Rob = " << X_Robot << std::endl;
+            //std::cout << "y deseada = " << hyd[k]  << "  Y_Rob = " << Y_Robot << std::endl;
+            //std::cout << "phi deseada = " << phid  << "  ANG_Rob = " << ANG_Robot << std::endl;
+            //std::cout << "error x = " <<  hxe[k] << "  error y = " <<hye[k] << " error w = " << hwe[k] << " Grados= " << grados << std::endl;
             
 
             //Ganancias
@@ -455,7 +456,7 @@ class Node_Control_Timer_R1 : public rclcpp::Node
                   vyd + Ky * tanh(hye[k]),
                   vwd + Kw * tanh(hwe[k]);
 
-            std::cout << "he =" << he << std::endl;
+            //std::cout << "he =" << he << std::endl;
 
 
 
@@ -494,47 +495,53 @@ class Node_Control_Timer_R1 : public rclcpp::Node
             wRef[k] = qpRef(2, 0);
 
 
-            auto request = std::make_shared<interfaces::srv::PlatformVel::Request>();
-
+            //auto request = std::make_shared<interfaces::srv::PlatformVel::Request>();
+            interfaces::msg::PlatformVel msg_platform_vel;
             
             uxRef[k] = uxRef[k] * 35;
             uyRef[k] = uyRef[k] * 35;
 
-            request->x_vel = uxRef[k];
-            request->y_vel = uyRef[k];
-            request->ang_vel = wRef[k];
+            msg_platform_vel.x_vel = uxRef[k];
+            msg_platform_vel.y_vel = uyRef[k];
+            msg_platform_vel.ang_vel = wRef[k];
             
-            std::cout << " Xvel = " << uxRef[k] << "  Yvel = " << uyRef[k] <<  "  ANG_vel = " << wRef[k] << std::endl;
+            //std::cout << " Xvel = " << uxRef[k] << "  Yvel = " << uyRef[k] <<  "  ANG_vel = " << wRef[k] << std::endl;
 
-            auto result = client_vel->async_send_request(request);
+            //auto result = client_vel->async_send_request(request);
 
 
-            std::future_status status = result.wait_for(3s);  // timeout to guarantee a graceful finish
-            if (status == std::future_status::ready) {
-               // RCLCPP_INFO(this->get_logger(), "Received response");
-            }
+            // std::future_status status = result.wait_for(100ms);  // timeout to guarantee a graceful finish
+            // if (status == std::future_status::ready) {
+            //    // RCLCPP_INFO(this->get_logger(), "Received response");
+            // }
 
-            std::cout << "k = " << k << std::endl;
+            publisher_vel->publish(msg_platform_vel);
+
+            // std::cout << "Antes de publicar" << std::endl;
+            //std::cout << "k = " << k << std::endl;
             //save_data(k, hxd[k], X_Robot, hxe[k], hyd[k], Y_Robot, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
-            //SEND DATA 
-            interfaces::msg::DataControl Data;
+            // //SEND DATA 
+            // interfaces::msg::DataControl Data;
             auto time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count();
-            Data.time = time;
-            Data.k = k;
-            Data.x_goal= hxd[k];
-            Data.x_robot= X_Robot;
-            Data.x_error= hxe[k];
-            Data.y_goal= hyd[k];
-            Data.y_robot= Y_Robot;
-            Data.y_error= hye[k];
-            Data.ang_goal= phid;
-            Data.ang_robot= ANG_Robot;
-            Data.ang_error= hwe[k];
-            Data.vel_x = uxRef[k];
-            Data.vel_y = uyRef[k];
-            Data.vel_ang = wRef[k];
-            data_control_robot1_publisher->publish(Data);
+            // Data.time = time;
+            // Data.k = k;
+            // Data.x_goal= hxd[k];
+            // Data.x_robot= X_Robot;
+            // Data.x_error= hxe[k];
+            // Data.y_goal= hyd[k];
+            // Data.y_robot= Y_Robot;
+            // Data.y_error= hye[k];
+            // Data.ang_goal= phid;
+            // Data.ang_robot= ANG_Robot;
+            // Data.ang_error= hwe[k];
+            // Data.vel_x = uxRef[k];
+            // Data.vel_y = uyRef[k];
+            // Data.vel_ang = wRef[k];
+            // data_control_robot1_publisher->publish(Data);
+            std::cout << time << "_" << k << "_" << hxd[k] << "_" << X_Robot << "_" << hxe[k] << "_" << hyd[k] << "_" << Y_Robot << "_" << hye[k] << "_" << 
+                phid << "_" << ANG_Robot << "_" << hwe[k] << "_" << uxRef[k] << "_" << uyRef[k] << "_" << wRef[k] << std::endl;
             //////////////////////////
+            //std::cout << "Despues de publicar" << std::endl;
 
             k++;
 
@@ -542,17 +549,22 @@ class Node_Control_Timer_R1 : public rclcpp::Node
             hya = hyd[k];
             phia = phid;
 
-            std::cout << "Despues de asignar valorees anteriores" << std::endl;
+           //std::cout << "Despues de asignar valorees anteriores" << std::endl;
 
           
 
             if (k==N){
 
-                request->x_vel = 0.0;
-                request->y_vel = 0.0;
-                request->ang_vel = 0.0;
+                msg_platform_vel.x_vel = 0.0;
+                msg_platform_vel.y_vel = 0.0;
+                msg_platform_vel.ang_vel = 0.0;
 
-                auto result = client_vel->async_send_request(request);
+                // auto result = client_vel->async_send_request(request);
+                // std::future_status status = result.wait_for(100ms);  // timeout to guarantee a graceful finish
+                // if (status == std::future_status::ready) {
+                // // RCLCPP_INFO(this->get_logger(), "Received response");
+                // }
+                 publisher_vel->publish(msg_platform_vel);
                 std::cout << "k=N" << k << N << std::endl;
                 control_active = false;
 
@@ -563,17 +575,22 @@ class Node_Control_Timer_R1 : public rclcpp::Node
 
             if (k>N){
                 k=0;
-                request->x_vel = 0.0;
-                request->y_vel = 0.0;
-                request->ang_vel = 0.0;
+                msg_platform_vel.x_vel = 0.0;
+                msg_platform_vel.y_vel = 0.0;
+                msg_platform_vel.ang_vel = 0.0;
 
-                auto result = client_vel->async_send_request(request);
+                // auto result = client_vel->async_send_request(request);
+                // std::future_status status = result.wait_for(100ms);  // timeout to guarantee a graceful finish
+                // if (status == std::future_status::ready) {
+                // RCLCPP_INFO(this->get_logger(), "Received response");
+                // }
+                publisher_vel->publish(msg_platform_vel);
                 control_active = false;
 
-               // save_data(k, hxd[k], X_Robot, hxe[k], hyd[k], Y_Robot, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
+               //save_data(k, hxd[k], X_Robot, hxe[k], hyd[k], Y_Robot, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
             }
 
-            std::cout << "Despues de los ifss" << std::endl;
+            //std::cout << "Despues de los ifss" << std::endl;
 
           
 
@@ -581,24 +598,15 @@ class Node_Control_Timer_R1 : public rclcpp::Node
         
     }
 
-
- /*    void save_data(int k, double x_des, double x_rob, double x_err, double y_des, double y_rob, double y_err, double ang_des, double ang_rob, double ang_err, double x_vel, double y_vel, double ang_vel)
+     /* void save_data(int k, double x_des, double x_rob, double x_err, double y_des, double y_rob, double y_err, double ang_des, double ang_rob, double ang_err, double x_vel, double y_vel, double ang_vel)
 		{
     		auto time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count();
 
 
 			myfile << time;
-            myfile << "_";
-            myfile << k;
-            myfile << "_";
-            myfile << x_des;
-            myfile << "_";
-            myfile << x_rob;
-            myfile << "_";
-            myfile << x_err;
-            myfile << "_";
-            myfile << y_des;
-            myfile << "_";
+            myfile << "_";                if (status == std::future_status::ready) {
+                // RCLCPP_INFO(this->get_logger(), "Received response");
+                }
             myfile << y_rob;
             myfile << "_";
             myfile << y_err;
@@ -690,6 +698,6 @@ int main(int argc, char * argv[])
     executor.spin();
 
  	rclcpp::shutdown();
-   // myfile.close();
+   //myfile.close();
   
 }

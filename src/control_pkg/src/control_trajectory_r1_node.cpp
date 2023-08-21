@@ -6,8 +6,8 @@
 #include <tf2/LinearMath/Matrix3x3.h>
 #include <interfaces/msg/robot_objective.hpp>
 #include <geometry_msgs/msg/polygon.hpp>
-#include <interfaces/srv/trajectory_control.hpp>
-#include <interfaces/srv/platform_vel.hpp>
+#include <interfaces/msg/trajectory_control.hpp>
+#include <interfaces/msg/platform_vel.hpp>
 #include <interfaces/msg/data_control.hpp>
 #include <Eigen/Dense>
 #include <interfaces/msg/robot_objective.hpp>
@@ -42,7 +42,7 @@ float distance_objective = 0;
 
 //Variables de tiempo y control
     int tf = 180; // tiempo de simulacion
-    double ts = 0.2; // tiempo de muestreo
+    double ts = 0.1; // tiempo de muestreo
     //const int N = std::round((tf + ts) / ts); // cantidad de muestras 
     int N = std::round((tf+ts)/ts); //1801;     //N = 1201 para 60 s y 601 para 30s
    // std::vector<std::vector<double>> he(2, std::vector<double>(1));
@@ -112,28 +112,25 @@ float distance_objective = 0;
     //rclcpp::Client<interfaces::srv::PlatformVel>::SharedPtr client_vel;
 
 
-class Control_Trajectory_R2 : public rclcpp::Node
+class Control_Trajectory_R1_Node : public rclcpp::Node
 {
 	public:
-		Control_Trajectory_R2() : Node("control_trajectory_r2")
+		Control_Trajectory_R1_Node() : Node("control_trajectory_r1_node")
 		{
-           service_trajectory_control = this->create_service<interfaces::srv::TrajectoryControl>(
-                "trajectory_control_server_R2", std::bind(&Control_Trajectory_R2::trajectory_control_caller, this,
-                std::placeholders::_1, std::placeholders::_2));
-
-            
+           subs_trajectory_control = this->create_subscription<interfaces::msg::TrajectoryControl>(
+                "/robot_1/trajectory_control", 1, std::bind(&Control_Trajectory_R1_Node::trajectory_control_caller, this,
+                std::placeholders::_1));
 
         }
 
     private:
 
-        rclcpp::Service<interfaces::srv::TrajectoryControl>::SharedPtr service_trajectory_control;
+        rclcpp::Subscription<interfaces::msg::TrajectoryControl>::SharedPtr subs_trajectory_control;
         
-        
-        void trajectory_control_caller(const std::shared_ptr<interfaces::srv::TrajectoryControl::Request> request,
-          std::shared_ptr<interfaces::srv::TrajectoryControl::Response>      response)
-		{
-            tf = request->time;
+        void trajectory_control_caller(const interfaces::msg::TrajectoryControl::SharedPtr trajectory_msg)
+		{   
+           // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "subs trajectory");
+            tf = trajectory_msg->time;
 
             N = std::round((tf+ts)/ts);
             hxd.resize(N,0);
@@ -153,11 +150,10 @@ class Control_Trajectory_R2 : public rclcpp::Node
             phia = 0;
             k=0;
 
-            std::cout << "service start" << std::endl;
+            std::cout << "trajectory control start" << std::endl;
             control_active = true;
-            rclcpp::sleep_for(std::chrono::seconds(tf+3));
-            response -> success = control_active;
-            std::cout << "service finish" << std::endl;
+            // rclcpp::sleep_for(std::chrono::seconds(tf));
+            // std::cout << "service finish" << std::endl;
 
 
 
@@ -169,14 +165,14 @@ class Control_Trajectory_R2 : public rclcpp::Node
 
 };
 
-class Node_Subs_Path_R2 : public rclcpp::Node
+class Node_Subs_Path_R1 : public rclcpp::Node
 {
 	public:
-		Node_Subs_Path_R2() : Node("node_subs_path_r2")
+		Node_Subs_Path_R1() : Node("node_subs_path_r1")
 		{
 
             subs_path = this->create_subscription<geometry_msgs::msg::Polygon>(
-               "/robot_2/path", 1, std::bind(&Node_Subs_Path_R2::subs_path_callback,this,_1));
+               "/robot_1/path", 1, std::bind(&Node_Subs_Path_R1::subs_path_callback,this,_1));
 
         }
 
@@ -188,6 +184,7 @@ class Node_Subs_Path_R2 : public rclcpp::Node
         {   
 
            // std::cout << "subs path" << k << std::endl;
+           RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "subs_path_callback");
 
             //memset(hxd, 0, sizeof(hxd));
             //memset(hyd, 0, sizeof(hyd));
@@ -287,17 +284,17 @@ class Node_Subs_Path_R2 : public rclcpp::Node
 
 };
 
-class Node_Subs_Positions_R2 : public rclcpp::Node
+class Node_Subs_Positions_R1 : public rclcpp::Node
 {
 	public:
-		Node_Subs_Positions_R2() : Node("node_subs_positions_r2")
+		Node_Subs_Positions_R1() : Node("node_subs_positions_r1")
 		{
 
             subs_pos = this->create_subscription<interfaces::msg::Positions>(
-               "/positions", 1, std::bind(&Node_Subs_Positions_R2::subs_pos_callback,this,_1));
+               "/positions", 1, std::bind(&Node_Subs_Positions_R1::subs_pos_callback,this,_1));
 
             subs_objective = this->create_subscription<interfaces::msg::RobotObjective>(
-                "robot_2/objective", 1, std::bind(&Node_Subs_Positions_R2::subs_obj_callback,this,_1));
+                "robot_1/objective", 1, std::bind(&Node_Subs_Positions_R1::subs_obj_callback,this,_1));
 
         }
 
@@ -308,6 +305,7 @@ class Node_Subs_Positions_R2 : public rclcpp::Node
 
 
     void subs_obj_callback(const interfaces::msg::RobotObjective::SharedPtr obj_msg){
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "subs_obj_callback");
             n_objective = obj_msg->objective;
             distance_objective = obj_msg->distance;
             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Update objective");
@@ -341,11 +339,11 @@ class Node_Subs_Positions_R2 : public rclcpp::Node
     
      void subs_pos_callback(const interfaces::msg::Positions::SharedPtr pos_msg)
         {
-            
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "subs_pos_callback");
           //   std::cout << "subs pos" << std::endl;
-            X_Robot= pos_msg->pos_robot2.position.x;
-			Y_Robot= pos_msg->pos_robot2.position.y;
-			tf2::Quaternion Robot_quat(pos_msg->pos_robot2.orientation.x, pos_msg->pos_robot2.orientation.y, pos_msg->pos_robot2.orientation.z, pos_msg->pos_robot2.orientation.w);
+            X_Robot= pos_msg->pos_robot1.position.x;
+			Y_Robot= pos_msg->pos_robot1.position.y;
+			tf2::Quaternion Robot_quat(pos_msg->pos_robot1.orientation.x, pos_msg->pos_robot1.orientation.y, pos_msg->pos_robot1.orientation.z, pos_msg->pos_robot1.orientation.w);
             tf2::Matrix3x3 Robot_m(Robot_quat);
             double Robot_orientation_x, Robot_orientation_y, Robot_orientation_z;
             Robot_m.getRPY(Robot_orientation_x, Robot_orientation_y, Robot_orientation_z);
@@ -353,7 +351,7 @@ class Node_Subs_Positions_R2 : public rclcpp::Node
             X_Robot = X_Robot + (0.125 * cos(ANG_Robot)) - 0.02;
             Y_Robot = Y_Robot + (0.125 * sin(ANG_Robot));
             
-            tf2::Quaternion Object_quat(pos_msg->pos_object2.orientation.x, pos_msg->pos_object2.orientation.y, pos_msg->pos_object2.orientation.z, pos_msg->pos_object2.orientation.w);
+            tf2::Quaternion Object_quat(pos_msg->pos_object1.orientation.x, pos_msg->pos_object1.orientation.y, pos_msg->pos_object1.orientation.z, pos_msg->pos_object1.orientation.w);
             tf2::Matrix3x3 Object_m(Object_quat);
             double Object_orientation_x, Object_orientation_y, Object_orientation_z;
             Object_m.getRPY(Object_orientation_x, Object_orientation_y, Object_orientation_z);
@@ -371,21 +369,21 @@ class Node_Subs_Positions_R2 : public rclcpp::Node
 };
 
 
-class Node_Control_Timer_R2 : public rclcpp::Node
+class Node_Control_Timer_R1 : public rclcpp::Node
 {
 	public:
-		Node_Control_Timer_R2() : Node("node_control_timer_r2")
+		Node_Control_Timer_R1() : Node("node_control_timer_r1")
 		{
-            
-           client_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
-           timer_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
-           client_vel = this->create_client<interfaces::srv::PlatformVel>("robot_2/set_platform_vel", rmw_qos_profile_services_default, client_cb_group_);
 
+           //client_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
+           //timer_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
+           //client_vel = this->create_client<interfaces::srv::PlatformVel>("robot_1/set_platform_vel", rmw_qos_profile_services_default, client_cb_group_);
+            publisher_vel = this->create_publisher<interfaces::msg::PlatformVel>("robot_1/set_platform_vel",1);
 
             timer_ = this->create_wall_timer(
-                 200ms, std::bind(&Node_Control_Timer_R2::timer_callback, this), timer_cb_group_);
+                 100ms, std::bind(&Node_Control_Timer_R1::timer_callback, this));
 
-            
+ 
           
 
         }
@@ -393,16 +391,19 @@ class Node_Control_Timer_R2 : public rclcpp::Node
     private:
 
     rclcpp::TimerBase::SharedPtr timer_;
-    rclcpp::Client<interfaces::srv::PlatformVel>::SharedPtr client_vel;
+    //rclcpp::Client<interfaces::srv::PlatformVel>::SharedPtr client_vel;
 
-    rclcpp::CallbackGroup::SharedPtr client_cb_group_;
+    //rclcpp::CallbackGroup::SharedPtr client_cb_group_;
     rclcpp::CallbackGroup::SharedPtr timer_cb_group_;
-    //rclcpp::Publisher<interfaces::msg::DataControl>::SharedPtr data_control_robot2_publisher;
+    //rclcpp::Publisher<interfaces::msg::DataControl>::SharedPtr data_control_robot1_publisher;
+    rclcpp::Publisher<interfaces::msg::PlatformVel>::SharedPtr publisher_vel;
+
 
     void timer_callback()   //////CONTROL/////////
     { 
 
-        //std::cout << " Callback de tiempo" << std::endl;
+       // std::cout << " Callback de tiempo" << std::endl;
+       // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "timer_callback");
 
         
        if (control_active == true){
@@ -429,7 +430,7 @@ class Node_Control_Timer_R2 : public rclcpp::Node
 
                 hwe[k] = ErrAng;
 
-                double grados = (ANG_Robot * 180)/M_PI;
+                //double grados = (ANG_Robot * 180)/M_PI;
                 //double cos_val = cos(ANG_Robot);
                 //double sin_val = sin(ANG_Robot);
             
@@ -493,32 +494,34 @@ class Node_Control_Timer_R2 : public rclcpp::Node
             wRef[k] = qpRef(2, 0);
 
 
-            auto request = std::make_shared<interfaces::srv::PlatformVel::Request>();
-
-
+            //auto request = std::make_shared<interfaces::srv::PlatformVel::Request>();
+            interfaces::msg::PlatformVel msg_platform_vel;
+            
             uxRef[k] = uxRef[k] * 35;
             uyRef[k] = uyRef[k] * 35;
 
-            request->x_vel = uxRef[k];
-            request->y_vel = uyRef[k];
-            request->ang_vel = wRef[k];
+            msg_platform_vel.x_vel = uxRef[k];
+            msg_platform_vel.y_vel = uyRef[k];
+            msg_platform_vel.ang_vel = wRef[k];
             
             //std::cout << " Xvel = " << uxRef[k] << "  Yvel = " << uyRef[k] <<  "  ANG_vel = " << wRef[k] << std::endl;
 
-            auto result = client_vel->async_send_request(request);
+            //auto result = client_vel->async_send_request(request);
 
 
-            std::future_status status = result.wait_for(100ms);  // timeout to guarantee a graceful finish
-            if (status == std::future_status::ready) {
-               // RCLCPP_INFO(this->get_logger(), "Received response");
-            }
+            // std::future_status status = result.wait_for(100ms);  // timeout to guarantee a graceful finish
+            // if (status == std::future_status::ready) {
+            //    // RCLCPP_INFO(this->get_logger(), "Received response");
+            // }
+
+            publisher_vel->publish(msg_platform_vel);
 
             // std::cout << "Antes de publicar" << std::endl;
             //std::cout << "k = " << k << std::endl;
             //save_data(k, hxd[k], X_Robot, hxe[k], hyd[k], Y_Robot, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
             // //SEND DATA 
             // interfaces::msg::DataControl Data;
-             auto time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count();
+            auto time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count();
             // Data.time = time;
             // Data.k = k;
             // Data.x_goal= hxd[k];
@@ -533,11 +536,11 @@ class Node_Control_Timer_R2 : public rclcpp::Node
             // Data.vel_x = uxRef[k];
             // Data.vel_y = uyRef[k];
             // Data.vel_ang = wRef[k];
-            // data_control_robot2_publisher->publish(Data);
+            // data_control_robot1_publisher->publish(Data);
             std::cout << time << "_" << k << "_" << hxd[k] << "_" << X_Robot << "_" << hxe[k] << "_" << hyd[k] << "_" << Y_Robot << "_" << hye[k] << "_" << 
                 phid << "_" << ANG_Robot << "_" << hwe[k] << "_" << uxRef[k] << "_" << uyRef[k] << "_" << wRef[k] << std::endl;
             //////////////////////////
-            //std::cout << "Despues de publicar" << std::endl;
+          //  std::cout << "Despues de publicar" << std::endl;
 
             k++;
 
@@ -545,22 +548,25 @@ class Node_Control_Timer_R2 : public rclcpp::Node
             hya = hyd[k];
             phia = phid;
 
-            //std::cout << "Despues de asignar valorees anteriores" << std::endl;
+        //   std::cout << "Despues de asignar valorees anteriores" << std::endl;
 
-           
+          
 
             if (k==N){
+                
+            //    std::cout << "k=N" << k << N << std::endl;
 
-                request->x_vel = 0.0;
-                request->y_vel = 0.0;
-                request->ang_vel = 0.0;
+                msg_platform_vel.x_vel = 0.0;
+                msg_platform_vel.y_vel = 0.0;
+                msg_platform_vel.ang_vel = 0.0;
 
-                auto result = client_vel->async_send_request(request);
-                std::future_status status = result.wait_for(100ms);  // timeout to guarantee a graceful finish
-                if (status == std::future_status::ready) {
-                // RCLCPP_INFO(this->get_logger(), "Received response");
-                }
-                //std::cout << "k=N" << k << N << std::endl;
+                // auto result = client_vel->async_send_request(request);
+                // std::future_status status = result.wait_for(100ms);  // timeout to guarantee a graceful finish
+                // if (status == std::future_status::ready) {
+                // // RCLCPP_INFO(this->get_logger(), "Received response");
+                // }
+                 publisher_vel->publish(msg_platform_vel);
+              //  std::cout << "k=N" << k << N << std::endl;
                 control_active = false;
 
                 //save_data(k, hxd[k], X_Robot, hxe[k], hyd[k], Y_Robot, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
@@ -569,19 +575,21 @@ class Node_Control_Timer_R2 : public rclcpp::Node
             }
 
             if (k>N){
-                k=0;
-                request->x_vel = 0.0;
-                request->y_vel = 0.0;
-                request->ang_vel = 0.0;
+               // k=0;
+              // std::cout << "k>N" << k << N << std::endl;
+                msg_platform_vel.x_vel = 0.0;
+                msg_platform_vel.y_vel = 0.0;
+                msg_platform_vel.ang_vel = 0.0;
 
-                auto result = client_vel->async_send_request(request);
-                std::future_status status = result.wait_for(100ms);  // timeout to guarantee a graceful finish
-                if (status == std::future_status::ready) {
+                // auto result = client_vel->async_send_request(request);
+                // std::future_status status = result.wait_for(100ms);  // timeout to guarantee a graceful finish
+                // if (status == std::future_status::ready) {
                 // RCLCPP_INFO(this->get_logger(), "Received response");
-                }
+                // }
+                publisher_vel->publish(msg_platform_vel);
                 control_active = false;
 
-                //save_data(k, hxd[k], X_Robot, hxe[k], hyd[k], Y_Robot, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
+               //save_data(k, hxd[k], X_Robot, hxe[k], hyd[k], Y_Robot, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
             }
 
             //std::cout << "Despues de los ifss" << std::endl;
@@ -592,23 +600,15 @@ class Node_Control_Timer_R2 : public rclcpp::Node
         
     }
 
-    /* void save_data(int k, double x_des, double x_rob, double x_err, double y_des, double y_rob, double y_err, double ang_des, double ang_rob, double ang_err, double x_vel, double y_vel, double ang_vel)
+     /* void save_data(int k, double x_des, double x_rob, double x_err, double y_des, double y_rob, double y_err, double ang_des, double ang_rob, double ang_err, double x_vel, double y_vel, double ang_vel)
 		{
     		auto time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count();
 
 
 			myfile << time;
-            myfile << "_";
-            myfile << k;
-            myfile << "_";
-            myfile << x_des;
-            myfile << "_";
-            myfile << x_rob;
-            myfile << "_";
-            myfile << x_err;
-            myfile << "_";
-            myfile << y_des;
-            myfile << "_";
+            myfile << "_";                if (status == std::future_status::ready) {
+                // RCLCPP_INFO(this->get_logger(), "Received response");
+                }
             myfile << y_rob;
             myfile << "_";
             myfile << y_err;
@@ -640,7 +640,7 @@ int main(int argc, char * argv[])
 
 
     rclcpp::init(argc, argv);
-    /* myfile.open ("csv/Control_Trajectory_R2.csv");
+   /*  myfile.open ("csv/Control_Trajectory_R1_Node.csv");
 
     myfile << "Time";
     myfile << "_";
@@ -672,7 +672,7 @@ int main(int argc, char * argv[])
     myfile << "\n"; */
 
    
-  	//rclcpp::spin(std::make_shared<Control_Trajectory_R2>());
+  	//rclcpp::spin(std::make_shared<Control_Trajectory_R1_Node>());
 
     for (int i = 0; i < N; i++) {
         t[i] = i * ts;
@@ -685,21 +685,21 @@ int main(int argc, char * argv[])
     //hy[0] = -0.7;  //# Posicion inicial en el eje y en metros [m]
     //phi[0] = 180*(M_PI/180); //# Orientacion inicial en radianes [rad]
 	
-	auto node = std::make_shared<Control_Trajectory_R2>();
-    auto node_subs_path_r2 = std::make_shared<Node_Subs_Path_R2>();
-	auto node_subs_positions_r2 = std::make_shared<Node_Subs_Positions_R2>();
-    auto node_control_timer_r2 = std::make_shared<Node_Control_Timer_R2>();
+	auto node = std::make_shared<Control_Trajectory_R1_Node>();
+    auto node_subs_path_r1 = std::make_shared<Node_Subs_Path_R1>();
+	auto node_subs_positions_r1 = std::make_shared<Node_Subs_Positions_R1>();
+    auto node_control_timer_r1 = std::make_shared<Node_Control_Timer_R1>();
    // auto node_client_vel = std::make_shared<Node_Client_Vel>();
 
     rclcpp::executors::MultiThreadedExecutor executor;
     executor.add_node(node);
-    executor.add_node(node_subs_path_r2);
-	executor.add_node(node_subs_positions_r2);
-    executor.add_node(node_control_timer_r2);
+    executor.add_node(node_subs_path_r1);
+	executor.add_node(node_subs_positions_r1);
+    executor.add_node(node_control_timer_r1);
     //executor.add_node(node_client_vel);
     executor.spin();
 
  	rclcpp::shutdown();
-    //myfile.close();
+   //myfile.close();
   
 }

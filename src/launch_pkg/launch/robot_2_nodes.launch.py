@@ -61,9 +61,9 @@ def generate_launch_description():
             package='control_pkg',
             executable='event_driven_control_r2'),
             
-        Node(
-            package='control_pkg',
-            executable='csv_r2'),
+        #Node(
+        #    package='control_pkg',
+        #    executable='csv_r2'),
 
   
         
