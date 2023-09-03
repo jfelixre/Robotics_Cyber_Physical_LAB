@@ -214,7 +214,7 @@ class Node_Subs_Path_R1 : public rclcpp::Node
             
 
             //Colocar los puntos del mensaje en el espacio que corresponden
-            int max_size_i;
+            int max_size_i=0;
 
             for (int i = 1; i<(n_points); i++){
                 hxd[k+(step_size*i)] = path_msg->points[i].x;
@@ -431,7 +431,7 @@ class Node_Control_Timer_R1 : public rclcpp::Node
 
                 hwe[k] = ErrAng;
 
-                double grados = (ANG_Robot * 180)/M_PI;
+                //double grados = (ANG_Robot * 180)/M_PI;
                 //double cos_val = cos(ANG_Robot);
                 //double sin_val = sin(ANG_Robot);
             
