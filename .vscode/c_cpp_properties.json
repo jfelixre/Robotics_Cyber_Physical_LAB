@@ -1,0 +1,23 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/include/**",
+        "/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/include/**",
+        "/opt/ros/foxy/include/**",
+        "/home/javierfr/Robotics_Cyber_Physical_LAB/src/gazebo_plugin_sim/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
