@@ -115,7 +115,7 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 
 					while (robot2_state<0)
 					{
-						
+						RCLCPP_INFO(this->get_logger(), "Esperando Conexion de Robot 2");
 					}
 					
 					robot1_state.robot_state=1;
