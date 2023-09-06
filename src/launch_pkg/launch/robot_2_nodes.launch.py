@@ -51,7 +51,7 @@ def generate_launch_description():
 
         Node(
             package='inv_kinematics_pkg',
-            executable='robot_2_platform_vel_server'),
+            executable='robot_2_platform_vel_node'),
 
         Node(
             package='control_pkg',

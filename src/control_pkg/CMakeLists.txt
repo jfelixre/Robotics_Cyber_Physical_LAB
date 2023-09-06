@@ -217,6 +217,23 @@ ament_target_dependencies(compute_trajectory
     Eigen3
     )
 
+    add_executable(control_trajectory_r2_node src/control_trajectory_r2_node.cpp)
+    target_include_directories(control_trajectory_r2_node PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
+  
+    ament_target_dependencies(control_trajectory_r2_node
+      sensor_msgs
+      std_msgs
+      rclcpp
+      cv_bridge
+      interfaces
+      tf2
+      tf2_ros
+      geometry_msgs
+      Eigen3
+      )
+
   add_executable(test_control2 src/test_control2.cpp)
   target_include_directories(test_control2 PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -326,6 +343,7 @@ install(TARGETS
   a_star_server_2
   compute_trajectory_r2
   control_trajectory_r2
+  control_trajectory_r2_node
   control_arm_pid_r2
   event_driven_control_r2
   csv_r1
