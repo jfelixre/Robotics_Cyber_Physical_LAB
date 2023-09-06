@@ -22,7 +22,7 @@
 #include <vector>
 #include <math.h>
 
-//std::ofstream myfile;
+std::ofstream myfile;
 
 using std::placeholders::_1;
 using namespace std::chrono_literals;
@@ -184,7 +184,7 @@ class Node_Subs_Path_R1 : public rclcpp::Node
         {   
 
            // std::cout << "subs path" << k << std::endl;
-           RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "subs_path_callback");
+           //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "subs_path_callback");
 
             //memset(hxd, 0, sizeof(hxd));
             //memset(hyd, 0, sizeof(hyd));
@@ -305,7 +305,7 @@ class Node_Subs_Positions_R1 : public rclcpp::Node
 
 
     void subs_obj_callback(const interfaces::msg::RobotObjective::SharedPtr obj_msg){
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "subs_obj_callback");
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "subs_obj_callback");
             n_objective = obj_msg->objective;
             distance_objective = obj_msg->distance;
             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Update objective");
@@ -339,7 +339,7 @@ class Node_Subs_Positions_R1 : public rclcpp::Node
     
      void subs_pos_callback(const interfaces::msg::Positions::SharedPtr pos_msg)
         {
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "subs_pos_callback");
+          //  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "subs_pos_callback");
           //   std::cout << "subs pos" << std::endl;
             X_Robot= pos_msg->pos_robot1.position.x;
 			Y_Robot= pos_msg->pos_robot1.position.y;
@@ -520,23 +520,9 @@ class Node_Control_Timer_R1 : public rclcpp::Node
             //std::cout << "k = " << k << std::endl;
             //save_data(k, hxd[k], X_Robot, hxe[k], hyd[k], Y_Robot, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
             // //SEND DATA 
-            // interfaces::msg::DataControl Data;
+            
             auto time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count();
-            // Data.time = time;
-            // Data.k = k;
-            // Data.x_goal= hxd[k];
-            // Data.x_robot= X_Robot;
-            // Data.x_error= hxe[k];
-            // Data.y_goal= hyd[k];
-            // Data.y_robot= Y_Robot;
-            // Data.y_error= hye[k];
-            // Data.ang_goal= phid;
-            // Data.ang_robot= ANG_Robot;
-            // Data.ang_error= hwe[k];
-            // Data.vel_x = uxRef[k];
-            // Data.vel_y = uyRef[k];
-            // Data.vel_ang = wRef[k];
-            // data_control_robot1_publisher->publish(Data);
+            
             std::cout << time << "_" << k << "_" << hxd[k] << "_" << X_Robot << "_" << hxe[k] << "_" << hyd[k] << "_" << Y_Robot << "_" << hye[k] << "_" << 
                 phid << "_" << ANG_Robot << "_" << hwe[k] << "_" << uxRef[k] << "_" << uyRef[k] << "_" << wRef[k] << std::endl;
             //////////////////////////
@@ -604,11 +590,19 @@ class Node_Control_Timer_R1 : public rclcpp::Node
 		{
     		auto time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count();
 
-
+            std::cout << "Guardar datos" << std
 			myfile << time;
-            myfile << "_";                if (status == std::future_status::ready) {
-                // RCLCPP_INFO(this->get_logger(), "Received response");
-                }
+            myfile << "_";
+            myfile << k;
+            myfile << "_";
+            myfile << x_des;
+            myfile << "_";
+            myfile << x_rob;
+            myfile << "_";
+            myfile << x_err;
+            myfile << "_";
+            myfile << y_des;
+            myfile << "_";
             myfile << y_rob;
             myfile << "_";
             myfile << y_err;
@@ -640,7 +634,7 @@ int main(int argc, char * argv[])
 
 
     rclcpp::init(argc, argv);
-   /*  myfile.open ("csv/Control_Trajectory_R1_Node.csv");
+    /* myfile.open ("csv/Control_Trajectory_R1_Node.csv");
 
     myfile << "Time";
     myfile << "_";
@@ -669,8 +663,8 @@ int main(int argc, char * argv[])
     myfile << "Y-vel";
     myfile << "_";
     myfile << "Ang-vel";
-    myfile << "\n"; */
-
+    myfile << "\n"; 
+    */
    
   	//rclcpp::spin(std::make_shared<Control_Trajectory_R1_Node>());
 
@@ -700,6 +694,6 @@ int main(int argc, char * argv[])
     executor.spin();
 
  	rclcpp::shutdown();
-   //myfile.close();
+    myfile.close();
   
 }
