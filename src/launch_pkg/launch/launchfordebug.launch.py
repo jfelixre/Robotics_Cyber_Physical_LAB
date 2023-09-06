@@ -25,5 +25,9 @@ def generate_launch_description():
             package='control_pkg',
             executable='control_trajectory_r1_node'),
 
+        Node(
+            package='control_pkg',
+            executable='control_trajectory_r2_node'),
+
 
     ])
