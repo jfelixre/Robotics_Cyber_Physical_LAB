@@ -7,7 +7,7 @@
 #include <interfaces/msg/robot_objective.hpp>
 #include <interfaces/srv/event_control.hpp>
 #include <interfaces/msg/arm_joints_positions.hpp>
-#include <interfaces/srv/trajectory_control.hpp>
+#include <interfaces/msg/trajectory_control.hpp>
 
 #include <memory>
 #include <cinttypes>
@@ -44,7 +44,8 @@ interfaces::msg::RobotObjective RO_msg;
 
 //Variables posicion brazo
 interfaces::msg::ArmJointsPositions arm_joints_position;
-auto request_ctl = std::make_shared<interfaces::srv::TrajectoryControl::Request>();
+//auto request_ctl = std::make_shared<interfaces::srv::TrajectoryControl::Request>();
+interfaces::msg::TrajectoryControl trajectory_msg;
 
 
 
@@ -64,9 +65,9 @@ class Event_Driven_Control_R2 : public rclcpp::Node
 
       		publisher_arm_pos = this->create_publisher<interfaces::msg::ArmJointsPositions>("/robot_2/set_arm_joints_position",10);
 			
-			client_cb_group = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
+			//client_cb_group = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
 
-			client_trajectory_ctrl = this -> create_client<interfaces::srv::TrajectoryControl>("trajectory_control_server_R2", rmw_qos_profile_services_default, client_cb_group);
+			publisher_trajectory_ctrl = this->create_publisher<interfaces::msg::TrajectoryControl>("/robot_2/trajectory_control",10);
 			
 
 		}
@@ -78,8 +79,8 @@ class Event_Driven_Control_R2 : public rclcpp::Node
 		rclcpp::Publisher<interfaces::msg::RobotObjective>::SharedPtr objective_robot2_publisher;
 		rclcpp::Service<interfaces::srv::EventControl>::SharedPtr service_event_control;
 		rclcpp::Publisher<interfaces::msg::ArmJointsPositions>::SharedPtr publisher_arm_pos;
-		rclcpp::Client<interfaces::srv::TrajectoryControl>::SharedPtr client_trajectory_ctrl;
-        rclcpp::CallbackGroup::SharedPtr client_cb_group;
+		rclcpp::Publisher<interfaces::msg::TrajectoryControl>::SharedPtr publisher_trajectory_ctrl;
+        //rclcpp::CallbackGroup::SharedPtr client_cb_group;
 
 		void event_control_handler(const std::shared_ptr<interfaces::srv::EventControl::Request> request,
 			std::shared_ptr<interfaces::srv::EventControl::Response>      response)
@@ -123,7 +124,7 @@ class Event_Driven_Control_R2 : public rclcpp::Node
 
 					while (robot1_state<=3)
 					{
-						
+						RCLCPP_INFO(this->get_logger(), "Esperando completar tarea de Robot 1");
 					}
 					
 					robot2_state.robot_state=1;
@@ -155,23 +156,28 @@ class Event_Driven_Control_R2 : public rclcpp::Node
 				objective_robot2_publisher -> publish(RO_msg);
 
 				
-				//cliente control trayectoria
-				request_ctl->time = 140;
+				//control trayectoria
+				// request_ctl->time = 140;
 
-				while (!client_trajectory_ctrl->wait_for_service(1s)){
-                if (!rclcpp::ok()){
-                    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service Control Trajectory.");
-                }
-                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service Control Trajectory not available, waiting again...");
-          		}
+				// while (!client_trajectory_ctrl->wait_for_service(1s)){
+               // if (!rclcpp::ok()){
+               //     RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service Control Trajectory.");
+               // }
+               // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service Control Trajectory not available, waiting again...");
+          	   // }
 				
-				auto result = client_trajectory_ctrl->async_send_request(request_ctl);
+				// auto result = client_trajectory_ctrl->async_send_request(request_ctl);
 				
-				result.wait();
+				// result.wait();
 
-				bool result_control = result.get()->success;
+				// bool result_control = result.get()->success;
 
-				std::cout << " Result control" << std::endl;
+				// std::cout << " Result control" << std::endl;
+
+				trajectory_msg.time = 140;
+
+				publisher_trajectory_ctrl->publish(trajectory_msg);
+				rclcpp::sleep_for(std::chrono::seconds(trajectory_msg.time));
 
 				robot2_state.robot_state=2;
 
@@ -200,21 +206,26 @@ class Event_Driven_Control_R2 : public rclcpp::Node
 
 				
 				//cliente control trayectoria
-				request_ctl->time = 30;
+				// request_ctl->time = 30;
 
-				while (!client_trajectory_ctrl->wait_for_service(1s)){
-                if (!rclcpp::ok()){
-                    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service Control Trajectory.");
-                }
-                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service Control Trajectory not available, waiting again...");
-          		}
+				// while (!client_trajectory_ctrl->wait_for_service(1s)){
+                // if (!rclcpp::ok()){
+                //     RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service Control Trajectory.");
+                // }
+                // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service Control Trajectory not available, waiting again...");
+          		// }
 				
-				auto result2 = client_trajectory_ctrl->async_send_request(request_ctl);
+				// auto result2 = client_trajectory_ctrl->async_send_request(request_ctl);
 				
-				result2.wait();
+				// result2.wait();
 
-				result_control = result.get()->success;
+				// result_control = result.get()->success;
 
+				trajectory_msg.time = 30;
+
+				publisher_trajectory_ctrl->publish(trajectory_msg);
+				rclcpp::sleep_for(std::chrono::seconds(trajectory_msg.time));
+				
 				//Cerrar brazo
 				arm_joints_position.pos_b1 = 0.9;
 				arm_joints_position.pos_b2 = 0.5;

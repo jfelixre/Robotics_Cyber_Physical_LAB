@@ -118,6 +118,15 @@ class Event_Driven_Control_R1 : public rclcpp::Node
 						RCLCPP_INFO(this->get_logger(), "Esperando Conexion de Robot 2");
 					}
 					
+
+
+
+
+
+
+
+
+
 					robot1_state.robot_state=1;
 
 					RCLCPP_INFO(this->get_logger(), "Iniciando Control de Robot 1");
