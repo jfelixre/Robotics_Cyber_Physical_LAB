@@ -7,7 +7,7 @@
         {
             "name": "ROS: Launch",
             "request": "launch",
-            "target": "/home/javierfr/Robotics_Cyber_Physical_LAB/install/launch_pkg/share/launch_pkg/launch/launchfordebug.launch.py",
+            "target": "/home/javierfr/Robotics_Cyber_Physical_LAB/install/launch_pkg/share/launch_pkg/launch/launchfordebugr1.launch.py",
             "launch": [
                 "rviz",
                 "gz",
