@@ -22,7 +22,7 @@
 #include <vector>
 #include <math.h>
 
-std::ofstream myfile;
+//std::ofstream myfile;
 
 using std::placeholders::_1;
 using namespace std::chrono_literals;
@@ -694,6 +694,6 @@ int main(int argc, char * argv[])
     executor.spin();
 
  	rclcpp::shutdown();
-    myfile.close();
+   // myfile.close();
   
 }
