@@ -114,22 +114,24 @@ class Event_Driven_Control_R2 : public rclcpp::Node
 					RCLCPP_INFO(this->get_logger(), "Esperando Conexion de Robot 1");
 
 					while (robot1_state<0)
-					{
-						
+					{	
+						RCLCPP_INFO(this->get_logger(), "Esperando Conexion de Robot 1");
+						//int dummy = 0;
 					}
 
 					RCLCPP_INFO(this->get_logger(), "Iniciando Control de Robot 2");
 
 					RCLCPP_INFO(this->get_logger(), "Esperando completar tarea de Robot 1");
 
-					while (robot1_state<=3)
+					while (robot1_state<4)
 					{
 						RCLCPP_INFO(this->get_logger(), "Esperando completar tarea de Robot 1");
+						//int dummy = 0;
 					}
 					
 					robot2_state.robot_state=1;
 
-
+					RCLCPP_INFO(this->get_logger(), "iniciando control");
 
 
 
@@ -547,6 +549,7 @@ class Node_Subs_State_R1 : public rclcpp::Node
 		{
 			robot1_state=msg->robot_state;
 			std::cout<<"R1_State_received"<<std::endl;
+			RCLCPP_INFO(this->get_logger(), "R1_State_received");
 		}
 
 		rclcpp::Subscription<interfaces::msg::RobotState>::SharedPtr state_robot1_subscriber;

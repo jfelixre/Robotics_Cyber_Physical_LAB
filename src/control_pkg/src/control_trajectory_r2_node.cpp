@@ -341,9 +341,9 @@ class Node_Subs_Positions_R2 : public rclcpp::Node
         {
           //  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "subs_pos_callback");
           //   std::cout << "subs pos" << std::endl;
-            X_Robot= pos_msg->pos_robot1.position.x;
-			Y_Robot= pos_msg->pos_robot1.position.y;
-			tf2::Quaternion Robot_quat(pos_msg->pos_robot1.orientation.x, pos_msg->pos_robot1.orientation.y, pos_msg->pos_robot1.orientation.z, pos_msg->pos_robot1.orientation.w);
+            X_Robot= pos_msg->pos_robot2.position.x;
+			Y_Robot= pos_msg->pos_robot2.position.y;
+			tf2::Quaternion Robot_quat(pos_msg->pos_robot2.orientation.x, pos_msg->pos_robot2.orientation.y, pos_msg->pos_robot2.orientation.z, pos_msg->pos_robot2.orientation.w);
             tf2::Matrix3x3 Robot_m(Robot_quat);
             double Robot_orientation_x, Robot_orientation_y, Robot_orientation_z;
             Robot_m.getRPY(Robot_orientation_x, Robot_orientation_y, Robot_orientation_z);
