@@ -68,6 +68,39 @@ ament_target_dependencies(
   geometry_msgs
   )
 
+add_executable(robot_1_platform_vel_server src/robot_1_platform_vel_server.cpp)
+ament_target_dependencies(
+  robot_1_platform_vel_server
+  rclcpp
+  interfaces
+  geometry_msgs
+  )
+
+add_executable(robot_2_platform_vel_server src/robot_2_platform_vel_server.cpp)
+ament_target_dependencies(
+  robot_2_platform_vel_server
+  rclcpp
+  interfaces
+  geometry_msgs
+  )
+
+add_executable(robot_1_platform_vel_node src/robot_1_platform_vel_node.cpp)
+ament_target_dependencies(
+  robot_1_platform_vel_node
+  rclcpp
+  interfaces
+  geometry_msgs
+  )
+
+add_executable(robot_2_platform_vel_node src/robot_2_platform_vel_node.cpp)
+ament_target_dependencies(
+  robot_2_platform_vel_node
+  rclcpp
+  interfaces
+  geometry_msgs
+  )
+
+
 install(TARGETS
   platform1_vel_server
   platform1_vel_test_client
@@ -75,6 +108,10 @@ install(TARGETS
   platform2_vel_test_client
   robot1_vel_server
   robot2_vel_server
+  robot_1_platform_vel_server
+  robot_2_platform_vel_server
+  robot_1_platform_vel_node
+  robot_2_platform_vel_node
   DESTINATION lib/${PROJECT_NAME})
 
 

@@ -4,7 +4,9 @@
       framerate: 120.0
       io_method: "mmap"
       frame_id: "camera"
-      pixel_format: "mjpeg"
+      pixel_format: "yuyv"
+      #pixel_format: "mjpeg"
+      color_format: "yuv422p"
       image_width: 1280
       image_height: 720
       camera_name: "test_camera"

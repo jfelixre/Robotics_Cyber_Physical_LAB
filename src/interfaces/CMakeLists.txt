@@ -18,6 +18,8 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/PlatformVel.srv"
@@ -30,6 +32,19 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/LimitSwitch.msg"
   "srv/RobotVel.srv"
   "msg/RobotState.msg"
+  "msg/Positions.msg"
+  "srv/AStarService.srv"
+  "msg/Path.msg"
+  "msg/RobotObjective.msg"
+  "srv/EventControl.srv"
+  "srv/TrajectoryControl.srv"
+  "msg/MotorPlatformVels.msg"
+  "msg/MotorArmVels.msg"
+  "msg/ArmJointsPositions.msg"
+  "msg/DataControl.msg"
+  "msg/PlatformVel.msg"
+  "msg/TrajectoryControl.msg"
+  DEPENDENCIES geometry_msgs
  )
 
 

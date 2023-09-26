@@ -1,7 +1,7 @@
 //Example set velocity 
-//ros2 topic pub --once  /robot_platform_1/vel_Motors interfaces/msg/MotorVelsWArm "{vel_m1: 20}"
+//ros2 topic pub --once  /robot_platform_1/vel_Motors interfaces/msg/MotorPlatformVels "{vel_m1: 20}"
 //Example get velocity
-//ros2 topic echo /robot_platform_1/sim_vel_Motors 
+//ros2 topic echo /robot_platform_1/encoders 
 
 
 #include <gazebo/common/Time.hh>
@@ -22,7 +22,9 @@
 #include <gazebo/gazebo.hh>
 #include <gazebo/physics/physics.hh>
 #include <gazebo_ros/executor.hpp>
+#include <interfaces/msg/motor_platform_vels.hpp>
 #include <interfaces/msg/motor_vels_w_arm.hpp>
+#include <interfaces/msg/motor_arm_vels.hpp>
 #include <interfaces/msg/limit_switch.hpp>
 
 #include <memory>
@@ -30,13 +32,17 @@
 #include <vector>
 #include <chrono>
 
+const float real_time_factor = 0.03;  //Laptop
+//const float real_time_factor = 0.02;  //Desktop
+
 namespace gazebo_plugin_sim
 {
 	class Robot1PluginPrivate
 	{
 	public:
 		//Callbacks for subscriptions
-		void OnMsgVelM(const interfaces::msg::MotorVelsWArm::SharedPtr _msgM);
+		void OnMsgVelM(const interfaces::msg::MotorPlatformVels::SharedPtr _msgM);
+		void OnMsgVelArm(const interfaces::msg::MotorArmVels::SharedPtr _msgArm);
 
 		//Callback setvelocity
 		void SetVelocityM1(const double &_velM1);
@@ -55,7 +61,8 @@ namespace gazebo_plugin_sim
   		gazebo_ros::Node::SharedPtr ros_node_;
 
   		//Subscribers
-		rclcpp::Subscription<interfaces::msg::MotorVelsWArm>::SharedPtr vel_M_;
+		rclcpp::Subscription<interfaces::msg::MotorPlatformVels>::SharedPtr vel_M_;
+		rclcpp::Subscription<interfaces::msg::MotorArmVels>::SharedPtr vel_Arm_;
 
 		//Publishers
 		rclcpp::Publisher<interfaces::msg::MotorVelsWArm>::SharedPtr sim_vel_M_;
@@ -197,13 +204,17 @@ namespace gazebo_plugin_sim
 
 
       	//subscribers
-      	impl_->vel_M_ = impl_->ros_node_->create_subscription<interfaces::msg::MotorVelsWArm>(
-    		"~/vel_Motors", qos.get_subscription_qos("~/vel_Motors", rclcpp::QoS(1)),
+      	impl_->vel_M_ = impl_->ros_node_->create_subscription<interfaces::msg::MotorPlatformVels>(
+    		"~/platform_vel_motors", qos.get_subscription_qos("~/platform_vel_motors", rclcpp::QoS(1)),
     		std::bind(&Robot1PluginPrivate::OnMsgVelM, impl_.get(), std::placeholders::_1));
+
+		impl_->vel_Arm_ = impl_->ros_node_->create_subscription<interfaces::msg::MotorArmVels>(
+    		"~/set_arm_joints_vel", qos.get_subscription_qos("~/set_arm_joints_vel", rclcpp::QoS(1)),
+    		std::bind(&Robot1PluginPrivate::OnMsgVelArm, impl_.get(), std::placeholders::_1));
 
       	//publishers
       	impl_->sim_vel_M_ = impl_->ros_node_->create_publisher<interfaces::msg::MotorVelsWArm>(
-      		"~/sim_vel_Motors", qos.get_publisher_qos("~/sim_vel_Motors", rclcpp::QoS(1)));
+      		"~/encoders", qos.get_publisher_qos("~/encoders", rclcpp::QoS(1)));
 
       	impl_->LmSw_ = impl_->ros_node_->create_publisher<interfaces::msg::LimitSwitch>(
       		"~/limit_switch", qos.get_publisher_qos("~/limit_switch", rclcpp::QoS(1)));
@@ -269,29 +280,32 @@ namespace gazebo_plugin_sim
 	{
 		Robot1PluginPrivate::model_->GetJointController()->SetVelocityTarget(
 			Robot1PluginPrivate::jointG1->GetScopedName(),_velG1);
-		if (_velG1==1){
+		if (_velG1==1.0){
 			RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "\nGripper= Open");
 		}
-		if (_velG1==-1){
+		if (_velG1==-1.0){
 			RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "\nGripper= Close");
 		}
 	}
 
 
 	//Callback subscriptions
-	void Robot1PluginPrivate::OnMsgVelM(const interfaces::msg::MotorVelsWArm::SharedPtr _msgM)
+	void Robot1PluginPrivate::OnMsgVelM(const interfaces::msg::MotorPlatformVels::SharedPtr _msgM)
 	{
-		RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "\nSending Motor Velocities");
+		RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "\nSending Motor Platform Velocities");
 		Robot1PluginPrivate::SetVelocityM1(_msgM->vel_m1);
 		Robot1PluginPrivate::SetVelocityM2(_msgM->vel_m2);
 		Robot1PluginPrivate::SetVelocityM3(_msgM->vel_m3);
 		Robot1PluginPrivate::SetVelocityM4(_msgM->vel_m4);
-		Robot1PluginPrivate::SetVelocityB1(_msgM->vel_b1);
-		Robot1PluginPrivate::SetVelocityB2(_msgM->vel_b2);
-		Robot1PluginPrivate::SetVelocityB3(_msgM->vel_b3);
-		Robot1PluginPrivate::SetVelocityG1(_msgM->vel_g1);
+	}
 
-		//time.sleep(0.0);
+	void Robot1PluginPrivate::OnMsgVelArm(const interfaces::msg::MotorArmVels::SharedPtr _msgArm)
+	{
+		RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "\nSending Motor Arm Velocities");
+		Robot1PluginPrivate::SetVelocityB1(_msgArm->vel_b1);
+		Robot1PluginPrivate::SetVelocityB2(_msgArm->vel_b2);
+		Robot1PluginPrivate::SetVelocityB3(_msgArm->vel_b3);
+		Robot1PluginPrivate::SetVelocityG1(_msgArm->vel_g1);
 	}
 
 	//Event update callback for publishers
@@ -317,15 +331,19 @@ namespace gazebo_plugin_sim
 		velM.vel_b2=Robot1PluginPrivate::jointB2->GetVelocity(0);
 		velM.vel_b3=Robot1PluginPrivate::jointB3->GetVelocity(0);
 		velM.vel_g1=Robot1PluginPrivate::jointG1->GetVelocity(0);
+		velM.vel_b1=Robot1PluginPrivate::jointB1->GetVelocity(0) * real_time_factor;
+		velM.vel_b2=Robot1PluginPrivate::jointB2->GetVelocity(0) * real_time_factor;
+		velM.vel_b3=(Robot1PluginPrivate::jointB3->GetVelocity(0)) * real_time_factor;
 
 		//Get arm positions
 		B1_pos=Robot1PluginPrivate::jointB1->Position(0);
 		B2_pos=Robot1PluginPrivate::jointB2->Position(0);
 		B3_pos=Robot1PluginPrivate::jointB3->Position(0);
 
-		velM.vel_b1=B1_pos;
-		velM.vel_b2=B2_pos*-1;
-		velM.vel_b3=B3_pos;
+		//velM.vel_b1=B1_pos;
+		//velM.vel_b2=B2_pos*-1;
+		//velM.vel_b3=B3_pos;
+		//B2_pos=B2_pos*-1;
 
 		if (B1_pos<-1.79){
 			LSB1_min=1;
