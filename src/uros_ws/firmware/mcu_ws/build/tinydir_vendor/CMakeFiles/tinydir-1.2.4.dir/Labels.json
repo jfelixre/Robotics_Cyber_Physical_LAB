@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tinydir_vendor/CMakeFiles/tinydir-1.2.4"
+		},
+		{
+			"file" : "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tinydir_vendor/CMakeFiles/tinydir-1.2.4.rule"
+		},
+		{
+			"file" : "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tinydir_vendor/CMakeFiles/tinydir-1.2.4-complete.rule"
+		},
+		{
+			"file" : "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tinydir_vendor/tinydir-1.2.4/src/tinydir-1.2.4-stamp/tinydir-1.2.4-install.rule"
+		},
+		{
+			"file" : "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tinydir_vendor/tinydir-1.2.4/src/tinydir-1.2.4-stamp/tinydir-1.2.4-mkdir.rule"
+		},
+		{
+			"file" : "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tinydir_vendor/tinydir-1.2.4/src/tinydir-1.2.4-stamp/tinydir-1.2.4-download.rule"
+		},
+		{
+			"file" : "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tinydir_vendor/tinydir-1.2.4/src/tinydir-1.2.4-stamp/tinydir-1.2.4-update.rule"
+		},
+		{
+			"file" : "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tinydir_vendor/tinydir-1.2.4/src/tinydir-1.2.4-stamp/tinydir-1.2.4-patch.rule"
+		},
+		{
+			"file" : "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tinydir_vendor/tinydir-1.2.4/src/tinydir-1.2.4-stamp/tinydir-1.2.4-configure.rule"
+		},
+		{
+			"file" : "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tinydir_vendor/tinydir-1.2.4/src/tinydir-1.2.4-stamp/tinydir-1.2.4-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"tinydir-1.2.4"
+		],
+		"name" : "tinydir-1.2.4"
+	}
+}

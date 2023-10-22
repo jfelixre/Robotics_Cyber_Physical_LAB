@@ -1,0 +1,6 @@
+# Hashes of file build rules.
+fec2aba842e480d62c0f596db5a5a1aa CMakeFiles/sensor_msgs
+8d11f4934448901c2a927de4be52510e CMakeFiles/sensor_msgs_uninstall
+29a7e74aff361dcf4cc0a6262513e8a9 rosidl_generator_c/sensor_msgs/msg/battery_state.h
+9fef6598a4db48bdf952b1caba240b30 rosidl_typesupport_c/sensor_msgs/msg/battery_state__type_support.cpp
+35ca03fa2b0576ec5988c876f6080f3b rosidl_typesupport_microxrcedds_c/sensor_msgs/msg/detail/microxrcedds/battery_state__type_support_c.c

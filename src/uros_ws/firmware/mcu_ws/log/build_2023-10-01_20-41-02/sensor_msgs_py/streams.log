@@ -1,0 +1,32 @@
+[0.866s] Invoking command in '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs_py': AMENT_PREFIX_PATH=/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/x86_64-linux-gnu/pkgconfig:/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/pkgconfig:${PKG_CONFIG_PATH} PYTHONPATH=/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/sensor_msgs_py/prefix_override:/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages:/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/sensor_msgs_py build --build-base /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/sensor_msgs_py/build install --record /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/sensor_msgs_py/install.log --install-scripts $base/lib/sensor_msgs_py --single-version-externally-managed
+[1.058s] running egg_info
+[1.059s] creating ../../../build/sensor_msgs_py/sensor_msgs_py.egg-info
+[1.059s] writing ../../../build/sensor_msgs_py/sensor_msgs_py.egg-info/PKG-INFO
+[1.059s] writing dependency_links to ../../../build/sensor_msgs_py/sensor_msgs_py.egg-info/dependency_links.txt
+[1.059s] writing requirements to ../../../build/sensor_msgs_py/sensor_msgs_py.egg-info/requires.txt
+[1.059s] writing top-level names to ../../../build/sensor_msgs_py/sensor_msgs_py.egg-info/top_level.txt
+[1.060s] writing manifest file '../../../build/sensor_msgs_py/sensor_msgs_py.egg-info/SOURCES.txt'
+[1.087s] reading manifest file '../../../build/sensor_msgs_py/sensor_msgs_py.egg-info/SOURCES.txt'
+[1.088s] writing manifest file '../../../build/sensor_msgs_py/sensor_msgs_py.egg-info/SOURCES.txt'
+[1.088s] running build
+[1.088s] running build_py
+[1.088s] creating /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/sensor_msgs_py/build
+[1.088s] creating /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/sensor_msgs_py/build/lib
+[1.088s] creating /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/sensor_msgs_py/build/lib/sensor_msgs_py
+[1.088s] copying sensor_msgs_py/__init__.py -> /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/sensor_msgs_py/build/lib/sensor_msgs_py
+[1.088s] copying sensor_msgs_py/point_cloud2.py -> /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/sensor_msgs_py/build/lib/sensor_msgs_py
+[1.089s] running install
+[1.089s] running install_lib
+[1.090s] creating /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/sensor_msgs_py
+[1.090s] copying /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/sensor_msgs_py/build/lib/sensor_msgs_py/__init__.py -> /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/sensor_msgs_py
+[1.090s] copying /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/sensor_msgs_py/build/lib/sensor_msgs_py/point_cloud2.py -> /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/sensor_msgs_py
+[1.090s] byte-compiling /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/sensor_msgs_py/__init__.py to __init__.cpython-38.pyc
+[1.091s] byte-compiling /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/sensor_msgs_py/point_cloud2.py to point_cloud2.cpython-38.pyc
+[1.092s] running install_data
+[1.092s] copying resource/sensor_msgs_py -> /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/ament_index/resource_index/packages
+[1.093s] copying package.xml -> /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/sensor_msgs_py
+[1.093s] running install_egg_info
+[1.094s] Copying ../../../build/sensor_msgs_py/sensor_msgs_py.egg-info to /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/sensor_msgs_py-2.0.5-py3.8.egg-info
+[1.094s] running install_scripts
+[1.108s] writing list of installed files to '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/sensor_msgs_py/install.log'
+[1.124s] Invoked command in '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs_py' returned '0': AMENT_PREFIX_PATH=/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/x86_64-linux-gnu/pkgconfig:/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/pkgconfig:${PKG_CONFIG_PATH} PYTHONPATH=/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/sensor_msgs_py/prefix_override:/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages:/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/sensor_msgs_py build --build-base /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/sensor_msgs_py/build install --record /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/sensor_msgs_py/install.log --install-scripts $base/lib/sensor_msgs_py --single-version-externally-managed

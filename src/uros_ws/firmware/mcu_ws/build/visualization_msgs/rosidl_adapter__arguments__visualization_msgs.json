@@ -1,0 +1,16 @@
+{
+  "package_name": "visualization_msgs",
+  "non_idl_tuples": [
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/visualization_msgs:msg/ImageMarker.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/visualization_msgs:msg/InteractiveMarker.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/visualization_msgs:msg/InteractiveMarkerControl.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/visualization_msgs:msg/InteractiveMarkerFeedback.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/visualization_msgs:msg/InteractiveMarkerInit.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/visualization_msgs:msg/InteractiveMarkerPose.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/visualization_msgs:msg/InteractiveMarkerUpdate.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/visualization_msgs:msg/Marker.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/visualization_msgs:msg/MarkerArray.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/visualization_msgs:msg/MenuEntry.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/visualization_msgs:srv/GetInteractiveMarkers.srv"
+  ]
+}

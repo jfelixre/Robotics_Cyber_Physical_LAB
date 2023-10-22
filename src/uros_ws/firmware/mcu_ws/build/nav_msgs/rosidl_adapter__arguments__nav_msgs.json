@@ -1,0 +1,13 @@
+{
+  "package_name": "nav_msgs",
+  "non_idl_tuples": [
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/nav_msgs:msg/GridCells.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/nav_msgs:msg/MapMetaData.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/nav_msgs:msg/OccupancyGrid.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/nav_msgs:msg/Odometry.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/nav_msgs:msg/Path.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/nav_msgs:srv/GetMap.srv",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/nav_msgs:srv/GetPlan.srv",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/nav_msgs:srv/SetMap.srv"
+  ]
+}

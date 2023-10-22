@@ -1,0 +1,32 @@
+[2.095s] Invoking command in '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/uros/tracetools/tracetools_read': PYTHONPATH=/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tracetools_read/prefix_override:/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/tracetools_read build --build-base /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tracetools_read/build install --record /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tracetools_read/install.log --install-scripts $base/lib/tracetools_read --single-version-externally-managed
+[2.471s] running egg_info
+[2.471s] creating ../../../build/tracetools_read/tracetools_read.egg-info
+[2.471s] writing ../../../build/tracetools_read/tracetools_read.egg-info/PKG-INFO
+[2.472s] writing dependency_links to ../../../build/tracetools_read/tracetools_read.egg-info/dependency_links.txt
+[2.472s] writing requirements to ../../../build/tracetools_read/tracetools_read.egg-info/requires.txt
+[2.472s] writing top-level names to ../../../build/tracetools_read/tracetools_read.egg-info/top_level.txt
+[2.472s] writing manifest file '../../../build/tracetools_read/tracetools_read.egg-info/SOURCES.txt'
+[2.472s] reading manifest file '../../../build/tracetools_read/tracetools_read.egg-info/SOURCES.txt'
+[2.473s] writing manifest file '../../../build/tracetools_read/tracetools_read.egg-info/SOURCES.txt'
+[2.473s] running build
+[2.473s] running build_py
+[2.473s] creating /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tracetools_read/build
+[2.473s] creating /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tracetools_read/build/lib
+[2.473s] creating /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tracetools_read/build/lib/tracetools_read
+[2.473s] copying tracetools_read/__init__.py -> /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tracetools_read/build/lib/tracetools_read
+[2.473s] copying tracetools_read/trace.py -> /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tracetools_read/build/lib/tracetools_read
+[2.473s] running install
+[2.473s] running install_lib
+[2.473s] creating /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/tracetools_read
+[2.473s] copying /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tracetools_read/build/lib/tracetools_read/__init__.py -> /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/tracetools_read
+[2.473s] copying /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tracetools_read/build/lib/tracetools_read/trace.py -> /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/tracetools_read
+[2.474s] byte-compiling /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/tracetools_read/__init__.py to __init__.cpython-38.pyc
+[2.474s] byte-compiling /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/tracetools_read/trace.py to trace.cpython-38.pyc
+[2.474s] running install_data
+[2.474s] copying package.xml -> /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/tracetools_read
+[2.474s] copying resource/tracetools_read -> /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/ament_index/resource_index/packages
+[2.474s] running install_egg_info
+[2.474s] Copying ../../../build/tracetools_read/tracetools_read.egg-info to /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/tracetools_read-1.0.2-py3.8.egg-info
+[2.474s] running install_scripts
+[2.474s] writing list of installed files to '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tracetools_read/install.log'
+[2.759s] Invoked command in '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/uros/tracetools/tracetools_read' returned '0': PYTHONPATH=/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tracetools_read/prefix_override:/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/tracetools_read build --build-base /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tracetools_read/build install --record /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tracetools_read/install.log --install-scripts $base/lib/tracetools_read --single-version-externally-managed

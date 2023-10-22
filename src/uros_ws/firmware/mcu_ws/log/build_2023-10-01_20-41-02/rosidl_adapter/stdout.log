@@ -1,0 +1,71 @@
+Not searching for unused variables given on the command line.
+-- Found ament_cmake: 0.9.12 (/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_cmake/share/ament_cmake/cmake)
+-- Found PythonInterp: /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/python_env/idf4.1_py3.8_env/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+-- Using PYTHON_EXECUTABLE: /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/python_env/idf4.1_py3.8_env/bin/python3
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/rosidl_adapter
+make[4]: Entering directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/rosidl_adapter'
+/usr/bin/cmake -S/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/rosidl/rosidl_adapter -B/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/rosidl_adapter --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/rosidl_adapter/CMakeFiles /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/rosidl_adapter/CMakeFiles/progress.marks
+/usr/bin/make -f CMakeFiles/Makefile2 all
+make[5]: Entering directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/rosidl_adapter'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/rosidl_adapter'
+/usr/bin/cmake -E cmake_progress_start /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/rosidl_adapter/CMakeFiles 0
+make[4]: Leaving directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/rosidl_adapter'
+-- Install configuration: "Debug"
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/rosidl_adapter/environment/pythonpath.sh
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/rosidl_adapter/environment/pythonpath.dsv
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/cli.py
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/resource
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/resource/msg.idl.em
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/resource/__init__.py
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/resource/action.idl.em
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/resource/struct.idl.em
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/resource/srv.idl.em
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/__init__.py
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/action
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/action/__init__.py
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/main.py
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/srv
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/srv/__init__.py
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/parser.py
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/msg
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/msg/__init__.py
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/__main__.py
+Listing '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter'...
+Compiling '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/__init__.py'...
+Compiling '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/__main__.py'...
+Listing '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/action'...
+Compiling '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/action/__init__.py'...
+Compiling '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/cli.py'...
+Compiling '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/main.py'...
+Listing '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/msg'...
+Compiling '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/msg/__init__.py'...
+Compiling '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/parser.py'...
+Listing '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/resource'...
+Compiling '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/resource/__init__.py'...
+Listing '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/srv'...
+Compiling '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/python3.8/site-packages/rosidl_adapter/srv/__init__.py'...
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/ament_index/resource_index/package_run_dependencies/rosidl_adapter
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/ament_index/resource_index/parent_prefix_path/rosidl_adapter
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/rosidl_adapter/environment/ament_prefix_path.sh
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/rosidl_adapter/environment/ament_prefix_path.dsv
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/rosidl_adapter/environment/path.sh
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/rosidl_adapter/environment/path.dsv
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/rosidl_adapter/local_setup.bash
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/rosidl_adapter/local_setup.sh
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/rosidl_adapter/local_setup.zsh
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/rosidl_adapter/local_setup.dsv
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/rosidl_adapter/package.dsv
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/ament_index/resource_index/packages/rosidl_adapter
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/rosidl_adapter/cmake/rosidl_adapter-extras.cmake
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/rosidl_adapter/cmake/rosidl_adapterConfig.cmake
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/rosidl_adapter/cmake/rosidl_adapterConfig-version.cmake
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/rosidl_adapter/package.xml
+-- Up-to-date: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/rosidl_adapter/cmake
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/rosidl_adapter/cmake/rosidl_adapt_interfaces.cmake
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/rosidl_adapter/msg2idl.py
+-- Installing: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/rosidl_adapter/srv2idl.py

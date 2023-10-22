@@ -1,0 +1,8 @@
+/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/lifecycle_msgs/rosidl_adapter/lifecycle_msgs:msg/State.idl
+/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/lifecycle_msgs/rosidl_adapter/lifecycle_msgs:msg/Transition.idl
+/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/lifecycle_msgs/rosidl_adapter/lifecycle_msgs:msg/TransitionDescription.idl
+/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/lifecycle_msgs/rosidl_adapter/lifecycle_msgs:msg/TransitionEvent.idl
+/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/lifecycle_msgs/rosidl_adapter/lifecycle_msgs:srv/ChangeState.idl
+/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/lifecycle_msgs/rosidl_adapter/lifecycle_msgs:srv/GetAvailableStates.idl
+/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/lifecycle_msgs/rosidl_adapter/lifecycle_msgs:srv/GetAvailableTransitions.idl
+/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/lifecycle_msgs/rosidl_adapter/lifecycle_msgs:srv/GetState.idl

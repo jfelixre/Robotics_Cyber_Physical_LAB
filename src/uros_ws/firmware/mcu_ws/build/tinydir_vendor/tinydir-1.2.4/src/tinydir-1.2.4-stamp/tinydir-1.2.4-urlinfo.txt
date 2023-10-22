@@ -1,0 +1,3 @@
+repository='external project URL'
+module='https://github.com/cxong/tinydir/archive/1.2.4.tar.gz'
+tag='MD5=15978c5f498e2ff3d26a9975c734cda0'

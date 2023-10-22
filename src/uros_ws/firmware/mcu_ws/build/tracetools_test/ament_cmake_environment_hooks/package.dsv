@@ -1,0 +1,4 @@
+source;share/tracetools_test/local_setup.bash
+source;share/tracetools_test/local_setup.dsv
+source;share/tracetools_test/local_setup.sh
+source;share/tracetools_test/local_setup.zsh

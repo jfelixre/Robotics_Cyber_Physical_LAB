@@ -1,0 +1,100 @@
+[1.823s] Invoking command in '/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/ament/ament_package': PYTHONPATH=/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/prefix_override:/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages: /usr/bin/python3 setup.py egg_info --egg-base ../../build/ament_package build --build-base /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build install --record /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/install.log --single-version-externally-managed
+[1.982s] running egg_info
+[1.983s] creating ../../build/ament_package/ament_package.egg-info
+[1.984s] writing ../../build/ament_package/ament_package.egg-info/PKG-INFO
+[1.984s] writing dependency_links to ../../build/ament_package/ament_package.egg-info/dependency_links.txt
+[1.985s] writing top-level names to ../../build/ament_package/ament_package.egg-info/top_level.txt
+[1.985s] writing manifest file '../../build/ament_package/ament_package.egg-info/SOURCES.txt'
+[2.024s] reading manifest file '../../build/ament_package/ament_package.egg-info/SOURCES.txt'
+[2.024s] writing manifest file '../../build/ament_package/ament_package.egg-info/SOURCES.txt'
+[2.024s] running build
+[2.025s] running build_py
+[2.025s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build
+[2.025s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib
+[2.025s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package
+[2.025s] copying ament_package/__init__.py -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package
+[2.025s] copying ament_package/templates.py -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package
+[2.025s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template
+[2.025s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/environment_hook
+[2.026s] copying ament_package/template/environment_hook/ament_prefix_path.bat -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/environment_hook
+[2.026s] copying ament_package/template/environment_hook/path.sh -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/environment_hook
+[2.026s] copying ament_package/template/environment_hook/library_path.sh -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/environment_hook
+[2.026s] copying ament_package/template/environment_hook/path.bat -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/environment_hook
+[2.026s] copying ament_package/template/environment_hook/pythonpath.sh.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/environment_hook
+[2.026s] copying ament_package/template/environment_hook/pkg_config_path.bat -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/environment_hook
+[2.026s] copying ament_package/template/environment_hook/pkg_config_path.sh -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/environment_hook
+[2.027s] copying ament_package/template/environment_hook/pythonpath.bat.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/environment_hook
+[2.027s] copying ament_package/template/environment_hook/ament_prefix_path.sh -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/environment_hook
+[2.027s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/isolated_prefix_level
+[2.027s] copying ament_package/template/isolated_prefix_level/local_setup.bash -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/isolated_prefix_level
+[2.027s] copying ament_package/template/isolated_prefix_level/local_setup.zsh -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/isolated_prefix_level
+[2.027s] copying ament_package/template/isolated_prefix_level/local_setup.bat.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/isolated_prefix_level
+[2.028s] copying ament_package/template/isolated_prefix_level/_order_isolated_packages.py -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/isolated_prefix_level
+[2.028s] copying ament_package/template/isolated_prefix_level/local_setup.sh.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/isolated_prefix_level
+[2.029s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/package_level
+[2.029s] copying ament_package/template/package_level/local_setup.zsh.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/package_level
+[2.029s] copying ament_package/template/package_level/local_setup.bash.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/package_level
+[2.029s] copying ament_package/template/package_level/local_setup.bat.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/package_level
+[2.029s] copying ament_package/template/package_level/local_setup.sh.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/package_level
+[2.029s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/prefix_level
+[2.029s] copying ament_package/template/prefix_level/_local_setup_util.py -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/prefix_level
+[2.030s] copying ament_package/template/prefix_level/local_setup.bash -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/prefix_level
+[2.030s] copying ament_package/template/prefix_level/setup.sh.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/prefix_level
+[2.030s] copying ament_package/template/prefix_level/local_setup.zsh -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/prefix_level
+[2.030s] copying ament_package/template/prefix_level/local_setup.bat.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/prefix_level
+[2.030s] copying ament_package/template/prefix_level/setup.bat.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/prefix_level
+[2.031s] copying ament_package/template/prefix_level/setup.zsh -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/prefix_level
+[2.031s] copying ament_package/template/prefix_level/setup.bash -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/prefix_level
+[2.031s] copying ament_package/template/prefix_level/local_setup.sh.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/prefix_level
+[2.031s] running install
+[2.032s] running install_lib
+[2.033s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package
+[2.033s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/__init__.py -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package
+[2.033s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template
+[2.033s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/isolated_prefix_level
+[2.033s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/isolated_prefix_level/local_setup.bash -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/isolated_prefix_level
+[2.034s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/isolated_prefix_level/local_setup.zsh -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/isolated_prefix_level
+[2.034s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/isolated_prefix_level/local_setup.bat.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/isolated_prefix_level
+[2.034s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/isolated_prefix_level/_order_isolated_packages.py -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/isolated_prefix_level
+[2.034s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/isolated_prefix_level/local_setup.sh.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/isolated_prefix_level
+[2.034s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/package_level
+[2.034s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/package_level/local_setup.zsh.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/package_level
+[2.034s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/package_level/local_setup.bash.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/package_level
+[2.034s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/package_level/local_setup.bat.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/package_level
+[2.035s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/package_level/local_setup.sh.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/package_level
+[2.035s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/prefix_level
+[2.035s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/prefix_level/_local_setup_util.py -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/prefix_level
+[2.035s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/prefix_level/local_setup.bash -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/prefix_level
+[2.035s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/prefix_level/setup.sh.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/prefix_level
+[2.035s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/prefix_level/local_setup.zsh -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/prefix_level
+[2.035s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/prefix_level/local_setup.bat.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/prefix_level
+[2.035s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/prefix_level/setup.bat.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/prefix_level
+[2.036s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/prefix_level/setup.zsh -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/prefix_level
+[2.036s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/prefix_level/setup.bash -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/prefix_level
+[2.036s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/prefix_level/local_setup.sh.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/prefix_level
+[2.036s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/environment_hook
+[2.036s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/environment_hook/ament_prefix_path.bat -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/environment_hook
+[2.036s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/environment_hook/path.sh -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/environment_hook
+[2.036s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/environment_hook/library_path.sh -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/environment_hook
+[2.037s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/environment_hook/path.bat -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/environment_hook
+[2.037s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/environment_hook/pythonpath.sh.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/environment_hook
+[2.037s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/environment_hook/pkg_config_path.bat -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/environment_hook
+[2.037s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/environment_hook/pkg_config_path.sh -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/environment_hook
+[2.037s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/environment_hook/pythonpath.bat.in -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/environment_hook
+[2.037s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/template/environment_hook/ament_prefix_path.sh -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/environment_hook
+[2.037s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build/lib/ament_package/templates.py -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package
+[2.038s] byte-compiling /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/__init__.py to __init__.cpython-38.pyc
+[2.038s] byte-compiling /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/isolated_prefix_level/_order_isolated_packages.py to _order_isolated_packages.cpython-38.pyc
+[2.039s] byte-compiling /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/template/prefix_level/_local_setup_util.py to _local_setup_util.cpython-38.pyc
+[2.039s] byte-compiling /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package/templates.py to templates.cpython-38.pyc
+[2.039s] running install_data
+[2.039s] copying package.xml -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/share/ament_package
+[2.039s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/share/ament_index
+[2.040s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/share/ament_index/resource_index
+[2.040s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/share/ament_index/resource_index/packages
+[2.040s] copying resource/ament_package -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/share/ament_index/resource_index/packages
+[2.040s] running install_egg_info
+[2.040s] Copying ../../build/ament_package/ament_package.egg-info to /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages/ament_package-0.9.5-py3.8.egg-info
+[2.040s] running install_scripts
+[2.055s] writing list of installed files to '/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/install.log'
+[2.292s] Invoked command in '/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/ament/ament_package' returned '0': PYTHONPATH=/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/prefix_override:/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_package/lib/python3.8/site-packages: /usr/bin/python3 setup.py egg_info --egg-base ../../build/ament_package build --build-base /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/build install --record /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_package/install.log --single-version-externally-managed

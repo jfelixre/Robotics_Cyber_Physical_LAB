@@ -1,0 +1,40 @@
+[1.903s] Invoking command in '/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/ament/ament_lint/ament_pep257': AMENT_PREFIX_PATH=/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_flake8:/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_lint PATH=/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_flake8/bin:${PATH} PYTHONPATH=/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_pep257/prefix_override:/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_pep257/lib/python3.8/site-packages:/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_flake8/lib/python3.8/site-packages:/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_lint/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../../build/ament_pep257 build --build-base /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_pep257/build install --record /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_pep257/install.log --single-version-externally-managed
+[2.259s] running egg_info
+[2.259s] creating ../../../build/ament_pep257/ament_pep257.egg-info
+[2.260s] writing ../../../build/ament_pep257/ament_pep257.egg-info/PKG-INFO
+[2.260s] writing dependency_links to ../../../build/ament_pep257/ament_pep257.egg-info/dependency_links.txt
+[2.260s] writing entry points to ../../../build/ament_pep257/ament_pep257.egg-info/entry_points.txt
+[2.260s] writing requirements to ../../../build/ament_pep257/ament_pep257.egg-info/requires.txt
+[2.260s] writing top-level names to ../../../build/ament_pep257/ament_pep257.egg-info/top_level.txt
+[2.260s] writing manifest file '../../../build/ament_pep257/ament_pep257.egg-info/SOURCES.txt'
+[2.260s] reading manifest file '../../../build/ament_pep257/ament_pep257.egg-info/SOURCES.txt'
+[2.260s] writing manifest file '../../../build/ament_pep257/ament_pep257.egg-info/SOURCES.txt'
+[2.260s] running build
+[2.260s] running build_py
+[2.260s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_pep257/build
+[2.260s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_pep257/build/lib
+[2.260s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_pep257/build/lib/ament_pep257
+[2.261s] copying ament_pep257/__init__.py -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_pep257/build/lib/ament_pep257
+[2.261s] copying ament_pep257/main.py -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_pep257/build/lib/ament_pep257
+[2.261s] copying ament_pep257/pytest_marker.py -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_pep257/build/lib/ament_pep257
+[2.261s] running install
+[2.261s] running install_lib
+[2.261s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_pep257/lib/python3.8/site-packages/ament_pep257
+[2.261s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_pep257/build/lib/ament_pep257/__init__.py -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_pep257/lib/python3.8/site-packages/ament_pep257
+[2.261s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_pep257/build/lib/ament_pep257/main.py -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_pep257/lib/python3.8/site-packages/ament_pep257
+[2.261s] copying /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_pep257/build/lib/ament_pep257/pytest_marker.py -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_pep257/lib/python3.8/site-packages/ament_pep257
+[2.261s] byte-compiling /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_pep257/lib/python3.8/site-packages/ament_pep257/__init__.py to __init__.cpython-38.pyc
+[2.261s] byte-compiling /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_pep257/lib/python3.8/site-packages/ament_pep257/main.py to main.cpython-38.pyc
+[2.261s] byte-compiling /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_pep257/lib/python3.8/site-packages/ament_pep257/pytest_marker.py to pytest_marker.cpython-38.pyc
+[2.261s] running install_data
+[2.261s] copying package.xml -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_pep257/share/ament_pep257
+[2.262s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_pep257/share/ament_index
+[2.262s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_pep257/share/ament_index/resource_index
+[2.262s] creating /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_pep257/share/ament_index/resource_index/packages
+[2.262s] copying resource/ament_pep257 -> /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_pep257/share/ament_index/resource_index/packages
+[2.262s] running install_egg_info
+[2.262s] Copying ../../../build/ament_pep257/ament_pep257.egg-info to /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_pep257/lib/python3.8/site-packages/ament_pep257-0.9.8-py3.8.egg-info
+[2.262s] running install_scripts
+[2.262s] Installing ament_pep257 script to /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_pep257/bin
+[2.262s] writing list of installed files to '/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_pep257/install.log'
+[2.701s] Invoked command in '/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/ament/ament_lint/ament_pep257' returned '0': AMENT_PREFIX_PATH=/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_flake8:/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_lint PATH=/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_flake8/bin:${PATH} PYTHONPATH=/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_pep257/prefix_override:/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_pep257/lib/python3.8/site-packages:/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_flake8/lib/python3.8/site-packages:/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/install/ament_lint/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../../build/ament_pep257 build --build-base /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_pep257/build install --record /home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_pep257/install.log --single-version-externally-managed

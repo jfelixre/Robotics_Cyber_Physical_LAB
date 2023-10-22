@@ -1,0 +1,22 @@
+{
+  "package_name": "test_msgs",
+  "non_idl_tuples": [
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/test_interface_files:msg/Arrays.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/test_interface_files:msg/BasicTypes.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/test_interface_files:msg/BoundedSequences.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/test_interface_files:msg/Constants.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/test_interface_files:msg/Defaults.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/test_interface_files:msg/Empty.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/test_interface_files:msg/MultiNested.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/test_interface_files:msg/Nested.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/test_interface_files:msg/Strings.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/test_interface_files:msg/UnboundedSequences.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/test_interface_files:msg/WStrings.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/test_interface_files:srv/Arrays.srv",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/test_interface_files:srv/BasicTypes.srv",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/test_interface_files:srv/Empty.srv",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/test_interface_files:action/Fibonacci.action",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/rcl_interfaces/test_msgs:msg/Builtins.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/rcl_interfaces/test_msgs:action/NestedMessage.action"
+  ]
+}

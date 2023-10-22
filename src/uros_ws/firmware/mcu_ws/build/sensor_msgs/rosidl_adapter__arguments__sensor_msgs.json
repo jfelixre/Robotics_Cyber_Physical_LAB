@@ -1,0 +1,33 @@
+{
+  "package_name": "sensor_msgs",
+  "non_idl_tuples": [
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/BatteryState.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/CameraInfo.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/ChannelFloat32.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/CompressedImage.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/FluidPressure.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/Illuminance.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/Image.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/Imu.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/JointState.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/Joy.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/JoyFeedback.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/JoyFeedbackArray.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/LaserEcho.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/LaserScan.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/MagneticField.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/MultiDOFJointState.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/MultiEchoLaserScan.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/NavSatFix.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/NavSatStatus.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/PointCloud.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/PointCloud2.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/PointField.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/Range.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/RegionOfInterest.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/RelativeHumidity.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/Temperature.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:msg/TimeReference.msg",
+    "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/ros2/common_interfaces/sensor_msgs:srv/SetCameraInfo.srv"
+  ]
+}

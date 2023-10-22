@@ -1,0 +1,326 @@
+The target system is: Generic -  - xtensa
+The host system is: Linux - 5.15.0-84-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc 
+Build flags: -mlongcalls;-Wno-frame-address
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/3.16.3/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-g++ 
+Build flags: -mlongcalls;-Wno-frame-address
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/3.16.3/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_abbec/fast && make[4]: Entering directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_abbec.dir/build.make CMakeFiles/cmTC_abbec.dir/build
+make[5]: Entering directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_abbec.dir/testCCompiler.c.obj
+/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc -DLWIP_IPV4 -DLWIP_IPV6 -I/home/javierfr/microros_ws/uros_ws/firmware/freertos_apps/microros_esp32_extensions/build/config -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/newlib/platform_include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/protocomm/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/esp_rom/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/driver/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/wear_levelling/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/vfs/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/log/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/freertos/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/wifi_provisioning/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/pthread/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/libsodium/libsodium/src/libsodium/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/coap/port/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/coap/libcoap/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/tcp_transport/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/unity/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/esp32/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/asio/port/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/asio/asio/asio/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/app_update/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/esp_ringbuf/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/soc/esp32/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/soc/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/efuse/test/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/efuse/esp32/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/efuse/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/mbedtls/port/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/mbedtls/mbedtls/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/xtensa/esp32/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/xtensa/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/app_trace/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/nvs_flash/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/jsmn/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/esp_eth/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/spiffs/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/ulp/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/mdns/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/freemodbus/modbus/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/freemodbus/common/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/esp_event/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/expat/port/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/bootloader_support/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/heap/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/wpa_supplicant/port/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/wpa_supplicant/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/tcpip_adapter/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/openssl/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/sdmmc/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/esp_local_ctrl/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/esp_common/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/lwip/lwip/src/include/lwip/apps -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/lwip/lwip/src/include/compat/posix -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/lwip/lwip/src/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/lwip/port/esp32/include  -mlongcalls -Wno-frame-address -mlongcalls -Wno-frame-address    -o CMakeFiles/cmTC_abbec.dir/testCCompiler.c.obj   -c /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C static library libcmTC_abbec.a
+/usr/bin/cmake -P CMakeFiles/cmTC_abbec.dir/cmake_clean_target.cmake
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_abbec.dir/link.txt --verbose=1
+/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ar qc libcmTC_abbec.a  CMakeFiles/cmTC_abbec.dir/testCCompiler.c.obj
+/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ranlib libcmTC_abbec.a
+make[5]: Leaving directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp'
+make[4]: Leaving directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp'
+
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_60dde/fast && make[4]: Entering directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_60dde.dir/build.make CMakeFiles/cmTC_60dde.dir/build
+make[5]: Entering directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_60dde.dir/CMakeCCompilerABI.c.obj
+/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc -DLWIP_IPV4 -DLWIP_IPV6  -mlongcalls -Wno-frame-address -mlongcalls -Wno-frame-address    -v -o CMakeFiles/cmTC_60dde.dir/CMakeCCompilerABI.c.obj   -c /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c
+Using built-in specs.
+COLLECT_GCC=/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc
+Target: xtensa-esp32-elf
+Configured with: /builds/idf/crosstool-NG/.build/xtensa-esp32-elf/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=xtensa-esp32-elf --prefix=/builds/idf/crosstool-NG/builds/xtensa-esp32-elf --with-local-prefix=/builds/idf/crosstool-NG/builds/xtensa-esp32-elf/xtensa-esp32-elf --with-headers=/builds/idf/crosstool-NG/builds/xtensa-esp32-elf/xtensa-esp32-elf/include --with-newlib --enable-threads=no --disable-shared --with-pkgversion='crosstool-NG esp-2020r2' --disable-__cxa_atexit --enable-cxx-flags=-ffunction-sections --disable-libgomp --disable-libmudflap --disable-libmpx --disable-libssp --disable-libquadmath --disable-libquadmath-support --with-gmp=/builds/idf/crosstool-NG/.build/xtensa-esp32-elf/buildtools --with-mpfr=/builds/idf/crosstool-NG/.build/xtensa-esp32-elf/buildtools --with-mpc=/builds/idf/crosstool-NG/.build/xtensa-esp32-elf/buildtools --with-isl=/builds/idf/crosstool-NG/.build/xtensa-esp32-elf/buildtools --enable-lto --enable-target-optspace --without-long-double-128 --disable-nls --enable-multiarch --enable-languages=c,c++ --disable-libstdcxx-verbose --enable-threads=posix --enable-gcov-custom-rtio --enable-libstdcxx-time=yes
+Thread model: posix
+gcc version 8.2.0 (crosstool-NG esp-2020r2) 
+COLLECT_GCC_OPTIONS='-D' 'LWIP_IPV4' '-D' 'LWIP_IPV6' '-mlongcalls' '-Wno-frame-address' '-v' '-o' 'CMakeFiles/cmTC_60dde.dir/CMakeCCompilerABI.c.obj' '-c'
+ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../libexec/gcc/xtensa-esp32-elf/8.2.0/cc1 -quiet -v -iprefix /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/ -D LWIP_IPV4 -D LWIP_IPV6 /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mlongcalls -auxbase-strip CMakeFiles/cmTC_60dde.dir/CMakeCCompilerABI.c.obj -Wno-frame-address -version -o /tmp/cc7IwFNg.s
+GNU C17 (crosstool-NG esp-2020r2) version 8.2.0 (xtensa-esp32-elf)
+	compiled by GNU C version 4.9.2, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.19-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/include"
+ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/include-fixed"
+ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/sys-include"
+ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/include
+ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/include-fixed
+ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/sys-include
+ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include
+End of search list.
+GNU C17 (crosstool-NG esp-2020r2) version 8.2.0 (xtensa-esp32-elf)
+	compiled by GNU C version 4.9.2, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.19-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 8ab27345cc86458a99b6beae553b9a98
+COLLECT_GCC_OPTIONS='-D' 'LWIP_IPV4' '-D' 'LWIP_IPV6' '-mlongcalls' '-Wno-frame-address' '-v' '-o' 'CMakeFiles/cmTC_60dde.dir/CMakeCCompilerABI.c.obj' '-c'
+ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/bin/as --traditional-format --longcalls -o CMakeFiles/cmTC_60dde.dir/CMakeCCompilerABI.c.obj /tmp/cc7IwFNg.s
+COMPILER_PATH=/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../libexec/gcc/xtensa-esp32-elf/8.2.0/:/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../libexec/gcc/:/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/bin/
+LIBRARY_PATH=/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/:/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/:/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/lib/
+COLLECT_GCC_OPTIONS='-D' 'LWIP_IPV4' '-D' 'LWIP_IPV6' '-mlongcalls' '-Wno-frame-address' '-v' '-o' 'CMakeFiles/cmTC_60dde.dir/CMakeCCompilerABI.c.obj' '-c'
+Linking C static library libcmTC_60dde.a
+/usr/bin/cmake -P CMakeFiles/cmTC_60dde.dir/cmake_clean_target.cmake
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_60dde.dir/link.txt --verbose=1
+/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ar qc libcmTC_60dde.a  CMakeFiles/cmTC_60dde.dir/CMakeCCompilerABI.c.obj
+/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ranlib libcmTC_60dde.a
+make[5]: Leaving directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp'
+make[4]: Leaving directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/include]
+    add: [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/include-fixed]
+    add: [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/sys-include]
+    add: [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include]
+  end of search list found
+  collapse include dir [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/include] ==> [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/lib/gcc/xtensa-esp32-elf/8.2.0/include]
+  collapse include dir [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/include-fixed] ==> [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/lib/gcc/xtensa-esp32-elf/8.2.0/include-fixed]
+  collapse include dir [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/sys-include] ==> [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/xtensa-esp32-elf/sys-include]
+  collapse include dir [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include] ==> [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/xtensa-esp32-elf/include]
+  implicit include dirs: [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/lib/gcc/xtensa-esp32-elf/8.2.0/include;/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/lib/gcc/xtensa-esp32-elf/8.2.0/include-fixed;/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/xtensa-esp32-elf/sys-include;/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/xtensa-esp32-elf/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(xtensa-esp32-elf-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/make cmTC_60dde/fast && make[4]: Entering directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_60dde.dir/build.make CMakeFiles/cmTC_60dde.dir/build]
+  ignore line: [make[5]: Entering directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_60dde.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc -DLWIP_IPV4 -DLWIP_IPV6  -mlongcalls -Wno-frame-address -mlongcalls -Wno-frame-address    -v -o CMakeFiles/cmTC_60dde.dir/CMakeCCompilerABI.c.obj   -c /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc]
+  ignore line: [Target: xtensa-esp32-elf]
+  ignore line: [Configured with: /builds/idf/crosstool-NG/.build/xtensa-esp32-elf/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=xtensa-esp32-elf --prefix=/builds/idf/crosstool-NG/builds/xtensa-esp32-elf --with-local-prefix=/builds/idf/crosstool-NG/builds/xtensa-esp32-elf/xtensa-esp32-elf --with-headers=/builds/idf/crosstool-NG/builds/xtensa-esp32-elf/xtensa-esp32-elf/include --with-newlib --enable-threads=no --disable-shared --with-pkgversion='crosstool-NG esp-2020r2' --disable-__cxa_atexit --enable-cxx-flags=-ffunction-sections --disable-libgomp --disable-libmudflap --disable-libmpx --disable-libssp --disable-libquadmath --disable-libquadmath-support --with-gmp=/builds/idf/crosstool-NG/.build/xtensa-esp32-elf/buildtools --with-mpfr=/builds/idf/crosstool-NG/.build/xtensa-esp32-elf/buildtools --with-mpc=/builds/idf/crosstool-NG/.build/xtensa-esp32-elf/buildtools --with-isl=/builds/idf/crosstool-NG/.build/xtensa-esp32-elf/buildtools --enable-lto --enable-target-optspace --without-long-double-128 --disable-nls --enable-multiarch --enable-languages=c c++ --disable-libstdcxx-verbose --enable-threads=posix --enable-gcov-custom-rtio --enable-libstdcxx-time=yes]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.2.0 (crosstool-NG esp-2020r2) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' 'LWIP_IPV4' '-D' 'LWIP_IPV6' '-mlongcalls' '-Wno-frame-address' '-v' '-o' 'CMakeFiles/cmTC_60dde.dir/CMakeCCompilerABI.c.obj' '-c']
+  ignore line: [ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../libexec/gcc/xtensa-esp32-elf/8.2.0/cc1 -quiet -v -iprefix /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/ -D LWIP_IPV4 -D LWIP_IPV6 /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mlongcalls -auxbase-strip CMakeFiles/cmTC_60dde.dir/CMakeCCompilerABI.c.obj -Wno-frame-address -version -o /tmp/cc7IwFNg.s]
+  ignore line: [GNU C17 (crosstool-NG esp-2020r2) version 8.2.0 (xtensa-esp32-elf)]
+  ignore line: [	compiled by GNU C version 4.9.2  GMP version 6.1.2  MPFR version 4.0.1  MPC version 1.1.0  isl version isl-0.19-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/include"]
+  ignore line: [ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/include-fixed"]
+  ignore line: [ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/sys-include"]
+  ignore line: [ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/include]
+  ignore line: [ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/include-fixed]
+  ignore line: [ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/sys-include]
+  ignore line: [ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C17 (crosstool-NG esp-2020r2) version 8.2.0 (xtensa-esp32-elf)]
+  ignore line: [	compiled by GNU C version 4.9.2  GMP version 6.1.2  MPFR version 4.0.1  MPC version 1.1.0  isl version isl-0.19-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 8ab27345cc86458a99b6beae553b9a98]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' 'LWIP_IPV4' '-D' 'LWIP_IPV6' '-mlongcalls' '-Wno-frame-address' '-v' '-o' 'CMakeFiles/cmTC_60dde.dir/CMakeCCompilerABI.c.obj' '-c']
+  ignore line: [ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/bin/as --traditional-format --longcalls -o CMakeFiles/cmTC_60dde.dir/CMakeCCompilerABI.c.obj /tmp/cc7IwFNg.s]
+  ignore line: [COMPILER_PATH=/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../libexec/gcc/xtensa-esp32-elf/8.2.0/:/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../libexec/gcc/:/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/bin/]
+  ignore line: [LIBRARY_PATH=/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/:/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/:/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' 'LWIP_IPV4' '-D' 'LWIP_IPV6' '-mlongcalls' '-Wno-frame-address' '-v' '-o' 'CMakeFiles/cmTC_60dde.dir/CMakeCCompilerABI.c.obj' '-c']
+  ignore line: [Linking C static library libcmTC_60dde.a]
+  ignore line: [/usr/bin/cmake -P CMakeFiles/cmTC_60dde.dir/cmake_clean_target.cmake]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_60dde.dir/link.txt --verbose=1]
+  ignore line: [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ar qc libcmTC_60dde.a  CMakeFiles/cmTC_60dde.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ranlib libcmTC_60dde.a]
+  ignore line: [make[5]: Leaving directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp']
+  ignore line: [make[4]: Leaving directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp']
+  ignore line: []
+  ignore line: []
+  implicit libs: []
+  implicit dirs: []
+  implicit fwks: []
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_91616/fast && make[4]: Entering directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_91616.dir/build.make CMakeFiles/cmTC_91616.dir/build
+make[5]: Entering directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_91616.dir/testCXXCompiler.cxx.obj
+/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-g++  -DLWIP_IPV4 -DLWIP_IPV6 -I/home/javierfr/microros_ws/uros_ws/firmware/freertos_apps/microros_esp32_extensions/build/config -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/newlib/platform_include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/protocomm/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/esp_rom/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/driver/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/wear_levelling/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/vfs/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/log/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/freertos/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/wifi_provisioning/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/pthread/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/libsodium/libsodium/src/libsodium/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/coap/port/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/coap/libcoap/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/tcp_transport/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/unity/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/esp32/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/asio/port/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/asio/asio/asio/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/app_update/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/esp_ringbuf/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/soc/esp32/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/soc/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/efuse/test/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/efuse/esp32/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/efuse/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/mbedtls/port/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/mbedtls/mbedtls/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/xtensa/esp32/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/xtensa/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/app_trace/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/nvs_flash/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/jsmn/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/esp_eth/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/spiffs/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/ulp/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/mdns/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/freemodbus/modbus/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/freemodbus/common/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/esp_event/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/expat/port/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/bootloader_support/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/heap/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/wpa_supplicant/port/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/wpa_supplicant/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/tcpip_adapter/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/openssl/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/sdmmc/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/esp_local_ctrl/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/esp_common/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/lwip/lwip/src/include/lwip/apps -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/lwip/lwip/src/include/compat/posix -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/lwip/lwip/src/include -I/home/javierfr/microros_ws/uros_ws/firmware/toolchain/esp-idf/components/lwip/port/esp32/include  -mlongcalls -Wno-frame-address -mlongcalls -Wno-frame-address    -o CMakeFiles/cmTC_91616.dir/testCXXCompiler.cxx.obj -c /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX static library libcmTC_91616.a
+/usr/bin/cmake -P CMakeFiles/cmTC_91616.dir/cmake_clean_target.cmake
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_91616.dir/link.txt --verbose=1
+/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ar qc libcmTC_91616.a  CMakeFiles/cmTC_91616.dir/testCXXCompiler.cxx.obj
+/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ranlib libcmTC_91616.a
+make[5]: Leaving directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp'
+make[4]: Leaving directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp'
+
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d18ad/fast && make[4]: Entering directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_d18ad.dir/build.make CMakeFiles/cmTC_d18ad.dir/build
+make[5]: Entering directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d18ad.dir/CMakeCXXCompilerABI.cpp.obj
+/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-g++  -DLWIP_IPV4 -DLWIP_IPV6  -mlongcalls -Wno-frame-address -mlongcalls -Wno-frame-address    -v -o CMakeFiles/cmTC_d18ad.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp
+Using built-in specs.
+COLLECT_GCC=/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-g++
+Target: xtensa-esp32-elf
+Configured with: /builds/idf/crosstool-NG/.build/xtensa-esp32-elf/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=xtensa-esp32-elf --prefix=/builds/idf/crosstool-NG/builds/xtensa-esp32-elf --with-local-prefix=/builds/idf/crosstool-NG/builds/xtensa-esp32-elf/xtensa-esp32-elf --with-headers=/builds/idf/crosstool-NG/builds/xtensa-esp32-elf/xtensa-esp32-elf/include --with-newlib --enable-threads=no --disable-shared --with-pkgversion='crosstool-NG esp-2020r2' --disable-__cxa_atexit --enable-cxx-flags=-ffunction-sections --disable-libgomp --disable-libmudflap --disable-libmpx --disable-libssp --disable-libquadmath --disable-libquadmath-support --with-gmp=/builds/idf/crosstool-NG/.build/xtensa-esp32-elf/buildtools --with-mpfr=/builds/idf/crosstool-NG/.build/xtensa-esp32-elf/buildtools --with-mpc=/builds/idf/crosstool-NG/.build/xtensa-esp32-elf/buildtools --with-isl=/builds/idf/crosstool-NG/.build/xtensa-esp32-elf/buildtools --enable-lto --enable-target-optspace --without-long-double-128 --disable-nls --enable-multiarch --enable-languages=c,c++ --disable-libstdcxx-verbose --enable-threads=posix --enable-gcov-custom-rtio --enable-libstdcxx-time=yes
+Thread model: posix
+gcc version 8.2.0 (crosstool-NG esp-2020r2) 
+COLLECT_GCC_OPTIONS='-D' 'LWIP_IPV4' '-D' 'LWIP_IPV6' '-mlongcalls' '-Wno-frame-address' '-v' '-o' 'CMakeFiles/cmTC_d18ad.dir/CMakeCXXCompilerABI.cpp.obj' '-c'
+ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../libexec/gcc/xtensa-esp32-elf/8.2.0/cc1plus -quiet -v -iprefix /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/ -D LWIP_IPV4 -D LWIP_IPV6 /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mlongcalls -auxbase-strip CMakeFiles/cmTC_d18ad.dir/CMakeCXXCompilerABI.cpp.obj -Wno-frame-address -version -o /tmp/cc8sPZlG.s
+GNU C++14 (crosstool-NG esp-2020r2) version 8.2.0 (xtensa-esp32-elf)
+	compiled by GNU C version 4.9.2, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.19-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include/c++/8.2.0"
+ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include/c++/8.2.0/xtensa-esp32-elf"
+ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include/c++/8.2.0/backward"
+ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/include"
+ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/include-fixed"
+ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/sys-include"
+ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include/c++/8.2.0
+ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include/c++/8.2.0/xtensa-esp32-elf
+ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include/c++/8.2.0/backward
+ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/include
+ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/include-fixed
+ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/sys-include
+ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include
+End of search list.
+GNU C++14 (crosstool-NG esp-2020r2) version 8.2.0 (xtensa-esp32-elf)
+	compiled by GNU C version 4.9.2, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.19-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 8eb8dcab0681d8f7e80218fe90960f16
+COLLECT_GCC_OPTIONS='-D' 'LWIP_IPV4' '-D' 'LWIP_IPV6' '-mlongcalls' '-Wno-frame-address' '-v' '-o' 'CMakeFiles/cmTC_d18ad.dir/CMakeCXXCompilerABI.cpp.obj' '-c'
+ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/bin/as --traditional-format --longcalls -o CMakeFiles/cmTC_d18ad.dir/CMakeCXXCompilerABI.cpp.obj /tmp/cc8sPZlG.s
+COMPILER_PATH=/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../libexec/gcc/xtensa-esp32-elf/8.2.0/:/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../libexec/gcc/:/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/bin/
+LIBRARY_PATH=/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/:/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/:/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/lib/
+COLLECT_GCC_OPTIONS='-D' 'LWIP_IPV4' '-D' 'LWIP_IPV6' '-mlongcalls' '-Wno-frame-address' '-v' '-o' 'CMakeFiles/cmTC_d18ad.dir/CMakeCXXCompilerABI.cpp.obj' '-c'
+Linking CXX static library libcmTC_d18ad.a
+/usr/bin/cmake -P CMakeFiles/cmTC_d18ad.dir/cmake_clean_target.cmake
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d18ad.dir/link.txt --verbose=1
+/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ar qc libcmTC_d18ad.a  CMakeFiles/cmTC_d18ad.dir/CMakeCXXCompilerABI.cpp.obj
+/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ranlib libcmTC_d18ad.a
+make[5]: Leaving directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp'
+make[4]: Leaving directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp'
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include/c++/8.2.0]
+    add: [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include/c++/8.2.0/xtensa-esp32-elf]
+    add: [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include/c++/8.2.0/backward]
+    add: [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/include]
+    add: [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/include-fixed]
+    add: [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/sys-include]
+    add: [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include]
+  end of search list found
+  collapse include dir [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include/c++/8.2.0] ==> [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/8.2.0]
+  collapse include dir [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include/c++/8.2.0/xtensa-esp32-elf] ==> [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/8.2.0/xtensa-esp32-elf]
+  collapse include dir [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include/c++/8.2.0/backward] ==> [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/8.2.0/backward]
+  collapse include dir [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/include] ==> [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/lib/gcc/xtensa-esp32-elf/8.2.0/include]
+  collapse include dir [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/include-fixed] ==> [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/lib/gcc/xtensa-esp32-elf/8.2.0/include-fixed]
+  collapse include dir [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/sys-include] ==> [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/xtensa-esp32-elf/sys-include]
+  collapse include dir [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include] ==> [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/xtensa-esp32-elf/include]
+  implicit include dirs: [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/8.2.0;/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/8.2.0/xtensa-esp32-elf;/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/8.2.0/backward;/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/lib/gcc/xtensa-esp32-elf/8.2.0/include;/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/lib/gcc/xtensa-esp32-elf/8.2.0/include-fixed;/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/xtensa-esp32-elf/sys-include;/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/xtensa-esp32-elf/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(xtensa-esp32-elf-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/make cmTC_d18ad/fast && make[4]: Entering directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_d18ad.dir/build.make CMakeFiles/cmTC_d18ad.dir/build]
+  ignore line: [make[5]: Entering directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_d18ad.dir/CMakeCXXCompilerABI.cpp.obj]
+  ignore line: [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-g++  -DLWIP_IPV4 -DLWIP_IPV6  -mlongcalls -Wno-frame-address -mlongcalls -Wno-frame-address    -v -o CMakeFiles/cmTC_d18ad.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-g++]
+  ignore line: [Target: xtensa-esp32-elf]
+  ignore line: [Configured with: /builds/idf/crosstool-NG/.build/xtensa-esp32-elf/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=xtensa-esp32-elf --prefix=/builds/idf/crosstool-NG/builds/xtensa-esp32-elf --with-local-prefix=/builds/idf/crosstool-NG/builds/xtensa-esp32-elf/xtensa-esp32-elf --with-headers=/builds/idf/crosstool-NG/builds/xtensa-esp32-elf/xtensa-esp32-elf/include --with-newlib --enable-threads=no --disable-shared --with-pkgversion='crosstool-NG esp-2020r2' --disable-__cxa_atexit --enable-cxx-flags=-ffunction-sections --disable-libgomp --disable-libmudflap --disable-libmpx --disable-libssp --disable-libquadmath --disable-libquadmath-support --with-gmp=/builds/idf/crosstool-NG/.build/xtensa-esp32-elf/buildtools --with-mpfr=/builds/idf/crosstool-NG/.build/xtensa-esp32-elf/buildtools --with-mpc=/builds/idf/crosstool-NG/.build/xtensa-esp32-elf/buildtools --with-isl=/builds/idf/crosstool-NG/.build/xtensa-esp32-elf/buildtools --enable-lto --enable-target-optspace --without-long-double-128 --disable-nls --enable-multiarch --enable-languages=c c++ --disable-libstdcxx-verbose --enable-threads=posix --enable-gcov-custom-rtio --enable-libstdcxx-time=yes]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.2.0 (crosstool-NG esp-2020r2) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' 'LWIP_IPV4' '-D' 'LWIP_IPV6' '-mlongcalls' '-Wno-frame-address' '-v' '-o' 'CMakeFiles/cmTC_d18ad.dir/CMakeCXXCompilerABI.cpp.obj' '-c']
+  ignore line: [ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../libexec/gcc/xtensa-esp32-elf/8.2.0/cc1plus -quiet -v -iprefix /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/ -D LWIP_IPV4 -D LWIP_IPV6 /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mlongcalls -auxbase-strip CMakeFiles/cmTC_d18ad.dir/CMakeCXXCompilerABI.cpp.obj -Wno-frame-address -version -o /tmp/cc8sPZlG.s]
+  ignore line: [GNU C++14 (crosstool-NG esp-2020r2) version 8.2.0 (xtensa-esp32-elf)]
+  ignore line: [	compiled by GNU C version 4.9.2  GMP version 6.1.2  MPFR version 4.0.1  MPC version 1.1.0  isl version isl-0.19-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include/c++/8.2.0"]
+  ignore line: [ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include/c++/8.2.0/xtensa-esp32-elf"]
+  ignore line: [ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include/c++/8.2.0/backward"]
+  ignore line: [ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/include"]
+  ignore line: [ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/include-fixed"]
+  ignore line: [ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/sys-include"]
+  ignore line: [ignoring duplicate directory "/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/../../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include/c++/8.2.0]
+  ignore line: [ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include/c++/8.2.0/xtensa-esp32-elf]
+  ignore line: [ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include/c++/8.2.0/backward]
+  ignore line: [ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/include]
+  ignore line: [ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/include-fixed]
+  ignore line: [ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/sys-include]
+  ignore line: [ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C++14 (crosstool-NG esp-2020r2) version 8.2.0 (xtensa-esp32-elf)]
+  ignore line: [	compiled by GNU C version 4.9.2  GMP version 6.1.2  MPFR version 4.0.1  MPC version 1.1.0  isl version isl-0.19-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 8eb8dcab0681d8f7e80218fe90960f16]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' 'LWIP_IPV4' '-D' 'LWIP_IPV6' '-mlongcalls' '-Wno-frame-address' '-v' '-o' 'CMakeFiles/cmTC_d18ad.dir/CMakeCXXCompilerABI.cpp.obj' '-c']
+  ignore line: [ /home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/bin/as --traditional-format --longcalls -o CMakeFiles/cmTC_d18ad.dir/CMakeCXXCompilerABI.cpp.obj /tmp/cc8sPZlG.s]
+  ignore line: [COMPILER_PATH=/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../libexec/gcc/xtensa-esp32-elf/8.2.0/:/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../libexec/gcc/:/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/bin/]
+  ignore line: [LIBRARY_PATH=/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/:/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/:/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.2.0/../../../../xtensa-esp32-elf/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' 'LWIP_IPV4' '-D' 'LWIP_IPV6' '-mlongcalls' '-Wno-frame-address' '-v' '-o' 'CMakeFiles/cmTC_d18ad.dir/CMakeCXXCompilerABI.cpp.obj' '-c']
+  ignore line: [Linking CXX static library libcmTC_d18ad.a]
+  ignore line: [/usr/bin/cmake -P CMakeFiles/cmTC_d18ad.dir/cmake_clean_target.cmake]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d18ad.dir/link.txt --verbose=1]
+  ignore line: [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ar qc libcmTC_d18ad.a  CMakeFiles/cmTC_d18ad.dir/CMakeCXXCompilerABI.cpp.obj]
+  ignore line: [/home/javierfr/microros_ws/uros_ws/firmware/toolchain/espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ranlib libcmTC_d18ad.a]
+  ignore line: [make[5]: Leaving directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp']
+  ignore line: [make[4]: Leaving directory '/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/builtin_interfaces/CMakeFiles/CMakeTmp']
+  ignore line: []
+  ignore line: []
+  implicit libs: []
+  implicit dirs: []
+  implicit fwks: []
+
+
