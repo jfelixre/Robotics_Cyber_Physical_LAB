@@ -1,8 +1,0 @@
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/lib/libmicrocdr.a
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/include/ucdr/microcdr.h
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/include/ucdr/visibility.h
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/include/ucdr/config.h
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/microcdr/cmake/microcdrTargets.cmake
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/microcdr/cmake/microcdrTargets-debug.cmake
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/microcdr/cmake/microcdrConfig.cmake
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/install/share/microcdr/cmake/microcdrConfigVersion.cmake

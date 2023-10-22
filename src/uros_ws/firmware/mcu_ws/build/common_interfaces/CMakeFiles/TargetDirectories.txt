@@ -1,8 +1,0 @@
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/common_interfaces/CMakeFiles/install/local.dir
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/common_interfaces/CMakeFiles/install.dir
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/common_interfaces/CMakeFiles/list_install_components.dir
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/common_interfaces/CMakeFiles/rebuild_cache.dir
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/common_interfaces/CMakeFiles/edit_cache.dir
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/common_interfaces/CMakeFiles/test.dir
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/common_interfaces/CMakeFiles/common_interfaces_uninstall.dir
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/common_interfaces/CMakeFiles/uninstall.dir

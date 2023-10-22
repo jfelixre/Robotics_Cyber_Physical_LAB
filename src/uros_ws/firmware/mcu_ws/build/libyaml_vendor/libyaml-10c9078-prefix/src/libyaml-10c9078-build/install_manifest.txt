@@ -1,7 +1,0 @@
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/libyaml_vendor/libyaml_install/include/yaml.h
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/libyaml_vendor/libyaml_install/include/config.h
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/libyaml_vendor/libyaml_install/lib/libyaml.a
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/libyaml_vendor/libyaml_install/cmake/yamlConfig.cmake
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/libyaml_vendor/libyaml_install/cmake/yamlTargets.cmake
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/libyaml_vendor/libyaml_install/cmake/yamlTargets-debug.cmake
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/libyaml_vendor/libyaml_install/cmake/yamlConfigVersion.cmake

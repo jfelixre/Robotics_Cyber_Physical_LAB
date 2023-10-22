@@ -1,6 +1,0 @@
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tinydir_vendor/tinydir-1.2.4/src/tinydir-1.2.4/CMakeFiles/install/strip.dir
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tinydir_vendor/tinydir-1.2.4/src/tinydir-1.2.4/CMakeFiles/install/local.dir
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tinydir_vendor/tinydir-1.2.4/src/tinydir-1.2.4/CMakeFiles/install.dir
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tinydir_vendor/tinydir-1.2.4/src/tinydir-1.2.4/CMakeFiles/list_install_components.dir
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tinydir_vendor/tinydir-1.2.4/src/tinydir-1.2.4/CMakeFiles/rebuild_cache.dir
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/tinydir_vendor/tinydir-1.2.4/src/tinydir-1.2.4/CMakeFiles/edit_cache.dir

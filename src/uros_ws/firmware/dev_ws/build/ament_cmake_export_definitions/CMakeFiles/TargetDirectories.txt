@@ -1,7 +1,0 @@
-/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_cmake_export_definitions/CMakeFiles/install/local.dir
-/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_cmake_export_definitions/CMakeFiles/edit_cache.dir
-/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_cmake_export_definitions/CMakeFiles/install.dir
-/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_cmake_export_definitions/CMakeFiles/list_install_components.dir
-/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_cmake_export_definitions/CMakeFiles/rebuild_cache.dir
-/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_cmake_export_definitions/CMakeFiles/ament_cmake_export_definitions_uninstall.dir
-/home/javierfr/microros_ws/uros_ws/firmware/dev_ws/build/ament_cmake_export_definitions/CMakeFiles/uninstall.dir

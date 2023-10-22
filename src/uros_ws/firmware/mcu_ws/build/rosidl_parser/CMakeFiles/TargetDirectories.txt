@@ -1,8 +1,0 @@
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/rosidl_parser/CMakeFiles/install/local.dir
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/rosidl_parser/CMakeFiles/install.dir
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/rosidl_parser/CMakeFiles/list_install_components.dir
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/rosidl_parser/CMakeFiles/rebuild_cache.dir
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/rosidl_parser/CMakeFiles/edit_cache.dir
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/rosidl_parser/CMakeFiles/test.dir
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/rosidl_parser/CMakeFiles/rosidl_parser_uninstall.dir
-/home/javierfr/microros_ws/uros_ws/firmware/mcu_ws/build/rosidl_parser/CMakeFiles/uninstall.dir
