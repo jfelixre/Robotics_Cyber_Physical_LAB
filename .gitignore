@@ -4,3 +4,6 @@ install/*
 src/.vscode/*
 src/.vscode
 csv/*
+firmware/*
+src/uros/*
+src/ros2.repos
