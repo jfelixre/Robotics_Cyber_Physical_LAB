@@ -2,3 +2,6 @@
 	path = src/micro_ros_setup
 	url = https://github.com/micro-ROS/micro_ros_setup.git
 	branch = foxy
+[submodule "src/IFRA_LinkAttacher"]
+	path = src/IFRA_LinkAttacher
+	url = https://github.com/IFRA-Cranfield/IFRA_LinkAttacher.git
