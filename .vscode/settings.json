@@ -9,6 +9,8 @@
     ],
     "ros.distro": "foxy",
     "files.associations": {
-        "functional": "cpp"
+        "functional": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp"
     }
 }
