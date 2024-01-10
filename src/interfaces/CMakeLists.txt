@@ -44,6 +44,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/DataControl.msg"
   "msg/PlatformVel.msg"
   "msg/TrajectoryControl.msg"
+  "msg/NewTaskMsg.msg"
+  "msg/TaskReport.msg"
   DEPENDENCIES geometry_msgs
  )
 
