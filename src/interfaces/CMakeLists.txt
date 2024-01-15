@@ -20,6 +20,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
+find_package(rclcpp REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/PlatformVel.srv"
@@ -48,6 +49,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/TaskReport.msg"
   "msg/TaskDescription.msg"
   "msg/TaskMsg.msg"
+  "srv/TaskListService.srv"
   DEPENDENCIES geometry_msgs
  )
 
