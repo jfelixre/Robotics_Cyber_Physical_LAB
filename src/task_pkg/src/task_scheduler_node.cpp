@@ -3,6 +3,7 @@
 #include <interfaces/msg/task_report.hpp>
 #include <interfaces/msg/task_description.hpp>
 #include <interfaces/msg/task_msg.hpp>
+#include <interfaces/srv/task_list_service.hpp>
 
 #include <memory>
 #include <cinttypes>
@@ -20,13 +21,15 @@ interfaces::msg::TaskDescription tasks;
 interfaces::msg::TaskMsg task_list;
 int task_id_count = 0;
 
-class Task_Scheduler_Node : public rclcpp::Node
+/*class Task_Scheduler_Node : public rclcpp::Node
 {
 	public:
 		Task_Scheduler_Node() : Node("task_scheduler_node")
 		{
-     		publisher_test = this->create_publisher<interfaces::msg::TaskMsg>("/taks_scheduler/task_queue",1);
-			timer_ = this->create_wall_timer(2000ms, std::bind(&Task_Scheduler_Node::timer_callback, this));
+     		//publisher_test = this->create_publisher<interfaces::msg::TaskMsg>("/taks_scheduler/task_queue",1);
+			//timer_ = this->create_wall_timer(2000ms, std::bind(&Task_Scheduler_Node::timer_callback, this));
+			task_list_service = create_service<interfaces::srv::TaskListService>("/task_scheduler/task_list_server",
+				std::bind(&Task_Scheduler_Node::handle_request, this, _1));
 		}
 
 	private:
@@ -37,11 +40,19 @@ class Task_Scheduler_Node : public rclcpp::Node
 			}
 
 
-		rclcpp::Publisher<interfaces::msg::TaskMsg>::SharedPtr publisher_test;
-		rclcpp::TimerBase::SharedPtr timer_;
+		void handle_request(
+			const std::shared_ptr<interfaces::srv::TaskListService::Request> req,
+			std::shared_ptr<interfaces::srv::TaskListService::Response> res
+		){
+			//res->task_list = task_list;
+		}
+
+		//rclcpp::Publisher<interfaces::msg::TaskMsg>::SharedPtr publisher_test;
+		//rclcpp::TimerBase::SharedPtr timer_;
+		rclcpp::Service<interfaces::srv::TaskListService>::SharedPtr task_list_service;
 
 };
-
+*/
 class Reg_Tasks_Node : public rclcpp::Node
 {
 	public:
@@ -72,6 +83,8 @@ class Reg_Tasks_Node : public rclcpp::Node
 			temp_task.idle_time_start = time.seconds(); //Initial time
 
 			task_list.task_queue.push_back(temp_task);
+
+			RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "New task registered");
 			
 		}
 
@@ -100,6 +113,8 @@ class Reg_Tasks_Node : public rclcpp::Node
 						break;  
 					}
 				}
+
+				RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Task updated");
 			}
 
 		rclcpp::Subscription<interfaces::msg::NewTaskMsg>::SharedPtr new_task_subscriber;
@@ -108,24 +123,39 @@ class Reg_Tasks_Node : public rclcpp::Node
 
 };
 
+void list_handler(const std::shared_ptr<interfaces::srv::TaskListService::Request> request,
+			std::shared_ptr<interfaces::srv::TaskListService::Response> response){
+				response->task_list = task_list.task_queue;
+			}
+
 
 
 int main(int argc, char * argv[])
 {
-  rclcpp::init(argc, argv);
+	rclcpp::init(argc, argv);
 
   
 
-	auto task_scheduler_node = std::make_shared<Task_Scheduler_Node>();
-  auto reg_tasks_node = std::make_shared<Reg_Tasks_Node>();
+	//auto task_scheduler_node = std::make_shared<Task_Scheduler_Node>();
+	auto reg_tasks_node = std::make_shared<Reg_Tasks_Node>();
 	//auto node_subs_state_r2 = std::make_shared<Node_Subs_State_R2>();
 
+	std::shared_ptr<rclcpp::Node> task_list_node = rclcpp::Node::make_shared("task_list_server");
+	rclcpp::Service<interfaces::srv::TaskListService>::SharedPtr service=
+		task_list_node->create_service<interfaces::srv::TaskListService>("task_list", &list_handler);
+
+
+
   rclcpp::executors::MultiThreadedExecutor executor;
-  executor.add_node(task_scheduler_node);
+  //executor.add_node(task_scheduler_node);
   executor.add_node(reg_tasks_node);
-	//executor.add_node(node_subs_state_r2);
+  executor.add_node(task_list_node);
+//executor.add_node(node_subs_state_r2);
   executor.spin();
 
  	rclcpp::shutdown();
   
 }
+
+
+

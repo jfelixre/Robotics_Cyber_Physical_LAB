@@ -1,3 +1,3 @@
-
+uint32 robot_id
 ---
-TaskMsg task_list
+TaskDescription[] task_list
