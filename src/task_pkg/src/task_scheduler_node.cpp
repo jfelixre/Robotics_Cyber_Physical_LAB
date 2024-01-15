@@ -17,7 +17,7 @@ using namespace std::chrono_literals;
 using namespace std;
 
 interfaces::msg::TaskDescription tasks;
-interfaces::msg::TaskMsg task_queue;
+interfaces::msg::TaskMsg task_list;
 int task_id_count = 0;
 
 class Task_Scheduler_Node : public rclcpp::Node
@@ -27,14 +27,13 @@ class Task_Scheduler_Node : public rclcpp::Node
 		{
      		publisher_test = this->create_publisher<interfaces::msg::TaskMsg>("/taks_scheduler/task_queue",1);
 			timer_ = this->create_wall_timer(2000ms, std::bind(&Task_Scheduler_Node::timer_callback, this));
-			
 		}
 
 	private:
 
 		void timer_callback()
 			{
-			publisher_test->publish(task_queue);
+			publisher_test->publish(task_list);
 			}
 
 
@@ -69,18 +68,42 @@ class Reg_Tasks_Node : public rclcpp::Node
 			temp_task.leader_follower = msg->leader_follower;
 			temp_task.priority = msg->priority;
 			temp_task.state = 0;  //Set state to pending
+			rclcpp::Time time = Node::get_clock()->now();
+			temp_task.idle_time_start = time.seconds(); //Initial time
 
-			task_queue.task_queue.push_back(temp_task);
+			task_list.task_queue.push_back(temp_task);
 			
 		}
 
-    void update_task_subs(const interfaces::msg::TaskReport::SharedPtr msg) const
-		{
-			
-		}
+		void update_task_subs(const interfaces::msg::TaskReport::SharedPtr msg)
+			{	
+				
+				int task_to_update = msg->task_id;
+				rclcpp::Time time = Node::get_clock()->now();
 
-	rclcpp::Subscription<interfaces::msg::NewTaskMsg>::SharedPtr new_task_subscriber;
-    rclcpp::Subscription<interfaces::msg::TaskReport>::SharedPtr update_task_subscriber;
+				for (auto& task : task_list.task_queue) {
+					if (task.task_id == task_to_update) {  
+						task.state = msg->state;
+						task.robot_id = msg->robot_id;
+
+						if (msg->state==1){
+							task.in_progress_time_start = time.seconds(); //Initial in progress time
+							task.idle_time = task.in_progress_time_start - task.idle_time_start;
+						}
+
+						else if (msg->state==2){
+							task.finish_time = time.seconds();
+							task.task_time = task.finish_time - task.in_progress_time_start;
+							task.total_time = task.idle_time+task.task_time;
+						}
+
+						break;  
+					}
+				}
+			}
+
+		rclcpp::Subscription<interfaces::msg::NewTaskMsg>::SharedPtr new_task_subscriber;
+		rclcpp::Subscription<interfaces::msg::TaskReport>::SharedPtr update_task_subscriber;
 
 
 };
