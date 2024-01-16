@@ -15,12 +15,12 @@ def generate_launch_description():
 
 
     gazebo = launch.actions.ExecuteProcess(
-        cmd=['gazebo', '--verbose', 'src/gazebo_plugin_sim/worlds/2Robots_aruco.world'],
+        cmd=['gazebo', '--verbose', 'src/gazebo_plugin_sim/worlds/Cooperative_task.world'],
         output='screen'
     )
 
     gzserver = launch.actions.ExecuteProcess(
-        cmd=['gzserver', '--verbose', 'src/gazebo_plugin_sim/worlds/2Robots_aruco.world'],
+        cmd=['gzserver', '--verbose', 'src/gazebo_plugin_sim/worlds/Cooperative_task.world'],
         output='screen'
     )
 
