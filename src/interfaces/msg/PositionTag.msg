@@ -1,0 +1,2 @@
+uint32 tag_id
+geometry_msgs/Pose position
