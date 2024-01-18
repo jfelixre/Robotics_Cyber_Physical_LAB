@@ -50,7 +50,7 @@ def generate_launch_description():
 
         Node(
             package='img_proc_pkg',
-            executable='aruco_detector'),
+            executable='aruco_detector_v2'),
        
 
         Node(

@@ -22,12 +22,12 @@ def generate_launch_description():
             description='Use simulation (Gazebo) clock if true'),
 
         Node(
-            package='control_pkg',
-            executable='control_trajectory_r1_node'),
+            package='img_proc_pkg',
+            executable='aruco_detector_v2'),
 
-        Node(
-            package='control_pkg',
-            executable='control_trajectory_r2_node'),
+        # Node(
+        #     package='control_pkg',
+        #     executable='control_trajectory_r2_node'),
 
 
     ])

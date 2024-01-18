@@ -101,6 +101,22 @@ ament_target_dependencies(aruco_detector
   tf2
   tf2_ros
   geometry_msgs)
+
+add_executable(aruco_detector_v2 src/aruco_detector_v2.cpp)
+target_include_directories(aruco_detector_v2 PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+ament_target_dependencies(aruco_detector_v2
+  "OpenCV"
+  sensor_msgs
+  std_msgs
+  rclcpp
+  cv_bridge
+  interfaces
+  tf2
+  tf2_ros
+  geometry_msgs)
   
 
 #add_executable(calibrate_camera_charuco src/calibrate_camera_charuco.cpp)
@@ -158,6 +174,7 @@ install(TARGETS
   #calibrate_camera_charuco
   #calibrate_camera_charuco_node
   compute_position
+  aruco_detector_v2
   DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY 
