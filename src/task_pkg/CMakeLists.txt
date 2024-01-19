@@ -30,9 +30,18 @@ ament_target_dependencies(
   geometry_msgs
   )
 
+add_executable(task_manager_node src/task_manager_node.cpp)
+ament_target_dependencies(
+  task_manager_node
+  rclcpp
+  interfaces
+  geometry_msgs
+  )
+
 
 install(TARGETS
   task_scheduler_node
+  task_manager_node
   DESTINATION lib/${PROJECT_NAME})
 
 

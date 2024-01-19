@@ -142,7 +142,7 @@ int main(int argc, char * argv[])
 
 	std::shared_ptr<rclcpp::Node> task_list_node = rclcpp::Node::make_shared("task_list_server");
 	rclcpp::Service<interfaces::srv::TaskListService>::SharedPtr service=
-		task_list_node->create_service<interfaces::srv::TaskListService>("task_list", &list_handler);
+		task_list_node->create_service<interfaces::srv::TaskListService>("/task_scheduler/task_list", &list_handler);
 
 
 
