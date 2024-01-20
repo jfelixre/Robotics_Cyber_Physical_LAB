@@ -45,6 +45,8 @@ class Task_Manager_Node : public rclcpp::Node
             publisher_task_update = this->create_publisher<interfaces::msg::TaskReport>("/task_scheduler/update_task",10);
             publisher_new_task = this->create_publisher<interfaces::msg::NewTaskMsg>("/task_scheduler/new_task",10);
 
+            
+
             this->declare_parameter<int>("robot_id", 0);
             robot_id = this->get_parameter("robot_id").as_int();
             RCLCPP_INFO(this->get_logger(), "Received Robot_ID: %d", robot_id);
@@ -61,6 +63,12 @@ class Task_Manager_Node : public rclcpp::Node
 
              timer_ = this->create_wall_timer(
              5000ms, std::bind(&Task_Manager_Node::timer_callback, this));
+
+            std::stringstream ss_topic_name_2;
+            ss_topic_name_2 << "/robot_" << robot_id << "/task_assigned";
+            std::string topic_name_2 = ss_topic_name_2.str();
+
+            publisher_task_robot = this->create_publisher<interfaces::msg::TaskDescription>(topic_name_2,10);
 
             
 
@@ -144,6 +152,8 @@ class Task_Manager_Node : public rclcpp::Node
                     }
 
                     //Send task to event_driven_control
+                    publisher_task_robot->publish(selected_task);
+                    
                     
                     
                 }
@@ -162,6 +172,7 @@ class Task_Manager_Node : public rclcpp::Node
 
     rclcpp::Publisher<interfaces::msg::TaskReport>::SharedPtr publisher_task_update;
     rclcpp::Publisher<interfaces::msg::NewTaskMsg>::SharedPtr publisher_new_task;
+    rclcpp::Publisher<interfaces::msg::TaskDescription>::SharedPtr publisher_task_robot;
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::Subscription<interfaces::msg::RobotState>::SharedPtr subscription_robot_state;
     rclcpp::Subscription<interfaces::msg::TaskMsg>::SharedPtr subscription_task_list;

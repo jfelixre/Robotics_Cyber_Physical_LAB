@@ -25,5 +25,12 @@ def generate_launch_description():
             executable='task_manager_node',
             parameters=[{'robot_id': 2}],
             ),
+
+        Node(
+            package='control_pkg',
+            namespace='robot_2',
+            executable='event_driven_control',
+            parameters=[{'robot_id': 2}],
+            ),
      
     ])
