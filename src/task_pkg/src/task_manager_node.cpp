@@ -26,7 +26,7 @@ using namespace std::chrono_literals;
 using namespace std;
 
 int robot_id = 0;
-int busy = 0;
+bool busy = false;
 int robot_state = 0;
 int leader_follower = 0;    //0 Leader   /   1 Follower
 
@@ -89,7 +89,7 @@ class Task_Manager_Node : public rclcpp::Node
                 RCLCPP_INFO(this->get_logger(), "Task ID %d finished by Robot %d", selected_task.task_id, robot_id);
 
                 leader_follower = 0;   //Reset leader/follower status
-                busy = 0;                       //To reset state of the robot
+                busy = false;                       //To reset state of the robot
                 selected_task.priority = 15;    //To reset task selected
                 selected_task.task_id = 0;
 
@@ -104,7 +104,7 @@ class Task_Manager_Node : public rclcpp::Node
 
      void timer_callback()
     {  
-        if (busy == 0){
+        if (busy == false){
             if (!task_list.task_queue.empty()){
 
                 for (auto& task : task_list.task_queue) {
@@ -129,7 +129,7 @@ class Task_Manager_Node : public rclcpp::Node
 
                     RCLCPP_INFO(this->get_logger(), "Task ID %d selected by Robot %d", selected_task.task_id, robot_id);
 
-                    busy = 1;
+                    busy = true;
 
                     if (selected_task.obj_size == 2){
                         if (selected_task.leader_follower == 0){

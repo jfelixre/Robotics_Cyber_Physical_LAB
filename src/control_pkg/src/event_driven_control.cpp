@@ -27,6 +27,7 @@ using namespace std;
 int robot_id = 0;
 interfaces::msg::TaskDescription task;
 interfaces::msg::Positions tag_positions;
+bool task_active = false;
 
 class Event_Driven_Control : public rclcpp::Node
 {
@@ -58,6 +59,7 @@ class Event_Driven_Control : public rclcpp::Node
                 RCLCPP_INFO(this->get_logger(), "Task ID %d received by event_control of Robot %d", task.task_id, robot_id);
 
                 //INICIAR TAREA
+                task_active= true;
             }
 
         void positions_callback(interfaces::msg::Positions::SharedPtr msg)
