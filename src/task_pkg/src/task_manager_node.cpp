@@ -26,8 +26,8 @@ using namespace std::chrono_literals;
 using namespace std;
 
 int robot_id = 0;
-bool busy = false;
-int robot_state = 0;
+bool busy = true;
+int robot_state = -1;
 int leader_follower = 0;    //0 Leader   /   1 Follower
 
 interfaces::msg::TaskMsg task_list;
@@ -79,7 +79,12 @@ class Task_Manager_Node : public rclcpp::Node
      void robot_state_callback(const interfaces::msg::RobotState::SharedPtr msg)
         {
             robot_state = msg->robot_state;
-            if (robot_state == 8){              //True: Robot finish task
+
+            if (robot_state == 0){
+                busy=false;
+            }
+
+            else if (robot_state == 8){              //True: Robot finish task
                 
                 interfaces::msg::TaskReport msg_update;
                 msg_update.robot_id = robot_id;
@@ -87,13 +92,12 @@ class Task_Manager_Node : public rclcpp::Node
                 msg_update.state = 2;
                 publisher_task_update->publish(msg_update);   //Send message to update status to finish
                 RCLCPP_INFO(this->get_logger(), "Task ID %d finished by Robot %d", selected_task.task_id, robot_id);
-
                 leader_follower = 0;   //Reset leader/follower status
-                busy = false;                       //To reset state of the robot
                 selected_task.priority = 15;    //To reset task selected
                 selected_task.task_id = 0;
 
             }
+           
         }
 
     void task_list_callback(const interfaces::msg::TaskMsg::SharedPtr msg)
@@ -108,12 +112,13 @@ class Task_Manager_Node : public rclcpp::Node
             if (!task_list.task_queue.empty()){
 
                 for (auto& task : task_list.task_queue) {
-                    if (task.state==0)
+                    if (task.state==0){
                         if (selected_task.priority > task.priority){
                             if (task.priority!=0){
                                 selected_task=task;
                             }
                         }
+                    }
                 }
 
                 if (selected_task.task_id == 0){

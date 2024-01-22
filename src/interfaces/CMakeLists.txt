@@ -51,6 +51,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/TaskMsg.msg"
   "srv/TaskListService.srv"
   "msg/PositionTag.msg"
+  "msg/ControlFinish.msg"
   DEPENDENCIES geometry_msgs
  )
 
