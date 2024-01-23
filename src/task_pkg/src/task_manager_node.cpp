@@ -28,7 +28,7 @@ using namespace std;
 int robot_id = 0;
 bool busy = true;
 int robot_state = -1;
-int leader_follower = 0;    //0 Leader   /   1 Follower
+int leader_robot_id = 0;    //0 Leader   /   1 Follower
 
 interfaces::msg::TaskMsg task_list;
 interfaces::msg::TaskDescription selected_task;
@@ -92,7 +92,7 @@ class Task_Manager_Node : public rclcpp::Node
                 msg_update.state = 2;
                 publisher_task_update->publish(msg_update);   //Send message to update status to finish
                 RCLCPP_INFO(this->get_logger(), "Task ID %d finished by Robot %d", selected_task.task_id, robot_id);
-                leader_follower = 0;   //Reset leader/follower status
+                leader_robot_id = 0;   //Reset leader/follower status
                 selected_task.priority = 15;    //To reset task selected
                 selected_task.task_id = 0;
 
@@ -137,22 +137,22 @@ class Task_Manager_Node : public rclcpp::Node
                     busy = true;
 
                     if (selected_task.obj_size == 2){
-                        if (selected_task.leader_follower == 0){
+                        if (selected_task.leader_robot_id == 0){
 
                             interfaces::msg::NewTaskMsg msg_new_task;
                             msg_new_task.priority = selected_task.priority;
                             msg_new_task.obj_id = selected_task.obj_id;
                             msg_new_task.obj_size = selected_task.obj_size;
                             msg_new_task.goal = selected_task.goal;
-                            msg_new_task.leader_follower = 1;             //ask for help with task
+                            msg_new_task.leader_robot_id = robot_id;             //ask for help with task
 
                             publisher_new_task->publish(msg_new_task);
 
                         }
 
-                        else if(selected_task.leader_follower == 1){
+                        else {
                             RCLCPP_INFO(this->get_logger(), "Go to help with principal task");   //Help to do principal task
-                            leader_follower = 1;
+                            leader_robot_id = 1;
                         }
                     }
 

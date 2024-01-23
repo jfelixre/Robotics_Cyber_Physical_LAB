@@ -129,76 +129,138 @@ class Event_Driven_Control : public rclcpp::Node
                     }
                 }
 
+            if (task.leader_robot_id == 0){
+                switch(robot_state.robot_state){   //CHECK CASE WHEN OBJECT SIZE IS 2, must take object from different angle
 
-            switch(robot_state.robot_state){
+                    case 0:
+                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for a new task", robot_id);
+                        break;
 
-                case 0:
-                    RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for a new task", robot_id);
-                    break;
+                    case 1:
+                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 1 Approach to object %d", robot_id, task.obj_id);
 
-                case 1:
-                    RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 1 Approach to object %d", robot_id, task.obj_id);
+                        objective.point.x = Xobj - 2;   //Check to match, maybe using trigonometry depending of angle
+                        objective.point.y = Yobj - 2;
+                        objective.angle = Angobj;       //
+                        publisher_robot_objective->publish(objective);
+                        break;
 
-                    objective.point.x = Xobj - 2;   //Check to match, maybe using trigonometry depending of angle
-                    objective.point.y = Yobj - 2;
-                    objective.angle = Angobj;       //
-                    publisher_robot_objective->publish(objective);
-                    break;
+                    case 2:
+                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 2 Last approach to object %d", robot_id, task.obj_id);
 
-                case 2:
-                    RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 2 Last approach to object %d", robot_id, task.obj_id);
+                        objective.point.x = Xobj - 2;   //Check to match, maybe using trigonometry depending of angle
+                        objective.point.y = Yobj - 2;
+                        objective.angle = Angobj;       //
+                        publisher_robot_objective->publish(objective);
+                        break;
 
-                    objective.point.x = Xobj - 2;   //Check to match, maybe using trigonometry depending of angle
-                    objective.point.y = Yobj - 2;
-                    objective.angle = Angobj;       //
-                    publisher_robot_objective->publish(objective);
-                    break;
+                    case 3:
+                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 3 Taking object %d", robot_id, task.obj_id);
+                        //COMPLETE OBJECT PICK
+                        break;
 
-                case 3:
-                    RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 3 Taking object %d", robot_id, task.obj_id);
-                    //COMPLETE OBJECT PICK
-                    break;
+                    case 4:
+                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 4 Approach to objective point, x= %d, y= %d", robot_id, task.goal.x, task.goal.y);
 
-                case 4:
-                    RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 4 Approach to objective point, x= %d, y= %d", robot_id, task.goal.x, task.goal.y);
+                        objective.point.x = task.goal.x - 2;   //Check to match, maybe using trigonometry depending of angle
+                        objective.point.y = task.goal.y - 2;
+                        objective.angle = 0;       // Define if i can select goal angle
+                        publisher_robot_objective->publish(objective);
+                        break;
 
-                    objective.point.x = task.goal.x - 2;   //Check to match, maybe using trigonometry depending of angle
-                    objective.point.y = task.goal.y - 2;
-                    objective.angle = 0;       // Define if i can select goal angle
-                    publisher_robot_objective->publish(objective);
-                    break;
+                    
+                    case 5:
+                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 5 Placing object on point, x= %d, y= %d", robot_id, task.goal.x, task.goal.y);
 
-                
-                case 5:
-                    RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 5 Placing object on point, x= %d, y= %d", robot_id, task.goal.x, task.goal.y);
+                        //COMPLETE OBJECT PLACE
+                        break;
 
-                    //COMPLETE OBJECT PLACE
-                    break;
+                    case 6:
+                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 6 Leaving object", robot_id);
 
-                case 6:
-                    RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 6 Leaving object", robot_id);
+                        objective.point.x = task.goal.x - 2;   //Check to match, maybe using trigonometry depending of angle
+                        objective.point.y = task.goal.y - 2;
+                        objective.angle = 0;       // Define if i can select goal angle
+                        publisher_robot_objective->publish(objective);
+                        break;
 
-                    objective.point.x = task.goal.x - 2;   //Check to match, maybe using trigonometry depending of angle
-                    objective.point.y = task.goal.y - 2;
-                    objective.angle = 0;       // Define if i can select goal angle
-                    publisher_robot_objective->publish(objective);
-                    break;
+                    case 7:
+                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 7 Back to home position", robot_id);
 
-                case 7:
-                    RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 7 Back to home position", robot_id);
+                        objective.point.x = 0;   //Define home position***
+                        objective.point.y = 0;
+                        objective.angle = 0;
+                        publisher_robot_objective->publish(objective);
+                        break;
 
-                    objective.point.x = 0;   //Define home position***
-                    objective.point.y = 0;
-                    objective.angle = 0;
-                    publisher_robot_objective->publish(objective);
-                    break;
+                    case 8:
+                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 8 Task_ID %d Finished", robot_id, task.task_id);
 
-                case 8:
-                    RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 8 Task_ID %d Finished", robot_id, task.task_id);
+                        robot_state.robot_state = 0;
+                        publisher_robot_state -> publish(robot_state);
+                        break;
+                }
+            }
 
-                    robot_state.robot_state = 0;
-                    publisher_robot_state -> publish(robot_state);
-                    break;
+            else {
+                switch(robot_state.robot_state){  //CHECK CASE 1, 2 AND 3, to take object from different angle ??
+
+                    case 0:
+                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for a new task", robot_id);
+                        break;
+
+                    case 1:
+                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 1 Approach to object %d", robot_id, task.obj_id);
+
+                        objective.point.x = Xobj - 2;   //Check to match, maybe using trigonometry depending of angle
+                        objective.point.y = Yobj - 2;
+                        objective.angle = Angobj;       //
+                        publisher_robot_objective->publish(objective);
+                        break;
+
+                    case 2:
+                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 2 Last approach to object %d", robot_id, task.obj_id);
+
+                        objective.point.x = Xobj - 2;   //Check to match, maybe using trigonometry depending of angle
+                        objective.point.y = Yobj - 2;
+                        objective.angle = Angobj;       //
+                        publisher_robot_objective->publish(objective);
+                        break;
+
+                    case 3:
+                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 3 Taking object %d", robot_id, task.obj_id);
+                        //COMPLETE OBJECT PICK
+                        break;
+
+                    case 4:
+                        //MIRROR CONTROL OF LEADER ROBOT
+                        break;
+
+                    
+                    case 5:
+                        //MIRROR CONTROL OF LEADER ROBOT
+                        break;
+
+                    case 6:
+                        //MIRROR CONTROL OF LEADER ROBOT
+                        break;
+
+                    case 7:
+                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 7 Back to home position", robot_id);
+
+                        objective.point.x = 0;   //Define home position***
+                        objective.point.y = 0;
+                        objective.angle = 0;
+                        publisher_robot_objective->publish(objective);
+                        break;
+
+                    case 8:
+                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 8 Task_ID %d Finished", robot_id, task.task_id);
+
+                        robot_state.robot_state = 0;
+                        publisher_robot_state -> publish(robot_state);
+                        break;
+                }
             }
 
         }

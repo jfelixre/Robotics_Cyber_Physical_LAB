@@ -69,7 +69,7 @@ class Reg_Tasks_Node : public rclcpp::Node
 			temp_task.obj_id = msg->obj_id;
 			temp_task.obj_size = msg->obj_size;
 			temp_task.goal = msg->goal;
-			temp_task.leader_follower = msg->leader_follower;
+			temp_task.leader_robot_id = msg->leader_robot_id;
 			temp_task.priority = msg->priority;
 			temp_task.state = 0;  //Set state to pending
 			rclcpp::Time time = Node::get_clock()->now();
