@@ -29,6 +29,7 @@ find_package(tf2_sensor_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(Eigen3 REQUIRED)
+find_package(img_proc_pkg)
 
 
 
@@ -117,6 +118,23 @@ ament_target_dependencies(aruco_detector_v2
   tf2
   tf2_ros
   geometry_msgs)
+
+  add_executable(aruco_nano_detector src/aruco_nano_detector.cpp)
+  target_include_directories(aruco_nano_detector PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
+  
+  ament_target_dependencies(aruco_nano_detector
+    "OpenCV"
+    sensor_msgs
+    std_msgs
+    rclcpp
+    cv_bridge
+    interfaces
+    tf2
+    tf2_ros
+    geometry_msgs
+    img_proc_pkg)
   
 
 #add_executable(calibrate_camera_charuco src/calibrate_camera_charuco.cpp)
@@ -162,6 +180,18 @@ ament_target_dependencies(compute_position
   tf2_sensor_msgs
   geometry_msgs)
 
+  add_executable(camera_publ_node src/camera_publ_node.cpp)
+  target_include_directories(img_proc_node PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
+  
+  ament_target_dependencies(camera_publ_node
+    "OpenCV"
+    sensor_msgs
+    std_msgs
+    rclcpp
+    cv_bridge)
+
 
 #include_directories(·${OpenCV_INCLUDE_DIRS}·)
 
@@ -175,11 +205,14 @@ install(TARGETS
   #calibrate_camera_charuco_node
   compute_position
   aruco_detector_v2
+  aruco_nano_detector
+  camera_publ_node
   DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY 
   launch
   config
+  libraries
   DESTINATION share/${PROJECT_NAME})
 
 
