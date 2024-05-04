@@ -17,10 +17,12 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_python REQUIRED)
 find_package(OpenCV 4.6.0 REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rclpy REQUIRED)
 find_package(image_transport REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(interfaces REQUIRED)
@@ -29,7 +31,6 @@ find_package(tf2_sensor_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(Eigen3 REQUIRED)
-find_package(img_proc_pkg)
 
 
 
@@ -133,8 +134,7 @@ ament_target_dependencies(aruco_detector_v2
     interfaces
     tf2
     tf2_ros
-    geometry_msgs
-    img_proc_pkg)
+    geometry_msgs)
   
 
 #add_executable(calibrate_camera_charuco src/calibrate_camera_charuco.cpp)
@@ -180,20 +180,8 @@ ament_target_dependencies(compute_position
   tf2_sensor_msgs
   geometry_msgs)
 
-  add_executable(camera_publ_node src/camera_publ_node.cpp)
-  target_include_directories(img_proc_node PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    $<INSTALL_INTERFACE:include>)
-  
-  ament_target_dependencies(camera_publ_node
-    "OpenCV"
-    sensor_msgs
-    std_msgs
-    rclcpp
-    cv_bridge)
-
-
 #include_directories(·${OpenCV_INCLUDE_DIRS}·)
+include_directories(include)
 
 install(TARGETS 
   img_proc_node
@@ -206,15 +194,21 @@ install(TARGETS
   compute_position
   aruco_detector_v2
   aruco_nano_detector
-  camera_publ_node
   DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY 
   launch
   config
-  libraries
+  include
   DESTINATION share/${PROJECT_NAME})
 
+# Install Python modules
+ament_python_install_package(${PROJECT_NAME})
+# Install Python executables
+install(PROGRAMS
+  scripts/camera_publ_node.py
+  DESTINATION lib/${PROJECT_NAME}
+)  
 
 
 ament_package()

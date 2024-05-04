@@ -37,10 +37,12 @@ class Camera_Publ_Node : public rclcpp::Node
 			//timer_ = this->create_wall_timer(16ms, std::bind(&Camera_Publ_Node::timer_callback, this));
 
 			cv::VideoCapture cam;
-			int deviceID = 2; // 0 = open default camera
-			int apiID = cv::CAP_ANY; // 0 = autodetect default API
+			int deviceID = 0; // 0 = open default camera
+			int apiID = cv::CAP_DSHOW; // 0 = autodetect default API
 			
 			cam.open(deviceID,apiID);
+			
+			rclcpp::sleep_for(std::chrono::seconds(10));
 
 			 if (!cam.isOpened()) {
 			std::cout << "ERROR! Unable to open camera\n";

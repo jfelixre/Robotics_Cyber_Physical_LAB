@@ -24,7 +24,7 @@
 #include <cv_bridge/cv_bridge.h>
 #include <interfaces/msg/img_data.hpp>
 #include "/opt/opencv_contrib/modules/aruco/samples/aruco_samples_utility.hpp"
-#include "../libraries/aruco_nano.h"
+#include "../include/img_proc_pkg/aruco_nano.h"
 
 
 #include "geometry_msgs/msg/transform_stamped.hpp"

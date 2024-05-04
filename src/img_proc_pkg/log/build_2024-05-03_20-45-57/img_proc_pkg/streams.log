@@ -1,0 +1,77 @@
+[0.008s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg -- -j16 -l16
+[0.042s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.055s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.155s] -- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[0.168s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.170s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.220s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.303s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.321s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.321s] -- Using RMW implementation 'rmw_fastrtps_cpp'
+[0.321s] -- Found rmw_fastrtps_cpp: 1.3.2 (/opt/ros/foxy/share/rmw_fastrtps_cpp/cmake)
+[0.449s] -- Found rclpy: 1.0.13 (/opt/ros/foxy/share/rclpy/cmake)
+[0.449s] -- Found image_transport: 2.4.0 (/opt/ros/foxy/share/image_transport/cmake)
+[0.472s] -- Found cv_bridge: 3.0.7 (/opt/ros/foxy/share/cv_bridge/cmake)
+[0.480s] -- Found interfaces: 0.0.0 (/home/javierfr/Robotics_Cyber_Physical_LAB/install/interfaces/share/interfaces/cmake)
+[0.511s] -- Found tf2: 0.13.14 (/opt/ros/foxy/share/tf2/cmake)
+[0.516s] -- Found tf2_sensor_msgs: 0.13.14 (/opt/ros/foxy/share/tf2_sensor_msgs/cmake)
+[0.800s] -- Configuring done
+[0.876s] -- Generating done
+[0.877s] -- Build files have been written to: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg
+[0.938s] [ 12%] Built target img_subs_test_node
+[0.938s] [ 25%] Built target img_publ_test_node
+[0.939s] [ 37%] Built target aruco_detector
+[0.940s] [ 50%] Built target img_proc_id_node
+[0.945s] [ 62%] Built target compute_position
+[0.947s] [ 75%] Built target img_proc_node
+[0.948s] [ 87%] Built target aruco_detector_v2
+[0.958s] [100%] Built target aruco_nano_detector
+[0.976s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg -- -j16 -l16
+[1.026s] Invoking command in '/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg
+[1.041s] -- Install configuration: ""
+[1.041s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/lib/img_proc_pkg/img_proc_node
+[1.041s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/lib/img_proc_pkg/img_publ_test_node
+[1.041s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/lib/img_proc_pkg/img_subs_test_node
+[1.042s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/lib/img_proc_pkg/img_proc_id_node
+[1.042s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/lib/img_proc_pkg/aruco_detector
+[1.042s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/lib/img_proc_pkg/compute_position
+[1.042s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/lib/img_proc_pkg/aruco_detector_v2
+[1.042s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/lib/img_proc_pkg/aruco_nano_detector
+[1.042s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/launch
+[1.042s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/launch/camera_launch.py
+[1.042s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/launch/demo_cam_launch.py
+[1.042s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/launch/__pycache__
+[1.042s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/launch/__pycache__/demo_launch.cpython-38.pyc
+[1.042s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/config
+[1.042s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/config/camera_calib_charuco.yaml
+[1.042s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/config/params.yaml
+[1.042s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/config/camera_info_old.yaml
+[1.042s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/config/camera_info.yaml
+[1.042s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/config/_old.yaml
+[1.042s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/config/params_dsrl.yaml
+[1.043s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/config/camera_calib_charuco (copy).yaml
+[1.043s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/include
+[1.043s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/include/img_proc_pkg
+[1.043s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/include/img_proc_pkg/aruco_nano.h
+[1.043s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/environment/pythonpath.sh
+[1.043s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/environment/pythonpath.dsv
+[1.043s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/lib/python3.8/site-packages/img_proc_pkg
+[1.043s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/lib/python3.8/site-packages/img_proc_pkg/__init__.py
+[1.060s] Listing '/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/lib/python3.8/site-packages/img_proc_pkg'...
+[1.062s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/lib/img_proc_pkg/camera_publ_node.py
+[1.062s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/ament_index/resource_index/package_run_dependencies/img_proc_pkg
+[1.062s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/ament_index/resource_index/parent_prefix_path/img_proc_pkg
+[1.062s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/environment/ament_prefix_path.sh
+[1.062s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/environment/ament_prefix_path.dsv
+[1.062s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/environment/path.sh
+[1.063s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/environment/path.dsv
+[1.063s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/local_setup.bash
+[1.063s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/local_setup.sh
+[1.063s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/local_setup.zsh
+[1.063s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/local_setup.dsv
+[1.063s] -- Installing: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/package.dsv
+[1.063s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/ament_index/resource_index/packages/img_proc_pkg
+[1.063s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/cmake/img_proc_pkgConfig.cmake
+[1.063s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/cmake/img_proc_pkgConfig-version.cmake
+[1.063s] -- Up-to-date: /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/install/img_proc_pkg/share/img_proc_pkg/package.xml
+[1.064s] Invoked command in '/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg

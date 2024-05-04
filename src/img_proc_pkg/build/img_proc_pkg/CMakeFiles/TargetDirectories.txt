@@ -1,0 +1,17 @@
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg/CMakeFiles/install/strip.dir
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg/CMakeFiles/install/local.dir
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg/CMakeFiles/install.dir
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg/CMakeFiles/list_install_components.dir
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg/CMakeFiles/img_proc_pkg_uninstall.dir
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg/CMakeFiles/img_proc_node.dir
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg/CMakeFiles/img_publ_test_node.dir
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg/CMakeFiles/img_subs_test_node.dir
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg/CMakeFiles/compute_position.dir
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg/CMakeFiles/uninstall.dir
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg/CMakeFiles/test.dir
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg/CMakeFiles/aruco_detector.dir
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg/CMakeFiles/img_proc_id_node.dir
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg/CMakeFiles/aruco_nano_detector.dir
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg/CMakeFiles/edit_cache.dir
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg/CMakeFiles/aruco_detector_v2.dir
+/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/build/img_proc_pkg/CMakeFiles/rebuild_cache.dir

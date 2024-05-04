@@ -1,0 +1,113 @@
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector_v2.cpp:[m[K In function ‘[01m[Kvoid drawAxis(cv::Mat&, cv::InputArrayOfArrays, cv::Vec3d, cv::Vec3d, float)[m[K’:
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector_v2.cpp:60:52:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kcorners[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+   60 | void drawAxis(cv::Mat& img, [01;35m[Kcv::InputArrayOfArrays corners[m[K, cv::Vec3d rvec, cv::Vec3d tvec, float length = 0.1) {
+      |                             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:[m[K In constructor ‘[01m[KAruco_Detector::Aruco_Detector()[m[K’:
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:66:12:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KreadOk[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   66 |       bool [01;35m[KreadOk[m[K = readCameraParameters("src/img_proc_pkg/config/camera_calib_charuco.yaml", cameraMatrix, distCoeffs);
+      |            [01;35m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:84:13:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kstate_dim_r1[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   84 |         int [01;35m[Kstate_dim_r1[m[K = 14;  // (x, y, z, rx, ry, rz, rw, vx, vy, vz, vrx, vry, vrz, vrw)
+      |             [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:85:13:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kmeas_dim_r1[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   85 |         int [01;35m[Kmeas_dim_r1[m[K = 7;   // (x, y, z, rx, ry,rz, rw)
+      |             [01;35m[K^~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:92:13:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kstate_dim_r2[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   92 |         int [01;35m[Kstate_dim_r2[m[K = 14;  // (x, y, z, rx, ry, rz, rw, vx, vy, vz, vrx, vry, vrz, vrw)
+      |             [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:93:13:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kmeas_dim_r2[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   93 |         int [01;35m[Kmeas_dim_r2[m[K = 7;   // (x, y, z, rx, ry,rz, rw)
+      |             [01;35m[K^~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:100:13:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kstate_dim_o1[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  100 |         int [01;35m[Kstate_dim_o1[m[K = 14;  // (x, y, z, rx, ry, rz, rw, vx, vy, vz, vrx, vry, vrz, vrw)
+      |             [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:101:13:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kmeas_dim_o1[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  101 |         int [01;35m[Kmeas_dim_o1[m[K = 7;   // (x, y, z, rx, ry,rz, rw)
+      |             [01;35m[K^~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:108:13:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kstate_dim_o2[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  108 |         int [01;35m[Kstate_dim_o2[m[K = 14;  // (x, y, z, rx, ry, rz, rw, vx, vy, vz, vrx, vry, vrz, vrw)
+      |             [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:109:13:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kmeas_dim_o2[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  109 |         int [01;35m[Kmeas_dim_o2[m[K = 7;   // (x, y, z, rx, ry,rz, rw)
+      |             [01;35m[K^~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:116:13:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kstate_dim_tj[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  116 |         int [01;35m[Kstate_dim_tj[m[K = 14;  // (x, y, z, rx, ry, rz, rw, vx, vy, vz, vrx, vry, vrz, vrw)
+      |             [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:117:13:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kmeas_dim_tj[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  117 |         int [01;35m[Kmeas_dim_tj[m[K = 7;   // (x, y, z, rx, ry,rz, rw)
+      |             [01;35m[K^~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector_v2.cpp:[m[K In constructor ‘[01m[KAruco_Detector_V2::Aruco_Detector_V2()[m[K’:
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector_v2.cpp:71:12:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KreadOk[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   71 |       bool [01;35m[KreadOk[m[K = readCameraParameters("src/img_proc_pkg/config/camera_calib_charuco.yaml", cameraMatrix, distCoeffs);
+      |            [01;35m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:[m[K In member function ‘[01m[Kvoid Aruco_Detector::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:228:27:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<int>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  228 |         for (int i = 0; [01;35m[Ki < markerIds.size()[m[K; i++) {
+      |                         [01;35m[K~~^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:234:27:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<cv::Vec<double, 3> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  234 |         for (int i = 0; [01;35m[Ki < rvecs.size()[m[K; ++i) {
+      |                         [01;35m[K~~^~~~~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector_v2.cpp:[m[K In member function ‘[01m[Kvoid Aruco_Detector_V2::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector_v2.cpp:118:27:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<cv::Vec<double, 3> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  118 |         for (int i = 0; [01;35m[Ki < rvecs.size()[m[K; ++i) {
+      |                         [01;35m[K~~^~~~~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_nano_detector.cpp:[m[K In function ‘[01m[Kvoid drawAxis(cv::Mat&, cv::InputArrayOfArrays, cv::Vec3d, cv::Vec3d, float)[m[K’:
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_nano_detector.cpp:61:52:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kcorners[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+   61 | void drawAxis(cv::Mat& img, [01;35m[Kcv::InputArrayOfArrays corners[m[K, cv::Vec3d rvec, cv::Vec3d tvec, float length = 0.1) {
+      |                             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:162:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn_cols[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  162 |       int [01;35m[Kn_cols[m[K = img_original.cols;
+      |           [01;35m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector.cpp:163:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn_rows[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  163 |       int [01;35m[Kn_rows[m[K = img_original.rows;
+      |           [01;35m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector_v2.cpp:96:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn_cols[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   96 |       int [01;35m[Kn_cols[m[K = img_original.cols;
+      |           [01;35m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_detector_v2.cpp:97:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn_rows[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   97 |       int [01;35m[Kn_rows[m[K = img_original.rows;
+      |           [01;35m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_nano_detector.cpp:[m[K In constructor ‘[01m[KAruco_Nano_Detector::Aruco_Nano_Detector()[m[K’:
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_nano_detector.cpp:72:12:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KreadOk[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   72 |       bool [01;35m[KreadOk[m[K = readCameraParameters("src/img_proc_pkg/config/camera_calib_charuco.yaml", cameraMatrix, distCoeffs);
+      |            [01;35m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_nano_detector.cpp:[m[K In member function ‘[01m[Kvoid Aruco_Nano_Detector::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_nano_detector.cpp:97:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn_cols[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   97 |       int [01;35m[Kn_cols[m[K = img_original.cols;
+      |           [01;35m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/aruco_nano_detector.cpp:98:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn_rows[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   98 |       int [01;35m[Kn_rows[m[K = img_original.rows;
+      |           [01;35m[K^~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:[m[K In member function ‘[01m[Kvoid Img_Proc_Id_Node::topic_callback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) const[m[K’:
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:130:22:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  130 |       for (int i=0; [01;35m[Ki<red_contours.size()[m[K; i++)
+      |                     [01;35m[K~^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:163:26:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  163 |         for (int ii=1; [01;35m[Kii<red_subcontours.size()[m[K; ii++)
+      |                        [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:257:22:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  257 |       for (int i=0; [01;35m[Ki<blue_contours.size()[m[K; i++)
+      |                     [01;35m[K~^~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:290:26:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  290 |         for (int ii=1; [01;35m[Kii<blue_subcontours.size()[m[K; ii++)
+      |                        [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:385:22:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  385 |       for (int i=0; [01;35m[Ki<green_contours.size()[m[K; i++)
+      |                     [01;35m[K~^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/src/img_proc_id_node.cpp:417:26:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  417 |         for (int ii=1; [01;35m[Kii<green_subcontours.size()[m[K; ii++)
+      |                        [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+/usr/bin/ld: warning: libopencv_core.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_core.so.407
+/usr/bin/ld: warning: libopencv_imgcodecs.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgcodecs.so.407
+/usr/bin/ld: warning: libopencv_core.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_core.so.407
+/usr/bin/ld: warning: libopencv_imgproc.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.407
+/usr/bin/ld: warning: libopencv_core.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_core.so.407
+/usr/bin/ld: warning: libopencv_imgproc.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.407
+/usr/bin/ld: warning: libopencv_core.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_core.so.407
+/usr/bin/ld: warning: libopencv_imgproc.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.407
+/usr/bin/ld: warning: libopencv_core.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_core.so.407
+/usr/bin/ld: warning: libopencv_imgcodecs.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgcodecs.so.407
+/usr/bin/ld: warning: libopencv_imgproc.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.407
+/usr/bin/ld: warning: libopencv_core.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_core.so.407
+/usr/bin/ld: warning: libopencv_imgproc.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.407
+/usr/bin/ld: warning: libopencv_core.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_core.so.407
