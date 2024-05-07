@@ -87,6 +87,7 @@ class Aruco_Nano_Detector : public rclcpp::Node
     void topic_callback(const sensor_msgs::msg::Image::SharedPtr msg)
     { 
 
+std::cout<< "aqui0" << std::endl;
       std::cout << msg->encoding << std::endl;
       //std::cout << msg->data << std::endl;
       std::cout << msg->step << std::endl;
@@ -94,29 +95,71 @@ class Aruco_Nano_Detector : public rclcpp::Node
       std::cout << msg->width << std::endl;
       //RCLCPP_INFO(this->get_logger(), "Received image" );
       
+      std::cout<< "aqui1" << std::endl;
+
       cv_bridge::CvImageConstPtr image_bridge;
 	    //cv_bridge::toCvCopy(msg, RGB8)->image;
       try{
         image_bridge=cv_bridge::toCvCopy(msg);
-
-      }
-      catch (cv_bridge::Exception& e){
-        RCLCPP_ERROR(this->get_logger(), "cv_bridge exception: %s", e.what());
-        return;
-      }
-
-      //std::cout<< image_bridge->image.channels << std::endl;
+        std::cout<< "aqui2" << std::endl;
+        //std::cout<< image_bridge->image.channels << std::endl;
       
-      img_original = image_bridge->image;
+        img_original = image_bridge->image;
 
-      //cv::cvtColor(img_original,img_original,cv::COLOR_BGR2RGB);
-      //cv::imwrite("image.jpg",img_original);
-      int n_cols = img_original.cols;
-      int n_rows = img_original.rows;
+        std::cout<< "aqui3" << std::endl;
 
-      img_mod=img_original.clone();
-      //publisher->publish(data_image);
-      std::cout<< img_original.channels() << std::endl;
+        //cv::cvtColor(img_original,img_original,cv::COLOR_BGR2RGB);
+        //cv::imwrite("image.jpg",img_original);
+        int n_cols = img_original.cols;
+        std::cout<< "aqui4" << std::endl;
+        int n_rows = img_original.rows;
+        std::cout<< "aqui5" << std::endl;
+        //img_mod=img_original.clone();
+        std::cout<< "aqui6" << std::endl;
+        //publisher->publish(data_image);
+        std::cout<< img_original.channels() << std::endl;
+        std::cout<< "aqui7" << std::endl;
+
+              if (image_bridge->image.empty()) {
+        RCLCPP_ERROR(this->get_logger(), "Empty image received");
+        return;
+            }
+
+            else{
+              RCLCPP_INFO(this->get_logger(), "IMAGE OK");
+              // Define a smaller resolution
+              int new_width = 640;
+              int new_height = 480;
+
+              // Resize the original image
+              cv::resize(img_original, img_mod, cv::Size(new_width, new_height));
+
+
+                        cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
+          std::cout<< "aqui8" << std::endl;
+         //cv::resizeWindow("Display Image" 1280,720);
+         
+          cv::imshow("Display Image", img_mod);
+          cv::waitKey(1);
+          
+           std::cout<< "aqui9" << std::endl;
+          //img_original.release();
+          //img_mod.release();
+          std::cout<< "aqui10" << std::endl;
+          
+                  auto markers = aruconano::MarkerDetector::detect(img_mod);
+        std::cout<< "aqui11" << std::endl;
+            }
+
+      
+
+      }
+       catch (cv_bridge::Exception& e){
+         RCLCPP_ERROR(this->get_logger(), "cv_bridge exception: %s", e.what());
+       return;
+       }
+
+     
 
 
       // std::vector<int> markerIds;
@@ -246,10 +289,7 @@ class Aruco_Nano_Detector : public rclcpp::Node
         }
 
       } */
-  	  cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
-     // cv::resizeWindow("Display Image" 1280,720);
-  	  cv::imshow("Display Image", img_mod);
-  	  cv::waitKey(1);
+
       
     }
     rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr subscription_;
