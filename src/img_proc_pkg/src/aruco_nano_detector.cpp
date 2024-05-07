@@ -87,13 +87,17 @@ class Aruco_Nano_Detector : public rclcpp::Node
     void topic_callback(const sensor_msgs::msg::Image::SharedPtr msg)
     { 
 
-      std::cout<< msg->encoding << std::endl;
+      std::cout << msg->encoding << std::endl;
+      //std::cout << msg->data << std::endl;
+      std::cout << msg->step << std::endl;
+      std::cout << msg->height << std::endl;
+      std::cout << msg->width << std::endl;
       //RCLCPP_INFO(this->get_logger(), "Received image" );
       
       cv_bridge::CvImageConstPtr image_bridge;
 	    //cv_bridge::toCvCopy(msg, RGB8)->image;
       try{
-        image_bridge=cv_bridge::toCvCopy(msg, msg->encoding);
+        image_bridge=cv_bridge::toCvCopy(msg);
 
       }
       catch (cv_bridge::Exception& e){
