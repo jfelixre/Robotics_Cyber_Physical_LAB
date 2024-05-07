@@ -85,32 +85,45 @@ class Aruco_Nano_Detector : public rclcpp::Node
 
 
     void topic_callback(const sensor_msgs::msg::Image::SharedPtr msg)
-    {
+    { 
+
+      std::cout<< msg->encoding << std::endl;
       //RCLCPP_INFO(this->get_logger(), "Received image" );
       
       cv_bridge::CvImageConstPtr image_bridge;
 	    //cv_bridge::toCvCopy(msg, RGB8)->image;
-      image_bridge=cv_bridge::toCvCopy(msg);
+      try{
+        image_bridge=cv_bridge::toCvCopy(msg, msg->encoding);
+
+      }
+      catch (cv_bridge::Exception& e){
+        RCLCPP_ERROR(this->get_logger(), "cv_bridge exception: %s", e.what());
+        return;
+      }
+      
       img_original = image_bridge->image;
-      cv::cvtColor(img_original,img_original,cv::COLOR_BGR2RGB);
+
+      //cv::cvtColor(img_original,img_original,cv::COLOR_BGR2RGB);
       //cv::imwrite("image.jpg",img_original);
       int n_cols = img_original.cols;
       int n_rows = img_original.rows;
 
       img_mod=img_original.clone();
       //publisher->publish(data_image);
+      std::cout<< img_original.channels() << std::endl;
 
-      std::vector<int> markerIds;
-      std::vector<std::vector<cv::Point2f>> markerCorners, rejectedCandidates;
-      cv::aruco::DetectorParameters parameters = cv::aruco::DetectorParameters();
-      cv::aruco::Dictionary dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_4X4_50);
-      cv::aruco::ArucoDetector detector(dictionary, parameters);
-      detector.detectMarkers(img_original, markerCorners, markerIds, rejectedCandidates);
 
-      auto markers = aruconano::MarkerDetector::detect(img_original);
+      // std::vector<int> markerIds;
+      // std::vector<std::vector<cv::Point2f>> markerCorners, rejectedCandidates;
+      // cv::aruco::DetectorParameters parameters = cv::aruco::DetectorParameters();
+      // cv::aruco::Dictionary dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_4X4_50);
+      // cv::aruco::ArucoDetector detector(dictionary, parameters);
+      // detector.detectMarkers(img_original, markerCorners, markerIds, rejectedCandidates);
 
-      for(const auto &m:markers)
-       m.draw(img_mod);
+      // auto markers = aruconano::MarkerDetector::detect(img_original);
+
+      // for(const auto &m:markers)
+      //  m.draw(img_mod);
 
       
 /*       if (markerIds.size() > 0){
