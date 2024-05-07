@@ -104,6 +104,8 @@ class Aruco_Nano_Detector : public rclcpp::Node
         RCLCPP_ERROR(this->get_logger(), "cv_bridge exception: %s", e.what());
         return;
       }
+
+      //std::cout<< image_bridge->image.channels << std::endl;
       
       img_original = image_bridge->image;
 
