@@ -21,10 +21,11 @@
 #include <sensor_msgs/image_encodings.hpp>
 //#include <std_msgs/msg/bool.hpp>
 //#include <image_transport/image_transport.h>
-#include <cv_bridge/cv_bridge.h>
+#include <cv_bridge/cv_bridge.hpp>
 #include <interfaces/msg/img_data.hpp>
-#include "/opt/opencv_contrib/modules/aruco/samples/aruco_samples_utility.hpp"
-
+//#include "/opt/opencv_contrib/modules/aruco/samples/aruco_samples_utility.hpp"
+//#include "/opt/opencv_contrib/modules/aruco/include/opencv2/aruco.hpp"
+#include "opencv2/aruco.hpp"
 
 #include "geometry_msgs/msg/transform_stamped.hpp"
 #include "rclcpp/rclcpp.hpp"
@@ -68,7 +69,7 @@ class Aruco_Detector_V2 : public rclcpp::Node
   public:
     Aruco_Detector_V2() : Node("aruco_detector_v2")
     {
-      bool readOk = readCameraParameters("src/img_proc_pkg/config/camera_calib_charuco.yaml", cameraMatrix, distCoeffs);
+      //bool readOk = readCameraParameters("src/img_proc_pkg/config/camera_calib_charuco.yaml", cameraMatrix, distCoeffs);
 
       subscription_ = this->create_subscription<sensor_msgs::msg::Image>(
       "cameras/camera1/image_raw", 10, std::bind(&Aruco_Detector_V2::topic_callback, this, _1));
@@ -103,8 +104,9 @@ class Aruco_Detector_V2 : public rclcpp::Node
       std::vector<std::vector<cv::Point2f>> markerCorners, rejectedCandidates;
       cv::aruco::DetectorParameters parameters = cv::aruco::DetectorParameters();
       cv::aruco::Dictionary dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_4X4_50);
-      cv::aruco::ArucoDetector detector(dictionary, parameters);
-      detector.detectMarkers(img_original, markerCorners, markerIds, rejectedCandidates);
+      //cv::aruco::ArucoDetector detector(dictionary, parameters);
+      //detector.detectMarkers(img_original, markerCorners, markerIds, rejectedCandidates);
+      cv::aruco::detectMarkers(img_original,&dictionary,markerCorners,markerIds,&parameters,rejectedCandidates);
       
       if (markerIds.size() > 0){
 

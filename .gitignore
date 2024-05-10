@@ -7,3 +7,4 @@ csv/*
 firmware/*
 src/uros/*
 src/ros2.repos
+.vscode/*

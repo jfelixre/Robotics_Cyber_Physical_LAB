@@ -23,9 +23,9 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 find_package(camera_info_manager REQUIRED)
-find_package(gazebo_dev REQUIRED)
-find_package(gazebo_msgs REQUIRED)
-find_package(gazebo_ros REQUIRED)
+#find_package(gazebo_dev REQUIRED)
+#find_package(gazebo_msgs REQUIRED)
+#find_package(gazebo_ros REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(image_transport REQUIRED)
 find_package(cv_bridge REQUIRED)
@@ -55,153 +55,153 @@ if(ENABLE_PROFILER)
   endif()
 endif()
 
-# Platform Pulgin Test
-add_library(platform_plugin_test SHARED
-  src/platform_plugin_test.cpp
-)
-target_include_directories(platform_plugin_test PUBLIC include)
-ament_target_dependencies(platform_plugin_test
-  "gazebo_dev"
-  "gazebo_ros"
-  "geometry_msgs"
-  "nav_msgs"
-  "rclcpp"
-  "tf2"
-  "tf2_geometry_msgs"
-  "tf2_ros"
-  "std_msgs"
-)
-ament_export_libraries(platform_plugin_test)
-if(ENABLE_PROFILER)
-  target_include_directories(platform_plugin_test PUBLIC ${ignition-common3_INCLUDE_DIRS})
-  target_link_libraries(platform_plugin_test ${ignition-common3_LIBRARIES})
-endif()
+# # Platform Pulgin Test
+# add_library(platform_plugin_test SHARED
+#   src/platform_plugin_test.cpp
+# )
+# target_include_directories(platform_plugin_test PUBLIC include)
+# ament_target_dependencies(platform_plugin_test
+#   "gazebo_dev"
+#   "gazebo_ros"
+#   "geometry_msgs"
+#   "nav_msgs"
+#   "rclcpp"
+#   "tf2"
+#   "tf2_geometry_msgs"
+#   "tf2_ros"
+#   "std_msgs"
+# )
+# ament_export_libraries(platform_plugin_test)
+# if(ENABLE_PROFILER)
+#   target_include_directories(platform_plugin_test PUBLIC ${ignition-common3_INCLUDE_DIRS})
+#   target_link_libraries(platform_plugin_test ${ignition-common3_LIBRARIES})
+# endif()
 
 
-# Platform 1 Pulgin
-add_library(platform1_plugin SHARED
-  src/platform1_plugin.cpp
-)
-target_include_directories(platform1_plugin PUBLIC include)
-ament_target_dependencies(platform1_plugin
-  "gazebo_dev"
-  "gazebo_ros"
-  "geometry_msgs"
-  "nav_msgs"
-  "rclcpp"
-  "tf2"
-  "tf2_geometry_msgs"
-  "tf2_ros"
-  "std_msgs"
-  "interfaces"
-)
-ament_export_libraries(platform1_plugin)
-if(ENABLE_PROFILER)
-  target_include_directories(platform1_plugin PUBLIC ${ignition-common3_INCLUDE_DIRS})
-  target_link_libraries(platform1_plugin ${ignition-common3_LIBRARIES})
-endif()
+# # Platform 1 Pulgin
+# add_library(platform1_plugin SHARED
+#   src/platform1_plugin.cpp
+# )
+# target_include_directories(platform1_plugin PUBLIC include)
+# ament_target_dependencies(platform1_plugin
+#   "gazebo_dev"
+#   "gazebo_ros"
+#   "geometry_msgs"
+#   "nav_msgs"
+#   "rclcpp"
+#   "tf2"
+#   "tf2_geometry_msgs"
+#   "tf2_ros"
+#   "std_msgs"
+#   "interfaces"
+# )
+# ament_export_libraries(platform1_plugin)
+# if(ENABLE_PROFILER)
+#   target_include_directories(platform1_plugin PUBLIC ${ignition-common3_INCLUDE_DIRS})
+#   target_link_libraries(platform1_plugin ${ignition-common3_LIBRARIES})
+# endif()
 
 
-# Platform 2 Pulgin
-add_library(platform2_plugin SHARED
-  src/platform2_plugin.cpp
-)
-target_include_directories(platform2_plugin PUBLIC include)
-ament_target_dependencies(platform2_plugin
-  "gazebo_dev"
-  "gazebo_ros"
-  "geometry_msgs"
-  "nav_msgs"
-  "rclcpp"
-  "tf2"
-  "tf2_geometry_msgs"
-  "tf2_ros"
-  "std_msgs"
-  "interfaces"
-)
-ament_export_libraries(platform2_plugin)
-if(ENABLE_PROFILER)
-  target_include_directories(platform2_plugin PUBLIC ${ignition-common3_INCLUDE_DIRS})
-  target_link_libraries(platform2_plugin ${ignition-common3_LIBRARIES})
-endif()
+# # Platform 2 Pulgin
+# add_library(platform2_plugin SHARED
+#   src/platform2_plugin.cpp
+# )
+# target_include_directories(platform2_plugin PUBLIC include)
+# ament_target_dependencies(platform2_plugin
+#   "gazebo_dev"
+#   "gazebo_ros"
+#   "geometry_msgs"
+#   "nav_msgs"
+#   "rclcpp"
+#   "tf2"
+#   "tf2_geometry_msgs"
+#   "tf2_ros"
+#   "std_msgs"
+#   "interfaces"
+# )
+# ament_export_libraries(platform2_plugin)
+# if(ENABLE_PROFILER)
+#   target_include_directories(platform2_plugin PUBLIC ${ignition-common3_INCLUDE_DIRS})
+#   target_link_libraries(platform2_plugin ${ignition-common3_LIBRARIES})
+# endif()
 
 
-# Robot 1 Pulgin
-add_library(robot1_plugin SHARED
-  src/robot1_plugin.cpp
-)
-target_include_directories(robot1_plugin PUBLIC include)
-ament_target_dependencies(robot1_plugin
-  "gazebo_dev"
-  "gazebo_ros"
-  "geometry_msgs"
-  "nav_msgs"
-  "rclcpp"
-  "tf2"
-  "tf2_geometry_msgs"
-  "tf2_ros"
-  "std_msgs"
-  "interfaces"
-)
-ament_export_libraries(robot1_plugin)
-if(ENABLE_PROFILER)
-  target_include_directories(robot1_plugin PUBLIC ${ignition-common3_INCLUDE_DIRS})
-  target_link_libraries(robot1_plugin ${ignition-common3_LIBRARIES})
-endif()
+# # Robot 1 Pulgin
+# add_library(robot1_plugin SHARED
+#   src/robot1_plugin.cpp
+# )
+# target_include_directories(robot1_plugin PUBLIC include)
+# ament_target_dependencies(robot1_plugin
+#   "gazebo_dev"
+#   "gazebo_ros"
+#   "geometry_msgs"
+#   "nav_msgs"
+#   "rclcpp"
+#   "tf2"
+#   "tf2_geometry_msgs"
+#   "tf2_ros"
+#   "std_msgs"
+#   "interfaces"
+# )
+# ament_export_libraries(robot1_plugin)
+# if(ENABLE_PROFILER)
+#   target_include_directories(robot1_plugin PUBLIC ${ignition-common3_INCLUDE_DIRS})
+#   target_link_libraries(robot1_plugin ${ignition-common3_LIBRARIES})
+# endif()
 
-# Robot 2 Pulgin
-add_library(robot2_plugin SHARED
-  src/robot2_plugin.cpp
-)
-target_include_directories(robot2_plugin PUBLIC include)
-ament_target_dependencies(robot2_plugin
-  "gazebo_dev"
-  "gazebo_ros"
-  "geometry_msgs"
-  "nav_msgs"
-  "rclcpp"
-  "tf2"
-  "tf2_geometry_msgs"
-  "tf2_ros"
-  "std_msgs"
-  "interfaces"
-)
-ament_export_libraries(robot2_plugin)
-if(ENABLE_PROFILER)
-  target_include_directories(robot2_plugin PUBLIC ${ignition-common3_INCLUDE_DIRS})
-  target_link_libraries(robot2_plugin ${ignition-common3_LIBRARIES})
-endif()
+# # Robot 2 Pulgin
+# add_library(robot2_plugin SHARED
+#   src/robot2_plugin.cpp
+# )
+# target_include_directories(robot2_plugin PUBLIC include)
+# ament_target_dependencies(robot2_plugin
+#   "gazebo_dev"
+#   "gazebo_ros"
+#   "geometry_msgs"
+#   "nav_msgs"
+#   "rclcpp"
+#   "tf2"
+#   "tf2_geometry_msgs"
+#   "tf2_ros"
+#   "std_msgs"
+#   "interfaces"
+# )
+# ament_export_libraries(robot2_plugin)
+# if(ENABLE_PROFILER)
+#   target_include_directories(robot2_plugin PUBLIC ${ignition-common3_INCLUDE_DIRS})
+#   target_link_libraries(robot2_plugin ${ignition-common3_LIBRARIES})
+# endif()
 
-# Real Time Factor Pulgin
-add_library(real_time_factor_plugin SHARED
-  src/real_time_factor_plugin.cpp
-)
-target_include_directories(real_time_factor_plugin PUBLIC include)
-ament_target_dependencies(real_time_factor_plugin
-  "gazebo_dev"
-  "gazebo_ros"
-  "geometry_msgs"
-  "nav_msgs"
-  "rclcpp"
-  "tf2"
-  "tf2_geometry_msgs"
-  "tf2_ros"
-  "std_msgs"
-  "interfaces"
-)
-ament_export_libraries(real_time_factor_plugin)
-if(ENABLE_PROFILER)
-  target_include_directories(real_time_factor_plugin PUBLIC ${ignition-common3_INCLUDE_DIRS})
-  target_link_libraries(real_time_factor_plugin ${ignition-common3_LIBRARIES})
-endif()
+# # Real Time Factor Pulgin
+# add_library(real_time_factor_plugin SHARED
+#   src/real_time_factor_plugin.cpp
+# )
+# target_include_directories(real_time_factor_plugin PUBLIC include)
+# ament_target_dependencies(real_time_factor_plugin
+#   "gazebo_dev"
+#   "gazebo_ros"
+#   "geometry_msgs"
+#   "nav_msgs"
+#   "rclcpp"
+#   "tf2"
+#   "tf2_geometry_msgs"
+#   "tf2_ros"
+#   "std_msgs"
+#   "interfaces"
+# )
+# ament_export_libraries(real_time_factor_plugin)
+# if(ENABLE_PROFILER)
+#   target_include_directories(real_time_factor_plugin PUBLIC ${ignition-common3_INCLUDE_DIRS})
+#   target_link_libraries(real_time_factor_plugin ${ignition-common3_LIBRARIES})
+# endif()
 
 
-ament_export_include_directories(include)
-ament_export_dependencies(rclcpp)
-ament_export_dependencies(gazebo_dev)
-ament_export_dependencies(gazebo_msgs)
-ament_export_dependencies(gazebo_ros)
-ament_export_dependencies(std_msgs)
+# ament_export_include_directories(include)
+# ament_export_dependencies(rclcpp)
+# ament_export_dependencies(gazebo_dev)
+# ament_export_dependencies(gazebo_msgs)
+# ament_export_dependencies(gazebo_ros)
+# ament_export_dependencies(std_msgs)
 
 
 
@@ -224,12 +224,12 @@ install(DIRECTORY include/
         DESTINATION include)
 
 install(TARGETS
-  platform_plugin_test
-  platform1_plugin
-  platform2_plugin
-  robot1_plugin
-  robot2_plugin
-  real_time_factor_plugin
+  # platform_plugin_test
+  # platform1_plugin
+  # platform2_plugin
+  # robot1_plugin
+  # robot2_plugin
+  # real_time_factor_plugin
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin)

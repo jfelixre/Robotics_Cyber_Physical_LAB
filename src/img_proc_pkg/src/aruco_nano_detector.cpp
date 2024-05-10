@@ -21,9 +21,11 @@
 #include <sensor_msgs/image_encodings.hpp>
 //#include <std_msgs/msg/bool.hpp>
 //#include <image_transport/image_transport.h>
-#include <cv_bridge/cv_bridge.h>
+#include <cv_bridge/cv_bridge.hpp>
 #include <interfaces/msg/img_data.hpp>
-#include "/opt/opencv_contrib/modules/aruco/samples/aruco_samples_utility.hpp"
+//#include "/opt/opencv_contrib/modules/aruco/samples/aruco_samples_utility.hpp"
+//#include "/opt/opencv_contrib/modules/aruco/include/opencv2/aruco.hpp"
+#include "opencv2/aruco.hpp"
 #include "../include/img_proc_pkg/aruco_nano.h"
 
 
@@ -69,7 +71,7 @@ class Aruco_Nano_Detector : public rclcpp::Node
   public:
     Aruco_Nano_Detector() : Node("aruco_nano_detector")
     {
-      bool readOk = readCameraParameters("src/img_proc_pkg/config/camera_calib_charuco.yaml", cameraMatrix, distCoeffs);
+      //bool readOk = readCameraParameters("src/img_proc_pkg/config/camera_calib_charuco.yaml", cameraMatrix, distCoeffs);
 
       subscription_ = this->create_subscription<sensor_msgs::msg::Image>(
       "cameras/camera1/image_raw", 10, std::bind(&Aruco_Nano_Detector::topic_callback, this, _1));
