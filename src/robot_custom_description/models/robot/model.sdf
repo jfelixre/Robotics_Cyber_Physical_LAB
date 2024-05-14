@@ -1,6 +1,125 @@
 <sdf version='1.11'>
   <model name='robot'>
+
+    <plugin
+      filename="gz-sim-joint-position-controller-system"
+      name="gz::sim::systems::JointPositionController">
+      <joint_name>b1_joint</joint_name>
+      <p_gain>1</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0</d_gain>
+      <i_max>0.01</i_max>
+      <i_min>-0.01</i_min>
+      <cmd_max>1000</cmd_max>
+      <cmd_min>-1000</cmd_min>
+    </plugin>
+
+    <plugin
+      filename="gz-sim-joint-position-controller-system"
+      name="gz::sim::systems::JointPositionController">
+      <joint_name>b2_joint</joint_name>
+      <p_gain>1</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0</d_gain>
+      <i_max>0.01</i_max>
+      <i_min>-0.01</i_min>
+      <cmd_max>1000</cmd_max>
+      <cmd_min>-1000</cmd_min>
+    </plugin>
+
+    <plugin
+      filename="gz-sim-joint-position-controller-system"
+      name="gz::sim::systems::JointPositionController">
+      <joint_name>b3_joint</joint_name>
+      <p_gain>1</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0</d_gain>
+      <i_max>0.01</i_max>
+      <i_min>-0.01</i_min>
+      <cmd_max>1000</cmd_max>
+      <cmd_min>-1000</cmd_min>
+    </plugin>
+
+    <plugin
+      filename="gz-sim-joint-position-controller-system"
+      name="gz::sim::systems::JointPositionController">
+      <joint_name>p1_joint</joint_name>
+      <p_gain>1</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0</d_gain>
+      <i_max>0.01</i_max>
+      <i_min>-0.01</i_min>
+      <cmd_max>1000</cmd_max>
+      <cmd_min>-1000</cmd_min>
+    </plugin>
+
+    <plugin
+      filename="gz-sim-joint-position-controller-system"
+      name="gz::sim::systems::JointPositionController">
+      <joint_name>p2_joint</joint_name>
+      <p_gain>1</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0</d_gain>
+      <i_max>0.01</i_max>
+      <i_min>-0.01</i_min>
+      <cmd_max>1000</cmd_max>
+      <cmd_min>-1000</cmd_min>
+    </plugin>
+
+    <plugin
+      filename="gz-sim-joint-position-controller-system"
+      name="gz::sim::systems::JointPositionController">
+      <joint_name>m1_joint</joint_name>
+      <p_gain>1</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0</d_gain>
+      <i_max>0.01</i_max>
+      <i_min>-0.01</i_min>
+      <cmd_max>1000</cmd_max>
+      <cmd_min>-1000</cmd_min>
+    </plugin>
+
+    <plugin
+      filename="gz-sim-joint-position-controller-system"
+      name="gz::sim::systems::JointPositionController">
+      <joint_name>m2_joint</joint_name>
+      <p_gain>1</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0</d_gain>
+      <i_max>0.01</i_max>
+      <i_min>-0.01</i_min>
+      <cmd_max>1000</cmd_max>
+      <cmd_min>-1000</cmd_min>
+    </plugin>
+
+    <plugin
+      filename="gz-sim-joint-position-controller-system"
+      name="gz::sim::systems::JointPositionController">
+      <joint_name>m3_joint</joint_name>
+      <p_gain>1</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0</d_gain>
+      <i_max>0.01</i_max>
+      <i_min>-0.01</i_min>
+      <cmd_max>1000</cmd_max>
+      <cmd_min>-1000</cmd_min>
+    </plugin>
+
+    <plugin
+      filename="gz-sim-joint-position-controller-system"
+      name="gz::sim::systems::JointPositionController">
+      <joint_name>m4_joint</joint_name>
+      <p_gain>1</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0</d_gain>
+      <i_max>0.01</i_max>
+      <i_min>-0.01</i_min>
+      <cmd_max>1000</cmd_max>
+      <cmd_min>-1000</cmd_min>
+    </plugin>
+
     <link name='base_link'>
+    <self_collide>false</self_collide>
       <inertial>
         <pose>0.0093214592553432524 -0.00020336403594894661 -0.0073971715127256251 0 0 0</pose>
         <mass>1.3241000000000001</mass>
@@ -65,10 +184,10 @@
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
-          <lower>-3.0</lower>
-          <upper>3.0</upper>
-          <effort>3.0</effort>
-          <velocity>3.0</velocity>
+          <lower>-1.5</lower>
+          <upper>1.5</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -77,6 +196,7 @@
       </axis>
     </joint>
     <link name='b1_link'>
+      <self_collide>false</self_collide>
       <pose relative_to='b1_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
@@ -120,10 +240,10 @@
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1.5</lower>
+          <upper>1.5</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -132,6 +252,7 @@
       </axis>
     </joint>
     <link name='b2_link'>
+      <self_collide>false</self_collide>
       <pose relative_to='b2_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-2.7755575615628901e-17 -0.044765146912821401 -0.0016319918452218599 0 0 0</pose>
@@ -175,10 +296,10 @@
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1.5</lower>
+          <upper>1.5</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -187,6 +308,7 @@
       </axis>
     </joint>
     <link name='b3_link'>
+      <self_collide>false</self_collide>
       <pose relative_to='b3_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-0.00482189826747083 -0.039427955406102097 -3.6281861941607499e-05 0 0 0</pose>
@@ -230,10 +352,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -242,6 +364,7 @@
       </axis>
     </joint>
     <link name='p1_link'>
+      <self_collide>false</self_collide>
       <pose relative_to='p1_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-0.0448305023416114 0.025417172259007002 -0.00175648890965904 0 0 0</pose>
@@ -285,10 +408,10 @@
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -297,6 +420,7 @@
       </axis>
     </joint>
     <link name='p2_link'>
+      <self_collide>false</self_collide>
       <pose relative_to='p2_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-0.043822530343790897 -0.025665464405496899 -0.00163306491995527 0 0 0</pose>
@@ -340,10 +464,10 @@
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -395,10 +519,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>-1000000000000000000000000000000000000000000</lower>
-          <upper>10000000000000000000000000000000000000000000</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -450,10 +574,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -505,10 +629,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -560,10 +684,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -615,10 +739,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -670,10 +794,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -725,10 +849,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -780,10 +904,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -835,10 +959,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -890,10 +1014,10 @@
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -945,10 +1069,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -1000,10 +1124,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -1055,10 +1179,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -1110,10 +1234,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -1165,10 +1289,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -1220,10 +1344,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -1275,10 +1399,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -1330,10 +1454,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -1385,10 +1509,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -1440,10 +1564,10 @@
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -1495,10 +1619,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -1550,10 +1674,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -1605,10 +1729,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -1660,10 +1784,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -1715,10 +1839,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -1770,10 +1894,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -1825,10 +1949,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -1880,10 +2004,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -1935,10 +2059,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -1990,10 +2114,10 @@
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -2045,10 +2169,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -2100,10 +2224,10 @@
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -2155,10 +2279,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -2210,10 +2334,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -2265,10 +2389,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -2320,10 +2444,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -2375,10 +2499,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -2430,10 +2554,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -2485,10 +2609,10 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e+50</lower>
+          <upper>1e+50</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>

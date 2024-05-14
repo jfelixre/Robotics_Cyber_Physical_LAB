@@ -1,51 +1,78 @@
 import os
+
 from ament_index_python.packages import get_package_share_directory
+
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
+from launch.actions import IncludeLaunchDescription
+from launch.actions import ExecuteProcess
+from launch.conditions import IfCondition
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+
 from launch_ros.actions import Node
-import launch
-import time
-import launch.actions
-import launch_ros.actions
 
 def generate_launch_description():
+    # Configure ROS nodes for launch
 
-    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
+    # Setup project paths
+    pkg_project_control_pkg = get_package_share_directory('control_pkg')
+    pkg_project_gazebo_plugin_sim = get_package_share_directory('gazebo_plugin_sim')
+    pkg_project_img_proc_pkg = get_package_share_directory('img_proc_pkg')
+    pkg_project_interfaces = get_package_share_directory('interfaces')
+    pkg_project_inv_kinematics_pkg = get_package_share_directory('inv_kinematics_pkg')
+    pkg_project_launch_pkg = get_package_share_directory('launch_pkg')
+    pkg_project_robot_custom_description = get_package_share_directory('robot_custom_description')
+    pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
 
+    #Load yaml parameters
+    config = os.path.join(
+    pkg_project_launch_pkg,
+    'config',
+    'params.yaml'
+    )
 
-    gazebo = launch.actions.ExecuteProcess(
-        cmd=['gazebo', '--verbose', 'src/gazebo_plugin_sim/worlds/Cooperative_task.world'],
+    # Setup to launch the simulator and Gazebo world
+    gz_sim = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')),
+        launch_arguments={'gz_args': PathJoinSubstitution([
+            pkg_project_gazebo_plugin_sim,
+            'worlds',
+            'empty_world.sdf'
+        ])}.items(),
+    )
+
+    # Bridge ROS topics and Gazebo messages for establishing communication
+    bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        parameters=[{
+            'config_file': os.path.join(pkg_project_launch_pkg, 'config', 'bridge.yaml'),
+            'qos_overrides./tf_static.publisher.durability': 'transient_local',
+        }],
         output='screen'
     )
 
-    gzserver = launch.actions.ExecuteProcess(
-        cmd=['gzserver', '--verbose', 'src/gazebo_plugin_sim/worlds/Cooperative_task.world'],
-        output='screen'
+    #Unpause simulation
+    bridge_unpause = ExecuteProcess(
+        cmd=[[
+            'ros2 run ros_gz_bridge parameter_bridge /world/empty_world/control@ros_gz_interfaces/srv/ControlWorld'
+        ]],
+        shell=True
+    )
+
+    unpause = ExecuteProcess(
+        cmd=[[
+            'ros2 service call /world/empty_world/control ros_gz_interfaces/srv/ControlWorld "{world_control: {pause: false}}"'
+        ]],
+        shell=True
     )
 
     return LaunchDescription([
-        DeclareLaunchArgument(
-            'use_sim_time',
-            default_value='true',
-            description='Use simulation (Gazebo) clock if true'),
-        #Node(
-         #   package='robot_state_publisher',
-         #   executable='robot_state_publisher',
-         #   name='robot_state_publisher',
-         #   output='screen',
-         #   parameters=[{'use_sim_time': use_sim_time, 'robot_description': robot_desc}],
-         #   arguments=[urdf]),
-        #Node(
-         #   package='robot_state_publisher',
-          #  executable='robot_state_publisher',
-           # name='robot_state_publisher',
-           # output='screen',
-           # parameters=[{'use_sim_time': use_sim_time, 'robot_description': origin_desc}],
-           # arguments=[urdf_origin]),
-        
-
-        gazebo,
-
+        gz_sim,
+        bridge,
+        bridge_unpause,
+        unpause,
         
     ])

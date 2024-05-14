@@ -1,0 +1,7 @@
+
+# Set each topic name explicitly
+- ros_topic_name: "/clock"
+  gz_topic_name: "/clock"
+  ros_type_name: "rosgraph_msgs/msg/clock"
+  gz_type_name: "gz.msgs.Clock"
+  direction: GZ_TO_ROS

@@ -88,8 +88,9 @@ class Aruco_Nano_Detector : public rclcpp::Node
 
     void topic_callback(const sensor_msgs::msg::Image::SharedPtr msg)
     { 
-
-std::cout<< "aqui0" << std::endl;
+      
+    
+      std::cout<< "aqui0" << std::endl;
       std::cout << msg->encoding << std::endl;
       //std::cout << msg->data << std::endl;
       std::cout << msg->step << std::endl;
@@ -160,8 +161,6 @@ std::cout<< "aqui0" << std::endl;
          RCLCPP_ERROR(this->get_logger(), "cv_bridge exception: %s", e.what());
        return;
        }
-
-     
 
 
       // std::vector<int> markerIds;
@@ -306,4 +305,3 @@ int main(int argc, char * argv[])
   rclcpp::shutdown();
   return 0;
 }
-
