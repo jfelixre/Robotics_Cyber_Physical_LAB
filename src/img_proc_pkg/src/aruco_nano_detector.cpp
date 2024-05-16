@@ -74,7 +74,7 @@ class Aruco_Nano_Detector : public rclcpp::Node
       //bool readOk = readCameraParameters("src/img_proc_pkg/config/camera_calib_charuco.yaml", cameraMatrix, distCoeffs);
 
       subscription_ = this->create_subscription<sensor_msgs::msg::Image>(
-      "cameras/camera1/image_raw", 10, std::bind(&Aruco_Nano_Detector::topic_callback, this, _1));
+      "/cameras/cam_1", 10, std::bind(&Aruco_Nano_Detector::topic_callback, this, _1));
 
       // Initialize the transform broadcaster
       tf_broadcaster = std::make_unique<tf2_ros::TransformBroadcaster>(*this);

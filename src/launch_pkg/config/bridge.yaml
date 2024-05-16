@@ -1,7 +1,17 @@
+- ros_topic_name: "/cameras/cam_1"
+  gz_topic_name: "/cam_1"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  direction: GZ_TO_ROS
 
-# Set each topic name explicitly
-- ros_topic_name: "/clock"
-  gz_topic_name: "/clock"
-  ros_type_name: "rosgraph_msgs/msg/clock"
-  gz_type_name: "gz.msgs.Clock"
+- ros_topic_name: "/cameras/cam_2"
+  gz_topic_name: "/cam_2"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/cameras/cam_3"
+  gz_topic_name: "/cam_3"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
   direction: GZ_TO_ROS

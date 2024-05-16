@@ -39,7 +39,7 @@ def generate_launch_description():
         launch_arguments={'gz_args': PathJoinSubstitution([
             pkg_project_gazebo_plugin_sim,
             'worlds',
-            'empty_world.sdf'
+            'world_cam.sdf'
         ])}.items(),
     )
 
@@ -57,14 +57,14 @@ def generate_launch_description():
     #Unpause simulation
     bridge_unpause = ExecuteProcess(
         cmd=[[
-            'ros2 run ros_gz_bridge parameter_bridge /world/empty_world/control@ros_gz_interfaces/srv/ControlWorld'
+            'ros2 run ros_gz_bridge parameter_bridge /world/world_cam/control@ros_gz_interfaces/srv/ControlWorld'
         ]],
         shell=True
     )
 
     unpause = ExecuteProcess(
         cmd=[[
-            'ros2 service call /world/empty_world/control ros_gz_interfaces/srv/ControlWorld "{world_control: {pause: false}}"'
+            'ros2 service call /world/world_cam/control ros_gz_interfaces/srv/ControlWorld "{world_control: {pause: false}}"'
         ]],
         shell=True
     )
