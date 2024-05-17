@@ -131,26 +131,27 @@ class Aruco_Nano_Detector : public rclcpp::Node
             else{
               RCLCPP_INFO(this->get_logger(), "IMAGE OK");
               // Define a smaller resolution
-              int new_width = 640;
-              int new_height = 480;
-
-              // Resize the original image
-              cv::resize(img_original, img_mod, cv::Size(new_width, new_height));
+              
 
 
                         cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
           std::cout<< "aqui8" << std::endl;
          //cv::resizeWindow("Display Image" 1280,720);
          
-          cv::imshow("Display Image", img_mod);
-          cv::waitKey(1);
           
            std::cout<< "aqui9" << std::endl;
           //img_original.release();
           //img_mod.release();
           std::cout<< "aqui10" << std::endl;
           
-                  auto markers = aruconano::MarkerDetector::detect(img_mod);
+            auto markers = aruconano::MarkerDetector::detect(img_original);
+            for(const auto &m:markers)
+              m.draw(img_original);
+
+          cv::imshow("Display Image", img_original);
+          cv::waitKey(1);
+          
+
         std::cout<< "aqui11" << std::endl;
             }
 

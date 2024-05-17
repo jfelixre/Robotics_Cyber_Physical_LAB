@@ -1,5 +1,5 @@
 <sdf version='1.11'>
-  <model name='robot'>
+  <model name='robot_01'>
 
     <plugin
       filename="gz-sim-joint-position-controller-system"
@@ -137,7 +137,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/base_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/base_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -146,7 +146,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/marker_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/marker_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -155,7 +155,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/base_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/base_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -168,7 +168,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/marker.dae</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/markers/marker_01.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -211,7 +211,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/b1_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/b1_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -220,7 +220,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/b1_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/b1_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -267,7 +267,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/b2_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/b2_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -276,7 +276,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/b2_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/b2_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -323,7 +323,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/b3_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/b3_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -332,7 +332,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/b3_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/b3_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -379,7 +379,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/p1_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/p1_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -388,7 +388,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/p1_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/p1_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -435,7 +435,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/p2_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/p2_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -444,7 +444,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/p2_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/p2_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -490,7 +490,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m1_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m1_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -499,7 +499,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m1_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m1_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -545,7 +545,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m1_r1_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m1_r1_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -554,7 +554,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m1_r1_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m1_r1_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -600,7 +600,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m1_r2_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m1_r2_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -609,7 +609,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m1_r2_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m1_r2_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -655,7 +655,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m1_r3_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m1_r3_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -664,7 +664,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m1_r3_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m1_r3_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -710,7 +710,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m1_r4_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m1_r4_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -719,7 +719,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m1_r4_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m1_r4_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -765,7 +765,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m1_r5_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m1_r5_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -774,7 +774,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m1_r5_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m1_r5_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -820,7 +820,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m1_r6_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m1_r6_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -829,7 +829,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m1_r6_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m1_r6_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -875,7 +875,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m1_r7_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m1_r7_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -884,7 +884,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m1_r7_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m1_r7_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -930,7 +930,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m1_r8_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m1_r8_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -939,7 +939,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m1_r8_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m1_r8_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -985,7 +985,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m1_r9_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m1_r9_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -994,7 +994,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m1_r9_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m1_r9_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -1040,7 +1040,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m2_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m2_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1049,7 +1049,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m2_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m2_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -1095,7 +1095,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m2_r1_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m2_r1_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1104,7 +1104,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m2_r1_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m2_r1_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -1150,7 +1150,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m2_r2_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m2_r2_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1159,7 +1159,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m2_r2_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m2_r2_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -1205,7 +1205,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m2_r3_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m2_r3_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1214,7 +1214,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m2_r3_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m2_r3_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -1260,7 +1260,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m2_r4_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m2_r4_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1269,7 +1269,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m2_r4_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m2_r4_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -1315,7 +1315,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m2_r5_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m2_r5_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1324,7 +1324,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m2_r5_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m2_r5_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -1370,7 +1370,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m2_r6_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m2_r6_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1379,7 +1379,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m2_r6_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m2_r6_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -1425,7 +1425,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m2_r7_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m2_r7_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1434,7 +1434,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m2_r7_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m2_r7_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -1480,7 +1480,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m2_r8_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m2_r8_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1489,7 +1489,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m2_r8_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m2_r8_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -1535,7 +1535,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m2_r9_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m2_r9_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1544,7 +1544,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m2_r9_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m2_r9_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -1590,7 +1590,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m3_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m3_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1599,7 +1599,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m3_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m3_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -1645,7 +1645,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m3_r1_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m3_r1_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1654,7 +1654,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m3_r1_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m3_r1_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -1700,7 +1700,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m3_r2_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m3_r2_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1709,7 +1709,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m3_r2_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m3_r2_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -1755,7 +1755,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m3_r3_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m3_r3_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1764,7 +1764,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m3_r3_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m3_r3_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -1810,7 +1810,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m3_r4_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m3_r4_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1819,7 +1819,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m3_r4_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m3_r4_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -1865,7 +1865,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m3_r5_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m3_r5_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1874,7 +1874,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m3_r5_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m3_r5_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -1920,7 +1920,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m3_r6_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m3_r6_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1929,7 +1929,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m3_r6_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m3_r6_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -1975,7 +1975,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m3_r7_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m3_r7_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1984,7 +1984,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m3_r7_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m3_r7_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -2030,7 +2030,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m3_r8_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m3_r8_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -2039,7 +2039,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m3_r8_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m3_r8_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -2085,7 +2085,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m3_r9_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m3_r9_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -2094,7 +2094,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m3_r9_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m3_r9_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -2140,7 +2140,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m4_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m4_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -2149,7 +2149,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m4_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m4_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -2195,7 +2195,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m4_r1_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m4_r1_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -2204,7 +2204,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m4_r1_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m4_r1_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -2250,7 +2250,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m4_r2_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m4_r2_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -2259,7 +2259,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m4_r2_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m4_r2_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -2305,7 +2305,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m4_r3_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m4_r3_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -2314,7 +2314,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m4_r3_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m4_r3_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -2360,7 +2360,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m4_r4_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m4_r4_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -2369,7 +2369,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m4_r4_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m4_r4_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -2415,7 +2415,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m4_r5_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m4_r5_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -2424,7 +2424,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m4_r5_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m4_r5_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -2470,7 +2470,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m4_r6_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m4_r6_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -2479,7 +2479,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m4_r6_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m4_r6_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -2525,7 +2525,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m4_r7_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m4_r7_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -2534,7 +2534,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m4_r7_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m4_r7_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -2580,7 +2580,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m4_r8_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m4_r8_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -2589,7 +2589,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m4_r8_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m4_r8_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -2635,7 +2635,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m4_r9_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m4_r9_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -2644,7 +2644,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot/meshes/m4_r9_link.STL</uri>
+            <uri>../../../../install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/m4_r9_link.STL</uri>
           </mesh>
         </geometry>
         <material>

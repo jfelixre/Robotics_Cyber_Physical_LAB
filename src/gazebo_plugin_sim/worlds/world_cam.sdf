@@ -53,6 +53,15 @@
             <specular>0.800000012 0.800000012 0.800000012 1</specular>
           </material>
         </visual>
+        <visual name='base_link_fixed_joint_lump__marker_link_visual_1'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>../../../../robot_custom_description/share/robot_custom_description/models/markers/marker_00.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
         <pose>0 0 0 0 0 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
@@ -119,8 +128,8 @@
           <camera>
             <horizontal_fov>1.39626</horizontal_fov>
             <image>
-              <width>1280</width>
-              <height>720</height>
+              <width>3840</width>
+              <height>2160</height>
             </image>
             <clip>
                 <near>0.02</near>
