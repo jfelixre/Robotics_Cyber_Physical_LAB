@@ -15,3 +15,39 @@
   ros_type_name: "std_msgs/msg/Float64"
   gz_type_name: "gz.msgs.Double"
   direction: ROS_TO_GZ
+
+- ros_topic_name: "/robot_01/p1_joint/controller"
+  gz_topic_name: "/model/robot_01/joint/p1_joint/0/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/robot_01/p2_joint/controller"
+  gz_topic_name: "/model/robot_01/joint/p1_joint/0/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/robot_01/m1_joint/controller"
+  gz_topic_name: "/model/robot_01/joint/m1_joint/cmd_vel"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/robot_01/m2_joint/controller"
+  gz_topic_name: "/model/robot_01/joint/m2_joint/cmd_vel"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/robot_01/m3_joint/controller"
+  gz_topic_name: "/model/robot_01/joint/m3_joint/cmd_vel"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/robot_01/m4_joint/controller"
+  gz_topic_name: "/model/robot_01/joint/m4_joint/cmd_vel"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ
