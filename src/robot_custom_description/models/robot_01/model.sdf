@@ -5,26 +5,26 @@
       filename="gz-sim-joint-position-controller-system"
       name="gz::sim::systems::JointPositionController">
       <joint_name>b1_joint</joint_name>
-      <p_gain>1</p_gain>
-      <i_gain>0</i_gain>
-      <d_gain>0</d_gain>
+      <p_gain>3</p_gain>
+      <i_gain>0.1</i_gain>
+      <d_gain>1</d_gain>
       <i_max>0.01</i_max>
       <i_min>-0.01</i_min>
-      <cmd_max>1000</cmd_max>
-      <cmd_min>-1000</cmd_min>
+      <cmd_max>50</cmd_max>
+      <cmd_min>-50</cmd_min>
     </plugin>
 
     <plugin
       filename="gz-sim-joint-position-controller-system"
       name="gz::sim::systems::JointPositionController">
       <joint_name>b2_joint</joint_name>
-      <p_gain>1</p_gain>
-      <i_gain>0</i_gain>
-      <d_gain>0</d_gain>
-      <i_max>0.01</i_max>
-      <i_min>-0.01</i_min>
-      <cmd_max>1000</cmd_max>
-      <cmd_min>-1000</cmd_min>
+      <p_gain>2.2</p_gain>
+      <i_gain>0.1</i_gain>
+      <d_gain>0.05</d_gain>
+      <i_max>0.1</i_max>
+      <i_min>-0.1</i_min>
+      <cmd_max>100</cmd_max>
+      <cmd_min>-100</cmd_min>
     </plugin>
 
     <plugin
@@ -32,12 +32,12 @@
       name="gz::sim::systems::JointPositionController">
       <joint_name>b3_joint</joint_name>
       <p_gain>1</p_gain>
-      <i_gain>0</i_gain>
-      <d_gain>0</d_gain>
+      <i_gain>0.1</i_gain>
+      <d_gain>0.01</d_gain>
       <i_max>0.01</i_max>
       <i_min>-0.01</i_min>
-      <cmd_max>1000</cmd_max>
-      <cmd_min>-1000</cmd_min>
+      <cmd_max>100</cmd_max>
+      <cmd_min>-100</cmd_min>
     </plugin>
 
     <plugin
@@ -183,7 +183,7 @@
           <lower>-1.5</lower>
           <upper>1.5</upper>
           <effort>-1</effort>
-          <velocity>-1</velocity>
+          <velocity>1.5</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -239,7 +239,7 @@
           <lower>-1.5</lower>
           <upper>1.5</upper>
           <effort>-1</effort>
-          <velocity>-1</velocity>
+          <velocity>1.5</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -295,7 +295,7 @@
           <lower>-1.5</lower>
           <upper>1.5</upper>
           <effort>-1</effort>
-          <velocity>-1</velocity>
+          <velocity>1.5</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
