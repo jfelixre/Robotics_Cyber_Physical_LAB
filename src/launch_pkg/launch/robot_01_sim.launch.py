@@ -62,17 +62,27 @@ def generate_launch_description():
         output='screen'
     )
 
-    # #Unpause simulation
-    # bridge_unpause = ExecuteProcess(
-    #     cmd=[[
-    #         'ros2 run ros_gz_bridge parameter_bridge /world/world_cam/control@ros_gz_interfaces/srv/ControlWorld'
-    #     ]],
-    #     shell=True
-    # )
+    # Load the SDF file from "description" package
+    sdf_file  =  os.path.join(pkg_project_robot_custom_description, 'models', 'robot_01', 'model.urdf')
+    with open(sdf_file, 'r') as infp:
+        robot_desc = infp.read()
+
+    # Takes the description and joint angles as inputs and publishes the 3D poses of the robot links
+    robot_state_publisher = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        name='robot_01',
+        output='both',
+        parameters=[
+            {'use_sim_time': True},
+            {'robot_description': robot_desc},
+            {'topic': "robot_01_desc"}
+        ]
+    )
 
     return LaunchDescription([
         gz_robot_spawn,
         bridge,
-        #bridge_unpause,
-        
+        robot_state_publisher,
+       
     ])
