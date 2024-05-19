@@ -36,7 +36,7 @@ def generate_launch_description():
     file = os.path.join(
         pkg_project_robot_custom_description,
         'models',
-        'robot_01',
+        'robot_02',
         'model.sdf'
     )
     #Command to spawn robot in Gazebo on an especific position
@@ -44,7 +44,7 @@ def generate_launch_description():
         cmd=[[
             'ros2 run ros_gz_sim create --args -file "',
             file,
-            '" -name robot_01 -x -1 -y 1 -z 0.09'
+            '" -name robot_02 -x -1 -y -1 -z 0.09'
 
         ]],
         shell=True
@@ -56,14 +56,14 @@ def generate_launch_description():
         package='ros_gz_bridge',
         executable='parameter_bridge',
         parameters=[{
-            'config_file': os.path.join(pkg_project_launch_pkg, 'config', 'bridge_r01.yaml'),
+            'config_file': os.path.join(pkg_project_launch_pkg, 'config', 'bridge_r02.yaml'),
             'qos_overrides./tf_static.publisher.durability': 'transient_local',
         }],
         output='screen'
     )
 
     # Load the SDF file from "description" package
-    sdf_file  =  os.path.join(pkg_project_robot_custom_description, 'models', 'robot_01', 'model.urdf')
+    sdf_file  =  os.path.join(pkg_project_robot_custom_description, 'models', 'robot_02', 'model.urdf')
     with open(sdf_file, 'r') as infp:
         robot_desc = infp.read()
 
@@ -71,7 +71,7 @@ def generate_launch_description():
     robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
-        name='robot_01',
+        name='robot_02',
         output='both',
         parameters=[
             {'use_sim_time': True},
