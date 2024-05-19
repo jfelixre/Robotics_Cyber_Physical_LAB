@@ -5,7 +5,7 @@
 <robot
   name="robot_02">
   <link
-    name="base_link">
+    name="robot_02/base_link">
     <inertial>
       <origin
         xyz="0.0103857253265371 -0.000205599523822091 -0.00748402142103605"
@@ -45,7 +45,7 @@
     </collision>
   </link>
   <link
-    name="marker_link">
+    name="robot_02/marker_link">
     <inertial>
       <origin
         xyz="0 -2.08166817117217E-17 -0.000500000000000028"
@@ -85,20 +85,20 @@
     </collision>
   </link>
   <joint
-    name="marker_joint"
+    name="robot_02/marker_joint"
     type="fixed">
     <origin
       xyz="-0.0874999999999998 0 0.000999999999999876"
       rpy="0 0 0" />
     <parent
-      link="base_link" />
+      link="robot_02/base_link" />
     <child
-      link="marker_link" />
+      link="robot_02/marker_link" />
     <axis
       xyz="0 0 0" />
   </joint>
   <link
-    name="m1_link">
+    name="robot_02/m1_link">
     <inertial>
       <origin
         xyz="5.69874588490782E-07 1.35586710442448E-07 0.0259400149137022"
@@ -138,15 +138,15 @@
     </collision>
   </link>
   <joint
-    name="m1_joint"
+    name="robot_02/m1_joint"
     type="revolute">
     <origin
       xyz="0.109379000000001 0.1082375 -0.0411999999999994"
       rpy="-1.5707963267949 0 0" />
     <parent
-      link="base_link" />
+      link="robot_02/base_link" />
     <child
-      link="m1_link" />
+      link="robot_02/m1_link" />
     <axis
       xyz="0 0 1" />
     <limit
@@ -156,7 +156,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m1_r1_link">
+    name="robot_02/m1_r1_link">
     <inertial>
       <origin
         xyz="0 1.38777878078145E-17 -1.22124532708767E-15"
@@ -196,15 +196,15 @@
     </collision>
   </link>
   <joint
-    name="m1_r1_joint"
+    name="robot_02/m1_r1_joint"
     type="revolute">
     <origin
       xyz="0.00228576835926038 -0.0386256329447082 0.0259400148238971"
       rpy="0.0417838903360263 -0.784524199152443 3.14159265358979" />
     <parent
-      link="m1_link" />
+      link="robot_02/m1_link" />
     <child
-      link="m1_r1_link" />
+      link="robot_02/m1_r1_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -214,7 +214,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m1_r2_link">
+    name="robot_02/m1_r2_link">
     <inertial>
       <origin
         xyz="0 -1.04083408558608E-17 1.22124532708767E-15"
@@ -254,15 +254,15 @@
     </collision>
   </link>
   <joint
-    name="m1_r2_joint"
+    name="robot_02/m1_r2_joint"
     type="revolute">
     <origin
       xyz="-0.0230770781232902 -0.0310582150591934 0.0259400148238969"
       rpy="-0.435348808486292 -0.676372195563374 3.14159265358979" />
     <parent
-      link="m1_link" />
+      link="robot_02/m1_link" />
     <child
-      link="m1_r2_link" />
+      link="robot_02/m1_r2_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -272,7 +272,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m1_r3_link">
+    name="robot_02/m1_r3_link">
     <inertial>
       <origin
         xyz="-1.38777878078145E-17 -1.38777878078145E-17 1.22124532708767E-15"
@@ -312,15 +312,15 @@
     </collision>
   </link>
   <joint
-    name="m1_r3_joint"
+    name="robot_02/m1_r3_joint"
     type="revolute">
     <origin
       xyz="-0.0376419032788015 -0.00895831317387084 0.0259400148238967"
       rpy="-0.758584186899929 -0.227513058576119 3.14159265358979" />
     <parent
-      link="m1_link" />
+      link="robot_02/m1_link" />
     <child
-      link="m1_r3_link" />
+      link="robot_02/m1_r3_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -330,7 +330,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m1_r4_link">
+    name="robot_02/m1_r4_link">
     <inertial>
       <origin
         xyz="2.77555756156289E-17 1.38777878078145E-17 1.19348975147204E-15"
@@ -370,15 +370,15 @@
     </collision>
   </link>
   <joint
-    name="m1_r4_joint"
+    name="robot_02/m1_r4_joint"
     type="revolute">
     <origin
       xyz="-0.0345936635470029 0.0173332830060698 0.0259400148238979"
       rpy="-0.68437497069708 0.421162065084444 3.14159265358979" />
     <parent
-      link="m1_link" />
+      link="robot_02/m1_link" />
     <child
-      link="m1_r4_link" />
+      link="robot_02/m1_r4_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -388,7 +388,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m1_r5_link">
+    name="robot_02/m1_r5_link">
     <inertial>
       <origin
         xyz="2.77555756156289E-17 -1.04083408558608E-17 -1.29063426612674E-15"
@@ -428,15 +428,15 @@
     </collision>
   </link>
   <joint
-    name="m1_r5_joint"
+    name="robot_02/m1_r5_joint"
     type="revolute">
     <origin
       xyz="-0.0153586641758173 0.0355144434294841 0.0259400148238974"
       rpy="-0.284497299709382 0.742588273963812 3.14159265358979" />
     <parent
-      link="m1_link" />
+      link="robot_02/m1_link" />
     <child
-      link="m1_r5_link" />
+      link="robot_02/m1_r5_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -446,7 +446,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m1_r6_link">
+    name="robot_02/m1_r6_link">
     <inertial>
       <origin
         xyz="0 -1.38777878078145E-17 -1.29063426612674E-15"
@@ -486,15 +486,15 @@
     </collision>
   </link>
   <joint
-    name="m1_r6_joint"
+    name="robot_02/m1_r6_joint"
     type="revolute">
     <origin
       xyz="0.0110628248557701 0.0370780010731753 0.0259400148238963"
       rpy="0.203572981562908 0.764084510811395 3.14159265358979" />
     <parent
-      link="m1_link" />
+      link="robot_02/m1_link" />
     <child
-      link="m1_r6_link" />
+      link="robot_02/m1_r6_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -504,7 +504,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m1_r7_link">
+    name="robot_02/m1_r7_link">
     <inertial>
       <origin
         xyz="2.77555756156289E-17 0 -1.30451205393456E-15"
@@ -544,15 +544,15 @@
     </collision>
   </link>
   <joint
-    name="m1_r7_joint"
+    name="robot_02/m1_r7_joint"
     type="revolute">
     <origin
       xyz="0.0323078951877397 0.021292349938641 0.0259400148238976"
       rpy="0.631575557955456 0.503063157038392 3.14159265358979" />
     <parent
-      link="m1_link" />
+      link="robot_02/m1_link" />
     <child
-      link="m1_r7_link" />
+      link="robot_02/m1_r7_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -562,7 +562,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m1_r8_link">
+    name="robot_02/m1_r8_link">
     <inertial>
       <origin
         xyz="0 -2.77555756156289E-17 -1.37390099297363E-15"
@@ -602,15 +602,15 @@
     </collision>
   </link>
   <joint
-    name="m1_r8_joint"
+    name="robot_02/m1_r8_joint"
     type="revolute">
     <origin
       xyz="0.0384357422991067 -0.00445622837028984 0.0259400148238975"
       rpy="0.778766107665016 -0.114663063476541 3.14159265358979" />
     <parent
-      link="m1_link" />
+      link="robot_02/m1_link" />
     <child
-      link="m1_r8_link" />
+      link="robot_02/m1_r8_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -620,7 +620,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m1_r9_link">
+    name="robot_02/m1_r9_link">
     <inertial>
       <origin
         xyz="-2.77555756156289E-17 0 -1.36002320516582E-15"
@@ -660,15 +660,15 @@
     </collision>
   </link>
   <joint
-    name="m1_r9_joint"
+    name="robot_02/m1_r9_joint"
     type="revolute">
     <origin
       xyz="0.0265790784230276 -0.0281196878993006 0.0259400148238971"
       rpy="0.507192055712444 -0.628444159041816 3.14159265358979" />
     <parent
-      link="m1_link" />
+      link="robot_02/m1_link" />
     <child
-      link="m1_r9_link" />
+      link="robot_02/m1_r9_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -678,7 +678,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m2_link">
+    name="robot_02/m2_link">
     <inertial>
       <origin
         xyz="-5.85436599490063E-07 1.86965666795769E-07 0.025940014817397"
@@ -718,15 +718,15 @@
     </collision>
   </link>
   <joint
-    name="m2_joint"
+    name="robot_02/m2_joint"
     type="revolute">
     <origin
       xyz="0.109379000000009 -0.1082375 -0.0412000000000078"
       rpy="1.5707963267949 0 0" />
     <parent
-      link="base_link" />
+      link="robot_02/base_link" />
     <child
-      link="m2_link" />
+      link="robot_02/m2_link" />
     <axis
       xyz="0 0 1" />
     <limit
@@ -736,7 +736,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m2_r1_link">
+    name="robot_02/m2_r1_link">
     <inertial>
       <origin
         xyz="5.55111512312578E-16 -9.08995101411847E-16 2.02615701994091E-15"
@@ -776,15 +776,15 @@
     </collision>
   </link>
   <joint
-    name="m2_r1_joint"
+    name="robot_02/m2_r1_joint"
     type="revolute">
     <origin
       xyz="-0.00821200013368631 0.0378117350987201 0.0259400148239006"
       rpy="-0.150640941344919 0.773876910786465 0" />
     <parent
-      link="m2_link" />
+      link="robot_02/m2_link" />
     <child
-      link="m2_r1_link" />
+      link="robot_02/m2_r1_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -794,7 +794,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m2_r2_link">
+    name="robot_02/m2_r2_link">
     <inertial>
       <origin
         xyz="7.7715611723761E-16 -1.12063136548102E-15 1.49880108324396E-15"
@@ -834,15 +834,15 @@
     </collision>
   </link>
   <joint
-    name="m2_r2_joint"
+    name="robot_02/m2_r2_joint"
     type="revolute">
     <origin
       xyz="-0.0305956718915099 0.0236868976203842 0.0259400148239005"
       rpy="-0.593332154467762 0.549321456352373 0" />
     <parent
-      link="m2_link" />
+      link="robot_02/m2_link" />
     <child
-      link="m2_r2_link" />
+      link="robot_02/m2_r2_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -852,7 +852,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m2_r3_link">
+    name="robot_02/m2_r3_link">
     <inertial>
       <origin
         xyz="1.12410081243297E-15 -7.21644966006352E-16 8.60422844084496E-16"
@@ -892,15 +892,15 @@
     </collision>
   </link>
   <joint
-    name="m2_r3_joint"
+    name="robot_02/m2_r3_joint"
     type="revolute">
     <origin
       xyz="-0.0386632887382795 -0.00152130250507301 0.0259400148239004"
       rpy="-0.784625248127032 -0.0392968033136395 0" />
     <parent
-      link="m2_link" />
+      link="robot_02/m2_link" />
     <child
-      link="m2_r3_link" />
+      link="robot_02/m2_r3_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -910,7 +910,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m2_r4_link">
+    name="robot_02/m2_r4_link">
     <inertial>
       <origin
         xyz="1.11022302462516E-15 -4.71844785465692E-16 5.27355936696949E-16"
@@ -950,15 +950,15 @@
     </collision>
   </link>
   <joint
-    name="m2_r4_joint"
+    name="robot_02/m2_r4_joint"
     type="revolute">
     <origin
       xyz="-0.0286399230898176 -0.0260176682810129 0.0259400148239003"
       rpy="-0.550819887589805 -0.591967673843851 0" />
     <parent
-      link="m2_link" />
+      link="robot_02/m2_link" />
     <child
-      link="m2_r4_link" />
+      link="robot_02/m2_r4_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -968,7 +968,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m2_r5_link">
+    name="robot_02/m2_r5_link">
     <inertial>
       <origin
         xyz="9.71445146547012E-16 -7.16440795578421E-16 6.24500451351651E-16"
@@ -1008,15 +1008,15 @@
     </collision>
   </link>
   <joint
-    name="m2_r5_joint"
+    name="robot_02/m2_r5_joint"
     type="revolute">
     <origin
       xyz="-0.00521561913034017 -0.0383400779140923 0.0259400148239006"
       rpy="-0.0954587895624903 -0.780814086828851 0" />
     <parent
-      link="m2_link" />
+      link="robot_02/m2_link" />
     <child
-      link="m2_r5_link" />
+      link="robot_02/m2_r5_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -1026,7 +1026,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m2_r6_link">
+    name="robot_02/m2_r6_link">
     <inertial>
       <origin
         xyz="1.0547118733939E-15 -8.88178419700125E-16 1.06858966120171E-15"
@@ -1066,15 +1066,15 @@
     </collision>
   </link>
   <joint
-    name="m2_r6_joint"
+    name="robot_02/m2_r6_joint"
     type="revolute">
     <origin
       xyz="0.0206491309853728 -0.0327227389886652 0.0259400148239008"
       rpy="0.386940296049201 -0.701990791531358 0" />
     <parent
-      link="m2_link" />
+      link="robot_02/m2_link" />
     <child
-      link="m2_r6_link" />
+      link="robot_02/m2_r6_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -1084,7 +1084,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m2_r7_link">
+    name="robot_02/m2_r7_link">
     <inertial>
       <origin
         xyz="1.16573417585641E-15 -5.55111512312578E-16 1.76941794549634E-15"
@@ -1124,15 +1124,15 @@
     </collision>
   </link>
   <joint
-    name="m2_r7_joint"
+    name="robot_02/m2_r7_joint"
     type="revolute">
     <origin
       xyz="0.0368519232235012 -0.0117940668177069 0.0259400148239009"
       rpy="0.738876576610092 -0.295863549532841 0" />
     <parent
-      link="m2_link" />
+      link="robot_02/m2_link" />
     <child
-      link="m2_r7_link" />
+      link="robot_02/m2_r7_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -1142,7 +1142,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m2_r8_link">
+    name="robot_02/m2_r8_link">
     <inertial>
       <origin
         xyz="9.15933995315754E-16 -1.38777878078145E-16 2.24820162486594E-15"
@@ -1182,15 +1182,15 @@
     </collision>
   </link>
   <joint
-    name="m2_r8_joint"
+    name="robot_02/m2_r8_joint"
     type="revolute">
     <origin
       xyz="0.0358112910218474 0.0146531802937085 0.0259400148239008"
       rpy="0.713442588606791 0.362011974105762 0" />
     <parent
-      link="m2_link" />
+      link="robot_02/m2_link" />
     <child
-      link="m2_r8_link" />
+      link="robot_02/m2_r8_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -1200,7 +1200,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m2_r9_link">
+    name="robot_02/m2_r9_link">
     <inertial>
       <origin
         xyz="6.24500451351651E-16 -4.16333634234434E-16 2.35922392732846E-15"
@@ -1240,15 +1240,15 @@
     </collision>
   </link>
   <joint
-    name="m2_r9_joint"
+    name="robot_02/m2_r9_joint"
     type="revolute">
     <origin
       xyz="0.0180141577529039 0.0342440414937381 0.0259400148239017"
       rpy="0.335459767615501 0.724473747873283 0" />
     <parent
-      link="m2_link" />
+      link="robot_02/m2_link" />
     <child
-      link="m2_r9_link" />
+      link="robot_02/m2_r9_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -1258,7 +1258,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m3_link">
+    name="robot_02/m3_link">
     <inertial>
       <origin
         xyz="5.8338847695738E-07 -1.93334345297003E-07 0.0259400148166086"
@@ -1298,15 +1298,15 @@
     </collision>
   </link>
   <joint
-    name="m3_joint"
+    name="robot_02/m3_joint"
     type="revolute">
     <origin
       xyz="-0.109379000000082 0.1082375 -0.0411999999998636"
       rpy="-1.5707963267949 0 0" />
     <parent
-      link="base_link" />
+      link="robot_02/base_link" />
     <child
-      link="m3_link" />
+      link="robot_02/m3_link" />
     <axis
       xyz="0 0 1" />
     <limit
@@ -1316,7 +1316,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m3_r1_link">
+    name="robot_02/m3_r1_link">
     <inertial>
       <origin
         xyz="-3.60822483003176E-16 -6.24500451351651E-17 1.2490009027033E-15"
@@ -1356,15 +1356,15 @@
     </collision>
   </link>
   <joint
-    name="m3_r1_joint"
+    name="robot_02/m3_r1_joint"
     type="revolute">
     <origin
       xyz="0.00780265128511007 -0.0378983230538556 0.0259400148239009"
       rpy="-0.143078792692987 0.775020315169199 3.14159265358979" />
     <parent
-      link="m3_link" />
+      link="robot_02/m3_link" />
     <child
-      link="m3_r1_link" />
+      link="robot_02/m3_r1_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -1374,7 +1374,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m3_r2_link">
+    name="robot_02/m3_r2_link">
     <inertial>
       <origin
         xyz="-3.46944695195361E-16 -5.55111512312578E-17 1.33226762955019E-15"
@@ -1414,15 +1414,15 @@
     </collision>
   </link>
   <joint
-    name="m3_r2_joint"
+    name="robot_02/m3_r2_joint"
     type="revolute">
     <origin
       xyz="-0.0183833948283624 -0.034047247347707 0.0259400148239018"
       rpy="0.342614775914521 0.72161443573456 3.14159265358979" />
     <parent
-      link="m3_link" />
+      link="robot_02/m3_link" />
     <child
-      link="m3_r2_link" />
+      link="robot_02/m3_r2_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -1432,7 +1432,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m3_r3_link">
+    name="robot_02/m3_r3_link">
     <inertial>
       <origin
         xyz="-3.33066907387547E-16 1.11022302462516E-16 1.29063426612674E-15"
@@ -1472,15 +1472,15 @@
     </collision>
   </link>
   <joint
-    name="m3_r3_joint"
+    name="robot_02/m3_r3_joint"
     type="revolute">
     <origin
       xyz="-0.0359676461929685 -0.0142650862145618 0.0259400148239008"
       rpy="0.717227786921772 0.353210967679924 3.14159265358979" />
     <parent
-      link="m3_link" />
+      link="robot_02/m3_link" />
     <child
-      link="m3_r3_link" />
+      link="robot_02/m3_r3_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -1490,7 +1490,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m3_r4_link">
+    name="robot_02/m3_r4_link">
     <inertial>
       <origin
         xyz="-1.11022302462516E-16 2.22044604925031E-16 1.55431223447522E-15"
@@ -1530,15 +1530,15 @@
     </collision>
   </link>
   <joint
-    name="m3_r4_joint"
+    name="robot_02/m3_r4_joint"
     type="revolute">
     <origin
       xyz="-0.0367222361680236 0.0121918672971508 0.0259400148239009"
       rpy="0.735675192496111 -0.305243280167845 3.14159265358979" />
     <parent
-      link="m3_link" />
+      link="robot_02/m3_link" />
     <child
-      link="m3_r4_link" />
+      link="robot_02/m3_r4_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -1548,7 +1548,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m3_r5_link">
+    name="robot_02/m3_r5_link">
     <inertial>
       <origin
         xyz="5.55111512312578E-17 1.07552855510562E-16 1.55431223447522E-15"
@@ -1588,15 +1588,15 @@
     </collision>
   </link>
   <joint
-    name="m3_r5_joint"
+    name="robot_02/m3_r5_joint"
     type="revolute">
     <origin
       xyz="-0.0202940837178659 0.0329441106030149 0.025940014823901"
       rpy="0.379943833951376 -0.705316977204243 3.14159265358979" />
     <parent
-      link="m3_link" />
+      link="robot_02/m3_link" />
     <child
-      link="m3_r5_link" />
+      link="robot_02/m3_r5_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -1606,7 +1606,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m3_r6_link">
+    name="robot_02/m3_r6_link">
     <inertial>
       <origin
         xyz="5.55111512312578E-17 -9.10729824887824E-17 1.56819002228303E-15"
@@ -1646,15 +1646,15 @@
     </collision>
   </link>
   <joint
-    name="m3_r6_joint"
+    name="robot_02/m3_r6_joint"
     type="revolute">
     <origin
       xyz="0.00562989604749835 0.0382814384247221 0.0259400148239009"
       rpy="-0.103067046354698 -0.780048810900469 3.14159265358979" />
     <parent
-      link="m3_link" />
+      link="robot_02/m3_link" />
     <child
-      link="m3_r6_link" />
+      link="robot_02/m3_r6_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -1664,7 +1664,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m3_r7_link">
+    name="robot_02/m3_r7_link">
     <inertial>
       <origin
         xyz="-2.77555756156289E-17 -2.35922392732846E-16 1.47104550762833E-15"
@@ -1704,15 +1704,15 @@
     </collision>
   </link>
   <joint
-    name="m3_r7_joint"
+    name="robot_02/m3_r7_joint"
     type="revolute">
     <origin
       xyz="0.0289195848829134 0.0257064557567044 0.0259400148239008"
       rpy="-0.556828855344444 -0.586408226610345 3.14159265358979" />
     <parent
-      link="m3_link" />
+      link="robot_02/m3_link" />
     <child
-      link="m3_r7_link" />
+      link="robot_02/m3_r7_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -1722,7 +1722,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m3_r8_link">
+    name="robot_02/m3_r8_link">
     <inertial>
       <origin
         xyz="-2.08166817117217E-16 -2.4980018054066E-16 1.41553435639707E-15"
@@ -1762,15 +1762,15 @@
     </collision>
   </link>
   <joint
-    name="m3_r8_joint"
+    name="robot_02/m3_r8_joint"
     type="revolute">
     <origin
       xyz="0.0386774785462282 0.00110313674469228 0.0259400148239009"
       rpy="-0.784991758153164 -0.0285021092700616 3.14159265358979" />
     <parent
-      link="m3_link" />
+      link="robot_02/m3_link" />
     <child
-      link="m3_r8_link" />
+      link="robot_02/m3_r8_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -1780,7 +1780,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m3_r9_link">
+    name="robot_02/m3_r9_link">
     <inertial>
       <origin
         xyz="-3.7470027081099E-16 -1.45716771982052E-16 1.36002320516582E-15"
@@ -1820,15 +1820,15 @@
     </collision>
   </link>
   <joint
-    name="m3_r9_joint"
+    name="robot_02/m3_r9_joint"
     type="revolute">
     <origin
       xyz="0.0303377501454697 -0.0240163522101604 0.0259400148239009"
       rpy="-0.587657847652812 0.555491477512066 3.14159265358979" />
     <parent
-      link="m3_link" />
+      link="robot_02/m3_link" />
     <child
-      link="m3_r9_link" />
+      link="robot_02/m3_r9_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -1838,7 +1838,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m4_link">
+    name="robot_02/m4_link">
     <inertial>
       <origin
         xyz="-5.06887086595964E-07 -2.93631404538197E-07 0.0259400147384546"
@@ -1878,15 +1878,15 @@
     </collision>
   </link>
   <joint
-    name="m4_joint"
+    name="robot_02/m4_joint"
     type="revolute">
     <origin
       xyz="-0.109379 -0.1082375 -0.0412000000000007"
       rpy="1.5707963267949 0 0" />
     <parent
-      link="base_link" />
+      link="robot_02/base_link" />
     <child
-      link="m4_link" />
+      link="robot_02/m4_link" />
     <axis
       xyz="0 0 1" />
     <limit
@@ -1896,7 +1896,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m4_r1_link">
+    name="robot_02/m4_r1_link">
     <inertial>
       <origin
         xyz="-1.38777878078145E-17 -6.93889390390723E-17 1.11022302462516E-15"
@@ -1936,15 +1936,15 @@
     </collision>
   </link>
   <joint
-    name="m4_r1_joint"
+    name="robot_02/m4_r1_joint"
     type="revolute">
     <origin
       xyz="0.0131833857778636 0.036378051030856 0.025940014823897"
       rpy="-0.243316166077614 -0.754568490942695 0" />
     <parent
-      link="m4_link" />
+      link="robot_02/m4_link" />
     <child
-      link="m4_r1_link" />
+      link="robot_02/m4_r1_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -1954,7 +1954,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m4_r2_link">
+    name="robot_02/m4_r2_link">
     <inertial>
       <origin
         xyz="-1.38777878078145E-17 -6.93889390390723E-17 -1.2490009027033E-15"
@@ -1994,15 +1994,15 @@
     </collision>
   </link>
   <joint
-    name="m4_r2_joint"
+    name="robot_02/m4_r2_joint"
     type="revolute">
     <origin
       xyz="-0.0132843010505526 0.0363413208754141 0.0259400148238971"
       rpy="0.245216782606616 -0.754064372015612 0" />
     <parent
-      link="m4_link" />
+      link="robot_02/m4_link" />
     <child
-      link="m4_r2_link" />
+      link="robot_02/m4_r2_link" />
     <axis
       xyz="0 0 1" />
     <limit
@@ -2012,7 +2012,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m4_r3_link">
+    name="robot_02/m4_r3_link">
     <inertial>
       <origin
         xyz="0 -1.11022302462516E-16 -1.26287869051112E-15"
@@ -2052,15 +2052,15 @@
     </collision>
   </link>
   <joint
-    name="m4_r3_joint"
+    name="robot_02/m4_r3_joint"
     type="revolute">
     <origin
       xyz="-0.0335361157788547 0.0193000827935733 0.025940014823897"
       rpy="0.659678052589828 -0.46268531073941 0" />
     <parent
-      link="m4_link" />
+      link="robot_02/m4_link" />
     <child
-      link="m4_r3_link" />
+      link="robot_02/m4_r3_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -2070,7 +2070,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m4_r4_link">
+    name="robot_02/m4_r4_link">
     <inertial>
       <origin
         xyz="0 -1.11022302462516E-16 -1.26981758441502E-15"
@@ -2110,15 +2110,15 @@
     </collision>
   </link>
   <joint
-    name="m4_r4_joint"
+    name="robot_02/m4_r4_joint"
     type="revolute">
     <origin
       xyz="-0.0380960092218195 -0.0067718785239083 0.0259400148238974"
       rpy="0.770080701636149 0.173259892811608 0" />
     <parent
-      link="m4_link" />
+      link="robot_02/m4_link" />
     <child
-      link="m4_r4_link" />
+      link="robot_02/m4_r4_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -2128,7 +2128,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m4_r5_link">
+    name="robot_02/m4_r5_link">
     <inertial>
       <origin
         xyz="0 -1.45716771982052E-16 -1.2490009027033E-15"
@@ -2168,15 +2168,15 @@
     </collision>
   </link>
   <joint
-    name="m4_r5_joint"
+    name="robot_02/m4_r5_joint"
     type="revolute">
     <origin
       xyz="-0.0248303565599136 -0.0296752026190064 0.0259400148238976"
       rpy="0.470988454485595 0.654252157673773 0" />
     <parent
-      link="m4_link" />
+      link="robot_02/m4_link" />
     <child
-      link="m4_r5_link" />
+      link="robot_02/m4_r5_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -2186,7 +2186,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m4_r6_link">
+    name="robot_02/m4_r6_link">
     <inertial>
       <origin
         xyz="8.32667268468867E-17 -1.23599047663348E-16 -1.27675647831893E-15"
@@ -2226,15 +2226,15 @@
     </collision>
   </link>
   <joint
-    name="m4_r6_joint"
+    name="robot_02/m4_r6_joint"
     type="revolute">
     <origin
       xyz="5.36958950512478E-05 -0.0386931696055349 0.0259400148238963"
       rpy="-0.000981276577522423 0.785397681945272 0" />
     <parent
-      link="m4_link" />
+      link="robot_02/m4_link" />
     <child
-      link="m4_r6_link" />
+      link="robot_02/m4_r6_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -2244,7 +2244,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m4_r7_link">
+    name="robot_02/m4_r7_link">
     <inertial>
       <origin
         xyz="5.55111512312578E-17 -8.32667268468867E-17 -1.32532873564628E-15"
@@ -2284,15 +2284,15 @@
     </collision>
   </link>
   <joint
-    name="m4_r7_joint"
+    name="robot_02/m4_r7_joint"
     type="revolute">
     <origin
       xyz="0.0249126234439565 -0.0296061725069484 0.0259400148238975"
       rpy="-0.472676273649131 0.653127875272481 0" />
     <parent
-      link="m4_link" />
+      link="robot_02/m4_link" />
     <child
-      link="m4_r7_link" />
+      link="robot_02/m4_r7_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -2302,7 +2302,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m4_r8_link">
+    name="robot_02/m4_r8_link">
     <inertial>
       <origin
         xyz="2.77555756156289E-17 -2.08166817117217E-17 1.09634523681734E-15"
@@ -2342,15 +2342,15 @@
     </collision>
   </link>
   <joint
-    name="m4_r8_joint"
+    name="robot_02/m4_r8_joint"
     type="revolute">
     <origin
       xyz="0.0381146576104692 -0.0066661182564095 0.0259400148238981"
       rpy="-0.770555550274693 0.170606597523424 0" />
     <parent
-      link="m4_link" />
+      link="robot_02/m4_link" />
     <child
-      link="m4_r8_link" />
+      link="robot_02/m4_r8_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -2360,7 +2360,7 @@
       velocity="0" />
   </joint>
   <link
-    name="m4_r9_link">
+    name="robot_02/m4_r9_link">
     <inertial>
       <origin
         xyz="-1.38777878078145E-17 -5.55111512312578E-17 1.0547118733939E-15"
@@ -2400,15 +2400,15 @@
     </collision>
   </link>
   <joint
-    name="m4_r9_joint"
+    name="robot_02/m4_r9_joint"
     type="revolute">
     <origin
       xyz="0.0334824198838078 0.019393086811959 0.025940014823897"
       rpy="-0.658436825683223 -0.464608212552487 0" />
     <parent
-      link="m4_link" />
+      link="robot_02/m4_link" />
     <child
-      link="m4_r9_link" />
+      link="robot_02/m4_r9_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -2418,7 +2418,7 @@
       velocity="0" />
   </joint>
   <link
-    name="b1_link">
+    name="robot_02/b1_link">
     <inertial>
       <origin
         xyz="-5.55111512312578E-17 -0.0473772752653725 0.00241712871433793"
@@ -2458,15 +2458,15 @@
     </collision>
   </link>
   <joint
-    name="b1_joint"
+    name="robot_02/b1_joint"
     type="revolute">
     <origin
       xyz="0.0749999999999994 0 0.0620000000000007"
       rpy="-1.5707963267949 0 0" />
     <parent
-      link="base_link" />
+      link="robot_02/base_link" />
     <child
-      link="b1_link" />
+      link="robot_02/b1_link" />
     <axis
       xyz="0 0 1" />
     <limit
@@ -2476,7 +2476,7 @@
       velocity="0" />
   </joint>
   <link
-    name="b2_link">
+    name="robot_02/b2_link">
     <inertial>
       <origin
         xyz="-6.80011602582908E-16 -0.0447651469128215 -0.00163199184522184"
@@ -2516,15 +2516,15 @@
     </collision>
   </link>
   <joint
-    name="b2_joint"
+    name="robot_02/b2_joint"
     type="revolute">
     <origin
       xyz="0 -0.075 0"
       rpy="0 0 0" />
     <parent
-      link="b1_link" />
+      link="robot_02/b1_link" />
     <child
-      link="b2_link" />
+      link="robot_02/b2_link" />
     <axis
       xyz="0 0 1" />
     <limit
@@ -2534,7 +2534,7 @@
       velocity="0" />
   </joint>
   <link
-    name="b3_link">
+    name="robot_02/b3_link">
     <inertial>
       <origin
         xyz="-0.00482189826747086 -0.0394279554061021 -3.62818619422459E-05"
@@ -2574,15 +2574,15 @@
     </collision>
   </link>
   <joint
-    name="b3_joint"
+    name="robot_02/b3_joint"
     type="revolute">
     <origin
       xyz="0 -0.0699999999999995 0"
       rpy="0 0 0" />
     <parent
-      link="b2_link" />
+      link="robot_02/b2_link" />
     <child
-      link="b3_link" />
+      link="robot_02/b3_link" />
     <axis
       xyz="0 0 1" />
     <limit
@@ -2592,7 +2592,7 @@
       velocity="0" />
   </joint>
   <link
-    name="p1_link">
+    name="robot_02/p1_link">
     <inertial>
       <origin
         xyz="0.039661 0.017125 0.00069045"
@@ -2632,15 +2632,15 @@
     </collision>
   </link>
   <joint
-    name="p1_joint"
+    name="robot_02/p1_joint"
     type="revolute">
     <origin
       xyz="0 -0.099605 0.0135"
       rpy="1.5708 0 -1.5708" />
     <parent
-      link="b3_link" />
+      link="robot_02/b3_link" />
     <child
-      link="p1_link" />
+      link="robot_02/p1_link" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -2649,12 +2649,12 @@
       effort="0"
       velocity="0" />
     <mimic
-      joint="p2_joint"
+      joint="robot_02/p2_joint"
       multiplier="-1"
       offset="0" />
   </joint>
   <link
-    name="p2_link">
+    name="robot_02/p2_link">
     <inertial>
       <origin
         xyz="0.039661 -0.017125 0.00069045"
@@ -2694,15 +2694,15 @@
     </collision>
   </link>
   <joint
-    name="p2_joint"
+    name="robot_02/p2_joint"
     type="revolute">
     <origin
       xyz="0 -0.099605 -0.0135"
       rpy="1.5708 0 -1.5708" />
     <parent
-      link="b3_link" />
+      link="robot_02/b3_link" />
     <child
-      link="p2_link" />
+      link="robot_02/p2_link" />
     <axis
       xyz="0 0 1" />
     <limit
@@ -2711,12 +2711,12 @@
       effort="0"
       velocity="0" />
     <mimic
-      joint="p1_joint"
+      joint="robot_02/p1_joint"
       multiplier="-1"
       offset="0" />
   </joint>
   <link
-    name="gr_ref_link">
+    name="robot_02/gr_ref_link">
     <inertial>
       <origin
         xyz="1.4544E-14 -1.9082E-15 0.0025"
@@ -2756,15 +2756,15 @@
     </collision>
   </link>
   <joint
-    name="gr_ref_joint"
+    name="robot_02/gr_ref_joint"
     type="fixed">
     <origin
       xyz="0 -0.174 0"
       rpy="1.5708 0 -1.5708" />
     <parent
-      link="b3_link" />
+      link="robot_02/b3_link" />
     <child
-      link="gr_ref_link" />
+      link="robot_02/gr_ref_link" />
     <axis
       xyz="0 0 0" />
   </joint>

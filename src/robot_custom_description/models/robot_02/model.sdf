@@ -18,7 +18,7 @@
     <plugin
       filename="gz-sim-joint-position-controller-system"
       name="gz::sim::systems::JointPositionController">
-      <joint_name>b1_joint</joint_name>
+      <joint_name>robot_02/b1_joint</joint_name>
       <p_gain>3</p_gain>
       <i_gain>0.1</i_gain>
       <d_gain>1</d_gain>
@@ -31,7 +31,7 @@
     <plugin
       filename="gz-sim-joint-position-controller-system"
       name="gz::sim::systems::JointPositionController">
-      <joint_name>b2_joint</joint_name>
+      <joint_name>robot_02/b2_joint</joint_name>
       <p_gain>2.2</p_gain>
       <i_gain>0.1</i_gain>
       <d_gain>0.05</d_gain>
@@ -44,7 +44,7 @@
     <plugin
       filename="gz-sim-joint-position-controller-system"
       name="gz::sim::systems::JointPositionController">
-      <joint_name>b3_joint</joint_name>
+      <joint_name>robot_02/b3_joint</joint_name>
       <p_gain>1</p_gain>
       <i_gain>0.1</i_gain>
       <d_gain>0.01</d_gain>
@@ -57,7 +57,7 @@
     <plugin
       filename="gz-sim-joint-position-controller-system"
       name="gz::sim::systems::JointPositionController">
-      <joint_name>p1_joint</joint_name>
+      <joint_name>robot_02/p1_joint</joint_name>
       <p_gain>1</p_gain>
       <i_gain>0.1</i_gain>
       <d_gain>0.01</d_gain>
@@ -70,7 +70,7 @@
     <plugin
       filename="gz-sim-joint-position-controller-system"
       name="gz::sim::systems::JointPositionController">
-      <joint_name>p2_joint</joint_name>
+      <joint_name>robot_02/p2_joint</joint_name>
       <p_gain>1</p_gain>
       <i_gain>0.1</i_gain>
       <d_gain>0.01</d_gain>
@@ -83,7 +83,7 @@
     <plugin
       filename="gz-sim-joint-controller-system"
       name="gz::sim::systems::JointController">
-      <joint_name>m1_joint</joint_name>
+      <joint_name>robot_02/m1_joint</joint_name>
       <initial_velocity>0</initial_velocity>
       <p_gain>1</p_gain>
       <i_gain>0</i_gain>
@@ -97,7 +97,7 @@
     <plugin
       filename="gz-sim-joint-controller-system"
       name="gz::sim::systems::JointController">
-      <joint_name>m2_joint</joint_name>
+      <joint_name>robot_02/m2_joint</joint_name>
       <initial_velocity>0</initial_velocity>
       <p_gain>1</p_gain>
       <i_gain>0</i_gain>
@@ -111,7 +111,7 @@
     <plugin
       filename="gz-sim-joint-controller-system"
       name="gz::sim::systems::JointController">
-      <joint_name>m3_joint</joint_name>
+      <joint_name>robot_02/m3_joint</joint_name>
       <initial_velocity>0</initial_velocity>
       <p_gain>1</p_gain>
       <i_gain>0</i_gain>
@@ -125,7 +125,7 @@
     <plugin
       filename="gz-sim-joint-controller-system"
       name="gz::sim::systems::JointController">
-      <joint_name>m4_joint</joint_name>
+      <joint_name>robot_02/m4_joint</joint_name>
       <initial_velocity>0</initial_velocity>
       <p_gain>1</p_gain>
       <i_gain>0</i_gain>
@@ -136,7 +136,7 @@
       <cmd_min>-1000</cmd_min>
     </plugin>
 
-    <link name='base_link'>
+    <link name='robot_02/base_link'>
     <self_collide>false</self_collide>
       <inertial>
         <pose>0.009321158480657326 -0.00020336350385227929 -0.0073971903282155681 0 0 0</pose>
@@ -150,7 +150,7 @@
           <izz>0.0086962464179098</izz>
         </inertia>
       </inertial>
-      <collision name='base_link_collision'>
+      <collision name='robot_02/base_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -159,7 +159,7 @@
           </mesh>
         </geometry>
       </collision>
-      <collision name='base_link_fixed_joint_lump__marker_link_collision_1'>
+      <collision name='robot_02/base_link_fixed_joint_lump__marker_link_collision_1'>
         <pose>-0.087499999999999994 0 0.001 0 0 0</pose>
         <geometry>
           <mesh>
@@ -168,7 +168,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='base_link_visual'>
+      <visual name='robot_02/base_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -181,7 +181,7 @@
           <ambient>0.990199983 1 1 1</ambient>
         </material>
       </visual>
-      <visual name='base_link_fixed_joint_lump__marker_link_visual_1'>
+      <visual name='robot_02/base_link_fixed_joint_lump__marker_link_visual_1'>
         <pose>-0.087499999999999994 0 0.001 0 0 0</pose>
         <geometry>
           <mesh>
@@ -191,10 +191,10 @@
         </geometry>
       </visual>
     </link>
-    <joint name='b1_joint' type='revolute'>
-      <pose relative_to='base_link'>0.0749999999999994 0 0.0620000000000007 -1.5707963267949003 0 0</pose>
-      <parent>base_link</parent>
-      <child>b1_link</child>
+    <joint name='robot_02/b1_joint' type='revolute'>
+      <pose relative_to='robot_02/base_link'>0.0749999999999994 0 0.0620000000000007 -1.5707963267949003 0 0</pose>
+      <parent>robot_02/base_link</parent>
+      <child>robot_02/b1_link</child>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -209,9 +209,9 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='b1_link'>
+    <link name='robot_02/b1_link'>
       <self_collide>false</self_collide>
-      <pose relative_to='b1_joint'>0 0 0 0 0 0</pose>
+      <pose relative_to='robot_02/b1_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-5.5511151231257802e-17 -0.047377275265372498 0.0024171287143379301 0 0 0</pose>
         <mass>0.233473387976464</mass>
@@ -224,7 +224,7 @@
           <izz>0.00027198113306566002</izz>
         </inertia>
       </inertial>
-      <collision name='b1_link_collision'>
+      <collision name='robot_02/b1_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -233,7 +233,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='b1_link_visual'>
+      <visual name='robot_02/b1_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -247,10 +247,10 @@
         </material>
       </visual>
     </link>
-    <joint name='b2_joint' type='revolute'>
-      <pose relative_to='b1_link'>0 -0.074999999999999997 0 0 0 0</pose>
-      <parent>b1_link</parent>
-      <child>b2_link</child>
+    <joint name='robot_02/b2_joint' type='revolute'>
+      <pose relative_to='robot_02/b1_link'>0 -0.074999999999999997 0 0 0 0</pose>
+      <parent>robot_02/b1_link</parent>
+      <child>robot_02/b2_link</child>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -265,9 +265,9 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='b2_link'>
+    <link name='robot_02/b2_link'>
       <self_collide>false</self_collide>
-      <pose relative_to='b2_joint'>0 0 0 0 0 0</pose>
+      <pose relative_to='robot_02/b2_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-6.8001160258290799e-16 -0.044765146912821498 -0.00163199184522184 0 0 0</pose>
         <mass>0.21624485416319</mass>
@@ -280,7 +280,7 @@
           <izz>0.00023110931364758299</izz>
         </inertia>
       </inertial>
-      <collision name='b2_link_collision'>
+      <collision name='robot_02/b2_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -289,7 +289,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='b2_link_visual'>
+      <visual name='robot_02/b2_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -303,10 +303,10 @@
         </material>
       </visual>
     </link>
-    <joint name='b3_joint' type='revolute'>
-      <pose relative_to='b2_link'>0 -0.069999999999999493 0 0 0 0</pose>
-      <parent>b2_link</parent>
-      <child>b3_link</child>
+    <joint name='robot_02/b3_joint' type='revolute'>
+      <pose relative_to='robot_02/b2_link'>0 -0.069999999999999493 0 0 0 0</pose>
+      <parent>robot_02/b2_link</parent>
+      <child>robot_02/b3_link</child>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -321,9 +321,9 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='b3_link'>
+    <link name='robot_02/b3_link'>
       <self_collide>false</self_collide>
-      <pose relative_to='b3_joint'>0 0 0 0 0 0</pose>
+      <pose relative_to='robot_02/b3_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-0.0048159432423113364 -0.039773095358121471 -3.6188832579745327e-05 0 0 0</pose>
         <mass>0.19495285118911301</mass>
@@ -336,7 +336,7 @@
           <izz>9.9443891545002432e-05</izz>
         </inertia>
       </inertial>
-      <collision name='b3_link_collision'>
+      <collision name='robot_02/b3_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -345,7 +345,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='b3_link_visual'>
+      <visual name='robot_02/b3_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -358,7 +358,7 @@
           <ambient>0.990196109 1 1 1</ambient>
         </material>
       </visual>
-      <visual name='b3_link_fixed_joint_lump__gr_ref_link_visual_1'>
+      <visual name='robot_02/b3_link_fixed_joint_lump__gr_ref_link_visual_1'>
         <pose>0 -0.17399999999999999 0 1.5708 5.5511151231257827e-17 -1.5708</pose>
         <geometry>
           <mesh>
@@ -368,10 +368,10 @@
         </geometry>
       </visual>
     </link>
-    <joint name='p1_joint' type='revolute'>
-      <pose relative_to='b3_link'>0 -0.099604999999999999 0.0135 1.5708 5.5511151231257827e-17 -1.5708</pose>
-      <parent>b3_link</parent>
-      <child>p1_link</child>
+    <joint name='robot_02/p1_joint' type='revolute'>
+      <pose relative_to='robot_02/b3_link'>0 -0.099604999999999999 0.0135 1.5708 5.5511151231257827e-17 -1.5708</pose>
+      <parent>robot_02/b3_link</parent>
+      <child>robot_02/p1_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -386,9 +386,9 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='p1_link'>
+    <link name='robot_02/p1_link'>
       <self_collide>false</self_collide>
-      <pose relative_to='p1_joint'>0 0 0 0 0 0</pose>
+      <pose relative_to='robot_02/p1_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0.039661000000000002 0.017125000000000001 0.00069045 0 0 0</pose>
         <mass>0.0032658000000000001</mass>
@@ -401,7 +401,7 @@
           <izz>9.8247999999999999e-07</izz>
         </inertia>
       </inertial>
-      <collision name='p1_link_collision'>
+      <collision name='robot_02/p1_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -410,7 +410,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='p1_link_visual'>
+      <visual name='robot_02/p1_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -424,10 +424,10 @@
         </material>
       </visual>
     </link>
-    <joint name='p2_joint' type='revolute'>
-      <pose relative_to='b3_link'>0 -0.099604999999999999 -0.0135 1.5708 5.5511151231257827e-17 -1.5708</pose>
-      <parent>b3_link</parent>
-      <child>p2_link</child>
+    <joint name='robot_02/p2_joint' type='revolute'>
+      <pose relative_to='robot_02/b3_link'>0 -0.099604999999999999 -0.0135 1.5708 5.5511151231257827e-17 -1.5708</pose>
+      <parent>robot_02/b3_link</parent>
+      <child>robot_02/p2_link</child>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -442,9 +442,9 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='p2_link'>
+    <link name='robot_02/p2_link'>
       <self_collide>false</self_collide>
-      <pose relative_to='p2_joint'>0 0 0 0 0 0</pose>
+      <pose relative_to='robot_02/p2_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0.039661000000000002 -0.017125000000000001 0.00069045 0 0 0</pose>
         <mass>0.0032658000000000001</mass>
@@ -457,7 +457,7 @@
           <izz>9.8247999999999999e-07</izz>
         </inertia>
       </inertial>
-      <collision name='p2_link_collision'>
+      <collision name='robot_02/p2_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -466,7 +466,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='p2_link_visual'>
+      <visual name='robot_02/p2_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -480,10 +480,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m1_joint' type='revolute'>
-      <pose relative_to='base_link'>0.109379000000001 0.1082375 -0.041199999999999397 -1.5707963267949003 0 0</pose>
-      <parent>base_link</parent>
-      <child>m1_link</child>
+    <joint name='robot_02/m1_joint' type='revolute'>
+      <pose relative_to='robot_02/base_link'>0.109379000000001 0.1082375 -0.041199999999999397 -1.5707963267949003 0 0</pose>
+      <parent>robot_02/base_link</parent>
+      <child>robot_02/m1_link</child>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -498,8 +498,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m1_link'>
-      <pose relative_to='m1_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m1_link'>
+      <pose relative_to='robot_02/m1_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>5.6987458849078198e-07 1.3558671044244799e-07 0.025940014913702202 0 0 0</pose>
         <mass>0.34874792087087497</mass>
@@ -512,7 +512,7 @@
           <izz>0.00019652579028434699</izz>
         </inertia>
       </inertial>
-      <collision name='m1_link_collision'>
+      <collision name='robot_02/m1_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -521,7 +521,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m1_link_visual'>
+      <visual name='robot_02/m1_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -535,10 +535,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m1_r1_joint' type='revolute'>
-      <pose relative_to='m1_link'>0.0022857683592603802 -0.038625632944708201 0.025940014823897101 0.041783890336026301 -0.78452419915244331 3.14159265358979</pose>
-      <parent>m1_link</parent>
-      <child>m1_r1_link</child>
+    <joint name='robot_02/m1_r1_joint' type='revolute'>
+      <pose relative_to='robot_02/m1_link'>0.0022857683592603802 -0.038625632944708201 0.025940014823897101 0.041783890336026301 -0.78452419915244331 3.14159265358979</pose>
+      <parent>robot_02/m1_link</parent>
+      <child>robot_02/m1_r1_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -553,8 +553,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m1_r1_link'>
-      <pose relative_to='m1_r1_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m1_r1_link'>
+      <pose relative_to='robot_02/m1_r1_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 1.38777878078145e-17 -1.22124532708767e-15 0 0 0</pose>
         <mass>0.0092920144264038405</mass>
@@ -567,7 +567,7 @@
           <izz>3.5275076513038902e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m1_r1_link_collision'>
+      <collision name='robot_02/m1_r1_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -576,7 +576,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m1_r1_link_visual'>
+      <visual name='robot_02/m1_r1_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -590,10 +590,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m1_r2_joint' type='revolute'>
-      <pose relative_to='m1_link'>-0.023077078123290198 -0.0310582150591934 0.025940014823896899 -0.43534880848629198 -0.67637219556337402 3.14159265358979</pose>
-      <parent>m1_link</parent>
-      <child>m1_r2_link</child>
+    <joint name='robot_02/m1_r2_joint' type='revolute'>
+      <pose relative_to='robot_02/m1_link'>-0.023077078123290198 -0.0310582150591934 0.025940014823896899 -0.43534880848629198 -0.67637219556337402 3.14159265358979</pose>
+      <parent>robot_02/m1_link</parent>
+      <child>robot_02/m1_r2_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -608,8 +608,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m1_r2_link'>
-      <pose relative_to='m1_r2_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m1_r2_link'>
+      <pose relative_to='robot_02/m1_r2_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 -1.0408340855860799e-17 1.22124532708767e-15 0 0 0</pose>
         <mass>0.0092920144264037503</mass>
@@ -622,7 +622,7 @@
           <izz>3.52750765128069e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m1_r2_link_collision'>
+      <collision name='robot_02/m1_r2_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -631,7 +631,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m1_r2_link_visual'>
+      <visual name='robot_02/m1_r2_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -645,10 +645,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m1_r3_joint' type='revolute'>
-      <pose relative_to='m1_link'>-0.0376419032788015 -0.0089583131738708403 0.025940014823896702 -0.75858418689992901 -0.22751305857611914 3.14159265358979</pose>
-      <parent>m1_link</parent>
-      <child>m1_r3_link</child>
+    <joint name='robot_02/m1_r3_joint' type='revolute'>
+      <pose relative_to='robot_02/m1_link'>-0.0376419032788015 -0.0089583131738708403 0.025940014823896702 -0.75858418689992901 -0.22751305857611914 3.14159265358979</pose>
+      <parent>robot_02/m1_link</parent>
+      <child>robot_02/m1_r3_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -663,8 +663,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m1_r3_link'>
-      <pose relative_to='m1_r3_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m1_r3_link'>
+      <pose relative_to='robot_02/m1_r3_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-1.38777878078145e-17 -1.38777878078145e-17 1.22124532708767e-15 0 0 0</pose>
         <mass>0.0092920144264037503</mass>
@@ -677,7 +677,7 @@
           <izz>3.52750765127391e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m1_r3_link_collision'>
+      <collision name='robot_02/m1_r3_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -686,7 +686,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m1_r3_link_visual'>
+      <visual name='robot_02/m1_r3_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -700,10 +700,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m1_r4_joint' type='revolute'>
-      <pose relative_to='m1_link'>-0.034593663547002898 0.017333283006069799 0.025940014823897899 -0.68437497069708009 0.42116206508444404 3.14159265358979</pose>
-      <parent>m1_link</parent>
-      <child>m1_r4_link</child>
+    <joint name='robot_02/m1_r4_joint' type='revolute'>
+      <pose relative_to='robot_02/m1_link'>-0.034593663547002898 0.017333283006069799 0.025940014823897899 -0.68437497069708009 0.42116206508444404 3.14159265358979</pose>
+      <parent>robot_02/m1_link</parent>
+      <child>robot_02/m1_r4_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -718,8 +718,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m1_r4_link'>
-      <pose relative_to='m1_r4_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m1_r4_link'>
+      <pose relative_to='robot_02/m1_r4_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>2.7755575615628901e-17 1.38777878078145e-17 1.1934897514720399e-15 0 0 0</pose>
         <mass>0.0092920144264038405</mass>
@@ -732,7 +732,7 @@
           <izz>3.5275076512897803e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m1_r4_link_collision'>
+      <collision name='robot_02/m1_r4_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -741,7 +741,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m1_r4_link_visual'>
+      <visual name='robot_02/m1_r4_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -755,10 +755,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m1_r5_joint' type='revolute'>
-      <pose relative_to='m1_link'>-0.015358664175817299 0.035514443429484101 0.025940014823897399 -0.28449729970938198 0.74258827396381211 3.14159265358979</pose>
-      <parent>m1_link</parent>
-      <child>m1_r5_link</child>
+    <joint name='robot_02/m1_r5_joint' type='revolute'>
+      <pose relative_to='robot_02/m1_link'>-0.015358664175817299 0.035514443429484101 0.025940014823897399 -0.28449729970938198 0.74258827396381211 3.14159265358979</pose>
+      <parent>robot_02/m1_link</parent>
+      <child>robot_02/m1_r5_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -773,8 +773,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m1_r5_link'>
-      <pose relative_to='m1_r5_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m1_r5_link'>
+      <pose relative_to='robot_02/m1_r5_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>2.7755575615628901e-17 -1.0408340855860799e-17 -1.2906342661267399e-15 0 0 0</pose>
         <mass>0.0092920144264038405</mass>
@@ -787,7 +787,7 @@
           <izz>3.5275076513038902e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m1_r5_link_collision'>
+      <collision name='robot_02/m1_r5_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -796,7 +796,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m1_r5_link_visual'>
+      <visual name='robot_02/m1_r5_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -810,10 +810,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m1_r6_joint' type='revolute'>
-      <pose relative_to='m1_link'>0.011062824855770099 0.037078001073175298 0.025940014823896299 0.20357298156290815 0.76408451081139517 3.14159265358979</pose>
-      <parent>m1_link</parent>
-      <child>m1_r6_link</child>
+    <joint name='robot_02/m1_r6_joint' type='revolute'>
+      <pose relative_to='robot_02/m1_link'>0.011062824855770099 0.037078001073175298 0.025940014823896299 0.20357298156290815 0.76408451081139517 3.14159265358979</pose>
+      <parent>robot_02/m1_link</parent>
+      <child>robot_02/m1_r6_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -828,8 +828,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m1_r6_link'>
-      <pose relative_to='m1_r6_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m1_r6_link'>
+      <pose relative_to='robot_02/m1_r6_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 -1.38777878078145e-17 -1.2906342661267399e-15 0 0 0</pose>
         <mass>0.0092920144264038405</mass>
@@ -842,7 +842,7 @@
           <izz>3.5275076512957799e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m1_r6_link_collision'>
+      <collision name='robot_02/m1_r6_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -851,7 +851,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m1_r6_link_visual'>
+      <visual name='robot_02/m1_r6_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -865,10 +865,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m1_r7_joint' type='revolute'>
-      <pose relative_to='m1_link'>0.032307895187739702 0.021292349938641 0.0259400148238976 0.63157555795545595 0.50306315703839199 3.14159265358979</pose>
-      <parent>m1_link</parent>
-      <child>m1_r7_link</child>
+    <joint name='robot_02/m1_r7_joint' type='revolute'>
+      <pose relative_to='robot_02/m1_link'>0.032307895187739702 0.021292349938641 0.0259400148238976 0.63157555795545595 0.50306315703839199 3.14159265358979</pose>
+      <parent>robot_02/m1_link</parent>
+      <child>robot_02/m1_r7_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -883,8 +883,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m1_r7_link'>
-      <pose relative_to='m1_r7_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m1_r7_link'>
+      <pose relative_to='robot_02/m1_r7_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>2.7755575615628901e-17 0 -1.3045120539345599e-15 0 0 0</pose>
         <mass>0.0092920144264038006</mass>
@@ -897,7 +897,7 @@
           <izz>3.5275076512823698e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m1_r7_link_collision'>
+      <collision name='robot_02/m1_r7_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -906,7 +906,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m1_r7_link_visual'>
+      <visual name='robot_02/m1_r7_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -920,10 +920,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m1_r8_joint' type='revolute'>
-      <pose relative_to='m1_link'>0.0384357422991067 -0.00445622837028984 0.0259400148238975 0.77876610766501597 -0.11466306347654098 3.14159265358979</pose>
-      <parent>m1_link</parent>
-      <child>m1_r8_link</child>
+    <joint name='robot_02/m1_r8_joint' type='revolute'>
+      <pose relative_to='robot_02/m1_link'>0.0384357422991067 -0.00445622837028984 0.0259400148238975 0.77876610766501597 -0.11466306347654098 3.14159265358979</pose>
+      <parent>robot_02/m1_link</parent>
+      <child>robot_02/m1_r8_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -938,8 +938,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m1_r8_link'>
-      <pose relative_to='m1_r8_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m1_r8_link'>
+      <pose relative_to='robot_02/m1_r8_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 -2.7755575615628901e-17 -1.37390099297363e-15 0 0 0</pose>
         <mass>0.0092920144264038908</mass>
@@ -952,7 +952,7 @@
           <izz>3.5275076513122499e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m1_r8_link_collision'>
+      <collision name='robot_02/m1_r8_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -961,7 +961,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m1_r8_link_visual'>
+      <visual name='robot_02/m1_r8_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -975,10 +975,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m1_r9_joint' type='revolute'>
-      <pose relative_to='m1_link'>0.026579078423027602 -0.0281196878993006 0.025940014823897101 0.50719205571244397 -0.62844415904181627 3.14159265358979</pose>
-      <parent>m1_link</parent>
-      <child>m1_r9_link</child>
+    <joint name='robot_02/m1_r9_joint' type='revolute'>
+      <pose relative_to='robot_02/m1_link'>0.026579078423027602 -0.0281196878993006 0.025940014823897101 0.50719205571244397 -0.62844415904181627 3.14159265358979</pose>
+      <parent>robot_02/m1_link</parent>
+      <child>robot_02/m1_r9_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -993,8 +993,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m1_r9_link'>
-      <pose relative_to='m1_r9_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m1_r9_link'>
+      <pose relative_to='robot_02/m1_r9_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-2.7755575615628901e-17 0 -1.3600232051658199e-15 0 0 0</pose>
         <mass>0.0092920144264038908</mass>
@@ -1007,7 +1007,7 @@
           <izz>3.5275076513080402e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m1_r9_link_collision'>
+      <collision name='robot_02/m1_r9_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1016,7 +1016,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m1_r9_link_visual'>
+      <visual name='robot_02/m1_r9_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1030,10 +1030,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m2_joint' type='revolute'>
-      <pose relative_to='base_link'>0.109379000000009 -0.1082375 -0.0412000000000078 1.5707963267949003 0 0</pose>
-      <parent>base_link</parent>
-      <child>m2_link</child>
+    <joint name='robot_02/m2_joint' type='revolute'>
+      <pose relative_to='robot_02/base_link'>0.109379000000009 -0.1082375 -0.0412000000000078 1.5707963267949003 0 0</pose>
+      <parent>robot_02/base_link</parent>
+      <child>robot_02/m2_link</child>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -1048,8 +1048,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m2_link'>
-      <pose relative_to='m2_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m2_link'>
+      <pose relative_to='robot_02/m2_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-5.8543659949006301e-07 1.8696566679576899e-07 0.025940014817397002 0 0 0</pose>
         <mass>0.33159524637186999</mass>
@@ -1062,7 +1062,7 @@
           <izz>0.00018679719174587099</izz>
         </inertia>
       </inertial>
-      <collision name='m2_link_collision'>
+      <collision name='robot_02/m2_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1071,7 +1071,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m2_link_visual'>
+      <visual name='robot_02/m2_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1085,10 +1085,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m2_r1_joint' type='revolute'>
-      <pose relative_to='m2_link'>-0.0082120001336863108 0.037811735098720101 0.025940014823900601 -0.15064094134491901 0.77387691078646481 -9.701945680090308e-18</pose>
-      <parent>m2_link</parent>
-      <child>m2_r1_link</child>
+    <joint name='robot_02/m2_r1_joint' type='revolute'>
+      <pose relative_to='robot_02/m2_link'>-0.0082120001336863108 0.037811735098720101 0.025940014823900601 -0.15064094134491901 0.77387691078646481 -9.701945680090308e-18</pose>
+      <parent>robot_02/m2_link</parent>
+      <child>robot_02/m2_r1_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -1103,8 +1103,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m2_r1_link'>
-      <pose relative_to='m2_r1_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m2_r1_link'>
+      <pose relative_to='robot_02/m2_r1_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>5.5511151231257797e-16 -9.0899510141184692e-16 2.0261570199409099e-15 0 0 0</pose>
         <mass>0.0092920144264038908</mass>
@@ -1117,7 +1117,7 @@
           <izz>3.5275076513101101e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m2_r1_link_collision'>
+      <collision name='robot_02/m2_r1_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1126,7 +1126,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m2_r1_link_visual'>
+      <visual name='robot_02/m2_r1_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1140,10 +1140,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m2_r2_joint' type='revolute'>
-      <pose relative_to='m2_link'>-0.030595671891509899 0.023686897620384201 0.025940014823900501 -0.59333215446776211 0.54932145635237328 -3.2543392298530016e-17</pose>
-      <parent>m2_link</parent>
-      <child>m2_r2_link</child>
+    <joint name='robot_02/m2_r2_joint' type='revolute'>
+      <pose relative_to='robot_02/m2_link'>-0.030595671891509899 0.023686897620384201 0.025940014823900501 -0.59333215446776211 0.54932145635237328 -3.2543392298530016e-17</pose>
+      <parent>robot_02/m2_link</parent>
+      <child>robot_02/m2_r2_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -1158,8 +1158,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m2_r2_link'>
-      <pose relative_to='m2_r2_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m2_r2_link'>
+      <pose relative_to='robot_02/m2_r2_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>7.7715611723760997e-16 -1.1206313654810199e-15 1.4988010832439599e-15 0 0 0</pose>
         <mass>0.0092920144264038908</mass>
@@ -1172,7 +1172,7 @@
           <izz>3.5275076513101e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m2_r2_link_collision'>
+      <collision name='robot_02/m2_r2_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1181,7 +1181,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m2_r2_link_visual'>
+      <visual name='robot_02/m2_r2_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1195,10 +1195,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m2_r3_joint' type='revolute'>
-      <pose relative_to='m2_link'>-0.038663288738279497 -0.0015213025050730101 0.0259400148239004 -0.78462524812703194 -0.039296803313639501 1.7360637519476779e-18</pose>
-      <parent>m2_link</parent>
-      <child>m2_r3_link</child>
+    <joint name='robot_02/m2_r3_joint' type='revolute'>
+      <pose relative_to='robot_02/m2_link'>-0.038663288738279497 -0.0015213025050730101 0.0259400148239004 -0.78462524812703194 -0.039296803313639501 1.7360637519476779e-18</pose>
+      <parent>robot_02/m2_link</parent>
+      <child>robot_02/m2_r3_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -1213,8 +1213,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m2_r3_link'>
-      <pose relative_to='m2_r3_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m2_r3_link'>
+      <pose relative_to='robot_02/m2_r3_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>1.12410081243297e-15 -7.2164496600635205e-16 8.6042284408449602e-16 0 0 0</pose>
         <mass>0.0092920144264037399</mass>
@@ -1227,7 +1227,7 @@
           <izz>3.52750765128069e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m2_r3_link_collision'>
+      <collision name='robot_02/m2_r3_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1236,7 +1236,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m2_r3_link_visual'>
+      <visual name='robot_02/m2_r3_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1250,10 +1250,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m2_r4_joint' type='revolute'>
-      <pose relative_to='m2_link'>-0.028639923089817599 -0.026017668281012901 0.0259400148239003 -0.55081988758980505 -0.59196767384385118 0</pose>
-      <parent>m2_link</parent>
-      <child>m2_r4_link</child>
+    <joint name='robot_02/m2_r4_joint' type='revolute'>
+      <pose relative_to='robot_02/m2_link'>-0.028639923089817599 -0.026017668281012901 0.0259400148239003 -0.55081988758980505 -0.59196767384385118 0</pose>
+      <parent>robot_02/m2_link</parent>
+      <child>robot_02/m2_r4_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -1268,8 +1268,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m2_r4_link'>
-      <pose relative_to='m2_r4_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m2_r4_link'>
+      <pose relative_to='robot_02/m2_r4_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>1.1102230246251601e-15 -4.7184478546569202e-16 5.2735593669694896e-16 0 0 0</pose>
         <mass>0.0092920144264038908</mass>
@@ -1282,7 +1282,7 @@
           <izz>3.5275076513101101e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m2_r4_link_collision'>
+      <collision name='robot_02/m2_r4_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1291,7 +1291,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m2_r4_link_visual'>
+      <visual name='robot_02/m2_r4_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1305,10 +1305,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m2_r5_joint' type='revolute'>
-      <pose relative_to='m2_link'>-0.0052156191303401704 -0.038340077914092302 0.025940014823900601 -0.095458789562490307 -0.78081408682885134 9.7684015581410421e-18</pose>
-      <parent>m2_link</parent>
-      <child>m2_r5_link</child>
+    <joint name='robot_02/m2_r5_joint' type='revolute'>
+      <pose relative_to='robot_02/m2_link'>-0.0052156191303401704 -0.038340077914092302 0.025940014823900601 -0.095458789562490307 -0.78081408682885134 9.7684015581410421e-18</pose>
+      <parent>robot_02/m2_link</parent>
+      <child>robot_02/m2_r5_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -1323,8 +1323,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m2_r5_link'>
-      <pose relative_to='m2_r5_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m2_r5_link'>
+      <pose relative_to='robot_02/m2_r5_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>9.7144514654701197e-16 -7.1644079557842103e-16 6.2450045135165105e-16 0 0 0</pose>
         <mass>0.0092920144264038405</mass>
@@ -1337,7 +1337,7 @@
           <izz>3.5275076512917099e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m2_r5_link_collision'>
+      <collision name='robot_02/m2_r5_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1346,7 +1346,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m2_r5_link_visual'>
+      <visual name='robot_02/m2_r5_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1360,10 +1360,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m2_r6_joint' type='revolute'>
-      <pose relative_to='m2_link'>0.020649130985372799 -0.0327227389886652 0.025940014823900799 0.38694029604920088 -0.70199079153135802 0</pose>
-      <parent>m2_link</parent>
-      <child>m2_r6_link</child>
+    <joint name='robot_02/m2_r6_joint' type='revolute'>
+      <pose relative_to='robot_02/m2_link'>0.020649130985372799 -0.0327227389886652 0.025940014823900799 0.38694029604920088 -0.70199079153135802 0</pose>
+      <parent>robot_02/m2_link</parent>
+      <child>robot_02/m2_r6_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -1378,8 +1378,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m2_r6_link'>
-      <pose relative_to='m2_r6_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m2_r6_link'>
+      <pose relative_to='robot_02/m2_r6_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>1.0547118733939001e-15 -8.8817841970012504e-16 1.06858966120171e-15 0 0 0</pose>
         <mass>0.0092920144264037503</mass>
@@ -1392,7 +1392,7 @@
           <izz>3.52750765127391e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m2_r6_link_collision'>
+      <collision name='robot_02/m2_r6_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1401,7 +1401,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m2_r6_link_visual'>
+      <visual name='robot_02/m2_r6_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1415,10 +1415,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m2_r7_joint' type='revolute'>
-      <pose relative_to='m2_link'>0.036851923223501198 -0.011794066817706899 0.0259400148239009 0.73887657661009187 -0.29586354953284122 2.9016313628264014e-17</pose>
-      <parent>m2_link</parent>
-      <child>m2_r7_link</child>
+    <joint name='robot_02/m2_r7_joint' type='revolute'>
+      <pose relative_to='robot_02/m2_link'>0.036851923223501198 -0.011794066817706899 0.0259400148239009 0.73887657661009187 -0.29586354953284122 2.9016313628264014e-17</pose>
+      <parent>robot_02/m2_link</parent>
+      <child>robot_02/m2_r7_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -1433,8 +1433,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m2_r7_link'>
-      <pose relative_to='m2_r7_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m2_r7_link'>
+      <pose relative_to='robot_02/m2_r7_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>1.16573417585641e-15 -5.5511151231257797e-16 1.7694179454963401e-15 0 0 0</pose>
         <mass>0.0092920144264037503</mass>
@@ -1447,7 +1447,7 @@
           <izz>3.52750765127391e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m2_r7_link_collision'>
+      <collision name='robot_02/m2_r7_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1456,7 +1456,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m2_r7_link_visual'>
+      <visual name='robot_02/m2_r7_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1470,10 +1470,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m2_r8_joint' type='revolute'>
-      <pose relative_to='m2_link'>0.035811291021847401 0.0146531802937085 0.025940014823900799 0.71344258860679099 0.36201197410576202 1.4839599165606834e-17</pose>
-      <parent>m2_link</parent>
-      <child>m2_r8_link</child>
+    <joint name='robot_02/m2_r8_joint' type='revolute'>
+      <pose relative_to='robot_02/m2_link'>0.035811291021847401 0.0146531802937085 0.025940014823900799 0.71344258860679099 0.36201197410576202 1.4839599165606834e-17</pose>
+      <parent>robot_02/m2_link</parent>
+      <child>robot_02/m2_r8_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -1488,8 +1488,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m2_r8_link'>
-      <pose relative_to='m2_r8_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m2_r8_link'>
+      <pose relative_to='robot_02/m2_r8_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>9.1593399531575395e-16 -1.3877787807814501e-16 2.24820162486594e-15 0 0 0</pose>
         <mass>0.0092920144264037503</mass>
@@ -1502,7 +1502,7 @@
           <izz>3.52750765128069e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m2_r8_link_collision'>
+      <collision name='robot_02/m2_r8_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1511,7 +1511,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m2_r8_link_visual'>
+      <visual name='robot_02/m2_r8_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1525,10 +1525,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m2_r9_joint' type='revolute'>
-      <pose relative_to='m2_link'>0.018014157752903898 0.034244041493738102 0.025940014823901701 0.33545976761550089 0.72447374787328289 1.8532175215272846e-17</pose>
-      <parent>m2_link</parent>
-      <child>m2_r9_link</child>
+    <joint name='robot_02/m2_r9_joint' type='revolute'>
+      <pose relative_to='robot_02/m2_link'>0.018014157752903898 0.034244041493738102 0.025940014823901701 0.33545976761550089 0.72447374787328289 1.8532175215272846e-17</pose>
+      <parent>robot_02/m2_link</parent>
+      <child>robot_02/m2_r9_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -1543,8 +1543,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m2_r9_link'>
-      <pose relative_to='m2_r9_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m2_r9_link'>
+      <pose relative_to='robot_02/m2_r9_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>6.2450045135165105e-16 -4.16333634234434e-16 2.35922392732846e-15 0 0 0</pose>
         <mass>0.0092920144264038908</mass>
@@ -1557,7 +1557,7 @@
           <izz>3.5275076513122499e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m2_r9_link_collision'>
+      <collision name='robot_02/m2_r9_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1566,7 +1566,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m2_r9_link_visual'>
+      <visual name='robot_02/m2_r9_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1580,10 +1580,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m3_joint' type='revolute'>
-      <pose relative_to='base_link'>-0.10937900000008199 0.1082375 -0.041199999999863603 -1.5707963267949003 0 0</pose>
-      <parent>base_link</parent>
-      <child>m3_link</child>
+    <joint name='robot_02/m3_joint' type='revolute'>
+      <pose relative_to='robot_02/base_link'>-0.10937900000008199 0.1082375 -0.041199999999863603 -1.5707963267949003 0 0</pose>
+      <parent>robot_02/base_link</parent>
+      <child>robot_02/m3_link</child>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -1598,8 +1598,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m3_link'>
-      <pose relative_to='m3_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m3_link'>
+      <pose relative_to='robot_02/m3_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>5.8338847695737997e-07 -1.9333434529700301e-07 0.025940014816608601 0 0 0</pose>
         <mass>0.33159524632010701</mass>
@@ -1612,7 +1612,7 @@
           <izz>0.00018679719172102699</izz>
         </inertia>
       </inertial>
-      <collision name='m3_link_collision'>
+      <collision name='robot_02/m3_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1621,7 +1621,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m3_link_visual'>
+      <visual name='robot_02/m3_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1635,10 +1635,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m3_r1_joint' type='revolute'>
-      <pose relative_to='m3_link'>0.00780265128511007 -0.037898323053855598 0.0259400148239009 -0.14307879269298704 0.775020315169199 3.14159265358979</pose>
-      <parent>m3_link</parent>
-      <child>m3_r1_link</child>
+    <joint name='robot_02/m3_r1_joint' type='revolute'>
+      <pose relative_to='robot_02/m3_link'>0.00780265128511007 -0.037898323053855598 0.0259400148239009 -0.14307879269298704 0.775020315169199 3.14159265358979</pose>
+      <parent>robot_02/m3_link</parent>
+      <child>robot_02/m3_r1_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -1653,8 +1653,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m3_r1_link'>
-      <pose relative_to='m3_r1_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m3_r1_link'>
+      <pose relative_to='robot_02/m3_r1_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-3.6082248300317602e-16 -6.2450045135165105e-17 1.2490009027032999e-15 0 0 0</pose>
         <mass>0.0092920144264037503</mass>
@@ -1667,7 +1667,7 @@
           <izz>3.5275076512744003e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m3_r1_link_collision'>
+      <collision name='robot_02/m3_r1_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1676,7 +1676,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m3_r1_link_visual'>
+      <visual name='robot_02/m3_r1_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1690,10 +1690,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m3_r2_joint' type='revolute'>
-      <pose relative_to='m3_link'>-0.0183833948283624 -0.034047247347706998 0.025940014823901798 0.34261477591452105 0.72161443573456019 3.14159265358979</pose>
-      <parent>m3_link</parent>
-      <child>m3_r2_link</child>
+    <joint name='robot_02/m3_r2_joint' type='revolute'>
+      <pose relative_to='robot_02/m3_link'>-0.0183833948283624 -0.034047247347706998 0.025940014823901798 0.34261477591452105 0.72161443573456019 3.14159265358979</pose>
+      <parent>robot_02/m3_link</parent>
+      <child>robot_02/m3_r2_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -1708,8 +1708,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m3_r2_link'>
-      <pose relative_to='m3_r2_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m3_r2_link'>
+      <pose relative_to='robot_02/m3_r2_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-3.4694469519536102e-16 -5.5511151231257802e-17 1.33226762955019e-15 0 0 0</pose>
         <mass>0.0092920144264038908</mass>
@@ -1722,7 +1722,7 @@
           <izz>3.5275076513080301e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m3_r2_link_collision'>
+      <collision name='robot_02/m3_r2_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1731,7 +1731,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m3_r2_link_visual'>
+      <visual name='robot_02/m3_r2_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1745,10 +1745,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m3_r3_joint' type='revolute'>
-      <pose relative_to='m3_link'>-0.035967646192968501 -0.0142650862145618 0.025940014823900799 0.71722778692177214 0.35321096767992388 3.14159265358979</pose>
-      <parent>m3_link</parent>
-      <child>m3_r3_link</child>
+    <joint name='robot_02/m3_r3_joint' type='revolute'>
+      <pose relative_to='robot_02/m3_link'>-0.035967646192968501 -0.0142650862145618 0.025940014823900799 0.71722778692177214 0.35321096767992388 3.14159265358979</pose>
+      <parent>robot_02/m3_link</parent>
+      <child>robot_02/m3_r3_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -1763,8 +1763,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m3_r3_link'>
-      <pose relative_to='m3_r3_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m3_r3_link'>
+      <pose relative_to='robot_02/m3_r3_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-3.3306690738754701e-16 1.11022302462516e-16 1.2906342661267399e-15 0 0 0</pose>
         <mass>0.0092920144264038405</mass>
@@ -1777,7 +1777,7 @@
           <izz>3.5275076512936401e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m3_r3_link_collision'>
+      <collision name='robot_02/m3_r3_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1786,7 +1786,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m3_r3_link_visual'>
+      <visual name='robot_02/m3_r3_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1800,10 +1800,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m3_r4_joint' type='revolute'>
-      <pose relative_to='m3_link'>-0.0367222361680236 0.012191867297150801 0.0259400148239009 0.73567519249611102 -0.30524328016784502 3.14159265358979</pose>
-      <parent>m3_link</parent>
-      <child>m3_r4_link</child>
+    <joint name='robot_02/m3_r4_joint' type='revolute'>
+      <pose relative_to='robot_02/m3_link'>-0.0367222361680236 0.012191867297150801 0.0259400148239009 0.73567519249611102 -0.30524328016784502 3.14159265358979</pose>
+      <parent>robot_02/m3_link</parent>
+      <child>robot_02/m3_r4_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -1818,8 +1818,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m3_r4_link'>
-      <pose relative_to='m3_r4_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m3_r4_link'>
+      <pose relative_to='robot_02/m3_r4_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-1.11022302462516e-16 2.2204460492503101e-16 1.5543122344752199e-15 0 0 0</pose>
         <mass>0.0092920144264038908</mass>
@@ -1832,7 +1832,7 @@
           <izz>3.5275076513080301e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m3_r4_link_collision'>
+      <collision name='robot_02/m3_r4_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1841,7 +1841,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m3_r4_link_visual'>
+      <visual name='robot_02/m3_r4_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1855,10 +1855,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m3_r5_joint' type='revolute'>
-      <pose relative_to='m3_link'>-0.0202940837178659 0.032944110603014901 0.025940014823901 0.37994383395137588 -0.70531697720424291 3.14159265358979</pose>
-      <parent>m3_link</parent>
-      <child>m3_r5_link</child>
+    <joint name='robot_02/m3_r5_joint' type='revolute'>
+      <pose relative_to='robot_02/m3_link'>-0.0202940837178659 0.032944110603014901 0.025940014823901 0.37994383395137588 -0.70531697720424291 3.14159265358979</pose>
+      <parent>robot_02/m3_link</parent>
+      <child>robot_02/m3_r5_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -1873,8 +1873,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m3_r5_link'>
-      <pose relative_to='m3_r5_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m3_r5_link'>
+      <pose relative_to='robot_02/m3_r5_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>5.5511151231257802e-17 1.07552855510562e-16 1.5543122344752199e-15 0 0 0</pose>
         <mass>0.0092920144264037503</mass>
@@ -1887,7 +1887,7 @@
           <izz>3.5275076512811802e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m3_r5_link_collision'>
+      <collision name='robot_02/m3_r5_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1896,7 +1896,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m3_r5_link_visual'>
+      <visual name='robot_02/m3_r5_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1910,10 +1910,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m3_r6_joint' type='revolute'>
-      <pose relative_to='m3_link'>0.0056298960474983504 0.038281438424722099 0.0259400148239009 -0.10306704635469802 -0.78004881090046907 3.14159265358979</pose>
-      <parent>m3_link</parent>
-      <child>m3_r6_link</child>
+    <joint name='robot_02/m3_r6_joint' type='revolute'>
+      <pose relative_to='robot_02/m3_link'>0.0056298960474983504 0.038281438424722099 0.0259400148239009 -0.10306704635469802 -0.78004881090046907 3.14159265358979</pose>
+      <parent>robot_02/m3_link</parent>
+      <child>robot_02/m3_r6_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -1928,8 +1928,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m3_r6_link'>
-      <pose relative_to='m3_r6_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m3_r6_link'>
+      <pose relative_to='robot_02/m3_r6_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>5.5511151231257802e-17 -9.1072982488782397e-17 1.5681900222830301e-15 0 0 0</pose>
         <mass>0.0092920144264037503</mass>
@@ -1942,7 +1942,7 @@
           <izz>3.5275076512806799e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m3_r6_link_collision'>
+      <collision name='robot_02/m3_r6_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1951,7 +1951,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m3_r6_link_visual'>
+      <visual name='robot_02/m3_r6_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -1965,10 +1965,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m3_r7_joint' type='revolute'>
-      <pose relative_to='m3_link'>0.0289195848829134 0.0257064557567044 0.025940014823900799 -0.55682885534444404 -0.58640822661034497 3.14159265358979</pose>
-      <parent>m3_link</parent>
-      <child>m3_r7_link</child>
+    <joint name='robot_02/m3_r7_joint' type='revolute'>
+      <pose relative_to='robot_02/m3_link'>0.0289195848829134 0.0257064557567044 0.025940014823900799 -0.55682885534444404 -0.58640822661034497 3.14159265358979</pose>
+      <parent>robot_02/m3_link</parent>
+      <child>robot_02/m3_r7_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -1983,8 +1983,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m3_r7_link'>
-      <pose relative_to='m3_r7_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m3_r7_link'>
+      <pose relative_to='robot_02/m3_r7_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-2.7755575615628901e-17 -2.3592239273284601e-16 1.47104550762833e-15 0 0 0</pose>
         <mass>0.0092920144264038908</mass>
@@ -1997,7 +1997,7 @@
           <izz>3.5275076513122499e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m3_r7_link_collision'>
+      <collision name='robot_02/m3_r7_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2006,7 +2006,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m3_r7_link_visual'>
+      <visual name='robot_02/m3_r7_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2020,10 +2020,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m3_r8_joint' type='revolute'>
-      <pose relative_to='m3_link'>0.038677478546228203 0.0011031367446922801 0.0259400148239009 -0.78499175815316402 -0.028502109270061603 3.14159265358979</pose>
-      <parent>m3_link</parent>
-      <child>m3_r8_link</child>
+    <joint name='robot_02/m3_r8_joint' type='revolute'>
+      <pose relative_to='robot_02/m3_link'>0.038677478546228203 0.0011031367446922801 0.0259400148239009 -0.78499175815316402 -0.028502109270061603 3.14159265358979</pose>
+      <parent>robot_02/m3_link</parent>
+      <child>robot_02/m3_r8_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -2038,8 +2038,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m3_r8_link'>
-      <pose relative_to='m3_r8_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m3_r8_link'>
+      <pose relative_to='robot_02/m3_r8_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-2.08166817117217e-16 -2.4980018054066002e-16 1.4155343563970701e-15 0 0 0</pose>
         <mass>0.0092920144264038405</mass>
@@ -2052,7 +2052,7 @@
           <izz>3.5275076513043799e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m3_r8_link_collision'>
+      <collision name='robot_02/m3_r8_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2061,7 +2061,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m3_r8_link_visual'>
+      <visual name='robot_02/m3_r8_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2075,10 +2075,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m3_r9_joint' type='revolute'>
-      <pose relative_to='m3_link'>0.030337750145469699 -0.024016352210160401 0.0259400148239009 -0.58765784765281226 0.55549147751206607 3.14159265358979</pose>
-      <parent>m3_link</parent>
-      <child>m3_r9_link</child>
+    <joint name='robot_02/m3_r9_joint' type='revolute'>
+      <pose relative_to='robot_02/m3_link'>0.030337750145469699 -0.024016352210160401 0.0259400148239009 -0.58765784765281226 0.55549147751206607 3.14159265358979</pose>
+      <parent>robot_02/m3_link</parent>
+      <child>robot_02/m3_r9_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -2093,8 +2093,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m3_r9_link'>
-      <pose relative_to='m3_r9_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m3_r9_link'>
+      <pose relative_to='robot_02/m3_r9_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-3.7470027081098999e-16 -1.4571677198205199e-16 1.3600232051658199e-15 0 0 0</pose>
         <mass>0.0092920144264038405</mass>
@@ -2107,7 +2107,7 @@
           <izz>3.5275076513043799e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m3_r9_link_collision'>
+      <collision name='robot_02/m3_r9_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2116,7 +2116,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m3_r9_link_visual'>
+      <visual name='robot_02/m3_r9_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2130,10 +2130,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m4_joint' type='revolute'>
-      <pose relative_to='base_link'>-0.109379 -0.1082375 -0.041200000000000701 1.5707963267949003 0 0</pose>
-      <parent>base_link</parent>
-      <child>m4_link</child>
+    <joint name='robot_02/m4_joint' type='revolute'>
+      <pose relative_to='robot_02/base_link'>-0.109379 -0.1082375 -0.041200000000000701 1.5707963267949003 0 0</pose>
+      <parent>robot_02/base_link</parent>
+      <child>robot_02/m4_link</child>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -2148,8 +2148,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m4_link'>
-      <pose relative_to='m4_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m4_link'>
+      <pose relative_to='robot_02/m4_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-5.0688708659596404e-07 -2.9363140453819698e-07 0.0259400147384546 0 0 0</pose>
         <mass>0.34874792079359901</mass>
@@ -2162,7 +2162,7 @@
           <izz>0.00019652579030817599</izz>
         </inertia>
       </inertial>
-      <collision name='m4_link_collision'>
+      <collision name='robot_02/m4_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2171,7 +2171,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m4_link_visual'>
+      <visual name='robot_02/m4_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2185,10 +2185,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m4_r1_joint' type='revolute'>
-      <pose relative_to='m4_link'>0.013183385777863601 0.036378051030856 0.025940014823897 -0.24331616607761389 -0.75456849094269496 0</pose>
-      <parent>m4_link</parent>
-      <child>m4_r1_link</child>
+    <joint name='robot_02/m4_r1_joint' type='revolute'>
+      <pose relative_to='robot_02/m4_link'>0.013183385777863601 0.036378051030856 0.025940014823897 -0.24331616607761389 -0.75456849094269496 0</pose>
+      <parent>robot_02/m4_link</parent>
+      <child>robot_02/m4_r1_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -2203,8 +2203,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m4_r1_link'>
-      <pose relative_to='m4_r1_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m4_r1_link'>
+      <pose relative_to='robot_02/m4_r1_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-1.38777878078145e-17 -6.9388939039072296e-17 1.1102230246251601e-15 0 0 0</pose>
         <mass>0.0092920144264038908</mass>
@@ -2217,7 +2217,7 @@
           <izz>3.5275076513101101e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m4_r1_link_collision'>
+      <collision name='robot_02/m4_r1_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2226,7 +2226,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m4_r1_link_visual'>
+      <visual name='robot_02/m4_r1_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2240,10 +2240,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m4_r2_joint' type='revolute'>
-      <pose relative_to='m4_link'>-0.0132843010505526 0.036341320875414099 0.025940014823897101 0.245216782606616 -0.75406437201561194 0</pose>
-      <parent>m4_link</parent>
-      <child>m4_r2_link</child>
+    <joint name='robot_02/m4_r2_joint' type='revolute'>
+      <pose relative_to='robot_02/m4_link'>-0.0132843010505526 0.036341320875414099 0.025940014823897101 0.245216782606616 -0.75406437201561194 0</pose>
+      <parent>robot_02/m4_link</parent>
+      <child>robot_02/m4_r2_link</child>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -2258,8 +2258,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m4_r2_link'>
-      <pose relative_to='m4_r2_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m4_r2_link'>
+      <pose relative_to='robot_02/m4_r2_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-1.38777878078145e-17 -6.9388939039072296e-17 -1.2490009027032999e-15 0 0 0</pose>
         <mass>0.0092920144264037902</mass>
@@ -2272,7 +2272,7 @@
           <izz>3.5275076513105998e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m4_r2_link_collision'>
+      <collision name='robot_02/m4_r2_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2281,7 +2281,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m4_r2_link_visual'>
+      <visual name='robot_02/m4_r2_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2295,10 +2295,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m4_r3_joint' type='revolute'>
-      <pose relative_to='m4_link'>-0.033536115778854701 0.0193000827935733 0.025940014823897 0.65967805258982815 -0.46268531073941005 6.2033535176345257e-17</pose>
-      <parent>m4_link</parent>
-      <child>m4_r3_link</child>
+    <joint name='robot_02/m4_r3_joint' type='revolute'>
+      <pose relative_to='robot_02/m4_link'>-0.033536115778854701 0.0193000827935733 0.025940014823897 0.65967805258982815 -0.46268531073941005 6.2033535176345257e-17</pose>
+      <parent>robot_02/m4_link</parent>
+      <child>robot_02/m4_r3_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -2313,8 +2313,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m4_r3_link'>
-      <pose relative_to='m4_r3_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m4_r3_link'>
+      <pose relative_to='robot_02/m4_r3_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 -1.11022302462516e-16 -1.2628786905111199e-15 0 0 0</pose>
         <mass>0.0092920144264038405</mass>
@@ -2327,7 +2327,7 @@
           <izz>3.5275076513038902e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m4_r3_link_collision'>
+      <collision name='robot_02/m4_r3_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2336,7 +2336,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m4_r3_link_visual'>
+      <visual name='robot_02/m4_r3_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2350,10 +2350,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m4_r4_joint' type='revolute'>
-      <pose relative_to='m4_link'>-0.0380960092218195 -0.0067718785239082998 0.025940014823897399 0.77008070163614895 0.17325989281160803 -7.0443619879578111e-18</pose>
-      <parent>m4_link</parent>
-      <child>m4_r4_link</child>
+    <joint name='robot_02/m4_r4_joint' type='revolute'>
+      <pose relative_to='robot_02/m4_link'>-0.0380960092218195 -0.0067718785239082998 0.025940014823897399 0.77008070163614895 0.17325989281160803 -7.0443619879578111e-18</pose>
+      <parent>robot_02/m4_link</parent>
+      <child>robot_02/m4_r4_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -2368,8 +2368,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m4_r4_link'>
-      <pose relative_to='m4_r4_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m4_r4_link'>
+      <pose relative_to='robot_02/m4_r4_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 -1.11022302462516e-16 -1.26981758441502e-15 0 0 0</pose>
         <mass>0.0092920144264038908</mass>
@@ -2382,7 +2382,7 @@
           <izz>3.5275076513122499e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m4_r4_link_collision'>
+      <collision name='robot_02/m4_r4_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2391,7 +2391,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m4_r4_link_visual'>
+      <visual name='robot_02/m4_r4_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2405,10 +2405,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m4_r5_joint' type='revolute'>
-      <pose relative_to='m4_link'>-0.024830356559913599 -0.029675202619006399 0.0259400148238976 0.47098845448559501 0.6542521576737732 6.995705491620433e-17</pose>
-      <parent>m4_link</parent>
-      <child>m4_r5_link</child>
+    <joint name='robot_02/m4_r5_joint' type='revolute'>
+      <pose relative_to='robot_02/m4_link'>-0.024830356559913599 -0.029675202619006399 0.0259400148238976 0.47098845448559501 0.6542521576737732 6.995705491620433e-17</pose>
+      <parent>robot_02/m4_link</parent>
+      <child>robot_02/m4_r5_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -2423,8 +2423,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m4_r5_link'>
-      <pose relative_to='m4_r5_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m4_r5_link'>
+      <pose relative_to='robot_02/m4_r5_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 -1.4571677198205199e-16 -1.2490009027032999e-15 0 0 0</pose>
         <mass>0.0092920144264038405</mass>
@@ -2437,7 +2437,7 @@
           <izz>3.5275076512957799e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m4_r5_link_collision'>
+      <collision name='robot_02/m4_r5_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2446,7 +2446,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m4_r5_link_visual'>
+      <visual name='robot_02/m4_r5_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2460,10 +2460,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m4_r6_joint' type='revolute'>
-      <pose relative_to='m4_link'>5.3695895051247799e-05 -0.038693169605534899 0.025940014823896299 -0.00098127657752242344 0.78539768194527204 -7.6664633923822737e-20</pose>
-      <parent>m4_link</parent>
-      <child>m4_r6_link</child>
+    <joint name='robot_02/m4_r6_joint' type='revolute'>
+      <pose relative_to='robot_02/m4_link'>5.3695895051247799e-05 -0.038693169605534899 0.025940014823896299 -0.00098127657752242344 0.78539768194527204 -7.6664633923822737e-20</pose>
+      <parent>robot_02/m4_link</parent>
+      <child>robot_02/m4_r6_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -2478,8 +2478,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m4_r6_link'>
-      <pose relative_to='m4_r6_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m4_r6_link'>
+      <pose relative_to='robot_02/m4_r6_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>8.3266726846886704e-17 -1.23599047663348e-16 -1.27675647831893e-15 0 0 0</pose>
         <mass>0.0092920144264038908</mass>
@@ -2492,7 +2492,7 @@
           <izz>3.5275076513122499e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m4_r6_link_collision'>
+      <collision name='robot_02/m4_r6_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2501,7 +2501,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m4_r6_link_visual'>
+      <visual name='robot_02/m4_r6_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2515,10 +2515,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m4_r7_joint' type='revolute'>
-      <pose relative_to='m4_link'>0.024912623443956498 -0.0296061725069484 0.0259400148238975 -0.47267627364913106 0.65312787527248117 3.4948415199343427e-17</pose>
-      <parent>m4_link</parent>
-      <child>m4_r7_link</child>
+    <joint name='robot_02/m4_r7_joint' type='revolute'>
+      <pose relative_to='robot_02/m4_link'>0.024912623443956498 -0.0296061725069484 0.0259400148238975 -0.47267627364913106 0.65312787527248117 3.4948415199343427e-17</pose>
+      <parent>robot_02/m4_link</parent>
+      <child>robot_02/m4_r7_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -2533,8 +2533,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m4_r7_link'>
-      <pose relative_to='m4_r7_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m4_r7_link'>
+      <pose relative_to='robot_02/m4_r7_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>5.5511151231257802e-17 -8.3266726846886704e-17 -1.32532873564628e-15 0 0 0</pose>
         <mass>0.0092920144264037503</mass>
@@ -2547,7 +2547,7 @@
           <izz>3.52750765128069e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m4_r7_link_collision'>
+      <collision name='robot_02/m4_r7_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2556,7 +2556,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m4_r7_link_visual'>
+      <visual name='robot_02/m4_r7_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2570,10 +2570,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m4_r8_joint' type='revolute'>
-      <pose relative_to='m4_link'>0.038114657610469199 -0.0066661182564094999 0.0259400148238981 -0.7705555502746928 0.170606597523424 2.1123351372006558e-17</pose>
-      <parent>m4_link</parent>
-      <child>m4_r8_link</child>
+    <joint name='robot_02/m4_r8_joint' type='revolute'>
+      <pose relative_to='robot_02/m4_link'>0.038114657610469199 -0.0066661182564094999 0.0259400148238981 -0.7705555502746928 0.170606597523424 2.1123351372006558e-17</pose>
+      <parent>robot_02/m4_link</parent>
+      <child>robot_02/m4_r8_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -2588,8 +2588,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m4_r8_link'>
-      <pose relative_to='m4_r8_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m4_r8_link'>
+      <pose relative_to='robot_02/m4_r8_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>2.7755575615628901e-17 -2.0816681711721701e-17 1.0963452368173399e-15 0 0 0</pose>
         <mass>0.0092920144264038908</mass>
@@ -2602,7 +2602,7 @@
           <izz>3.5275076513101101e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m4_r8_link_collision'>
+      <collision name='robot_02/m4_r8_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2611,7 +2611,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m4_r8_link_visual'>
+      <visual name='robot_02/m4_r8_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2625,10 +2625,10 @@
         </material>
       </visual>
     </link>
-    <joint name='m4_r9_joint' type='revolute'>
-      <pose relative_to='m4_link'>0.033482419883807797 0.019393086811959 0.025940014823897 -0.65843682568322304 -0.46460821255248719 6.2093205952217449e-17</pose>
-      <parent>m4_link</parent>
-      <child>m4_r9_link</child>
+    <joint name='robot_02/m4_r9_joint' type='revolute'>
+      <pose relative_to='robot_02/m4_link'>0.033482419883807797 0.019393086811959 0.025940014823897 -0.65843682568322304 -0.46460821255248719 6.2093205952217449e-17</pose>
+      <parent>robot_02/m4_link</parent>
+      <child>robot_02/m4_r9_link</child>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -2643,8 +2643,8 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='m4_r9_link'>
-      <pose relative_to='m4_r9_joint'>0 0 0 0 0 0</pose>
+    <link name='robot_02/m4_r9_link'>
+      <pose relative_to='robot_02/m4_r9_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-1.38777878078145e-17 -5.5511151231257802e-17 1.0547118733939001e-15 0 0 0</pose>
         <mass>0.0092920144264038908</mass>
@@ -2657,7 +2657,7 @@
           <izz>3.5275076513101101e-07</izz>
         </inertia>
       </inertial>
-      <collision name='m4_r9_link_collision'>
+      <collision name='robot_02/m4_r9_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2666,7 +2666,7 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='m4_r9_link_visual'>
+      <visual name='robot_02/m4_r9_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -2680,16 +2680,16 @@
         </material>
       </visual>
     </link>
-    <frame name='marker_joint' attached_to='base_link'>
+    <frame name='robot_02/marker_joint' attached_to='robot_02/base_link'>
       <pose>-0.0874999999999998 0 0.00099999999999987599 0 0 0</pose>
     </frame>
-    <frame name='marker_link' attached_to='marker_joint'>
+    <frame name='robot_02/marker_link' attached_to='robot_02/marker_joint'>
       <pose>0 0 0 0 0 0</pose>
     </frame>
-    <frame name='gr_ref_joint' attached_to='b3_link'>
+    <frame name='robot_02/gr_ref_joint' attached_to='robot_02/b3_link'>
       <pose>0 -0.17399999999999999 0 1.5708 5.5511151231257827e-17 -1.5708</pose>
     </frame>
-    <frame name='gr_ref_link' attached_to='gr_ref_joint'>
+    <frame name='robot_02/gr_ref_link' attached_to='robot_02/gr_ref_joint'>
       <pose>0 0 0 0 0 0</pose>
     </frame>
   </model>
