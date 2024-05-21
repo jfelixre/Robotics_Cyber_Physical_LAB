@@ -159,15 +159,6 @@
           </mesh>
         </geometry>
       </collision>
-      <collision name='robot_01/base_link_fixed_joint_lump__marker_link_collision_1'>
-        <pose>-0.087499999999999994 0 0.001 0 0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/marker_link.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
       <visual name='robot_01/base_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -180,15 +171,6 @@
           <diffuse>0.990199983 1 1 1</diffuse>
           <ambient>0.990199983 1 1 1</ambient>
         </material>
-      </visual>
-      <visual name='robot_01/base_link_fixed_joint_lump__marker_link_visual_1'>
-        <pose>-0.087499999999999994 0 0.001 0 0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/install/robot_custom_description/share/robot_custom_description/models/markers/marker_01.dae</uri>
-          </mesh>
-        </geometry>
       </visual>
     </link>
     <joint name='robot_01/b1_joint' type='revolute'>
@@ -2680,12 +2662,57 @@
         </material>
       </visual>
     </link>
-    <frame name='robot_01/marker_joint' attached_to='robot_01/base_link'>
-      <pose>-0.0874999999999998 0 0.00099999999999987599 0 0 0</pose>
-    </frame>
-    <frame name='robot_01/marker_link' attached_to='robot_01/marker_joint'>
-      <pose>0 0 0 0 0 0</pose>
-    </frame>
+    <joint name='robot_01/marker_joint' type='prismatic'>
+      <pose relative_to='robot_01/base_link'>-0.0874999999999998 0 0.00099999999999987599 0 0 0</pose>
+      <parent>robot_01/base_link</parent>
+      <child>marker_id_01</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='marker_id_01'>
+      <pose relative_to='robot_01/marker_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 -2.0816681711721701e-17 -0.00050000000000002798 0 0 0</pose>
+        <mass>0.0144</mass>
+        <inertia>
+          <ixx>1.72812e-05</ixx>
+          <ixy>-9.1069605560416497e-22</ixy>
+          <ixz>-6.6279948634733297e-20</ixz>
+          <iyy>1.72812e-05</iyy>
+          <iyz>1.8441883753274399e-22</iyz>
+          <izz>3.4560000000000001e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='marker_id_01_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/install/robot_custom_description/share/robot_custom_description/models/robot_01/meshes/marker_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='marker_id_01_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/install/robot_custom_description/share/robot_custom_description/models/markers/marker_01.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
     <frame name='robot_01/gr_ref_joint' attached_to='robot_01/b3_link'>
       <pose>0 -0.17399999999999999 0 1.5708 5.5511151231257827e-17 -1.5708</pose>
     </frame>

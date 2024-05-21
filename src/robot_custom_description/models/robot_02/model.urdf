@@ -45,7 +45,7 @@
     </collision>
   </link>
   <link
-    name="robot_02/marker_link">
+    name="marker_id_02">
     <inertial>
       <origin
         xyz="0 -2.08166817117217E-17 -0.000500000000000028"
@@ -93,7 +93,7 @@
     <parent
       link="robot_02/base_link" />
     <child
-      link="robot_02/marker_link" />
+      link="marker_id_02" />
     <axis
       xyz="0 0 0" />
   </joint>

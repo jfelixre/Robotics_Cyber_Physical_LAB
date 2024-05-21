@@ -86,7 +86,7 @@
   </link>
   <joint
     name="robot_01/marker_joint"
-    type="prismatic">
+    type="fixed">
     <origin
       xyz="-0.0874999999999998 0 0.000999999999999876"
       rpy="0 0 0" />
@@ -96,11 +96,6 @@
       link="marker_id_01" />
     <axis
       xyz="0 0 1" />
-    <limit
-    lower="0"
-    upper="0"
-    effort="0"
-    velocity="0" />
   </joint>
   <link
     name="robot_01/m1_link">

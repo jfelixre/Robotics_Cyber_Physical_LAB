@@ -84,7 +84,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         gz_robot_spawn,
-        bridge,
+        #bridge,
         robot_state_publisher,
        
     ])

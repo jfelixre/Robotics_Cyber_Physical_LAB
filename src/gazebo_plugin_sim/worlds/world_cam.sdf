@@ -82,7 +82,7 @@
     </model>
     <model name='cam'>
       <static>true</static>
-      <pose>0 0 2 0 1.5708 0</pose>
+      <pose>0 0 2.8 0 1.5708 0</pose>
       <link name='cam_link'>
         <inertial>
           <inertia>
@@ -139,7 +139,7 @@
                 <type>gaussian</type>
                 <mean>0</mean>
                 <stddev>0</stddev>
-              </noise>
+              </noise>         
           </camera>
         </sensor>
         <pose>0 0 0 0 0 0</pose>

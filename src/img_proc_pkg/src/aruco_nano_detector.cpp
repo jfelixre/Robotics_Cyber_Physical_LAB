@@ -35,6 +35,7 @@
 #include "tf2/LinearMath/Matrix3x3.h"
 #include "tf2_ros/transform_broadcaster.h"
 #include <opencv2/video/tracking.hpp>
+#include <fstream>
 
 
 
@@ -49,6 +50,7 @@ cv::Mat img_original;
 cv::Mat img_mod;
 cv::Mat cameraMatrix;
 cv::Mat distCoeffs;
+float markerSize=0.11;    //11cm
 cv::Vec<double, 3> tvec_origin, rvec_origin;
 
 double pi = 3.14159265358979323846;
@@ -60,9 +62,9 @@ float R= 0.5;    //mesurement
 
 
 
-void drawAxis(cv::Mat& img, cv::InputArrayOfArrays corners, cv::Vec3d rvec, cv::Vec3d tvec, float length = 0.1) {
-   cv::drawFrameAxes(img, cameraMatrix, distCoeffs, rvec, tvec, length);
-}
+// void drawAxis(cv::Mat& img, cv::InputArrayOfArrays corners, cv::Vec3d rvec, cv::Vec3d tvec, float length = 0.1) {
+//    cv::drawFrameAxes(img, cameraMatrix, distCoeffs, rvec, tvec, length);
+// }
 
 
 
@@ -71,8 +73,12 @@ class Aruco_Nano_Detector : public rclcpp::Node
   public:
     Aruco_Nano_Detector() : Node("aruco_nano_detector")
     {
-      //bool readOk = readCameraParameters("src/img_proc_pkg/config/camera_calib_charuco.yaml", cameraMatrix, distCoeffs);
-
+      //Read camera calibration parameters from file
+      cv::FileStorage fs("src/img_proc_pkg/config/camera_calib_charuco.yaml", cv::FileStorage::READ);
+      fs["camera_matrix"] >> cameraMatrix;
+      fs["distortion_coefficients"] >> distCoeffs;
+      fs.release();
+      
       subscription_ = this->create_subscription<sensor_msgs::msg::Image>(
       "/cameras/cam_1", 10, std::bind(&Aruco_Nano_Detector::topic_callback, this, _1));
 
@@ -90,77 +96,157 @@ class Aruco_Nano_Detector : public rclcpp::Node
     { 
       
     
-      std::cout<< "aqui0" << std::endl;
-      std::cout << msg->encoding << std::endl;
-      //std::cout << msg->data << std::endl;
-      std::cout << msg->step << std::endl;
-      std::cout << msg->height << std::endl;
-      std::cout << msg->width << std::endl;
       //RCLCPP_INFO(this->get_logger(), "Received image" );
       
-      std::cout<< "aqui1" << std::endl;
+     
 
       cv_bridge::CvImageConstPtr image_bridge;
-	    //cv_bridge::toCvCopy(msg, RGB8)->image;
+	    
       try{
         image_bridge=cv_bridge::toCvCopy(msg);
-        std::cout<< "aqui2" << std::endl;
-        //std::cout<< image_bridge->image.channels << std::endl;
-      
         img_original = image_bridge->image;
-
-        std::cout<< "aqui3" << std::endl;
-
-        //cv::cvtColor(img_original,img_original,cv::COLOR_BGR2RGB);
-        //cv::imwrite("image.jpg",img_original);
         int n_cols = img_original.cols;
-        std::cout<< "aqui4" << std::endl;
         int n_rows = img_original.rows;
-        std::cout<< "aqui5" << std::endl;
-        //img_mod=img_original.clone();
-        std::cout<< "aqui6" << std::endl;
-        //publisher->publish(data_image);
-        std::cout<< img_original.channels() << std::endl;
-        std::cout<< "aqui7" << std::endl;
+       
 
-              if (image_bridge->image.empty()) {
-        RCLCPP_ERROR(this->get_logger(), "Empty image received");
-        return;
+        if (image_bridge->image.empty()) {
+          RCLCPP_ERROR(this->get_logger(), "Empty image received");
+          return;
+        }
+
+        else{
+
+          //RCLCPP_INFO(this->get_logger(), "IMAGE OK");
+          cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
+
+          //Detect markers
+          auto markers = aruconano::MarkerDetector::detect(img_original);
+          for(const auto &m:markers)
+            m.draw(img_original);
+
+
+
+          //Compute R and T vectors
+        
+          for(const auto &m:markers){
+            auto r_t=m.estimatePose(cameraMatrix,distCoeffs,markerSize);
+            std::cout << "ID: " << m.id << std::endl;
+            std::cout << r_t.first << std::endl;
+            std::cout << r_t.second << std::endl;
+
+            auto rotation_matrix = r_t.first;
+            auto traslation_vector = r_t.second;
+
+
+            //Declare variables for the tf message
+            geometry_msgs::msg::TransformStamped tag_tf;
+            tag_tf.header.stamp = msg->header.stamp;
+            /*
+            if(m.id==0){
+              tag_tf.header.frame_id = "cam_1";
+              tag_tf.child_frame_id = "marker_id_00";
+
+              rvec_origin(0)=rotation_matrix.at<double>(0);
+              rvec_origin(1)=rotation_matrix.at<double>(1);;
+              rvec_origin(2)=rotation_matrix.at<double>(2);;
+              tvec_origin(0)=traslation_vector.at<double>(0);
+              tvec_origin(1)=traslation_vector.at<double>(1);
+              tvec_origin(2)=traslation_vector.at<double>(2);
+
+              cv::Mat new_rmat;
+              cv::Rodrigues(rotation_matrix,new_rmat);
+              //cv::Mat camera_rotation_matrix = new_rmat.t();
+              cv::Mat camera_rotation_matrix = new_rmat;
+              //cv::Mat camera_translation_vector = -camera_rotation_matrix * traslation_vector;
+              cv::Mat camera_translation_vector = traslation_vector;
+
+              tf2::Matrix3x3 mat(camera_rotation_matrix.at<double>(0,0), camera_rotation_matrix.at<double>(0,1), camera_rotation_matrix.at<double>(0,2),
+                    camera_rotation_matrix.at<double>(1,0), camera_rotation_matrix.at<double>(1,1), camera_rotation_matrix.at<double>(1,2),
+                    camera_rotation_matrix.at<double>(2,0), camera_rotation_matrix.at<double>(2,1), camera_rotation_matrix.at<double>(2,2));
+              
+              tf2::Quaternion qu;
+              
+              mat.getRotation(qu);
+
+
+              tag_tf.transform.rotation.x = qu.x();
+              tag_tf.transform.rotation.y = qu.y();
+              tag_tf.transform.rotation.z = qu.z();
+              tag_tf.transform.rotation.w = qu.w();
+              tag_tf.transform.translation.x = camera_translation_vector.at<double>(0);
+              tag_tf.transform.translation.y = camera_translation_vector.at<double>(1);
+              tag_tf.transform.translation.z = camera_translation_vector.at<double>(2);
+
+              tf_broadcaster->sendTransform(tag_tf);
+
             }
 
-            else{
-              RCLCPP_INFO(this->get_logger(), "IMAGE OK");
-              // Define a smaller resolution
-              
+            else{*/
+              tag_tf.header.frame_id = "cam_1";
+              std::stringstream ss_frame_name;
+
+              if (m.id<10)
+                ss_frame_name << "marker_id_0" << m.id;
+              else{
+                ss_frame_name << "marker_id" << m.id;
+              }
+
+              std::string frame_name = ss_frame_name.str();
+              tag_tf.child_frame_id = frame_name;
 
 
-                        cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
-          std::cout<< "aqui8" << std::endl;
-         //cv::resizeWindow("Display Image" 1280,720);
-         
-          
-           std::cout<< "aqui9" << std::endl;
-          //img_original.release();
-          //img_mod.release();
-          std::cout<< "aqui10" << std::endl;
-          
-            auto markers = aruconano::MarkerDetector::detect(img_original);
-            for(const auto &m:markers)
-              m.draw(img_original);
+
+              cv::Mat new_rmat;
+              cv::Rodrigues(rotation_matrix,new_rmat);
+
+              //cv::Mat rmat_origin;
+              //cv::Rodrigues(rvec_origin,rmat_origin);
+
+              cv::Mat camera_rotation_matrix = new_rmat;
+              //cv::Mat camera_rotation_matrix_origin = rmat_origin.t();
+
+              //cv::Mat camera_translation_vector =   camera_rotation_matrix * traslation_vector ;
+              cv::Mat camera_translation_vector = traslation_vector;
+
+
+              tf2::Matrix3x3 mat(camera_rotation_matrix.at<double>(0,0), camera_rotation_matrix.at<double>(0,1), camera_rotation_matrix.at<double>(0,2),
+                    camera_rotation_matrix.at<double>(1,0), camera_rotation_matrix.at<double>(1,1), camera_rotation_matrix.at<double>(1,2),
+                    camera_rotation_matrix.at<double>(2,0), camera_rotation_matrix.at<double>(2,1), camera_rotation_matrix.at<double>(2,2));
+
+
+
+              tf2::Quaternion qu;
+              mat.getRotation(qu);
+
+              tag_tf.transform.rotation.x = qu.x();
+              tag_tf.transform.rotation.y = qu.y();
+              tag_tf.transform.rotation.z = qu.z();
+              tag_tf.transform.rotation.w = qu.w();
+              tag_tf.transform.translation.x = camera_translation_vector.at<double>(0);
+              tag_tf.transform.translation.y = camera_translation_vector.at<double>(1);
+              tag_tf.transform.translation.z = camera_translation_vector.at<double>(2);
+
+              tf_broadcaster->sendTransform(tag_tf);
+            
+          //}
+
+
+
+          }
+
+
+
 
           cv::imshow("Display Image", img_original);
           cv::waitKey(1);
-          
-
-        std::cout<< "aqui11" << std::endl;
-            }
+        }
 
       
 
       }
        catch (cv_bridge::Exception& e){
          RCLCPP_ERROR(this->get_logger(), "cv_bridge exception: %s", e.what());
-       return;
+       //return;
        }
 
 
