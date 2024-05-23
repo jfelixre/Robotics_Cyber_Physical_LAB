@@ -21,7 +21,7 @@
 #include <sensor_msgs/image_encodings.hpp>
 //#include <std_msgs/msg/bool.hpp>
 //#include <image_transport/image_transport.h>
-#include <cv_bridge/cv_bridge.hpp>
+#include <cv_bridge/cv_bridge.h>
 #include <interfaces/msg/img_data.hpp>
 //#include "/opt/opencv_contrib/modules/aruco/samples/aruco_samples_utility.hpp"
 //#include "/opt/opencv_contrib/modules/aruco/include/opencv2/aruco.hpp"
@@ -73,6 +73,7 @@ class Aruco_Nano_Detector : public rclcpp::Node
   public:
     Aruco_Nano_Detector() : Node("aruco_nano_detector")
     {
+      std::cout<<"Aruco Nano Detector Node Started"<<std::endl;
       //Read camera calibration parameters from file
       cv::FileStorage fs("src/img_proc_pkg/config/camera_calib_charuco.yaml", cv::FileStorage::READ);
       fs["camera_matrix"] >> cameraMatrix;

@@ -21,7 +21,7 @@
 #include <sensor_msgs/image_encodings.hpp>
 //#include <std_msgs/msg/bool.hpp>
 //#include <image_transport/image_transport.h>
-#include <cv_bridge/cv_bridge.hpp>
+#include <cv_bridge/cv_bridge.h>
 #include <interfaces/msg/img_data.hpp>
 //#include "/opt/opencv_contrib/modules/aruco/samples/aruco_samples_utility.hpp"
 #include "opencv2/aruco.hpp"

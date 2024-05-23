@@ -32,59 +32,47 @@ def generate_launch_description():
     'params.yaml'
     )
 
-    # Spawn robot in Gazebo
-    file = os.path.join(
-        pkg_project_robot_custom_description,
-        'models',
-        'robot_02',
-        'model.sdf'
+    # Setup to launch the simulator and Gazebo world
+    gz_sim = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')),
+        launch_arguments={'gz_args': PathJoinSubstitution([
+            pkg_project_gazebo_plugin_sim,
+            'worlds',
+            'world_calib.sdf'
+        ])}.items(),
     )
-    #Command to spawn robot in Gazebo on an especific position
-    gz_robot_spawn = ExecuteProcess(
-        cmd=[[
-            'ros2 run ros_gz_sim create --args -file "',
-            file,
-            '" -name robot_02 -x -1 -y -1 -z 0.09'
-
-        ]],
-        shell=True
-    )
-
 
     # Bridge ROS topics and Gazebo messages for establishing communication
     bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
         parameters=[{
-            'config_file': os.path.join(pkg_project_launch_pkg, 'config', 'bridge_r02.yaml'),
+            'config_file': os.path.join(pkg_project_launch_pkg, 'config', 'bridge.yaml'),
             'qos_overrides./tf_static.publisher.durability': 'transient_local',
         }],
         output='screen'
     )
 
-    # Load the SDF file from "description" package
-    sdf_file  =  os.path.join(pkg_project_robot_custom_description, 'models', 'robot_02', 'model.urdf')
-    with open(sdf_file, 'r') as infp:
-        robot_desc = infp.read()
+    #Unpause simulation
+    bridge_unpause = ExecuteProcess(
+        cmd=[[
+            'ros2 run ros_gz_bridge parameter_bridge /world/world_cam/control@ros_gz_interfaces/srv/ControlWorld'
+        ]],
+        shell=True
+    )
 
-    # Takes the description and joint angles as inputs and publishes the 3D poses of the robot links
-    robot_state_publisher = Node(
-        package='robot_state_publisher',
-        executable='robot_state_publisher',
-        name='robot_02',
-        output='both',
-        parameters=[
-            {'use_sim_time': True},
-            {'robot_description': robot_desc}
-        ],
-        remappings=[
-            ('/robot_description', '/robot_description/robot_02'),
-        ]
+    unpause = ExecuteProcess(
+        cmd=[[
+            'ros2 service call /world/world_cam/control ros_gz_interfaces/srv/ControlWorld "{world_control: {pause: false}}"'
+        ]],
+        shell=True
     )
 
     return LaunchDescription([
-        gz_robot_spawn,
+        gz_sim,
         bridge,
-        robot_state_publisher,
-       
+        bridge_unpause,
+        unpause,
+        
     ])
