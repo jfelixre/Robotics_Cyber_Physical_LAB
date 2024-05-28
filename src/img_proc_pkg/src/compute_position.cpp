@@ -32,6 +32,9 @@ geometry_msgs::msg::Pose tag_pos;
 interfaces::msg::Positions msg_pos;
 interfaces::msg::PositionTag tag;
 
+#include <geometry_msgs/msg/transform_stamped.hpp>
+#include <tf2_ros/transform_broadcaster.h>
+
 class Compute_Position : public rclcpp::Node
 {
     public:
@@ -39,10 +42,12 @@ class Compute_Position : public rclcpp::Node
         {
             tf_buffer_ = std::make_shared<tf2_ros::Buffer>(this->get_clock());
             tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
-            publisher_ = this->create_publisher<interfaces::msg::Positions>("positions",10);
+            tf_broadcaster_ = std::make_shared<tf2_ros::TransformBroadcaster>(*this);
+            //publisher_ = this->create_publisher<interfaces::msg::Positions>("positions",1);
+            relative_pose_pub_ = create_publisher<geometry_msgs::msg::TransformStamped>("relative_pose", 10);
 
              timer_ = this->create_wall_timer(
-             50ms, std::bind(&Compute_Position::timer_callback, this));
+             500ms, std::bind(&Compute_Position::timer_callback, this));
 
         }
 
@@ -51,37 +56,53 @@ class Compute_Position : public rclcpp::Node
      void timer_callback()
     {
         for (int i = 1; i<=20; i++){
+            
             try{
             std::stringstream ss_frame_name;
-            ss_frame_name << "tag_" << i;
+
+            if (i<10)
+                ss_frame_name << "marker_id_0" << i;
+              else{
+                ss_frame_name << "marker_id" << i;
+              }
+            
             std::string frame_name = ss_frame_name.str();
 
-            geometry_msgs::msg::TransformStamped transform_stamped = tf_buffer_->lookupTransform(  
-                "origin_aruco_tag",
-                frame_name,
-                tf2::TimePointZero);
+            // geometry_msgs::msg::TransformStamped transform_stamped = tf_buffer_->lookupTransform(  
+            //     "marker_id_00",
+            //     frame_name,
+            //     tf2::TimePointZero);
 
-            tag_pos.position.x = transform_stamped.transform.translation.x;
-            tag_pos.position.y = transform_stamped.transform.translation.y;
-            tag_pos.position.z = transform_stamped.transform.translation.z;
-            tag_pos.orientation.x = transform_stamped.transform.rotation.x;
-            tag_pos.orientation.y = transform_stamped.transform.rotation.y;
-            tag_pos.orientation.z = transform_stamped.transform.rotation.z;
-            tag_pos.orientation.w = transform_stamped.transform.rotation.w;
+            // tag_pos.position.x = transform_stamped.transform.translation.x;
+            // tag_pos.position.y = transform_stamped.transform.translation.y;
+            // tag_pos.position.z = transform_stamped.transform.translation.z;
+            // tag_pos.orientation.x = transform_stamped.transform.rotation.x;
+            // tag_pos.orientation.y = transform_stamped.transform.rotation.y;
+            // tag_pos.orientation.z = transform_stamped.transform.rotation.z;
+            // tag_pos.orientation.w = transform_stamped.transform.rotation.w;
 
-            tag.position = tag_pos;
-            tag.tag_id=i;
+            // tag.position = tag_pos;
+            // tag.tag_id=i;
 
-            msg_pos.tag_pos.push_back(tag);
+            // msg_pos.tag_pos.push_back(tag);
+            //try{
+            geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", frame_name, tf2::TimePointZero);
+            relative_pose_pub_->publish(transform);
 
-            }
-            catch (tf2::TransformException &ex)
-            {
+            } catch (tf2::LookupException& ex) {
+            RCLCPP_ERROR(this->get_logger(), "Lookup exception: %s", ex.what());
+            //return;
+            } catch (tf2::ConnectivityException& ex) {
+            RCLCPP_ERROR(this->get_logger(), "Connectivity exception: %s", ex.what());
+            //return;
+            } catch (tf2::ExtrapolationException& ex) {
+            RCLCPP_ERROR(this->get_logger(), "Extrapolation exception: %s", ex.what());
+            //return;
             }
            
         }
 
-        publisher_->publish(msg_pos);
+        //publisher_->publish(msg_pos);
     }
 
 
@@ -89,6 +110,9 @@ class Compute_Position : public rclcpp::Node
     std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
     rclcpp::Publisher<interfaces::msg::Positions>::SharedPtr publisher_;
     rclcpp::TimerBase::SharedPtr timer_;
+
+    rclcpp::Publisher<geometry_msgs::msg::TransformStamped>::SharedPtr relative_pose_pub_;
+    std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
 
 };
 
