@@ -14,6 +14,8 @@
 #include <interfaces/msg/robot_state.hpp>
 #include <interfaces/msg/control_finish.hpp>
 #include <interfaces/msg/robot_objective.hpp>
+#include <geometry_msgs/msg/transform_stamped.hpp>
+#include <tf2_ros/transform_broadcaster.h>
 
 #include <memory>
 #include <cinttypes>
@@ -53,8 +55,12 @@ class Event_Driven_Control : public rclcpp::Node
             subscription_task_robot = this->create_subscription<interfaces::msg::TaskDescription>(
                 topic_name, 10, std::bind(&Event_Driven_Control::task_robot_callback, this, _1));
 
-            subscription_positions = this->create_subscription<interfaces::msg::Positions>(
-                "positions", 10, std::bind(&Event_Driven_Control::positions_callback, this, _1));
+            //subscription_positions = this->create_subscription<interfaces::msg::Positions>(
+            //    "positions", 10, std::bind(&Event_Driven_Control::positions_callback, this, _1));
+
+            tf_buffer_ = std::make_shared<tf2_ros::Buffer>(this->get_clock());
+            tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
+            tf_broadcaster_ = std::make_shared<tf2_ros::TransformBroadcaster>(*this);
 
             
             std::stringstream ss_topic_name_2;
@@ -118,18 +124,54 @@ class Event_Driven_Control : public rclcpp::Node
 
         void event_control(){
 
-            for (auto& tag_pos : tags_positions.tag_pos) {                   //Save object position
-                    if (tag_pos.tag_id == task.obj_id){
-                        Xobj = tag_pos.position.position.x;
-                        Yobj = tag_pos.position.position.y;
-                        tf2::Quaternion Obj_quat(tag_pos.position.orientation.x, tag_pos.position.orientation.y, tag_pos.position.orientation.z, tag_pos.position.orientation.w);
-                        tf2::Matrix3x3 Obj_m(Obj_quat);
-                        double Obj_orientation_x, Obj_orientation_y, Obj_orientation_z;
-                        Obj_m.getRPY(Obj_orientation_x, Obj_orientation_y, Obj_orientation_z);
-                        Angobj= Obj_orientation_z;
-                    }
-                }
+            // for (auto& tag_pos : tags_positions.tag_pos) {                   //Save object position
+            //         if (tag_pos.tag_id == task.obj_id){
+            //             Xobj = tag_pos.position.position.x;
+            //             Yobj = tag_pos.position.position.y;
+            //             tf2::Quaternion Obj_quat(tag_pos.position.orientation.x, tag_pos.position.orientation.y, tag_pos.position.orientation.z, tag_pos.position.orientation.w);
+            //             tf2::Matrix3x3 Obj_m(Obj_quat);
+            //             double Obj_orientation_x, Obj_orientation_y, Obj_orientation_z;
+            //             Obj_m.getRPY(Obj_orientation_x, Obj_orientation_y, Obj_orientation_z);
+            //             Angobj= Obj_orientation_z;
+            //         }
+            //     }
 
+
+            //Save object position
+            std::stringstream ss_frame_name;
+
+            if (task.obj_id<10)
+                ss_frame_name << "marker_id_0" << task.obj_id;
+              else{
+                ss_frame_name << "marker_id" << task.obj_id;
+              }
+            
+            std::string frame_name = ss_frame_name.str();
+
+            try{
+                geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", frame_name, tf2::TimePointZero);
+                Xobj = transform.transform.translation.x;
+                Yobj = transform.transform.translation.y;
+                tf2::Quaternion Obj_quat(transform.transform.rotation.x, transform.transform.rotation.y, transform.transform.rotation.z, transform.transform.rotation.w);
+                tf2::Matrix3x3 Obj_m(Obj_quat);
+                double Obj_orientation_x, Obj_orientation_y, Obj_orientation_z;
+                Obj_m.getRPY(Obj_orientation_x, Obj_orientation_y, Obj_orientation_z);
+                Angobj= Obj_orientation_z;
+
+            } catch (tf2::LookupException& ex) {
+                RCLCPP_ERROR(this->get_logger(), "Lookup exception: %s", ex.what());
+                //return;
+            } catch (tf2::ConnectivityException& ex) {
+                RCLCPP_ERROR(this->get_logger(), "Connectivity exception: %s", ex.what());
+                //return;
+            } catch (tf2::ExtrapolationException& ex) {
+                RCLCPP_ERROR(this->get_logger(), "Extrapolation exception: %s", ex.what());
+                //return;
+            }
+
+            //Check if robot is leader or follower and start control
+
+                //Start control when robot is leader
             if (task.leader_robot_id == 0){
                 switch(robot_state.robot_state){   //CHECK CASE WHEN OBJECT SIZE IS 2, must take object from different angle
 
@@ -202,7 +244,7 @@ class Event_Driven_Control : public rclcpp::Node
                         break;
                 }
             }
-
+                //Start control when robot is follower
             else {
                 switch(robot_state.robot_state){  //CHECK CASE 1, 2 AND 3, to take object from different angle ??
 
@@ -267,10 +309,14 @@ class Event_Driven_Control : public rclcpp::Node
         }
 
         rclcpp::Subscription<interfaces::msg::TaskDescription>::SharedPtr subscription_task_robot;
-        rclcpp::Subscription<interfaces::msg::Positions>::SharedPtr subscription_positions;
+        //rclcpp::Subscription<interfaces::msg::Positions>::SharedPtr subscription_positions;
         rclcpp::Publisher<interfaces::msg::RobotState>::SharedPtr publisher_robot_state;
         rclcpp::Subscription<interfaces::msg::ControlFinish>::SharedPtr subscription_control_finish;
         rclcpp::Publisher<interfaces::msg::RobotObjective>::SharedPtr publisher_robot_objective;
+        std::shared_ptr<tf2_ros::Buffer> tf_buffer_;
+        std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
+        std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
+
 };
 
 
