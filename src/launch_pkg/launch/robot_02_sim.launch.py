@@ -82,9 +82,27 @@ def generate_launch_description():
         ]
     )
 
+    #Launch tasker manager node for robot_02
+    task_manager = Node(
+        package='task_pkg',
+        namespace='robot_02',
+        executable='task_manager_node',
+        parameters=[{'robot_id': 2}],
+        )
+    
+    #Launch event driven control node for robot_02
+    event_driven_control = Node(
+        package='control_pkg',
+        namespace='robot_02',
+        executable='event_driven_control',
+        parameters=[{'robot_id': 2}],
+        )
+
     return LaunchDescription([
         gz_robot_spawn,
         bridge,
         robot_state_publisher,
+        task_manager,
+        event_driven_control,
        
     ])

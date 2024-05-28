@@ -85,6 +85,14 @@ def generate_launch_description():
         shell=True
     )
 
+    #Launch image processing nodes
+    img_proc_nodes = ExecuteProcess(
+        cmd=[[
+            'ros2 launch launch_pkg img_proc_nodes.launch.py'
+        ]],
+        shell=True
+    )
+
     return LaunchDescription([
         gz_sim,
         bridge,
@@ -92,5 +100,6 @@ def generate_launch_description():
         unpause,
         launch_robot_01,
         launch_robot_02,
+        img_proc_nodes,
         
     ])
