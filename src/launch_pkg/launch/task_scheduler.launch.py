@@ -1,53 +1,38 @@
 import os
+
 from ament_index_python.packages import get_package_share_directory
+
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
+from launch.actions import IncludeLaunchDescription
+from launch.actions import ExecuteProcess
+from launch.conditions import IfCondition
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+
 from launch_ros.actions import Node
-import launch
-import time
-import launch.actions
-import launch_ros.actions
 
 def generate_launch_description():
+    # Configure ROS nodes for launch
 
-    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
-
-
-    return LaunchDescription([
-        DeclareLaunchArgument(
-            'use_sim_time',
-            default_value='true',
-            description='Use simulation (Gazebo) clock if true'),
-        #Node(
-         #   package='robot_state_publisher',
-         #   executable='robot_state_publisher',
-         #   name='robot_state_publisher',
-         #   output='screen',
-         #   parameters=[{'use_sim_time': use_sim_time, 'robot_description': robot_desc}],
-         #   arguments=[urdf]),
-        #Node(
-         #   package='robot_state_publisher',
-          #  executable='robot_state_publisher',
-           # name='robot_state_publisher',
-           # output='screen',
-           # parameters=[{'use_sim_time': use_sim_time, 'robot_description': origin_desc}],
-           # arguments=[urdf_origin]),
-        
-
-  
-
-
-        Node(
-            package='task_pkg',
-            #namespace = 'test',
-            executable='task_scheduler_node',
-            #name='test_scheduler'
-            ),
-
-
-
+    # Setup project paths
+    pkg_project_control_pkg = get_package_share_directory('control_pkg')
+    pkg_project_gazebo_plugin_sim = get_package_share_directory('gazebo_plugin_sim')
+    pkg_project_img_proc_pkg = get_package_share_directory('img_proc_pkg')
+    pkg_project_interfaces = get_package_share_directory('interfaces')
+    pkg_project_inv_kinematics_pkg = get_package_share_directory('inv_kinematics_pkg')
+    pkg_project_launch_pkg = get_package_share_directory('launch_pkg')
+    pkg_project_robot_custom_description = get_package_share_directory('robot_custom_description')
+    pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
 
        
-        
+    #Launch task scheduler node
+    task_scheduler = Node(
+        package='launch_pkg',
+        executable='task_scheduler',
+    )
+
+    return LaunchDescription([
+        task_scheduler,
+       
     ])

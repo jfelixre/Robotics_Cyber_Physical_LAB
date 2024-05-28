@@ -93,6 +93,14 @@ def generate_launch_description():
         shell=True
     )
 
+    #Launch task scheduler node
+    task_scheduler = ExecuteProcess(
+        cmd=[[
+            'ros2 run task_pkg task_manager_node'
+        ]],
+        shell=True
+    )
+
     return LaunchDescription([
         gz_sim,
         bridge,
@@ -101,5 +109,6 @@ def generate_launch_description():
         launch_robot_01,
         launch_robot_02,
         img_proc_nodes,
+        task_scheduler,
         
     ])

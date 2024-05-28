@@ -93,7 +93,7 @@ def generate_launch_description():
     #Launch event driven control node for robot_01
     event_driven_control = Node(
             package='control_pkg',
-            namespace='robot_1',
+            namespace='robot_01',
             executable='event_driven_control',
             parameters=[{'robot_id': 1}],
             )
