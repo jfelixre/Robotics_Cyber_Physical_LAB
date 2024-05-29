@@ -59,8 +59,8 @@ class Compute_Trajectory_R2 : public rclcpp::Node
         {
 
 
-           subs_position = this->create_subscription<interfaces::msg::Positions>(
-               "/positions", 1, std::bind(&Compute_Trajectory_R2::subs_callback,this,_1));
+           //subs_position = this->create_subscription<interfaces::msg::Positions>(
+            //   "/positions", 1, std::bind(&Compute_Trajectory_R2::subs_callback,this,_1));
 
             publisher_path = this->create_publisher<geometry_msgs::msg::Polygon>("/robot_2/path",10);
 
@@ -509,7 +509,7 @@ class Compute_Trajectory_R2 : public rclcpp::Node
 
 
 
-    rclcpp::Subscription<interfaces::msg::Positions>::SharedPtr subs_position;
+    //rclcpp::Subscription<interfaces::msg::Positions>::SharedPtr subs_position;
     rclcpp::Subscription<interfaces::msg::RobotObjective>::SharedPtr subs_objective;
     
 
