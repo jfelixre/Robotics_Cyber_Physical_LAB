@@ -20,6 +20,8 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(interfaces REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(tf2_ros REQUIRED)
 
 
 add_executable(platform1_vel_server src/platform1_vel_server.cpp)
@@ -100,6 +102,16 @@ ament_target_dependencies(
   geometry_msgs
   )
 
+add_executable(joint_to_tf src/joint_to_tf.cpp)
+ament_target_dependencies(
+  joint_to_tf
+  rclcpp
+  interfaces
+  geometry_msgs
+  sensor_msgs
+  tf2_ros
+  )
+
 
 install(TARGETS
   platform1_vel_server
@@ -112,6 +124,7 @@ install(TARGETS
   robot_2_platform_vel_server
   robot_1_platform_vel_node
   robot_2_platform_vel_node
+  joint_to_tf
   DESTINATION lib/${PROJECT_NAME})
 
 

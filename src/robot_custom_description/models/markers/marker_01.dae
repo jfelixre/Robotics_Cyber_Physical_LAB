@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 4.1.1 commit date:2024-04-15, commit time:15:11, hash:e1743a0317bc</authoring_tool>
     </contributor>
-    <created>2024-05-16T16:10:48</created>
-    <modified>2024-05-16T16:10:48</modified>
+    <created>2024-06-01T22:37:20</created>
+    <modified>2024-06-01T22:37:20</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -70,14 +70,14 @@
   <library_effects>
     <effect id="Material-effect">
       <profile_COMMON>
-        <newparam sid="a01_png-surface">
+        <newparam sid="a01_png_001-surface">
           <surface type="2D">
-            <init_from>a01_png</init_from>
+            <init_from>a01_png_001</init_from>
           </surface>
         </newparam>
-        <newparam sid="a01_png-sampler">
+        <newparam sid="a01_png_001-sampler">
           <sampler2D>
-            <source>a01_png-surface</source>
+            <source>a01_png_001-surface</source>
           </sampler2D>
         </newparam>
         <technique sid="common">
@@ -86,7 +86,7 @@
               <color sid="emission">0 0 0 1</color>
             </emission>
             <diffuse>
-              <texture texture="a01_png-sampler" texcoord="UVMap"/>
+              <texture texture="a01_png_001-sampler" texcoord="UVMap"/>
             </diffuse>
             <index_of_refraction>
               <float sid="ior">1.45</float>
@@ -97,7 +97,7 @@
     </effect>
   </library_effects>
   <library_images>
-    <image id="a01_png" name="a01_png">
+    <image id="a01_png_001" name="a01_png_001">
       <init_from>a01.png</init_from>
     </image>
   </library_images>
@@ -130,7 +130,7 @@
           </technique_common>
         </source>
         <source id="marker_link-mesh-map-0">
-          <float_array id="marker_link-mesh-map-0-array" count="72">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 1 1 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0</float_array>
+          <float_array id="marker_link-mesh-map-0-array" count="72">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 1 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0</float_array>
           <technique_common>
             <accessor source="#marker_link-mesh-map-0-array" count="36" stride="2">
               <param name="S" type="float"/>

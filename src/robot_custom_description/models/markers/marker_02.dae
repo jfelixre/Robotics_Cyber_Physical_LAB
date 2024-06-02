@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 4.1.1 commit date:2024-04-15, commit time:15:11, hash:e1743a0317bc</authoring_tool>
     </contributor>
-    <created>2024-05-16T18:35:37</created>
-    <modified>2024-05-16T18:35:37</modified>
+    <created>2024-06-01T22:34:33</created>
+    <modified>2024-06-01T22:34:33</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -130,7 +130,7 @@
           </technique_common>
         </source>
         <source id="marker_link-mesh-map-0">
-          <float_array id="marker_link-mesh-map-0-array" count="72">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 1 1 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0</float_array>
+          <float_array id="marker_link-mesh-map-0-array" count="72">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 1 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0</float_array>
           <technique_common>
             <accessor source="#marker_link-mesh-map-0-array" count="36" stride="2">
               <param name="S" type="float"/>
