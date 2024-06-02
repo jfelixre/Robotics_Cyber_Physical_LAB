@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="double_cube_01">
+  <link
+    name="marker_id_21">
+    <inertial>
+      <origin
+        xyz="0 -1.38777878078145E-17 -0.0005"
+        rpy="0 0 0" />
+      <mass
+        value="0.0144" />
+      <inertia
+        ixx="1.72812E-05"
+        ixy="9.03501810404588E-22"
+        ixz="3.15455971063861E-36"
+        iyy="1.72812E-05"
+        iyz="-6.03286077576028E-20"
+        izz="3.456E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_custom_description/models/markers/marker_21.dae" />
+      </geometry>
+    </visual>
+  </link>
+  <link
+    name="double_cube_01/cube_link">
+    <inertial>
+      <origin
+        xyz="-2.7756E-17 2.0817E-17 6.9389E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.5" />
+      <inertia
+        ixx="0.005139"
+        ixy="-1.1571E-18"
+        ixz="-2.4821E-19"
+        iyy="0.028678"
+        iyz="3.4397E-18"
+        izz="0.027783" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_custom_description/models/double_cube_01/meshes/cube_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_custom_description/models/double_cube_01/meshes/cube_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="double_cube_01/cube_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 -0.051"
+      rpy="0 0 0" />
+    <parent
+      link="marker_id_21" />
+    <child
+      link="double_cube_01/cube_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

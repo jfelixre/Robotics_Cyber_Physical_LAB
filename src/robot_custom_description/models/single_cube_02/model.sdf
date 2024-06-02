@@ -1,0 +1,55 @@
+<sdf version='1.11'>
+  <model name='single_cube_02'>
+    <link name='single_cube_02/marker_link'>
+      <inertial>
+        <pose>-1.967726119402985e-18 -1.3878e-17 -0.047608208955223871 0 0 0</pose>
+        <mass>0.21440000000000001</mass>
+        <inertia>
+          <ixx>0.001764538089552238</ixx>
+          <ixy>2.844435e-19</ixy>
+          <ixz>-9.7140436194029851e-20</ixz>
+          <iyy>0.002007538089552239</iyy>
+          <iyz>1.0072709999999999e-18</iyz>
+          <izz>0.00169236</izz>
+        </inertia>
+      </inertial>
+      <collision name='single_cube_02/marker_link_fixed_joint_lump__single_cube_02/cube_link_collision_1'>
+        <pose>0 0 -0.050999999999999997 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/install/robot_custom_description/share/robot_custom_description/models/single_cube_02/meshes/cube_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='single_cube_02/marker_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/install/robot_custom_description/share/robot_custom_description/models/markers/marker_12.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='single_cube_02/marker_link_fixed_joint_lump__single_cube_02/cube_link_visual_1'>
+        <pose>0 0 -0.050999999999999997 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/install/robot_custom_description/share/robot_custom_description/models/single_cube_02/meshes/cube_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990199983 1 1 1</diffuse>
+          <ambient>0.990199983 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <frame name='single_cube_02/cube_joint' attached_to='single_cube_02/marker_link'>
+      <pose>0 0 -0.050999999999999997 0 0 0</pose>
+    </frame>
+    <frame name='single_cube_02/cube_link' attached_to='single_cube_02/cube_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+  </model>
+</sdf>

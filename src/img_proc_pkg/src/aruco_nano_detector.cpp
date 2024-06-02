@@ -189,7 +189,7 @@ class Aruco_Nano_Detector : public rclcpp::Node
               if (m.id<10)
                 ss_frame_name << "marker_id_0" << m.id;
               else{
-                ss_frame_name << "marker_id" << m.id;
+                ss_frame_name << "marker_id_" << m.id;
               }
 
               std::string frame_name = ss_frame_name.str();
