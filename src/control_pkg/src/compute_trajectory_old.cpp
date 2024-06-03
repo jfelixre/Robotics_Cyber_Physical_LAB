@@ -19,22 +19,19 @@
 
 #include <rclcpp/rclcpp.hpp>
 #include <tf2_ros/transform_listener.h>
+#include <tf2_sensor_msgs/tf2_sensor_msgs.h>
 #include <tf2/LinearMath/Matrix3x3.h>
 #include <geometry_msgs/msg/pose.hpp>
 #include <interfaces/msg/positions.hpp>
 #include <interfaces/srv/a_star_service.hpp>
 #include <geometry_msgs/msg/polygon.hpp>
 #include <geometry_msgs/msg/point32.h>
-#include <interfaces/msg/robot_objective.hpp>
 
 using std::placeholders::_1;
 using namespace std::chrono_literals;
 # define PI 3.14159265358979323846
 
-geometry_msgs::msg::Pose Robot1, Robot2, Object1, Object2, Target, Initial, Saved;
-int n_objective = -1;
-float distance_objective = 0;
-
+geometry_msgs::msg::Pose Robot1, Robot2, Object1, Object2, Target;
 
 
 float x_grid = 0.025;    //All dimensions in meters
@@ -45,30 +42,23 @@ float y_world = 3;
 int n_x_spaces = (int)x_world/x_grid;
 float n_y_spaces = (int)y_world/y_grid;
 
-geometry_msgs::msg::Polygon path_ant;
-
-//rclcpp::Client<interfaces::srv::AStarService>::SharedPtr client;
+rclcpp::Client<interfaces::srv::AStarService>::SharedPtr client;
 
 
 
-class Compute_Trajectory_R1 : public rclcpp::Node
+class Compute_Trajectory : public rclcpp::Node
 {
     public:
-        Compute_Trajectory_R1() : Node("compute_trajectory_r1")
+        Compute_Trajectory() : Node("compute_trajectory")
         {
 
 
            subs_position = this->create_subscription<interfaces::msg::Positions>(
-               "/positions", 1, std::bind(&Compute_Trajectory_R1::subs_callback,this,_1));
+               "/positions", 1, std::bind(&Compute_Trajectory::subs_callback,this,_1));
 
             publisher_path = this->create_publisher<geometry_msgs::msg::Polygon>("/robot_1/path",10);
 
-            client_cb_group = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
-
-            subs_objective = this->create_subscription<interfaces::msg::RobotObjective>(
-                "robot_1/objective", 1, std::bind(&Compute_Trajectory_R1::subs_obj_callback,this,_1));
-
-            client = this -> create_client<interfaces::srv::AStarService>("a_star_server", rmw_qos_profile_services_default, client_cb_group);
+            //client = this -> create_client<interfaces::srv::AStarService>("a_star_server");
 
             //std::cout<<n_x_spaces<< std::endl;
         }
@@ -76,14 +66,8 @@ class Compute_Trajectory_R1 : public rclcpp::Node
 
     private:
 
-        rclcpp::Client<interfaces::srv::AStarService>::SharedPtr client;
-        rclcpp::CallbackGroup::SharedPtr client_cb_group;
+        //rclcpp::Client<interfaces::srv::AStarService>::SharedPtr client;
 
-        void subs_obj_callback(const interfaces::msg::RobotObjective::SharedPtr obj_msg){
-            n_objective = obj_msg->objective;
-            distance_objective = obj_msg->distance;
-             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Update objective");
-        }
 
         void subs_callback(const interfaces::msg::Positions::SharedPtr pos_msg)
         {
@@ -98,12 +82,8 @@ class Compute_Trajectory_R1 : public rclcpp::Node
              map_bin_ext = cv::Scalar(255);
 
 
-            //if (pos_msg->pos_robot1.orientation.x >= 0 && pos_msg->pos_robot1.orientation.y >=0 && pos_msg->pos_robot1.orientation.z >=0){
-                Robot1=pos_msg->pos_robot1;
-            //}
-            //if (pos_msg->pos_robot2.orientation.x >= 0 && pos_msg->pos_robot2.orientation.y >=0 && pos_msg->pos_robot2.orientation.z >=0){
-                Robot2=pos_msg->pos_robot2;
-            //}
+            Robot1=pos_msg->pos_robot1;
+            Robot2=pos_msg->pos_robot2;
             Object1=pos_msg->pos_object1;
             Object2=pos_msg->pos_object2;
             Target=pos_msg->pos_target;
@@ -125,9 +105,9 @@ class Compute_Trajectory_R1 : public rclcpp::Node
             R1_m.getRPY(R1_orientation_x, R1_orientation_y, R1_orientation_z);
             double R1_angle_degrees= (R1_orientation_z*180)/PI * -1;
 
-            cv::Point R1_center_point(((int)((5*cos(R1_orientation_z))+R1_x_map)),((int)((-5*(sin(R1_orientation_z)))+R1_y_map)));
+            cv::Point R1_center_point(((int)((5*cos(R1_angle_degrees))+R1_x_map)),((int)((4*(sin(R1_angle_degrees)))+R1_y_map)));
 
-            cv::Size R1_size(14,12);
+            cv::Size R1_size(12,14);
             cv::RotatedRect R1_rectangle(R1_center_point, R1_size, R1_angle_degrees);
             cv::Point2f vertices2f_R1[4];
             R1_rectangle.points(vertices2f_R1);
@@ -138,7 +118,6 @@ class Compute_Trajectory_R1 : public rclcpp::Node
                 vertices_R1.push_back(vertices2f_R1[i]);
             }
 
-            
             cv::fillConvexPoly(map,vertices_R1, cv::Scalar(1));
             
 
@@ -158,10 +137,10 @@ class Compute_Trajectory_R1 : public rclcpp::Node
             R2_m.getRPY(R2_orientation_x, R2_orientation_y, R2_orientation_z);
             double R2_angle_degrees= (R2_orientation_z*180)/PI * -1;
 
-            cv::Point R2_center_point(((int)((5*cos(R2_orientation_z))+R2_x_map)),((int)((-5*(sin(R2_orientation_z)))+R2_y_map)));
+            cv::Point R2_center_point(((int)((5*cos(R2_angle_degrees))+R2_x_map)),((int)((4*(sin(R2_angle_degrees)))+R2_y_map)));
 
 
-            cv::Size R2_size(14,12);
+            cv::Size R2_size(12,14);
             cv::RotatedRect R2_rectangle(R2_center_point, R2_size, R2_angle_degrees);
             cv::Point2f vertices2f_R2[4];
             R2_rectangle.points(vertices2f_R2);
@@ -243,7 +222,7 @@ class Compute_Trajectory_R1 : public rclcpp::Node
 
             //TARGET
 
-            int Tg_x_map = ((int)((Target.position.x * n_x_spaces)/x_world)) + (n_x_spaces/2) -2;
+            int Tg_x_map = ((int)((Target.position.x * n_x_spaces)/x_world)) + (n_x_spaces/2);
             int Tg_y_map = 120 - (((int)((Target.position.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
             cv::Point Tg_point(Tg_x_map,Tg_y_map);
 
@@ -267,63 +246,19 @@ class Compute_Trajectory_R1 : public rclcpp::Node
             }
 
             cv::fillConvexPoly(map,vertices_Tg, cv::Scalar(5));
-            //cv::fillConvexPoly(map_bin,vertices_Tg, cv::Scalar(0));
+            cv::fillConvexPoly(map_bin,vertices_Tg, cv::Scalar(0));
 
 
-            //cv::namedWindow("Display bin", cv::WINDOW_NORMAL );
-            //cv::imshow("Display bin", map_bin);
-
-
-            cv::Point goal;
-
-            switch (n_objective)
-            {
-            case -1:
-                Initial.position.x = R1_center_point.x;
-                Initial.position.y = R1_center_point.y;
-                goal.x = Initial.position.x;
-                goal.y = Initial.position.y;
-                break;
-
-            case 0:
-                goal.x = Initial.position.x;
-                goal.y = Initial.position.y;
-                break;
-
-            case 1:
-                goal.x = O1_point.x;// + (distance_objective * sin(O1_orientation_z));
-                goal.y = O1_point.y + (distance_objective * cos(O1_orientation_z));
-                Saved.position.x = O1_point.x;
-                Saved.position.y = O1_point.y;
-                //Saved.orientation.z = O1_orientation_z;
-                break;
-
-            case 2:
-                goal.x = Tg_point.x + (distance_objective * sin(Tg_orientation_z));
-                goal.y = Tg_point.y + (distance_objective * cos(Tg_orientation_z));
-                break;    
-
-            case 3:
-                goal.x = Saved.position.x;
-                goal.y = Saved.position.y + (distance_objective * sin(M_PI_2));
-                break;            
-            
-            default:
-                break;
-            }
-
-            //std::cout<<"nobj= " << n_objective << std::endl;
-            //std::cout<<"goalx = " << goal.x << " goaly = " << goal.y << std::endl;
-
-
+            cv::namedWindow("Display bin", cv::WINDOW_NORMAL );
+            cv::imshow("Display bin", map_bin);
 
 
             //call a_star_service
             auto request = std::make_shared<interfaces::srv::AStarService::Request>();
             request->src_x = R1_center_point.x;
             request->src_y = R1_center_point.y;
-            request->dst_x = goal.x;
-            request->dst_y = goal.y;
+            request->dst_x = O1_point.x;
+            request->dst_y = O1_point.y;
 
             std::vector<int> grid_vect(14400,1);
 
@@ -337,8 +272,8 @@ class Compute_Trajectory_R1 : public rclcpp::Node
             for (int i=0; i<120; i++){
                 for (int j=0; j<120; j++){
                     if (map_bin.at<cv::uint8_t>(i,j)==0){
-                        for (int k = -2; k < 3; k++){
-                            for (int l= -2; l < 3; l++){
+                        for (int k = -7; k < 8; k++){
+                            for (int l= -7; l < 8; l++){
                                 //std::cout << k << l << std::endl;
 
                                 int i_k = i+k;
@@ -356,8 +291,8 @@ class Compute_Trajectory_R1 : public rclcpp::Node
             }
 
 
-            //cv::namedWindow("Display bin_ext", cv::WINDOW_NORMAL );
-            //cv::imshow("Display bin_ext", map_bin_ext);
+            cv::namedWindow("Display bin_ext", cv::WINDOW_NORMAL );
+            cv::imshow("Display bin_ext", map_bin_ext);
 
 
 
@@ -432,16 +367,22 @@ class Compute_Trajectory_R1 : public rclcpp::Node
          //    std::cout << "esperar" << std::endl;
             result.wait();
            // while( result.get()->path_x.empty()){
-            //   std::cout << "esperainterfaces_for(std::chrono::milliseconds(1000));
+            //   std::cout << "esperando" << std::endl;
+            //}
+
+          //  std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
 
-           // std::cout << "termina espera" << std::endl;
+           //  std::cout << "termina espera" << std::endl;
 
             std::vector<int> path_x;
             std::vector<int> path_y;
 
 
             int path_size = result.get()->path_size;
+
+           // std::cout << "path_size" << std::endl;
+
 
             path_x.resize(path_size);
             path_y.resize(path_size);
@@ -462,7 +403,7 @@ class Compute_Trajectory_R1 : public rclcpp::Node
 */
             geometry_msgs::msg::Polygon path_msg;
 
-            for (int i=2; i<path_size; i++){
+            for (int i=0; i<path_size; i++){
                 map_color.at<cv::Vec3b>(path_x[i], path_y[i]) = cv::Vec3b(0,0,255);
                 geometry_msgs::msg::Point32 point;
                 point.y = ((path_x[i]-(n_x_spaces/2))*x_world)/n_x_spaces * -1;
@@ -471,32 +412,15 @@ class Compute_Trajectory_R1 : public rclcpp::Node
 
             }
 
-            int size_path = path_msg.points.size();
-            int size_path_ant = path_ant.points.size();
-
-            if (!path_msg.points.empty()){
-                if (size_path != size_path_ant){
-                    publisher_path -> publish(path_msg);
-                    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path send");
-                }
-            }
-            else {
-                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path empty......");
-            }
-            
-            path_ant = path_msg;
+           publisher_path -> publish(path_msg);
 
             ///////////////////////////////////////////////
 
-            cv::circle(map_color,R1_point,1,cv::Scalar(0,0,255),1);
-            cv::circle(map_color,R1_center_point,1,cv::Scalar(255,0,0),1);
-            cv::circle(map_color,goal,1,cv::Scalar(255,0,0),1);
+            cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
+            cv::imshow("Display Image", map);
 
-            //cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
-            //cv::imshow("Display Image", map);
-
-            cv::namedWindow("MAP_R1", cv::WINDOW_NORMAL );
-            cv::imshow("MAP_R1", map_color);
+            cv::namedWindow("Display color", cv::WINDOW_NORMAL );
+            cv::imshow("Display color", map_color);
             cv::waitKey(1);
 
         }
@@ -508,14 +432,11 @@ class Compute_Trajectory_R1 : public rclcpp::Node
 
 
     rclcpp::Subscription<interfaces::msg::Positions>::SharedPtr subs_position;
-    rclcpp::Subscription<interfaces::msg::RobotObjective>::SharedPtr subs_objective;
-    
-
 
     rclcpp::Publisher<geometry_msgs::msg::Polygon>::SharedPtr publisher_path;
 };
 
-/*
+
 class Node_Client_A_Star : public rclcpp::Node
 {
     public:
@@ -531,24 +452,21 @@ class Node_Client_A_Star : public rclcpp::Node
 
     private:
 
-            
         
 
 };
-*/
-
 
 int main(int argc, char * argv[])
 {
     rclcpp::init(argc, argv);
-    auto node = std::make_shared<Compute_Trajectory_R1>();
-    //auto node_client_a_star = std::make_shared<Node_Client_A_Star>();
+    auto node = std::make_shared<Compute_Trajectory>();
+    auto node_client_a_star = std::make_shared<Node_Client_A_Star>();
 
     rclcpp::executors::MultiThreadedExecutor executor;
     executor.add_node(node);
-    //executor.add_node(node_client_a_star);
+    executor.add_node(node_client_a_star);
     executor.spin();
-    //rclcpp::spin(std::make_shared<Compute_Trajectory_R1>());
+    //rclcpp::spin(std::make_shared<Compute_Trajectory>());
     rclcpp::shutdown();
     return 0;
 }
