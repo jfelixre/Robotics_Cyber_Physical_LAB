@@ -120,7 +120,7 @@ def generate_launch_description():
     #Launch task scheduler node
     task_scheduler = ExecuteProcess(
         cmd=[[
-            'ros2 run task_pkg task_manager_node'
+            'ros2 run task_pkg task_scheduler_node'
         ]],
         shell=True
     )
@@ -130,7 +130,7 @@ def generate_launch_description():
         bridge,
         bridge_unpause,
         unpause,
-        launch_robot_01,
+        #launch_robot_01,
         launch_robot_02,
         img_proc_nodes,
         task_scheduler,

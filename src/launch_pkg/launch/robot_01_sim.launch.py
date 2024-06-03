@@ -99,10 +99,10 @@ def generate_launch_description():
             )
 
     return LaunchDescription([
+        task_manager,
         gz_robot_spawn,
         bridge,
         robot_state_publisher,
-        task_manager,
         event_driven_control,
        
     ])

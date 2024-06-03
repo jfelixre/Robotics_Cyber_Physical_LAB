@@ -50,7 +50,7 @@ class Event_Driven_Control : public rclcpp::Node
             RCLCPP_INFO(this->get_logger(), "Received Robot_ID: %d", robot_id);
 
             std::stringstream ss_topic_name;
-            ss_topic_name << "/robot_" << robot_id << "/task_assigned";
+            ss_topic_name << "/robot_0" << robot_id << "/task_assigned";
             std::string topic_name = ss_topic_name.str();
 
             subscription_task_robot = this->create_subscription<interfaces::msg::TaskDescription>(
@@ -65,7 +65,7 @@ class Event_Driven_Control : public rclcpp::Node
 
             
             std::stringstream ss_topic_name_2;
-            ss_topic_name_2 << "/robot_" << robot_id << "/robot_state";
+            ss_topic_name_2 << "/robot_0" << robot_id << "/robot_state";
             std::string topic_name_2 = ss_topic_name_2.str();
 
             publisher_robot_state = this->create_publisher<interfaces::msg::RobotState>(topic_name_2,1);
@@ -76,7 +76,7 @@ class Event_Driven_Control : public rclcpp::Node
 
 
             std::stringstream ss_topic_name_3;
-            ss_topic_name_3 << "/robot_" << robot_id << "/control_finish";
+            ss_topic_name_3 << "/robot_0" << robot_id << "/control_finish";
             std::string topic_name_3 = ss_topic_name_3.str();
 
 
@@ -85,7 +85,7 @@ class Event_Driven_Control : public rclcpp::Node
 
 
             std::stringstream ss_topic_name_4;
-            ss_topic_name_4 << "/robot_" << robot_id << "/objective";
+            ss_topic_name_4 << "/robot_0" << robot_id << "/objective";
             std::string topic_name_4 = ss_topic_name_4.str();
 
             publisher_robot_objective = create_publisher<interfaces::msg::RobotObjective>(topic_name_4, 1);
@@ -106,11 +106,6 @@ class Event_Driven_Control : public rclcpp::Node
                 event_control(); //Call for new step in event driven control
             }
 
-        void positions_callback(interfaces::msg::Positions::SharedPtr msg)
-            {
-                tags_positions = *msg;
-                
-            }
 
         void control_finish_callback(interfaces::msg::ControlFinish::SharedPtr msg)
             {
@@ -144,7 +139,7 @@ class Event_Driven_Control : public rclcpp::Node
             if (task.obj_id<10)
                 ss_frame_name << "marker_id_0" << task.obj_id;
               else{
-                ss_frame_name << "marker_id" << task.obj_id;
+                ss_frame_name << "marker_id_" << task.obj_id;
               }
             
             std::string frame_name = ss_frame_name.str();

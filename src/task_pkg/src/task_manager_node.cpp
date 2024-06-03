@@ -26,7 +26,7 @@ using namespace std::chrono_literals;
 using namespace std;
 
 int robot_id = 0;
-bool busy = true;
+bool busy = false;
 int robot_state = -1;
 int leader_robot_id = 0;    //0 Leader   /   1 Follower
 
@@ -52,7 +52,7 @@ class Task_Manager_Node : public rclcpp::Node
             RCLCPP_INFO(this->get_logger(), "Received Robot_ID: %d", robot_id);
 
             std::stringstream ss_topic_name;
-            ss_topic_name << "/robot_" << robot_id << "/robot_state";
+            ss_topic_name << "/robot_0" << robot_id << "/robot_state";
             std::string topic_name = ss_topic_name.str();
 
             subscription_robot_state = this->create_subscription<interfaces::msg::RobotState>(
@@ -65,7 +65,7 @@ class Task_Manager_Node : public rclcpp::Node
              5000ms, std::bind(&Task_Manager_Node::timer_callback, this));
 
             std::stringstream ss_topic_name_2;
-            ss_topic_name_2 << "/robot_" << robot_id << "/task_assigned";
+            ss_topic_name_2 << "/robot_0" << robot_id << "/task_assigned";
             std::string topic_name_2 = ss_topic_name_2.str();
 
             publisher_task_robot = this->create_publisher<interfaces::msg::TaskDescription>(topic_name_2,10);
@@ -108,6 +108,7 @@ class Task_Manager_Node : public rclcpp::Node
 
      void timer_callback()
     {  
+        RCLCPP_INFO(this->get_logger(), "Robot %d busy = %b", robot_id, busy);
         if (busy == false){
             if (!task_list.task_queue.empty()){
 
