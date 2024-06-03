@@ -130,7 +130,7 @@ def generate_launch_description():
         bridge,
         bridge_unpause,
         unpause,
-        #launch_robot_01,
+        launch_robot_01,
         launch_robot_02,
         img_proc_nodes,
         task_scheduler,

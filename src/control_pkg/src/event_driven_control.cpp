@@ -35,7 +35,7 @@ interfaces::msg::Positions tags_positions;
 
 interfaces::msg::RobotState robot_state;
 
-float Xobj, Yobj, Angobj;
+float Xobj, Yobj, Zobj, Angobj;
 
 interfaces::msg::RobotObjective objective;
 
@@ -148,6 +148,7 @@ class Event_Driven_Control : public rclcpp::Node
                 geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", frame_name, tf2::TimePointZero);
                 Xobj = transform.transform.translation.x;
                 Yobj = transform.transform.translation.y;
+                Zobj = transform.transform.translation.z;
                 tf2::Quaternion Obj_quat(transform.transform.rotation.x, transform.transform.rotation.y, transform.transform.rotation.z, transform.transform.rotation.w);
                 tf2::Matrix3x3 Obj_m(Obj_quat);
                 double Obj_orientation_x, Obj_orientation_y, Obj_orientation_z;
@@ -178,8 +179,9 @@ class Event_Driven_Control : public rclcpp::Node
                     case 1:
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 1 Approach to object %d", robot_id, task.obj_id);
 
-                        objective.point.x = Xobj - 2;   //Check to match, maybe using trigonometry depending of angle
-                        objective.point.y = Yobj - 2;
+                        objective.point.x = Xobj - (0.5 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
+                        objective.point.y = Yobj - (0.5 * sin(Angobj));
+                        objective.point.z = Zobj;
                         objective.angle = Angobj;       //
                         publisher_robot_objective->publish(objective);
                         break;
@@ -187,8 +189,9 @@ class Event_Driven_Control : public rclcpp::Node
                     case 2:
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 2 Last approach to object %d", robot_id, task.obj_id);
 
-                        objective.point.x = Xobj - 2;   //Check to match, maybe using trigonometry depending of angle
-                        objective.point.y = Yobj - 2;
+                        objective.point.x = Xobj;   //Check to match, maybe using trigonometry depending of angle
+                        objective.point.y = Yobj;
+                        objective.point.z = Zobj;
                         objective.angle = Angobj;       //
                         publisher_robot_objective->publish(objective);
                         break;
@@ -201,9 +204,9 @@ class Event_Driven_Control : public rclcpp::Node
                     case 4:
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 4 Approach to objective point, x= %d, y= %d", robot_id, task.goal.x, task.goal.y);
 
-                        objective.point.x = task.goal.x - 2;   //Check to match, maybe using trigonometry depending of angle
-                        objective.point.y = task.goal.y - 2;
-                        objective.angle = 0;       // Define if i can select goal angle
+                        objective.point.x = task.goal.x - (0.5 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
+                        objective.point.y = task.goal.y - (0.5 * sin(Angobj));
+                        objective.angle = Angobj;       // Define if i can select goal angle
                         publisher_robot_objective->publish(objective);
                         break;
 
@@ -212,14 +215,21 @@ class Event_Driven_Control : public rclcpp::Node
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 5 Placing object on point, x= %d, y= %d", robot_id, task.goal.x, task.goal.y);
 
                         //COMPLETE OBJECT PLACE
+                        objective.point.x = Xobj;   //Check to match, maybe using trigonometry depending of angle
+                        objective.point.y = Yobj;
+                        objective.point.z = Zobj;
+                        objective.angle = Angobj;       //
+                        publisher_robot_objective->publish(objective);
+
+                        
                         break;
 
                     case 6:
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 6 Leaving object", robot_id);
 
-                        objective.point.x = task.goal.x - 2;   //Check to match, maybe using trigonometry depending of angle
-                        objective.point.y = task.goal.y - 2;
-                        objective.angle = 0;       // Define if i can select goal angle
+                        objective.point.x = task.goal.x - (0.5 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
+                        objective.point.y = task.goal.y - (0.5 * sin(Angobj));
+                        objective.angle = Angobj;       // Define if i can select goal angle
                         publisher_robot_objective->publish(objective);
                         break;
 
