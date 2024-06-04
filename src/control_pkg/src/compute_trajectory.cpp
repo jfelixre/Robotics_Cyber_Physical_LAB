@@ -26,6 +26,9 @@
 #include <geometry_msgs/msg/polygon.hpp>
 #include <geometry_msgs/msg/point32.h>
 #include <interfaces/msg/robot_objective.hpp>
+#include <tf2_ros/transform_broadcaster.h>
+#include <tf2_ros/transform_listener.h>
+#include "tf2_ros/buffer.h"
 
 using std::placeholders::_1;
 using namespace std::chrono_literals;
@@ -47,26 +50,41 @@ float n_y_spaces = (int)y_world/y_grid;
 
 geometry_msgs::msg::Polygon path_ant;
 
+int robot_id = 0;
+
 //rclcpp::Client<interfaces::srv::AStarService>::SharedPtr client;
 
 
 
-class Compute_Trajectory_R1 : public rclcpp::Node
+class Compute_Trajectory : public rclcpp::Node
 {
     public:
-        Compute_Trajectory_R1() : Node("compute_trajectory_r1")
+        Compute_Trajectory() : Node("compute_trajectory")
         {
 
+            this->declare_parameter<int>("robot_id", 0);
+            robot_id = this->get_parameter("robot_id").as_int();
+            RCLCPP_INFO(this->get_logger(), "Received Robot_ID: %d", robot_id);
 
-           subs_position = this->create_subscription<interfaces::msg::Positions>(
-               "/positions", 1, std::bind(&Compute_Trajectory_R1::subs_callback,this,_1));
 
-            publisher_path = this->create_publisher<geometry_msgs::msg::Polygon>("/robot_1/path",10);
+            tf_buffer_ = std::make_shared<tf2_ros::Buffer>(this->get_clock());
+            tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
+            tf_broadcaster_ = std::make_shared<tf2_ros::TransformBroadcaster>(*this);
+
+            std::stringstream ss_topic_name;
+            ss_topic_name << "/robot_0" << robot_id << "/path";
+            std::string topic_name = ss_topic_name.str();
+
+            publisher_path = this->create_publisher<geometry_msgs::msg::Polygon>(topic_name,10);
 
             client_cb_group = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
 
+            std::stringstream ss_topic_name_2;
+            ss_topic_name_2 << "/robot_0" << robot_id << "/objective";
+            std::string topic_name_2 = ss_topic_name_2.str();
+
             subs_objective = this->create_subscription<interfaces::msg::RobotObjective>(
-                "robot_1/objective", 1, std::bind(&Compute_Trajectory_R1::subs_obj_callback,this,_1));
+                topic_name_2, 1, std::bind(&Compute_Trajectory::subs_obj_callback,this,_1));
 
             client = this -> create_client<interfaces::srv::AStarService>("a_star_server", rmw_qos_profile_services_default, client_cb_group);
 
@@ -503,15 +521,10 @@ class Compute_Trajectory_R1 : public rclcpp::Node
 
 
 
-
-
-
-
-    rclcpp::Subscription<interfaces::msg::Positions>::SharedPtr subs_position;
     rclcpp::Subscription<interfaces::msg::RobotObjective>::SharedPtr subs_objective;
-    
-
-
+    std::shared_ptr<tf2_ros::Buffer> tf_buffer_;
+    std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
+    std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
     rclcpp::Publisher<geometry_msgs::msg::Polygon>::SharedPtr publisher_path;
 };
 
@@ -541,14 +554,14 @@ class Node_Client_A_Star : public rclcpp::Node
 int main(int argc, char * argv[])
 {
     rclcpp::init(argc, argv);
-    auto node = std::make_shared<Compute_Trajectory_R1>();
+    auto node = std::make_shared<Compute_Trajectory>();
     //auto node_client_a_star = std::make_shared<Node_Client_A_Star>();
 
     rclcpp::executors::MultiThreadedExecutor executor;
     executor.add_node(node);
     //executor.add_node(node_client_a_star);
     executor.spin();
-    //rclcpp::spin(std::make_shared<Compute_Trajectory_R1>());
+    //rclcpp::spin(std::make_shared<Compute_Trajectory>());
     rclcpp::shutdown();
     return 0;
 }
