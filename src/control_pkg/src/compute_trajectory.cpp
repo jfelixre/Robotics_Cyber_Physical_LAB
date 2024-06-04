@@ -34,9 +34,21 @@ using std::placeholders::_1;
 using namespace std::chrono_literals;
 # define PI 3.14159265358979323846
 
-geometry_msgs::msg::Pose Robot1, Robot2, Object1, Object2, Target, Initial, Saved;
-int n_objective = -1;
-float distance_objective = 0;
+// geometry_msgs::msg::Pose Robot1, Robot2, Object1, Object2, Target, Initial, Saved;
+// int n_objective = -1;
+// float distance_objective = 0;
+int robot_id = 0;
+int object_id = 0;
+float angle_objective = 0;
+geometry_msgs::msg::Point point_objective;
+geometry_msgs::msg::Point robot_position;
+geometry_msgs::msg::Point gripper_position;
+float angle_robot = 0;
+geometry_msgs::msg::Point object_position;
+float angle_object = 0;
+std::vector<geometry_msgs::msg::Point> obstacle_position;
+std::vector<float> angle_obstacle;
+int n_obstacles = 0;
 
 
 
@@ -49,8 +61,6 @@ int n_x_spaces = (int)x_world/x_grid;
 float n_y_spaces = (int)y_world/y_grid;
 
 geometry_msgs::msg::Polygon path_ant;
-
-int robot_id = 0;
 
 //rclcpp::Client<interfaces::srv::AStarService>::SharedPtr client;
 
@@ -88,7 +98,8 @@ class Compute_Trajectory : public rclcpp::Node
 
             client = this -> create_client<interfaces::srv::AStarService>("a_star_server", rmw_qos_profile_services_default, client_cb_group);
 
-            //std::cout<<n_x_spaces<< std::endl;
+            timer_ = this->create_wall_timer(
+             500ms, std::bind(&Compute_Trajectory::timer_callback, this));
         }
 
 
@@ -98,13 +109,89 @@ class Compute_Trajectory : public rclcpp::Node
         rclcpp::CallbackGroup::SharedPtr client_cb_group;
 
         void subs_obj_callback(const interfaces::msg::RobotObjective::SharedPtr obj_msg){
-            n_objective = obj_msg->objective;
-            distance_objective = obj_msg->distance;
+            // n_objective = obj_msg->objective;
+            // distance_objective = obj_msg->distance; 
+            object_id = obj_msg->obj_id;
+            angle_objective = obj_msg->angle;
+            point_objective = obj_msg->point;
+
              RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Update objective");
         }
 
-        void subs_callback(const interfaces::msg::Positions::SharedPtr pos_msg)
-        {
+        void timer_callback()
+        {   
+            n_obstacles = 0; //Reset the number of obstacles
+            obstacle_position.clear();
+            angle_obstacle.clear();
+            //For to save the position of every marker on the scene
+            for (int marker=1; marker<30; marker++){
+                std::stringstream ss_marker;
+                if (marker<10){
+                    ss_marker << "marker_id_0" << marker;
+                }
+                else{
+                ss_marker << "marker_id_" << marker;
+                }
+
+                std::string marker_name = ss_marker.str();
+
+                try{
+                    geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_->lookupTransform("marker_id_00", marker_name, tf2::TimePointZero);
+                    if(robot_id==marker){
+                        robot_position.x = transformStamped.transform.translation.x;
+                        robot_position.y = transformStamped.transform.translation.y;
+                        tf2::Quaternion quat(transformStamped.transform.rotation.x, transformStamped.transform.rotation.y, transformStamped.transform.rotation.z, transformStamped.transform.rotation.w);
+                        tf2::Matrix3x3 m(quat);
+                        double roll, pitch, yaw;
+                        m.getRPY(roll,pitch,yaw);
+                        angle_robot = yaw;
+                        
+                        std::stringstream ss_gripper;
+                        ss_gripper << "robot_id_0" << robot_id << "/gr_ref_link";
+                        std::string gripper_name = ss_gripper.str();
+
+                        try{
+                            geometry_msgs::msg::TransformStamped transformStamped_gripper = tf_buffer_->lookupTransform("marker_id_00", gripper_name, tf2::TimePointZero);
+                            gripper_position.x = transformStamped_gripper.transform.translation.x;
+                            gripper_position.y = transformStamped_gripper.transform.translation.y;
+                        }
+                        catch (tf2::TransformException &ex){
+                            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
+                            continue;
+                        }
+
+                    }
+                    else if(object_id==marker){
+                        object_position.x = transformStamped.transform.translation.x;
+                        object_position.y = transformStamped.transform.translation.y;
+                        tf2::Quaternion quat(transformStamped.transform.rotation.x, transformStamped.transform.rotation.y, transformStamped.transform.rotation.z, transformStamped.transform.rotation.w);
+                        tf2::Matrix3x3 m(quat);
+                        double roll, pitch, yaw;
+                        m.getRPY(roll,pitch,yaw);
+                        angle_object = yaw;
+                    }
+                    
+                    else{
+                        n_obstacles++;
+                        geometry_msgs::msg::Point obstacle_point;
+                        obstacle_point.x = transformStamped.transform.translation.x;
+                        obstacle_point.y = transformStamped.transform.translation.y;
+                        obstacle_position.push_back(obstacle_point);
+                        tf2::Quaternion quat(transformStamped.transform.rotation.x, transformStamped.transform.rotation.y, transformStamped.transform.rotation.z, transformStamped.transform.rotation.w);
+                        tf2::Matrix3x3 m(quat);
+                        double roll, pitch, yaw;
+                        m.getRPY(roll,pitch,yaw);
+                        angle_obstacle.push_back(yaw);
+                    }
+                }
+                catch (tf2::TransformException &ex){
+                    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
+                    continue;
+                }
+
+
+
+            }
 
             cv::Mat map = cv::Mat::zeros(n_x_spaces, n_y_spaces, CV_8UC1);
             cv::Mat map_bin = cv::Mat::zeros(n_x_spaces, n_y_spaces, CV_8UC1);
@@ -116,48 +203,58 @@ class Compute_Trajectory : public rclcpp::Node
              map_bin_ext = cv::Scalar(255);
 
 
-            //if (pos_msg->pos_robot1.orientation.x >= 0 && pos_msg->pos_robot1.orientation.y >=0 && pos_msg->pos_robot1.orientation.z >=0){
-                Robot1=pos_msg->pos_robot1;
-            //}
-            //if (pos_msg->pos_robot2.orientation.x >= 0 && pos_msg->pos_robot2.orientation.y >=0 && pos_msg->pos_robot2.orientation.z >=0){
-                Robot2=pos_msg->pos_robot2;
-            //}
-            Object1=pos_msg->pos_object1;
-            Object2=pos_msg->pos_object2;
-            Target=pos_msg->pos_target;
+            // //if (pos_msg->pos_robot1.orientation.x >= 0 && pos_msg->pos_robot1.orientation.y >=0 && pos_msg->pos_robot1.orientation.z >=0){
+            // Robot1=pos_msg->pos_robot1;
+            // //}
+            // //if (pos_msg->pos_robot2.orientation.x >= 0 && pos_msg->pos_robot2.orientation.y >=0 && pos_msg->pos_robot2.orientation.z >=0){
+            // Robot2=pos_msg->pos_robot2;
+            // //}
+            // Object1=pos_msg->pos_object1;
+            // Object2=pos_msg->pos_object2;
+            // Target=pos_msg->pos_target;
 
 
 
 
-            //ROBOT 1
-            int R1_x_map = ((int)((Robot1.position.x * n_x_spaces)/x_world)) + (n_x_spaces/2);
-            int R1_y_map = 120 - (((int)((Robot1.position.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
-            cv::Point R1_point(R1_x_map,R1_y_map); 
+            //Draw Robot on map
+            int Robot_x_map = ((int)((Robot1.position.x * n_x_spaces)/x_world)) + (n_x_spaces/2);
+            int Robot_y_map = 120 - (((int)((Robot1.position.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
+            cv::Point Robot_point(Robot_x_map,Robot_y_map); 
 
-            tf2::Quaternion R1_quat(Robot1.orientation.x, Robot1.orientation.y, Robot1.orientation.z, Robot1.orientation.w);
+            double Robot_angle_degrees= (angle_robot*180)/PI * -1;
 
-            tf2::Matrix3x3 R1_m(R1_quat);
+            cv::Point Robot_center_point(((int)((5*cos(angle_robot))+Robot_x_map)),((int)((-5*(sin(angle_robot)))+Robot_y_map)));
 
-            double R1_orientation_x, R1_orientation_y, R1_orientation_z;
+            cv::Size Robot_size(14,12);
+            cv::RotatedRect Robot_rectangle(Robot_center_point, Robot_size, Robot_angle_degrees);
+            cv::Point2f vertices2f_R[4];
+            Robot_rectangle.points(vertices2f_R);
 
-            R1_m.getRPY(R1_orientation_x, R1_orientation_y, R1_orientation_z);
-            double R1_angle_degrees= (R1_orientation_z*180)/PI * -1;
-
-            cv::Point R1_center_point(((int)((5*cos(R1_orientation_z))+R1_x_map)),((int)((-5*(sin(R1_orientation_z)))+R1_y_map)));
-
-            cv::Size R1_size(14,12);
-            cv::RotatedRect R1_rectangle(R1_center_point, R1_size, R1_angle_degrees);
-            cv::Point2f vertices2f_R1[4];
-            R1_rectangle.points(vertices2f_R1);
-
-            std::vector<cv::Point> vertices_R1;
+            std::vector<cv::Point> vertices_R;
 
             for(int i=0; i<4; i++){
-                vertices_R1.push_back(vertices2f_R1[i]);
+                vertices_R.push_back(vertices2f_R[i]);
+            }
+            cv::fillConvexPoly(map,vertices_R, cv::Scalar(1));
+
+            //Draw object on map
+            int Object_x_map = ((int)((object_position.x * n_x_spaces)/x_world)) + (n_x_spaces/2);
+            int Object_y_map = 120 - (((int)((object_position.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
+            cv::Point Object_point(Object_x_map,Object_y_map);
+
+            double Object_angle_degrees= (angle_object*180)/PI * -1;
+            cv::Size Object_size(4,4);
+            cv::RotatedRect Object_rectangle(Object_point, Object_size, Object_angle_degrees);
+            cv::Point2f vertices2f_Object[4];
+            Object_rectangle.points(vertices2f_Object);
+
+            std::vector<cv::Point> vertices_Object;
+
+            for(int i=0; i<4; i++){
+                vertices_Object.push_back(vertices2f_Object[i]);
             }
 
-            
-            cv::fillConvexPoly(map,vertices_R1, cv::Scalar(1));
+            cv::fillConvexPoly(map,vertices_Object, cv::Scalar(3));
             
 
 
@@ -197,30 +294,30 @@ class Compute_Trajectory : public rclcpp::Node
 
             //OBJECT 1
 
-            int O1_x_map = ((int)((Object1.position.x * n_x_spaces)/x_world)) + (n_x_spaces/2);
-            int O1_y_map = 120 - (((int)((Object1.position.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
-            cv::Point O1_point(O1_x_map,O1_y_map);
+            int Object_x_map = ((int)((Object1.position.x * n_x_spaces)/x_world)) + (n_x_spaces/2);
+            int Object_y_map = 120 - (((int)((Object1.position.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
+            cv::Point Object_point(Object_x_map,Object_y_map);
 
-            tf2::Quaternion O1_quat(Object1.orientation.x, Object1.orientation.y, Object1.orientation.z, Object1.orientation.w);
+            tf2::Quaternion Object_quat(Object1.orientation.x, Object1.orientation.y, Object1.orientation.z, Object1.orientation.w);
 
-            tf2::Matrix3x3 O1_m(O1_quat);
+            tf2::Matrix3x3 Object_m(Object_quat);
 
-            double O1_orientation_x, O1_orientation_y, O1_orientation_z;
+            double Object_orientation_x, Object_orientation_y, Object_orientation_z;
 
-            O1_m.getRPY(O1_orientation_x, O1_orientation_y, O1_orientation_z);
-            double O1_angle_degrees= (O1_orientation_z*180)/PI * -1;
-            cv::Size O1_size(4,4);
-            cv::RotatedRect O1_rectangle(O1_point, O1_size, O1_angle_degrees);
-            cv::Point2f vertices2f_O1[4];
-            O1_rectangle.points(vertices2f_O1);
+            Object_m.getRPY(Object_orientation_x, Object_orientation_y, Object_orientation_z);
+            double Object_angle_degrees= (Object_orientation_z*180)/PI * -1;
+            cv::Size Object_size(4,4);
+            cv::RotatedRect Object_rectangle(Object_point, Object_size, Object_angle_degrees);
+            cv::Point2f vertices2f_Object[4];
+            Object_rectangle.points(vertices2f_Object);
 
-            std::vector<cv::Point> vertices_O1;
+            std::vector<cv::Point> vertices_Object;
 
             for(int i=0; i<4; i++){
-                vertices_O1.push_back(vertices2f_O1[i]);
+                vertices_Object.push_back(vertices2f_Object[i]);
             }
 
-            cv::fillConvexPoly(map,vertices_O1, cv::Scalar(3));
+            cv::fillConvexPoly(map,vertices_Object, cv::Scalar(3));
 
 
 
@@ -309,11 +406,11 @@ class Compute_Trajectory : public rclcpp::Node
                 break;
 
             case 1:
-                goal.x = O1_point.x;// + (distance_objective * sin(O1_orientation_z));
-                goal.y = O1_point.y + (distance_objective * cos(O1_orientation_z));
-                Saved.position.x = O1_point.x;
-                Saved.position.y = O1_point.y;
-                //Saved.orientation.z = O1_orientation_z;
+                goal.x = Object_point.x;// + (distance_objective * sin(Object_orientation_z));
+                goal.y = Object_point.y + (distance_objective * cos(Object_orientation_z));
+                Saved.position.x = Object_point.x;
+                Saved.position.y = Object_point.y;
+                //Saved.orientation.z = Object_orientation_z;
                 break;
 
             case 2:
@@ -526,6 +623,7 @@ class Compute_Trajectory : public rclcpp::Node
     std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
     std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
     rclcpp::Publisher<geometry_msgs::msg::Polygon>::SharedPtr publisher_path;
+    rclcpp::TimerBase::SharedPtr timer_;
 };
 
 /*
