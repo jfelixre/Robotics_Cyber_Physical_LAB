@@ -18,7 +18,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/install/robot_custom_description/share/robot_custom_description/models/double_cube_01/meshes/cube_link.STL</uri>
+            <uri>meshes/cube_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -27,7 +27,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/install/robot_custom_description/share/robot_custom_description/models/markers/marker_21.dae</uri>
+            <uri>../markers/marker_21.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -36,7 +36,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>/home/javierfr/Robotics_Cyber_Physical_LAB/install/robot_custom_description/share/robot_custom_description/models/double_cube_01/meshes/cube_link.STL</uri>
+            <uri>meshes/cube_link.STL</uri>
           </mesh>
         </geometry>
         <material>
