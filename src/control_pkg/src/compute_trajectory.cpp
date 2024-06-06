@@ -57,19 +57,20 @@ int n_obstacles = 0;
 
 
 
-float x_grid = 0.025;    //All dimensions in meters
-float y_grid = 0.025;
-float x_world = 3;        
-float y_world = 3;          
+float x_grid = 0.05;    //All dimensions in meters
+float y_grid = 0.05;
+float x_world = 6;        
+float y_world = 6;          
 
 int n_x_spaces = (int)x_world/x_grid;
-float n_y_spaces = (int)y_world/y_grid;
+int n_y_spaces = (int)y_world/y_grid;
+
 
 geometry_msgs::msg::Polygon path_ant;
 
-cv::Mat map_color(120, 120, CV_8UC3, cv::Scalar(255, 255, 255));
-cv::Point goal;
-cv::Point Robot_point_f;
+cv::Mat map_color(n_x_spaces, n_y_spaces, CV_8UC3, cv::Scalar(255, 255, 255));
+cv::Point goal_f;
+cv::Point Robot_grip_point_f;
 cv::Point Robot_center_point_f;
 
 //rclcpp::Client<interfaces::srv::AStarService>::SharedPtr client;
@@ -81,6 +82,8 @@ class Compute_Trajectory : public rclcpp::Node
     public:
         Compute_Trajectory() : Node("compute_trajectory")
         {
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Number of spaces x: %d", n_x_spaces);
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Number of spaces y: %d", n_y_spaces);
 
             this->declare_parameter<int>("robot_id", 0);
             robot_id = this->get_parameter("robot_id").as_int();
@@ -133,7 +136,10 @@ class Compute_Trajectory : public rclcpp::Node
         }
 
         void timer_callback()
-        {   
+        {      
+            cv::Scalar white(255, 255, 255);
+            map_color.setTo(white);   //reset the map
+            //cv::namedWindow("Display_Map", cv::WINDOW_NORMAL );
             n_obstacles = 0; //Reset the number of obstacles
             obstacle_position.clear();
             angle_obstacle.clear();
@@ -149,20 +155,16 @@ class Compute_Trajectory : public rclcpp::Node
 
                 std::string marker_name = ss_marker.str();
 
-                try{
-                    geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_->lookupTransform("marker_id_00", marker_name, tf2::TimePointZero);
+                
                     if(robot_id==marker){
-                        robot_position.x = transformStamped.transform.translation.x;
-                        robot_position.y = transformStamped.transform.translation.y;
-                        tf2::Quaternion quat(transformStamped.transform.rotation.x, transformStamped.transform.rotation.y, transformStamped.transform.rotation.z, transformStamped.transform.rotation.w);
-                        tf2::Matrix3x3 m(quat);
-                        double roll, pitch, yaw;
-                        m.getRPY(roll,pitch,yaw);
-                        angle_robot = yaw;
+                        //robot_position.x = transformStamped.transform.translation.x;
+                        //robot_position.y = transformStamped.transform.translation.y;
+                        
                         
                         std::stringstream ss_gripper;
                         ss_gripper << "robot_0" << robot_id << "/gr_ref_link";
                         std::string gripper_name = ss_gripper.str();
+
 
                         try{
                             geometry_msgs::msg::TransformStamped transformStamped_gripper = tf_buffer_->lookupTransform("marker_id_00", gripper_name, tf2::TimePointZero);
@@ -174,49 +176,80 @@ class Compute_Trajectory : public rclcpp::Node
                             continue;
                         }
 
-                    }
-                    else if(object_id==marker){
-                        object_position.x = transformStamped.transform.translation.x;
-                        object_position.y = transformStamped.transform.translation.y;
-                        tf2::Quaternion quat(transformStamped.transform.rotation.x, transformStamped.transform.rotation.y, transformStamped.transform.rotation.z, transformStamped.transform.rotation.w);
-                        tf2::Matrix3x3 m(quat);
-                        double roll, pitch, yaw;
-                        m.getRPY(roll,pitch,yaw);
-                        angle_object = yaw;
-                        if(marker>10 && marker<20){
-                            type_object = 1;
+
+                        std::stringstream ss_base;
+                        ss_base << "robot_0" << robot_id << "/base_link";
+                        std::string base_name = ss_base.str();
+
+                        try{
+                            geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_->lookupTransform("marker_id_00", gripper_name, tf2::TimePointZero);
+                            robot_position.x = transformStamped.transform.translation.x;
+                            robot_position.y = transformStamped.transform.translation.y;
+                            tf2::Quaternion quat(transformStamped.transform.rotation.x, transformStamped.transform.rotation.y, transformStamped.transform.rotation.z, transformStamped.transform.rotation.w);
+                            tf2::Matrix3x3 m(quat);
+                            double roll, pitch, yaw;
+                            m.getRPY(roll,pitch,yaw);
+                            angle_robot = yaw;
                         }
-                        else if(marker>20){
-                            type_object = 2;
+                        catch (tf2::TransformException &ex){
+                            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
+                            continue;
+                        }
+
+                    }
+
+                    else if(object_id==marker){
+                        try{
+                            geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_->lookupTransform("marker_id_00", marker_name, tf2::TimePointZero);
+                            object_position.x = transformStamped.transform.translation.x;
+                            object_position.y = transformStamped.transform.translation.y;
+                            tf2::Quaternion quat(transformStamped.transform.rotation.x, transformStamped.transform.rotation.y, transformStamped.transform.rotation.z, transformStamped.transform.rotation.w);
+                            tf2::Matrix3x3 m(quat);
+                            double roll, pitch, yaw;
+                            m.getRPY(roll,pitch,yaw);
+                            angle_object = yaw;
+                            if(marker>10 && marker<20){
+                                type_object = 1;
+                            }
+                            else if(marker>20){
+                                type_object = 2;
+                            }
+                        }
+                        catch (tf2::TransformException &ex){
+                            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
+                            continue;
                         }
                     }
                     
                     else{
-                        n_obstacles++;
-                        geometry_msgs::msg::Point obstacle_point;
-                        obstacle_point.x = transformStamped.transform.translation.x;
-                        obstacle_point.y = transformStamped.transform.translation.y;
-                        obstacle_position.push_back(obstacle_point);
-                        tf2::Quaternion quat(transformStamped.transform.rotation.x, transformStamped.transform.rotation.y, transformStamped.transform.rotation.z, transformStamped.transform.rotation.w);
-                        tf2::Matrix3x3 m(quat);
-                        double roll, pitch, yaw;
-                        m.getRPY(roll,pitch,yaw);
-                        angle_obstacle.push_back(yaw);
-                        if(marker<10){
-                            type_obstacle.push_back(0);
+                        try{
+                            geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_->lookupTransform("marker_id_00", marker_name, tf2::TimePointZero);
+                            n_obstacles++;
+                            geometry_msgs::msg::Point obstacle_point;
+                            obstacle_point.x = transformStamped.transform.translation.x;
+                            obstacle_point.y = transformStamped.transform.translation.y;
+                            obstacle_position.push_back(obstacle_point);
+                            tf2::Quaternion quat(transformStamped.transform.rotation.x, transformStamped.transform.rotation.y, transformStamped.transform.rotation.z, transformStamped.transform.rotation.w);
+                            tf2::Matrix3x3 m(quat);
+                            double roll, pitch, yaw;
+                            m.getRPY(roll,pitch,yaw);
+                            angle_obstacle.push_back(yaw);
+                            if(marker<10){
+                                type_obstacle.push_back(0);
+                            }
+                            else if(marker>10 && marker<20){
+                                type_obstacle.push_back(1);
+                            }
+                            else if(marker>20){
+                                type_obstacle.push_back(2);
+                            }
                         }
-                        else if(marker>10 && marker<20){
-                            type_obstacle.push_back(1);
-                        }
-                        else if(marker>20){
-                            type_obstacle.push_back(2);
+                        catch (tf2::TransformException &ex){
+                            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
+                            continue;
                         }
                     }
-                }
-                catch (tf2::TransformException &ex){
-                    //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
-                    continue;
-                }
+                
 
 
 
@@ -246,16 +279,26 @@ class Compute_Trajectory : public rclcpp::Node
 
 
             //Draw Robot on map
-            int Robot_x_map = ((int)((robot_position.x * n_x_spaces)/x_world)) + (n_x_spaces/2);
-            int Robot_y_map = 120 - (((int)((robot_position.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
-            cv::Point Robot_point(Robot_x_map,Robot_y_map); 
-            Robot_point_f = Robot_point;
+            int Robot_x__grip_map = ((int)((gripper_position.x * n_x_spaces)/x_world)) + (n_x_spaces/2);
+            int Robot_y__grip_map = n_y_spaces - (((int)((gripper_position.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
+            cv::Point Robot_grip_point(Robot_x__grip_map,Robot_y__grip_map); 
+            Robot_grip_point_f = Robot_grip_point;
+
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Grip_x: %f" , gripper_position.x);
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Grip_y: %f" , gripper_position.y);
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Grip_x_map: %d" , Robot_x__grip_map);
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Grip_y_map: %d" , Robot_y__grip_map);
 
 
-            double Robot_angle_degrees= (angle_robot*180)/PI * -1;
+            double Robot_angle_degrees= (angle_robot*180)/PI;
 
-            cv::Point Robot_center_point(((int)((5*cos(angle_robot))+Robot_x_map)),((int)((-5*(sin(angle_robot)))+Robot_y_map)));  //Not necessary if obtain the base_link position
+            cv::Point Robot_center_point((((int)((robot_position.x * n_x_spaces)/x_world))+(n_x_spaces/2)), (n_y_spaces - (((int)((robot_position.y * n_y_spaces)/y_world)) + (n_y_spaces/2))));  //Not necessary if obtain the base_link position
             Robot_center_point_f = Robot_center_point;
+
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Center_x: %f" , robot_position.x);
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Center_y: %f" , robot_position.y);
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Center_x_map: %d" , Robot_center_point.x);
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Center_y_map: %d" , Robot_center_point.y);
 
             cv::Size Robot_size(14,12);
             cv::RotatedRect Robot_rectangle(Robot_center_point, Robot_size, Robot_angle_degrees);
@@ -269,10 +312,15 @@ class Compute_Trajectory : public rclcpp::Node
             }
             cv::fillConvexPoly(map,vertices_R, cv::Scalar(1));
 
+
+
+
             //Draw object on map
             int Object_x_map = ((int)((object_position.x * n_x_spaces)/x_world)) + (n_x_spaces/2);
-            int Object_y_map = 120 - (((int)((object_position.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
+            int Object_y_map = n_y_spaces - (((int)((object_position.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
             cv::Point Object_point(Object_x_map,Object_y_map);
+
+            
 
             double Object_angle_degrees= (angle_object*180)/PI * -1;
             if(type_object==1){
@@ -287,7 +335,7 @@ class Compute_Trajectory : public rclcpp::Node
                     vertices_Object.push_back(vertices2f_Object[i]);
                 }
 
-                cv::fillConvexPoly(map,vertices_Object, cv::Scalar(3));
+                cv::fillConvexPoly(map,vertices_Object, cv::Scalar(1));
             }
 
             else if(type_object==2){
@@ -302,7 +350,7 @@ class Compute_Trajectory : public rclcpp::Node
                     vertices_Object.push_back(vertices2f_Object[i]);
                 }
 
-                cv::fillConvexPoly(map,vertices_Object, cv::Scalar(3));
+                cv::fillConvexPoly(map,vertices_Object, cv::Scalar(1));
             }
             
             
@@ -311,7 +359,7 @@ class Compute_Trajectory : public rclcpp::Node
             //Draw obstacles on map
             for (int i=0; i<n_obstacles; i++){
                 int Obstacle_x_map = ((int)((obstacle_position[i].x * n_x_spaces)/x_world)) + (n_x_spaces/2);
-                int Obstacle_y_map = 120 - (((int)((obstacle_position[i].y * n_y_spaces)/y_world)) + (n_y_spaces/2));
+                int Obstacle_y_map = n_y_spaces - (((int)((obstacle_position[i].y * n_y_spaces)/y_world)) + (n_y_spaces/2));
                 cv::Point Obstacle_point(Obstacle_x_map,Obstacle_y_map);
 
                 double Obstacle_angle_degrees= (angle_obstacle[i]*180)/PI * -1;
@@ -370,19 +418,22 @@ class Compute_Trajectory : public rclcpp::Node
             //cv::namedWindow("Display bin", cv::WINDOW_NORMAL );
             //cv::imshow("Display bin", map_bin);
 
+            int goal_x = ((int)((point_objective.x * n_x_spaces)/x_world)) + (n_x_spaces/2);
+            int goal_y = n_y_spaces - (((int)((point_objective.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
+            cv::Point goal(goal_x,goal_y);
+            goal_f = goal;
 
-
-            goal.x = point_objective.x;
-            goal.y = point_objective.y;
+            //goal_f.x = point_objective.x;
+            //goal_f.y = point_objective.y;
 
             
 
             //call a_star_service
             auto request = std::make_shared<interfaces::srv::AStarService::Request>();
-            request->src_x = Robot_center_point.x;
-            request->src_y = Robot_center_point.y;
-            request->dst_x = goal.x;
-            request->dst_y = goal.y;
+            request->src_x = Robot_grip_point_f.x;
+            request->src_y = Robot_grip_point_f.y;
+            request->dst_x = goal_f.x;
+            request->dst_y = goal_f.y;
 
             
 
@@ -394,9 +445,9 @@ class Compute_Trajectory : public rclcpp::Node
             
 
 
-
-            for (int i=0; i<120; i++){
-                for (int j=0; j<120; j++){
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint_1");
+            for (int i=0; i<n_x_spaces; i++){
+                for (int j=0; j<n_y_spaces; j++){
                     if (map_bin.at<cv::uint8_t>(i,j)==0){
                         for (int k = -2; k < 3; k++){
                             for (int l= -2; l < 3; l++){
@@ -405,7 +456,7 @@ class Compute_Trajectory : public rclcpp::Node
                                 int i_k = i+k;
                                 int j_l = j+l;
 
-                                if ((i_k)>=0 && (i_k)<120 && (j_l)>=0 && (j_l)<120){
+                                if ((i_k)>=0 && (i_k)<n_x_spaces && (j_l)>=0 && (j_l)<n_y_spaces){
                                    map_bin_ext.at<cv::uint8_t>(i+k,j+l)=cv::uint8_t(0);
                                  //  std::cout << i_k << j_l << std::endl;                                    
                                 }
@@ -422,9 +473,9 @@ class Compute_Trajectory : public rclcpp::Node
             //cv::waitKey(1);
 
 
-
-            for (int i=0; i<120; i++){
-                for (int j=0; j<120; j++){
+            // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint_2");
+            for (int i=0; i<n_x_spaces; i++){
+                for (int j=0; j<n_y_spaces; j++){
 
                     if (map.at<cv::uint8_t>(i,j) == 1){
                         map_color.at<cv::Vec3b>(i,j) = cv::Vec3b(0,255,0);
@@ -464,7 +515,7 @@ class Compute_Trajectory : public rclcpp::Node
                // std::cout<<std::endl;
             }
             
-            
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint_3");
             request->grid = grid_vect;
 
             while (!client->wait_for_service(1s)){
@@ -473,6 +524,8 @@ class Compute_Trajectory : public rclcpp::Node
                 }
                 RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service A_Star not available, waiting again...");
             }
+
+            // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint_4");
 
             auto handle_response =
                 [this](rclcpp::Client<interfaces::srv::AStarService>::SharedFuture future) {
@@ -500,7 +553,7 @@ class Compute_Trajectory : public rclcpp::Node
                         path_x = result->path_y;
                         path_y = result->path_x;
 
-                        RCLCPP_INFO(get_logger(), "Checkpoint_2");
+                        //RCLCPP_INFO(get_logger(), "Checkpoint_5");
 
                         geometry_msgs::msg::Polygon path_msg;
 
@@ -530,16 +583,24 @@ class Compute_Trajectory : public rclcpp::Node
 
                         ///////////////////////////////////////////////
 
-                        cv::circle(map_color,Robot_point_f,1,cv::Scalar(0,0,255),1);
-                        cv::circle(map_color,Robot_center_point_f,1,cv::Scalar(255,0,0),1);
-                        cv::circle(map_color,goal,1,cv::Scalar(255,0,0),1);
+                        cv::circle(map_color,Robot_grip_point_f,1,cv::Scalar(0,0,255),1);
+                        cv::circle(map_color,Robot_center_point_f,2,cv::Scalar(255,0,0),1);
+                        cv::circle(map_color,goal_f,1,cv::Scalar(255,0,0),1);
 
                         //cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
                         //cv::imshow("Display Image", map);
 
-                        cv::namedWindow("MAP_R1", cv::WINDOW_NORMAL );
-                        cv::imshow("MAP_R1", map_color);
-                        cv::waitKey(1);
+                        //cv::namedWindow("MAP_R1", cv::WINDOW_NORMAL );
+
+                        bool check_img = cv::imwrite("map.png", map_color);
+                        if(check_img==false){
+                            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Error saving image");
+                        }
+                        //cv::imshow("Display_Map", map_color);
+                        //cv::waitKey(1);
+                        // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint_6");
+
+                        
                    // }
 
                                         
@@ -547,7 +608,17 @@ class Compute_Trajectory : public rclcpp::Node
 
             auto future = client->async_send_request(request, handle_response);
 
+             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint_7");
+
+            // cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
+            // cv::imshow("Display Image", map);
+            // cv::waitKey(1);
+
+                
             
+            
+
+
 
 
 
@@ -645,7 +716,7 @@ class Compute_Trajectory : public rclcpp::Node
 
 //                     cv::circle(map_color,Robot_point,1,cv::Scalar(0,0,255),1);
 //                     cv::circle(map_color,Robot_center_point,1,cv::Scalar(255,0,0),1);
-//                     cv::circle(map_color,goal,1,cv::Scalar(255,0,0),1);
+//                     cv::circle(map_color,goal_f,1,cv::Scalar(255,0,0),1);
 
 //                     //cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
 //                     //cv::imshow("Display Image", map);

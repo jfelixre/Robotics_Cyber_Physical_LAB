@@ -63,7 +63,7 @@ class AStarServer : public rclcpp::Node
     void a_star_caller(const std::shared_ptr<interfaces::srv::AStarService::Request> request,
           std::shared_ptr<interfaces::srv::AStarService::Response>      response)
 		{
-
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint1");
             //std::cout << "Llamada a servicio" << std::endl;
 
             int src_x = request->src_x;
@@ -81,9 +81,12 @@ class AStarServer : public rclcpp::Node
             RCLCPP_INFO(this->get_logger(), "Received dst_x: %d", dst_x);
             RCLCPP_INFO(this->get_logger(), "Received dst_y: %d", dst_y);
             
+           // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint2");
+
             int grid_index = 0;
             int grid[ROW][COL];
 
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint3");
 
             for (int i=0;i<ROW;i++){
                 for (int j=0; j<COL; j++){
@@ -94,21 +97,29 @@ class AStarServer : public rclcpp::Node
                 //std::cout<<std::endl;
             } 
 
+           // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint4");
+
             Pair src = make_pair(src_x, src_y);
 
             Pair dest = make_pair(dst_x, dst_y);
 
+           // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint5");
+
             aStarSearch(grid, src, dest);
+
+           // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint6");
 
 /*         if (success == false) {
             path_x.resize(1);
             path_y.resize(1);
         }
 
- */
+ */         
             response->path_x = path_x;
             response->path_y = path_y;
             response->path_size = path_x.size();
+
+          //  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint7");
 
 
 
@@ -166,6 +177,7 @@ class AStarServer : public rclcpp::Node
                 }
             else{
                 //std::cout << "bloq" << row << col << std::endl;
+                RCLCPP_INFO(get_logger(), "Blocked cell: %d %d", row, col);
                 return (false);
             }
         }
@@ -251,6 +263,7 @@ class AStarServer : public rclcpp::Node
             // If the source is out of range
             if (isValid(src.first, src.second) == false) {
                 printf("Source is invalid\n");
+                RCLCPP_INFO(get_logger(), "Source invalid");
                 // success = false;
                 return;
             }
@@ -258,6 +271,7 @@ class AStarServer : public rclcpp::Node
             // If the destination is out of range
             if (isValid(dest.first, dest.second) == false) {
                 printf("Destination is invalid\n");
+                RCLCPP_INFO(get_logger(), "Destination invalid");
                 // success = false;
                 return;
             }
@@ -267,6 +281,7 @@ class AStarServer : public rclcpp::Node
                 || isUnBlocked(grid, dest.first, dest.second)
                     == false) {
                 printf("Source or the destination is blocked\n");
+                RCLCPP_INFO(get_logger(), "Source or the destination is blocked");
                 // success = false;
                 return;
             }
@@ -275,6 +290,7 @@ class AStarServer : public rclcpp::Node
             if (isDestination(src.first, src.second, dest)
                 == true) {
                 printf("We are already at the destination\n");
+                RCLCPP_INFO(get_logger(), "We are already at the destination");
                 // success = false;
                 return;
             }
@@ -763,6 +779,7 @@ class AStarServer : public rclcpp::Node
             if (foundDest == false){
                 // success = false;
                 printf("Failed to find the Destination Cell\n");
+                RCLCPP_INFO(get_logger(),"Failed to find destination cell");
             }
             /* else {
                 success = true;

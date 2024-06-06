@@ -358,7 +358,7 @@ ament_target_dependencies(event_driven_control
     tf2
     tf2_ros
     geometry_msgs
-    OpenCV
+    "OpenCV"
     )
 
 

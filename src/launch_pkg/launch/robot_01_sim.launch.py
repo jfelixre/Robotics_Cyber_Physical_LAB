@@ -104,6 +104,7 @@ def generate_launch_description():
             namespace='robot_01',
             executable='compute_trajectory',
             parameters=[{'robot_id': 1}],
+            #arguments=['--ros-args', '--log-level', 'debug'],
             )
     
     #Launch a_star_server node for robot_01
