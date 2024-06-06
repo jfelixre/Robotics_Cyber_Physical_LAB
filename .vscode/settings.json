@@ -95,6 +95,7 @@
         "stop_token": "cpp",
         "format": "cpp",
         "stdfloat": "cpp",
-        "__nullptr": "cpp"
+        "__nullptr": "cpp",
+        "__node_handle": "cpp"
     }
 }

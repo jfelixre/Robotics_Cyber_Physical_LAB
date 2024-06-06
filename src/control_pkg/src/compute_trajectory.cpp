@@ -30,6 +30,9 @@
 #include <tf2_ros/transform_listener.h>
 #include "tf2_ros/buffer.h"
 
+#include <rmw/qos_profiles.h>
+#include <rclcpp/qos.hpp>
+
 using std::placeholders::_1;
 using namespace std::chrono_literals;
 # define PI 3.14159265358979323846
@@ -46,8 +49,10 @@ geometry_msgs::msg::Point gripper_position;
 float angle_robot = 0;
 geometry_msgs::msg::Point object_position;
 float angle_object = 0;
+float type_object = 0;  //1: Single object, 2: Double object
 std::vector<geometry_msgs::msg::Point> obstacle_position;
 std::vector<float> angle_obstacle;
+std::vector<float> type_obstacle;   //0: Robot, 1: Single object, 2: Double object
 int n_obstacles = 0;
 
 
@@ -61,6 +66,11 @@ int n_x_spaces = (int)x_world/x_grid;
 float n_y_spaces = (int)y_world/y_grid;
 
 geometry_msgs::msg::Polygon path_ant;
+
+cv::Mat map_color(120, 120, CV_8UC3, cv::Scalar(255, 255, 255));
+cv::Point goal;
+cv::Point Robot_point_f;
+cv::Point Robot_center_point_f;
 
 //rclcpp::Client<interfaces::srv::AStarService>::SharedPtr client;
 
@@ -96,7 +106,11 @@ class Compute_Trajectory : public rclcpp::Node
             subs_objective = this->create_subscription<interfaces::msg::RobotObjective>(
                 topic_name_2, 1, std::bind(&Compute_Trajectory::subs_obj_callback,this,_1));
 
-            client = this -> create_client<interfaces::srv::AStarService>("a_star_server", rmw_qos_profile_services_default, client_cb_group);
+            std::stringstream ss_service_name;
+            ss_service_name << "/robot_0" << robot_id << "/a_star_server";
+            std::string service_name = ss_service_name.str();
+
+            client = this -> create_client<interfaces::srv::AStarService>(service_name, rclcpp::ServicesQoS(), client_cb_group);
 
             timer_ = this->create_wall_timer(
              500ms, std::bind(&Compute_Trajectory::timer_callback, this));
@@ -147,7 +161,7 @@ class Compute_Trajectory : public rclcpp::Node
                         angle_robot = yaw;
                         
                         std::stringstream ss_gripper;
-                        ss_gripper << "robot_id_0" << robot_id << "/gr_ref_link";
+                        ss_gripper << "robot_0" << robot_id << "/gr_ref_link";
                         std::string gripper_name = ss_gripper.str();
 
                         try{
@@ -169,6 +183,12 @@ class Compute_Trajectory : public rclcpp::Node
                         double roll, pitch, yaw;
                         m.getRPY(roll,pitch,yaw);
                         angle_object = yaw;
+                        if(marker>10 && marker<20){
+                            type_object = 1;
+                        }
+                        else if(marker>20){
+                            type_object = 2;
+                        }
                     }
                     
                     else{
@@ -182,10 +202,19 @@ class Compute_Trajectory : public rclcpp::Node
                         double roll, pitch, yaw;
                         m.getRPY(roll,pitch,yaw);
                         angle_obstacle.push_back(yaw);
+                        if(marker<10){
+                            type_obstacle.push_back(0);
+                        }
+                        else if(marker>10 && marker<20){
+                            type_obstacle.push_back(1);
+                        }
+                        else if(marker>20){
+                            type_obstacle.push_back(2);
+                        }
                     }
                 }
                 catch (tf2::TransformException &ex){
-                    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
+                    //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
                     continue;
                 }
 
@@ -196,7 +225,7 @@ class Compute_Trajectory : public rclcpp::Node
             cv::Mat map = cv::Mat::zeros(n_x_spaces, n_y_spaces, CV_8UC1);
             cv::Mat map_bin = cv::Mat::zeros(n_x_spaces, n_y_spaces, CV_8UC1);
             cv::Mat map_bin_ext = cv::Mat::zeros(n_x_spaces, n_y_spaces, CV_8UC1);
-            cv::Mat map_color(120, 120, CV_8UC3, cv::Scalar(255, 255, 255));
+            
 
              map = cv::Scalar(255);
              map_bin = cv::Scalar(255);
@@ -217,13 +246,16 @@ class Compute_Trajectory : public rclcpp::Node
 
 
             //Draw Robot on map
-            int Robot_x_map = ((int)((Robot1.position.x * n_x_spaces)/x_world)) + (n_x_spaces/2);
-            int Robot_y_map = 120 - (((int)((Robot1.position.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
+            int Robot_x_map = ((int)((robot_position.x * n_x_spaces)/x_world)) + (n_x_spaces/2);
+            int Robot_y_map = 120 - (((int)((robot_position.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
             cv::Point Robot_point(Robot_x_map,Robot_y_map); 
+            Robot_point_f = Robot_point;
+
 
             double Robot_angle_degrees= (angle_robot*180)/PI * -1;
 
-            cv::Point Robot_center_point(((int)((5*cos(angle_robot))+Robot_x_map)),((int)((-5*(sin(angle_robot)))+Robot_y_map)));
+            cv::Point Robot_center_point(((int)((5*cos(angle_robot))+Robot_x_map)),((int)((-5*(sin(angle_robot)))+Robot_y_map)));  //Not necessary if obtain the base_link position
+            Robot_center_point_f = Robot_center_point;
 
             cv::Size Robot_size(14,12);
             cv::RotatedRect Robot_rectangle(Robot_center_point, Robot_size, Robot_angle_degrees);
@@ -243,145 +275,95 @@ class Compute_Trajectory : public rclcpp::Node
             cv::Point Object_point(Object_x_map,Object_y_map);
 
             double Object_angle_degrees= (angle_object*180)/PI * -1;
-            cv::Size Object_size(4,4);
-            cv::RotatedRect Object_rectangle(Object_point, Object_size, Object_angle_degrees);
-            cv::Point2f vertices2f_Object[4];
-            Object_rectangle.points(vertices2f_Object);
+            if(type_object==1){
+                cv::Size Object_size(4,4);
+                cv::RotatedRect Object_rectangle(Object_point, Object_size, Object_angle_degrees);
+                cv::Point2f vertices2f_Object[4];
+                Object_rectangle.points(vertices2f_Object);
 
-            std::vector<cv::Point> vertices_Object;
+                std::vector<cv::Point> vertices_Object;
 
-            for(int i=0; i<4; i++){
-                vertices_Object.push_back(vertices2f_Object[i]);
+                for(int i=0; i<4; i++){
+                    vertices_Object.push_back(vertices2f_Object[i]);
+                }
+
+                cv::fillConvexPoly(map,vertices_Object, cv::Scalar(3));
             }
 
-            cv::fillConvexPoly(map,vertices_Object, cv::Scalar(3));
+            else if(type_object==2){
+                cv::Size Object_size(12,4);
+                cv::RotatedRect Object_rectangle(Object_point, Object_size, Object_angle_degrees);
+                cv::Point2f vertices2f_Object[4];
+                Object_rectangle.points(vertices2f_Object);
+
+                std::vector<cv::Point> vertices_Object;
+
+                for(int i=0; i<4; i++){
+                    vertices_Object.push_back(vertices2f_Object[i]);
+                }
+
+                cv::fillConvexPoly(map,vertices_Object, cv::Scalar(3));
+            }
+            
+            
             
 
+            //Draw obstacles on map
+            for (int i=0; i<n_obstacles; i++){
+                int Obstacle_x_map = ((int)((obstacle_position[i].x * n_x_spaces)/x_world)) + (n_x_spaces/2);
+                int Obstacle_y_map = 120 - (((int)((obstacle_position[i].y * n_y_spaces)/y_world)) + (n_y_spaces/2));
+                cv::Point Obstacle_point(Obstacle_x_map,Obstacle_y_map);
 
+                double Obstacle_angle_degrees= (angle_obstacle[i]*180)/PI * -1;
+                if(type_obstacle[i]==0){
+                    cv::Size Obstacle_size(14,12);
+                    cv::RotatedRect Obstacle_rectangle(Obstacle_point, Obstacle_size, Obstacle_angle_degrees);
+                    cv::Point2f vertices2f_Obstacle[4];
+                    Obstacle_rectangle.points(vertices2f_Obstacle);
 
-            //ROBOT 2
-            int R2_x_map = ((int)((Robot2.position.x * n_x_spaces)/x_world)) + (n_x_spaces/2);
-            int R2_y_map = 120 - (((int)((Robot2.position.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
-            cv::Point R2_point(R2_x_map,R2_y_map);
+                    std::vector<cv::Point> vertices_Obstacle;
 
-            tf2::Quaternion R2_quat(Robot2.orientation.x, Robot2.orientation.y, Robot2.orientation.z, Robot2.orientation.w);
+                    for(int j=0; j<4; j++){
+                        vertices_Obstacle.push_back(vertices2f_Obstacle[j]);
+                    }
 
-            tf2::Matrix3x3 R2_m(R2_quat);
+                    cv::fillConvexPoly(map,vertices_Obstacle, cv::Scalar(4));
+                    cv::fillConvexPoly(map_bin,vertices_Obstacle, cv::Scalar(0));
+                }
+                else if(type_obstacle[i]==1){
+                    cv::Size Obstacle_size(4,4);
+                    cv::RotatedRect Obstacle_rectangle(Obstacle_point, Obstacle_size, Obstacle_angle_degrees);
+                    cv::Point2f vertices2f_Obstacle[4];
+                    Obstacle_rectangle.points(vertices2f_Obstacle);
 
-            double R2_orientation_x, R2_orientation_y, R2_orientation_z;
+                    std::vector<cv::Point> vertices_Obstacle;
 
-            R2_m.getRPY(R2_orientation_x, R2_orientation_y, R2_orientation_z);
-            double R2_angle_degrees= (R2_orientation_z*180)/PI * -1;
+                    for(int j=0; j<4; j++){
+                        vertices_Obstacle.push_back(vertices2f_Obstacle[j]);
+                    }
 
-            cv::Point R2_center_point(((int)((5*cos(R2_orientation_z))+R2_x_map)),((int)((-5*(sin(R2_orientation_z)))+R2_y_map)));
+                    cv::fillConvexPoly(map,vertices_Obstacle, cv::Scalar(4));
+                    cv::fillConvexPoly(map_bin,vertices_Obstacle, cv::Scalar(0));
+                }
+                else if(type_obstacle[i]==2){
+                    cv::Size Obstacle_size(12,4);
+                    cv::RotatedRect Obstacle_rectangle(Obstacle_point, Obstacle_size, Obstacle_angle_degrees);
+                    cv::Point2f vertices2f_Obstacle[4];
+                    Obstacle_rectangle.points(vertices2f_Obstacle);
 
+                    std::vector<cv::Point> vertices_Obstacle;
 
-            cv::Size R2_size(14,12);
-            cv::RotatedRect R2_rectangle(R2_center_point, R2_size, R2_angle_degrees);
-            cv::Point2f vertices2f_R2[4];
-            R2_rectangle.points(vertices2f_R2);
+                    for(int j=0; j<4; j++){
+                        vertices_Obstacle.push_back(vertices2f_Obstacle[j]);
+                    }
 
-            std::vector<cv::Point> vertices_R2;
+                    cv::fillConvexPoly(map,vertices_Obstacle, cv::Scalar(4));
+                    cv::fillConvexPoly(map_bin,vertices_Obstacle, cv::Scalar(0));
+                }
+                
 
-            for(int i=0; i<4; i++){
-                vertices_R2.push_back(vertices2f_R2[i]);
             }
 
-            cv::fillConvexPoly(map,vertices_R2, cv::Scalar(2));
-            cv::fillConvexPoly(map_bin,vertices_R2, cv::Scalar(0));
-
-
-
-            //OBJECT 1
-
-            int Object_x_map = ((int)((Object1.position.x * n_x_spaces)/x_world)) + (n_x_spaces/2);
-            int Object_y_map = 120 - (((int)((Object1.position.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
-            cv::Point Object_point(Object_x_map,Object_y_map);
-
-            tf2::Quaternion Object_quat(Object1.orientation.x, Object1.orientation.y, Object1.orientation.z, Object1.orientation.w);
-
-            tf2::Matrix3x3 Object_m(Object_quat);
-
-            double Object_orientation_x, Object_orientation_y, Object_orientation_z;
-
-            Object_m.getRPY(Object_orientation_x, Object_orientation_y, Object_orientation_z);
-            double Object_angle_degrees= (Object_orientation_z*180)/PI * -1;
-            cv::Size Object_size(4,4);
-            cv::RotatedRect Object_rectangle(Object_point, Object_size, Object_angle_degrees);
-            cv::Point2f vertices2f_Object[4];
-            Object_rectangle.points(vertices2f_Object);
-
-            std::vector<cv::Point> vertices_Object;
-
-            for(int i=0; i<4; i++){
-                vertices_Object.push_back(vertices2f_Object[i]);
-            }
-
-            cv::fillConvexPoly(map,vertices_Object, cv::Scalar(3));
-
-
-
-
-
-
-            //OBJECT 2
-
-            int O2_x_map = ((int)((Object2.position.x * n_x_spaces)/x_world)) + (n_x_spaces/2);
-            int O2_y_map = 120 - (((int)((Object2.position.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
-            cv::Point O2_point(O2_x_map,O2_y_map);
-
-            tf2::Quaternion O2_quat(Object2.orientation.x, Object2.orientation.y, Object2.orientation.z, Object2.orientation.w);
-
-            tf2::Matrix3x3 O2_m(O2_quat);
-
-            double O2_orientation_x, O2_orientation_y, O2_orientation_z;
-
-            O2_m.getRPY(O2_orientation_x, O2_orientation_y, O2_orientation_z);
-            double O2_angle_degrees= (O2_orientation_z*180)/PI * -1;
-            cv::Size O2_size(4,4);
-            cv::RotatedRect O2_rectangle(O2_point, O2_size, O2_angle_degrees);
-            cv::Point2f vertices2f_O2[4];
-            O2_rectangle.points(vertices2f_O2);
-
-            std::vector<cv::Point> vertices_O2;
-
-            for(int i=0; i<4; i++){
-                vertices_O2.push_back(vertices2f_O2[i]);
-            }
-
-            cv::fillConvexPoly(map,vertices_O2, cv::Scalar(4));
-            cv::fillConvexPoly(map_bin,vertices_O2, cv::Scalar(0));
-
-
-
-
-
-            //TARGET
-
-            int Tg_x_map = ((int)((Target.position.x * n_x_spaces)/x_world)) + (n_x_spaces/2) -2;
-            int Tg_y_map = 120 - (((int)((Target.position.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
-            cv::Point Tg_point(Tg_x_map,Tg_y_map);
-
-            tf2::Quaternion Tg_quat(Target.orientation.x, Target.orientation.y, Target.orientation.z, Target.orientation.w);
-
-            tf2::Matrix3x3 Tg_m(Tg_quat);
-
-            double Tg_orientation_x, Tg_orientation_y, Tg_orientation_z;
-
-            Tg_m.getRPY(Tg_orientation_x, Tg_orientation_y, Tg_orientation_z);
-            double Tg_angle_degrees= (Tg_orientation_z*180)/PI * -1;
-            cv::Size Tg_size(5,5);
-            cv::RotatedRect Tg_rectangle(Tg_point, Tg_size, Tg_angle_degrees);
-            cv::Point2f vertices2f_Tg[4];
-            Tg_rectangle.points(vertices2f_Tg);
-
-            std::vector<cv::Point> vertices_Tg;
-
-            for(int i=0; i<4; i++){
-                vertices_Tg.push_back(vertices2f_Tg[i]);
-            }
-
-            cv::fillConvexPoly(map,vertices_Tg, cv::Scalar(5));
             //cv::fillConvexPoly(map_bin,vertices_Tg, cv::Scalar(0));
 
 
@@ -389,56 +371,20 @@ class Compute_Trajectory : public rclcpp::Node
             //cv::imshow("Display bin", map_bin);
 
 
-            cv::Point goal;
 
-            switch (n_objective)
-            {
-            case -1:
-                Initial.position.x = R1_center_point.x;
-                Initial.position.y = R1_center_point.y;
-                goal.x = Initial.position.x;
-                goal.y = Initial.position.y;
-                break;
+            goal.x = point_objective.x;
+            goal.y = point_objective.y;
 
-            case 0:
-                goal.x = Initial.position.x;
-                goal.y = Initial.position.y;
-                break;
-
-            case 1:
-                goal.x = Object_point.x;// + (distance_objective * sin(Object_orientation_z));
-                goal.y = Object_point.y + (distance_objective * cos(Object_orientation_z));
-                Saved.position.x = Object_point.x;
-                Saved.position.y = Object_point.y;
-                //Saved.orientation.z = Object_orientation_z;
-                break;
-
-            case 2:
-                goal.x = Tg_point.x + (distance_objective * sin(Tg_orientation_z));
-                goal.y = Tg_point.y + (distance_objective * cos(Tg_orientation_z));
-                break;    
-
-            case 3:
-                goal.x = Saved.position.x;
-                goal.y = Saved.position.y + (distance_objective * sin(M_PI_2));
-                break;            
             
-            default:
-                break;
-            }
-
-            //std::cout<<"nobj= " << n_objective << std::endl;
-            //std::cout<<"goalx = " << goal.x << " goaly = " << goal.y << std::endl;
-
-
-
 
             //call a_star_service
             auto request = std::make_shared<interfaces::srv::AStarService::Request>();
-            request->src_x = R1_center_point.x;
-            request->src_y = R1_center_point.y;
+            request->src_x = Robot_center_point.x;
+            request->src_y = Robot_center_point.y;
             request->dst_x = goal.x;
             request->dst_y = goal.y;
+
+            
 
             std::vector<int> grid_vect(14400,1);
 
@@ -473,6 +419,7 @@ class Compute_Trajectory : public rclcpp::Node
 
             //cv::namedWindow("Display bin_ext", cv::WINDOW_NORMAL );
             //cv::imshow("Display bin_ext", map_bin_ext);
+            //cv::waitKey(1);
 
 
 
@@ -516,11 +463,8 @@ class Compute_Trajectory : public rclcpp::Node
                 }
                // std::cout<<std::endl;
             }
-
-
-
-
-
+            
+            
             request->grid = grid_vect;
 
             while (!client->wait_for_service(1s)){
@@ -530,89 +474,203 @@ class Compute_Trajectory : public rclcpp::Node
                 RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service A_Star not available, waiting again...");
             }
 
+            auto handle_response =
+                [this](rclcpp::Client<interfaces::srv::AStarService>::SharedFuture future) {
+                    auto result = future.get();
+                    // Handle the result
+
+                    int path_size = result->path_size;
+
+                    // if (path_size == 0){
+                    //     RCLCPP_INFO(get_logger(), "No path found");
+                    // }
+                    // else{
+                    //    RCLCPP_INFO(get_logger(), "Path found");
+                        std::vector<int> path_x;
+                        std::vector<int> path_y;
+
+
+                        
+
+                        path_x.resize(path_size);
+                        path_y.resize(path_size);
+
+     
+
+                        path_x = result->path_y;
+                        path_y = result->path_x;
+
+                        RCLCPP_INFO(get_logger(), "Checkpoint_2");
+
+                        geometry_msgs::msg::Polygon path_msg;
+
+                        for (int i=2; i<path_size; i++){
+                            map_color.at<cv::Vec3b>(path_x[i], path_y[i]) = cv::Vec3b(0,0,255);
+                            geometry_msgs::msg::Point32 point;
+                            point.y = ((path_x[i]-(n_x_spaces/2))*x_world)/n_x_spaces * -1;
+                            point.x = ((path_y[i]-(n_y_spaces/2))*y_world)/n_y_spaces;
+                            path_msg.points.push_back(point);
+
+                        }
+
+                        int size_path = path_msg.points.size();
+                        int size_path_ant = path_ant.points.size();
+
+                        if (!path_msg.points.empty()){
+                            if (size_path != size_path_ant){
+                                publisher_path -> publish(path_msg);
+                                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path send");
+                            }
+                        }
+                        else {
+                            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path empty......");
+                        }
+                        
+                        path_ant = path_msg;
+
+                        ///////////////////////////////////////////////
+
+                        cv::circle(map_color,Robot_point_f,1,cv::Scalar(0,0,255),1);
+                        cv::circle(map_color,Robot_center_point_f,1,cv::Scalar(255,0,0),1);
+                        cv::circle(map_color,goal,1,cv::Scalar(255,0,0),1);
+
+                        //cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
+                        //cv::imshow("Display Image", map);
+
+                        cv::namedWindow("MAP_R1", cv::WINDOW_NORMAL );
+                        cv::imshow("MAP_R1", map_color);
+                        cv::waitKey(1);
+                   // }
+
+                                        
+                };
+
+            auto future = client->async_send_request(request, handle_response);
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
           //   std::cout << "enviar request" << std::endl;
 
-            auto result = client->async_send_request(request);
-/*
-            if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), result) ==
-                rclcpp::FutureReturnCode::SUCCESS){
-                    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "A_Star complete");
-                }
-                else{
-                    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service A_Star");
-                }
-*/
+//             auto result = client->async_send_request(request);
 
+// /*              
+
+//             if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), result) ==
+//                 rclcpp::FutureReturnCode::SUCCESS){
+//                     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "A_Star complete");
+//                 }
+//                 else{
+//                     RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service A_Star");
+//                 }
+// */  
+//             auto status = result.wait_for(3s);  //not spinning here!
+//             if (status == std::future_status::ready)
+//             {   
+//                 int path_size = result.get()->path_size;
+//                 RCLCPP_INFO(get_logger(), "Result received %d", result.get()->path_size);
+                
+//                 RCLCPP_INFO(get_logger(), "Checkpoint");
+
+//                 if (result.get()->path_size == 0){
+//                     RCLCPP_INFO(get_logger(), "No path found");
+//                 }
+//                 else{
+//                     RCLCPP_INFO(get_logger(), "Path found");
+//                     std::vector<int> path_x;
+//                     std::vector<int> path_y;
+
+
+                    
+
+//                     path_x.resize(path_size);
+//                     path_y.resize(path_size);
+
+//                 // std::cout << "rezise" << std::endl;
+
+
+//                     path_x = result.get()->path_y;
+//                     path_y = result.get()->path_x;
+
+//                     RCLCPP_INFO(get_logger(), "Checkpoint_2");
+//                     //int path_size = path_x.size();
+//         /*
+//                     for (int i=0; i<path_x.size(); i++){
+//                         std::cout << "x = " << path_x[i] << std::endl;
+//                         std::cout << "y = " << path_y[i] << std::endl;
+//                     }
+//         */
+//                     geometry_msgs::msg::Polygon path_msg;
+
+//                     for (int i=2; i<path_size; i++){
+//                         map_color.at<cv::Vec3b>(path_x[i], path_y[i]) = cv::Vec3b(0,0,255);
+//                         geometry_msgs::msg::Point32 point;
+//                         point.y = ((path_x[i]-(n_x_spaces/2))*x_world)/n_x_spaces * -1;
+//                         point.x = ((path_y[i]-(n_y_spaces/2))*y_world)/n_y_spaces;
+//                         path_msg.points.push_back(point);
+
+//                     }
+
+//                     int size_path = path_msg.points.size();
+//                     int size_path_ant = path_ant.points.size();
+
+//                     if (!path_msg.points.empty()){
+//                         if (size_path != size_path_ant){
+//                             publisher_path -> publish(path_msg);
+//                             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path send");
+//                         }
+//                     }
+//                     else {
+//                         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path empty......");
+//                     }
+                    
+//                     path_ant = path_msg;
+
+//                     ///////////////////////////////////////////////
+
+//                     cv::circle(map_color,Robot_point,1,cv::Scalar(0,0,255),1);
+//                     cv::circle(map_color,Robot_center_point,1,cv::Scalar(255,0,0),1);
+//                     cv::circle(map_color,goal,1,cv::Scalar(255,0,0),1);
+
+//                     //cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
+//                     //cv::imshow("Display Image", map);
+
+//                     cv::namedWindow("MAP_R1", cv::WINDOW_NORMAL );
+//                     cv::imshow("MAP_R1", map_color);
+//                     cv::waitKey(1);
+//                 }
+
+                
+            
+//             }
+//             else
+//             {
+//             RCLCPP_ERROR(get_logger(), "Not received");
+
+//             }
          //    std::cout << "esperar" << std::endl;
-            result.wait();
+            //result.wait();
            // while( result.get()->path_x.empty()){
             //   std::cout << "esperainterfaces_for(std::chrono::milliseconds(1000));
 
 
            // std::cout << "termina espera" << std::endl;
 
-            std::vector<int> path_x;
-            std::vector<int> path_y;
-
-
-            int path_size = result.get()->path_size;
-
-            path_x.resize(path_size);
-            path_y.resize(path_size);
-
-           // std::cout << "rezise" << std::endl;
-
-
-            path_x = result.get()->path_y;
-            path_y = result.get()->path_x;
-
-
-            //int path_size = path_x.size();
-/*
-            for (int i=0; i<path_x.size(); i++){
-                std::cout << "x = " << path_x[i] << std::endl;
-                std::cout << "y = " << path_y[i] << std::endl;
-            }
-*/
-            geometry_msgs::msg::Polygon path_msg;
-
-            for (int i=2; i<path_size; i++){
-                map_color.at<cv::Vec3b>(path_x[i], path_y[i]) = cv::Vec3b(0,0,255);
-                geometry_msgs::msg::Point32 point;
-                point.y = ((path_x[i]-(n_x_spaces/2))*x_world)/n_x_spaces * -1;
-                point.x = ((path_y[i]-(n_y_spaces/2))*y_world)/n_y_spaces;
-                path_msg.points.push_back(point);
-
-            }
-
-            int size_path = path_msg.points.size();
-            int size_path_ant = path_ant.points.size();
-
-            if (!path_msg.points.empty()){
-                if (size_path != size_path_ant){
-                    publisher_path -> publish(path_msg);
-                    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path send");
-                }
-            }
-            else {
-                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path empty......");
-            }
-            
-            path_ant = path_msg;
-
-            ///////////////////////////////////////////////
-
-            cv::circle(map_color,R1_point,1,cv::Scalar(0,0,255),1);
-            cv::circle(map_color,R1_center_point,1,cv::Scalar(255,0,0),1);
-            cv::circle(map_color,goal,1,cv::Scalar(255,0,0),1);
-
-            //cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
-            //cv::imshow("Display Image", map);
-
-            cv::namedWindow("MAP_R1", cv::WINDOW_NORMAL );
-            cv::imshow("MAP_R1", map_color);
-            cv::waitKey(1);
 
         }
 

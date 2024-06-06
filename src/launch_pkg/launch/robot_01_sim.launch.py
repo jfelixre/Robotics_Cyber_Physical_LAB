@@ -97,6 +97,22 @@ def generate_launch_description():
             executable='event_driven_control',
             parameters=[{'robot_id': 1}],
             )
+    
+    #Launch compute_trajectory node for robot_01
+    compute_trajectory = Node(
+            package='control_pkg',
+            namespace='robot_01',
+            executable='compute_trajectory',
+            parameters=[{'robot_id': 1}],
+            )
+    
+    #Launch a_star_server node for robot_01
+    a_star_server = Node(
+            package='control_pkg',
+            namespace='robot_01',
+            executable='a_star_server',
+            parameters=[{'robot_id': 1}],
+            )
 
     return LaunchDescription([
         task_manager,
@@ -104,5 +120,7 @@ def generate_launch_description():
         bridge,
         robot_state_publisher,
         event_driven_control,
+        compute_trajectory,
+        a_star_server,
        
     ])

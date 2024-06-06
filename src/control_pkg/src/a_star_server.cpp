@@ -13,6 +13,8 @@ using namespace std;
 #define ROW 120
 #define COL 120
 
+int robot_id = 0;
+
 // bool success = false;
 
 
@@ -39,8 +41,16 @@ class AStarServer : public rclcpp::Node
     public:
         AStarServer() : Node("a_star_server")
         {
+            this->declare_parameter<int>("robot_id", 0);
+            robot_id = this->get_parameter("robot_id").as_int();
+            RCLCPP_INFO(this->get_logger(), "Received Robot_ID: %d", robot_id);
+
+            std::stringstream ss_service_name;
+            ss_service_name << "/robot_0" << robot_id << "/a_star_server";
+            std::string service_name = ss_service_name.str();
+
             service_ = this->create_service<interfaces::srv::AStarService>(
-                "a_star_server", std::bind(&AStarServer::a_star_caller, this,
+                service_name, std::bind(&AStarServer::a_star_caller, this,
                 std::placeholders::_1, std::placeholders::_2));
 
 
@@ -65,6 +75,11 @@ class AStarServer : public rclcpp::Node
             std::vector<int> grid_vect;
             grid_vect = request->grid;
             
+            RCLCPP_INFO(this->get_logger(), "Received grid size: %d", grid_vect.size());
+            RCLCPP_INFO(this->get_logger(), "Received src_x: %d", src_x);
+            RCLCPP_INFO(this->get_logger(), "Received src_y: %d", src_y);
+            RCLCPP_INFO(this->get_logger(), "Received dst_x: %d", dst_x);
+            RCLCPP_INFO(this->get_logger(), "Received dst_y: %d", dst_y);
             
             int grid_index = 0;
             int grid[ROW][COL];
