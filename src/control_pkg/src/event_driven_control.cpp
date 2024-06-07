@@ -179,10 +179,11 @@ class Event_Driven_Control : public rclcpp::Node
                     case 1:
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 1 Approach to object %d", robot_id, task.obj_id);
 
-                        objective.point.x = Xobj + (0.5 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
-                        objective.point.y = Yobj + (0.5 * sin(Angobj));
+                        objective.point.x = Xobj - (0.5 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
+                        objective.point.y = Yobj - (0.5 * sin(Angobj));
                         objective.point.z = Zobj;
                         objective.angle = Angobj;       //
+                        objective.obj_id = task.obj_id;
                         publisher_robot_objective->publish(objective);
                         break;
 
@@ -193,6 +194,7 @@ class Event_Driven_Control : public rclcpp::Node
                         objective.point.y = Yobj;
                         objective.point.z = Zobj;
                         objective.angle = Angobj;       //
+                        objective.obj_id = task.obj_id;
                         publisher_robot_objective->publish(objective);
                         break;
 
@@ -204,9 +206,10 @@ class Event_Driven_Control : public rclcpp::Node
                     case 4:
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 4 Approach to objective point, x= %d, y= %d", robot_id, task.goal.x, task.goal.y);
 
-                        objective.point.x = task.goal.x + (0.5 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
-                        objective.point.y = task.goal.y + (0.5 * sin(Angobj));
+                        objective.point.x = task.goal.x - (0.5 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
+                        objective.point.y = task.goal.y - (0.5 * sin(Angobj));
                         objective.angle = Angobj;       // Define if i can select goal angle
+                        objective.obj_id = task.obj_id;
                         publisher_robot_objective->publish(objective);
                         break;
 
@@ -219,6 +222,7 @@ class Event_Driven_Control : public rclcpp::Node
                         objective.point.y = Yobj;
                         objective.point.z = Zobj;
                         objective.angle = Angobj;       //
+                        objective.obj_id = task.obj_id;
                         publisher_robot_objective->publish(objective);
 
 
@@ -230,6 +234,7 @@ class Event_Driven_Control : public rclcpp::Node
                         objective.point.x = task.goal.x - (0.5 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
                         objective.point.y = task.goal.y - (0.5 * sin(Angobj));
                         objective.angle = Angobj;       // Define if i can select goal angle
+                        objective.obj_id = task.obj_id;
                         publisher_robot_objective->publish(objective);
                         break;
 
@@ -239,6 +244,7 @@ class Event_Driven_Control : public rclcpp::Node
                         objective.point.x = 0;   //Define home position***
                         objective.point.y = 0;
                         objective.angle = 0;
+                        objective.obj_id = task.obj_id;
                         publisher_robot_objective->publish(objective);
                         break;
 
@@ -264,6 +270,7 @@ class Event_Driven_Control : public rclcpp::Node
                         objective.point.x = Xobj - 2;   //Check to match, maybe using trigonometry depending of angle
                         objective.point.y = Yobj - 2;
                         objective.angle = Angobj;       //
+                        objective.obj_id = task.obj_id;
                         publisher_robot_objective->publish(objective);
                         break;
 
@@ -273,6 +280,7 @@ class Event_Driven_Control : public rclcpp::Node
                         objective.point.x = Xobj - 2;   //Check to match, maybe using trigonometry depending of angle
                         objective.point.y = Yobj - 2;
                         objective.angle = Angobj;       //
+                        objective.obj_id = task.obj_id;
                         publisher_robot_objective->publish(objective);
                         break;
 
@@ -300,6 +308,7 @@ class Event_Driven_Control : public rclcpp::Node
                         objective.point.x = 0;   //Define home position***
                         objective.point.y = 0;
                         objective.angle = 0;
+                        objective.obj_id = task.obj_id;
                         publisher_robot_objective->publish(objective);
                         break;
 

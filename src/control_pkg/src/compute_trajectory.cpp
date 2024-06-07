@@ -143,6 +143,7 @@ class Compute_Trajectory : public rclcpp::Node
             n_obstacles = 0; //Reset the number of obstacles
             obstacle_position.clear();
             angle_obstacle.clear();
+            type_obstacle.clear();
             //For to save the position of every marker on the scene
             for (int marker=1; marker<30; marker++){
                 std::stringstream ss_marker;
@@ -154,6 +155,8 @@ class Compute_Trajectory : public rclcpp::Node
                 }
 
                 std::string marker_name = ss_marker.str();
+
+                //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Object ID %d", object_id);
 
                 
                     if(robot_id==marker){
@@ -172,7 +175,7 @@ class Compute_Trajectory : public rclcpp::Node
                             gripper_position.y = transformStamped_gripper.transform.translation.y;
                         }
                         catch (tf2::TransformException &ex){
-                            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
+                            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
                             continue;
                         }
 
@@ -182,7 +185,7 @@ class Compute_Trajectory : public rclcpp::Node
                         std::string base_name = ss_base.str();
 
                         try{
-                            geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_->lookupTransform("marker_id_00", gripper_name, tf2::TimePointZero);
+                            geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_->lookupTransform("marker_id_00", base_name, tf2::TimePointZero);
                             robot_position.x = transformStamped.transform.translation.x;
                             robot_position.y = transformStamped.transform.translation.y;
                             tf2::Quaternion quat(transformStamped.transform.rotation.x, transformStamped.transform.rotation.y, transformStamped.transform.rotation.z, transformStamped.transform.rotation.w);
@@ -192,13 +195,14 @@ class Compute_Trajectory : public rclcpp::Node
                             angle_robot = yaw;
                         }
                         catch (tf2::TransformException &ex){
-                            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
+                            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
                             continue;
                         }
 
                     }
 
                     else if(object_id==marker){
+                        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Object detected ID %d", object_id);
                         try{
                             geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_->lookupTransform("marker_id_00", marker_name, tf2::TimePointZero);
                             object_position.x = transformStamped.transform.translation.x;
@@ -224,24 +228,26 @@ class Compute_Trajectory : public rclcpp::Node
                     else{
                         try{
                             geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_->lookupTransform("marker_id_00", marker_name, tf2::TimePointZero);
-                            n_obstacles++;
-                            geometry_msgs::msg::Point obstacle_point;
-                            obstacle_point.x = transformStamped.transform.translation.x;
-                            obstacle_point.y = transformStamped.transform.translation.y;
-                            obstacle_position.push_back(obstacle_point);
-                            tf2::Quaternion quat(transformStamped.transform.rotation.x, transformStamped.transform.rotation.y, transformStamped.transform.rotation.z, transformStamped.transform.rotation.w);
-                            tf2::Matrix3x3 m(quat);
-                            double roll, pitch, yaw;
-                            m.getRPY(roll,pitch,yaw);
-                            angle_obstacle.push_back(yaw);
-                            if(marker<10){
-                                type_obstacle.push_back(0);
-                            }
-                            else if(marker>10 && marker<20){
-                                type_obstacle.push_back(1);
-                            }
-                            else if(marker>20){
-                                type_obstacle.push_back(2);
+                            if(object_id!=marker){
+                                n_obstacles++;
+                                geometry_msgs::msg::Point obstacle_point;
+                                obstacle_point.x = transformStamped.transform.translation.x;
+                                obstacle_point.y = transformStamped.transform.translation.y;
+                                obstacle_position.push_back(obstacle_point);
+                                tf2::Quaternion quat(transformStamped.transform.rotation.x, transformStamped.transform.rotation.y, transformStamped.transform.rotation.z, transformStamped.transform.rotation.w);
+                                tf2::Matrix3x3 m(quat);
+                                double roll, pitch, yaw;
+                                m.getRPY(roll,pitch,yaw);
+                                angle_obstacle.push_back(yaw);
+                                if(marker<10){
+                                    type_obstacle.push_back(0);
+                                }
+                                else if(marker>10 && marker<20){
+                                    type_obstacle.push_back(1);
+                                }
+                                else if(marker>20){
+                                    type_obstacle.push_back(2);
+                                }
                             }
                         }
                         catch (tf2::TransformException &ex){
@@ -290,7 +296,7 @@ class Compute_Trajectory : public rclcpp::Node
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Grip_y_map: %d" , Robot_y__grip_map);
 
 
-            double Robot_angle_degrees= (angle_robot*180)/PI;
+            double Robot_angle_degrees= (angle_robot*180)/PI * -1;
 
             cv::Point Robot_center_point((((int)((robot_position.x * n_x_spaces)/x_world))+(n_x_spaces/2)), (n_y_spaces - (((int)((robot_position.y * n_y_spaces)/y_world)) + (n_y_spaces/2))));  //Not necessary if obtain the base_link position
             Robot_center_point_f = Robot_center_point;
@@ -355,7 +361,7 @@ class Compute_Trajectory : public rclcpp::Node
             
             
             
-
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Nobs: %d" , n_obstacles);
             //Draw obstacles on map
             for (int i=0; i<n_obstacles; i++){
                 int Obstacle_x_map = ((int)((obstacle_position[i].x * n_x_spaces)/x_world)) + (n_x_spaces/2);
