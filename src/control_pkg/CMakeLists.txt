@@ -362,6 +362,24 @@ ament_target_dependencies(event_driven_control
     )
 
 
+  add_executable(control_trajectory_d src/control_trajectory_d.cpp)
+  target_include_directories(control_trajectory_d PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+  ament_target_dependencies(control_trajectory_d
+    sensor_msgs
+    std_msgs
+    rclcpp
+    cv_bridge
+    interfaces
+    tf2
+    tf2_ros
+    geometry_msgs
+    Eigen3
+    )
+
+
 install(TARGETS
   #control_pid_p1_node
   #control_pid_p2_node
@@ -386,6 +404,7 @@ install(TARGETS
   #csv_r2
   event_driven_control
   compute_trajectory
+  control_trajectory_d
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

@@ -36,7 +36,7 @@ interfaces::msg::Positions tags_positions;
 interfaces::msg::RobotState robot_state;
 
 float Xobj, Yobj, Zobj, Angobj;
-
+float angle_goal;
 interfaces::msg::RobotObjective objective;
 
 
@@ -134,6 +134,8 @@ class Event_Driven_Control : public rclcpp::Node
 
 
             //Save object position
+
+
             std::stringstream ss_frame_name;
 
             if (task.obj_id<10)
@@ -165,6 +167,8 @@ class Event_Driven_Control : public rclcpp::Node
                 RCLCPP_ERROR(this->get_logger(), "Extrapolation exception: %s", ex.what());
                 //return;
             }
+
+            angle_goal=task.angle_goal;
 
             //Check if robot is leader or follower and start control
 
@@ -206,9 +210,9 @@ class Event_Driven_Control : public rclcpp::Node
                     case 4:
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 4 Approach to objective point, x= %d, y= %d", robot_id, task.goal.x, task.goal.y);
 
-                        objective.point.x = task.goal.x - (0.5 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
-                        objective.point.y = task.goal.y - (0.5 * sin(Angobj));
-                        objective.angle = Angobj;       // Define if i can select goal angle
+                        objective.point.x = task.goal.x - (0.5 * cos(angle_goal));   //Check to match, maybe using trigonometry depending of angle
+                        objective.point.y = task.goal.y - (0.5 * sin(angle_goal));
+                        objective.angle = angle_goal;       // Define if i can select goal angle
                         objective.obj_id = task.obj_id;
                         publisher_robot_objective->publish(objective);
                         break;
@@ -221,7 +225,7 @@ class Event_Driven_Control : public rclcpp::Node
                         objective.point.x = Xobj;   //Check to match, maybe using trigonometry depending of angle
                         objective.point.y = Yobj;
                         objective.point.z = Zobj;
-                        objective.angle = Angobj;       //
+                        objective.angle = angle_goal;       //
                         objective.obj_id = task.obj_id;
                         publisher_robot_objective->publish(objective);
 
@@ -231,9 +235,9 @@ class Event_Driven_Control : public rclcpp::Node
                     case 6:
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 6 Leaving object", robot_id);
 
-                        objective.point.x = task.goal.x - (0.5 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
-                        objective.point.y = task.goal.y - (0.5 * sin(Angobj));
-                        objective.angle = Angobj;       // Define if i can select goal angle
+                        objective.point.x = task.goal.x - (0.5 * cos(angle_goal));   //Check to match, maybe using trigonometry depending of angle
+                        objective.point.y = task.goal.y - (0.5 * sin(angle_goal));
+                        objective.angle = angle_goal;       // Define if i can select goal angle
                         objective.obj_id = task.obj_id;
                         publisher_robot_objective->publish(objective);
                         break;

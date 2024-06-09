@@ -24,107 +24,116 @@ find_package(sensor_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
 
 
-add_executable(platform1_vel_server src/platform1_vel_server.cpp)
-ament_target_dependencies(
-  platform1_vel_server
-  rclcpp
-  interfaces
-  geometry_msgs
-  )
+# add_executable(platform1_vel_server src/platform1_vel_server.cpp)
+# ament_target_dependencies(
+#   platform1_vel_server
+#   rclcpp
+#   interfaces
+#   geometry_msgs
+#   )
 
-add_executable(platform1_vel_test_client src/platform1_vel_test_client.cpp)
-ament_target_dependencies(
-  platform1_vel_test_client
-  rclcpp
-  interfaces
-  )
+# add_executable(platform1_vel_test_client src/platform1_vel_test_client.cpp)
+# ament_target_dependencies(
+#   platform1_vel_test_client
+#   rclcpp
+#   interfaces
+#   )
 
-add_executable(platform2_vel_server src/platform2_vel_server.cpp)
-ament_target_dependencies(
-  platform2_vel_server
-  rclcpp
-  interfaces
-  geometry_msgs
-  )
+# add_executable(platform2_vel_server src/platform2_vel_server.cpp)
+# ament_target_dependencies(
+#   platform2_vel_server
+#   rclcpp
+#   interfaces
+#   geometry_msgs
+#   )
 
-add_executable(platform2_vel_test_client src/platform2_vel_test_client.cpp)
-ament_target_dependencies(
-  platform2_vel_test_client
-  rclcpp
-  interfaces
-  )
+# add_executable(platform2_vel_test_client src/platform2_vel_test_client.cpp)
+# ament_target_dependencies(
+#   platform2_vel_test_client
+#   rclcpp
+#   interfaces
+#   )
 
-add_executable(robot1_vel_server src/robot1_vel_server.cpp)
-ament_target_dependencies(
-  robot1_vel_server
-  rclcpp
-  interfaces
-  geometry_msgs
-  )
+# add_executable(robot1_vel_server src/robot1_vel_server.cpp)
+# ament_target_dependencies(
+#   robot1_vel_server
+#   rclcpp
+#   interfaces
+#   geometry_msgs
+#   )
 
-add_executable(robot2_vel_server src/robot2_vel_server.cpp)
-ament_target_dependencies(
-  robot2_vel_server
-  rclcpp
-  interfaces
-  geometry_msgs
-  )
+# add_executable(robot2_vel_server src/robot2_vel_server.cpp)
+# ament_target_dependencies(
+#   robot2_vel_server
+#   rclcpp
+#   interfaces
+#   geometry_msgs
+#   )
 
-add_executable(robot_1_platform_vel_server src/robot_1_platform_vel_server.cpp)
-ament_target_dependencies(
-  robot_1_platform_vel_server
-  rclcpp
-  interfaces
-  geometry_msgs
-  )
+# add_executable(robot_1_platform_vel_server src/robot_1_platform_vel_server.cpp)
+# ament_target_dependencies(
+#   robot_1_platform_vel_server
+#   rclcpp
+#   interfaces
+#   geometry_msgs
+#   )
 
-add_executable(robot_2_platform_vel_server src/robot_2_platform_vel_server.cpp)
-ament_target_dependencies(
-  robot_2_platform_vel_server
-  rclcpp
-  interfaces
-  geometry_msgs
-  )
+# add_executable(robot_2_platform_vel_server src/robot_2_platform_vel_server.cpp)
+# ament_target_dependencies(
+#   robot_2_platform_vel_server
+#   rclcpp
+#   interfaces
+#   geometry_msgs
+#   )
 
-add_executable(robot_1_platform_vel_node src/robot_1_platform_vel_node.cpp)
-ament_target_dependencies(
-  robot_1_platform_vel_node
-  rclcpp
-  interfaces
-  geometry_msgs
-  )
+# add_executable(robot_1_platform_vel_node src/robot_1_platform_vel_node.cpp)
+# ament_target_dependencies(
+#   robot_1_platform_vel_node
+#   rclcpp
+#   interfaces
+#   geometry_msgs
+#   )
 
-add_executable(robot_2_platform_vel_node src/robot_2_platform_vel_node.cpp)
-ament_target_dependencies(
-  robot_2_platform_vel_node
-  rclcpp
-  interfaces
-  geometry_msgs
-  )
+# add_executable(robot_2_platform_vel_node src/robot_2_platform_vel_node.cpp)
+# ament_target_dependencies(
+#   robot_2_platform_vel_node
+#   rclcpp
+#   interfaces
+#   geometry_msgs
+#   )
 
-add_executable(joint_to_tf src/joint_to_tf.cpp)
-ament_target_dependencies(
-  joint_to_tf
-  rclcpp
-  interfaces
-  geometry_msgs
-  sensor_msgs
-  tf2_ros
-  )
+# add_executable(joint_to_tf src/joint_to_tf.cpp)
+# ament_target_dependencies(
+#   joint_to_tf
+#   rclcpp
+#   interfaces
+#   geometry_msgs
+#   sensor_msgs
+#   tf2_ros
+#   )
+
+  add_executable(robot_platform_vel_node src/robot_platform_vel_node.cpp)
+  ament_target_dependencies(
+    robot_platform_vel_node
+    rclcpp
+    interfaces
+    geometry_msgs
+    )
 
 
 install(TARGETS
-  platform1_vel_server
-  platform1_vel_test_client
-  platform2_vel_server
-  platform2_vel_test_client
-  robot1_vel_server
-  robot2_vel_server
-  robot_1_platform_vel_server
-  robot_2_platform_vel_server
-  robot_1_platform_vel_node
-  robot_2_platform_vel_node
-  joint_to_tf
+  # platform1_vel_server
+  # platform1_vel_test_client
+  # platform2_vel_server
+  # platform2_vel_test_client
+  # robot1_vel_server
+  # robot2_vel_server
+  # robot_1_platform_vel_server
+  # robot_2_platform_vel_server
+  # robot_1_platform_vel_node
+  # robot_2_platform_vel_node
+  # joint_to_tf
+  robot_platform_vel_node
   DESTINATION lib/${PROJECT_NAME})
 
 
