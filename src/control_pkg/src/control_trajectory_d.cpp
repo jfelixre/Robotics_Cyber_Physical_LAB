@@ -13,6 +13,7 @@
 #include <tf2_ros/transform_broadcaster.h>
 #include <tf2_ros/transform_listener.h>
 #include "tf2_ros/buffer.h"
+#include <interfaces/msg/control_finish.hpp>
 
 #include <memory>
 #include <cinttypes>
@@ -340,11 +341,14 @@ class Node_Subs_Positions : public rclcpp::Node
 
 
     void subs_obj_callback(const interfaces::msg::RobotObjective::SharedPtr obj_msg){
-        //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "subs_obj_callback");
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "subs_obj_callback");
 
         object_id = obj_msg->obj_id;
         angle_objective = obj_msg->angle;
         point_objective = obj_msg->point;
+
+       RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Trajectory control Start");
+        control_active = true;
 
     }
     
@@ -371,8 +375,16 @@ class Node_Control_Timer : public rclcpp::Node
 
             publisher_vel = this->create_publisher<interfaces::msg::PlatformVel>(topic_name,1);
 
+            std::stringstream ss_topic_name_finish;
+            ss_topic_name_finish << "/robot_0" << robot_id << "/control_finish";
+            std::string topic_name_finish = ss_topic_name_finish.str();
+
+            publisher_control_finish = this->create_publisher<interfaces::msg::ControlFinish>(topic_name_finish,1);
+
             timer_ = this->create_wall_timer(
                  100ms, std::bind(&Node_Control_Timer::timer_callback, this));
+
+            
 
  
           
@@ -391,13 +403,14 @@ class Node_Control_Timer : public rclcpp::Node
     std::shared_ptr<tf2_ros::Buffer> tf_buffer_;
     std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
     std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
+    rclcpp::Publisher<interfaces::msg::ControlFinish>::SharedPtr publisher_control_finish;
 
 
     void timer_callback()   //////CONTROL/////////
     { 
 
        // std::cout << " Callback de tiempo" << std::endl;
-       // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "timer_callback");
+       RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "timer_callback");
 
         
        if (control_active == true){
@@ -627,7 +640,11 @@ class Node_Control_Timer : public rclcpp::Node
                 // }
                  publisher_vel->publish(msg_platform_vel);
               //  std::cout << "k=N" << k << N << std::endl;
+                interfaces::msg::ControlFinish msg_control_finish;
+                msg_control_finish.finish_confirm = true;
+                publisher_control_finish->publish(msg_control_finish);
                 control_active = false;
+
 
                 //save_data(k, hxd[k], gripper_position.x, hxe[k], hyd[k], gripper_position.y, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
 
@@ -647,6 +664,10 @@ class Node_Control_Timer : public rclcpp::Node
                 // RCLCPP_INFO(this->get_logger(), "Received response");
                 // }
                 publisher_vel->publish(msg_platform_vel);
+                interfaces::msg::ControlFinish msg_control_finish;
+                msg_control_finish.finish_confirm = true;
+                publisher_control_finish->publish(msg_control_finish);
+
                 control_active = false;
 
                //save_data(k, hxd[k], gripper_position.x, hxe[k], hyd[k], gripper_position.y, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);

@@ -9,10 +9,10 @@
 
 int robot_id=0;
 
-class Robot_Platform_Vel_Server : public rclcpp::Node
+class Robot_Platform_Vel_Node : public rclcpp::Node
 {
 	public:
-		Robot_Platform_Vel_Server() : Node("robot_platform_vel_server")
+		Robot_Platform_Vel_Node() : Node("robot_platform_vel_node")
 		{	
 			
 			this->declare_parameter<int>("robot_id", 0);
@@ -25,7 +25,7 @@ class Robot_Platform_Vel_Server : public rclcpp::Node
 
 
            subs_platform_vel_r1 = this->create_subscription<interfaces::msg::PlatformVel>(
-                topic_name, 1, std::bind(&Robot_Platform_Vel_Server::send_vel, this, std::placeholders::_1));
+                topic_name, 1, std::bind(&Robot_Platform_Vel_Node::send_vel, this, std::placeholders::_1));
 
 
 			std::stringstream ss_topic_name_m1;
@@ -76,8 +76,8 @@ class Robot_Platform_Vel_Server : public rclcpp::Node
 			std_msgs::msg::Float64 vel_m1,vel_m2,vel_m3,vel_m4;
 
 			vel_m1.data=(velx - vely - ((La+Lb)*velang))/R ;
-			vel_m2.data=(velx + vely + ((La+Lb)*velang))/R ;
-			vel_m3.data=(velx + vely - ((La+Lb)*velang))/R ;
+			vel_m2.data=(velx + vely + ((La+Lb)*velang))/R *-1;
+			vel_m3.data=(velx + vely - ((La+Lb)*velang))/R *-1;
 			vel_m4.data=(velx - vely + ((La+Lb)*velang))/R ;
 
 			if (vel_m1.data > 20) { vel_m1.data = 20;}
@@ -113,7 +113,7 @@ int main(int argc, char **argv)
 {
   rclcpp::init(argc, argv);
 
-  auto node = std::make_shared<Robot_Platform_Vel_Server>();
+  auto node = std::make_shared<Robot_Platform_Vel_Node>();
 
   rclcpp::executors::MultiThreadedExecutor executor;
     executor.add_node(node);

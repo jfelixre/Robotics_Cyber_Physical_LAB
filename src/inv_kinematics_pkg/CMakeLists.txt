@@ -22,6 +22,7 @@ find_package(interfaces REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
+find_package(std_msgs REQUIRED)
 
 
 # add_executable(platform1_vel_server src/platform1_vel_server.cpp)
@@ -112,13 +113,20 @@ find_package(tf2_ros REQUIRED)
 #   tf2_ros
 #   )
 
-  add_executable(robot_platform_vel_node src/robot_platform_vel_node.cpp)
-  ament_target_dependencies(
-    robot_platform_vel_node
-    rclcpp
-    interfaces
-    geometry_msgs
-    )
+add_executable(robot_platform_vel_node  src/robot_platform_vel_node.cpp)
+target_include_directories(robot_platform_vel_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+ament_target_dependencies(robot_platform_vel_node
+  sensor_msgs
+  std_msgs
+  rclcpp
+  interfaces
+  tf2
+  tf2_ros
+  geometry_msgs
+  )
 
 
 install(TARGETS

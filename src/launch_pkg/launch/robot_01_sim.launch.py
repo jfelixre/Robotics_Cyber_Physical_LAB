@@ -114,6 +114,22 @@ def generate_launch_description():
             executable='a_star_server',
             parameters=[{'robot_id': 1}],
             )
+    
+    #Launch control trajectory node for robot_01
+    control_trajectory = Node(
+            package='control_pkg',
+            namespace='robot_01',
+            executable='control_trajectory_d',
+            parameters=[{'robot_id': 1}],
+            )
+    
+    #Launch robot platform vel node for robot_01
+    robot_platform_vel = Node(
+            package='inv_kinematics_pkg',
+            namespace='robot_01',
+            executable='robot_platform_vel_node',
+            parameters=[{'robot_id': 1}],
+            )
 
     return LaunchDescription([
         task_manager,
@@ -123,5 +139,7 @@ def generate_launch_description():
         event_driven_control,
         compute_trajectory,
         a_star_server,
+        control_trajectory,
+        robot_platform_vel,
        
     ])
