@@ -60,6 +60,9 @@ float Q= 1e-1;  //prediction
 float R= 0.5;    //mesurement
 
 
+geometry_msgs::msg::TransformStamped saved_tag;
+bool register_tag_00 = false;
+
 
 
 // void drawAxis(cv::Mat& img, cv::InputArrayOfArrays corners, cv::Vec3d rvec, cv::Vec3d tvec, float length = 0.1) {
@@ -128,6 +131,8 @@ class Aruco_Nano_Detector : public rclcpp::Node
 
 
           //Compute R and T vectors
+
+          register_tag_00=false;
         
           for(const auto &m:markers){
             auto r_t=m.estimatePose(cameraMatrix,distCoeffs,markerSize);
@@ -228,11 +233,16 @@ class Aruco_Nano_Detector : public rclcpp::Node
               tag_tf.transform.translation.z = camera_translation_vector.at<double>(2);
 
               tf_broadcaster->sendTransform(tag_tf);
-            
-          //}
 
+              if(m.id==0){
+                saved_tag=tag_tf;
+                register_tag_00=true;
+              }
 
+          }
 
+          if (register_tag_00){
+            tf_broadcaster->sendTransform(saved_tag);
           }
 
 

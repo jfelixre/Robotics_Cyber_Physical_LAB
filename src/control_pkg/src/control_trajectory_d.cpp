@@ -135,7 +135,7 @@ class Control_Trajectory_Node : public rclcpp::Node
 
             this->declare_parameter<int>("robot_id", 0);
             robot_id = this->get_parameter("robot_id").as_int();
-            RCLCPP_INFO(this->get_logger(), "Received Robot_ID: %d", robot_id);
+            //RCLCPP_INFO(this->get_logger(), "Received Robot_ID: %d", robot_id);
 
             std::stringstream ss_topic_name;
             ss_topic_name << "/robot_0" << robot_id << "/trajectory_control";
@@ -154,7 +154,7 @@ class Control_Trajectory_Node : public rclcpp::Node
         
         void trajectory_control_caller(const interfaces::msg::TrajectoryControl::SharedPtr trajectory_msg)
 		{   
-           // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "subs trajectory");
+           // //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "subs trajectory");
             tf = trajectory_msg->time;
 
             N = std::round((tf+ts)/ts);
@@ -198,7 +198,7 @@ class Node_Subs_Path : public rclcpp::Node
 
             this->declare_parameter<int>("robot_id", 0);
             robot_id = this->get_parameter("robot_id").as_int();
-            RCLCPP_INFO(this->get_logger(), "Received Robot_ID: %d", robot_id);
+            //RCLCPP_INFO(this->get_logger(), "Received Robot_ID: %d", robot_id);
 
             std::stringstream ss_topic_name;
             ss_topic_name << "/robot_0" << robot_id << "/path";
@@ -226,91 +226,97 @@ class Node_Subs_Path : public rclcpp::Node
             hyd.resize(N,0);
             
             int n_points= path_msg->points.size();
+
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "n points %d", n_points);
            
             
             //colocar primer punto del mensaje en el espacio actual (k) de la trayectoria deseada
             hxd[k] = path_msg->points[0].x;
             hyd[k] = path_msg->points[0].y;
+
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "first point");
+            
+            if (n_points>1){
+                //colocar el ultimo punto del mensaje en el ultimo espacio de la trayectoria deseada
+                hxd[N] = path_msg->points[n_points-1].x;
+                hyd[N] = path_msg->points[n_points-1].y;
+
+                //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "last point");
             
 
-            //colocar el ultimo punto del mensaje en el ultimo espacio de la trayectoria deseada
-            hxd[N] = path_msg->points[n_points-1].x;
-            hyd[N] = path_msg->points[n_points-1].y;
-           
-
-            //calcular espacios entre puntos
-            
-
-            int step_size = floor((N - k)/n_points);
-            
-
-            //Colocar los puntos del mensaje en el espacio que corresponden
-            int max_size_i;
-
-            for (int i = 1; i<(n_points); i++){
-                hxd[k+(step_size*i)] = path_msg->points[i].x;
-                hyd[k+(step_size*i)] = path_msg->points[i].y;
-                max_size_i = k + (step_size*(i));
-            }
-
-            //for (int i=0; i<=N; i++){
-            //    std::cout << hxd[i] << ";" << hyd[i] << std::endl;
-            //}
-
-            for (int i = 0; i<(n_points-1); i++){
-                hxd[k+(step_size*i)] = path_msg->points[i].x;
-
-                double dx = (hxd[k+(step_size*(i+1))] - hxd[k+(step_size*i)])/(step_size+1);
-                double dy = (hyd[k+(step_size*(i+1))] - hyd[k+(step_size*i)])/(step_size+1);
-
-                for (int j=1; j<step_size; j++){
-                    hxd[(k+(step_size*i))+j] = hxd[(k+(step_size*i))+j-1]+dx;
-                    hyd[(k+(step_size*i))+j] = hyd[(k+(step_size*i))+j-1]+dy;
-                }
-            }
+                //calcular espacios entre puntos
                 
 
-            //std::cout<<max_size_i<<std::endl;
+                int step_size = floor((N - k)/n_points);
+                
 
-                double dx_l = (hxd[N] - hxd[max_size_i])/(N-max_size_i);
-                double dy_l = (hyd[N] - hyd[max_size_i])/(N-max_size_i);
+                //Colocar los puntos del mensaje en el espacio que corresponden
+                int max_size_i;
 
-                for (int i=(max_size_i+1); i<N; i++){
-                    hxd[i] = hxd[i-1]+dx_l;
-                    hyd[i] = hyd[i-1]+dy_l;
+                for (int i = 1; i<(n_points); i++){
+                    hxd[k+(step_size*i)] = path_msg->points[i].x;
+                    hyd[k+(step_size*i)] = path_msg->points[i].y;
+                    max_size_i = k + (step_size*(i));
                 }
 
+                //for (int i=0; i<=N; i++){
+                //    std::cout << hxd[i] << ";" << hyd[i] << std::endl;
+                //}
 
-           
-            /*
-            for (int i=0; i<=N; i++){
-                 std::cout << hxd[i] << ";" << hyd[i] << std::endl;
-            }
-            */
+                for (int i = 0; i<(n_points-1); i++){
+                    hxd[k+(step_size*i)] = path_msg->points[i].x;
 
-            //RCLCPP_INFO(this->get_logger(), "path received");
+                    double dx = (hxd[k+(step_size*(i+1))] - hxd[k+(step_size*i)])/(step_size+1);
+                    double dy = (hyd[k+(step_size*(i+1))] - hyd[k+(step_size*i)])/(step_size+1);
+
+                    for (int j=1; j<step_size; j++){
+                        hxd[(k+(step_size*i))+j] = hxd[(k+(step_size*i))+j-1]+dx;
+                        hyd[(k+(step_size*i))+j] = hyd[(k+(step_size*i))+j-1]+dy;
+                    }
+                }
+                    
+
+                //std::cout<<max_size_i<<std::endl;
+
+                    double dx_l = (hxd[N] - hxd[max_size_i])/(N-max_size_i);
+                    double dy_l = (hyd[N] - hyd[max_size_i])/(N-max_size_i);
+
+                    for (int i=(max_size_i+1); i<N; i++){
+                        hxd[i] = hxd[i-1]+dx_l;
+                        hyd[i] = hyd[i-1]+dy_l;
+                    }
+
+
             
+                /*
+                for (int i=0; i<=N; i++){
+                    std::cout << hxd[i] << ";" << hyd[i] << std::endl;
+                }
+                */
 
-            //Derivadas
+                ////RCLCPP_INFO(this->get_logger(), "path received");
+                
 
-            hxdp[0]= 0;
-            hydp[0]= 0;
+                //Derivadas
 
-            hxdp[N]= 0;
-            hydp[N]= 0;
+                hxdp[0]= 0;
+                hydp[0]= 0;
 
-            for (int i=0; i<=N; i++){
-                hxdp[i]= (hxd[i+1] - hxd[i]) /ts;
-                hydp[i]= (hyd[i+1] - hyd[i]) /ts;
+                hxdp[N]= 0;
+                hydp[N]= 0;
+
+                for (int i=0; i<=N; i++){
+                    hxdp[i]= (hxd[i+1] - hxd[i]) /ts;
+                    hydp[i]= (hyd[i+1] - hyd[i]) /ts;
+                }
+
+                hxdp[N]= 0;
+                hydp[N]= 0;
+
+                //for (int i=0; i<=N; i++){
+                //     std::cout << hxdp[i] << "  " << hydp[i] << std::endl;
+                //}
             }
-
-            hxdp[N]= 0;
-            hydp[N]= 0;
-
-            //for (int i=0; i<=N; i++){
-            //     std::cout << hxdp[i] << "  " << hydp[i] << std::endl;
-            //}
-
             
 
 
@@ -341,14 +347,15 @@ class Node_Subs_Positions : public rclcpp::Node
 
 
     void subs_obj_callback(const interfaces::msg::RobotObjective::SharedPtr obj_msg){
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "subs_obj_callback");
+        ////RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "subs_obj_callback");
 
         object_id = obj_msg->obj_id;
         angle_objective = obj_msg->angle;
         point_objective = obj_msg->point;
 
-       RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Trajectory control Start");
+       //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Trajectory control Start");
         control_active = true;
+        k=0;
 
     }
     
@@ -410,7 +417,7 @@ class Node_Control_Timer : public rclcpp::Node
     { 
 
        // std::cout << " Callback de tiempo" << std::endl;
-       RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "timer_callback");
+        //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "timer_callback");
 
         
        if (control_active == true){
@@ -427,7 +434,7 @@ class Node_Control_Timer : public rclcpp::Node
 
                 std::string marker_name = ss_marker.str();
 
-                //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Object ID %d", object_id);
+                ////RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Object ID %d", object_id);
 
                 
                     if(robot_id==marker){                   
@@ -443,7 +450,7 @@ class Node_Control_Timer : public rclcpp::Node
                             gripper_position.y = transformStamped_gripper.transform.translation.y;
                         }
                         catch (tf2::TransformException &ex){
-                            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
+                            ////RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
                             continue;
                         }
 
@@ -463,14 +470,14 @@ class Node_Control_Timer : public rclcpp::Node
                             angle_robot = yaw;
                         }
                         catch (tf2::TransformException &ex){
-                            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
+                            ////RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
                             continue;
                         }
 
                     }
 
                     else if(object_id==marker){
-                        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Object detected ID %d", object_id);
+                        ////RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Object detected ID %d", object_id);
                         try{
                             geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_->lookupTransform("marker_id_00", marker_name, tf2::TimePointZero);
                             object_position.x = transformStamped.transform.translation.x;
@@ -488,7 +495,7 @@ class Node_Control_Timer : public rclcpp::Node
                             }
                         }
                         catch (tf2::TransformException &ex){
-                            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
+                            ////RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
                             continue;
                         }
                     }
@@ -496,6 +503,7 @@ class Node_Control_Timer : public rclcpp::Node
         }
 
         //std::cout << "inicio " << std::endl;
+        //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "inicio");
 
             phid= angle_objective;  //Desired angle
 
@@ -517,6 +525,8 @@ class Node_Control_Timer : public rclcpp::Node
 
                 hwe[k] = ErrAng;
 
+                //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Errores");
+
                 //double grados = (ANG_Robot * 180)/M_PI;
                 //double cos_val = cos(ANG_Robot);
                 //double sin_val = sin(ANG_Robot);
@@ -532,8 +542,8 @@ class Node_Control_Timer : public rclcpp::Node
             
 
             //Ganancias
-            double Kx = 350;
-            double Ky = 350;
+            double Kx = 50;
+            double Ky = 50;
             double Kw = 10;
 
 
@@ -544,6 +554,7 @@ class Node_Control_Timer : public rclcpp::Node
 
             //std::cout << "he =" << he << std::endl;
 
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Matrix he");
 
 
             
@@ -563,7 +574,7 @@ class Node_Control_Timer : public rclcpp::Node
                  0,                 0,            1;
 
 
-        
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Jacobiana");
 
             // Define variables
             Eigen::MatrixXd qpRef;
@@ -572,6 +583,7 @@ class Node_Control_Timer : public rclcpp::Node
             // Ley de control
             qpRef = J.inverse() * he; 
 
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "inverse Jacobiana");
 
 
 
@@ -579,7 +591,8 @@ class Node_Control_Timer : public rclcpp::Node
             uxRef[k] = qpRef(0, 0);
             uyRef[k] = qpRef(1, 0);
             wRef[k] = qpRef(2, 0);
-
+            
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "apply control");
 
             //auto request = std::make_shared<interfaces::srv::PlatformVel::Request>();
             interfaces::msg::PlatformVel msg_platform_vel;
@@ -590,6 +603,8 @@ class Node_Control_Timer : public rclcpp::Node
             msg_platform_vel.x_vel = uxRef[k];
             msg_platform_vel.y_vel = uyRef[k];
             msg_platform_vel.ang_vel = wRef[k];
+
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "create variable for control ");
             
             //std::cout << " Xvel = " << uxRef[k] << "  Yvel = " << uyRef[k] <<  "  ANG_vel = " << wRef[k] << std::endl;
 
@@ -598,10 +613,12 @@ class Node_Control_Timer : public rclcpp::Node
 
             // std::future_status status = result.wait_for(100ms);  // timeout to guarantee a graceful finish
             // if (status == std::future_status::ready) {
-            //    // RCLCPP_INFO(this->get_logger(), "Received response");
+            //    // //RCLCPP_INFO(this->get_logger(), "Received response");
             // }
 
             publisher_vel->publish(msg_platform_vel);
+
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "publicar control");
 
             // std::cout << "Antes de publicar" << std::endl;
             //std::cout << "k = " << k << std::endl;
@@ -617,10 +634,15 @@ class Node_Control_Timer : public rclcpp::Node
 
             k++;
 
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "k = %d", k);
+            float left_time = tf - (k*ts);
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Time left = %f", left_time);
+
             hxa = hxd[k];
             hya = hyd[k];
             phia = phid;
-
+            
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Guardar anteriores");
         //   std::cout << "Despues de asignar valorees anteriores" << std::endl;
 
           
@@ -628,6 +650,7 @@ class Node_Control_Timer : public rclcpp::Node
             if (k==N){
                 
             //    std::cout << "k=N" << k << N << std::endl;
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "k==N");
 
                 msg_platform_vel.x_vel = 0.0;
                 msg_platform_vel.y_vel = 0.0;
@@ -636,7 +659,7 @@ class Node_Control_Timer : public rclcpp::Node
                 // auto result = client_vel->async_send_request(request);
                 // std::future_status status = result.wait_for(100ms);  // timeout to guarantee a graceful finish
                 // if (status == std::future_status::ready) {
-                // // RCLCPP_INFO(this->get_logger(), "Received response");
+                // // //RCLCPP_INFO(this->get_logger(), "Received response");
                 // }
                  publisher_vel->publish(msg_platform_vel);
               //  std::cout << "k=N" << k << N << std::endl;
@@ -644,6 +667,7 @@ class Node_Control_Timer : public rclcpp::Node
                 msg_control_finish.finish_confirm = true;
                 publisher_control_finish->publish(msg_control_finish);
                 control_active = false;
+                k=0;
 
 
                 //save_data(k, hxd[k], gripper_position.x, hxe[k], hyd[k], gripper_position.y, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
@@ -651,9 +675,10 @@ class Node_Control_Timer : public rclcpp::Node
 
             }
 
-            if (k>N){
+            else if (k>N){
                // k=0;
               // std::cout << "k>N" << k << N << std::endl;
+              //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "K>N");
                 msg_platform_vel.x_vel = 0.0;
                 msg_platform_vel.y_vel = 0.0;
                 msg_platform_vel.ang_vel = 0.0;
@@ -661,7 +686,7 @@ class Node_Control_Timer : public rclcpp::Node
                 // auto result = client_vel->async_send_request(request);
                 // std::future_status status = result.wait_for(100ms);  // timeout to guarantee a graceful finish
                 // if (status == std::future_status::ready) {
-                // RCLCPP_INFO(this->get_logger(), "Received response");
+                // //RCLCPP_INFO(this->get_logger(), "Received response");
                 // }
                 publisher_vel->publish(msg_platform_vel);
                 interfaces::msg::ControlFinish msg_control_finish;
@@ -669,16 +694,28 @@ class Node_Control_Timer : public rclcpp::Node
                 publisher_control_finish->publish(msg_control_finish);
 
                 control_active = false;
+                k=0;
 
                //save_data(k, hxd[k], gripper_position.x, hxe[k], hyd[k], gripper_position.y, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
             }
 
             //std::cout << "Despues de los ifss" << std::endl;
-
-          
+ 
+          //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Fin de control");
 
        }
-        
+
+       else{
+           //std::cout << "Control no activo" << std::endl;
+           interfaces::msg::PlatformVel msg_platform_vel;
+            msg_platform_vel.x_vel = 0.0;
+            msg_platform_vel.y_vel = 0.0;
+            msg_platform_vel.ang_vel = 0.0;
+            publisher_vel->publish(msg_platform_vel);
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Control no activo");
+            k=0;
+       }
+        //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Fin de todo");
     }
 
      /* void save_data(int k, double x_des, double x_rob, double x_err, double y_des, double y_rob, double y_err, double ang_des, double ang_rob, double ang_err, double x_vel, double y_vel, double ang_vel)

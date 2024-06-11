@@ -108,7 +108,7 @@ class Task_Manager_Node : public rclcpp::Node
 
      void timer_callback()
     {  
-        RCLCPP_INFO(this->get_logger(), "Robot %d busy = %b", robot_id, busy);
+        //RCLCPP_INFO(this->get_logger(), "Robot %d busy = %b", robot_id, busy);
         if (busy == false){
             if (!task_list.task_queue.empty()){
 

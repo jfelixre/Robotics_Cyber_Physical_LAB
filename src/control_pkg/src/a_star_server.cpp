@@ -75,11 +75,11 @@ class AStarServer : public rclcpp::Node
             std::vector<int> grid_vect;
             grid_vect = request->grid;
             
-            RCLCPP_INFO(this->get_logger(), "Received grid size: %d", grid_vect.size());
-            RCLCPP_INFO(this->get_logger(), "Received src_x: %d", src_x);
-            RCLCPP_INFO(this->get_logger(), "Received src_y: %d", src_y);
-            RCLCPP_INFO(this->get_logger(), "Received dst_x: %d", dst_x);
-            RCLCPP_INFO(this->get_logger(), "Received dst_y: %d", dst_y);
+            // RCLCPP_INFO(this->get_logger(), "Received grid size: %d", grid_vect.size());
+            // RCLCPP_INFO(this->get_logger(), "Received src_x: %d", src_x);
+            // RCLCPP_INFO(this->get_logger(), "Received src_y: %d", src_y);
+            // RCLCPP_INFO(this->get_logger(), "Received dst_x: %d", dst_x);
+            // RCLCPP_INFO(this->get_logger(), "Received dst_y: %d", dst_y);
             
            // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint2");
 
@@ -177,7 +177,7 @@ class AStarServer : public rclcpp::Node
                 }
             else{
                 //std::cout << "bloq" << row << col << std::endl;
-                RCLCPP_INFO(get_logger(), "Blocked cell: %d %d", row, col);
+                //RCLCPP_INFO(get_logger(), "Blocked cell: %d %d", row, col);
                 return (false);
             }
         }
@@ -263,7 +263,7 @@ class AStarServer : public rclcpp::Node
             // If the source is out of range
             if (isValid(src.first, src.second) == false) {
                 printf("Source is invalid\n");
-                RCLCPP_INFO(get_logger(), "Source invalid");
+                //RCLCPP_INFO(get_logger(), "Source invalid");
                 // success = false;
                 return;
             }
@@ -271,7 +271,7 @@ class AStarServer : public rclcpp::Node
             // If the destination is out of range
             if (isValid(dest.first, dest.second) == false) {
                 printf("Destination is invalid\n");
-                RCLCPP_INFO(get_logger(), "Destination invalid");
+                //RCLCPP_INFO(get_logger(), "Destination invalid");
                 // success = false;
                 return;
             }
@@ -281,7 +281,7 @@ class AStarServer : public rclcpp::Node
                 || isUnBlocked(grid, dest.first, dest.second)
                     == false) {
                 printf("Source or the destination is blocked\n");
-                RCLCPP_INFO(get_logger(), "Source or the destination is blocked");
+                //RCLCPP_INFO(get_logger(), "Source or the destination is blocked");
                 // success = false;
                 return;
             }
@@ -290,7 +290,7 @@ class AStarServer : public rclcpp::Node
             if (isDestination(src.first, src.second, dest)
                 == true) {
                 printf("We are already at the destination\n");
-                RCLCPP_INFO(get_logger(), "We are already at the destination");
+                //RCLCPP_INFO(get_logger(), "We are already at the destination");
                 // success = false;
                 return;
             }
@@ -779,7 +779,7 @@ class AStarServer : public rclcpp::Node
             if (foundDest == false){
                 // success = false;
                 printf("Failed to find the Destination Cell\n");
-                RCLCPP_INFO(get_logger(),"Failed to find destination cell");
+                //RCLCPP_INFO(get_logger(),"Failed to find destination cell");
             }
             /* else {
                 success = true;

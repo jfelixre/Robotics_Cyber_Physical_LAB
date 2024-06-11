@@ -202,7 +202,7 @@ class Compute_Trajectory : public rclcpp::Node
                     }
 
                     else if(object_id==marker){
-                        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Object detected ID %d", object_id);
+                        //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Object detected ID %d", object_id);
                         try{
                             geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_->lookupTransform("marker_id_00", marker_name, tf2::TimePointZero);
                             object_position.x = transformStamped.transform.translation.x;
@@ -290,10 +290,10 @@ class Compute_Trajectory : public rclcpp::Node
             cv::Point Robot_grip_point(Robot_x__grip_map,Robot_y__grip_map); 
             Robot_grip_point_f = Robot_grip_point;
 
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Grip_x: %f" , gripper_position.x);
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Grip_y: %f" , gripper_position.y);
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Grip_x_map: %d" , Robot_x__grip_map);
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Grip_y_map: %d" , Robot_y__grip_map);
+            // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Grip_x: %f" , gripper_position.x);
+            // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Grip_y: %f" , gripper_position.y);
+            // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Grip_x_map: %d" , Robot_x__grip_map);
+            // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Grip_y_map: %d" , Robot_y__grip_map);
 
 
             double Robot_angle_degrees= (angle_robot*180)/PI * -1;
@@ -301,10 +301,10 @@ class Compute_Trajectory : public rclcpp::Node
             cv::Point Robot_center_point((((int)((robot_position.x * n_x_spaces)/x_world))+(n_x_spaces/2)), (n_y_spaces - (((int)((robot_position.y * n_y_spaces)/y_world)) + (n_y_spaces/2))));  //Not necessary if obtain the base_link position
             Robot_center_point_f = Robot_center_point;
 
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Center_x: %f" , robot_position.x);
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Center_y: %f" , robot_position.y);
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Center_x_map: %d" , Robot_center_point.x);
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Center_y_map: %d" , Robot_center_point.y);
+            // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Center_x: %f" , robot_position.x);
+            // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Center_y: %f" , robot_position.y);
+            // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Center_x_map: %d" , Robot_center_point.x);
+            // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Center_y_map: %d" , Robot_center_point.y);
 
             cv::Size Robot_size(14,12);
             cv::RotatedRect Robot_rectangle(Robot_center_point, Robot_size, Robot_angle_degrees);
@@ -361,7 +361,7 @@ class Compute_Trajectory : public rclcpp::Node
             
             
             
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Nobs: %d" , n_obstacles);
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Nobs: %d" , n_obstacles);
             //Draw obstacles on map
             for (int i=0; i<n_obstacles; i++){
                 int Obstacle_x_map = ((int)((obstacle_position[i].x * n_x_spaces)/x_world)) + (n_x_spaces/2);
@@ -578,11 +578,11 @@ class Compute_Trajectory : public rclcpp::Node
                         if (!path_msg.points.empty()){
                             if (size_path != size_path_ant){
                                 publisher_path -> publish(path_msg);
-                                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path send");
+                                //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path send");
                             }
                         }
                         else {
-                            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path empty......");
+                            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path empty......");
                         }
                         
                         path_ant = path_msg;

@@ -65,6 +65,8 @@ class Robot_Platform_Vel_Node : public rclcpp::Node
 
         void send_vel(const interfaces::msg::PlatformVel::SharedPtr request){
 
+			float max_vel = 5;
+
 			float velx = request->x_vel;
 			float vely = request->y_vel;
 			float velang = request-> ang_vel;
@@ -77,17 +79,17 @@ class Robot_Platform_Vel_Node : public rclcpp::Node
 
 			vel_m1.data=(velx - vely - ((La+Lb)*velang))/R ;
 			vel_m2.data=(velx + vely + ((La+Lb)*velang))/R *-1;
-			vel_m3.data=(velx + vely - ((La+Lb)*velang))/R *-1;
-			vel_m4.data=(velx - vely + ((La+Lb)*velang))/R ;
+			vel_m3.data=(velx + vely - ((La+Lb)*velang))/R ;
+			vel_m4.data=(velx - vely + ((La+Lb)*velang))/R *-1;
 
-			if (vel_m1.data > 20) { vel_m1.data = 20;}
-			if (vel_m1.data < -20) { vel_m1.data = -20;}
-			if (vel_m2.data > 20) { vel_m2.data = 20;}
-			if (vel_m2.data < -20) { vel_m2.data = -20;}
-			if (vel_m3.data > 20) { vel_m3.data = 20;}
-			if (vel_m3.data < -20) { vel_m3.data = -20;}
-			if (vel_m4.data > 20) { vel_m4.data = 20;}
-			if (vel_m4.data < -20) { vel_m4.data = -20;}
+			if (vel_m1.data > max_vel) { vel_m1.data = max_vel;}
+			if (vel_m1.data < -max_vel) { vel_m1.data = -max_vel;}
+			if (vel_m2.data > max_vel) { vel_m2.data = max_vel;}
+			if (vel_m2.data < -max_vel) { vel_m2.data = -max_vel;}
+			if (vel_m3.data > max_vel) { vel_m3.data = max_vel;}
+			if (vel_m3.data < -max_vel) { vel_m3.data = -max_vel;}
+			if (vel_m4.data > max_vel) { vel_m4.data = max_vel;}
+			if (vel_m4.data < -max_vel) { vel_m4.data = -max_vel;}
 
 
 			publisher_M1->publish(vel_m1);
@@ -97,8 +99,8 @@ class Robot_Platform_Vel_Node : public rclcpp::Node
 
 
 
-			RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Velocities sent to Robot 1 Platform:  M1=%f M2=%f M3=%f M4=%f",
-				vel_m1.data, vel_m2.data, vel_m3.data, vel_m4.data);
+			//RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Velocities sent to Robot 1 Platform:  M1=%f M2=%f M3=%f M4=%f",
+			//	vel_m1.data, vel_m2.data, vel_m3.data, vel_m4.data);
 
 		}
 
