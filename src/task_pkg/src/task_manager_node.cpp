@@ -114,9 +114,11 @@ class Task_Manager_Node : public rclcpp::Node
 
                 for (auto& task : task_list.task_queue) {
                     if (task.state==0){
-                        if (selected_task.priority > task.priority){
-                            if (task.priority!=0){
-                                selected_task=task;
+                        if(task.task_id > 0){
+                            if (selected_task.priority > task.priority){
+                                if (task.priority!=0){
+                                    selected_task=task;
+                                }
                             }
                         }
                     }

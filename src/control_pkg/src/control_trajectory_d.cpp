@@ -525,6 +525,12 @@ class Node_Control_Timer : public rclcpp::Node
 
                 hwe[k] = ErrAng;
 
+RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hxe = %f", hxe[k]);
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hye = %f", hye[k]);
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hwe = %f", hwe[k]);
+
+                
+
                 //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Errores");
 
                 //double grados = (ANG_Robot * 180)/M_PI;
@@ -633,6 +639,14 @@ class Node_Control_Timer : public rclcpp::Node
           //  std::cout << "Despues de publicar" << std::endl;
 
             k++;
+
+            // if(hxe[k]<0.01 && hye[k]<0.01 && hwe[k]<0.01){
+            //         k=N;
+            //         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "End of control FOR ERROR <0.01");
+            //         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hxe = %f", hxe[k]);
+            //         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hye = %f", hye[k]);
+            //         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hwe = %f", hwe[k]);
+            // }
 
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "k = %d", k);
             float left_time = tf - (k*ts);
