@@ -128,6 +128,20 @@ ament_target_dependencies(robot_platform_vel_node
   geometry_msgs
   )
 
+add_executable(arm_position_node  src/arm_position_node.cpp)
+target_include_directories(arm_position_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+ament_target_dependencies(arm_position_node
+  sensor_msgs
+  std_msgs
+  rclcpp
+  interfaces
+  tf2
+  tf2_ros
+  geometry_msgs
+  )
 
 install(TARGETS
   # platform1_vel_server
@@ -142,6 +156,7 @@ install(TARGETS
   # robot_2_platform_vel_node
   # joint_to_tf
   robot_platform_vel_node
+  arm_position_node
   DESTINATION lib/${PROJECT_NAME})
 
 

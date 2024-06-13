@@ -525,9 +525,18 @@ class Node_Control_Timer : public rclcpp::Node
 
                 hwe[k] = ErrAng;
 
-RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hxe = %f", hxe[k]);
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hxe = %f", hxe[k]);
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hye = %f", hye[k]);
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hwe = %f", hwe[k]);
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "k = %d", k);
+
+            int min_error = 0.00005;   //Error to skip control to next step
+
+            if(abs(hxe[k])<min_error && abs(hye[k])<min_error && abs(hwe[k])<min_error){
+                    k=N;
+                    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "End of control FOR ERROR <0.01");
+                    
+            }   
 
                 
 
@@ -640,17 +649,11 @@ RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hxe = %f", hxe[k]);
 
             k++;
 
-            // if(hxe[k]<0.01 && hye[k]<0.01 && hwe[k]<0.01){
-            //         k=N;
-            //         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "End of control FOR ERROR <0.01");
-            //         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hxe = %f", hxe[k]);
-            //         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hye = %f", hye[k]);
-            //         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hwe = %f", hwe[k]);
-            // }
+            
 
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "k = %d", k);
-            float left_time = tf - (k*ts);
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Time left = %f", left_time);
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "k = %d", k);
+            //float left_time = tf - (k*ts);
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Time left = %f", left_time);
 
             hxa = hxd[k];
             hya = hyd[k];

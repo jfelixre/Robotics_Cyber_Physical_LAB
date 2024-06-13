@@ -130,6 +130,15 @@ def generate_launch_description():
             executable='robot_platform_vel_node',
             parameters=[{'robot_id': 1}],
             )
+    
+    #Launch arm position node for robot_01
+    arm_position = Node(
+            package='inv_kinematics_pkg',
+            namespace='robot_01',
+            executable='arm_position_node',
+            parameters=[{'robot_id': 1}],
+            )
+
 
     return LaunchDescription([
         task_manager,
@@ -141,5 +150,6 @@ def generate_launch_description():
         a_star_server,
         control_trajectory,
         robot_platform_vel,
+        arm_position,
        
     ])
