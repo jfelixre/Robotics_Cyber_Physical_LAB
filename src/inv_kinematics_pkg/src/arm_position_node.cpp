@@ -9,10 +9,13 @@
 #include <interfaces/srv/platform_vel.hpp>
 #include <interfaces/msg/limit_switch.hpp>
 #include <interfaces/msg/motor_vels_w_arm.hpp>
-#include <interfaces/msg/arm_joints_positions.hpp>
+#include <interfaces/msg/arm_objective.hpp>
 #include <interfaces/msg/motor_arm_vels.hpp>
 #include <std_msgs/msg/float64.h>
 #include <std_msgs/msg/float64.hpp>
+#include <tf2_ros/transform_listener.h>
+#include "tf2_ros/buffer.h"
+#include <tf2_ros/transform_broadcaster.h>
 
 #include <memory>
 #include <cinttypes>
@@ -35,8 +38,9 @@ std_msgs::msg::Float64 msg_p1;
 std_msgs::msg::Float64 msg_p2;
 
 bool home_pos = true;
+bool gripper = false;  //false = open, true = close
+geometry_msgs::msg::Pose objective_position;
 
-int k = 0; 
 
 
 class Arm_Position_Node : public rclcpp::Node
@@ -52,8 +56,12 @@ class Arm_Position_Node : public rclcpp::Node
             ss_topic_name << "/robot_0" << robot_id << "/set_arm_position";
             std::string topic_name = ss_topic_name.str();
 
-            arm_position_subs= create_subscription<interfaces::msg::ArmJointsPositions>(
+            arm_position_subs= create_subscription<interfaces::msg::ArmObjective>(
       			topic_name, 1, std::bind(&Arm_Position_Node::arm_pos_callback,this,_1));
+
+            tf_buffer_ = std::make_shared<tf2_ros::Buffer>(this->get_clock());
+            tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
+            tf_broadcaster_ = std::make_shared<tf2_ros::TransformBroadcaster>(*this);
             
 
 
@@ -99,12 +107,15 @@ class Arm_Position_Node : public rclcpp::Node
 
         rclcpp::TimerBase::SharedPtr timer_pid_;
         rclcpp::CallbackGroup::SharedPtr timer_pid_cb_group_;
-        rclcpp::Subscription<interfaces::msg::ArmJointsPositions>::SharedPtr arm_position_subs;
+        rclcpp::Subscription<interfaces::msg::ArmObjective>::SharedPtr arm_position_subs;
         rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr publisher_pos_b1;
         rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr publisher_pos_b2;
         rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr publisher_pos_b3;
         rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr publisher_pos_p1;
         rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr publisher_pos_p2;
+        std::shared_ptr<tf2_ros::Buffer> tf_buffer_;
+        std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
+        std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
 
 
 
@@ -122,19 +133,21 @@ class Arm_Position_Node : public rclcpp::Node
                 publisher_pos_b3->publish(msg_b3);
                 publisher_pos_p1->publish(msg_p1);
                 publisher_pos_p2->publish(msg_p2);
-                k++;
-                if (k>100){
-                    home_pos = false;
-                }
+
+
+            }
+            else{
 
             }
 
 
         }
 
-        void arm_pos_callback(const interfaces::msg::ArmJointsPositions::SharedPtr msg)   //CONTROL PID//
+        void arm_pos_callback(const interfaces::msg::ArmObjective::SharedPtr msg)
         {
-
+            home_pos = msg->home_pos;
+            objective_position = msg->objective;
+            gripper = msg->gripper;
         }
 
 };
