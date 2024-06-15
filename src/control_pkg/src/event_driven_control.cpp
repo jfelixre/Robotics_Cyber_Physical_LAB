@@ -16,6 +16,7 @@
 #include <interfaces/msg/robot_objective.hpp>
 #include <geometry_msgs/msg/transform_stamped.hpp>
 #include <tf2_ros/transform_broadcaster.h>
+#include <visualization_msgs/msg/marker.hpp>
 
 #include <memory>
 #include <cinttypes>
@@ -38,6 +39,7 @@ interfaces::msg::RobotState robot_state;
 float Xobj, Yobj, Zobj, Angobj;
 float angle_goal;
 interfaces::msg::RobotObjective objective;
+geometry_msgs::msg::TransformStamped objective_transform;
 
 
 class Event_Driven_Control : public rclcpp::Node
@@ -90,10 +92,29 @@ class Event_Driven_Control : public rclcpp::Node
 
             publisher_robot_objective = create_publisher<interfaces::msg::RobotObjective>(topic_name_4, 1);
 
+            //Create Transform staped for objective position using /tf2
+            
+            objective_transform.header.frame_id = "marker_id_00";
+            std::stringstream ss_frame_objective;
+            ss_frame_objective << "objective_" << robot_id;
+            std::string objective_frame = ss_frame_objective.str();
+            objective_transform.child_frame_id = objective_frame;
+
+            timer_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
+
+            timer_ = this->create_wall_timer(
+                100ms, std::bind(&Event_Driven_Control::timer_callback, this), timer_cb_group_);
+
 		}
 
 
 	private:
+
+        void timer_callback()   //CONTROL PID//
+        {
+            objective_transform.header.stamp = this->now();
+            tf_broadcaster_->sendTransform(objective_transform);
+        }
 
         void task_robot_callback(interfaces::msg::TaskDescription::SharedPtr msg)
             {
@@ -170,6 +191,10 @@ class Event_Driven_Control : public rclcpp::Node
 
             angle_goal=task.angle_goal;
 
+            
+
+
+
             //Check if robot is leader or follower and start control
 
                 //Start control when robot is leader
@@ -189,6 +214,14 @@ class Event_Driven_Control : public rclcpp::Node
                         objective.angle = Angobj;       //
                         objective.obj_id = task.obj_id;
                         publisher_robot_objective->publish(objective);
+
+                        //Send objective position to /tf2
+                        objective_transform.transform.translation.x = objective.point.x;
+                        objective_transform.transform.translation.y = objective.point.y;
+                        objective_transform.transform.translation.z = objective.point.z;
+                        
+
+
                         break;
 
                     case 2:
@@ -335,6 +368,8 @@ class Event_Driven_Control : public rclcpp::Node
         std::shared_ptr<tf2_ros::Buffer> tf_buffer_;
         std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
         std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
+        rclcpp::TimerBase::SharedPtr timer_;
+        rclcpp::CallbackGroup::SharedPtr timer_cb_group_;
 
 };
 

@@ -29,6 +29,7 @@ find_package(tf2_sensor_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(OpenCV REQUIRED)
+find_package(visualization_msgs REQUIRED)
 
 
 # add_executable(control_pid_p1_node src/control_pid_p1_node.cpp)
@@ -341,6 +342,7 @@ ament_target_dependencies(event_driven_control
   tf2_ros
   geometry_msgs
   tf2_sensor_msgs
+  visualization_msgs
 
   )
 
