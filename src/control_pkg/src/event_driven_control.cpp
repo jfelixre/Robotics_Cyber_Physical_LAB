@@ -17,6 +17,7 @@
 #include <geometry_msgs/msg/transform_stamped.hpp>
 #include <tf2_ros/transform_broadcaster.h>
 #include <visualization_msgs/msg/marker.hpp>
+#include <interfaces/msg/arm_objective.hpp>
 
 #include <memory>
 #include <cinttypes>
@@ -40,7 +41,7 @@ float Xobj, Yobj, Zobj, Angobj;
 float angle_goal;
 interfaces::msg::RobotObjective objective;
 geometry_msgs::msg::TransformStamped objective_transform;
-
+interfaces::msg::ArmObjective arm_objective;
 
 class Event_Driven_Control : public rclcpp::Node
 {
@@ -105,6 +106,12 @@ class Event_Driven_Control : public rclcpp::Node
             timer_ = this->create_wall_timer(
                 100ms, std::bind(&Event_Driven_Control::timer_callback, this), timer_cb_group_);
 
+            std::stringstream ss_topic_arm_obj;
+            ss_topic_arm_obj << "/robot_0" << robot_id << "/arm_objective";
+            std::string topic_arm_obj = ss_topic_arm_obj.str();
+
+            publisher_arm_objective = create_publisher<interfaces::msg::ArmObjective>(topic_arm_obj, 1);
+
 		}
 
 
@@ -112,8 +119,33 @@ class Event_Driven_Control : public rclcpp::Node
 
         void timer_callback()   //CONTROL PID//
         {
-            objective_transform.header.stamp = this->now();
+            std::stringstream ss_frame_name;
+            
+            ss_frame_name << "robot_0" << robot_id << "/base_link";
+
+           
+            std::string frame_name = ss_frame_name.str();
+
+           try{
+            geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", "marker_id_01", tf2::TimePointZero);
+
+            objective_transform.header.stamp = transform.header.stamp;
+
+
             tf_broadcaster_->sendTransform(objective_transform);
+
+            RCLCPP_INFO(this->get_logger(), "Transform sent with header stamp %d", transform.header.stamp.sec);
+
+            } catch (tf2::LookupException& ex) {
+                RCLCPP_ERROR(this->get_logger(), "Lookup exception: %s", ex.what());
+                //return;
+            } catch (tf2::ConnectivityException& ex) {
+                RCLCPP_ERROR(this->get_logger(), "Connectivity exception: %s", ex.what());
+                //return;
+            } catch (tf2::ExtrapolationException& ex) {
+                RCLCPP_ERROR(this->get_logger(), "Extrapolation exception: %s", ex.what());
+                //return;
+            }
         }
 
         void task_robot_callback(interfaces::msg::TaskDescription::SharedPtr msg)
@@ -172,11 +204,31 @@ class Event_Driven_Control : public rclcpp::Node
                 Xobj = transform.transform.translation.x;
                 Yobj = transform.transform.translation.y;
                 Zobj = transform.transform.translation.z;
+
                 tf2::Quaternion Obj_quat(transform.transform.rotation.x, transform.transform.rotation.y, transform.transform.rotation.z, transform.transform.rotation.w);
                 tf2::Matrix3x3 Obj_m(Obj_quat);
                 double Obj_orientation_x, Obj_orientation_y, Obj_orientation_z;
                 Obj_m.getRPY(Obj_orientation_x, Obj_orientation_y, Obj_orientation_z);
                 Angobj= Obj_orientation_z;
+
+                std::stringstream ss_frame_cube;
+                ss_frame_cube << "cube_id_" << task.obj_id << "/cube_link";
+                std::string frame_cube = ss_frame_cube.str();
+
+                try{
+                    geometry_msgs::msg::TransformStamped transform_cube = tf_buffer_->lookupTransform("marker_id_00", frame_cube, tf2::TimePointZero);
+                    Zobj = transform_cube.transform.translation.z;
+
+                } catch (tf2::LookupException& ex) {
+                    RCLCPP_ERROR(this->get_logger(), "Lookup exception: %s", ex.what());
+                    //return;
+                } catch (tf2::ConnectivityException& ex) {
+                    RCLCPP_ERROR(this->get_logger(), "Connectivity exception: %s", ex.what());
+                    //return;
+                } catch (tf2::ExtrapolationException& ex) {
+                    RCLCPP_ERROR(this->get_logger(), "Extrapolation exception: %s", ex.what());
+                    //return;
+                }
 
             } catch (tf2::LookupException& ex) {
                 RCLCPP_ERROR(this->get_logger(), "Lookup exception: %s", ex.what());
@@ -219,7 +271,11 @@ class Event_Driven_Control : public rclcpp::Node
                         objective_transform.transform.translation.x = objective.point.x;
                         objective_transform.transform.translation.y = objective.point.y;
                         objective_transform.transform.translation.z = objective.point.z;
-                        
+
+                        arm_objective.home_pos = false;
+                        arm_objective.gripper = false;
+                        arm_objective.send_finish = false;
+                        publisher_arm_objective->publish(arm_objective);                        
 
 
                         break;
@@ -233,11 +289,32 @@ class Event_Driven_Control : public rclcpp::Node
                         objective.angle = Angobj;       //
                         objective.obj_id = task.obj_id;
                         publisher_robot_objective->publish(objective);
+
+                        //Send objective position to /tf2
+                        objective_transform.transform.translation.x = objective.point.x;
+                        objective_transform.transform.translation.y = objective.point.y;
+                        objective_transform.transform.translation.z = objective.point.z;
+
+                        arm_objective.home_pos = false;
+                        arm_objective.gripper = false;
+                        arm_objective.send_finish = false;
+                        publisher_arm_objective->publish(arm_objective); 
+
                         break;
 
                     case 3:
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 3 Taking object %d", robot_id, task.obj_id);
                         //COMPLETE OBJECT PICK
+                        //Send objective position to /tf2
+                        objective_transform.transform.translation.x = objective.point.x;
+                        objective_transform.transform.translation.y = objective.point.y;
+                        objective_transform.transform.translation.z = objective.point.z;
+
+                        arm_objective.home_pos = false;
+                        arm_objective.gripper = true;
+                        arm_objective.send_finish = true;
+                        publisher_arm_objective->publish(arm_objective); 
+
                         break;
 
                     case 4:
@@ -370,6 +447,7 @@ class Event_Driven_Control : public rclcpp::Node
         std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
         rclcpp::TimerBase::SharedPtr timer_;
         rclcpp::CallbackGroup::SharedPtr timer_cb_group_;
+        rclcpp::Publisher<interfaces::msg::ArmObjective>::SharedPtr publisher_arm_objective;
 
 };
 

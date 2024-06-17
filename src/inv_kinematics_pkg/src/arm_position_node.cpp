@@ -26,6 +26,7 @@
 #include <fstream>
 #include <vector>
 #include <math.h>
+#include <cmath>
 
 using std::placeholders::_1;
 using namespace std::chrono_literals;
@@ -39,7 +40,19 @@ std_msgs::msg::Float64 msg_p2;
 
 bool home_pos = true;
 bool gripper = false;  //false = open, true = close
-geometry_msgs::msg::Pose objective_position;
+bool send_finish = false;
+
+// Struct to represent joint angles
+struct JointAngles {
+  double theta1;
+  double theta2;
+  double theta3;
+};
+
+
+double L1 = 0.075;
+double L2 = 0.07;
+double L3 = 0.176;
 
 
 
@@ -53,7 +66,7 @@ class Arm_Position_Node : public rclcpp::Node
             RCLCPP_INFO(this->get_logger(), "Received Robot_ID: %d", robot_id);
 
 			std::stringstream ss_topic_name;
-            ss_topic_name << "/robot_0" << robot_id << "/set_arm_position";
+            ss_topic_name << "/robot_0" << robot_id << "/arm_objective";
             std::string topic_name = ss_topic_name.str();
 
             arm_position_subs= create_subscription<interfaces::msg::ArmObjective>(
@@ -122,6 +135,7 @@ class Arm_Position_Node : public rclcpp::Node
         void timer_pid_callback()   //CONTROL PID//
         { 
             if (home_pos==true){
+                RCLCPP_INFO(this->get_logger(), "Robot %d is in home position", robot_id);
                 msg_b1.data = 2.0;
                 msg_b2.data = -2.0;
                 msg_b3.data = 2.0;
@@ -137,17 +151,82 @@ class Arm_Position_Node : public rclcpp::Node
 
             }
             else{
+                std::stringstream ss_frame_objective;
+                ss_frame_objective << "objective_" << robot_id;
+                std::string objective_frame = ss_frame_objective.str();
+
+                std::stringstream ss_frame_arm;
+                ss_frame_arm << "robot_0" << robot_id << "/base_link";
+                std::string arm_frame = ss_frame_arm.str();
+
+
+                try{
+                    geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_->lookupTransform(arm_frame, objective_frame, tf2::TimePointZero);
+                    double target_x = transformStamped.transform.translation.x;
+                    double target_y = transformStamped.transform.translation.y;
+                    double target_z = transformStamped.transform.translation.z;
+
+                    RCLCPP_INFO(this->get_logger(), "Robot %d is moving to x=%f, y=%f, z=%f", robot_id, target_x, target_y, target_z);
+
+                    JointAngles joint_angles = inverseKinematics(target_x, target_y, target_z);
+
+                    RCLCPP_INFO(this->get_logger(), "Robot %d joint angles: theta1=%f, theta2=%f, theta3=%f", robot_id, joint_angles.theta1, joint_angles.theta2, joint_angles.theta3);
+
+                    msg_b1.data = joint_angles.theta1;
+                    msg_b2.data = joint_angles.theta2;
+                    msg_b3.data = joint_angles.theta3;
+
+                    if (gripper==true){
+                        msg_p1.data = 0.5;
+                        msg_p2.data = msg_p1.data;
+                    }
+                    else{
+                        msg_p1.data = -0.5;
+                        msg_p2.data = msg_p1.data;
+                    }
+
+                    // publisher_pos_b1->publish(msg_b1);
+                    // publisher_pos_b2->publish(msg_b2);
+                    // publisher_pos_b3->publish(msg_b3);
+                    // publisher_pos_p1->publish(msg_p1);
+                    // publisher_pos_p2->publish(msg_p2);
+
+                }
+                catch (tf2::TransformException &ex){
+                    RCLCPP_ERROR(this->get_logger(), "%s", ex.what());
+                }
+
+                
+
+            
 
             }
-
+            
 
         }
 
         void arm_pos_callback(const interfaces::msg::ArmObjective::SharedPtr msg)
         {
             home_pos = msg->home_pos;
-            objective_position = msg->objective;
+            send_finish = msg->send_finish;
             gripper = msg->gripper;
+        }
+
+        JointAngles inverseKinematics(double x, double y, double z)
+        {
+            JointAngles joint_angles;
+            
+
+            double theta1 = atan2(y, x);
+            double D = (x * x + y * y + z * z - L1 * L1 - L2 * L2 - L3 * L3) / (2 * L2 * L3);
+            double theta3 = atan2(-sqrt(1 - D * D), D);
+            double theta2 = atan2(z, sqrt(x * x + y * y)) - atan2(L3 * sin(theta3), L2 + L3 * cos(theta3));
+
+            joint_angles.theta1 = theta1;
+            joint_angles.theta2 = theta2;
+            joint_angles.theta3 = theta3;
+
+            return joint_angles;
         }
 
 };

@@ -36,7 +36,7 @@ def generate_launch_description():
     file = os.path.join(
         pkg_project_robot_custom_description,
         'models',
-        'double_cube_01',
+        'cube_id_12',
         'model.sdf'
     )
     #Command to spawn cube in Gazebo on an especific position
@@ -44,7 +44,7 @@ def generate_launch_description():
         cmd=[[
             'ros2 run ros_gz_sim create --args -file "',
             file,
-            '" -name double_cube_01 -x 1 -y -1.5 -z 0.09 -Y 1.5708'
+            '" -name cube_id_12 -x 1 -y -2 -z 0.09'
 
         ]],
         shell=True
@@ -56,14 +56,14 @@ def generate_launch_description():
         package='ros_gz_bridge',
         executable='parameter_bridge',
         parameters=[{
-            'config_file': os.path.join(pkg_project_launch_pkg, 'config', 'bridge_d_c_01.yaml'),
+            'config_file': os.path.join(pkg_project_launch_pkg, 'config', 'bridge_s_c_02.yaml'),
             'qos_overrides./tf_static.publisher.durability': 'transient_local',
         }],
         output='screen'
     )
 
     # Load the SDF file from "description" package
-    sdf_file  =  os.path.join(pkg_project_robot_custom_description, 'models', 'double_cube_01', 'model.urdf')
+    sdf_file  =  os.path.join(pkg_project_robot_custom_description, 'models', 'cube_id_12', 'model.urdf')
     with open(sdf_file, 'r') as infp:
         cube_desc = infp.read()
 
@@ -71,14 +71,14 @@ def generate_launch_description():
     cube_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
-        name='double_cube_01',
+        name='cube_id_12',
         output='both',
         parameters=[
             {'use_sim_time': True},
             {'robot_description': cube_desc}
         ],
         remappings=[
-            ('/robot_description', '/robot_description/double_cube_01'),
+            ('/robot_description', '/robot_description/cube_id_12'),
         ]
     )
 

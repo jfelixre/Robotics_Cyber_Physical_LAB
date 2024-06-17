@@ -36,7 +36,7 @@ def generate_launch_description():
     file = os.path.join(
         pkg_project_robot_custom_description,
         'models',
-        'single_cube_01',
+        'cube_id_11',
         'model.sdf'
     )
     #Command to spawn cube in Gazebo on an especific position
@@ -44,7 +44,7 @@ def generate_launch_description():
         cmd=[[
             'ros2 run ros_gz_sim create --args -file "',
             file,
-            '" -name single_cube_01 -x 1 -y -1 -z 0.09'
+            '" -name cube_id_11 -x 1 -y -1 -z 0.09'
 
         ]],
         shell=True
@@ -63,7 +63,7 @@ def generate_launch_description():
     )
 
     # Load the SDF file from "description" package
-    sdf_file  =  os.path.join(pkg_project_robot_custom_description, 'models', 'single_cube_01', 'model.urdf')
+    sdf_file  =  os.path.join(pkg_project_robot_custom_description, 'models', 'cube_id_11', 'model.urdf')
     with open(sdf_file, 'r') as infp:
         cube_desc = infp.read()
 
@@ -71,14 +71,14 @@ def generate_launch_description():
     cube_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
-        name='single_cube_01',
+        name='cube_id_11',
         output='both',
         parameters=[
             {'use_sim_time': True},
             {'robot_description': cube_desc}
         ],
         remappings=[
-            ('/robot_description', '/robot_description/single_cube_01'),
+            ('/robot_description', '/robot_description/cube_id_11'),
         ]
     )
 

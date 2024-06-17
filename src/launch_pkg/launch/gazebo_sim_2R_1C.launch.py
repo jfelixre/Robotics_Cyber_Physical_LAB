@@ -85,26 +85,26 @@ def generate_launch_description():
         shell=True
     )
 
-    #Launch single_cube_01
-    launch_single_cube_01 = ExecuteProcess(
+    #Launch cube_id_11
+    launch_cube_id_11 = ExecuteProcess(
         cmd=[[
-            'ros2 launch launch_pkg single_cube_01_sim.launch.py'
+            'ros2 launch launch_pkg cube_id_11_sim.launch.py'
         ]],
         shell=True
     )
     
-    #Launch single_cube_02
-    launch_single_cube_02 = ExecuteProcess(
+    #Launch cube_id_12
+    launch_cube_id_12 = ExecuteProcess(
         cmd=[[
-            'ros2 launch launch_pkg single_cube_02_sim.launch.py'
+            'ros2 launch launch_pkg cube_id_12_sim.launch.py'
         ]],
         shell=True
     )
 
-    #Launch double_cube_01
-    launch_double_cube_01 = ExecuteProcess(
+    #Launch cube_id_21
+    launch_cube_id_21 = ExecuteProcess(
         cmd=[[
-            'ros2 launch launch_pkg double_cube_01_sim.launch.py'
+            'ros2 launch launch_pkg cube_id_21_sim.launch.py'
         ]],
         shell=True
     )
@@ -134,8 +134,8 @@ def generate_launch_description():
         launch_robot_02,
         img_proc_nodes,
         task_scheduler,
-        launch_single_cube_01,
-        launch_single_cube_02,
-        launch_double_cube_01,
+        launch_cube_id_11,
+        launch_cube_id_12,
+        launch_cube_id_21,
         
     ])

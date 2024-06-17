@@ -1,6 +1,6 @@
 <sdf version='1.11'>
-  <model name='single_cube_02'>
-    <link name='single_cube_02/marker_link'>
+  <model name='cube_id_11'>
+    <link name='cube_id_11/marker_link'>
       <inertial>
         <pose>-1.967726119402985e-18 -1.3878e-17 -0.047608208955223871 0 0 0</pose>
         <mass>0.21440000000000001</mass>
@@ -13,7 +13,7 @@
           <izz>0.00169236</izz>
         </inertia>
       </inertial>
-      <collision name='single_cube_02/marker_link_fixed_joint_lump__single_cube_02/cube_link_collision_1'>
+      <collision name='cube_id_11/marker_link_fixed_joint_lump__cube_id_11/cube_link_collision_1'>
         <pose>0 0 -0.050999999999999997 0 0 0</pose>
         <geometry>
           <mesh>
@@ -22,16 +22,16 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='single_cube_02/marker_link_visual'>
+      <visual name='cube_id_11/marker_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../markers/marker_12.dae</uri>
+            <uri>../markers/marker_11.dae</uri>
           </mesh>
         </geometry>
       </visual>
-      <visual name='single_cube_02/marker_link_fixed_joint_lump__single_cube_02/cube_link_visual_1'>
+      <visual name='cube_id_11/marker_link_fixed_joint_lump__cube_id_11/cube_link_visual_1'>
         <pose>0 0 -0.050999999999999997 0 0 0</pose>
         <geometry>
           <mesh>
@@ -45,10 +45,10 @@
         </material>
       </visual>
     </link>
-    <frame name='single_cube_02/cube_joint' attached_to='single_cube_02/marker_link'>
+    <frame name='cube_id_11/cube_joint' attached_to='cube_id_11/marker_link'>
       <pose>0 0 -0.050999999999999997 0 0 0</pose>
     </frame>
-    <frame name='single_cube_02/cube_link' attached_to='single_cube_02/cube_joint'>
+    <frame name='cube_id_11/cube_link' attached_to='cube_id_11/cube_joint'>
       <pose>0 0 0 0 0 0</pose>
     </frame>
   </model>

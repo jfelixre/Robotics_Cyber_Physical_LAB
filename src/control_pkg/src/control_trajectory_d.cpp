@@ -525,10 +525,10 @@ class Node_Control_Timer : public rclcpp::Node
 
                 hwe[k] = ErrAng;
 
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hxe = %f", hxe[k]);
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hye = %f", hye[k]);
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hwe = %f", hwe[k]);
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "k = %d", k);
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hxe = %f", hxe[k]);
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hye = %f", hye[k]);
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hwe = %f", hwe[k]);
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "k = %d", k);
 
             int min_error = 0.00005;   //Error to skip control to next step
 

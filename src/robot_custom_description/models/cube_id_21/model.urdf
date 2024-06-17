@@ -3,7 +3,7 @@
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
-  name="double_cube_01">
+  name="cube_id_21">
   <link
     name="marker_id_21">
     <inertial>
@@ -31,7 +31,7 @@
     </visual>
   </link>
   <link
-    name="double_cube_01/cube_link">
+    name="cube_id_21/cube_link">
     <inertial>
       <origin
         xyz="-2.7756E-17 2.0817E-17 6.9389E-18"
@@ -52,7 +52,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_custom_description/models/double_cube_01/meshes/cube_link.STL" />
+          filename="package://robot_custom_description/models/cube_id_21/meshes/cube_link.STL" />
       </geometry>
       <material
         name="">
@@ -66,12 +66,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_custom_description/models/double_cube_01/meshes/cube_link.STL" />
+          filename="package://robot_custom_description/models/cube_id_21/meshes/cube_link.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="double_cube_01/cube_joint"
+    name="cube_id_21/cube_joint"
     type="fixed">
     <origin
       xyz="0 0 -0.051"
@@ -79,7 +79,7 @@
     <parent
       link="marker_id_21" />
     <child
-      link="double_cube_01/cube_link" />
+      link="cube_id_21/cube_link" />
     <axis
       xyz="0 0 0" />
   </joint>
