@@ -134,7 +134,7 @@ class Event_Driven_Control : public rclcpp::Node
 
             tf_broadcaster_->sendTransform(objective_transform);
 
-            RCLCPP_INFO(this->get_logger(), "Transform sent with header stamp %d", transform.header.stamp.sec);
+            //RCLCPP_INFO(this->get_logger(), "Transform sent with header stamp %d", transform.header.stamp.sec);
 
             } catch (tf2::LookupException& ex) {
                 RCLCPP_ERROR(this->get_logger(), "Lookup exception: %s", ex.what());

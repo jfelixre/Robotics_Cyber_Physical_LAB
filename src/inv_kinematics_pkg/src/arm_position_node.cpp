@@ -156,7 +156,7 @@ class Arm_Position_Node : public rclcpp::Node
                 std::string objective_frame = ss_frame_objective.str();
 
                 std::stringstream ss_frame_arm;
-                ss_frame_arm << "robot_0" << robot_id << "/base_link";
+                ss_frame_arm << "robot_0" << robot_id << "/base_arm";
                 std::string arm_frame = ss_frame_arm.str();
 
 
@@ -168,13 +168,13 @@ class Arm_Position_Node : public rclcpp::Node
 
                     RCLCPP_INFO(this->get_logger(), "Robot %d is moving to x=%f, y=%f, z=%f", robot_id, target_x, target_y, target_z);
 
-                    JointAngles joint_angles = inverseKinematics(target_x, target_y, target_z);
+                    JointAngles joint_angles = inverseKinematics(target_x, target_y);
 
                     RCLCPP_INFO(this->get_logger(), "Robot %d joint angles: theta1=%f, theta2=%f, theta3=%f", robot_id, joint_angles.theta1, joint_angles.theta2, joint_angles.theta3);
 
-                    msg_b1.data = joint_angles.theta1;
-                    msg_b2.data = joint_angles.theta2;
-                    msg_b3.data = joint_angles.theta3;
+                    msg_b1.data = joint_angles.theta1 * -1;
+                    msg_b2.data = joint_angles.theta2 - -1;
+                    msg_b3.data = joint_angles.theta3 * -1;
 
                     if (gripper==true){
                         msg_p1.data = 0.5;
@@ -185,11 +185,11 @@ class Arm_Position_Node : public rclcpp::Node
                         msg_p2.data = msg_p1.data;
                     }
 
-                    // publisher_pos_b1->publish(msg_b1);
-                    // publisher_pos_b2->publish(msg_b2);
-                    // publisher_pos_b3->publish(msg_b3);
-                    // publisher_pos_p1->publish(msg_p1);
-                    // publisher_pos_p2->publish(msg_p2);
+                    publisher_pos_b1->publish(msg_b1);
+                    publisher_pos_b2->publish(msg_b2);
+                    publisher_pos_b3->publish(msg_b3);
+                    publisher_pos_p1->publish(msg_p1);
+                    publisher_pos_p2->publish(msg_p2);
 
                 }
                 catch (tf2::TransformException &ex){
@@ -212,15 +212,29 @@ class Arm_Position_Node : public rclcpp::Node
             gripper = msg->gripper;
         }
 
-        JointAngles inverseKinematics(double x, double y, double z)
+        JointAngles inverseKinematics(double x, double y)
         {
             JointAngles joint_angles;
             
-
+            // Calculate theta1 (shoulder angle)
             double theta1 = atan2(y, x);
-            double D = (x * x + y * y + z * z - L1 * L1 - L2 * L2 - L3 * L3) / (2 * L2 * L3);
-            double theta3 = atan2(-sqrt(1 - D * D), D);
-            double theta2 = atan2(z, sqrt(x * x + y * y)) - atan2(L3 * sin(theta3), L2 + L3 * cos(theta3));
+
+            // Calculate distance from shoulder to target (horizontal distance)
+            double L = sqrt(x * x + y * y);
+
+            // Distance from second joint to target
+            double D = (L * L - L1 * L1 - L2 * L2) / (2 * L1 * L2);
+
+             // Clamp D to valid range for acos function (-1 to 1)
+             D = std::max(-1.0, std::min(1.0, D));
+
+            // Calculate theta2 (elbow angle)
+            double theta2 = atan2(-sqrt(1 - D * D), D);
+
+             // Calculate theta3 to maintain fixed orientation of -90 degrees with respect to origin
+            double theta3 = atan2(y, x) - theta1 - theta2 - M_PI / 2.0;
+
+
 
             joint_angles.theta1 = theta1;
             joint_angles.theta2 = theta2;
