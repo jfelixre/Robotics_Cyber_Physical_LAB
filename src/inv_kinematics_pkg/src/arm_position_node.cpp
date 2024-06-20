@@ -219,21 +219,16 @@ class Arm_Position_Node : public rclcpp::Node
             // Calculate theta1 (shoulder angle)
             double theta1 = atan2(y, x);
 
-            // Calculate distance from shoulder to target (horizontal distance)
-            double L = sqrt(x * x + y * y);
+            double D = sqrt(pow(x, 2) + pow(y, 2));
+            double L4 = D-L1;
 
-            // Distance from second joint to target
-            double D = (L * L - L1 * L1 - L2 * L2) / (2 * L1 * L2);
+            // Calculate theta 2
+            double theta2 = acos((pow(L4, 2) + pow(L2, 2) - pow(L3, 2)) / (2 * L4 * L2));
 
-             // Clamp D to valid range for acos function (-1 to 1)
-             D = std::max(-1.0, std::min(1.0, D));
+            double Beta = acos((pow(L3, 2) + pow(L2, 2) - pow(L4, 2)) / (2 * L3 * L2));
 
-            // Calculate theta2 (elbow angle)
-            double theta2 = atan2(-sqrt(1 - D * D), D);
-
-             // Calculate theta3 to maintain fixed orientation of -90 degrees with respect to origin
-            double theta3 = atan2(y, x) - theta1 - theta2 - M_PI / 2.0;
-
+            // Calculate theta 3
+            double theta3 = M_PI - Beta;
 
 
             joint_angles.theta1 = theta1;

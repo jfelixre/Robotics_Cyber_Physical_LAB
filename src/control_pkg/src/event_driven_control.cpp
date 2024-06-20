@@ -120,16 +120,15 @@ class Event_Driven_Control : public rclcpp::Node
         void timer_callback()   //CONTROL PID//
         {
             std::stringstream ss_frame_name;
-            
-            ss_frame_name << "robot_0" << robot_id << "/base_link";
-
-           
+            ss_frame_name << "marker_id_0" << robot_id;
             std::string frame_name = ss_frame_name.str();
+            
 
            try{
-            geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", "marker_id_01", tf2::TimePointZero);
+            geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", frame_name, tf2::TimePointZero);
 
             objective_transform.header.stamp = transform.header.stamp;
+            objective_transform.header.frame_id = "marker_id_00";
 
 
             tf_broadcaster_->sendTransform(objective_transform);

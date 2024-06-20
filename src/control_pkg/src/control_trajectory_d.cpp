@@ -631,7 +631,7 @@ class Node_Control_Timer : public rclcpp::Node
             //    // //RCLCPP_INFO(this->get_logger(), "Received response");
             // }
 
-            publisher_vel->publish(msg_platform_vel);
+            //publisher_vel->publish(msg_platform_vel);
 
             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "publicar control");
 
