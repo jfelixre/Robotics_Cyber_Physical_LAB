@@ -185,11 +185,18 @@ class Arm_Position_Node : public rclcpp::Node
                         msg_p2.data = msg_p1.data;
                     }
 
-                    publisher_pos_b1->publish(msg_b1);
-                    publisher_pos_b2->publish(msg_b2);
-                    publisher_pos_b3->publish(msg_b3);
-                    publisher_pos_p1->publish(msg_p1);
-                    publisher_pos_p2->publish(msg_p2);
+
+                    if (std::isnan(joint_angles.theta1) == false && std::isnan(joint_angles.theta2) == false && std::isnan(joint_angles.theta3) == false){
+                        publisher_pos_b1->publish(msg_b1);
+                        publisher_pos_b2->publish(msg_b2);
+                        publisher_pos_b3->publish(msg_b3);
+                        publisher_pos_p1->publish(msg_p1);
+                        publisher_pos_p2->publish(msg_p2);
+                    }
+                    else{
+                        RCLCPP_INFO(this->get_logger(), "NaN detected");
+                    }
+                    
 
                 }
                 catch (tf2::TransformException &ex){

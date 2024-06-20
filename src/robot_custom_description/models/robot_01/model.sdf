@@ -21,11 +21,11 @@
       <joint_name>robot_01/b1_joint</joint_name>
       <p_gain>3</p_gain>
       <i_gain>0.1</i_gain>
-      <d_gain>1</d_gain>
+      <d_gain>0.1</d_gain>
       <i_max>0.01</i_max>
       <i_min>-0.01</i_min>
-      <cmd_max>50</cmd_max>
-      <cmd_min>-50</cmd_min>
+      <cmd_max>10</cmd_max>
+      <cmd_min>-10</cmd_min>
     </plugin>
 
     <plugin
@@ -35,10 +35,10 @@
       <p_gain>2.2</p_gain>
       <i_gain>0.1</i_gain>
       <d_gain>0.05</d_gain>
-      <i_max>0.1</i_max>
-      <i_min>-0.1</i_min>
-      <cmd_max>100</cmd_max>
-      <cmd_min>-100</cmd_min>
+      <i_max>0.01</i_max>
+      <i_min>-0.01</i_min>
+      <cmd_max>10</cmd_max>
+      <cmd_min>-10</cmd_min>
     </plugin>
 
     <plugin
@@ -50,8 +50,8 @@
       <d_gain>0.01</d_gain>
       <i_max>0.01</i_max>
       <i_min>-0.01</i_min>
-      <cmd_max>100</cmd_max>
-      <cmd_min>-100</cmd_min>
+      <cmd_max>10</cmd_max>
+      <cmd_min>-10</cmd_min>
     </plugin>
 
     <plugin
@@ -221,8 +221,8 @@
         <limit>
           <lower>-1.5</lower>
           <upper>1.5</upper>
-          <effort>-1</effort>
-          <velocity>1.5</velocity>
+          <effort>1</effort>
+          <velocity>1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -276,8 +276,8 @@
         <limit>
           <lower>-1.5</lower>
           <upper>1.5</upper>
-          <effort>-1</effort>
-          <velocity>1.5</velocity>
+          <effort>1</effort>
+          <velocity>1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -331,8 +331,8 @@
         <limit>
           <lower>-1.5</lower>
           <upper>1.5</upper>
-          <effort>-1</effort>
-          <velocity>1.5</velocity>
+          <effort>1</effort>
+          <velocity>1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
