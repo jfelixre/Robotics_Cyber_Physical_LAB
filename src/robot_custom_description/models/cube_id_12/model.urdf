@@ -8,7 +8,7 @@
     name="marker_id_12">
     <inertial>
       <origin
-        xyz="-5.2042E-18 -1.3878E-17 -0.0005"
+        xyz="-5.2042E-18 0 -0.0005"
         rpy="0 0 0" />
       <mass
         value="0.0144" />
@@ -34,17 +34,17 @@
     name="cube_id_12/cube_link">
     <inertial>
       <origin
-        xyz="-1.7347E-18 -1.3878E-17 1.3878E-17"
+        xyz="-8.6736E-19 1.3878E-17 -1.0408E-17"
         rpy="0 0 0" />
       <mass
-        value="0.2" />
+        value="0.02" />
       <inertia
-        ixx="0.001713"
-        ixy="2.8354E-19"
-        ixz="-9.9494E-20"
-        iyy="0.001956"
-        iyz="1.0676E-18"
-        izz="0.0016578" />
+        ixx="0.003573"
+        ixy="1.6396E-19"
+        ixz="-2.9204E-20"
+        iyy="0.0040185"
+        iyz="7.3352E-18"
+        izz="0.0018873" />
     </inertial>
     <visual>
       <origin
@@ -74,7 +74,7 @@
     name="cube_id_12/cube_joint"
     type="fixed">
     <origin
-      xyz="0 0 -0.051"
+      xyz="0 0 -0.076"
       rpy="0 0 0" />
     <parent
       link="marker_id_12" />

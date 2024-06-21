@@ -44,7 +44,7 @@ def generate_launch_description():
         cmd=[[
             'ros2 run ros_gz_sim create --args -file "',
             file,
-            '" -name cube_id_11 -x 1 -y -1 -z 0.09'
+            '" -name cube_id_11 -x 1 -y -1 -z 0.15'
 
         ]],
         shell=True

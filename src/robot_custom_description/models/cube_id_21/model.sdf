@@ -2,19 +2,19 @@
   <model name='cube_id_21'>
     <link name='marker_id_21'>
       <inertial>
-        <pose>-2.6979004665629861e-17 1.9845761772098509e-17 -0.04958631415241057 0 0 0</pose>
-        <mass>0.51439999999999997</mass>
+        <pose>-1.380980343980344e-17 6.8707044226044206e-18 -0.075628992628992628 0 0 0</pose>
+        <mass>2.9304000000000001</mass>
         <inertia>
-          <ixx>0.0051919767676516324</ixx>
-          <ixy>-1.1561964981895951e-18</ixy>
-          <ixz>-2.6782913219284598e-19</ixz>
-          <iyy>0.028730976767651632</iyy>
-          <iyz>3.40389515749691e-18</iyz>
-          <izz>0.027817560000000002</izz>
+          <ixx>0.010817961240786241</ixx>
+          <ixy>-3.2348965000000002e-18</ixy>
+          <ixz>1.383585981700246e-18</ixz>
+          <iyy>0.040147961240786227</iyy>
+          <iyz>2.2633684801928261e-17</iyz>
+          <izz>0.033690560000000001</izz>
         </inertia>
       </inertial>
       <collision name='marker_id_21_fixed_joint_lump__cube_id_21/cube_link_collision'>
-        <pose>0 0 -0.050999999999999997 0 0 0</pose>
+        <pose>0 0 -0.075999999999999998 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -32,7 +32,7 @@
         </geometry>
       </visual>
       <visual name='marker_id_21_fixed_joint_lump__cube_id_21/cube_link_visual_1'>
-        <pose>0 0 -0.050999999999999997 0 0 0</pose>
+        <pose>0 0 -0.075999999999999998 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -46,7 +46,7 @@
       </visual>
     </link>
     <frame name='cube_id_21/cube_joint' attached_to='marker_id_21'>
-      <pose>0 0 -0.050999999999999997 0 0 0</pose>
+      <pose>0 0 -0.075999999999999998 0 0 0</pose>
     </frame>
     <frame name='cube_id_21/cube_link' attached_to='cube_id_21/cube_joint'>
       <pose>0 0 0 0 0 0</pose>
