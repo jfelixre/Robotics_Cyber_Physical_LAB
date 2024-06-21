@@ -52,7 +52,7 @@ struct JointAngles {
 
 double L1 = 0.075;
 double L2 = 0.07;
-double L3 = 0.176;
+double L3 = 0.173;
 
 
 
