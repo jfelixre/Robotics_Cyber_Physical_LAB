@@ -145,7 +145,7 @@ class Compute_Trajectory : public rclcpp::Node
             angle_obstacle.clear();
             type_obstacle.clear();
             //For to save the position of every marker on the scene
-            for (int marker=1; marker<30; marker++){
+            for (int marker=0; marker<30; marker++){
                 std::stringstream ss_marker;
                 if (marker<10){
                     ss_marker << "marker_id_0" << marker;

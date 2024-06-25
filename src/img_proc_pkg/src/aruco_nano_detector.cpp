@@ -52,6 +52,7 @@ cv::Mat cameraMatrix;
 cv::Mat distCoeffs;
 float markerSize=0.11;    //11cm
 cv::Vec<double, 3> tvec_origin, rvec_origin;
+int image_width, image_height;
 
 double pi = 3.14159265358979323846;
 
@@ -81,7 +82,10 @@ class Aruco_Nano_Detector : public rclcpp::Node
       cv::FileStorage fs("src/img_proc_pkg/config/camera_calib_charuco.yaml", cv::FileStorage::READ);
       fs["camera_matrix"] >> cameraMatrix;
       fs["distortion_coefficients"] >> distCoeffs;
+      fs["image_widht"] >> image_width;
+      fs["image_height"] >> image_height;
       fs.release();
+
       
       subscription_ = this->create_subscription<sensor_msgs::msg::Image>(
       "/cameras/cam_1", 10, std::bind(&Aruco_Nano_Detector::topic_callback, this, _1));
@@ -241,7 +245,7 @@ class Aruco_Nano_Detector : public rclcpp::Node
 
           }
 
-          if (register_tag_00){
+          if (register_tag_00==false){
             tf_broadcaster->sendTransform(saved_tag);
           }
 

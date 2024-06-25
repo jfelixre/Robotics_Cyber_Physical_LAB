@@ -274,6 +274,7 @@ class Event_Driven_Control : public rclcpp::Node
                         arm_objective.home_pos = false;
                         arm_objective.gripper = false;
                         arm_objective.send_finish = false;
+                        arm_objective.transport_pos = false;
                         publisher_arm_objective->publish(arm_objective);                        
 
 
@@ -283,7 +284,7 @@ class Event_Driven_Control : public rclcpp::Node
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 2 Last approach to object %d", robot_id, task.obj_id);
 
                         objective.point.x = Xobj;   //Check to match, maybe using trigonometry depending of angle
-                        objective.point.y = Yobj;
+                        objective.point.y = Yobj - 0.1;
                         objective.point.z = Zobj;
                         objective.angle = Angobj;       //
                         objective.obj_id = task.obj_id;
@@ -297,6 +298,7 @@ class Event_Driven_Control : public rclcpp::Node
                         arm_objective.home_pos = false;
                         arm_objective.gripper = false;
                         arm_objective.send_finish = false;
+                        arm_objective.transport_pos = false;
                         publisher_arm_objective->publish(arm_objective); 
 
                         break;
@@ -311,8 +313,18 @@ class Event_Driven_Control : public rclcpp::Node
 
                         arm_objective.home_pos = false;
                         arm_objective.gripper = true;
-                        arm_objective.send_finish = true;
+                        arm_objective.send_finish = false;
+                        arm_objective.transport_pos = false;
                         publisher_arm_objective->publish(arm_objective); 
+
+                        //timer to wait robot close gripper
+                        rclcpp::sleep_for(3s);
+
+                        arm_objective.send_finish = true;
+                        arm_objective.transport_pos = true;
+                        publisher_arm_objective->publish(arm_objective); 
+
+
 
                         break;
 

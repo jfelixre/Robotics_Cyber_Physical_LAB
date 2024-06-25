@@ -103,6 +103,7 @@ class Task_Manager_Node : public rclcpp::Node
     void task_list_callback(const interfaces::msg::TaskMsg::SharedPtr msg)
         {
             task_list.task_queue = msg->task_queue;
+            RCLCPP_INFO(this->get_logger(), "Task queue received");
         }
 
 

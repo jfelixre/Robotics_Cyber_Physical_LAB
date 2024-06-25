@@ -41,6 +41,7 @@ std_msgs::msg::Float64 msg_p2;
 bool home_pos = true;
 bool gripper = false;  //false = open, true = close
 bool send_finish = false;
+bool transport_pos = false;
 
 // Struct to represent joint angles
 struct JointAngles {
@@ -52,8 +53,8 @@ struct JointAngles {
 
 double L1 = 0.075;
 double L2 = 0.07;
-double L3 = 0.173;
-
+//double L3 = 0.174;
+double L3 = 0.25;
 
 
 class Arm_Position_Node : public rclcpp::Node
@@ -135,7 +136,7 @@ class Arm_Position_Node : public rclcpp::Node
         void timer_pid_callback()   //CONTROL PID//
         { 
             if (home_pos==true){
-                RCLCPP_INFO(this->get_logger(), "Robot %d is in home position", robot_id);
+               // RCLCPP_INFO(this->get_logger(), "Robot %d is in home position", robot_id);
                 msg_b1.data = 2.0;
                 msg_b2.data = -2.0;
                 msg_b3.data = 2.0;
@@ -150,6 +151,20 @@ class Arm_Position_Node : public rclcpp::Node
 
 
             }
+            else if (transport_pos==true){
+                msg_b1.data = 0.82;
+                msg_b2.data = 0.42;
+                msg_b3.data = 0.26;
+                msg_p1.data = 0.5;
+                msg_p2.data = msg_p1.data;
+
+                publisher_pos_b1->publish(msg_b1);
+                publisher_pos_b2->publish(msg_b2);
+                publisher_pos_b3->publish(msg_b3);
+                publisher_pos_p1->publish(msg_p1);
+                publisher_pos_p2->publish(msg_p2);
+            }
+            
             else{
                 std::stringstream ss_frame_objective;
                 ss_frame_objective << "objective_" << robot_id;
@@ -164,13 +179,13 @@ class Arm_Position_Node : public rclcpp::Node
                     geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_->lookupTransform(arm_frame, objective_frame, tf2::TimePointZero);
                     double target_x = transformStamped.transform.translation.x;
                     double target_y = transformStamped.transform.translation.y;
-                    double target_z = transformStamped.transform.translation.z;
+                    double target_z = transformStamped.transform.translation.z + 0.1;
 
-                    RCLCPP_INFO(this->get_logger(), "Robot %d is moving to x=%f, y=%f, z=%f", robot_id, target_x, target_y, target_z);
+                    //RCLCPP_INFO(this->get_logger(), "Robot %d is moving to x=%f, y=%f, z=%f", robot_id, target_x, target_y, target_z);
 
                     JointAngles joint_angles = inverseKinematics(target_x, target_y);
 
-                    RCLCPP_INFO(this->get_logger(), "Robot %d joint angles: theta1=%f, theta2=%f, theta3=%f", robot_id, joint_angles.theta1, joint_angles.theta2, joint_angles.theta3);
+                    //RCLCPP_INFO(this->get_logger(), "Robot %d joint angles: theta1=%f, theta2=%f, theta3=%f", robot_id, joint_angles.theta1, joint_angles.theta2, joint_angles.theta3);
 
                     msg_b1.data = joint_angles.theta1 * -1;
                     msg_b2.data = joint_angles.theta2 - -1;
@@ -185,11 +200,22 @@ class Arm_Position_Node : public rclcpp::Node
                         msg_p2.data = msg_p1.data;
                     }
 
+                    
+
 
                     if (std::isnan(joint_angles.theta1) == false && std::isnan(joint_angles.theta2) == false && std::isnan(joint_angles.theta3) == false){
-                        publisher_pos_b1->publish(msg_b1);
-                        publisher_pos_b2->publish(msg_b2);
-                        publisher_pos_b3->publish(msg_b3);
+                        if(joint_angles.theta1>=-1.5 && joint_angles.theta1<=1.5 && joint_angles.theta2>=-1.5 && joint_angles.theta2<=1.5 && joint_angles.theta3>=-1.5 && joint_angles.theta3<= 1.5){
+                            publisher_pos_b1->publish(msg_b1);
+                            publisher_pos_b2->publish(msg_b2);
+                            publisher_pos_b3->publish(msg_b3);
+                            //publisher_pos_p1->publish(msg_p1);
+                            //publisher_pos_p2->publish(msg_p2);
+                        
+                        }
+                        else{
+                            RCLCPP_INFO(this->get_logger(), "Out of range");
+                        }
+
                         publisher_pos_p1->publish(msg_p1);
                         publisher_pos_p2->publish(msg_p2);
                     }
@@ -217,6 +243,7 @@ class Arm_Position_Node : public rclcpp::Node
             home_pos = msg->home_pos;
             send_finish = msg->send_finish;
             gripper = msg->gripper;
+            transport_pos = msg->transport_pos;
         }
 
         JointAngles inverseKinematics(double x, double y)
@@ -225,6 +252,13 @@ class Arm_Position_Node : public rclcpp::Node
             
             // Calculate theta1 (shoulder angle)
             double theta1 = atan2(y, x);
+            if (theta1 > 1.5){
+                theta1 = 1.5;
+            }
+
+            if (theta1 < -1.5){
+                theta1 = -1.5;
+            }
 
             double D = sqrt(pow(x, 2) + pow(y, 2));
             double L4 = D-L1;

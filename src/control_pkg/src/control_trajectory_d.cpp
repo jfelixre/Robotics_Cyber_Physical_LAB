@@ -446,7 +446,7 @@ class Node_Control_Timer : public rclcpp::Node
 
                         try{
                             geometry_msgs::msg::TransformStamped transformStamped_gripper = tf_buffer_->lookupTransform("marker_id_00", gripper_name, tf2::TimePointZero);
-                            gripper_position.x = transformStamped_gripper.transform.translation.x;
+                            gripper_position.x = transformStamped_gripper.transform.translation.x - 0.05;
                             gripper_position.y = transformStamped_gripper.transform.translation.y;
                         }
                         catch (tf2::TransformException &ex){
@@ -476,29 +476,29 @@ class Node_Control_Timer : public rclcpp::Node
 
                     }
 
-                    else if(object_id==marker){
-                        ////RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Object detected ID %d", object_id);
-                        try{
-                            geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_->lookupTransform("marker_id_00", marker_name, tf2::TimePointZero);
-                            object_position.x = transformStamped.transform.translation.x;
-                            object_position.y = transformStamped.transform.translation.y;
-                            tf2::Quaternion quat(transformStamped.transform.rotation.x, transformStamped.transform.rotation.y, transformStamped.transform.rotation.z, transformStamped.transform.rotation.w);
-                            tf2::Matrix3x3 m(quat);
-                            double roll, pitch, yaw;
-                            m.getRPY(roll,pitch,yaw);
-                            angle_object = yaw;
-                            if(marker>10 && marker<20){
-                                type_object = 1;
-                            }
-                            else if(marker>20){
-                                type_object = 2;
-                            }
-                        }
-                        catch (tf2::TransformException &ex){
-                            ////RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
-                            continue;
-                        }
-                    }
+                    // else if(object_id==marker){
+                    //     ////RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Object detected ID %d", object_id);
+                    //     try{
+                    //         geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_->lookupTransform("marker_id_00", marker_name, tf2::TimePointZero);
+                    //         object_position.x = transformStamped.transform.translation.x;
+                    //         object_position.y = transformStamped.transform.translation.y;
+                    //         tf2::Quaternion quat(transformStamped.transform.rotation.x, transformStamped.transform.rotation.y, transformStamped.transform.rotation.z, transformStamped.transform.rotation.w);
+                    //         tf2::Matrix3x3 m(quat);
+                    //         double roll, pitch, yaw;
+                    //         m.getRPY(roll,pitch,yaw);
+                    //         angle_object = yaw;
+                    //         if(marker>10 && marker<20){
+                    //             type_object = 1;
+                    //         }
+                    //         else if(marker>20){
+                    //             type_object = 2;
+                    //         }
+                    //     }
+                    //     catch (tf2::TransformException &ex){
+                    //         ////RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
+                    //         continue;
+                    //     }
+                    // }
 
         }
 
@@ -530,7 +530,7 @@ class Node_Control_Timer : public rclcpp::Node
             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hwe = %f", hwe[k]);
             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "k = %d", k);
 
-            int min_error = 0.00005;   //Error to skip control to next step
+            int min_error = 0.0001;   //Error to skip control to next step
 
             if(abs(hxe[k])<min_error && abs(hye[k])<min_error && abs(hwe[k])<min_error){
                     k=N;

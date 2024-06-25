@@ -136,6 +136,38 @@
       <cmd_min>-1000</cmd_min>
     </plugin>
 
+    <plugin filename="gz-sim-detachable-joint-system"
+            name="gz::sim::systems::DetachableJoint">
+      <parent_link>robot_01/b3_link</parent_link>
+      <child_model>cube_id_11</child_model>
+      <child_link>marker_id_11</child_link>
+      <detach_topic>/R01C11/detach</detach_topic>
+      <attach_topic>/R01C11/attach</attach_topic>
+      <output_topic>/R01C11/state</output_topic>
+    </plugin>
+
+    <plugin filename="gz-sim-detachable-joint-system"
+            name="gz::sim::systems::DetachableJoint">
+      <parent_link>robot_01/b3_link</parent_link>
+      <child_model>cube_id_12</child_model>
+      <child_link>marker_id_12</child_link>
+      <detach_topic>/R01C12/detach</detach_topic>
+      <attach_topic>/R01C12/attach</attach_topic>
+      <output_topic>/R01C12/state</output_topic>
+    </plugin>
+
+    <plugin filename="gz-sim-detachable-joint-system"
+            name="gz::sim::systems::DetachableJoint">
+      <parent_link>robot_01/b3_link</parent_link>
+      <child_model>cube_id_21</child_model>
+      <child_link>marker_id_21</child_link>
+      <detach_topic>/R01C21/detach</detach_topic>
+      <attach_topic>/R01C21/attach</attach_topic>
+      <output_topic>/R01C21/state</output_topic>
+    </plugin>
+
+
+
     <link name='marker_id_01'>
       <inertial>
         <pose>0.096821158480657005 -0.00020336350385223131 -0.0083971903282154953 0 0 0</pose>
@@ -1628,6 +1660,7 @@
       </axis>
     </joint>
     <link name='robot_01/m3_link'>
+    <self_collide>false</self_collide>
       <pose relative_to='robot_01/m3_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>5.8338847694350303e-07 -1.9333434524843001e-07 0.0259400148166085 0 0 0</pose>
@@ -1783,8 +1816,8 @@
         <limit>
           <lower>-1.0000000000000001e+50</lower>
           <upper>1.0000000000000001e+50</upper>
-          <effort>-1</effort>
-          <velocity>-1</velocity>
+          <effort>1</effort>
+          <velocity>1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -1793,6 +1826,7 @@
       </axis>
     </joint>
     <link name='robot_01/m3_r3_link'>
+    <self_collide>false</self_collide>
       <pose relative_to='robot_01/m3_r3_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-3.05311331771918e-16 2.7755575615628901e-17 1.2906342661267399e-15 0 0 0</pose>

@@ -97,5 +97,6 @@
         "stdfloat": "cpp",
         "__nullptr": "cpp",
         "__node_handle": "cpp"
-    }
+    },
+    "cmake.ignoreCMakeListsMissing": true
 }
