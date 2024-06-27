@@ -8,8 +8,8 @@ uint32 priority
 uint32 state  #0 pending    1 in progress    2 finished
 float64 idle_time_start
 uint32 robot_id    #number of robot
-uint32 in_progress_time_start
-uint32 finish_time
-uint32 idle_time
-uint32 task_time
-uint32 total_time
+float64 in_progress_time_start
+float64 finish_time
+float64 idle_time
+float64 task_time
+float64 total_time

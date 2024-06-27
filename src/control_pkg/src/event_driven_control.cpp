@@ -428,6 +428,17 @@ class Event_Driven_Control : public rclcpp::Node
                         objective.angle = angle_goal;       // Define if i can select goal angle
                         objective.obj_id = task.obj_id;
                         publisher_robot_objective->publish(objective);
+
+                        objective_transform.transform.translation.x = objective.point.x;
+                        objective_transform.transform.translation.y = objective.point.y;
+
+                        arm_objective.home_pos = false;
+                        arm_objective.gripper = false;
+                        arm_objective.send_finish = false;
+                        arm_objective.transport_pos = false;
+                        arm_objective.obj_id = task.obj_id;
+                        publisher_arm_objective->publish(arm_objective); 
+
                         break;
 
                     case 7:
@@ -438,6 +449,15 @@ class Event_Driven_Control : public rclcpp::Node
                         // objective.angle = 0;
                         // objective.obj_id = task.obj_id;
                         publisher_robot_objective->publish(initial_position);
+
+                        arm_objective.home_pos = true;
+                        arm_objective.gripper = false;
+                        arm_objective.send_finish = false;
+                        arm_objective.transport_pos = false;
+                        arm_objective.obj_id = task.obj_id;
+                        publisher_arm_objective->publish(arm_objective); 
+
+
                         break;
 
                     case 8:

@@ -75,6 +75,7 @@ class Reg_Tasks_Node : public rclcpp::Node
 			}
 			//temp_task.obj_size = msg->obj_size;
 			temp_task.goal = msg->goal;
+			temp_task.angle_goal = msg->angle_goal;
 			temp_task.leader_robot_id = msg->leader_robot_id;
 			temp_task.priority = msg->priority;
 			temp_task.state = 0;  //Set state to pending
