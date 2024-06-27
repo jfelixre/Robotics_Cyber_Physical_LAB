@@ -146,7 +146,7 @@ class Task_Manager_Node : public rclcpp::Node
                             interfaces::msg::NewTaskMsg msg_new_task;
                             msg_new_task.priority = selected_task.priority;
                             msg_new_task.obj_id = selected_task.obj_id;
-                            msg_new_task.obj_size = selected_task.obj_size;
+                            //msg_new_task.obj_size = selected_task.obj_size;
                             msg_new_task.goal = selected_task.goal;
                             msg_new_task.leader_robot_id = robot_id;             //ask for help with task
 

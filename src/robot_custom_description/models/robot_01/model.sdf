@@ -141,8 +141,8 @@
       <parent_link>robot_01/b3_link</parent_link>
       <child_model>cube_id_11</child_model>
       <child_link>marker_id_11</child_link>
-      <detach_topic>/R01C11/detach</detach_topic>
       <attach_topic>/R01C11/attach</attach_topic>
+      <detach_topic>/R01C11/detach</detach_topic>
       <output_topic>/R01C11/state</output_topic>
     </plugin>
 
@@ -151,8 +151,8 @@
       <parent_link>robot_01/b3_link</parent_link>
       <child_model>cube_id_12</child_model>
       <child_link>marker_id_12</child_link>
-      <detach_topic>/R01C12/detach</detach_topic>
       <attach_topic>/R01C12/attach</attach_topic>
+      <detach_topic>/R01C12/detach</detach_topic>
       <output_topic>/R01C12/state</output_topic>
     </plugin>
 
@@ -161,8 +161,8 @@
       <parent_link>robot_01/b3_link</parent_link>
       <child_model>cube_id_21</child_model>
       <child_link>marker_id_21</child_link>
-      <detach_topic>/R01C21/detach</detach_topic>
       <attach_topic>/R01C21/attach</attach_topic>
+      <detach_topic>/R01C21/detach</detach_topic>      
       <output_topic>/R01C21/state</output_topic>
     </plugin>
 
@@ -266,7 +266,7 @@
       <pose relative_to='robot_01/b1_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0.047377275265372103 -1.37390099297363e-15 -0.0024171287143378599 0 0 0</pose>
-        <mass>0.233473387976465</mass>
+        <mass>0.00233473387976465</mass>
         <inertia>
           <ixx>0.000136750428126441</ixx>
           <ixy>3.190498245706e-13</ixy>
@@ -321,7 +321,7 @@
       <pose relative_to='robot_01/b2_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0.044765146912821602 1.8041124150158801e-16 0.00163199184522199 0 0 0</pose>
-        <mass>0.21624485416319</mass>
+        <mass>0.0021624485416319</mass>
         <inertia>
           <ixx>0.00012509983604666299</ixx>
           <ixy>-9.6680856571697103e-11</ixy>
@@ -376,7 +376,7 @@
       <pose relative_to='robot_01/b3_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0.039773095381673451 0.0048159432423109626 3.6188809027967909e-05 0 0 0</pose>
-        <mass>0.19495285118911401</mass>
+        <mass>0.0019495285118911401</mass>
         <inertia>
           <ixx>6.2392057293134763e-05</ixx>
           <ixy>1.5573337331101431e-07</ixy>

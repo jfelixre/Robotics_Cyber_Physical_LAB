@@ -16,6 +16,9 @@
 #include <tf2_ros/transform_listener.h>
 #include "tf2_ros/buffer.h"
 #include <tf2_ros/transform_broadcaster.h>
+#include <std_msgs/msg/empty.hpp>
+#include <std_msgs/msg/empty.h>
+#include <interfaces/msg/control_finish.hpp>
 
 #include <memory>
 #include <cinttypes>
@@ -42,6 +45,7 @@ bool home_pos = true;
 bool gripper = false;  //false = open, true = close
 bool send_finish = false;
 bool transport_pos = false;
+int obj_id = 0;
 
 // Struct to represent joint angles
 struct JointAngles {
@@ -55,7 +59,7 @@ double L1 = 0.075;
 double L2 = 0.07;
 //double L3 = 0.174;
 double L3 = 0.25;
-
+ int i=0;
 
 class Arm_Position_Node : public rclcpp::Node
 {
@@ -115,6 +119,13 @@ class Arm_Position_Node : public rclcpp::Node
             std::string topic_name_p2 = ss_topic_name_p2.str();
 
             publisher_pos_p2 = this->create_publisher<std_msgs::msg::Float64>(topic_name_p2,10);
+
+            std::stringstream ss_topic_name_finish;
+            ss_topic_name_finish << "/robot_0" << robot_id << "/control_finish";
+            std::string topic_name_finish = ss_topic_name_finish.str();
+
+            publisher_control_finish = this->create_publisher<interfaces::msg::ControlFinish>(topic_name_finish,1);
+
         }
 
     private:
@@ -130,6 +141,7 @@ class Arm_Position_Node : public rclcpp::Node
         std::shared_ptr<tf2_ros::Buffer> tf_buffer_;
         std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
         std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
+        rclcpp::Publisher<interfaces::msg::ControlFinish>::SharedPtr publisher_control_finish;
 
 
 
@@ -163,8 +175,19 @@ class Arm_Position_Node : public rclcpp::Node
                 publisher_pos_b3->publish(msg_b3);
                 publisher_pos_p1->publish(msg_p1);
                 publisher_pos_p2->publish(msg_p2);
+
+                if(send_finish==true){
+                    i++;
+                    RCLCPP_INFO(this->get_logger(), "i value %d", i);
+                    if (i>=50){
+                        interfaces::msg::ControlFinish msg_finish;
+                        msg_finish.finish_confirm = true;
+                        publisher_control_finish->publish(msg_finish);
+                        i=0;
+                    }
+                }
             }
-            
+
             else{
                 std::stringstream ss_frame_objective;
                 ss_frame_objective << "objective_" << robot_id;
@@ -194,10 +217,30 @@ class Arm_Position_Node : public rclcpp::Node
                     if (gripper==true){
                         msg_p1.data = 0.5;
                         msg_p2.data = msg_p1.data;
+
+                        std::stringstream ss_topipc_grab;
+                        ss_topipc_grab << "/robot_0" << robot_id << "/cube_" << obj_id << "/attach";
+                        std::string topic_grab = ss_topipc_grab.str();
+                        rclcpp::Publisher<std_msgs::msg::Empty>::SharedPtr publisher_gripper = this->create_publisher<std_msgs::msg::Empty>(topic_grab,10);
+                        std_msgs::msg::Empty msg;
+                        publisher_gripper->publish(msg);
+
                     }
                     else{
                         msg_p1.data = -0.5;
                         msg_p2.data = msg_p1.data;
+
+                        publisher_pos_p1->publish(msg_p1);
+                        publisher_pos_p2->publish(msg_p2);
+
+                        std::stringstream ss_topipc_grab;
+                        ss_topipc_grab << "/robot_0" << robot_id << "/cube_" << obj_id << "/detach";
+                        std::string topic_grab = ss_topipc_grab.str();
+                        rclcpp::Publisher<std_msgs::msg::Empty>::SharedPtr publisher_gripper = this->create_publisher<std_msgs::msg::Empty>(topic_grab,10);
+                        std_msgs::msg::Empty msg;
+                        publisher_gripper->publish(msg);
+
+
                     }
 
                     
@@ -216,8 +259,9 @@ class Arm_Position_Node : public rclcpp::Node
                             RCLCPP_INFO(this->get_logger(), "Out of range");
                         }
 
-                        publisher_pos_p1->publish(msg_p1);
-                        publisher_pos_p2->publish(msg_p2);
+                        //publisher_pos_p1->publish(msg_p1);
+                        //publisher_pos_p2->publish(msg_p2);
+                        
                     }
                     else{
                         RCLCPP_INFO(this->get_logger(), "NaN detected");
@@ -227,6 +271,17 @@ class Arm_Position_Node : public rclcpp::Node
                 }
                 catch (tf2::TransformException &ex){
                     RCLCPP_ERROR(this->get_logger(), "%s", ex.what());
+                }
+
+                if(send_finish==true){
+                    i++;
+                    RCLCPP_INFO(this->get_logger(), "i value %d", i);
+                    if (i>=30){
+                        interfaces::msg::ControlFinish msg_finish;
+                        msg_finish.finish_confirm = true;
+                        publisher_control_finish->publish(msg_finish);
+                        i=0;
+                    }
                 }
 
                 
@@ -244,6 +299,7 @@ class Arm_Position_Node : public rclcpp::Node
             send_finish = msg->send_finish;
             gripper = msg->gripper;
             transport_pos = msg->transport_pos;
+            obj_id = msg->obj_id;
         }
 
         JointAngles inverseKinematics(double x, double y)

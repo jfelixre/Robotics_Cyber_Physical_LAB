@@ -67,7 +67,13 @@ class Reg_Tasks_Node : public rclcpp::Node
 			interfaces::msg::TaskDescription temp_task;
   			temp_task.task_id = task_id_count;   //Set id task in order
 			temp_task.obj_id = msg->obj_id;
-			temp_task.obj_size = msg->obj_size;
+			if(temp_task.obj_id < 20){
+				temp_task.obj_size=1;
+			}
+			else{
+				temp_task.obj_id=2;
+			}
+			//temp_task.obj_size = msg->obj_size;
 			temp_task.goal = msg->goal;
 			temp_task.leader_robot_id = msg->leader_robot_id;
 			temp_task.priority = msg->priority;

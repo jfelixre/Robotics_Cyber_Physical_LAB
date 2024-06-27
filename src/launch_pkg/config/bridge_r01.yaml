@@ -69,3 +69,39 @@
 #   ros_type_name: "tf2_msgs/msg/TFMessage"
 #   gz_type_name: "gz.msgs.Pose_V"
 #   direction: GZ_TO_ROS
+
+- ros_topic_name: "/robot_01/cube_11/attach"
+  gz_topic_name: "/R01C11/attach"
+  ros_type_name: "std_msgs/msg/Empty"
+  gz_type_name: "gz.msgs.Empty"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/robot_01/cube_11/detach"
+  gz_topic_name: "/R01C11/detach"
+  ros_type_name: "std_msgs/msg/Empty"
+  gz_type_name: "gz.msgs.Empty"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/robot_01/cube_12/attach"
+  gz_topic_name: "/R01C12/attach"
+  ros_type_name: "std_msgs/msg/Empty"
+  gz_type_name: "gz.msgs.Empty"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/robot_01/cube_12/detach"
+  gz_topic_name: "/R01C12/detach"
+  ros_type_name: "std_msgs/msg/Empty"
+  gz_type_name: "gz.msgs.Empty"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/robot_01/cube_21/attach"
+  gz_topic_name: "/R01C21/attach"
+  ros_type_name: "std_msgs/msg/Empty"
+  gz_type_name: "gz.msgs.Empty"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/robot_01/cube_21/detach"
+  gz_topic_name: "/R01C21/detach"
+  ros_type_name: "std_msgs/msg/Empty"
+  gz_type_name: "gz.msgs.Empty"
+  direction: ROS_TO_GZ

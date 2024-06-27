@@ -138,6 +138,30 @@ def generate_launch_description():
             executable='arm_position_node',
             parameters=[{'robot_id': 1}],
             )
+    
+    #Detach Cube from robot
+    detach11 = ExecuteProcess(
+        cmd=[[
+            'ros2 topic pub /robot_01/cube_11/detach std_msgs/msg/Empty',
+        ]],
+        shell=True
+    )
+
+    detach12 = ExecuteProcess(
+        cmd=[[
+            'ros2 topic pub /robot_01/cube_12/detach std_msgs/msg/Empty ',
+        ]],
+        shell=True
+    )
+
+    detach21 = ExecuteProcess(
+        cmd=[[
+            'ros2 topic pub /robot_01/cube_21/detach std_msgs/msg/Empty',
+        ]],
+        shell=True
+    )
+
+    
 
 
     return LaunchDescription([
@@ -151,5 +175,8 @@ def generate_launch_description():
         control_trajectory,
         robot_platform_vel,
         arm_position,
+        detach11,
+        detach12,
+        detach21,
        
     ])
