@@ -215,7 +215,7 @@ class Arm_Position_Node : public rclcpp::Node
                     msg_b3.data = joint_angles.theta3 * -1;
 
                     if (gripper==true){
-                        msg_p1.data = 0.5;
+                        msg_p1.data = 0;
                         msg_p2.data = msg_p1.data;
 
                         std::stringstream ss_topipc_grab;
@@ -276,7 +276,7 @@ class Arm_Position_Node : public rclcpp::Node
                 if(send_finish==true){
                     i++;
                     RCLCPP_INFO(this->get_logger(), "i value %d", i);
-                    if (i>=30){
+                    if (i>=100){
                         interfaces::msg::ControlFinish msg_finish;
                         msg_finish.finish_confirm = true;
                         publisher_control_finish->publish(msg_finish);

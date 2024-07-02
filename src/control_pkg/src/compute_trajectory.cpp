@@ -370,7 +370,7 @@ class Compute_Trajectory : public rclcpp::Node
 
                 double Obstacle_angle_degrees= (angle_obstacle[i]*180)/PI * -1;
                 if(type_obstacle[i]==0){
-                    cv::Size Obstacle_size(14,12);
+                    cv::Size Obstacle_size(22,22);
                     cv::RotatedRect Obstacle_rectangle(Obstacle_point, Obstacle_size, Obstacle_angle_degrees);
                     cv::Point2f vertices2f_Obstacle[4];
                     Obstacle_rectangle.points(vertices2f_Obstacle);

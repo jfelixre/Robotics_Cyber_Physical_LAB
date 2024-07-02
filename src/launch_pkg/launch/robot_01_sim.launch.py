@@ -5,7 +5,7 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.actions import IncludeLaunchDescription
-from launch.actions import ExecuteProcess
+from launch.actions import ExecuteProcess, TimerAction
 from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
@@ -140,25 +140,40 @@ def generate_launch_description():
             )
     
     #Detach Cube from robot
-    detach11 = ExecuteProcess(
-        cmd=[[
-            'ros2 topic pub /robot_01/cube_11/detach std_msgs/msg/Empty',
-        ]],
-        shell=True
+    detach11 = TimerAction(
+        period=10.0, #Delay in seconds
+        actions=[
+            ExecuteProcess(
+                cmd=[[
+                    'ros2 topic pub --once /robot_01/cube_11/detach std_msgs/msg/Empty',
+                    ]],
+                    shell=True
+            )
+        ]
     )
 
-    detach12 = ExecuteProcess(
-        cmd=[[
-            'ros2 topic pub /robot_01/cube_12/detach std_msgs/msg/Empty ',
-        ]],
-        shell=True
+    detach12 = TimerAction(
+        period=12.0, #Delay in seconds
+        actions=[
+            ExecuteProcess(
+                cmd=[[
+                    'ros2 topic pub --once /robot_01/cube_12/detach std_msgs/msg/Empty',
+                    ]],
+                    shell=True
+            )
+        ]
     )
 
-    detach21 = ExecuteProcess(
-        cmd=[[
-            'ros2 topic pub /robot_01/cube_21/detach std_msgs/msg/Empty',
-        ]],
-        shell=True
+    detach21 = TimerAction(
+        period=14.0, #Delay in seconds
+        actions=[
+            ExecuteProcess(
+                cmd=[[
+                    'ros2 topic pub --once /robot_01/cube_21/detach std_msgs/msg/Empty',
+                    ]],
+                    shell=True
+            )
+        ]
     )
 
     

@@ -44,6 +44,7 @@ float Robx, Roby, Robz, Robang;
 interfaces::msg::RobotObjective objective;
 geometry_msgs::msg::TransformStamped objective_transform;
 interfaces::msg::ArmObjective arm_objective;
+float Z_saved = 0;
 
 interfaces::msg::RobotObjective initial_position;
 
@@ -311,6 +312,7 @@ class Event_Driven_Control : public rclcpp::Node
                         objective_transform.transform.translation.x = objective.point.x;
                         objective_transform.transform.translation.y = objective.point.y;
                         objective_transform.transform.translation.z = objective.point.z;
+                        
 
                         arm_objective.home_pos = false;
                         arm_objective.gripper = false;
@@ -336,7 +338,8 @@ class Event_Driven_Control : public rclcpp::Node
                         objective_transform.transform.translation.x = objective.point.x;
                         objective_transform.transform.translation.y = objective.point.y;
                         objective_transform.transform.translation.z = objective.point.z;
-
+                        Z_saved= objective.point.z;
+                        
                         arm_objective.home_pos = false;
                         arm_objective.gripper = false;
                         arm_objective.send_finish = false;
@@ -409,6 +412,24 @@ class Event_Driven_Control : public rclcpp::Node
 
                         objective_transform.transform.translation.x = objective.point.x;
                         objective_transform.transform.translation.y = objective.point.y;
+                        objective_transform.transform.translation.z = Z_saved;
+
+                        arm_objective.home_pos = false;
+                        arm_objective.gripper = true;
+                        arm_objective.send_finish = false;
+                        arm_objective.transport_pos = true;
+                        arm_objective.obj_id = task.obj_id;
+                        publisher_arm_objective->publish(arm_objective); 
+
+
+                        break;
+
+                    case 6:
+                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 5 Placing object on point, x= %d, y= %d", robot_id, task.goal.x, task.goal.y);
+
+                        objective_transform.transform.translation.x = objective.point.x;
+                        objective_transform.transform.translation.y = objective.point.y;
+                        objective_transform.transform.translation.z = Z_saved;
 
                         arm_objective.home_pos = false;
                         arm_objective.gripper = true;
@@ -417,11 +438,28 @@ class Event_Driven_Control : public rclcpp::Node
                         arm_objective.obj_id = task.obj_id;
                         publisher_arm_objective->publish(arm_objective); 
 
+                        rclcpp::sleep_for(5s);
+
+                        arm_objective.gripper = false;
+                        arm_objective.send_finish = true;
+                        arm_objective.transport_pos = false;
+                        arm_objective.obj_id = task.obj_id;
+                        publisher_arm_objective->publish(arm_objective); 
+
 
                         break;
 
-                    case 6:
+                    case 7:
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 6 Leaving object", robot_id);
+
+                        arm_objective.home_pos = false;
+                        arm_objective.gripper = false;
+                        arm_objective.send_finish = false;
+                        arm_objective.transport_pos = false;
+                        arm_objective.obj_id = task.obj_id;
+                        publisher_arm_objective->publish(arm_objective); 
+
+
 
                         objective.point.x = task.goal.x - (0.5 * cos(angle_goal));   //Check to match, maybe using trigonometry depending of angle
                         objective.point.y = task.goal.y - (0.5 * sin(angle_goal));
@@ -432,16 +470,11 @@ class Event_Driven_Control : public rclcpp::Node
                         objective_transform.transform.translation.x = objective.point.x;
                         objective_transform.transform.translation.y = objective.point.y;
 
-                        arm_objective.home_pos = false;
-                        arm_objective.gripper = false;
-                        arm_objective.send_finish = false;
-                        arm_objective.transport_pos = false;
-                        arm_objective.obj_id = task.obj_id;
-                        publisher_arm_objective->publish(arm_objective); 
+                        
 
                         break;
 
-                    case 7:
+                    case 8:
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 7 Back to home position", robot_id);
 
                         // objective.point.x = 0;   //Define home position***
@@ -460,7 +493,7 @@ class Event_Driven_Control : public rclcpp::Node
 
                         break;
 
-                    case 8:
+                    case 9:
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 8 Task_ID %d Finished", robot_id, task.task_id);
 
                         robot_state.robot_state = 0;

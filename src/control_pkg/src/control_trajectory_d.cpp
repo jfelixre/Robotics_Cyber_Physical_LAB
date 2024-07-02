@@ -530,7 +530,7 @@ class Node_Control_Timer : public rclcpp::Node
             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hwe = %f", hwe[k]);
             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "k = %d", k);
 
-            int min_error = 0.001;   //Error to skip control to next step
+            int min_error = 0.005;   //Error to skip control to next step
 
             if(abs(hxe[k])<min_error && abs(hye[k])<min_error && abs(hwe[k])<min_error){
                     k=N;

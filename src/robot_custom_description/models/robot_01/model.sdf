@@ -254,7 +254,7 @@
           <lower>-1.5</lower>
           <upper>1.5</upper>
           <effort>-1</effort>
-          <velocity>1.5</velocity>
+          <velocity>0.5</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -309,7 +309,7 @@
           <lower>-1.5</lower>
           <upper>1.5</upper>
           <effort>-1</effort>
-          <velocity>1.5</velocity>
+          <velocity>0.5</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -364,7 +364,7 @@
           <lower>-1.5</lower>
           <upper>1.5</upper>
           <effort>-1</effort>
-          <velocity>1.5</velocity>
+          <velocity>0.5</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
