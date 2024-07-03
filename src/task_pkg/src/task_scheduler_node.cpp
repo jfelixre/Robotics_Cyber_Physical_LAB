@@ -19,7 +19,7 @@ using namespace std;
 
 interfaces::msg::TaskDescription tasks;
 interfaces::msg::TaskMsg task_list;
-int task_id_count = 0;
+int32_t task_id_count = 0;
 
 /*class Task_Scheduler_Node : public rclcpp::Node
 {

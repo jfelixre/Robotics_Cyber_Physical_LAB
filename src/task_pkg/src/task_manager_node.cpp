@@ -113,12 +113,16 @@ class Task_Manager_Node : public rclcpp::Node
         if (busy == false){
             if (!task_list.task_queue.empty()){
 
+                 RCLCPP_INFO(this->get_logger(), "Check1");
+
                 for (auto& task : task_list.task_queue) {
+                    RCLCPP_INFO(this->get_logger(), "Check2");
                     if (task.state==0){
                         if(task.task_id > 0){
                             if (selected_task.priority > task.priority){
                                 if (task.priority!=0){
                                     selected_task=task;
+                                    RCLCPP_INFO(this->get_logger(), "Check3");
                                 }
                             }
                         }
@@ -130,6 +134,7 @@ class Task_Manager_Node : public rclcpp::Node
                 }
 
                 else{
+                    RCLCPP_INFO(this->get_logger(), "Check4");
                     interfaces::msg::TaskReport msg_update;
                     msg_update.robot_id = robot_id;
                     msg_update.task_id = selected_task.task_id;

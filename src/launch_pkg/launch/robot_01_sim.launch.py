@@ -153,7 +153,7 @@ def generate_launch_description():
     )
 
     detach12 = TimerAction(
-        period=12.0, #Delay in seconds
+        period=13.0, #Delay in seconds
         actions=[
             ExecuteProcess(
                 cmd=[[
@@ -165,7 +165,7 @@ def generate_launch_description():
     )
 
     detach21 = TimerAction(
-        period=14.0, #Delay in seconds
+        period=16.0, #Delay in seconds
         actions=[
             ExecuteProcess(
                 cmd=[[
