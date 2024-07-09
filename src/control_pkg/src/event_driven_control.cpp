@@ -376,7 +376,7 @@ class Event_Driven_Control : public rclcpp::Node
                         break;
 
                     case 4:
-                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 4 Approach to objective point, x= %d, y= %d", robot_id, task.goal.x, task.goal.y);
+                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 4 Approach to objective point, x= %f, y= %f", robot_id, task.goal.x, task.goal.y);
 
                         objective.point.x = task.goal.x - (0.5 * cos(angle_goal));   //Check to match, maybe using trigonometry depending of angle
                         objective.point.y = task.goal.y - (0.5 * sin(angle_goal));
