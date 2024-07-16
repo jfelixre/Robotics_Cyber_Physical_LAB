@@ -14,6 +14,7 @@
 #include <tf2_ros/transform_listener.h>
 #include "tf2_ros/buffer.h"
 #include <interfaces/msg/control_finish.hpp>
+#include <interfaces/msg/data_error.hpp>
 
 #include <memory>
 #include <cinttypes>
@@ -51,6 +52,9 @@ float angle_robot = 0;
 geometry_msgs::msg::Point object_position;
 float angle_object = 0;
 float type_object = 0;  //1: Single object, 2: Double object
+
+interfaces::msg::DataError data_error;
+interfaces::msg::DataError data_error_total;
 
 
 
@@ -391,6 +395,18 @@ class Node_Control_Timer : public rclcpp::Node
             timer_ = this->create_wall_timer(
                  100ms, std::bind(&Node_Control_Timer::timer_callback, this));
 
+            std::stringstream ss_topic_name_error;
+            ss_topic_name_error << "/robot_0" << robot_id << "/data_error";
+            std::string topic_name_error = ss_topic_name_error.str();
+
+            publisher_data_error = this->create_publisher<interfaces::msg::DataError>(topic_name_error,1);
+
+            std::stringstream ss_topic_name_error_total;
+            ss_topic_name_error_total << "/robot_0" << robot_id << "/total_data_error";
+            std::string topic_name_error_total = ss_topic_name_error_total.str();
+
+            publisher_data_error_total = this->create_publisher<interfaces::msg::DataError>(topic_name_error_total,1);
+
             
 
  
@@ -411,6 +427,8 @@ class Node_Control_Timer : public rclcpp::Node
     std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
     std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
     rclcpp::Publisher<interfaces::msg::ControlFinish>::SharedPtr publisher_control_finish;
+    rclcpp::Publisher<interfaces::msg::DataError>::SharedPtr publisher_data_error;
+    rclcpp::Publisher<interfaces::msg::DataError>::SharedPtr publisher_data_error_total;
 
 
     void timer_callback()   //////CONTROL/////////
@@ -525,14 +543,26 @@ class Node_Control_Timer : public rclcpp::Node
 
                 hwe[k] = ErrAng;
 
+                data_error.x_error = hxe[k];
+                data_error.y_error = hye[k];
+                data_error.ang_error = hwe[k];
+                data_error.k = k;
+                publisher_data_error->publish(data_error);
+
+                data_error_total.x_error = hxd[N] - gripper_position.x;
+                data_error_total.y_error = hyd[N] - gripper_position.y;
+                data_error_total.ang_error = phid - angle_robot;
+                data_error_total.k = k;
+                publisher_data_error_total->publish(data_error_total);
+
             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hxe = %f", hxe[k]);
             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hye = %f", hye[k]);
             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hwe = %f", hwe[k]);
             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "k = %d", k);
 
-            int min_error = 0.01;   //Error to skip control to next step
+            float min_error = 0.01;   //Error to skip control to next step
 
-            if(abs(hxe[k])<min_error && abs(hye[k])<min_error && abs(hwe[k])<min_error){
+            if(abs(data_error_total.x_error)<min_error && abs(data_error_total.y_error)<min_error && abs(data_error_total.ang_error)<min_error){
                     k=N;
                     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "End of control FOR ERROR <0.01");
                     

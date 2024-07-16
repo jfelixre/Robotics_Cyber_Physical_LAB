@@ -55,6 +55,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/PositionTag.msg"
   "msg/ControlFinish.msg"
   "msg/ArmObjective.msg"
+  "msg/DataError.msg"
   DEPENDENCIES geometry_msgs
  )
 
