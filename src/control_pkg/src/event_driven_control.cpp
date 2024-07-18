@@ -465,6 +465,7 @@ class Event_Driven_Control : public rclcpp::Node
                         arm_objective.gripper = true;
                         arm_objective.send_finish = false;
                         arm_objective.transport_pos = false;
+                        arm_objective.take_pos = true;
                         arm_objective.obj_id = task.obj_id;
                         publisher_arm_objective->publish(arm_objective); 
 
@@ -473,6 +474,7 @@ class Event_Driven_Control : public rclcpp::Node
                         arm_objective.gripper = false;
                         arm_objective.send_finish = true;
                         arm_objective.transport_pos = false;
+                        arm_objective.take_pos = true;
                         arm_objective.obj_id = task.obj_id;
                         publisher_arm_objective->publish(arm_objective); 
 
@@ -489,6 +491,7 @@ class Event_Driven_Control : public rclcpp::Node
                         arm_objective.send_finish = false;
                         arm_objective.transport_pos = false;
                         arm_objective.obj_id = task.obj_id;
+                        arm_objective.take_pos = true;
                         publisher_arm_objective->publish(arm_objective); 
 
 

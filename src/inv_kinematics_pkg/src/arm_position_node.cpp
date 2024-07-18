@@ -45,6 +45,7 @@ bool home_pos = true;
 bool gripper = false;  //false = open, true = close
 bool send_finish = false;
 bool transport_pos = false;
+bool take_pos = false;
 int obj_id = 0;
 
 // Struct to represent joint angles
@@ -188,6 +189,31 @@ class Arm_Position_Node : public rclcpp::Node
                 }
             }
 
+            else if (take_pos==true){
+                msg_b1.data = 0.82;
+                msg_b2.data = 0.42;
+                msg_b3.data = 0.26;
+                msg_p1.data = 0.5;
+                msg_p2.data = msg_p1.data;
+
+                publisher_pos_b1->publish(msg_b1);
+                publisher_pos_b2->publish(msg_b2);
+                publisher_pos_b3->publish(msg_b3);
+                publisher_pos_p1->publish(msg_p1);
+                publisher_pos_p2->publish(msg_p2);
+
+                if(send_finish==true){
+                    i++;
+                    RCLCPP_INFO(this->get_logger(), "i value %d", i);
+                    if (i>=50){
+                        interfaces::msg::ControlFinish msg_finish;
+                        msg_finish.finish_confirm = true;
+                        publisher_control_finish->publish(msg_finish);
+                        i=0;
+                    }
+                }
+            }
+
             else{
                 std::stringstream ss_frame_objective;
                 ss_frame_objective << "objective_" << robot_id;
@@ -214,36 +240,7 @@ class Arm_Position_Node : public rclcpp::Node
                     msg_b2.data = joint_angles.theta2 - -1;
                     msg_b3.data = joint_angles.theta3 * -1;
 
-                    if (gripper==true){
-                        msg_p1.data = 0;
-                        msg_p2.data = msg_p1.data;
-
-                        std::stringstream ss_topipc_grab;
-                        ss_topipc_grab << "/robot_0" << robot_id << "/cube_" << obj_id << "/attach";
-                        std::string topic_grab = ss_topipc_grab.str();
-                        rclcpp::Publisher<std_msgs::msg::Empty>::SharedPtr publisher_gripper = this->create_publisher<std_msgs::msg::Empty>(topic_grab,10);
-                        std_msgs::msg::Empty msg;
-                        publisher_gripper->publish(msg);
-
-                    }
-                    else{
-                        msg_p1.data = -0.5;
-                        msg_p2.data = msg_p1.data;
-
-                        publisher_pos_p1->publish(msg_p1);
-                        publisher_pos_p2->publish(msg_p2);
-
-                        std::stringstream ss_topipc_grab;
-                        ss_topipc_grab << "/robot_0" << robot_id << "/cube_" << obj_id << "/detach";
-                        std::string topic_grab = ss_topipc_grab.str();
-                        rclcpp::Publisher<std_msgs::msg::Empty>::SharedPtr publisher_gripper = this->create_publisher<std_msgs::msg::Empty>(topic_grab,10);
-                        std_msgs::msg::Empty msg;
-                        publisher_gripper->publish(msg);
-
-
-                    }
-
-                    
+                                      
 
 
                     if (std::isnan(joint_angles.theta1) == false && std::isnan(joint_angles.theta2) == false && std::isnan(joint_angles.theta3) == false){
@@ -289,6 +286,35 @@ class Arm_Position_Node : public rclcpp::Node
             
 
             }
+
+            if (gripper==true){
+                msg_p1.data = 0;
+                msg_p2.data = msg_p1.data;
+
+                std::stringstream ss_topipc_grab;
+                ss_topipc_grab << "/robot_0" << robot_id << "/cube_" << obj_id << "/attach";
+                std::string topic_grab = ss_topipc_grab.str();
+                rclcpp::Publisher<std_msgs::msg::Empty>::SharedPtr publisher_gripper = this->create_publisher<std_msgs::msg::Empty>(topic_grab,10);
+                std_msgs::msg::Empty msg;
+                publisher_gripper->publish(msg);
+
+            }
+            else{
+                msg_p1.data = -0.5;
+                msg_p2.data = msg_p1.data;
+
+                publisher_pos_p1->publish(msg_p1);
+                publisher_pos_p2->publish(msg_p2);
+
+                std::stringstream ss_topipc_grab;
+                ss_topipc_grab << "/robot_0" << robot_id << "/cube_" << obj_id << "/detach";
+                std::string topic_grab = ss_topipc_grab.str();
+                rclcpp::Publisher<std_msgs::msg::Empty>::SharedPtr publisher_gripper = this->create_publisher<std_msgs::msg::Empty>(topic_grab,10);
+                std_msgs::msg::Empty msg;
+                publisher_gripper->publish(msg);
+
+
+            }
             
 
         }
@@ -299,6 +325,7 @@ class Arm_Position_Node : public rclcpp::Node
             send_finish = msg->send_finish;
             gripper = msg->gripper;
             transport_pos = msg->transport_pos;
+            take_pos = msg->take_pos;
             obj_id = msg->obj_id;
         }
 
