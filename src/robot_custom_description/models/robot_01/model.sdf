@@ -395,7 +395,7 @@
           </mesh>
         </geometry>
       </collision>
-      <collision name='robot_01/b3_link_fixed_joint_lump__robot_01/gr_ref_link_collision_1'>
+      <!--collision name='robot_01/b3_link_fixed_joint_lump__robot_01/gr_ref_link_collision_1'>
         <pose>0.17399999999999999 0 0 -1.5707963267949003 0 0</pose>
         <geometry>
           <mesh>
@@ -403,7 +403,7 @@
             <uri>meshes/robot_01_gr_ref_link.STL</uri>
           </mesh>
         </geometry>
-      </collision>
+      </collision-->
       <visual name='robot_01/b3_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -417,7 +417,7 @@
           <ambient>0.990196109 1 1 1</ambient>
         </material>
       </visual>
-      <visual name='robot_01/b3_link_fixed_joint_lump__robot_01/gr_ref_link_visual_1'>
+      <!--visual name='robot_01/b3_link_fixed_joint_lump__robot_01/gr_ref_link_visual_1'>
         <pose>0.17399999999999999 0 0 -1.5707963267949003 0 0</pose>
         <geometry>
           <mesh>
@@ -429,7 +429,7 @@
           <diffuse>0.990196109 1 1 1</diffuse>
           <ambient>0.990196109 1 1 1</ambient>
         </material>
-      </visual>
+      </visual-->
     </link>
     <joint name='robot_01/p1_joint' type='revolute'>
       <pose relative_to='robot_01/b3_link'>0.099604999999999999 0 -0.0135 -1.5708 0 0</pose>
@@ -463,7 +463,7 @@
           <izz>9.82481046935878e-07</izz>
         </inertia>
       </inertial>
-      <collision name='robot_01/p1_link_collision'>
+      <!--collision name='robot_01/p1_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -471,7 +471,7 @@
             <uri>meshes/robot_01_p1_link.STL</uri>
           </mesh>
         </geometry>
-      </collision>
+      </collision-->
       <visual name='robot_01/p1_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -518,7 +518,7 @@
           <izz>9.8248104693587609e-07</izz>
         </inertia>
       </inertial>
-      <collision name='robot_01/p2_link_collision'>
+      <!--collision name='robot_01/p2_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -526,7 +526,7 @@
             <uri>meshes/robot_01_p2_link.STL</uri>
           </mesh>
         </geometry>
-      </collision>
+      </collision-->
       <visual name='robot_01/p2_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>

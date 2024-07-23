@@ -525,10 +525,32 @@ class Node_Control_Timer : public rclcpp::Node
 
             phid= angle_objective;  //Desired angle
 
-           
-            double vxd = (hxd[k] - hxa)/ts;    
-            double vyd = (hyd[k] - hya)/ts;
-            double vwd = (phid - phia)/ts;
+            double vxd,vyd,vwd,ErrAng;
+
+           if (k<N){
+                vxd = (hxd[k+3] - hxa)/ts;    
+                vyd = (hyd[k+3] - hya)/ts;
+                vwd = (phid - phia)/ts;
+
+                hxe[k] = hxd[k+3] - gripper_position.x;
+                hye[k] = hyd[k+3] - gripper_position.y;
+
+                ErrAng = phid - angle_robot;
+
+                hwe[k] = ErrAng;
+           }
+           else{
+                 vxd = (hxd[k] - hxa)/ts;    
+                 vyd = (hyd[k] - hya)/ts;
+                 vwd = (phid - phia)/ts;
+
+                hxe[k] = hxd[k] - gripper_position.x;
+                hye[k] = hyd[k] - gripper_position.y;
+
+                ErrAng = phid - angle_robot;
+
+                hwe[k] = ErrAng;
+           }
 
             // Parametros Robot
 
@@ -536,12 +558,12 @@ class Node_Control_Timer : public rclcpp::Node
             //Errores!
 
 
-                 hxe[k] = hxd[k] - gripper_position.x;
-                 hye[k] = hyd[k] - gripper_position.y;
+                //  hxe[k] = hxd[k] - gripper_position.x;
+                //  hye[k] = hyd[k] - gripper_position.y;
 
-                 double ErrAng = phid - angle_robot;
+                //  double ErrAng = phid - angle_robot;
 
-                hwe[k] = ErrAng;
+                // hwe[k] = ErrAng;
 
                 data_error.x_error = hxe[k];
                 data_error.y_error = hye[k];
@@ -559,14 +581,15 @@ class Node_Control_Timer : public rclcpp::Node
             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hye = %f", hye[k]);
             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hwe = %f", hwe[k]);
             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "k = %d", k);
+            if (k>10){
+                float min_error = 0.001;   //Error to skip control to next step
 
-            float min_error = 0.01;   //Error to skip control to next step
-
-            if(abs(data_error_total.x_error)<min_error && abs(data_error_total.y_error)<min_error && abs(data_error_total.ang_error)<min_error){
-                    k=N;
-                    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "End of control FOR ERROR <0.01");
-                    
-            }   
+                if(abs(data_error_total.x_error)<min_error && abs(data_error_total.y_error)<min_error && abs(data_error_total.ang_error)<min_error){
+                        k=N;
+                        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "End of control FOR ERROR <0.01");
+                }
+            }
+               
 
                 
 
@@ -715,6 +738,13 @@ class Node_Control_Timer : public rclcpp::Node
                 publisher_control_finish->publish(msg_control_finish);
                 control_active = false;
                 k=0;
+                data_error.ang_error = 1000;
+                data_error.x_error = 1000;
+                data_error.y_error = 1000;
+                data_error_total.ang_error = 1000;
+                data_error_total.x_error = 1000;
+                data_error_total.y_error = 1000;
+
 
 
                 //save_data(k, hxd[k], gripper_position.x, hxe[k], hyd[k], gripper_position.y, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
@@ -742,7 +772,12 @@ class Node_Control_Timer : public rclcpp::Node
 
                 control_active = false;
                 k=0;
-
+                data_error.ang_error = 1000;
+                data_error.x_error = 1000;
+                data_error.y_error = 1000;
+                data_error_total.ang_error = 1000;
+                data_error_total.x_error = 1000;
+                data_error_total.y_error = 1000;
                //save_data(k, hxd[k], gripper_position.x, hxe[k], hyd[k], gripper_position.y, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
             }
 

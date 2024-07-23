@@ -249,9 +249,13 @@ class Event_Driven_Control : public rclcpp::Node
 
 
            
-            std::stringstream ss_robot_frame;
-            ss_robot_frame << "marker_id_0" << robot_id;
-            std::string robot_frame = ss_robot_frame.str();
+            // std::stringstream ss_robot_frame;
+            // ss_robot_frame << "marker_id_0" << robot_id;
+            // std::string robot_frame = ss_robot_frame.str();
+
+            std::stringstream ss_gripper;
+            ss_gripper << "robot_0" << robot_id << "/gr_ref_link";
+            std::string gripper_name = ss_gripper.str();
 
             
 
@@ -268,7 +272,7 @@ class Event_Driven_Control : public rclcpp::Node
                          //Obtain robot position
                         
                         try{
-                        geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", robot_frame, tf2::TimePointZero);
+                        geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", gripper_name, tf2::TimePointZero);
                         Robx = transform.transform.translation.x;
                         Roby = transform.transform.translation.y;
                         Robz = transform.transform.translation.z;
@@ -303,7 +307,7 @@ class Event_Driven_Control : public rclcpp::Node
 
                         //save initial position
                         try{
-                        geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", robot_frame, tf2::TimePointZero);
+                        geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", gripper_name, tf2::TimePointZero);
                         Robx = transform.transform.translation.x;
                         Roby = transform.transform.translation.y;
                         Robz = transform.transform.translation.z;
@@ -395,7 +399,7 @@ class Event_Driven_Control : public rclcpp::Node
                         publisher_arm_objective->publish(arm_objective); 
 
                         //timer to wait robot close gripper
-                        rclcpp::sleep_for(3s);
+                        rclcpp::sleep_for(10s);
 
                         arm_objective.send_finish = true;
                         arm_objective.transport_pos = true;
@@ -486,6 +490,8 @@ class Event_Driven_Control : public rclcpp::Node
                     case 7:
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 6 Leaving object", robot_id);
 
+                        rclcpp::sleep_for(5s);
+                        
                         arm_objective.home_pos = false;
                         arm_objective.gripper = false;
                         arm_objective.send_finish = false;

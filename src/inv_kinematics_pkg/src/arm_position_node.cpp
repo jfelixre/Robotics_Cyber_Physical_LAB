@@ -190,17 +190,17 @@ class Arm_Position_Node : public rclcpp::Node
             }
 
             else if (take_pos==true){
-                msg_b1.data = 0.82;
-                msg_b2.data = 0.42;
-                msg_b3.data = 0.26;
-                msg_p1.data = 0.5;
-                msg_p2.data = msg_p1.data;
+                msg_b1.data = 1.5;
+                msg_b2.data = 1.5;
+                msg_b3.data = -1.5;
+                //msg_p1.data = 0.5;
+                //msg_p2.data = msg_p1.data;
 
                 publisher_pos_b1->publish(msg_b1);
                 publisher_pos_b2->publish(msg_b2);
                 publisher_pos_b3->publish(msg_b3);
-                publisher_pos_p1->publish(msg_p1);
-                publisher_pos_p2->publish(msg_p2);
+                //publisher_pos_p1->publish(msg_p1);
+                //publisher_pos_p2->publish(msg_p2);
 
                 if(send_finish==true){
                     i++;
@@ -288,8 +288,11 @@ class Arm_Position_Node : public rclcpp::Node
             }
 
             if (gripper==true){
+                RCLCPP_INFO(this->get_logger(), "Closing gripper");
                 msg_p1.data = 0;
                 msg_p2.data = msg_p1.data;
+
+                
 
                 std::stringstream ss_topipc_grab;
                 ss_topipc_grab << "/robot_0" << robot_id << "/cube_" << obj_id << "/attach";
@@ -297,6 +300,8 @@ class Arm_Position_Node : public rclcpp::Node
                 rclcpp::Publisher<std_msgs::msg::Empty>::SharedPtr publisher_gripper = this->create_publisher<std_msgs::msg::Empty>(topic_grab,10);
                 std_msgs::msg::Empty msg;
                 publisher_gripper->publish(msg);
+                publisher_pos_p1->publish(msg_p1);
+                publisher_pos_p2->publish(msg_p2);
 
             }
             else{
