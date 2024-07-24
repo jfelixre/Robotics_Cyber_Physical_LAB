@@ -300,6 +300,14 @@ class Arm_Position_Node : public rclcpp::Node
                 rclcpp::Publisher<std_msgs::msg::Empty>::SharedPtr publisher_gripper = this->create_publisher<std_msgs::msg::Empty>(topic_grab,10);
                 std_msgs::msg::Empty msg;
                 publisher_gripper->publish(msg);
+
+                std::stringstream ss_topipc_objf;
+                ss_topipc_objf << "/FC" << obj_id << "/detach";
+                std::string topipc_objf = ss_topipc_objf.str();
+                rclcpp::Publisher<std_msgs::msg::Empty>::SharedPtr publisher_obj_j= this->create_publisher<std_msgs::msg::Empty>(topipc_objf,10);
+                std_msgs::msg::Empty msg_f;
+                publisher_obj_j->publish(msg_f);
+
                 publisher_pos_p1->publish(msg_p1);
                 publisher_pos_p2->publish(msg_p2);
 
@@ -317,6 +325,13 @@ class Arm_Position_Node : public rclcpp::Node
                 rclcpp::Publisher<std_msgs::msg::Empty>::SharedPtr publisher_gripper = this->create_publisher<std_msgs::msg::Empty>(topic_grab,10);
                 std_msgs::msg::Empty msg;
                 publisher_gripper->publish(msg);
+
+                std::stringstream ss_topipc_objf;
+                ss_topipc_objf << "/FC" << obj_id << "/attach";
+                std::string topipc_objf = ss_topipc_objf.str();
+                rclcpp::Publisher<std_msgs::msg::Empty>::SharedPtr publisher_obj_j= this->create_publisher<std_msgs::msg::Empty>(topipc_objf,10);
+                std_msgs::msg::Empty msg_f;
+                publisher_obj_j->publish(msg_f);
 
 
             }

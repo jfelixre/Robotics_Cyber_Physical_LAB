@@ -23,6 +23,33 @@
       <shadows>true</shadows>
     </scene>
     <model name='ground_plane'>
+      <plugin filename="gz-sim-detachable-joint-system"
+            name="gz::sim::systems::DetachableJoint">
+        <parent_link>link</parent_link>
+        <child_model>cube_id_11</child_model>
+        <child_link>marker_id_11</child_link>
+        <attach_topic>/FC11/attach</attach_topic>
+        <detach_topic>/FC11/detach</detach_topic>
+        <output_topic>/FC11/state</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system"
+            name="gz::sim::systems::DetachableJoint">
+        <parent_link>link</parent_link>
+        <child_model>cube_id_12</child_model>
+        <child_link>marker_id_12</child_link>
+        <attach_topic>/FC12/attach</attach_topic>
+        <detach_topic>/FC12/detach</detach_topic>
+        <output_topic>/FC12/state</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system"
+            name="gz::sim::systems::DetachableJoint">
+        <parent_link>link</parent_link>
+        <child_model>cube_id_21</child_model>
+        <child_link>marker_id_21</child_link>
+        <attach_topic>/FC21/attach</attach_topic>
+        <detach_topic>/FC21/detach</detach_topic>
+        <output_topic>/FC21/state</output_topic>
+      </plugin>
       <static>true</static>
       <link name='link'>
         <collision name='collision'>
