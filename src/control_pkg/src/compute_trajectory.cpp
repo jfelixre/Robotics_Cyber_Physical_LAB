@@ -117,6 +117,8 @@ class Compute_Trajectory : public rclcpp::Node
 
             timer_ = this->create_wall_timer(
              500ms, std::bind(&Compute_Trajectory::timer_callback, this));
+
+           
         }
 
 
@@ -137,6 +139,10 @@ class Compute_Trajectory : public rclcpp::Node
 
         void timer_callback()
         {      
+            
+
+            
+
             cv::Scalar white(255, 255, 255);
             map_color.setTo(white);   //reset the map
             //cv::namedWindow("Display_Map", cv::WINDOW_NORMAL );
@@ -596,23 +602,27 @@ class Compute_Trajectory : public rclcpp::Node
                         //cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
                         //cv::imshow("Display Image", map);
 
+                        
+
+                        // std::stringstream ss_image_name;
+                        // ss_image_name << "map_robot_0" << robot_id << ".png";
+                        // std::string image_name = ss_image_name.str();
+
+
+                        // bool check_img = cv::imwrite(image_name, map_color);
+                        // if(check_img==false){
+                        //     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Error saving image");
+                        // }
+                        
                         std::stringstream ss_window_name;
                         ss_window_name << "map_robot_0" << robot_id;
                         std::string window_name = ss_window_name.str();
 
                         cv::namedWindow(window_name, cv::WINDOW_NORMAL );
 
-                        std::stringstream ss_image_name;
-                        ss_image_name << "map_robot_0" << robot_id << ".png";
-                        std::string image_name = ss_image_name.str();
-
-
-                        bool check_img = cv::imwrite(image_name, map_color);
-                        if(check_img==false){
-                            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Error saving image");
-                        }
                         cv::imshow(window_name, map_color);
                         cv::waitKey(1);
+
                         // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint_6");
 
                         
@@ -796,14 +806,14 @@ class Node_Client_A_Star : public rclcpp::Node
 int main(int argc, char * argv[])
 {
     rclcpp::init(argc, argv);
-    auto node = std::make_shared<Compute_Trajectory>();
+    //auto node = std::make_shared<Compute_Trajectory>();
     //auto node_client_a_star = std::make_shared<Node_Client_A_Star>();
 
-    rclcpp::executors::MultiThreadedExecutor executor;
-    executor.add_node(node);
+    //rclcpp::executors::MultiThreadedExecutor executor;
+    //executor.add_node(node);
     //executor.add_node(node_client_a_star);
-    executor.spin();
-    //rclcpp::spin(std::make_shared<Compute_Trajectory>());
+    //executor.spin();
+    rclcpp::spin(std::make_shared<Compute_Trajectory>());
     rclcpp::shutdown();
     return 0;
 }
