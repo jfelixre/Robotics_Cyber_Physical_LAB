@@ -598,7 +598,12 @@ class Compute_Trajectory : public rclcpp::Node
 
                         //cv::namedWindow("MAP_R1", cv::WINDOW_NORMAL );
 
-                        bool check_img = cv::imwrite("map.png", map_color);
+                        std::stringstream ss_image_name;
+                        ss_image_name << "map_robot_0" << robot_id << ".png";
+                        std::string image_name = ss_image_name.str();
+
+
+                        bool check_img = cv::imwrite(image_name, map_color);
                         if(check_img==false){
                             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Error saving image");
                         }
