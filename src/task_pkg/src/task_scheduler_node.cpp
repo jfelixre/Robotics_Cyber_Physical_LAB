@@ -71,7 +71,7 @@ class Reg_Tasks_Node : public rclcpp::Node
 				temp_task.obj_size=1;
 			}
 			else{
-				temp_task.obj_id=2;
+				temp_task.obj_size=2;
 			}
 			//temp_task.obj_size = msg->obj_size;
 			temp_task.goal = msg->goal;
@@ -100,6 +100,11 @@ class Reg_Tasks_Node : public rclcpp::Node
 					if (task.task_id == task_to_update) {  
 						task.state = msg->state;
 						task.robot_id = msg->robot_id;
+
+						if (task.obj_size == 2 && task.leader_robot_id == 0){
+							task.leader_robot_id = task.robot_id;
+						}
+						
 
 						if (msg->state==1){
 							task.in_progress_time_start = time.seconds(); //Initial in progress time

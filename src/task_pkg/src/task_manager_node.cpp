@@ -139,7 +139,7 @@ class Task_Manager_Node : public rclcpp::Node
                     msg_update.robot_id = robot_id;
                     msg_update.task_id = selected_task.task_id;
                     msg_update.state = 1;
-                    publisher_task_update->publish(msg_update);
+                    
 
                     RCLCPP_INFO(this->get_logger(), "Task ID %d selected by Robot %d", selected_task.task_id, robot_id);
 
@@ -154,6 +154,8 @@ class Task_Manager_Node : public rclcpp::Node
                             //msg_new_task.obj_size = selected_task.obj_size;
                             msg_new_task.goal = selected_task.goal;
                             msg_new_task.leader_robot_id = robot_id;             //ask for help with task
+                            selected_task.leader_robot_id = robot_id;
+
 
                             publisher_new_task->publish(msg_new_task);
 
@@ -161,12 +163,15 @@ class Task_Manager_Node : public rclcpp::Node
 
                         else {
                             RCLCPP_INFO(this->get_logger(), "Go to help with principal task");   //Help to do principal task
-                            leader_robot_id = 1;
+                            //leader_robot_id = selected_task.leader_robot_id;
                         }
                     }
 
                     //Send task to event_driven_control
+                    publisher_task_update->publish(msg_update);
+                    
                     publisher_task_robot->publish(selected_task);
+                    
                     
                     
                     

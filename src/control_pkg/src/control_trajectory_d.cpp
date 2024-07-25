@@ -612,7 +612,7 @@ class Node_Control_Timer : public rclcpp::Node
             //Ganancias
             double Kx = 50;
             double Ky = 50;
-            double Kw = 10;
+            double Kw = 3;
 
 
             Eigen::MatrixXd he(3,1);
@@ -670,7 +670,15 @@ class Node_Control_Timer : public rclcpp::Node
 
             msg_platform_vel.x_vel = uxRef[k];
             msg_platform_vel.y_vel = uyRef[k];
-            msg_platform_vel.ang_vel = wRef[k];
+
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Error Ang = %f", ErrAng);
+
+            if (abs(ErrAng)>3.1416){
+                msg_platform_vel.ang_vel = wRef[k] *-0.3;
+            }
+            else{
+                msg_platform_vel.ang_vel = wRef[k];
+            }
 
             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "create variable for control ");
             

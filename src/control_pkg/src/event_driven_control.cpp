@@ -122,7 +122,7 @@ class Event_Driven_Control : public rclcpp::Node
 
 	private:
 
-        void timer_callback()   //CONTROL PID//
+        void timer_callback()   //Send objective transform to tf//
         {
             std::stringstream ss_frame_name;
             ss_frame_name << "marker_id_0" << robot_id;
@@ -137,6 +137,7 @@ class Event_Driven_Control : public rclcpp::Node
 
 
             tf_broadcaster_->sendTransform(objective_transform);
+            RCLCPP_INFO(this->get_logger(), "Objective transform point x= %f, y= %f", objective_transform.transform.translation.x , objective_transform.transform.translation.y);
 
             //RCLCPP_INFO(this->get_logger(), "Transform sent with header stamp %d", transform.header.stamp.sec);
 
@@ -203,6 +204,8 @@ class Event_Driven_Control : public rclcpp::Node
             
             std::string frame_name = ss_frame_name.str();
 
+            RCLCPP_INFO(this->get_logger(), "Frame name %s", frame_name.c_str());
+
             try{
                 geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", frame_name, tf2::TimePointZero);
                 Xobj = transform.transform.translation.x;
@@ -218,6 +221,8 @@ class Event_Driven_Control : public rclcpp::Node
                 std::stringstream ss_frame_cube;
                 ss_frame_cube << "cube_id_" << task.obj_id << "/cube_link";
                 std::string frame_cube = ss_frame_cube.str();
+
+                RCLCPP_INFO(this->get_logger(), "Frame cube %s", frame_cube.c_str());
 
                 try{
                     geometry_msgs::msg::TransformStamped transform_cube = tf_buffer_->lookupTransform("marker_id_00", frame_cube, tf2::TimePointZero);
@@ -260,10 +265,10 @@ class Event_Driven_Control : public rclcpp::Node
             
 
 
-            //Check if robot is leader or follower and start control
+            //Check if robot work alone or with a team
 
                 //Start control when robot is leader
-            if (task.leader_robot_id == 0){
+            if (task.obj_size == 1){
                 switch(robot_state.robot_state){   //CHECK CASE WHEN OBJECT SIZE IS 2, must take object from different angle
 
                     case 0:
@@ -542,68 +547,293 @@ class Event_Driven_Control : public rclcpp::Node
                         break;
                 }
             }
-                //Start control when robot is follower
+                //Start control when robot work on team
             else {
-                switch(robot_state.robot_state){  //CHECK CASE 1, 2 AND 3, to take object from different angle ??
 
-                    case 0:
-                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for a new task", robot_id);
-                        break;
+                if (task.leader_robot_id == robot_id){   //If the robot is the leader robot
 
-                    case 1:
-                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 1 Approach to object %d", robot_id, task.obj_id);
+                    switch(robot_state.robot_state){  //CHECK CASE 1, 2 AND 3, to take object from different angle ??
 
-                        objective.point.x = Xobj - 2;   //Check to match, maybe using trigonometry depending of angle
-                        objective.point.y = Yobj - 2;
-                        objective.angle = Angobj;       //
-                        objective.obj_id = task.obj_id;
-                        publisher_robot_objective->publish(objective);
-                        break;
+                        case 0:
+                            RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for a new task", robot_id);
+                        
+                            //Obtain robot position
+                            
+                            try{
+                            geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", gripper_name, tf2::TimePointZero);
+                            Robx = transform.transform.translation.x;
+                            Roby = transform.transform.translation.y;
+                            Robz = transform.transform.translation.z;
 
-                    case 2:
-                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 2 Last approach to object %d", robot_id, task.obj_id);
+                            tf2::Quaternion Rob_quat(transform.transform.rotation.x, transform.transform.rotation.y, transform.transform.rotation.z, transform.transform.rotation.w);
+                            tf2::Matrix3x3 Rob_m(Rob_quat);
+                            double Rob_orientation_x, Rob_orientation_y, Rob_orientation_z;
+                            Rob_m.getRPY(Rob_orientation_x, Rob_orientation_y, Rob_orientation_z);
+                            Robang= Rob_orientation_z;
 
-                        objective.point.x = Xobj - 2;   //Check to match, maybe using trigonometry depending of angle
-                        objective.point.y = Yobj - 2;
-                        objective.angle = Angobj;       //
-                        objective.obj_id = task.obj_id;
-                        publisher_robot_objective->publish(objective);
-                        break;
 
-                    case 3:
-                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 3 Taking object %d", robot_id, task.obj_id);
-                        //COMPLETE OBJECT PICK
-                        break;
+                            } catch (tf2::LookupException& ex) {
+                                RCLCPP_ERROR(this->get_logger(), "Lookup exception: %s", ex.what());
+                                //return;
+                            } catch (tf2::ConnectivityException& ex) {
+                                RCLCPP_ERROR(this->get_logger(), "Connectivity exception: %s", ex.what());
+                                //return;
+                            } catch (tf2::ExtrapolationException& ex) {
+                                RCLCPP_ERROR(this->get_logger(), "Extrapolation exception: %s", ex.what());
+                                //return;
+                            }
+                            
+                            initial_position.point.x = Robx;
+                            initial_position.point.y = Roby;
+                            initial_position.angle = Robang;
+                            break;
 
-                    case 4:
-                        //MIRROR CONTROL OF LEADER ROBOT
-                        break;
+                        case 1:
+                            RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 1 Approach to object %d", robot_id, task.obj_id);
 
-                    
-                    case 5:
-                        //MIRROR CONTROL OF LEADER ROBOT
-                        break;
+                            //save initial position
+                            try{
+                            geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", gripper_name, tf2::TimePointZero);
+                            Robx = transform.transform.translation.x;
+                            Roby = transform.transform.translation.y;
+                            Robz = transform.transform.translation.z;
 
-                    case 6:
-                        //MIRROR CONTROL OF LEADER ROBOT
-                        break;
+                            tf2::Quaternion Rob_quat(transform.transform.rotation.x, transform.transform.rotation.y, transform.transform.rotation.z, transform.transform.rotation.w);
+                            tf2::Matrix3x3 Rob_m(Rob_quat);
+                            double Rob_orientation_x, Rob_orientation_y, Rob_orientation_z;
+                            Rob_m.getRPY(Rob_orientation_x, Rob_orientation_y, Rob_orientation_z);
+                            Robang= Rob_orientation_z;
 
-                    case 7:
-                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 7 Back to home position", robot_id);
 
-                        objective.point.x = 0;   //Define home position***
-                        objective.point.y = 0;
-                        objective.angle = 0;
-                        objective.obj_id = task.obj_id;
-                        publisher_robot_objective->publish(objective);
-                        break;
+                            } catch (tf2::LookupException& ex) {
+                                RCLCPP_ERROR(this->get_logger(), "Lookup exception: %s", ex.what());
+                                //return;
+                            } catch (tf2::ConnectivityException& ex) {
+                                RCLCPP_ERROR(this->get_logger(), "Connectivity exception: %s", ex.what());
+                                //return;
+                            } catch (tf2::ExtrapolationException& ex) {
+                                RCLCPP_ERROR(this->get_logger(), "Extrapolation exception: %s", ex.what());
+                                //return;
+                            }
+                            
+                            initial_position.point.x = Robx;
+                            initial_position.point.y = Roby;
+                            initial_position.angle = Robang;
 
-                    case 8:
-                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 8 Task_ID %d Finished", robot_id, task.task_id);
+                            //Send objective position
+                            objective.point.x = Xobj + (1 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
+                            objective.point.y = Yobj + (1 * sin(Angobj));
+                            objective.point.z = Zobj;
+                            objective.angle = Angobj - 3.1416;       //
+                            objective.obj_id = task.obj_id;
+                            publisher_robot_objective->publish(objective);
 
-                        robot_state.robot_state = 0;
-                        publisher_robot_state -> publish(robot_state);
-                        break;
+                            //Send objective position to /tf2
+                            objective_transform.transform.translation.x = objective.point.x;
+                            objective_transform.transform.translation.y = objective.point.y;
+                            objective_transform.transform.translation.z = objective.point.z;
+
+                            RCLCPP_INFO(this->get_logger(), "Objective point x= %f, y= %f", objective.point.x, objective.point.y);
+                            
+
+                            arm_objective.home_pos = true;
+                            arm_objective.gripper = false;
+                            arm_objective.send_finish = false;
+                            arm_objective.transport_pos = false;
+                            arm_objective.obj_id = task.obj_id;
+                            publisher_arm_objective->publish(arm_objective);                        
+
+
+                            break;
+
+                        case 2:
+                            RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 2 Last approach to object %d", robot_id, task.obj_id);
+
+                            objective.point.x = Xobj - 2;   //Check to match, maybe using trigonometry depending of angle
+                            objective.point.y = Yobj - 2;
+                            objective.angle = Angobj;       //
+                            objective.obj_id = task.obj_id;
+                            publisher_robot_objective->publish(objective);
+                            break;
+
+                        case 3:
+                            RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 3 Taking object %d", robot_id, task.obj_id);
+                            //COMPLETE OBJECT PICK
+                            break;
+
+                        case 4:
+                            //MIRROR CONTROL OF LEADER ROBOT
+                            break;
+
+                        
+                        case 5:
+                            //MIRROR CONTROL OF LEADER ROBOT
+                            break;
+
+                        case 6:
+                            //MIRROR CONTROL OF LEADER ROBOT
+                            break;
+
+                        case 7:
+                            RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 7 Back to home position", robot_id);
+
+                            objective.point.x = 0;   //Define home position***
+                            objective.point.y = 0;
+                            objective.angle = 0;
+                            objective.obj_id = task.obj_id;
+                            publisher_robot_objective->publish(objective);
+                            break;
+
+                        case 8:
+                            RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 8 Task_ID %d Finished", robot_id, task.task_id);
+
+                            robot_state.robot_state = 0;
+                            publisher_robot_state -> publish(robot_state);
+                            break;
+                    }
+
+                }
+
+                else{
+
+                    switch(robot_state.robot_state){  //CHECK CASE 1, 2 AND 3, to take object from different angle ??
+
+                        case 0:
+                            RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for a new task", robot_id);
+                        
+                            //Obtain robot position
+                            
+                            try{
+                            geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", gripper_name, tf2::TimePointZero);
+                            Robx = transform.transform.translation.x;
+                            Roby = transform.transform.translation.y;
+                            Robz = transform.transform.translation.z;
+
+                            tf2::Quaternion Rob_quat(transform.transform.rotation.x, transform.transform.rotation.y, transform.transform.rotation.z, transform.transform.rotation.w);
+                            tf2::Matrix3x3 Rob_m(Rob_quat);
+                            double Rob_orientation_x, Rob_orientation_y, Rob_orientation_z;
+                            Rob_m.getRPY(Rob_orientation_x, Rob_orientation_y, Rob_orientation_z);
+                            Robang= Rob_orientation_z;
+
+
+                            } catch (tf2::LookupException& ex) {
+                                RCLCPP_ERROR(this->get_logger(), "Lookup exception: %s", ex.what());
+                                //return;
+                            } catch (tf2::ConnectivityException& ex) {
+                                RCLCPP_ERROR(this->get_logger(), "Connectivity exception: %s", ex.what());
+                                //return;
+                            } catch (tf2::ExtrapolationException& ex) {
+                                RCLCPP_ERROR(this->get_logger(), "Extrapolation exception: %s", ex.what());
+                                //return;
+                            }
+                            
+                            initial_position.point.x = Robx;
+                            initial_position.point.y = Roby;
+                            initial_position.angle = Robang;
+                            break;
+
+                        case 1:
+                            RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 1 Approach to object %d", robot_id, task.obj_id);
+
+                            //save initial position
+                            try{
+                            geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", gripper_name, tf2::TimePointZero);
+                            Robx = transform.transform.translation.x;
+                            Roby = transform.transform.translation.y;
+                            Robz = transform.transform.translation.z;
+
+                            tf2::Quaternion Rob_quat(transform.transform.rotation.x, transform.transform.rotation.y, transform.transform.rotation.z, transform.transform.rotation.w);
+                            tf2::Matrix3x3 Rob_m(Rob_quat);
+                            double Rob_orientation_x, Rob_orientation_y, Rob_orientation_z;
+                            Rob_m.getRPY(Rob_orientation_x, Rob_orientation_y, Rob_orientation_z);
+                            Robang= Rob_orientation_z;
+
+
+                            } catch (tf2::LookupException& ex) {
+                                RCLCPP_ERROR(this->get_logger(), "Lookup exception: %s", ex.what());
+                                //return;
+                            } catch (tf2::ConnectivityException& ex) {
+                                RCLCPP_ERROR(this->get_logger(), "Connectivity exception: %s", ex.what());
+                                //return;
+                            } catch (tf2::ExtrapolationException& ex) {
+                                RCLCPP_ERROR(this->get_logger(), "Extrapolation exception: %s", ex.what());
+                                //return;
+                            }
+                            
+                            initial_position.point.x = Robx;
+                            initial_position.point.y = Roby;
+                            initial_position.angle = Robang;
+
+                            //Send objective position
+                            objective.point.x = Xobj - (1 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
+                            objective.point.y = Yobj - (1 * sin(Angobj));
+                            objective.point.z = Zobj;
+                            objective.angle = Angobj;       //
+                            objective.obj_id = task.obj_id;
+                            publisher_robot_objective->publish(objective);
+
+                            //Send objective position to /tf2
+                            objective_transform.transform.translation.x = objective.point.x;
+                            objective_transform.transform.translation.y = objective.point.y;
+                            objective_transform.transform.translation.z = objective.point.z;
+
+                            RCLCPP_INFO(this->get_logger(), "Objective point x= %f, y= %f", objective.point.x, objective.point.y);
+                            
+
+                            arm_objective.home_pos = true;
+                            arm_objective.gripper = false;
+                            arm_objective.send_finish = false;
+                            arm_objective.transport_pos = false;
+                            arm_objective.obj_id = task.obj_id;
+                            publisher_arm_objective->publish(arm_objective);
+                            break;
+
+                        case 2:
+                            RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 2 Last approach to object %d", robot_id, task.obj_id);
+
+                            objective.point.x = Xobj - 2;   //Check to match, maybe using trigonometry depending of angle
+                            objective.point.y = Yobj - 2;
+                            objective.angle = Angobj;       //
+                            objective.obj_id = task.obj_id;
+                            publisher_robot_objective->publish(objective);
+                            break;
+
+                        case 3:
+                            RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 3 Taking object %d", robot_id, task.obj_id);
+                            //COMPLETE OBJECT PICK
+                            break;
+
+                        case 4:
+                            //MIRROR CONTROL OF LEADER ROBOT
+                            break;
+
+                        
+                        case 5:
+                            //MIRROR CONTROL OF LEADER ROBOT
+                            break;
+
+                        case 6:
+                            //MIRROR CONTROL OF LEADER ROBOT
+                            break;
+
+                        case 7:
+                            RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 7 Back to home position", robot_id);
+
+                            objective.point.x = 0;   //Define home position***
+                            objective.point.y = 0;
+                            objective.angle = 0;
+                            objective.obj_id = task.obj_id;
+                            publisher_robot_objective->publish(objective);
+                            break;
+
+                        case 8:
+                            RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 8 Task_ID %d Finished", robot_id, task.task_id);
+
+                            robot_state.robot_state = 0;
+                            publisher_robot_state -> publish(robot_state);
+                            break;
+                    }
+
                 }
             }
 

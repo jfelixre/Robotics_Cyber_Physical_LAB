@@ -179,7 +179,7 @@ class Arm_Position_Node : public rclcpp::Node
 
                 if(send_finish==true){
                     i++;
-                    RCLCPP_INFO(this->get_logger(), "i value %d", i);
+                    //RCLCPP_INFO(this->get_logger(), "i value %d", i);
                     if (i>=50){
                         interfaces::msg::ControlFinish msg_finish;
                         msg_finish.finish_confirm = true;
@@ -204,7 +204,7 @@ class Arm_Position_Node : public rclcpp::Node
 
                 if(send_finish==true){
                     i++;
-                    RCLCPP_INFO(this->get_logger(), "i value %d", i);
+                    //RCLCPP_INFO(this->get_logger(), "i value %d", i);
                     if (i>=50){
                         interfaces::msg::ControlFinish msg_finish;
                         msg_finish.finish_confirm = true;
@@ -288,7 +288,7 @@ class Arm_Position_Node : public rclcpp::Node
             }
 
             if (gripper==true){
-                RCLCPP_INFO(this->get_logger(), "Closing gripper");
+                //RCLCPP_INFO(this->get_logger(), "Closing gripper");
                 msg_p1.data = 0;
                 msg_p2.data = msg_p1.data;
 
