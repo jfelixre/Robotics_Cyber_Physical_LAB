@@ -5,7 +5,7 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.actions import IncludeLaunchDescription
-from launch.actions import ExecuteProcess
+from launch.actions import ExecuteProcess, TimerAction
 from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
@@ -82,7 +82,7 @@ def generate_launch_description():
         ]
     )
 
-    #Launch tasker manager node for robot_02
+    #Launch task manager node for robot_02
     task_manager = Node(
         package='task_pkg',
         namespace='robot_02',
@@ -97,6 +97,87 @@ def generate_launch_description():
         executable='event_driven_control',
         parameters=[{'robot_id': 2}],
         )
+    
+        #Launch compute_trajectory node for robot_02
+    compute_trajectory = Node(
+            package='control_pkg',
+            namespace='robot_02',
+            executable='compute_trajectory',
+            parameters=[{'robot_id': 2}],
+            #arguments=['--ros-args', '--log-level', 'debug'],
+            )
+    
+    #Launch a_star_server node for robot_02
+    a_star_server = Node(
+            package='control_pkg',
+            namespace='robot_02',
+            executable='a_star_server',
+            parameters=[{'robot_id': 2}],
+            )
+    
+    #Launch control trajectory node for robot_02
+    control_trajectory = Node(
+            package='control_pkg',
+            namespace='robot_02',
+            executable='control_trajectory_d',
+            parameters=[{'robot_id': 2}],
+            )
+    
+    #Launch robot platform vel node for robot_02
+    robot_platform_vel = Node(
+            package='inv_kinematics_pkg',
+            namespace='robot_02',
+            executable='robot_platform_vel_node',
+            parameters=[{'robot_id': 2}],
+            )
+    
+    #Launch arm position node for robot_02
+    arm_position = Node(
+            package='inv_kinematics_pkg',
+            namespace='robot_02',
+            executable='arm_position_node',
+            parameters=[{'robot_id': 2}],
+            )
+    
+    #Detach Cube from robot
+    detach11 = TimerAction(
+        period=10.0, #Delay in seconds
+        actions=[
+            ExecuteProcess(
+                cmd=[[
+                    'ros2 topic pub --once /robot_02/cube_11/detach std_msgs/msg/Empty',
+                    ]],
+                    shell=True
+            )
+        ]
+    )
+
+    detach12 = TimerAction(
+        period=13.0, #Delay in seconds
+        actions=[
+            ExecuteProcess(
+                cmd=[[
+                    'ros2 topic pub --once /robot_02/cube_12/detach std_msgs/msg/Empty',
+                    ]],
+                    shell=True
+            )
+        ]
+    )
+
+    detach21 = TimerAction(
+        period=16.0, #Delay in seconds
+        actions=[
+            ExecuteProcess(
+                cmd=[[
+                    'ros2 topic pub --once /robot_02/cube_21/detach std_msgs/msg/Empty',
+                    ]],
+                    shell=True
+            )
+        ]
+    )
+
+
+
 
     return LaunchDescription([
         task_manager,
@@ -104,5 +185,13 @@ def generate_launch_description():
         bridge,
         robot_state_publisher,
         event_driven_control,
+        compute_trajectory,
+        a_star_server,
+        control_trajectory,
+        robot_platform_vel,
+        arm_position,
+        detach11,
+        detach12,
+        detach21,
        
     ])
