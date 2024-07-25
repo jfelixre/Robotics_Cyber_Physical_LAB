@@ -596,7 +596,11 @@ class Compute_Trajectory : public rclcpp::Node
                         //cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
                         //cv::imshow("Display Image", map);
 
-                        //cv::namedWindow("MAP_R1", cv::WINDOW_NORMAL );
+                        std::stringstream ss_window_name;
+                        ss_window_name << "map_robot_0" << robot_id;
+                        std::string window_name = ss_window_name.str();
+
+                        cv::namedWindow(window_name, cv::WINDOW_NORMAL );
 
                         std::stringstream ss_image_name;
                         ss_image_name << "map_robot_0" << robot_id << ".png";
@@ -607,8 +611,8 @@ class Compute_Trajectory : public rclcpp::Node
                         if(check_img==false){
                             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Error saving image");
                         }
-                        //cv::imshow("Display_Map", map_color);
-                        //cv::waitKey(1);
+                        cv::imshow(window_name, map_color);
+                        cv::waitKey(1);
                         // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint_6");
 
                         
