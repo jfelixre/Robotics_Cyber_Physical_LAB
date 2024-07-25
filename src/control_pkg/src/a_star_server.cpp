@@ -172,7 +172,7 @@ class AStarServer : public rclcpp::Node
         bool isUnBlocked(int grid[][COL], int row, int col)
         {
             // Returns true if the cell is not blocked else false
-            if (grid[row][col] == 1){
+            if (grid[col][row] == 1){
                 return (true);
                 }
             else{

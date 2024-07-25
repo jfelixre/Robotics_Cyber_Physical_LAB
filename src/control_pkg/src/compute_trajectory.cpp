@@ -60,7 +60,7 @@ int n_obstacles = 0;
 float x_grid = 0.05;    //All dimensions in meters
 float y_grid = 0.05;
 float x_world = 6;        
-float y_world = 6;          
+float y_world = 3;          
 
 int n_x_spaces = (int)x_world/x_grid;
 int n_y_spaces = (int)y_world/y_grid;
@@ -68,7 +68,7 @@ int n_y_spaces = (int)y_world/y_grid;
 
 geometry_msgs::msg::Polygon path_ant;
 
-cv::Mat map_color(n_x_spaces, n_y_spaces, CV_8UC3, cv::Scalar(255, 255, 255));
+cv::Mat map_color(n_y_spaces, n_x_spaces, CV_8UC3, cv::Scalar(255, 255, 255));
 cv::Point goal_f;
 cv::Point Robot_grip_point_f;
 cv::Point Robot_center_point_f;
@@ -267,9 +267,9 @@ class Compute_Trajectory : public rclcpp::Node
 
             }
 
-            cv::Mat map = cv::Mat::zeros(n_x_spaces, n_y_spaces, CV_8UC1);
-            cv::Mat map_bin = cv::Mat::zeros(n_x_spaces, n_y_spaces, CV_8UC1);
-            cv::Mat map_bin_ext = cv::Mat::zeros(n_x_spaces, n_y_spaces, CV_8UC1);
+            cv::Mat map = cv::Mat::zeros(n_y_spaces, n_x_spaces, CV_8UC1);
+            cv::Mat map_bin = cv::Mat::zeros(n_y_spaces, n_x_spaces, CV_8UC1);
+            cv::Mat map_bin_ext = cv::Mat::zeros(n_y_spaces, n_x_spaces, CV_8UC1);
             
 
              map = cv::Scalar(255);
@@ -336,7 +336,7 @@ class Compute_Trajectory : public rclcpp::Node
 
             double Object_angle_degrees= (angle_object*180)/PI * -1;
             if(type_object==1){
-                cv::Size Object_size(4,4);
+                cv::Size Object_size(8,8);
                 cv::RotatedRect Object_rectangle(Object_point, Object_size, Object_angle_degrees);
                 cv::Point2f vertices2f_Object[4];
                 Object_rectangle.points(vertices2f_Object);
@@ -391,7 +391,7 @@ class Compute_Trajectory : public rclcpp::Node
                     cv::fillConvexPoly(map_bin,vertices_Obstacle, cv::Scalar(0));
                 }
                 else if(type_obstacle[i]==1){
-                    cv::Size Obstacle_size(4,4);
+                    cv::Size Obstacle_size(8,8);
                     cv::RotatedRect Obstacle_rectangle(Obstacle_point, Obstacle_size, Obstacle_angle_degrees);
                     cv::Point2f vertices2f_Obstacle[4];
                     Obstacle_rectangle.points(vertices2f_Obstacle);
@@ -458,8 +458,8 @@ class Compute_Trajectory : public rclcpp::Node
 
 
             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint_1");
-            for (int i=0; i<n_x_spaces; i++){
-                for (int j=0; j<n_y_spaces; j++){
+            for (int i=0; i<n_y_spaces; i++){
+                for (int j=0; j<n_x_spaces; j++){
                     if (map_bin.at<cv::uint8_t>(i,j)==0){
                         for (int k = -2; k < 3; k++){
                             for (int l= -2; l < 3; l++){
@@ -468,7 +468,7 @@ class Compute_Trajectory : public rclcpp::Node
                                 int i_k = i+k;
                                 int j_l = j+l;
 
-                                if ((i_k)>=0 && (i_k)<n_x_spaces && (j_l)>=0 && (j_l)<n_y_spaces){
+                                if ((i_k)>=0 && (i_k)<n_y_spaces && (j_l)>=0 && (j_l)<n_x_spaces){
                                    map_bin_ext.at<cv::uint8_t>(i+k,j+l)=cv::uint8_t(0);
                                  //  std::cout << i_k << j_l << std::endl;                                    
                                 }
@@ -486,8 +486,8 @@ class Compute_Trajectory : public rclcpp::Node
 
 
             // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint_2");
-            for (int i=0; i<n_x_spaces; i++){
-                for (int j=0; j<n_y_spaces; j++){
+            for (int i=0; i<n_y_spaces; i++){
+                for (int j=0; j<n_x_spaces; j++){
 
                     if (map.at<cv::uint8_t>(i,j) == 1){
                         map_color.at<cv::Vec3b>(i,j) = cv::Vec3b(0,255,0);
@@ -562,18 +562,18 @@ class Compute_Trajectory : public rclcpp::Node
 
      
 
-                        path_x = result->path_y;
-                        path_y = result->path_x;
+                        path_x = result->path_x;
+                        path_y = result->path_y;
 
                         //RCLCPP_INFO(get_logger(), "Checkpoint_5");
 
                         geometry_msgs::msg::Polygon path_msg;
 
                         for (int i=2; i<path_size; i++){
-                            map_color.at<cv::Vec3b>(path_x[i], path_y[i]) = cv::Vec3b(0,0,255);
+                            map_color.at<cv::Vec3b>(path_y[i], path_x[i]) = cv::Vec3b(0,0,255);
                             geometry_msgs::msg::Point32 point;
-                            point.y = ((path_x[i]-(n_x_spaces/2))*x_world)/n_x_spaces * -1;
-                            point.x = ((path_y[i]-(n_y_spaces/2))*y_world)/n_y_spaces;
+                            point.x = ((path_x[i]-(n_x_spaces/2))*x_world)/n_x_spaces;
+                            point.y = ((path_y[i]-(n_y_spaces/2))*y_world)/n_y_spaces * -1;
                             path_msg.points.push_back(point);
 
                         }
