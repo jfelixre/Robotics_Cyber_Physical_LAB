@@ -26,6 +26,8 @@
 #include <cmath>
 #include <iostream>
 #include <fstream>
+#include <math.h>
+#include <cstdlib>
 
 using std::placeholders::_1;
 using namespace std::chrono_literals;
@@ -137,7 +139,7 @@ class Event_Driven_Control : public rclcpp::Node
 
 
             tf_broadcaster_->sendTransform(objective_transform);
-            RCLCPP_INFO(this->get_logger(), "Objective transform point x= %f, y= %f", objective_transform.transform.translation.x , objective_transform.transform.translation.y);
+            //RCLCPP_INFO(this->get_logger(), "Objective transform point x= %f, y= %f", objective_transform.transform.translation.x , objective_transform.transform.translation.y);
 
             //RCLCPP_INFO(this->get_logger(), "Transform sent with header stamp %d", transform.header.stamp.sec);
 
@@ -204,7 +206,7 @@ class Event_Driven_Control : public rclcpp::Node
             
             std::string frame_name = ss_frame_name.str();
 
-            RCLCPP_INFO(this->get_logger(), "Frame name %s", frame_name.c_str());
+            //RCLCPP_INFO(this->get_logger(), "Frame name %s", frame_name.c_str());
 
             try{
                 geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", frame_name, tf2::TimePointZero);
@@ -222,7 +224,7 @@ class Event_Driven_Control : public rclcpp::Node
                 ss_frame_cube << "cube_id_" << task.obj_id << "/cube_link";
                 std::string frame_cube = ss_frame_cube.str();
 
-                RCLCPP_INFO(this->get_logger(), "Frame cube %s", frame_cube.c_str());
+                //RCLCPP_INFO(this->get_logger(), "Frame cube %s", frame_cube.c_str());
 
                 try{
                     geometry_msgs::msg::TransformStamped transform_cube = tf_buffer_->lookupTransform("marker_id_00", frame_cube, tf2::TimePointZero);
@@ -534,6 +536,7 @@ class Event_Driven_Control : public rclcpp::Node
                         arm_objective.send_finish = false;
                         arm_objective.transport_pos = false;
                         arm_objective.obj_id = task.obj_id;
+                        arm_objective.take_pos = false;
                         publisher_arm_objective->publish(arm_objective); 
 
 
@@ -621,13 +624,13 @@ class Event_Driven_Control : public rclcpp::Node
                             initial_position.angle = Robang;
 
                             //Send objective position
-                            objective.point.x = Xobj + (1 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
-                            objective.point.y = Yobj + (1 * sin(Angobj));
+                            objective.point.x = Xobj + (0.8 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
+                            objective.point.y = Yobj + (0.8 * sin(Angobj));
                             objective.point.z = Zobj;
-                            objective.angle = Angobj - 3.1416;       //
+                            objective.angle =  (Angobj + M_PI) - static_cast<int>((Angobj + M_PI) / (2*M_PI)) * 2*M_PI;      //
                             objective.obj_id = task.obj_id;
                             publisher_robot_objective->publish(objective);
-
+                            
                             //Send objective position to /tf2
                             objective_transform.transform.translation.x = objective.point.x;
                             objective_transform.transform.translation.y = objective.point.y;
@@ -636,11 +639,12 @@ class Event_Driven_Control : public rclcpp::Node
                             RCLCPP_INFO(this->get_logger(), "Objective point x= %f, y= %f", objective.point.x, objective.point.y);
                             
 
-                            arm_objective.home_pos = true;
+                            arm_objective.home_pos = false;
                             arm_objective.gripper = false;
                             arm_objective.send_finish = false;
                             arm_objective.transport_pos = false;
                             arm_objective.obj_id = task.obj_id;
+                            arm_objective.take_pos = true;
                             publisher_arm_objective->publish(arm_objective);                        
 
 
@@ -648,12 +652,32 @@ class Event_Driven_Control : public rclcpp::Node
 
                         case 2:
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 2 Last approach to object %d", robot_id, task.obj_id);
+                            
+                            arm_objective.home_pos = false;
+                            arm_objective.gripper = false;
+                            arm_objective.send_finish = false;
+                            arm_objective.transport_pos = false;
+                            arm_objective.obj_id = task.obj_id;
+                            arm_objective.take_pos = true;
+                            publisher_arm_objective->publish(arm_objective);
 
-                            objective.point.x = Xobj - 2;   //Check to match, maybe using trigonometry depending of angle
-                            objective.point.y = Yobj - 2;
-                            objective.angle = Angobj;       //
+                            //Send objective position
+                            objective.point.x = Xobj + (0.20 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
+                            objective.point.y = Yobj + (0.20 * sin(Angobj));
+                            objective.point.z = Zobj;
+                            objective.angle =  (Angobj + M_PI) - static_cast<int>((Angobj + M_PI) / (2*M_PI)) * 2*M_PI;      //
                             objective.obj_id = task.obj_id;
                             publisher_robot_objective->publish(objective);
+                            
+                            //Send objective position to /tf2
+                            objective_transform.transform.translation.x = objective.point.x;
+                            objective_transform.transform.translation.y = objective.point.y;
+                            objective_transform.transform.translation.z = objective.point.z;
+
+                            //RCLCPP_INFO(this->get_logger(), "Objective point x= %f, y= %f", objective.point.x, objective.point.y);
+                            
+
+                            
                             break;
 
                         case 3:
@@ -765,8 +789,8 @@ class Event_Driven_Control : public rclcpp::Node
                             initial_position.angle = Robang;
 
                             //Send objective position
-                            objective.point.x = Xobj - (1 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
-                            objective.point.y = Yobj - (1 * sin(Angobj));
+                            objective.point.x = Xobj - (0.8 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
+                            objective.point.y = Yobj - (0.8 * sin(Angobj));
                             objective.point.z = Zobj;
                             objective.angle = Angobj;       //
                             objective.obj_id = task.obj_id;
@@ -780,22 +804,40 @@ class Event_Driven_Control : public rclcpp::Node
                             RCLCPP_INFO(this->get_logger(), "Objective point x= %f, y= %f", objective.point.x, objective.point.y);
                             
 
-                            arm_objective.home_pos = true;
+                            arm_objective.home_pos = false;
                             arm_objective.gripper = false;
                             arm_objective.send_finish = false;
                             arm_objective.transport_pos = false;
                             arm_objective.obj_id = task.obj_id;
+                            arm_objective.take_pos = true;
                             publisher_arm_objective->publish(arm_objective);
                             break;
 
                         case 2:
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 2 Last approach to object %d", robot_id, task.obj_id);
 
-                            objective.point.x = Xobj - 2;   //Check to match, maybe using trigonometry depending of angle
-                            objective.point.y = Yobj - 2;
+                            arm_objective.home_pos = false;
+                            arm_objective.gripper = false;
+                            arm_objective.send_finish = false;
+                            arm_objective.transport_pos = false;
+                            arm_objective.obj_id = task.obj_id;
+                            arm_objective.take_pos = true;
+                            publisher_arm_objective->publish(arm_objective);
+
+                            //Send objective position
+                            objective.point.x = Xobj - (0.25 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
+                            objective.point.y = Yobj - (0.25 * sin(Angobj));
+                            objective.point.z = Zobj;
                             objective.angle = Angobj;       //
                             objective.obj_id = task.obj_id;
                             publisher_robot_objective->publish(objective);
+
+                            //Send objective position to /tf2
+                            objective_transform.transform.translation.x = objective.point.x;
+                            objective_transform.transform.translation.y = objective.point.y;
+                            objective_transform.transform.translation.z = objective.point.z;
+
+                            //RCLCPP_INFO(this->get_logger(), "Objective point x= %f, y= %f", objective.point.x, objective.point.y);
                             break;
 
                         case 3:

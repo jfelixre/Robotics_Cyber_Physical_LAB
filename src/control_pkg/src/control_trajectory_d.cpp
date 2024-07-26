@@ -673,7 +673,7 @@ class Node_Control_Timer : public rclcpp::Node
 
             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Error Ang = %f", ErrAng);
 
-            if (abs(ErrAng)>3.1416){
+            if (abs(ErrAng)>M_PI){
                 msg_platform_vel.ang_vel = wRef[k] *-0.3;
             }
             else{
