@@ -18,6 +18,7 @@
 #include <tf2_ros/transform_broadcaster.h>
 #include <visualization_msgs/msg/marker.hpp>
 #include <interfaces/msg/arm_objective.hpp>
+#include <interfaces/msg/waiting_team.hpp>
 
 #include <memory>
 #include <cinttypes>
@@ -49,6 +50,12 @@ interfaces::msg::ArmObjective arm_objective;
 float Z_saved = 0;
 
 interfaces::msg::RobotObjective initial_position;
+
+bool waiting_team = false;
+int team_robot_id = 0;
+std::stringstream ss_topic_waiting;
+std::string topic_waiting;
+interfaces::msg::WaitingTeam waiting_msg;
 
 class Event_Driven_Control : public rclcpp::Node
 {
@@ -119,6 +126,15 @@ class Event_Driven_Control : public rclcpp::Node
 
             publisher_arm_objective = create_publisher<interfaces::msg::ArmObjective>(topic_arm_obj, 1);
 
+            std::stringstream ss_topic_waiting_robot;
+            ss_topic_waiting_robot << "/robot_0" << robot_id << "/waiting_team";
+            std::string topic_waiting_robot = ss_topic_waiting_robot.str();
+
+            subscription_waiting_team = this->create_subscription<interfaces::msg::WaitingTeam>(
+                topic_waiting_robot, 10, std::bind(&Event_Driven_Control::waiting_team_callback, this, _1));
+
+
+
 		}
 
 
@@ -164,6 +180,12 @@ class Event_Driven_Control : public rclcpp::Node
                 publisher_robot_state -> publish(robot_state);
 
                 event_control(); //Call for new step in event driven control
+            }
+
+        void waiting_team_callback(interfaces::msg::WaitingTeam::SharedPtr msg)
+            {
+                waiting_team = msg->waiting_team;
+                team_robot_id = msg->team_robot_id;
             }
 
 
@@ -592,6 +614,7 @@ class Event_Driven_Control : public rclcpp::Node
                             break;
 
                         case 1:
+                            waiting_team = true; //Signal to wait another robot
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 1 Approach to object %d", robot_id, task.obj_id);
 
                             //save initial position
@@ -610,12 +633,7 @@ class Event_Driven_Control : public rclcpp::Node
 
                             } catch (tf2::LookupException& ex) {
                                 RCLCPP_ERROR(this->get_logger(), "Lookup exception: %s", ex.what());
-                                //return;
-                            } catch (tf2::ConnectivityException& ex) {
-                                RCLCPP_ERROR(this->get_logger(), "Connectivity exception: %s", ex.what());
-                                //return;
-                            } catch (tf2::ExtrapolationException& ex) {
-                                RCLCPP_ERROR(this->get_logger(), "Extrapolation exception: %s", ex.what());
+                                //return;waiting_team = true; //Signal to wait another robot exception: %s", ex.what());
                                 //return;
                             }
                             
@@ -675,14 +693,40 @@ class Event_Driven_Control : public rclcpp::Node
                             objective_transform.transform.translation.z = objective.point.z;
 
                             //RCLCPP_INFO(this->get_logger(), "Objective point x= %f, y= %f", objective.point.x, objective.point.y);
-                            
 
-                            
+                            ss_topic_waiting.str("");
+                            ss_topic_waiting << "/robot_0" << team_robot_id << "/waiting_team";
+                            topic_waiting = ss_topic_waiting.str();
+
+                            publisher_waiting_robot = this->create_publisher<interfaces::msg::WaitingTeam>(topic_waiting,10);
+                            waiting_msg.waiting_team = false;
+                            publisher_waiting_robot->publish(waiting_msg);                           
                             break;
 
                         case 3:
-                            RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 3 Taking object %d", robot_id, task.obj_id);
-                            //COMPLETE OBJECT PICK
+                            if (waiting_team == true){
+                                RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for team robot", robot_id);
+                                event_control();
+                            }
+                            else{
+                                RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 3 Taking object %d", robot_id, task.obj_id);
+                                arm_objective.home_pos = false;
+                                arm_objective.gripper = true;
+                                arm_objective.take_pos = true;
+                                arm_objective.send_finish = false;
+                                arm_objective.transport_pos = false;
+                                arm_objective.obj_id = task.obj_id;
+                                publisher_arm_objective->publish(arm_objective); 
+
+                                //timer to wait robot close gripper
+                                rclcpp::sleep_for(10s);
+
+                                arm_objective.take_pos = false;
+                                arm_objective.send_finish = true;
+                                arm_objective.transport_pos = true;
+                                publisher_arm_objective->publish(arm_objective); 
+                            }
+
                             break;
 
                         case 4:
@@ -757,6 +801,16 @@ class Event_Driven_Control : public rclcpp::Node
                             break;
 
                         case 1:
+                            waiting_team = true; //Signal to wait another robot
+                            ss_topic_waiting.str("");
+                            ss_topic_waiting << "/robot_0" << task.leader_robot_id << "/waiting_team";
+                            topic_waiting = ss_topic_waiting.str();
+
+                            publisher_waiting_robot = this->create_publisher<interfaces::msg::WaitingTeam>(topic_waiting,10);
+                            waiting_msg.waiting_team = true;
+                            waiting_msg.team_robot_id = robot_id;
+                            publisher_waiting_robot->publish(waiting_msg);  
+
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 1 Approach to object %d", robot_id, task.obj_id);
 
                             //save initial position
@@ -838,11 +892,43 @@ class Event_Driven_Control : public rclcpp::Node
                             objective_transform.transform.translation.z = objective.point.z;
 
                             //RCLCPP_INFO(this->get_logger(), "Objective point x= %f, y= %f", objective.point.x, objective.point.y);
+
+                            ss_topic_waiting.str("");
+                            ss_topic_waiting << "/robot_0" << task.leader_robot_id << "/waiting_team";
+                            topic_waiting = ss_topic_waiting.str();
+
+                            publisher_waiting_robot = this->create_publisher<interfaces::msg::WaitingTeam>(topic_waiting,10);
+                            waiting_msg.waiting_team = false;
+                            waiting_msg.team_robot_id = robot_id;
+                            publisher_waiting_robot->publish(waiting_msg);  
+
+
                             break;
 
                         case 3:
-                            RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 3 Taking object %d", robot_id, task.obj_id);
-                            //COMPLETE OBJECT PICK
+                            if (waiting_team == true){
+                                RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for team robot", robot_id);
+                                event_control();
+                            }
+                            else{
+                                RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 3 Taking object %d", robot_id, task.obj_id);
+                                arm_objective.home_pos = false;
+                                arm_objective.gripper = true;
+                                arm_objective.take_pos = true;
+                                arm_objective.send_finish = false;
+                                arm_objective.transport_pos = false;
+                                arm_objective.obj_id = task.obj_id;
+                                publisher_arm_objective->publish(arm_objective); 
+
+                                //timer to wait robot close gripper
+                                rclcpp::sleep_for(10s);
+
+                                arm_objective.send_finish = true;
+                                arm_objective.transport_pos = true;
+                                publisher_arm_objective->publish(arm_objective); 
+                            }
+
+                            
                             break;
 
                         case 4:
@@ -892,6 +978,8 @@ class Event_Driven_Control : public rclcpp::Node
         rclcpp::TimerBase::SharedPtr timer_;
         rclcpp::CallbackGroup::SharedPtr timer_cb_group_;
         rclcpp::Publisher<interfaces::msg::ArmObjective>::SharedPtr publisher_arm_objective;
+        rclcpp::Subscription<interfaces::msg::WaitingTeam>::SharedPtr subscription_waiting_team;
+        rclcpp::Publisher<interfaces::msg::WaitingTeam>::SharedPtr publisher_waiting_robot;
 
 };
 
