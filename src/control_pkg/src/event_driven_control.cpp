@@ -680,8 +680,8 @@ class Event_Driven_Control : public rclcpp::Node
                             publisher_arm_objective->publish(arm_objective);
 
                             //Send objective position
-                            objective.point.x = Xobj + (0.20 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
-                            objective.point.y = Yobj + (0.20 * sin(Angobj));
+                            objective.point.x = Xobj + (0.18 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
+                            objective.point.y = Yobj + (0.18 * sin(Angobj));
                             objective.point.z = Zobj;
                             objective.angle =  (Angobj + M_PI) - static_cast<int>((Angobj + M_PI) / (2*M_PI)) * 2*M_PI;      //
                             objective.obj_id = task.obj_id;
@@ -694,16 +694,18 @@ class Event_Driven_Control : public rclcpp::Node
 
                             //RCLCPP_INFO(this->get_logger(), "Objective point x= %f, y= %f", objective.point.x, objective.point.y);
 
+                                                     
+                            break;
+
+                        case 3:
                             ss_topic_waiting.str("");
                             ss_topic_waiting << "/robot_0" << team_robot_id << "/waiting_team";
                             topic_waiting = ss_topic_waiting.str();
 
                             publisher_waiting_robot = this->create_publisher<interfaces::msg::WaitingTeam>(topic_waiting,10);
                             waiting_msg.waiting_team = false;
-                            publisher_waiting_robot->publish(waiting_msg);                           
-                            break;
+                            publisher_waiting_robot->publish(waiting_msg);  
 
-                        case 3:
                             if (waiting_team == true){
                                 RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for team robot", robot_id);
                                 event_control();
@@ -879,8 +881,8 @@ class Event_Driven_Control : public rclcpp::Node
                             publisher_arm_objective->publish(arm_objective);
 
                             //Send objective position
-                            objective.point.x = Xobj - (0.25 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
-                            objective.point.y = Yobj - (0.25 * sin(Angobj));
+                            objective.point.x = Xobj - (0.28 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
+                            objective.point.y = Yobj - (0.28 * sin(Angobj));
                             objective.point.z = Zobj;
                             objective.angle = Angobj;       //
                             objective.obj_id = task.obj_id;
@@ -892,6 +894,9 @@ class Event_Driven_Control : public rclcpp::Node
                             objective_transform.transform.translation.z = objective.point.z;
 
                             //RCLCPP_INFO(this->get_logger(), "Objective point x= %f, y= %f", objective.point.x, objective.point.y);
+                            break;
+
+                        case 3:
 
                             ss_topic_waiting.str("");
                             ss_topic_waiting << "/robot_0" << task.leader_robot_id << "/waiting_team";
@@ -900,12 +905,8 @@ class Event_Driven_Control : public rclcpp::Node
                             publisher_waiting_robot = this->create_publisher<interfaces::msg::WaitingTeam>(topic_waiting,10);
                             waiting_msg.waiting_team = false;
                             waiting_msg.team_robot_id = robot_id;
-                            publisher_waiting_robot->publish(waiting_msg);  
+                            publisher_waiting_robot->publish(waiting_msg); 
 
-
-                            break;
-
-                        case 3:
                             if (waiting_team == true){
                                 RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for team robot", robot_id);
                                 event_control();
