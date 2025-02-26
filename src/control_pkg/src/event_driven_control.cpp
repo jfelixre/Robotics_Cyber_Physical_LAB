@@ -292,7 +292,7 @@ class Event_Driven_Control : public rclcpp::Node
             //Check if robot work alone or with a team
 
                 //Start control when robot is leader
-            if (task.obj_size == 1){
+            if (task.obj_size == 1){    //Task for only one robot
                 switch(robot_state.robot_state){   //CHECK CASE WHEN OBJECT SIZE IS 2, must take object from different angle
 
                     case 0:
@@ -331,7 +331,7 @@ class Event_Driven_Control : public rclcpp::Node
 
                         break;
 
-                    case 1:
+                    case 1: //Aproach to object
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 1 Approach to object %d", robot_id, task.obj_id);
 
                         //save initial position
@@ -387,7 +387,7 @@ class Event_Driven_Control : public rclcpp::Node
 
                         break;
 
-                    case 2:
+                    case 2: //Last approach to object
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 2 Last approach to object %d", robot_id, task.obj_id);
 
                         objective.point.x = Xobj;   //Check to match, maybe using trigonometry depending of angle
@@ -412,7 +412,7 @@ class Event_Driven_Control : public rclcpp::Node
 
                         break;
 
-                    case 3:
+                    case 3: //Take object
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 3 Taking object %d", robot_id, task.obj_id);
                         //COMPLETE OBJECT PICK
                         //Send objective position to /tf2
@@ -438,7 +438,7 @@ class Event_Driven_Control : public rclcpp::Node
 
                         break;
 
-                    case 4:
+                    case 4: //Approach to objective point
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 4 Approach to objective point, x= %f, y= %f", robot_id, task.goal.x, task.goal.y);
 
                         objective.point.x = task.goal.x - (0.5 * cos(angle_goal));   //Check to match, maybe using trigonometry depending of angle
@@ -462,8 +462,8 @@ class Event_Driven_Control : public rclcpp::Node
                         break;
 
                     
-                    case 5:
-                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 5 Placing object on point, x= %d, y= %d", robot_id, task.goal.x, task.goal.y);
+                    case 5: //Last approach to objective point
+                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 5 Last approach to objective point, x= %d, y= %d", robot_id, task.goal.x, task.goal.y);
 
                         //COMPLETE OBJECT PLACE
                         objective.point.x = task.goal.x;   //Check to match, maybe using trigonometry depending of angle
@@ -487,7 +487,7 @@ class Event_Driven_Control : public rclcpp::Node
 
                         break;
 
-                    case 6:
+                    case 6: //Place object on point
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 5 Placing object on point, x= %d, y= %d", robot_id, task.goal.x, task.goal.y);
 
                         objective_transform.transform.translation.x = objective.point.x;
@@ -516,8 +516,8 @@ class Event_Driven_Control : public rclcpp::Node
 
                         break;
 
-                    case 7:
-                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 6 Leaving object", robot_id);
+                    case 7: //Go away from object
+                        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 6 Go away from object", robot_id);
 
                         rclcpp::sleep_for(5s);
                         
@@ -544,7 +544,7 @@ class Event_Driven_Control : public rclcpp::Node
 
                         break;
 
-                    case 8:
+                    case 8: //Back to home position
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 7 Back to home position", robot_id);
 
                         // objective.point.x = 0;   //Define home position***
@@ -564,7 +564,7 @@ class Event_Driven_Control : public rclcpp::Node
 
                         break;
 
-                    case 9:
+                    case 9: //Finish task
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 8 Task_ID %d Finished", robot_id, task.task_id);
 
                         robot_state.robot_state = 0;
@@ -573,13 +573,13 @@ class Event_Driven_Control : public rclcpp::Node
                 }
             }
                 //Start control when robot work on team
-            else {
+            else {  //Task for two robots
 
                 if (task.leader_robot_id == robot_id){   //If the robot is the leader robot
 
                     switch(robot_state.robot_state){  //CHECK CASE 1, 2 AND 3, to take object from different angle ??
 
-                        case 0:
+                        case 0: //Wait for new task
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for a new task", robot_id);
                         
                             //Obtain robot position
@@ -613,7 +613,7 @@ class Event_Driven_Control : public rclcpp::Node
                             initial_position.angle = Robang;
                             break;
 
-                        case 1:
+                        case 1: //Aproach to object
                             waiting_team = true; //Signal to wait another robot
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 1 Approach to object %d", robot_id, task.obj_id);
 
@@ -668,7 +668,7 @@ class Event_Driven_Control : public rclcpp::Node
 
                             break;
 
-                        case 2:
+                        case 2: //Last approach to object
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 2 Last approach to object %d", robot_id, task.obj_id);
                             
                             arm_objective.home_pos = false;
@@ -697,7 +697,7 @@ class Event_Driven_Control : public rclcpp::Node
                                                      
                             break;
 
-                        case 3:
+                        case 3: //Take object
                             ss_topic_waiting.str("");
                             ss_topic_waiting << "/robot_0" << team_robot_id << "/waiting_team";
                             topic_waiting = ss_topic_waiting.str();
@@ -731,20 +731,24 @@ class Event_Driven_Control : public rclcpp::Node
 
                             break;
 
-                        case 4:
-                            //MIRROR CONTROL OF LEADER ROBOT
+                        case 4: //Approach to objective point
+                            
                             break;
 
                         
-                        case 5:
-                            //MIRROR CONTROL OF LEADER ROBOT
+                        case 5: //Last approach to objective point
+                            
                             break;
 
-                        case 6:
-                            //MIRROR CONTROL OF LEADER ROBOT
+                        case 6: //Place object on point
+                            
                             break;
 
-                        case 7:
+                        case 7: //Go away from object
+                            
+                            break;
+
+                        case 8: //Back to home position
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 7 Back to home position", robot_id);
 
                             objective.point.x = 0;   //Define home position***
@@ -754,7 +758,7 @@ class Event_Driven_Control : public rclcpp::Node
                             publisher_robot_objective->publish(objective);
                             break;
 
-                        case 8:
+                        case 9: //Finish task
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 8 Task_ID %d Finished", robot_id, task.task_id);
 
                             robot_state.robot_state = 0;
@@ -764,11 +768,11 @@ class Event_Driven_Control : public rclcpp::Node
 
                 }
 
-                else{
+                else{    //If the robot is the follower robot
 
                     switch(robot_state.robot_state){  //CHECK CASE 1, 2 AND 3, to take object from different angle ??
 
-                        case 0:
+                        case 0: //Wait for new task
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for a new task", robot_id);
                         
                             //Obtain robot position
@@ -802,7 +806,7 @@ class Event_Driven_Control : public rclcpp::Node
                             initial_position.angle = Robang;
                             break;
 
-                        case 1:
+                        case 1: //Aproach to object
                             waiting_team = true; //Signal to wait another robot
                             ss_topic_waiting.str("");
                             ss_topic_waiting << "/robot_0" << task.leader_robot_id << "/waiting_team";
@@ -869,7 +873,7 @@ class Event_Driven_Control : public rclcpp::Node
                             publisher_arm_objective->publish(arm_objective);
                             break;
 
-                        case 2:
+                        case 2: //Last approach to object
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 2 Last approach to object %d", robot_id, task.obj_id);
 
                             arm_objective.home_pos = false;
@@ -896,7 +900,7 @@ class Event_Driven_Control : public rclcpp::Node
                             //RCLCPP_INFO(this->get_logger(), "Objective point x= %f, y= %f", objective.point.x, objective.point.y);
                             break;
 
-                        case 3:
+                        case 3: //Take object
 
                             ss_topic_waiting.str("");
                             ss_topic_waiting << "/robot_0" << task.leader_robot_id << "/waiting_team";
@@ -932,20 +936,25 @@ class Event_Driven_Control : public rclcpp::Node
                             
                             break;
 
-                        case 4:
+                        case 4: //Approach to objective point
                             //MIRROR CONTROL OF LEADER ROBOT
                             break;
 
                         
-                        case 5:
+                        case 5: //Last approach to objective point
                             //MIRROR CONTROL OF LEADER ROBOT
                             break;
 
-                        case 6:
+                        case 6: //Place object on point
                             //MIRROR CONTROL OF LEADER ROBOT
                             break;
 
-                        case 7:
+
+                        case 7: //Go away from object
+                            //MIRROR CONTROL OF LEADER ROBOT
+                            break;
+ 
+                        case 8: //Back to home position
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 7 Back to home position", robot_id);
 
                             objective.point.x = 0;   //Define home position***
@@ -955,7 +964,7 @@ class Event_Driven_Control : public rclcpp::Node
                             publisher_robot_objective->publish(objective);
                             break;
 
-                        case 8:
+                        case 9: //Finish task
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 8 Task_ID %d Finished", robot_id, task.task_id);
 
                             robot_state.robot_state = 0;

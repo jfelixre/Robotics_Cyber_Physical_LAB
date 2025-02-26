@@ -610,9 +610,29 @@ class Node_Control_Timer : public rclcpp::Node
             
 
             //Ganancias
+
             double Kx = 50;
             double Ky = 50;
             double Kw = 3;
+
+
+            if (hxe[k]>0.1){
+                Kx = 50;
+            }
+            else{
+                Kx = 200;
+            }
+
+            if (hye[k]>0.1){
+                Ky = 50;
+            }
+            else{
+                Ky = 200;
+            }
+            
+            
+            
+           
 
 
             Eigen::MatrixXd he(3,1);
