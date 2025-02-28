@@ -29,6 +29,9 @@
 #include <fstream>
 #include <math.h>
 #include <cstdlib>
+#include <cstring>
+#include <sstream>
+#include <string>
 
 using std::placeholders::_1;
 using namespace std::chrono_literals;
