@@ -616,14 +616,14 @@ class Node_Control_Timer : public rclcpp::Node
             double Kw = 3;
 
 
-            if (hxe[k]>0.1){
+            if (hxe[k]>0.01){
                 Kx = 50;
             }
             else{
                 Kx = 200;
             }
 
-            if (hye[k]>0.1){
+            if (hye[k]>0.01){
                 Ky = 50;
             }
             else{
