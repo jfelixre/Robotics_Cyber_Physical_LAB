@@ -29,6 +29,7 @@
 #include <tf2_ros/transform_broadcaster.h>
 #include <tf2_ros/transform_listener.h>
 #include "tf2_ros/buffer.h"
+#include <interfaces/msg/task_description.hpp>
 
 #include <rmw/qos_profiles.h>
 #include <rclcpp/qos.hpp>
@@ -54,6 +55,8 @@ std::vector<geometry_msgs::msg::Point> obstacle_position;
 std::vector<float> angle_obstacle;
 std::vector<float> type_obstacle;   //0: Robot, 1: Single object, 2: Double object
 int n_obstacles = 0;
+int leader_robot_id = 0;
+geometry_msgs::msg::Polygon path_leader;
 
 
 
@@ -115,6 +118,18 @@ class Compute_Trajectory : public rclcpp::Node
 
             client = this -> create_client<interfaces::srv::AStarService>(service_name, rclcpp::ServicesQoS(), client_cb_group);
 
+            std::stringstream ss_topic_name_3;
+            ss_topic_name_3 << "/robot_0" << robot_id << "/task_assigned";
+            std::string topic_name_3 = ss_topic_name_3.str();
+            subs_task_assigned = this->create_subscription<interfaces::msg::TaskDescription>(
+                topic_name_3, 1, std::bind(&Compute_Trajectory::task_assigned_callback, this, _1));
+
+            std::stringstream ss_topic_name_4;
+            ss_topic_name_4 << "/robot_0" << leader_robot_id << "/path";
+            std::string topic_name_4 = ss_topic_name_4.str();
+            subs_path_leader = this->create_subscription<geometry_msgs::msg::Polygon>(
+                topic_name_4, 1, std::bind(&Compute_Trajectory::path_leader_callback, this, _1));
+
             timer_ = this->create_wall_timer(
              500ms, std::bind(&Compute_Trajectory::timer_callback, this));
 
@@ -126,6 +141,57 @@ class Compute_Trajectory : public rclcpp::Node
 
         rclcpp::Client<interfaces::srv::AStarService>::SharedPtr client;
         rclcpp::CallbackGroup::SharedPtr client_cb_group;
+        rclcpp::Subscription<interfaces::msg::TaskDescription>::SharedPtr subs_task_assigned;
+        rclcpp::Subscription<geometry_msgs::msg::Polygon>::SharedPtr subs_path_leader;
+
+        void path_leader_callback(const geometry_msgs::msg::Polygon::SharedPtr path_msg)
+        {   
+            path_leader = *path_msg;
+            //convert path_leader to cv::Mat
+            // Create a blank cv::Mat to represent the leader's path
+            cv::Mat path_leader_mat = cv::Mat::zeros(n_y_spaces, n_x_spaces, CV_8UC1);
+
+            // Iterate through the points in the path_leader
+            for (const auto &point : path_leader.points)
+            {
+                // Convert the world coordinates to map coordinates
+                int x_map = static_cast<int>((point.x * n_x_spaces) / x_world) + (n_x_spaces / 2);
+                int y_map = n_y_spaces - (static_cast<int>((point.y * n_y_spaces) / y_world) + (n_y_spaces / 2));
+
+                // Ensure the coordinates are within the bounds of the matrix
+                if (x_map >= 0 && x_map < n_x_spaces && y_map >= 0 && y_map < n_y_spaces)
+                {
+                    // Mark the corresponding cell in the matrix
+                    path_leader_mat.at<uchar>(y_map, x_map) = 255; // Use 255 to represent the path
+                }
+            }
+
+            // Debug: Display the path_leader_mat
+            cv::namedWindow("Path Leader", cv::WINDOW_NORMAL);
+            cv::imshow("Path Leader", path_leader_mat);
+            cv::waitKey(1);
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Received path from leader robot");
+        }
+
+        void update_subscription(){
+            subs_path_leader.reset();
+
+            std::stringstream ss_topic_name_subs;
+            ss_topic_name_subs << "/robot_0" << leader_robot_id << "/path";
+            std::string topic_name_subs = ss_topic_name_subs.str();
+            subs_path_leader = this->create_subscription<geometry_msgs::msg::Polygon>(
+                topic_name_subs, 1, std::bind(&Compute_Trajectory::path_leader_callback, this, _1));
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Update subscription to path from leader robot %d", leader_robot_id);
+        }
+
+
+        void task_assigned_callback(const interfaces::msg::TaskDescription::SharedPtr task_msg){
+            leader_robot_id = task_msg->leader_robot_id;
+            if(leader_robot_id!=robot_id){
+                update_subscription();
+            }
+           
+        }
 
         void subs_obj_callback(const interfaces::msg::RobotObjective::SharedPtr obj_msg){
             // n_objective = obj_msg->objective;
@@ -423,6 +489,12 @@ class Compute_Trajectory : public rclcpp::Node
                 
 
             }
+
+            //If the robot_leader_id is different to robot_id, search on path_leader the red pixels and add it as a new type of obstacle of size 1x1
+            if (leader_robot_id != robot_id){
+                
+            }
+
 
             //cv::fillConvexPoly(map_bin,vertices_Tg, cv::Scalar(0));
 
