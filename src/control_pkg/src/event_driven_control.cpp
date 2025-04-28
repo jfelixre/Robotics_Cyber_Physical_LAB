@@ -372,6 +372,7 @@ class Event_Driven_Control : public rclcpp::Node
                         objective.point.z = Zobj;
                         objective.angle = Angobj;       //
                         objective.obj_id = task.obj_id;
+                        objective.robot_state = robot_state.robot_state;
                         publisher_robot_objective->publish(objective);
 
                         //Send objective position to /tf2
@@ -398,6 +399,7 @@ class Event_Driven_Control : public rclcpp::Node
                         objective.point.z = Zobj;
                         objective.angle = Angobj;       //
                         objective.obj_id = task.obj_id;
+                        objective.robot_state = robot_state.robot_state;
                         publisher_robot_objective->publish(objective);
 
                         //Send objective position to /tf2
@@ -448,6 +450,7 @@ class Event_Driven_Control : public rclcpp::Node
                         objective.point.y = task.goal.y - (0.5 * sin(angle_goal));
                         objective.angle = angle_goal;       // Define if i can select goal angle
                         objective.obj_id = task.obj_id;
+                        objective.robot_state = robot_state.robot_state;
                         publisher_robot_objective->publish(objective);
 
                         objective_transform.transform.translation.x = objective.point.x;
@@ -474,6 +477,7 @@ class Event_Driven_Control : public rclcpp::Node
                         //objective.point.z = Zobj;
                         objective.angle = angle_goal;       //
                         objective.obj_id = task.obj_id;
+                        objective.robot_state = robot_state.robot_state;
                         publisher_robot_objective->publish(objective);
 
                         objective_transform.transform.translation.x = objective.point.x;
@@ -538,6 +542,7 @@ class Event_Driven_Control : public rclcpp::Node
                         objective.point.y = task.goal.y - (0.5 * sin(angle_goal));
                         objective.angle = angle_goal;       // Define if i can select goal angle
                         objective.obj_id = task.obj_id;
+                        objective.robot_state = robot_state.robot_state;
                         publisher_robot_objective->publish(objective);
 
                         objective_transform.transform.translation.x = objective.point.x;
@@ -554,6 +559,7 @@ class Event_Driven_Control : public rclcpp::Node
                         // objective.point.y = 0;
                         // objective.angle = 0;
                         // objective.obj_id = task.obj_id;
+                        objective.robot_state = robot_state.robot_state;
                         publisher_robot_objective->publish(initial_position);
 
                         arm_objective.home_pos = true;
@@ -650,6 +656,7 @@ class Event_Driven_Control : public rclcpp::Node
                             objective.point.z = Zobj;
                             objective.angle =  (Angobj + M_PI) - static_cast<int>((Angobj + M_PI) / (2*M_PI)) * 2*M_PI;      //
                             objective.obj_id = task.obj_id;
+                            objective.robot_state = robot_state.robot_state;
                             publisher_robot_objective->publish(objective);
                             
                             //Send objective position to /tf2
@@ -688,6 +695,7 @@ class Event_Driven_Control : public rclcpp::Node
                             objective.point.z = Zobj;
                             objective.angle =  (Angobj + M_PI) - static_cast<int>((Angobj + M_PI) / (2*M_PI)) * 2*M_PI;      //
                             objective.obj_id = task.obj_id;
+                            objective.robot_state = robot_state.robot_state;
                             publisher_robot_objective->publish(objective);
                             
                             //Send objective position to /tf2
@@ -759,6 +767,7 @@ class Event_Driven_Control : public rclcpp::Node
                             objective.point.y = 0;
                             objective.angle = 0;
                             objective.obj_id = task.obj_id;
+                            objective.robot_state = robot_state.robot_state;
                             publisher_robot_objective->publish(objective);
                             break;
 
@@ -858,6 +867,7 @@ class Event_Driven_Control : public rclcpp::Node
                             objective.point.z = Zobj;
                             objective.angle = Angobj;       //
                             objective.obj_id = task.obj_id;
+                            objective.robot_state = robot_state.robot_state;
                             publisher_robot_objective->publish(objective);
 
                             //Send objective position to /tf2
@@ -894,6 +904,7 @@ class Event_Driven_Control : public rclcpp::Node
                             objective.point.z = Zobj;
                             objective.angle = Angobj;       //
                             objective.obj_id = task.obj_id;
+                            objective.robot_state = robot_state.robot_state;
                             publisher_robot_objective->publish(objective);
 
                             //Send objective position to /tf2
@@ -922,7 +933,8 @@ class Event_Driven_Control : public rclcpp::Node
 
                             if (waiting_team == true){
                                 RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for team robot", robot_id);
-                                event_control();
+                                //event_control();
+                                return;
                             }
                             else{
                                 RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 3 Taking object %d", robot_id, task.obj_id);
@@ -970,6 +982,7 @@ class Event_Driven_Control : public rclcpp::Node
                             objective.point.y = 0;
                             objective.angle = 0;
                             objective.obj_id = task.obj_id;
+                            objective.robot_state = robot_state.robot_state;
                             publisher_robot_objective->publish(objective);
                             break;
 

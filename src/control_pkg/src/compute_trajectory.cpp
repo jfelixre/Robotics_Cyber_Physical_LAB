@@ -30,6 +30,7 @@
 #include <tf2_ros/transform_listener.h>
 #include "tf2_ros/buffer.h"
 #include <interfaces/msg/task_description.hpp>
+#include <interfaces/msg/robot_state.hpp>
 
 #include <rmw/qos_profiles.h>
 #include <rclcpp/qos.hpp>
@@ -56,6 +57,7 @@ std::vector<float> angle_obstacle;
 std::vector<float> type_obstacle;   //0: Robot, 1: Single object, 2: Double object
 int n_obstacles = 0;
 int leader_robot_id = 0;
+int robot_state = 0;
 geometry_msgs::msg::Polygon path_leader;
 
 
@@ -75,6 +77,7 @@ cv::Mat map_color(n_y_spaces, n_x_spaces, CV_8UC3, cv::Scalar(255, 255, 255));
 cv::Point goal_f;
 cv::Point Robot_grip_point_f;
 cv::Point Robot_center_point_f;
+cv::Mat path_leader_mat = cv::Mat::zeros(n_y_spaces, n_x_spaces, CV_8UC1);
 
 //rclcpp::Client<interfaces::srv::AStarService>::SharedPtr client;
 
@@ -130,8 +133,10 @@ class Compute_Trajectory : public rclcpp::Node
             subs_path_leader = this->create_subscription<geometry_msgs::msg::Polygon>(
                 topic_name_4, 1, std::bind(&Compute_Trajectory::path_leader_callback, this, _1));
 
+            timer_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
+
             timer_ = this->create_wall_timer(
-             500ms, std::bind(&Compute_Trajectory::timer_callback, this));
+             500ms, std::bind(&Compute_Trajectory::timer_callback, this),timer_cb_group_);
 
            
         }
@@ -143,13 +148,17 @@ class Compute_Trajectory : public rclcpp::Node
         rclcpp::CallbackGroup::SharedPtr client_cb_group;
         rclcpp::Subscription<interfaces::msg::TaskDescription>::SharedPtr subs_task_assigned;
         rclcpp::Subscription<geometry_msgs::msg::Polygon>::SharedPtr subs_path_leader;
+        rclcpp::CallbackGroup::SharedPtr timer_cb_group_;
+
 
         void path_leader_callback(const geometry_msgs::msg::Polygon::SharedPtr path_msg)
         {   
+            
             path_leader = *path_msg;
             //convert path_leader to cv::Mat
             // Create a blank cv::Mat to represent the leader's path
-            cv::Mat path_leader_mat = cv::Mat::zeros(n_y_spaces, n_x_spaces, CV_8UC1);
+            path_leader_mat = cv::Mat::zeros(n_y_spaces, n_x_spaces, CV_8UC1);
+
 
             // Iterate through the points in the path_leader
             for (const auto &point : path_leader.points)
@@ -199,6 +208,7 @@ class Compute_Trajectory : public rclcpp::Node
             object_id = obj_msg->obj_id;
             angle_objective = obj_msg->angle;
             point_objective = obj_msg->point;
+            robot_state = obj_msg->robot_state;
 
              RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Update objective");
         }
@@ -208,7 +218,7 @@ class Compute_Trajectory : public rclcpp::Node
             
 
             
-
+            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Enter to callback");
             cv::Scalar white(255, 255, 255);
             map_color.setTo(white);   //reset the map
             //cv::namedWindow("Display_Map", cv::WINDOW_NORMAL );
@@ -273,7 +283,8 @@ class Compute_Trajectory : public rclcpp::Node
 
                     }
 
-                    else if(object_id==marker){
+                    else if(object_id==marker && robot_state >=2){
+                        //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Robot state %d", robot_state);
                         //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Object detected ID %d", object_id);
                         try{
                             geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_->lookupTransform("marker_id_00", marker_name, tf2::TimePointZero);
@@ -300,7 +311,7 @@ class Compute_Trajectory : public rclcpp::Node
                     else{
                         try{
                             geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_->lookupTransform("marker_id_00", marker_name, tf2::TimePointZero);
-                            if(object_id!=marker){
+                            //if(object_id!=marker){
                                 n_obstacles++;
                                 geometry_msgs::msg::Point obstacle_point;
                                 obstacle_point.x = transformStamped.transform.translation.x;
@@ -320,7 +331,7 @@ class Compute_Trajectory : public rclcpp::Node
                                 else if(marker>20){
                                     type_obstacle.push_back(2);
                                 }
-                            }
+                            //}
                         }
                         catch (tf2::TransformException &ex){
                             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
@@ -442,7 +453,7 @@ class Compute_Trajectory : public rclcpp::Node
 
                 double Obstacle_angle_degrees= (angle_obstacle[i]*180)/PI * -1;
                 if(type_obstacle[i]==0){
-                    cv::Size Obstacle_size(22,22);
+                    cv::Size Obstacle_size(10,10);
                     cv::RotatedRect Obstacle_rectangle(Obstacle_point, Obstacle_size, Obstacle_angle_degrees);
                     cv::Point2f vertices2f_Obstacle[4];
                     Obstacle_rectangle.points(vertices2f_Obstacle);
@@ -472,26 +483,40 @@ class Compute_Trajectory : public rclcpp::Node
                     cv::fillConvexPoly(map_bin,vertices_Obstacle, cv::Scalar(0));
                 }
                 else if(type_obstacle[i]==2){
-                    cv::Size Obstacle_size(12,4);
-                    cv::RotatedRect Obstacle_rectangle(Obstacle_point, Obstacle_size, Obstacle_angle_degrees);
-                    cv::Point2f vertices2f_Obstacle[4];
-                    Obstacle_rectangle.points(vertices2f_Obstacle);
+                        cv::Size Obstacle_size(12,12);
+                        cv::RotatedRect Obstacle_rectangle(Obstacle_point, Obstacle_size, Obstacle_angle_degrees);
+                        cv::Point2f vertices2f_Obstacle[4];
+                        Obstacle_rectangle.points(vertices2f_Obstacle);
 
-                    std::vector<cv::Point> vertices_Obstacle;
+                        std::vector<cv::Point> vertices_Obstacle;
 
-                    for(int j=0; j<4; j++){
-                        vertices_Obstacle.push_back(vertices2f_Obstacle[j]);
-                    }
+                        for(int j=0; j<4; j++){
+                            vertices_Obstacle.push_back(vertices2f_Obstacle[j]);
+                        }
 
-                    cv::fillConvexPoly(map,vertices_Obstacle, cv::Scalar(4));
-                    cv::fillConvexPoly(map_bin,vertices_Obstacle, cv::Scalar(0));
+                        cv::fillConvexPoly(map,vertices_Obstacle, cv::Scalar(4));
+                        cv::fillConvexPoly(map_bin,vertices_Obstacle, cv::Scalar(0));
+
+                    
                 }
                 
 
             }
 
-            //If the robot_leader_id is different to robot_id, search on path_leader the red pixels and add it as a new type of obstacle of size 1x1
+            //If the robot_leader_id is different to robot_id, search on path_leader_mat white pixels and mark as a 1x1 obstacle
             if (leader_robot_id != robot_id){
+                //For to search on path_leader_mat for white pixels and add it as obstacles on map and map_bin
+                for (int i = 0; i < path_leader_mat.rows; i++) {
+                    for (int j = 0; j < path_leader_mat.cols; j++) {
+                        if (path_leader_mat.at<uchar>(i, j) == 255) { // Check for white pixel
+                            // Mark the corresponding cell in map and map_bin as an obstacle
+                            map.at<uchar>(i, j) = 4; // Mark as obstacle in map
+                            map_bin.at<uchar>(i, j) = 0; // Mark as obstacle in map_bin
+                        }
+                    }
+                }
+
+
                 
             }
 
@@ -705,146 +730,12 @@ class Compute_Trajectory : public rclcpp::Node
 
             auto future = client->async_send_request(request, handle_response);
 
-             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint_7");
-
-            // cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
-            // cv::imshow("Display Image", map);
-            // cv::waitKey(1);
-
-                
-            
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          //   std::cout << "enviar request" << std::endl;
-
-//             auto result = client->async_send_request(request);
-
-// /*              
-
-//             if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), result) ==
-//                 rclcpp::FutureReturnCode::SUCCESS){
-//                     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "A_Star complete");
-//                 }
-//                 else{
-//                     RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service A_Star");
-//                 }
-// */  
-//             auto status = result.wait_for(3s);  //not spinning here!
-//             if (status == std::future_status::ready)
-//             {   
-//                 int path_size = result.get()->path_size;
-//                 RCLCPP_INFO(get_logger(), "Result received %d", result.get()->path_size);
-                
-//                 RCLCPP_INFO(get_logger(), "Checkpoint");
-
-//                 if (result.get()->path_size == 0){
-//                     RCLCPP_INFO(get_logger(), "No path found");
-//                 }
-//                 else{
-//                     RCLCPP_INFO(get_logger(), "Path found");
-//                     std::vector<int> path_x;
-//                     std::vector<int> path_y;
-
-
-                    
-
-//                     path_x.resize(path_size);
-//                     path_y.resize(path_size);
-
-//                 // std::cout << "rezise" << std::endl;
-
-
-//                     path_x = result.get()->path_y;
-//                     path_y = result.get()->path_x;
-
-//                     RCLCPP_INFO(get_logger(), "Checkpoint_2");
-//                     //int path_size = path_x.size();
-//         /*
-//                     for (int i=0; i<path_x.size(); i++){
-//                         std::cout << "x = " << path_x[i] << std::endl;
-//                         std::cout << "y = " << path_y[i] << std::endl;
-//                     }
-//         */
-//                     geometry_msgs::msg::Polygon path_msg;
-
-//                     for (int i=2; i<path_size; i++){
-//                         map_color.at<cv::Vec3b>(path_x[i], path_y[i]) = cv::Vec3b(0,0,255);
-//                         geometry_msgs::msg::Point32 point;
-//                         point.y = ((path_x[i]-(n_x_spaces/2))*x_world)/n_x_spaces * -1;
-//                         point.x = ((path_y[i]-(n_y_spaces/2))*y_world)/n_y_spaces;
-//                         path_msg.points.push_back(point);
-
-//                     }
-
-//                     int size_path = path_msg.points.size();
-//                     int size_path_ant = path_ant.points.size();
-
-//                     if (!path_msg.points.empty()){
-//                         if (size_path != size_path_ant){
-//                             publisher_path -> publish(path_msg);
-//                             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path send");
-//                         }
-//                     }
-//                     else {
-//                         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path empty......");
-//                     }
-                    
-//                     path_ant = path_msg;
-
-//                     ///////////////////////////////////////////////
-
-//                     cv::circle(map_color,Robot_point,1,cv::Scalar(0,0,255),1);
-//                     cv::circle(map_color,Robot_center_point,1,cv::Scalar(255,0,0),1);
-//                     cv::circle(map_color,goal_f,1,cv::Scalar(255,0,0),1);
-
-//                     //cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
-//                     //cv::imshow("Display Image", map);
-
-//                     cv::namedWindow("MAP_R1", cv::WINDOW_NORMAL );
-//                     cv::imshow("MAP_R1", map_color);
-//                     cv::waitKey(1);
-//                 }
-
-                
-            
-//             }
-//             else
-//             {
-//             RCLCPP_ERROR(get_logger(), "Not received");
-
-//             }
-         //    std::cout << "esperar" << std::endl;
-            //result.wait();
-           // while( result.get()->path_x.empty()){
-            //   std::cout << "esperainterfaces_for(std::chrono::milliseconds(1000));
-
-
-           // std::cout << "termina espera" << std::endl;
-
-
         }
 
 
 
     rclcpp::Subscription<interfaces::msg::RobotObjective>::SharedPtr subs_objective;
+    
     std::shared_ptr<tf2_ros::Buffer> tf_buffer_;
     std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
     std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
@@ -852,39 +743,46 @@ class Compute_Trajectory : public rclcpp::Node
     rclcpp::TimerBase::SharedPtr timer_;
 };
 
-/*
-class Node_Client_A_Star : public rclcpp::Node
-{
-    public:
-        Node_Client_A_Star() : Node("node_client_a_star")
-        {
 
+// class Node_Trajectory_Robot_State_Check : public rclcpp::Node
+// {
+//     public:
+//         Node_Trajectory_Robot_State_Check() : Node("node_trajectory_robot_state_check")
+//         {
 
-            client = this -> create_client<interfaces::srv::AStarService>("a_star_server");
-
-            //std::cout<<n_x_spaces<< std::endl;
-        }
-
-
-    private:
-
+//             std::stringstream ss_topic_name_5;
+//             ss_topic_name_5 << "robot_0" << robot_id << "/robot_state";
+//             std::string topic_name_5 = ss_topic_name_5.str();
+//             subs_robot_state = this->create_subscription<interfaces::msg::RobotState>(
+//                 topic_name_5, 1, std::bind(&Node_Trajectory_Robot_State_Check::robot_state_callback, this, _1));
             
+//         }
+
+
+//     private:
+
+//         rclcpp::Subscription<interfaces::msg::RobotState>::SharedPtr subs_robot_state;
+
+//         void robot_state_callback(const interfaces::msg::RobotState::SharedPtr state_msg){
+//             robot_state = state_msg->robot_state;
+//             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "State of robot %d is %d", robot_id, robot_state);
+//         }
         
 
-};
-*/
+// };
+
 
 
 int main(int argc, char * argv[])
 {
     rclcpp::init(argc, argv);
     //auto node = std::make_shared<Compute_Trajectory>();
-    //auto node_client_a_star = std::make_shared<Node_Client_A_Star>();
+    //auto node_trajectory_robot_state_check = std::make_shared<Node_Trajectory_Robot_State_Check>();
 
-    //rclcpp::executors::MultiThreadedExecutor executor;
-    //executor.add_node(node);
-    //executor.add_node(node_client_a_star);
-    //executor.spin();
+    // rclcpp::executors::MultiThreadedExecutor executor;
+    // executor.add_node(node);
+    // //executor.add_node(node_trajectory_robot_state_check);
+    // executor.spin();
     rclcpp::spin(std::make_shared<Compute_Trajectory>());
     rclcpp::shutdown();
     return 0;
