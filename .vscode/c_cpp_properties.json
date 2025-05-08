@@ -10,7 +10,8 @@
                 "/home/javierfr/Robotics_Cyber_Physical_LAB/install/gazebo_plugin_sim/include/**",
                 "/opt/ros/jazzy/include/**",
                 "/usr/include/**",
-                "/usr/include/opencv4/opencv2"
+                "/usr/include/opencv4/opencv2",
+                "/opt/ros/jazzy/include/tf2_sensor_msgs"
             ],
             "name": "ROS",
             "intelliSenseMode": "gcc-x64",

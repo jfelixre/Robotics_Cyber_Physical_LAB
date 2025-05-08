@@ -139,6 +139,14 @@ def generate_launch_description():
             parameters=[{'robot_id': 2}],
             )
     
+    #launch robot_state_service node for robot_02
+    robot_state_service = Node(
+            package='control_pkg',
+            namespace='robot_02',
+            executable='robot_state_service_node',
+            parameters=[{'robot_id': 2}],
+            )
+    
     #Detach Cube from robot
     detach11 = TimerAction(
         period=10.0, #Delay in seconds
@@ -190,6 +198,7 @@ def generate_launch_description():
         control_trajectory,
         robot_platform_vel,
         arm_position,
+        robot_state_service,
         detach11,
         detach12,
         detach21,

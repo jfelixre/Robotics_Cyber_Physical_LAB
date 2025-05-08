@@ -96,7 +96,20 @@
         "format": "cpp",
         "stdfloat": "cpp",
         "__nullptr": "cpp",
-        "__node_handle": "cpp"
+        "__node_handle": "cpp",
+        "csetjmp": "cpp",
+        "barrier": "cpp",
+        "coroutine": "cpp",
+        "cuchar": "cpp",
+        "netfwd": "cpp",
+        "rope": "cpp",
+        "slist": "cpp",
+        "latch": "cpp",
+        "ranges": "cpp",
+        "scoped_allocator": "cpp",
+        "spanstream": "cpp",
+        "stacktrace": "cpp",
+        "syncstream": "cpp"
     },
     "cmake.ignoreCMakeListsMissing": true
 }

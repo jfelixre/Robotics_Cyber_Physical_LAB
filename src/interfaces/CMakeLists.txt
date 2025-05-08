@@ -57,6 +57,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/ArmObjective.msg"
   "msg/DataError.msg"
   "msg/WaitingTeam.msg"
+  "srv/RobotStatus.srv"
+  "msg/FollowerRobot.msg"
   DEPENDENCIES geometry_msgs
  )
 

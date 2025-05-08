@@ -19,6 +19,8 @@
 #include <visualization_msgs/msg/marker.hpp>
 #include <interfaces/msg/arm_objective.hpp>
 #include <interfaces/msg/waiting_team.hpp>
+#include <interfaces/srv/robot_status.hpp>
+#include <interfaces/msg/follower_robot.hpp>
 
 #include <memory>
 #include <cinttypes>
@@ -59,6 +61,9 @@ int team_robot_id = 0;
 std::stringstream ss_topic_waiting;
 std::string topic_waiting;
 interfaces::msg::WaitingTeam waiting_msg;
+// std::string ss_topic_follower;
+// std::string topic_follower;
+std::stringstream ss_topic_follower;
 
 class Event_Driven_Control : public rclcpp::Node
 {
@@ -129,13 +134,19 @@ class Event_Driven_Control : public rclcpp::Node
 
             publisher_arm_objective = create_publisher<interfaces::msg::ArmObjective>(topic_arm_obj, 1);
 
-            std::stringstream ss_topic_waiting_robot;
-            ss_topic_waiting_robot << "/robot_0" << robot_id << "/waiting_team";
-            std::string topic_waiting_robot = ss_topic_waiting_robot.str();
+            // std::stringstream ss_topic_waiting_robot;
+            // ss_topic_waiting_robot << "/robot_0" << robot_id << "/waiting_team";
+            // std::string topic_waiting_robot = ss_topic_waiting_robot.str();
 
-            subscription_waiting_team = this->create_subscription<interfaces::msg::WaitingTeam>(
-                topic_waiting_robot, 10, std::bind(&Event_Driven_Control::waiting_team_callback, this, _1));
+            // subscription_waiting_team = this->create_subscription<interfaces::msg::WaitingTeam>(
+            //     topic_waiting_robot, 10, std::bind(&Event_Driven_Control::waiting_team_callback, this, _1));
+            
+            
+            ss_topic_waiting.str("");
+            ss_topic_waiting << "/robot_0" << robot_id << "/waiting_team";
+            topic_waiting = ss_topic_waiting.str();
 
+            publisher_waiting_robot = this->create_publisher<interfaces::msg::WaitingTeam>(topic_waiting,10);
 
 
 		}
@@ -185,11 +196,12 @@ class Event_Driven_Control : public rclcpp::Node
                 event_control(); //Call for new step in event driven control
             }
 
-        void waiting_team_callback(interfaces::msg::WaitingTeam::SharedPtr msg)
-            {
-                waiting_team = msg->waiting_team;
-                team_robot_id = msg->team_robot_id;
-            }
+        // void waiting_team_callback(interfaces::msg::WaitingTeam::SharedPtr msg)
+        //     {
+        //         waiting_team = msg->waiting_team;
+        //         team_robot_id = msg->team_robot_id;
+        //         RCLCPP_INFO(this->get_logger(), "Waiting team signal received from robot %d", team_robot_id);
+        //     }
 
 
         void control_finish_callback(interfaces::msg::ControlFinish::SharedPtr msg)
@@ -586,9 +598,9 @@ class Event_Driven_Control : public rclcpp::Node
 
                 if (task.leader_robot_id == robot_id){   //If the robot is the leader robot
 
-                    switch(robot_state.robot_state){  //CHECK CASE 1, 2 AND 3, to take object from different angle ??
+                    switch(robot_state.robot_state) {  //CHECK CASE 1, 2 AND 3, to take object from different angle ??
 
-                        case 0: //Wait for new task
+                        case 0: { //Wait for new task
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for a new task", robot_id);
                         
                             //Obtain robot position
@@ -621,6 +633,7 @@ class Event_Driven_Control : public rclcpp::Node
                             initial_position.point.y = Roby;
                             initial_position.angle = Robang;
                             break;
+                        }
 
                         case 1: //Aproach to object
                             waiting_team = true; //Signal to wait another robot
@@ -709,11 +722,7 @@ class Event_Driven_Control : public rclcpp::Node
                             break;
 
                         case 3: //Take object
-                            ss_topic_waiting.str("");
-                            ss_topic_waiting << "/robot_0" << team_robot_id << "/waiting_team";
-                            topic_waiting = ss_topic_waiting.str();
-
-                            publisher_waiting_robot = this->create_publisher<interfaces::msg::WaitingTeam>(topic_waiting,10);
+                            
                             waiting_msg.waiting_team = false;
                             publisher_waiting_robot->publish(waiting_msg);  
 
@@ -786,106 +795,118 @@ class Event_Driven_Control : public rclcpp::Node
                     switch(robot_state.robot_state){  //CHECK CASE 1, 2 AND 3, to take object from different angle ??
 
                         case 0: //Wait for new task
-                            RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for a new task", robot_id);
-                        
-                            //Obtain robot position
+                            {
+                                RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for a new task", robot_id);
                             
-                            try{
-                            geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", gripper_name, tf2::TimePointZero);
-                            Robx = transform.transform.translation.x;
-                            Roby = transform.transform.translation.y;
-                            Robz = transform.transform.translation.z;
+                                //Obtain robot position
+                                
+                                try{
+                                geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", gripper_name, tf2::TimePointZero);
+                                Robx = transform.transform.translation.x;
+                                Roby = transform.transform.translation.y;
+                                Robz = transform.transform.translation.z;
 
-                            tf2::Quaternion Rob_quat(transform.transform.rotation.x, transform.transform.rotation.y, transform.transform.rotation.z, transform.transform.rotation.w);
-                            tf2::Matrix3x3 Rob_m(Rob_quat);
-                            double Rob_orientation_x, Rob_orientation_y, Rob_orientation_z;
-                            Rob_m.getRPY(Rob_orientation_x, Rob_orientation_y, Rob_orientation_z);
-                            Robang= Rob_orientation_z;
+                                tf2::Quaternion Rob_quat(transform.transform.rotation.x, transform.transform.rotation.y, transform.transform.rotation.z, transform.transform.rotation.w);
+                                tf2::Matrix3x3 Rob_m(Rob_quat);
+                                double Rob_orientation_x, Rob_orientation_y, Rob_orientation_z;
+                                Rob_m.getRPY(Rob_orientation_x, Rob_orientation_y, Rob_orientation_z);
+                                Robang= Rob_orientation_z;
 
 
-                            } catch (tf2::LookupException& ex) {
-                                RCLCPP_ERROR(this->get_logger(), "Lookup exception: %s", ex.what());
-                                //return;
-                            } catch (tf2::ConnectivityException& ex) {
-                                RCLCPP_ERROR(this->get_logger(), "Connectivity exception: %s", ex.what());
-                                //return;
-                            } catch (tf2::ExtrapolationException& ex) {
-                                RCLCPP_ERROR(this->get_logger(), "Extrapolation exception: %s", ex.what());
-                                //return;
+                                } catch (tf2::LookupException& ex) {
+                                    RCLCPP_ERROR(this->get_logger(), "Lookup exception: %s", ex.what());
+                                    //return;
+                                } catch (tf2::ConnectivityException& ex) {
+                                    RCLCPP_ERROR(this->get_logger(), "Connectivity exception: %s", ex.what());
+                                    //return;
+                                } catch (tf2::ExtrapolationException& ex) {
+                                    RCLCPP_ERROR(this->get_logger(), "Extrapolation exception: %s", ex.what());
+                                    //return;
+                                }
+                                
+                                initial_position.point.x = Robx;
+                                initial_position.point.y = Roby;
+                                initial_position.angle = Robang;
+                                break;
+
+                            case 1: //Aproach to object
+                                // waiting_team = true; //Signal to wait another robot
+                                // ss_topic_waiting.str("");
+                                // ss_topic_waiting << "/robot_0" << task.leader_robot_id << "/waiting_team";
+                                // topic_waiting = ss_topic_waiting.str();
+
+                                // publisher_waiting_robot = this->create_publisher<interfaces::msg::WaitingTeam>(topic_waiting,10);
+                                // waiting_msg.waiting_team = true;
+                                // waiting_msg.team_robot_id = robot_id;
+                                // publisher_waiting_robot->publish(waiting_msg);  
+
+                                //Send to leader robot the id of the follower robot
+                                
+                                //std::stringstream ss_topic_follower;
+                                ss_topic_follower << "/robot_0" << task.leader_robot_id << "/follower_robot";
+                                std::string topic_follower = ss_topic_follower.str();
+                                publisher_follower_robot = this->create_publisher<interfaces::msg::FollowerRobot>(topic_follower,10);
+                                interfaces::msg::FollowerRobot follower_robot_msg;
+                                follower_robot_msg.follower_robot_id = robot_id;
+                                publisher_follower_robot->publish(follower_robot_msg);
+
+                                RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 1 Approach to object %d", robot_id, task.obj_id);
+
+                                //save initial position
+                                try{
+                                geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", gripper_name, tf2::TimePointZero);
+                                Robx = transform.transform.translation.x;
+                                Roby = transform.transform.translation.y;
+                                Robz = transform.transform.translation.z;
+
+                                tf2::Quaternion Rob_quat(transform.transform.rotation.x, transform.transform.rotation.y, transform.transform.rotation.z, transform.transform.rotation.w);
+                                tf2::Matrix3x3 Rob_m(Rob_quat);
+                                double Rob_orientation_x, Rob_orientation_y, Rob_orientation_z;
+                                Rob_m.getRPY(Rob_orientation_x, Rob_orientation_y, Rob_orientation_z);
+                                Robang= Rob_orientation_z;
+
+
+                                } catch (tf2::LookupException& ex) {
+                                    RCLCPP_ERROR(this->get_logger(), "Lookup exception: %s", ex.what());
+                                    //return;
+                                } catch (tf2::ConnectivityException& ex) {
+                                    RCLCPP_ERROR(this->get_logger(), "Connectivity exception: %s", ex.what());
+                                    //return;
+                                } catch (tf2::ExtrapolationException& ex) {
+                                    RCLCPP_ERROR(this->get_logger(), "Extrapolation exception: %s", ex.what());
+                                    //return;
+                                }
+                                
+                                initial_position.point.x = Robx;
+                                initial_position.point.y = Roby;
+                                initial_position.angle = Robang;
+
+                                //Send objective position
+                                objective.point.x = Xobj - (0.8 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
+                                objective.point.y = Yobj - (0.8 * sin(Angobj));
+                                objective.point.z = Zobj;
+                                objective.angle = Angobj;       //
+                                objective.obj_id = task.obj_id;
+                                objective.robot_state = robot_state.robot_state;
+                                publisher_robot_objective->publish(objective);
+
+                                //Send objective position to /tf2
+                                objective_transform.transform.translation.x = objective.point.x;
+                                objective_transform.transform.translation.y = objective.point.y;
+                                objective_transform.transform.translation.z = objective.point.z;
+
+                                RCLCPP_INFO(this->get_logger(), "Objective point x= %f, y= %f", objective.point.x, objective.point.y);
+                                
+
+                                arm_objective.home_pos = false;
+                                arm_objective.gripper = false;
+                                arm_objective.send_finish = false;
+                                arm_objective.transport_pos = false;
+                                arm_objective.obj_id = task.obj_id;
+                                arm_objective.take_pos = true;
+                                publisher_arm_objective->publish(arm_objective);
+                                break;
                             }
-                            
-                            initial_position.point.x = Robx;
-                            initial_position.point.y = Roby;
-                            initial_position.angle = Robang;
-                            break;
-
-                        case 1: //Aproach to object
-                            waiting_team = true; //Signal to wait another robot
-                            ss_topic_waiting.str("");
-                            ss_topic_waiting << "/robot_0" << task.leader_robot_id << "/waiting_team";
-                            topic_waiting = ss_topic_waiting.str();
-
-                            publisher_waiting_robot = this->create_publisher<interfaces::msg::WaitingTeam>(topic_waiting,10);
-                            waiting_msg.waiting_team = true;
-                            waiting_msg.team_robot_id = robot_id;
-                            publisher_waiting_robot->publish(waiting_msg);  
-
-                            RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 1 Approach to object %d", robot_id, task.obj_id);
-
-                            //save initial position
-                            try{
-                            geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", gripper_name, tf2::TimePointZero);
-                            Robx = transform.transform.translation.x;
-                            Roby = transform.transform.translation.y;
-                            Robz = transform.transform.translation.z;
-
-                            tf2::Quaternion Rob_quat(transform.transform.rotation.x, transform.transform.rotation.y, transform.transform.rotation.z, transform.transform.rotation.w);
-                            tf2::Matrix3x3 Rob_m(Rob_quat);
-                            double Rob_orientation_x, Rob_orientation_y, Rob_orientation_z;
-                            Rob_m.getRPY(Rob_orientation_x, Rob_orientation_y, Rob_orientation_z);
-                            Robang= Rob_orientation_z;
-
-
-                            } catch (tf2::LookupException& ex) {
-                                RCLCPP_ERROR(this->get_logger(), "Lookup exception: %s", ex.what());
-                                //return;
-                            } catch (tf2::ConnectivityException& ex) {
-                                RCLCPP_ERROR(this->get_logger(), "Connectivity exception: %s", ex.what());
-                                //return;
-                            } catch (tf2::ExtrapolationException& ex) {
-                                RCLCPP_ERROR(this->get_logger(), "Extrapolation exception: %s", ex.what());
-                                //return;
-                            }
-                            
-                            initial_position.point.x = Robx;
-                            initial_position.point.y = Roby;
-                            initial_position.angle = Robang;
-
-                            //Send objective position
-                            objective.point.x = Xobj - (0.8 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
-                            objective.point.y = Yobj - (0.8 * sin(Angobj));
-                            objective.point.z = Zobj;
-                            objective.angle = Angobj;       //
-                            objective.obj_id = task.obj_id;
-                            objective.robot_state = robot_state.robot_state;
-                            publisher_robot_objective->publish(objective);
-
-                            //Send objective position to /tf2
-                            objective_transform.transform.translation.x = objective.point.x;
-                            objective_transform.transform.translation.y = objective.point.y;
-                            objective_transform.transform.translation.z = objective.point.z;
-
-                            RCLCPP_INFO(this->get_logger(), "Objective point x= %f, y= %f", objective.point.x, objective.point.y);
-                            
-
-                            arm_objective.home_pos = false;
-                            arm_objective.gripper = false;
-                            arm_objective.send_finish = false;
-                            arm_objective.transport_pos = false;
-                            arm_objective.obj_id = task.obj_id;
-                            arm_objective.take_pos = true;
-                            publisher_arm_objective->publish(arm_objective);
-                            break;
 
                         case 2: //Last approach to object
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 2 Last approach to object %d", robot_id, task.obj_id);
@@ -1010,8 +1031,10 @@ class Event_Driven_Control : public rclcpp::Node
         rclcpp::TimerBase::SharedPtr timer_;
         rclcpp::CallbackGroup::SharedPtr timer_cb_group_;
         rclcpp::Publisher<interfaces::msg::ArmObjective>::SharedPtr publisher_arm_objective;
-        rclcpp::Subscription<interfaces::msg::WaitingTeam>::SharedPtr subscription_waiting_team;
+        //rclcpp::Subscription<interfaces::msg::WaitingTeam>::SharedPtr subscription_waiting_team;
         rclcpp::Publisher<interfaces::msg::WaitingTeam>::SharedPtr publisher_waiting_robot;
+        rclcpp::Client<interfaces::srv::RobotStatus>::SharedPtr client_robot_status;
+        rclcpp::Publisher<interfaces::msg::FollowerRobot>::SharedPtr publisher_follower_robot;
 
 };
 

@@ -1,0 +1,7 @@
+# Request
+# No fields are required in the request
+---
+
+# Response
+int32 robot_state
+bool waiting_team

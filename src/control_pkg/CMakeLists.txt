@@ -381,6 +381,22 @@ ament_target_dependencies(event_driven_control
     Eigen3
     )
 
+  add_executable(robot_state_service src/robot_state_service.cpp)
+  target_include_directories(robot_state_service PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+  ament_target_dependencies(robot_state_service
+    sensor_msgs
+    std_msgs
+    rclcpp
+    cv_bridge
+    interfaces
+    tf2
+    tf2_ros
+    geometry_msgs
+    Eigen3
+    )
+
 
 install(TARGETS
   #control_pid_p1_node
@@ -407,6 +423,7 @@ install(TARGETS
   event_driven_control
   compute_trajectory
   control_trajectory_d
+  robot_state_service
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
