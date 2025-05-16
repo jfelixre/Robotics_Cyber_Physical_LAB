@@ -86,7 +86,7 @@ def generate_launch_description():
     task_manager = Node(
             package='task_pkg',
             namespace='robot_01',
-            executable='task_manager_node',
+            executable='task_manager_node_client',
             parameters=[{'robot_id': 1}],
             )
     
@@ -94,7 +94,7 @@ def generate_launch_description():
     event_driven_control = Node(
             package='control_pkg',
             namespace='robot_01',
-            executable='event_driven_control',
+            executable='event_driven_control_refactored',
             parameters=[{'robot_id': 1}],
             )
     
@@ -143,7 +143,7 @@ def generate_launch_description():
     robot_state_service = Node(
             package='control_pkg',
             namespace='robot_01',
-            executable='robot_state_service_node',
+            executable='robot_state_service',
             parameters=[{'robot_id': 1}],
             )
     
@@ -192,13 +192,13 @@ def generate_launch_description():
         gz_robot_spawn,
         bridge,
         robot_state_publisher,
-        event_driven_control,
+        #event_driven_control,
         compute_trajectory,
         a_star_server,
         control_trajectory,
         robot_platform_vel,
         arm_position,
-        robot_state_service,
+        #robot_state_service,
         detach11,
         detach12,
         detach21,

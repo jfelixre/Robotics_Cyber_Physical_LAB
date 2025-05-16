@@ -56,7 +56,7 @@ float Z_saved = 0;
 
 interfaces::msg::RobotObjective initial_position;
 
-bool waiting_team = false;
+bool wait_for_team = false;
 int team_robot_id = 0;
 std::stringstream ss_topic_waiting;
 std::string topic_waiting;
@@ -310,7 +310,7 @@ class Event_Driven_Control : public rclcpp::Node
             if (task.obj_size == 1){    //Task for only one robot
                 switch(robot_state.robot_state){   //CHECK CASE WHEN OBJECT SIZE IS 2, must take object from different angle
 
-                    case 0:
+                    case 0: {
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for a new task", robot_id);
                         
                          //Obtain robot position
@@ -345,8 +345,9 @@ class Event_Driven_Control : public rclcpp::Node
 
 
                         break;
+                    }
 
-                    case 1: //Aproach to object
+                    case 1: {
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 1 Approach to object %d", robot_id, task.obj_id);
 
                         //save initial position
@@ -402,8 +403,9 @@ class Event_Driven_Control : public rclcpp::Node
 
 
                         break;
+                    }
 
-                    case 2: //Last approach to object
+                    case 2: {
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 2 Last approach to object %d", robot_id, task.obj_id);
 
                         objective.point.x = Xobj;   //Check to match, maybe using trigonometry depending of angle
@@ -428,8 +430,9 @@ class Event_Driven_Control : public rclcpp::Node
                         publisher_arm_objective->publish(arm_objective); 
 
                         break;
+                    }
 
-                    case 3: //Take object
+                    case 3: {
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 3 Taking object %d", robot_id, task.obj_id);
                         //COMPLETE OBJECT PICK
                         //Send objective position to /tf2
@@ -454,8 +457,9 @@ class Event_Driven_Control : public rclcpp::Node
 
 
                         break;
+                    }
 
-                    case 4: //Approach to objective point
+                    case 4: {
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 4 Approach to objective point, x= %f, y= %f", robot_id, task.goal.x, task.goal.y);
 
                         objective.point.x = task.goal.x - (0.5 * cos(angle_goal));   //Check to match, maybe using trigonometry depending of angle
@@ -478,9 +482,10 @@ class Event_Driven_Control : public rclcpp::Node
 
 
                         break;
+                    }
 
                     
-                    case 5: //Last approach to objective point
+                    case 5: {
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 5 Last approach to objective point, x= %d, y= %d", robot_id, task.goal.x, task.goal.y);
 
                         //COMPLETE OBJECT PLACE
@@ -505,8 +510,9 @@ class Event_Driven_Control : public rclcpp::Node
 
 
                         break;
+                    }
 
-                    case 6: //Place object on point
+                    case 6: {
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 5 Placing object on point, x= %d, y= %d", robot_id, task.goal.x, task.goal.y);
 
                         objective_transform.transform.translation.x = objective.point.x;
@@ -534,8 +540,9 @@ class Event_Driven_Control : public rclcpp::Node
 
 
                         break;
+                    }
 
-                    case 7: //Go away from object
+                    case 7: {
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 6 Go away from object", robot_id);
 
                         rclcpp::sleep_for(5s);
@@ -563,8 +570,9 @@ class Event_Driven_Control : public rclcpp::Node
                         
 
                         break;
+                    }
 
-                    case 8: //Back to home position
+                    case 8: {
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 7 Back to home position", robot_id);
 
                         // objective.point.x = 0;   //Define home position***
@@ -584,13 +592,15 @@ class Event_Driven_Control : public rclcpp::Node
 
 
                         break;
+                    }
 
-                    case 9: //Finish task
+                    case 9: {
                         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 8 Task_ID %d Finished", robot_id, task.task_id);
 
                         robot_state.robot_state = 0;
                         publisher_robot_state -> publish(robot_state);
                         break;
+                    }
                 }
             }
                 //Start control when robot work on team
@@ -600,7 +610,7 @@ class Event_Driven_Control : public rclcpp::Node
 
                     switch(robot_state.robot_state) {  //CHECK CASE 1, 2 AND 3, to take object from different angle ??
 
-                        case 0: { //Wait for new task
+                        case 0: {  //Wait for new task
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for a new task", robot_id);
                         
                             //Obtain robot position
@@ -634,9 +644,10 @@ class Event_Driven_Control : public rclcpp::Node
                             initial_position.angle = Robang;
                             break;
                         }
+                        
 
-                        case 1: //Aproach to object
-                            waiting_team = true; //Signal to wait another robot
+                        case 1: { //Aproach to object
+                            //waiting_team = true; //Signal to wait another robot
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 1 Approach to object %d", robot_id, task.obj_id);
 
                             //save initial position
@@ -690,8 +701,9 @@ class Event_Driven_Control : public rclcpp::Node
 
 
                             break;
+                        }
 
-                        case 2: //Last approach to object
+                        case 2: { //Last approach to object
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 2 Last approach to object %d", robot_id, task.obj_id);
                             
                             arm_objective.home_pos = false;
@@ -720,16 +732,53 @@ class Event_Driven_Control : public rclcpp::Node
 
                                                      
                             break;
+                        }
 
-                        case 3: //Take object
+                        case 3: {
                             
-                            waiting_msg.waiting_team = false;
-                            publisher_waiting_robot->publish(waiting_msg);  
+                            RCLCPP_INFO(this->get_logger(), "Inicio de fase 3");
 
-                            if (waiting_team == true){
-                                RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for team robot", robot_id);
-                                //event_control();
+                            
+                            wait_for_team = true; //Signal to wait another robot
+                            waiting_msg.waiting_team = true; //Signal to wait another robot
+                            publisher_waiting_robot->publish(waiting_msg);
+
+                            int new_id;
+                            if (task.leader_robot_id == 1){
+                                new_id = 2;
+                            }
+                            else{
+                                new_id = 1;
+                            }
+
+
+                            client_robot_status = this->create_client<interfaces::srv::RobotStatus>("/robot_0" + std::to_string(new_id) + "/robot_status");
+
+                            auto request = std::make_shared<interfaces::srv::RobotStatus::Request>();
+
+                            if (!client_robot_status->wait_for_service(1s)) {
+                                RCLCPP_ERROR(this->get_logger(), "Service not available. Exiting callback.");
                                 return;
+                            }
+
+                            // Send the request and wait for the response
+                            auto future = client_robot_status->async_send_request(request);
+                            if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), future) == rclcpp::FutureReturnCode::SUCCESS) {
+                                auto response = future.get();
+                                RCLCPP_INFO(this->get_logger(), "Response from service: State=%d, Waiting=%s",
+                                            response->robot_state, response->waiting_team ? "true" : "false");
+
+                                if (response->robot_state == 3 && response->waiting_team) {
+                                    wait_for_team = false;
+                                }
+                            } else {
+                                RCLCPP_ERROR(this->get_logger(), "Failed to call service.");
+                            }
+
+                            if (wait_for_team == true){
+                                RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for team robot", robot_id);
+                                //Go to init of phase 3
+
                             }
                             else{
                                 RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 3 Taking object %d", robot_id, task.obj_id);
@@ -751,25 +800,30 @@ class Event_Driven_Control : public rclcpp::Node
                             }
 
                             break;
+                        }
 
-                        case 4: //Approach to objective point
+                        case 4: {
                             
                             break;
+                        }
 
                         
-                        case 5: //Last approach to objective point
+                        case 5: {
                             
                             break;
+                        }
 
-                        case 6: //Place object on point
+                        case 6: {
                             
                             break;
+                        }
 
-                        case 7: //Go away from object
+                        case 7: {
                             
                             break;
+                        }
 
-                        case 8: //Back to home position
+                        case 8: {
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 7 Back to home position", robot_id);
 
                             objective.point.x = 0;   //Define home position***
@@ -779,13 +833,15 @@ class Event_Driven_Control : public rclcpp::Node
                             objective.robot_state = robot_state.robot_state;
                             publisher_robot_objective->publish(objective);
                             break;
+                        }
 
-                        case 9: //Finish task
+                        case 9: {
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 8 Task_ID %d Finished", robot_id, task.task_id);
 
                             robot_state.robot_state = 0;
                             publisher_robot_state -> publish(robot_state);
                             break;
+                        }
                     }
 
                 }
@@ -794,121 +850,122 @@ class Event_Driven_Control : public rclcpp::Node
 
                     switch(robot_state.robot_state){  //CHECK CASE 1, 2 AND 3, to take object from different angle ??
 
-                        case 0: //Wait for new task
-                            {
-                                RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for a new task", robot_id);
+                        case 0: {
+                            RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for a new task", robot_id);
+                        
+                            //Obtain robot position
                             
-                                //Obtain robot position
-                                
-                                try{
-                                geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", gripper_name, tf2::TimePointZero);
-                                Robx = transform.transform.translation.x;
-                                Roby = transform.transform.translation.y;
-                                Robz = transform.transform.translation.z;
+                            try{
+                            geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", gripper_name, tf2::TimePointZero);
+                            Robx = transform.transform.translation.x;
+                            Roby = transform.transform.translation.y;
+                            Robz = transform.transform.translation.z;
 
-                                tf2::Quaternion Rob_quat(transform.transform.rotation.x, transform.transform.rotation.y, transform.transform.rotation.z, transform.transform.rotation.w);
-                                tf2::Matrix3x3 Rob_m(Rob_quat);
-                                double Rob_orientation_x, Rob_orientation_y, Rob_orientation_z;
-                                Rob_m.getRPY(Rob_orientation_x, Rob_orientation_y, Rob_orientation_z);
-                                Robang= Rob_orientation_z;
+                            tf2::Quaternion Rob_quat(transform.transform.rotation.x, transform.transform.rotation.y, transform.transform.rotation.z, transform.transform.rotation.w);
+                            tf2::Matrix3x3 Rob_m(Rob_quat);
+                            double Rob_orientation_x, Rob_orientation_y, Rob_orientation_z;
+                            Rob_m.getRPY(Rob_orientation_x, Rob_orientation_y, Rob_orientation_z);
+                            Robang= Rob_orientation_z;
 
 
-                                } catch (tf2::LookupException& ex) {
-                                    RCLCPP_ERROR(this->get_logger(), "Lookup exception: %s", ex.what());
-                                    //return;
-                                } catch (tf2::ConnectivityException& ex) {
-                                    RCLCPP_ERROR(this->get_logger(), "Connectivity exception: %s", ex.what());
-                                    //return;
-                                } catch (tf2::ExtrapolationException& ex) {
-                                    RCLCPP_ERROR(this->get_logger(), "Extrapolation exception: %s", ex.what());
-                                    //return;
-                                }
-                                
-                                initial_position.point.x = Robx;
-                                initial_position.point.y = Roby;
-                                initial_position.angle = Robang;
-                                break;
-
-                            case 1: //Aproach to object
-                                // waiting_team = true; //Signal to wait another robot
-                                // ss_topic_waiting.str("");
-                                // ss_topic_waiting << "/robot_0" << task.leader_robot_id << "/waiting_team";
-                                // topic_waiting = ss_topic_waiting.str();
-
-                                // publisher_waiting_robot = this->create_publisher<interfaces::msg::WaitingTeam>(topic_waiting,10);
-                                // waiting_msg.waiting_team = true;
-                                // waiting_msg.team_robot_id = robot_id;
-                                // publisher_waiting_robot->publish(waiting_msg);  
-
-                                //Send to leader robot the id of the follower robot
-                                
-                                //std::stringstream ss_topic_follower;
-                                ss_topic_follower << "/robot_0" << task.leader_robot_id << "/follower_robot";
-                                std::string topic_follower = ss_topic_follower.str();
-                                publisher_follower_robot = this->create_publisher<interfaces::msg::FollowerRobot>(topic_follower,10);
-                                interfaces::msg::FollowerRobot follower_robot_msg;
-                                follower_robot_msg.follower_robot_id = robot_id;
-                                publisher_follower_robot->publish(follower_robot_msg);
-
-                                RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 1 Approach to object %d", robot_id, task.obj_id);
-
-                                //save initial position
-                                try{
-                                geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", gripper_name, tf2::TimePointZero);
-                                Robx = transform.transform.translation.x;
-                                Roby = transform.transform.translation.y;
-                                Robz = transform.transform.translation.z;
-
-                                tf2::Quaternion Rob_quat(transform.transform.rotation.x, transform.transform.rotation.y, transform.transform.rotation.z, transform.transform.rotation.w);
-                                tf2::Matrix3x3 Rob_m(Rob_quat);
-                                double Rob_orientation_x, Rob_orientation_y, Rob_orientation_z;
-                                Rob_m.getRPY(Rob_orientation_x, Rob_orientation_y, Rob_orientation_z);
-                                Robang= Rob_orientation_z;
-
-
-                                } catch (tf2::LookupException& ex) {
-                                    RCLCPP_ERROR(this->get_logger(), "Lookup exception: %s", ex.what());
-                                    //return;
-                                } catch (tf2::ConnectivityException& ex) {
-                                    RCLCPP_ERROR(this->get_logger(), "Connectivity exception: %s", ex.what());
-                                    //return;
-                                } catch (tf2::ExtrapolationException& ex) {
-                                    RCLCPP_ERROR(this->get_logger(), "Extrapolation exception: %s", ex.what());
-                                    //return;
-                                }
-                                
-                                initial_position.point.x = Robx;
-                                initial_position.point.y = Roby;
-                                initial_position.angle = Robang;
-
-                                //Send objective position
-                                objective.point.x = Xobj - (0.8 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
-                                objective.point.y = Yobj - (0.8 * sin(Angobj));
-                                objective.point.z = Zobj;
-                                objective.angle = Angobj;       //
-                                objective.obj_id = task.obj_id;
-                                objective.robot_state = robot_state.robot_state;
-                                publisher_robot_objective->publish(objective);
-
-                                //Send objective position to /tf2
-                                objective_transform.transform.translation.x = objective.point.x;
-                                objective_transform.transform.translation.y = objective.point.y;
-                                objective_transform.transform.translation.z = objective.point.z;
-
-                                RCLCPP_INFO(this->get_logger(), "Objective point x= %f, y= %f", objective.point.x, objective.point.y);
-                                
-
-                                arm_objective.home_pos = false;
-                                arm_objective.gripper = false;
-                                arm_objective.send_finish = false;
-                                arm_objective.transport_pos = false;
-                                arm_objective.obj_id = task.obj_id;
-                                arm_objective.take_pos = true;
-                                publisher_arm_objective->publish(arm_objective);
-                                break;
+                            } catch (tf2::LookupException& ex) {
+                                RCLCPP_ERROR(this->get_logger(), "Lookup exception: %s", ex.what());
+                                //return;
+                            } catch (tf2::ConnectivityException& ex) {
+                                RCLCPP_ERROR(this->get_logger(), "Connectivity exception: %s", ex.what());
+                                //return;
+                            } catch (tf2::ExtrapolationException& ex) {
+                                RCLCPP_ERROR(this->get_logger(), "Extrapolation exception: %s", ex.what());
+                                //return;
                             }
+                            
+                            initial_position.point.x = Robx;
+                            initial_position.point.y = Roby;
+                            initial_position.angle = Robang;
+                            break;
+                        }
 
-                        case 2: //Last approach to object
+                        case 1: {
+                            // waiting_team = true; //Signal to wait another robot
+                            // ss_topic_waiting.str("");
+                            // ss_topic_waiting << "/robot_0" << task.leader_robot_id << "/waiting_team";
+                            // topic_waiting = ss_topic_waiting.str();
+
+                            // publisher_waiting_robot = this->create_publisher<interfaces::msg::WaitingTeam>(topic_waiting,10);
+                            // waiting_msg.waiting_team = true;
+                            // waiting_msg.team_robot_id = robot_id;
+                            // publisher_waiting_robot->publish(waiting_msg);  
+
+                            //Send to leader robot the id of the follower robot
+                            
+                            //std::stringstream ss_topic_follower;
+                            ss_topic_follower << "/robot_0" << task.leader_robot_id << "/follower_robot";
+                            std::string topic_follower = ss_topic_follower.str();
+                            publisher_follower_robot = this->create_publisher<interfaces::msg::FollowerRobot>(topic_follower,10);
+                            interfaces::msg::FollowerRobot follower_robot_msg;
+                            follower_robot_msg.follower_robot_id = robot_id;
+                            publisher_follower_robot->publish(follower_robot_msg);
+
+                            RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 1 Approach to object %d", robot_id, task.obj_id);
+
+                            //save initial position
+                            try{
+                            geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", gripper_name, tf2::TimePointZero);
+                            Robx = transform.transform.translation.x;
+                            Roby = transform.transform.translation.y;
+                            Robz = transform.transform.translation.z;
+
+                            tf2::Quaternion Rob_quat(transform.transform.rotation.x, transform.transform.rotation.y, transform.transform.rotation.z, transform.transform.rotation.w);
+                            tf2::Matrix3x3 Rob_m(Rob_quat);
+                            double Rob_orientation_x, Rob_orientation_y, Rob_orientation_z;
+                            Rob_m.getRPY(Rob_orientation_x, Rob_orientation_y, Rob_orientation_z);
+                            Robang= Rob_orientation_z;
+
+
+                            } catch (tf2::LookupException& ex) {
+                                RCLCPP_ERROR(this->get_logger(), "Lookup exception: %s", ex.what());
+                                //return;
+                            } catch (tf2::ConnectivityException& ex) {
+                                RCLCPP_ERROR(this->get_logger(), "Connectivity exception: %s", ex.what());
+                                //return;
+                            } catch (tf2::ExtrapolationException& ex) {
+                                RCLCPP_ERROR(this->get_logger(), "Extrapolation exception: %s", ex.what());
+                                //return;
+                            }
+                            
+                            initial_position.point.x = Robx;
+                            initial_position.point.y = Roby;
+                            initial_position.angle = Robang;
+
+                            //Send objective position
+                            objective.point.x = Xobj - (0.8 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
+                            objective.point.y = Yobj - (0.8 * sin(Angobj));
+                            objective.point.z = Zobj;
+                            objective.angle = Angobj;       //
+                            objective.obj_id = task.obj_id;
+                            objective.robot_state = robot_state.robot_state;
+                            publisher_robot_objective->publish(objective);
+
+                            //Send objective position to /tf2
+                            objective_transform.transform.translation.x = objective.point.x;
+                            objective_transform.transform.translation.y = objective.point.y;
+                            objective_transform.transform.translation.z = objective.point.z;
+
+                            RCLCPP_INFO(this->get_logger(), "Objective point x= %f, y= %f", objective.point.x, objective.point.y);
+                            
+
+                            arm_objective.home_pos = false;
+                            arm_objective.gripper = false;
+                            arm_objective.send_finish = false;
+                            arm_objective.transport_pos = false;
+                            arm_objective.obj_id = task.obj_id;
+                            arm_objective.take_pos = true;
+                            publisher_arm_objective->publish(arm_objective);
+                            break;
+                        }
+                            
+
+                        case 2: {
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 2 Last approach to object %d", robot_id, task.obj_id);
 
                             arm_objective.home_pos = false;
@@ -935,29 +992,46 @@ class Event_Driven_Control : public rclcpp::Node
 
                             //RCLCPP_INFO(this->get_logger(), "Objective point x= %f, y= %f", objective.point.x, objective.point.y);
                             break;
+                        }
 
-                        case 3: //Take object
+                        case 3: {
                             RCLCPP_INFO(this->get_logger(), "Inicio de fase 3");
-                            ss_topic_waiting.str("");
-                            ss_topic_waiting << "/robot_0" << task.leader_robot_id << "/waiting_team";
-                            topic_waiting = ss_topic_waiting.str();
 
-                            RCLCPP_INFO(this->get_logger(), "Antes de crear el publisher");
-                            publisher_waiting_robot = this->create_publisher<interfaces::msg::WaitingTeam>(topic_waiting,10);
-                            RCLCPP_INFO(this->get_logger(), "Despues de crear el publisher");
-                            waiting_msg.waiting_team = false;
-                            waiting_msg.team_robot_id = robot_id;
-                            RCLCPP_INFO(this->get_logger(), "Antes de publicar");
-                            publisher_waiting_robot->publish(waiting_msg); 
-                            RCLCPP_INFO(this->get_logger(), "Despues de publicar");
-                            publisher_waiting_robot.reset();
+                            
+                            wait_for_team = true; //Signal to wait another robot
+                            waiting_msg.waiting_team = true; //Signal to wait another robot
+                            publisher_waiting_robot->publish(waiting_msg);
 
-                            if (waiting_team == true){
-                                RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for team robot", robot_id);
-                                //event_control();
+                            client_robot_status = this->create_client<interfaces::srv::RobotStatus>("/robot_0" + std::to_string(task.leader_robot_id) + "/robot_status");
+
+                            auto request = std::make_shared<interfaces::srv::RobotStatus::Request>();
+
+                            if (!client_robot_status->wait_for_service(1s)) {
+                                RCLCPP_ERROR(this->get_logger(), "Service not available. Exiting callback.");
                                 return;
                             }
+
+                            // Send the request and wait for the response
+                            auto future = client_robot_status->async_send_request(request);
+                            if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), future) == rclcpp::FutureReturnCode::SUCCESS) {
+                                auto response = future.get();
+                                RCLCPP_INFO(this->get_logger(), "Response from service: State=%d, Waiting=%s",
+                                            response->robot_state, response->waiting_team ? "true" : "false");
+
+                                if (response->robot_state == 3 && response->waiting_team) {
+                                    wait_for_team = false;
+                                }
+                            } else {
+                                RCLCPP_ERROR(this->get_logger(), "Failed to call service.");
+                            }
+
+                            if (wait_for_team == true){
+                                RCLCPP_INFO(this->get_logger(), "Robot_ID %d waiting for team robot", robot_id);
+                                //Go to init of phase 3
+
+                            }
                             else{
+                                RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 3 Taking object %d", robot_id, task.obj_id);
                                 RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 3 Taking object %d", robot_id, task.obj_id);
                                 arm_objective.home_pos = false;
                                 arm_objective.gripper = true;
@@ -973,30 +1047,37 @@ class Event_Driven_Control : public rclcpp::Node
                                 arm_objective.send_finish = true;
                                 arm_objective.transport_pos = true;
                                 publisher_arm_objective->publish(arm_objective); 
+
                             }
 
                             
-                            break;
 
-                        case 4: //Approach to objective point
+                            break;
+                        }
+
+                        case 4: {
                             //MIRROR CONTROL OF LEADER ROBOT
                             break;
+                        }
 
                         
-                        case 5: //Last approach to objective point
+                        case 5: {
                             //MIRROR CONTROL OF LEADER ROBOT
                             break;
+                        }
 
-                        case 6: //Place object on point
+                        case 6: {
                             //MIRROR CONTROL OF LEADER ROBOT
                             break;
+                        }
 
 
-                        case 7: //Go away from object
+                        case 7: {
                             //MIRROR CONTROL OF LEADER ROBOT
                             break;
+                        }
  
-                        case 8: //Back to home position
+                        case 8: {
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 7 Back to home position", robot_id);
 
                             objective.point.x = 0;   //Define home position***
@@ -1006,13 +1087,15 @@ class Event_Driven_Control : public rclcpp::Node
                             objective.robot_state = robot_state.robot_state;
                             publisher_robot_objective->publish(objective);
                             break;
+                        }
 
-                        case 9: //Finish task
+                        case 9: {
                             RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 8 Task_ID %d Finished", robot_id, task.task_id);
 
                             robot_state.robot_state = 0;
                             publisher_robot_state -> publish(robot_state);
                             break;
+                        }
                     }
 
                 }

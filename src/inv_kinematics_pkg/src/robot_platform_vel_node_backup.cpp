@@ -2,15 +2,12 @@
 #include "interfaces/msg/platform_vel.hpp"
 #include <std_msgs/msg/float64.h>
 #include <std_msgs/msg/float64.hpp>
-#include <std_msgs/msg/bool.hpp>
 
 
 #include <memory>
 #include <cinttypes>
 
 int robot_id=0;
-float copy_vel_x, copy_vel_y, copy_vel_ang;
-bool copy_vel_flag = false;
 
 class Robot_Platform_Vel_Node : public rclcpp::Node
 {
@@ -74,12 +71,6 @@ class Robot_Platform_Vel_Node : public rclcpp::Node
 			float vely = request->y_vel;
 			float velang = request-> ang_vel;
 
-			if(copy_vel_flag){
-				velx = copy_vel_x * -1;
-				vely = copy_vel_y * -1;
-				velang = copy_vel_ang * -1;
-			}
-
 			float La = 128.9375;
 			float Lb = 109.379;
 			float R = 100/2;
@@ -118,68 +109,16 @@ class Robot_Platform_Vel_Node : public rclcpp::Node
 };
 
 
-class Node_Copy : public rclcpp::Node
-{
-	public:
-		Node_Copy() : Node("node_copy")
-		{	
-			//delay
-			rclcpp::sleep_for(std::chrono::seconds(5));
-			RCLCPP_INFO(this->get_logger(), "Node Copy started");
 
-			std::string subs_copy_control_topic = "/robot_0" + std::to_string(robot_id) + "/copy_control";
-			subs_copy = this->create_subscription<std_msgs::msg::Bool>(
-				subs_copy_control_topic, 1, std::bind(&Node_Copy::copy_callback, this, std::placeholders::_1));
-
-
-			std::string copy_vel_topic;
-			if (robot_id == 1){
-				copy_vel_topic = "/robot_02/set_platform_vel";
-			}
-			else{
-				copy_vel_topic = "/robot_01/set_platform_vel";
-			}
-
-			subs_platform_vel_copy = this->create_subscription<interfaces::msg::PlatformVel>(
-				copy_vel_topic, 1, std::bind(&Node_Copy::copy_vel_callback, this, std::placeholders::_1));
-
-
-
-		}
-
-		private:
-		rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr subs_copy;
-		rclcpp::Subscription<interfaces::msg::PlatformVel>::SharedPtr subs_platform_vel_copy;
-
-		void copy_callback(const std_msgs::msg::Bool::SharedPtr msg)
-		{
-			copy_vel_flag = msg->data;
-			RCLCPP_INFO(this->get_logger(), "Copy Vel Flag: %s", copy_vel_flag ? "true" : "false");
-		}
-
-		void copy_vel_callback(const interfaces::msg::PlatformVel::SharedPtr msg)
-		{
-			if (copy_vel_flag) {
-				copy_vel_x = msg->x_vel;
-				copy_vel_y = msg->y_vel;
-				copy_vel_ang = msg->ang_vel;
-
-				RCLCPP_INFO(this->get_logger(), "Velocities copied");
-			}
-		}
-
-};
 
 int main(int argc, char **argv)
 {
   rclcpp::init(argc, argv);
 
   auto node = std::make_shared<Robot_Platform_Vel_Node>();
-  auto node_copy = std::make_shared<Node_Copy>();
 
   rclcpp::executors::MultiThreadedExecutor executor;
     executor.add_node(node);
-	executor.add_node(node_copy);
 
 	executor.spin();
 

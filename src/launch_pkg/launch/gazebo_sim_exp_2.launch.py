@@ -120,7 +120,15 @@ def generate_launch_description():
     #Launch task scheduler node
     task_scheduler = ExecuteProcess(
         cmd=[[
-            'ros2 run task_pkg task_scheduler_node'
+            'ros2 run task_pkg task_scheduler_node_service'
+        ]],
+        shell=True
+    )
+
+    #Launch team ready node
+    team_ready = ExecuteProcess(
+        cmd=[[
+            'ros2 run control_pkg team_ready_node'
         ]],
         shell=True
     )
@@ -137,5 +145,6 @@ def generate_launch_description():
         # launch_cube_id_11,
         # launch_cube_id_12,
         launch_cube_id_21,
+        team_ready,
         
     ])

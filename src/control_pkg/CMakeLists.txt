@@ -397,6 +397,44 @@ ament_target_dependencies(event_driven_control
     Eigen3
     )
 
+    add_executable(event_driven_control_refactored src/event_driven_control_refactored.cpp)
+    target_include_directories(event_driven_control_refactored PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
+    
+    ament_target_dependencies(event_driven_control_refactored
+      sensor_msgs
+      std_msgs
+      rclcpp
+      cv_bridge
+      interfaces
+      tf2
+      tf2_ros
+      geometry_msgs
+      tf2_sensor_msgs
+      visualization_msgs
+    
+      )
+
+add_executable(team_ready_node src/team_ready_node.cpp)
+target_include_directories(team_ready_node PUBLIC
+$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+$<INSTALL_INTERFACE:include>)
+
+ament_target_dependencies(team_ready_node
+  sensor_msgs
+  std_msgs
+  rclcpp
+  cv_bridge
+  interfaces
+  tf2
+  tf2_ros
+  geometry_msgs
+  tf2_sensor_msgs
+  visualization_msgs
+
+  )
+
 
 install(TARGETS
   #control_pid_p1_node
@@ -424,6 +462,8 @@ install(TARGETS
   compute_trajectory
   control_trajectory_d
   robot_state_service
+  event_driven_control_refactored
+  team_ready_node
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
