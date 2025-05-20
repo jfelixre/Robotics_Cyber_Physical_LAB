@@ -59,6 +59,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/WaitingTeam.msg"
   "srv/RobotStatus.srv"
   "msg/FollowerRobot.msg"
+  "msg/LeaderRobot.msg"
   DEPENDENCIES geometry_msgs
  )
 

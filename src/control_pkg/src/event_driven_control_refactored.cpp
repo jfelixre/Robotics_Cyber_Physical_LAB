@@ -17,6 +17,8 @@
 #include <sstream>
 #include <cmath>
 #include <std_msgs/msg/bool.hpp>
+#include <interfaces/msg/control_finish.hpp>
+#include <interfaces/msg/leader_robot.hpp>
 
 using namespace std::chrono_literals;
 bool team_ready = false;
@@ -75,6 +77,8 @@ private:
     rclcpp::Publisher<interfaces::msg::FollowerRobot>::SharedPtr publisher_follower_robot;
     rclcpp::Publisher<interfaces::msg::WaitingTeam>::SharedPtr publisher_waiting_robot;
     rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr publisher_copy_control;
+    rclcpp::Publisher<interfaces::msg::ControlFinish>::SharedPtr publisher_control_finish_team_robot;
+    rclcpp::Publisher<interfaces::msg::LeaderRobot>::SharedPtr publisher_leader_robot;
 
     void setup_publishers_and_subscribers() {
         std::string tasktopic = "/robot_0" + std::to_string(robot_id) + "/task_assigned";
@@ -100,6 +104,18 @@ private:
 
         std::string publisher_copy_control_topic = "/robot_0" + std::to_string(robot_id) + "/copy_control";
         publisher_copy_control = this->create_publisher<std_msgs::msg::Bool>(publisher_copy_control_topic, 10);
+
+        std::string publisher_finish_topic;
+        if (robot_id == 1) {
+            publisher_finish_topic = "/robot_02/control_finish";
+        } else {
+            publisher_finish_topic = "/robot_01/control_finish";
+        }
+        publisher_control_finish_team_robot = this->create_publisher<interfaces::msg::ControlFinish>(publisher_finish_topic, 10);
+
+        publisher_leader_robot = this-> create_publisher<interfaces::msg::LeaderRobot>("/leader_robot_id",10);
+
+
     }
 
     void setup_tf_components() {
@@ -304,9 +320,9 @@ private:
                     //return;
                 }
                 
-                initial_position.point.x = Robx;
-                initial_position.point.y = Roby;
-                initial_position.angle = Robang;
+                // initial_position.point.x = Robx;
+                // initial_position.point.y = Roby;
+                // initial_position.angle = Robang;
 
                 //Send objective position
                 objective.point.x = Xobj - (0.5 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
@@ -354,9 +370,9 @@ private:
                         //return;
                     }
                     
-                    initial_position.point.x = Robx;
-                    initial_position.point.y = Roby;
-                    initial_position.angle = Robang;
+                    // initial_position.point.x = Robx;
+                    // initial_position.point.y = Roby;
+                    // initial_position.angle = Robang;
 
                     //Send objective position
                     objective.point.x = Xobj + (0.8 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
@@ -420,9 +436,9 @@ private:
                                 //return;
                             }
                             
-                            initial_position.point.x = Robx;
-                            initial_position.point.y = Roby;
-                            initial_position.angle = Robang;
+                            // initial_position.point.x = Robx;
+                            // initial_position.point.y = Roby;
+                            // initial_position.angle = Robang;
 
                             //Send objective position
                             objective.point.x = Xobj - (0.8 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
@@ -611,6 +627,7 @@ private:
                 //timer to wait robot close gripper
                 rclcpp::sleep_for(10s);
 
+                arm_objective.take_pos = false;
                 arm_objective.send_finish = true;
                 arm_objective.transport_pos = true;
                 publisher_arm_objective->publish(arm_objective); 
@@ -622,6 +639,11 @@ private:
     void phase_four_transport() {
 
         RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 4 Transporting object %d", robot_id, task.obj_id);
+        interfaces::msg::LeaderRobot msg_leader;
+        msg_leader.leader_robot_id = task.leader_robot_id;
+        publisher_leader_robot->publish(msg_leader);
+
+
 
         
         if (task.obj_size == 1) { //Logic for object size = 1 (One robot needed) *************************************************************************************************************
@@ -645,12 +667,18 @@ private:
         }
 
         else if (task.obj_size == 2) { //Logic for object size = 2 (Two robots needed)
+
+            arm_objective.take_pos = false;
+            arm_objective.send_finish = false;
+            arm_objective.transport_pos = true;
+            publisher_arm_objective->publish(arm_objective);
             
             if (task.robot_id == task.leader_robot_id) {  //Logic for leader robot **************************************************************************************************************
                //Send objective position
-               objective.point.x = task.goal.x - (0.8 * cos(angle_goal));   //Check to match, maybe using trigonometry depending of angle
-               objective.point.y = task.goal.y - (0.8 * sin(angle_goal));
-               objective.angle =  (angle_goal + M_PI) - static_cast<int>((angle_goal + M_PI) / (2*M_PI)) * 2*M_PI;      //
+               objective.point.x = task.goal.x + (0.5 * cos(-M_PI));   //Check to match, maybe using trigonometry depending of angle
+               objective.point.y = task.goal.y + (0.5 * sin(-M_PI));
+               //objective.angle =  (angle_goal + M_PI) - static_cast<int>((angle_goal + M_PI) / (2*M_PI)) * 2*M_PI;      //
+               objective.angle = 0;   //Hay algo mal aqui*/-*/*/*/*/*/*
                objective.obj_id = task.obj_id;
                objective.robot_state = robot_state.robot_state;
                publisher_robot_objective->publish(objective);
@@ -667,6 +695,9 @@ private:
                 publisher_copy_control->publish(copy_message);
                 RCLCPP_INFO(this->get_logger(), "Copying leader movements");
                 publisher_copy_control->publish(copy_message);
+
+                objective.angle =  M_PI; 
+                publisher_robot_objective->publish(objective);
             }
 
         }
@@ -675,21 +706,51 @@ private:
     // PHASE FIVE: Placing object ------------------------------------------------------------------------------------------------------------------------------------------------------
     void phase_five_place_object() {
 
-        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 2 Placing object %d", robot_id, task.obj_id);
+        RCLCPP_INFO(this->get_logger(), "Robot_ID %d Phase 5 Placing object %d", robot_id, task.obj_id);
 
         
         if (task.obj_size == 1) { //Logic for object size = 1 (One robot needed) *************************************************************************************************************
-            
+                //COMPLETE OBJECT PLACE
+                objective.point.x = task.goal.x;   //Check to match, maybe using trigonometry depending of angle
+                objective.point.y = task.goal.y;
+                //objective.point.z = Zobj;
+                objective.angle = angle_goal;       //
+                objective.obj_id = task.obj_id;
+                objective.robot_state = robot_state.robot_state;
+                publisher_robot_objective->publish(objective);
+
+                objective_transform.transform.translation.x = objective.point.x;
+                objective_transform.transform.translation.y = objective.point.y;
+                objective_transform.transform.translation.z = Z_saved;
+
+                arm_objective.home_pos = false;
+                arm_objective.gripper = true;
+                arm_objective.send_finish = false;
+                arm_objective.transport_pos = true;
+                arm_objective.obj_id = task.obj_id;
+                publisher_arm_objective->publish(arm_objective);
         }
 
         else if (task.obj_size == 2) { //Logic for object size = 2 (Two robots needed)
             
             if (task.robot_id == task.leader_robot_id) {  //Logic for leader robot **************************************************************************************************************
-               
+                interfaces::msg::ControlFinish msg_control_finish;
+                msg_control_finish.finish_confirm = true;
+                publisher_control_finish_team_robot->publish(msg_control_finish);
+
+                arm_objective.take_pos = true;
+                arm_objective.send_finish = true;
+                arm_objective.transport_pos = false;
+                publisher_arm_objective->publish(arm_objective);
+
             }
             
             else { //Logic for follower robot **************************************************************************************************************************************************
-                
+               
+                arm_objective.take_pos = true;
+                arm_objective.send_finish = true;
+                arm_objective.transport_pos = false;
+                publisher_arm_objective->publish(arm_objective);
             }
 
         }
@@ -702,18 +763,35 @@ private:
 
         
         if (task.obj_size == 1) { //Logic for object size = 1 (One robot needed) *************************************************************************************************************
-            
+            objective_transform.transform.translation.x = objective.point.x;
+            objective_transform.transform.translation.y = objective.point.y;
+            objective_transform.transform.translation.z = Z_saved;
+
+            arm_objective.home_pos = false;
+            arm_objective.gripper = true;
+            arm_objective.send_finish = false;
+            arm_objective.transport_pos = false;
+            arm_objective.take_pos = true;
+            arm_objective.obj_id = task.obj_id;
+            publisher_arm_objective->publish(arm_objective); 
+
+            rclcpp::sleep_for(10s);
+
+            arm_objective.gripper = false;
+            arm_objective.send_finish = true;
+            arm_objective.transport_pos = false;
+            arm_objective.take_pos = true;
+            arm_objective.obj_id = task.obj_id;
+            publisher_arm_objective->publish(arm_objective); 
         }
 
         else if (task.obj_size == 2) { //Logic for object size = 2 (Two robots needed)
             
-            if (task.robot_id == task.leader_robot_id) {  //Logic for leader robot **************************************************************************************************************
-               
-            }
-            
-            else { //Logic for follower robot **************************************************************************************************************************************************
-                
-            }
+            arm_objective.take_pos = true;
+            arm_objective.send_finish = true;
+            arm_objective.gripper = false;
+            arm_objective.transport_pos = false;
+            publisher_arm_objective->publish(arm_objective);
 
         }
     }
@@ -725,18 +803,68 @@ private:
 
         
         if (task.obj_size == 1) { //Logic for object size = 1 (One robot needed) *************************************************************************************************************
-            
+            rclcpp::sleep_for(5s);
+                        
+            arm_objective.home_pos = false;
+            arm_objective.gripper = false;
+            arm_objective.send_finish = false;
+            arm_objective.transport_pos = false;
+            arm_objective.obj_id = task.obj_id;
+            arm_objective.take_pos = true;
+            publisher_arm_objective->publish(arm_objective); 
+
+
+
+            objective.point.x = task.goal.x - (0.5 * cos(angle_goal));   //Check to match, maybe using trigonometry depending of angle
+            objective.point.y = task.goal.y - (0.5 * sin(angle_goal));
+            objective.angle = angle_goal;       // Define if i can select goal angle
+            objective.obj_id = task.obj_id;
+            objective.robot_state = robot_state.robot_state;
+            publisher_robot_objective->publish(objective);
+
+            objective_transform.transform.translation.x = objective.point.x;
+            objective_transform.transform.translation.y = objective.point.y;
         }
 
         else if (task.obj_size == 2) { //Logic for object size = 2 (Two robots needed)
-            
+            arm_objective.take_pos = true;
+            arm_objective.send_finish = false;
+            arm_objective.gripper = false;
+            arm_objective.transport_pos = false;
+            publisher_arm_objective->publish(arm_objective);
+
             if (task.robot_id == task.leader_robot_id) {  //Logic for leader robot **************************************************************************************************************
-               
-            }
-            
-            else { //Logic for follower robot **************************************************************************************************************************************************
+                //Send objective position
+                objective.point.x = task.goal.x + (1 * cos(-M_PI));   //Check to match, maybe using trigonometry depending of angle
+                objective.point.y = task.goal.y + (1 * sin(-M_PI));
+                objective.angle =  M_PI;      //
+                objective.obj_id = task.obj_id;
+                objective.robot_state = robot_state.robot_state;
+                publisher_robot_objective->publish(objective);
                 
-            }
+                //Send objective position to /tf2
+                objective_transform.transform.translation.x = objective.point.x;
+                objective_transform.transform.translation.y = objective.point.y;
+ 
+             }
+             else{
+                std_msgs::msg::Bool copy_message;
+                copy_message.data = false;
+                publisher_copy_control->publish(copy_message);
+                RCLCPP_INFO(this->get_logger(), "Stop copying leader movements");
+                publisher_copy_control->publish(copy_message);
+
+                objective.point.x = task.goal.x - (1 * cos(M_PI));   //Check to match, maybe using trigonometry depending of angle
+                objective.point.y = task.goal.y - (1 * sin(M_PI));
+                objective.angle =  -M_PI;      //
+                objective.obj_id = task.obj_id;
+                objective.robot_state = robot_state.robot_state;
+                publisher_robot_objective->publish(objective);
+
+                objective_transform.transform.translation.x = objective.point.x;
+                objective_transform.transform.translation.y = objective.point.y;
+             }
+
 
         }
     }
@@ -748,17 +876,42 @@ private:
 
         
         if (task.obj_size == 1) { //Logic for object size = 1 (One robot needed) *************************************************************************************************************
-            
+            objective.robot_state = robot_state.robot_state;
+            publisher_robot_objective->publish(initial_position);
+
+            arm_objective.home_pos = true;
+            arm_objective.gripper = false;
+            arm_objective.send_finish = false;
+            arm_objective.transport_pos = false;
+            arm_objective.obj_id = task.obj_id;
+            arm_objective.take_pos = false;
+            publisher_arm_objective->publish(arm_objective); 
         }
 
         else if (task.obj_size == 2) { //Logic for object size = 2 (Two robots needed)
             
+            arm_objective.home_pos = true;
+            arm_objective.gripper = false;
+            arm_objective.send_finish = false;
+            arm_objective.transport_pos = false;
+            arm_objective.obj_id = task.obj_id;
+            arm_objective.take_pos = false;
+            publisher_arm_objective->publish(arm_objective); 
+
+
             if (task.robot_id == task.leader_robot_id) {  //Logic for leader robot **************************************************************************************************************
                
+                objective.robot_state = robot_state.robot_state;
+                publisher_robot_objective->publish(initial_position);
+
             }
             
             else { //Logic for follower robot **************************************************************************************************************************************************
                 
+
+                objective.robot_state = robot_state.robot_state;
+                publisher_robot_objective->publish(initial_position);
+
             }
 
         }

@@ -3,7 +3,8 @@
 #include <std_msgs/msg/float64.h>
 #include <std_msgs/msg/float64.hpp>
 #include <std_msgs/msg/bool.hpp>
-
+#include <interfaces/msg/robot_state.hpp>
+#include <interfaces/msg/leader_robot.hpp>
 
 #include <memory>
 #include <cinttypes>
@@ -11,6 +12,8 @@
 int robot_id=0;
 float copy_vel_x, copy_vel_y, copy_vel_ang;
 bool copy_vel_flag = false;
+int robot_state = 0;
+int leader_robot_id = 0;
 
 class Robot_Platform_Vel_Node : public rclcpp::Node
 {
@@ -75,9 +78,24 @@ class Robot_Platform_Vel_Node : public rclcpp::Node
 			float velang = request-> ang_vel;
 
 			if(copy_vel_flag){
-				velx = copy_vel_x * -1;
-				vely = copy_vel_y * -1;
-				velang = copy_vel_ang * -1;
+				//velang= 0;
+				//vely=0;
+				if (robot_id == leader_robot_id){
+					
+				}
+				else{
+					velx = copy_vel_x * - 1.1;
+					vely = copy_vel_y * - 1.1;
+					velang = copy_vel_ang * 0.5;
+				}
+				
+			}
+
+
+			if (robot_state == 4){
+				//velang = velang * 2;
+				//vely=0;
+				//velx = velx*10;
 			}
 
 			float La = 128.9375;
@@ -99,6 +117,13 @@ class Robot_Platform_Vel_Node : public rclcpp::Node
 			if (vel_m3.data < -max_vel) { vel_m3.data = -max_vel;}
 			if (vel_m4.data > max_vel) { vel_m4.data = max_vel;}
 			if (vel_m4.data < -max_vel) { vel_m4.data = -max_vel;}
+
+			// if(robot_state == 4){
+				
+			// 		vel_m1.data= 0;
+			// 		vel_m2.data= 0;
+			// 		RCLCPP_INFO(this->get_logger(), "M1 and M2 = 0  ********************************************************************");				
+			// }
 
 
 			publisher_M1->publish(vel_m1);
@@ -127,9 +152,7 @@ class Node_Copy : public rclcpp::Node
 			rclcpp::sleep_for(std::chrono::seconds(5));
 			RCLCPP_INFO(this->get_logger(), "Node Copy started");
 
-			std::string subs_copy_control_topic = "/robot_0" + std::to_string(robot_id) + "/copy_control";
-			subs_copy = this->create_subscription<std_msgs::msg::Bool>(
-				subs_copy_control_topic, 1, std::bind(&Node_Copy::copy_callback, this, std::placeholders::_1));
+			
 
 
 			std::string copy_vel_topic;
@@ -143,19 +166,18 @@ class Node_Copy : public rclcpp::Node
 			subs_platform_vel_copy = this->create_subscription<interfaces::msg::PlatformVel>(
 				copy_vel_topic, 1, std::bind(&Node_Copy::copy_vel_callback, this, std::placeholders::_1));
 
+			
+			
+
 
 
 		}
 
 		private:
-		rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr subs_copy;
 		rclcpp::Subscription<interfaces::msg::PlatformVel>::SharedPtr subs_platform_vel_copy;
+		
 
-		void copy_callback(const std_msgs::msg::Bool::SharedPtr msg)
-		{
-			copy_vel_flag = msg->data;
-			RCLCPP_INFO(this->get_logger(), "Copy Vel Flag: %s", copy_vel_flag ? "true" : "false");
-		}
+		
 
 		void copy_vel_callback(const interfaces::msg::PlatformVel::SharedPtr msg)
 		{
@@ -168,18 +190,68 @@ class Node_Copy : public rclcpp::Node
 			}
 		}
 
+
+
 };
 
+class Node_Extra_Subs : public rclcpp::Node
+{
+	public:
+	Node_Extra_Subs() : Node("node_extra_subs")
+		{	
+			rclcpp::sleep_for(std::chrono::seconds(5));
+
+			std::string subs_copy_control_topic = "/robot_0" + std::to_string(robot_id) + "/copy_control";
+			subs_copy = this->create_subscription<std_msgs::msg::Bool>(
+				subs_copy_control_topic, 1, std::bind(&Node_Extra_Subs::copy_callback, this, std::placeholders::_1));
+
+
+				std::string subs_robot_state_topic = "robot_0" + std::to_string(robot_id) + "/robot_state";
+
+				subs_robot_state = this->create_subscription<interfaces::msg::RobotState>(
+					subs_robot_state_topic, 1, std::bind(&Node_Extra_Subs::state_callback, this, std::placeholders::_1));
+				
+	
+				std::string subs_leader_robot_id = "/leader_robot_id";
+				subs_leader_robot = this->create_subscription<interfaces::msg::LeaderRobot>(
+					subs_leader_robot_id, 1, std::bind(&Node_Extra_Subs::leader_callback, this, std::placeholders::_1));
+
+		}
+
+		private:
+			rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr subs_copy;
+			rclcpp::Subscription<interfaces::msg::RobotState>::SharedPtr subs_robot_state;
+			rclcpp::Subscription<interfaces::msg::LeaderRobot>::SharedPtr subs_leader_robot;
+
+			void copy_callback(const std_msgs::msg::Bool::SharedPtr msg)
+			{
+				copy_vel_flag = msg->data;
+				RCLCPP_INFO(this->get_logger(), "Copy Vel Flag: %s", copy_vel_flag ? "true" : "false");
+			}
+
+			void state_callback(const interfaces::msg::RobotState::SharedPtr msg){
+				robot_state = msg ->robot_state;
+				RCLCPP_INFO(this->get_logger(), "Get Robot State: %d", robot_state);
+			}
+	
+			void leader_callback(const interfaces::msg::LeaderRobot::SharedPtr msg){
+				leader_robot_id = msg->leader_robot_id;
+				RCLCPP_INFO(this->get_logger(), "Get Leader Robot: %d", leader_robot_id);
+			}
+	
+};
 int main(int argc, char **argv)
 {
   rclcpp::init(argc, argv);
 
   auto node = std::make_shared<Robot_Platform_Vel_Node>();
   auto node_copy = std::make_shared<Node_Copy>();
+  auto node_extra_subs = std::make_shared<Node_Extra_Subs>();
 
   rclcpp::executors::MultiThreadedExecutor executor;
     executor.add_node(node);
 	executor.add_node(node_copy);
+	executor.add_node(node_extra_subs);
 
 	executor.spin();
 

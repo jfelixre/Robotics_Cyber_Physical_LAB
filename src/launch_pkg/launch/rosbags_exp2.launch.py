@@ -26,16 +26,24 @@ def generate_launch_description():
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
 
        
-    #First Task
-    task3 = ExecuteProcess(
+    #Rosbag positions
+    bagpos = ExecuteProcess(
         cmd=[[
-            'ros2 topic pub --once /task_scheduler/new_task interfaces/msg/NewTaskMsg "{obj_id: 21, goal: {x: -0.5, y: 1}, angle_goal: 0, priority: 1}"',
+            'ros2 bag record -o bags/positions /positions/marker/id_01 '
+            '                                  /positions/robot_01/base_link '
+            '                                  /positions/robot_01/gr_ref_link '
+            '                                  /positions/marker/id_02 '
+            '                                  /positions/robot_02/base_link '
+            '                                  /positions/robot_02/gr_ref_link '
+            '                                  /positions/marker/id_21 '
+            '                                  /positions/cube/id_21 '
+                                               
+
         ]],
         shell=True
     )
 
-
     return LaunchDescription([
-        task3,
+        bagpos,
        
     ])

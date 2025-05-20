@@ -435,6 +435,44 @@ ament_target_dependencies(team_ready_node
 
   )
 
+  add_executable(position_publisher_exp1 src/position_publisher_exp1.cpp)
+  target_include_directories(position_publisher_exp1 PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+  
+  ament_target_dependencies(position_publisher_exp1
+    sensor_msgs
+    std_msgs
+    rclcpp
+    cv_bridge
+    interfaces
+    tf2
+    tf2_ros
+    geometry_msgs
+    tf2_sensor_msgs
+    visualization_msgs
+  
+    )
+
+    add_executable(position_publisher_exp2 src/position_publisher_exp2.cpp)
+    target_include_directories(position_publisher_exp2 PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
+    
+    ament_target_dependencies(position_publisher_exp2
+      sensor_msgs
+      std_msgs
+      rclcpp
+      cv_bridge
+      interfaces
+      tf2
+      tf2_ros
+      geometry_msgs
+      tf2_sensor_msgs
+      visualization_msgs
+    
+      )
+
 
 install(TARGETS
   #control_pid_p1_node
@@ -464,6 +502,8 @@ install(TARGETS
   robot_state_service
   event_driven_control_refactored
   team_ready_node
+  position_publisher_exp1
+  position_publisher_exp2
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
