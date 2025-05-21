@@ -133,6 +133,14 @@ def generate_launch_description():
         shell=True
     )
 
+    #Launch positions launch file
+    pos_publ = ExecuteProcess(
+        cmd=[[
+            'ros2 run control_pkg position_publisher_exp2'
+        ]],
+        shell=True
+    )
+
     return LaunchDescription([
         gz_sim,
         bridge,
@@ -146,5 +154,6 @@ def generate_launch_description():
         # launch_cube_id_12,
         launch_cube_id_21,
         team_ready,
+        pos_publ,
         
     ])

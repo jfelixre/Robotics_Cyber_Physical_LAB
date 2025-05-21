@@ -67,6 +67,13 @@ def generate_launch_description():
                     ]],
                     shell=True
             )
+    
+    detachr01r02 = ExecuteProcess(
+                cmd=[[
+                    'ros2 topic pub --once /robot_01/robot_02/detach std_msgs/msg/Empty',
+                    ]],
+                    shell=True
+            )
 
 
     return LaunchDescription([
@@ -76,5 +83,6 @@ def generate_launch_description():
         detachr02c11,
         detachr02c12,
         detachr02c21,
+        detachr01r02
        
     ])

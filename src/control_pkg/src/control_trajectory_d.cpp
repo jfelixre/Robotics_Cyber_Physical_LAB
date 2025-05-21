@@ -15,6 +15,7 @@
 #include "tf2_ros/buffer.h"
 #include <interfaces/msg/control_finish.hpp>
 #include <interfaces/msg/data_error.hpp>
+#include <std_msgs/msg/float32_multi_array.hpp>
 
 #include <memory>
 #include <cinttypes>
@@ -55,6 +56,8 @@ float type_object = 0;  //1: Single object, 2: Double object
 
 interfaces::msg::DataError data_error;
 interfaces::msg::DataError data_error_total;
+
+int robot_state=0;
 
 
 
@@ -356,6 +359,7 @@ class Node_Subs_Positions : public rclcpp::Node
         object_id = obj_msg->obj_id;
         angle_objective = obj_msg->angle;
         point_objective = obj_msg->point;
+        robot_state = obj_msg->robot_state;
 
        //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Trajectory control Start");
         control_active = true;
@@ -407,6 +411,11 @@ class Node_Control_Timer : public rclcpp::Node
 
             publisher_data_error_total = this->create_publisher<interfaces::msg::DataError>(topic_name_error_total,1);
 
+            std::stringstream ss_topic_name_plot;
+            ss_topic_name_plot << "/robot_0" << robot_id << "/plot_data";
+            std::string topic_name_plot = ss_topic_name_plot.str();
+            publisher_plot_data = this->create_publisher<std_msgs::msg::Float32MultiArray>(topic_name_plot,1);
+
             
 
  
@@ -429,6 +438,7 @@ class Node_Control_Timer : public rclcpp::Node
     rclcpp::Publisher<interfaces::msg::ControlFinish>::SharedPtr publisher_control_finish;
     rclcpp::Publisher<interfaces::msg::DataError>::SharedPtr publisher_data_error;
     rclcpp::Publisher<interfaces::msg::DataError>::SharedPtr publisher_data_error_total;
+    rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr publisher_plot_data;
 
 
     void timer_callback()   //////CONTROL/////////
@@ -576,6 +586,21 @@ class Node_Control_Timer : public rclcpp::Node
                 data_error_total.ang_error = phid - angle_robot;
                 data_error_total.k = k;
                 publisher_data_error_total->publish(data_error_total);
+
+
+                std_msgs::msg::Float32MultiArray msg_plot_data;
+                msg_plot_data.data.push_back(robot_state);
+                msg_plot_data.data.push_back(hxe[k]);
+                msg_plot_data.data.push_back(hye[k]);
+                msg_plot_data.data.push_back(hwe[k]);
+                msg_plot_data.data.push_back(data_error_total.x_error);
+                msg_plot_data.data.push_back(data_error_total.y_error);
+                msg_plot_data.data.push_back(data_error_total.ang_error);
+                msg_plot_data.data.push_back(hxd[N]);
+                msg_plot_data.data.push_back(hyd[N]);
+                msg_plot_data.data.push_back(phid);
+                
+                publisher_plot_data->publish(msg_plot_data);
 
             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hxe = %f", hxe[k]);
             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hye = %f", hye[k]);

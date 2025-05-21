@@ -1,0 +1,66 @@
+rosbag2_bagfile_information:
+  version: 9
+  storage_identifier: mcap
+  duration:
+    nanoseconds: 569144377820
+  starting_time:
+    nanoseconds_since_epoch: 1747796354302782932
+  message_count: 20
+  topics_with_message_count:
+    - topic_metadata:
+        name: /robot_02/robot_state
+        type: interfaces/msg/RobotState
+        serialization_format: cdr
+        offered_qos_profiles:
+          - history: unknown
+            depth: 0
+            reliability: reliable
+            durability: volatile
+            deadline:
+              sec: 9223372036
+              nsec: 854775807
+            lifespan:
+              sec: 9223372036
+              nsec: 854775807
+            liveliness: automatic
+            liveliness_lease_duration:
+              sec: 9223372036
+              nsec: 854775807
+            avoid_ros_namespace_conventions: false
+        type_description_hash: RIHS01_99c1f011c5ff446fe530152d1ccf43ee108ac0e2dca9f29ea3474f8b47998db8
+      message_count: 10
+    - topic_metadata:
+        name: /robot_01/robot_state
+        type: interfaces/msg/RobotState
+        serialization_format: cdr
+        offered_qos_profiles:
+          - history: unknown
+            depth: 0
+            reliability: reliable
+            durability: volatile
+            deadline:
+              sec: 9223372036
+              nsec: 854775807
+            lifespan:
+              sec: 9223372036
+              nsec: 854775807
+            liveliness: automatic
+            liveliness_lease_duration:
+              sec: 9223372036
+              nsec: 854775807
+            avoid_ros_namespace_conventions: false
+        type_description_hash: RIHS01_99c1f011c5ff446fe530152d1ccf43ee108ac0e2dca9f29ea3474f8b47998db8
+      message_count: 10
+  compression_format: ""
+  compression_mode: ""
+  relative_file_paths:
+    - state_0.mcap
+  files:
+    - path: state_0.mcap
+      starting_time:
+        nanoseconds_since_epoch: 1747796354302782932
+      duration:
+        nanoseconds: 569144377820
+      message_count: 20
+  custom_data: ~
+  ros_distro: jazzy

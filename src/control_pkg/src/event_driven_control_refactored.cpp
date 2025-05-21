@@ -19,6 +19,8 @@
 #include <std_msgs/msg/bool.hpp>
 #include <interfaces/msg/control_finish.hpp>
 #include <interfaces/msg/leader_robot.hpp>
+#include <std_msgs/msg/empty.hpp>
+#include <std_msgs/msg/empty.h>
 
 using namespace std::chrono_literals;
 bool team_ready = false;
@@ -32,7 +34,9 @@ public:
 
         setup_publishers_and_subscribers();
         setup_tf_components();
+        initialize();
         setup_timer();
+        
     }
 
 private:
@@ -79,6 +83,16 @@ private:
     rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr publisher_copy_control;
     rclcpp::Publisher<interfaces::msg::ControlFinish>::SharedPtr publisher_control_finish_team_robot;
     rclcpp::Publisher<interfaces::msg::LeaderRobot>::SharedPtr publisher_leader_robot;
+
+
+    void initialize() {
+        // Initialize any necessary variables or states here
+        robot_state.robot_state = 0;
+        publisher_robot_state->publish(robot_state);
+
+        handle_event_control();
+    }
+
 
     void setup_publishers_and_subscribers() {
         std::string tasktopic = "/robot_0" + std::to_string(robot_id) + "/task_assigned";
@@ -594,7 +608,7 @@ private:
             publisher_waiting_robot->publish(waiting_msg);
 
 
-            if (robot_id == task.leader_robot_id) {  //Logic for leader robot **************************************************************************************************************
+            if (robot_id == static_cast<int>(task.leader_robot_id)) {  //Logic for leader robot **************************************************************************************************************
                 RCLCPP_INFO(this->get_logger(), "Robot_ID %d Team robot ready. Taking object", robot_id);
 
                 arm_objective.home_pos = false;
@@ -674,7 +688,14 @@ private:
             publisher_arm_objective->publish(arm_objective);
             
             if (task.robot_id == task.leader_robot_id) {  //Logic for leader robot **************************************************************************************************************
-               //Send objective position
+                std::stringstream ss_topipc_objf;
+                ss_topipc_objf << "/robot_01/robot_02/attach";
+                std::string topipc_objf = ss_topipc_objf.str();
+                rclcpp::Publisher<std_msgs::msg::Empty>::SharedPtr publisher_obj_j= this->create_publisher<std_msgs::msg::Empty>(topipc_objf,10);
+                std_msgs::msg::Empty msg_f;
+                publisher_obj_j->publish(msg_f);
+               
+                //Send objective position
                objective.point.x = task.goal.x + (0.5 * cos(-M_PI));   //Check to match, maybe using trigonometry depending of angle
                objective.point.y = task.goal.y + (0.5 * sin(-M_PI));
                //objective.angle =  (angle_goal + M_PI) - static_cast<int>((angle_goal + M_PI) / (2*M_PI)) * 2*M_PI;      //
@@ -697,6 +718,7 @@ private:
                 publisher_copy_control->publish(copy_message);
 
                 objective.angle =  M_PI; 
+                objective.robot_state = robot_state.robot_state;
                 publisher_robot_objective->publish(objective);
             }
 
@@ -734,6 +756,13 @@ private:
         else if (task.obj_size == 2) { //Logic for object size = 2 (Two robots needed)
             
             if (task.robot_id == task.leader_robot_id) {  //Logic for leader robot **************************************************************************************************************
+                std::stringstream ss_topipc_objf;
+                ss_topipc_objf << "/robot_01/robot_02/detach";
+                std::string topipc_objf = ss_topipc_objf.str();
+                rclcpp::Publisher<std_msgs::msg::Empty>::SharedPtr publisher_obj_j= this->create_publisher<std_msgs::msg::Empty>(topipc_objf,10);
+                std_msgs::msg::Empty msg_f;
+                publisher_obj_j->publish(msg_f);
+                
                 interfaces::msg::ControlFinish msg_control_finish;
                 msg_control_finish.finish_confirm = true;
                 publisher_control_finish_team_robot->publish(msg_control_finish);
@@ -786,7 +815,13 @@ private:
         }
 
         else if (task.obj_size == 2) { //Logic for object size = 2 (Two robots needed)
-            
+            std_msgs::msg::Bool copy_message;
+            copy_message.data = false;
+            publisher_copy_control->publish(copy_message);
+            RCLCPP_INFO(this->get_logger(), "Stop copying leader movements");
+            publisher_copy_control->publish(copy_message);
+
+
             arm_objective.take_pos = true;
             arm_objective.send_finish = true;
             arm_objective.gripper = false;
@@ -835,9 +870,9 @@ private:
 
             if (task.robot_id == task.leader_robot_id) {  //Logic for leader robot **************************************************************************************************************
                 //Send objective position
-                objective.point.x = task.goal.x + (1 * cos(-M_PI));   //Check to match, maybe using trigonometry depending of angle
+                objective.point.x = task.goal.x + (1 * cos(-M_PI));    //Check to match, maybe using trigonometry depending of angle
                 objective.point.y = task.goal.y + (1 * sin(-M_PI));
-                objective.angle =  M_PI;      //
+                objective.angle =  0;      //
                 objective.obj_id = task.obj_id;
                 objective.robot_state = robot_state.robot_state;
                 publisher_robot_objective->publish(objective);
@@ -848,15 +883,11 @@ private:
  
              }
              else{
-                std_msgs::msg::Bool copy_message;
-                copy_message.data = false;
-                publisher_copy_control->publish(copy_message);
-                RCLCPP_INFO(this->get_logger(), "Stop copying leader movements");
-                publisher_copy_control->publish(copy_message);
+                
 
                 objective.point.x = task.goal.x - (1 * cos(M_PI));   //Check to match, maybe using trigonometry depending of angle
                 objective.point.y = task.goal.y - (1 * sin(M_PI));
-                objective.angle =  -M_PI;      //
+                objective.angle =  M_PI;      //
                 objective.obj_id = task.obj_id;
                 objective.robot_state = robot_state.robot_state;
                 publisher_robot_objective->publish(objective);

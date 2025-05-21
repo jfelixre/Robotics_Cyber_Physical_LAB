@@ -105,3 +105,15 @@
   ros_type_name: "std_msgs/msg/Empty"
   gz_type_name: "gz.msgs.Empty"
   direction: ROS_TO_GZ
+
+- ros_topic_name: "/robot_01/robot_02/attach"
+  gz_topic_name: "/R01R02/attach"
+  ros_type_name: "std_msgs/msg/Empty"
+  gz_type_name: "gz.msgs.Empty"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/robot_01/robot_02/detach"
+  gz_topic_name: "/R01R02/detach"
+  ros_type_name: "std_msgs/msg/Empty"
+  gz_type_name: "gz.msgs.Empty"
+  direction: ROS_TO_GZ

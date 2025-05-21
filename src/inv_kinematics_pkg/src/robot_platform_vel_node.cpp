@@ -81,22 +81,25 @@ class Robot_Platform_Vel_Node : public rclcpp::Node
 				//velang= 0;
 				//vely=0;
 				if (robot_id == leader_robot_id){
+					velang = velang * 0;
+					vely = vely * 2;
+					velx = velx * 2;
 					
 				}
 				else{
-					velx = copy_vel_x * - 1.1;
-					vely = copy_vel_y * - 1.1;
-					velang = copy_vel_ang * 0.5;
+					velx = copy_vel_x * -2;
+					vely = copy_vel_y * -2;
+					velang = copy_vel_ang * 0;
 				}
 				
 			}
 
 
-			if (robot_state == 4){
-				//velang = velang * 2;
-				//vely=0;
-				//velx = velx*10;
-			}
+			// if (robot_state == 4){
+			// 	//velang = velang * 2;
+			// 	//vely=0;
+			// 	//velx = velx*10;
+			// }
 
 			float La = 128.9375;
 			float Lb = 109.379;
@@ -119,10 +122,21 @@ class Robot_Platform_Vel_Node : public rclcpp::Node
 			if (vel_m4.data < -max_vel) { vel_m4.data = -max_vel;}
 
 			// if(robot_state == 4){
+			// 	if (leader_robot_id == robot_id){
 				
-			// 		vel_m1.data= 0;
-			// 		vel_m2.data= 0;
-			// 		RCLCPP_INFO(this->get_logger(), "M1 and M2 = 0  ********************************************************************");				
+			// 		// vel_m1.data= 0;
+			// 		// vel_m2.data= 0;
+			// 		// //RCLCPP_INFO(this->get_logger(), "M1 and M2 = 0  ********************************************************************");		
+			// 	}
+			// 	else{
+			// 		// vel_m1.data= vel_m4.data;
+			// 		// vel_m2.data= vel_m3.data;
+			// 		// vel_m3.data= 0;
+			// 		// vel_m4.data= 0;
+			// 		vel_m3.data= vel_m3.data + 0.5;
+			// 		vel_m4.data= vel_m4.data + 0.5;
+			// 		//RCLCPP_INFO(this->get_logger(), "M3 and M4 = 0  ********************************************************************");
+			// 	}		
 			// }
 
 

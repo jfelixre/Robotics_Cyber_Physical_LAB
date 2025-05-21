@@ -196,7 +196,7 @@ def generate_launch_description():
         compute_trajectory,
         a_star_server,
         control_trajectory,
-        #robot_platform_vel,
+        robot_platform_vel,
         arm_position,
         #robot_state_service,
         detach11,

@@ -1,0 +1,5 @@
+response:
+interfaces.srv.TaskListService_Response(task_list=[interfaces.msg.TaskDescription(task_id=1, obj_id=21, obj_size=2, goal=geometry_msgs.msg.Point(x=-0.5, y=1.0, z=0.0), angle_goal=0.0, leader_robot_id=1, priority=1, state=2, idle_time_start=1747796352.5849133, robot_id=1, in_progress_time_start=1747796354.3025587, finish_time=1747796827.5478094, idle_time=1.7176454067230225, task_time=473.2452507019043, total_time=474.9628961086273), interfaces.msg.TaskDescription(task_id=2, obj_id=21, obj_size=2, goal=geometry_msgs.msg.Point(x=-0.5, y=1.0, z=0.0), angle_goal=0.0, leader_robot_id=1, priority=1, state=2, idle_time_start=1747796354.3026297, robot_id=2, in_progress_time_start=1747796355.1026921, finish_time=1747796825.704166, idle_time=0.8000624179840088, task_time=470.6014738082886, total_time=471.4015362262726)])
+
+
+Time start first task 1747796352584913300
