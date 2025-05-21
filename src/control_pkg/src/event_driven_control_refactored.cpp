@@ -334,9 +334,9 @@ private:
                     //return;
                 }
                 
-                // initial_position.point.x = Robx;
-                // initial_position.point.y = Roby;
-                // initial_position.angle = Robang;
+                initial_position.point.x = Robx;
+                initial_position.point.y = Roby;
+                initial_position.angle = Robang;
 
                 //Send objective position
                 objective.point.x = Xobj - (0.5 * cos(Angobj));   //Check to match, maybe using trigonometry depending of angle
