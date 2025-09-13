@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   width="239.57965mm"
-   height="127.52457mm"
-   viewBox="0 0 679.12225 361.48636"
+   width="127.09864mm"
+   height="243.04668mm"
+   viewBox="0 0 360.27899 688.95006"
    version="1.2"
    id="svg214"
-   sodipodi:docname="trajectory_exp2"
+   sodipodi:docname="trajectory_exp2.svg"
    inkscape:version="1.4.2 (2aeb623e1d, 2025-05-12)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,9 +24,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="421.78919"
-     inkscape:cy="220.26376"
+     inkscape:zoom="0.7071068"
+     inkscape:cx="229.8097"
+     inkscape:cy="446.89147"
      inkscape:window-width="1920"
      inkscape:window-height="1043"
      inkscape:window-x="1920"
@@ -47,7 +47,7 @@
      stroke-linecap="square"
      stroke-linejoin="bevel"
      id="g214"
-     transform="translate(-22.860446,0.84685677)">
+     transform="translate(-23.999955)">
     <g
        fill="none"
        stroke="#000000"
@@ -188,27 +188,6 @@
        font-weight="400"
        font-style="normal"
        id="g9" />
-    <g
-       fill="#ffffff"
-       fill-opacity="1"
-       stroke="none"
-       transform="matrix(0.360279,0,0,0.360279,180.5,180.5)"
-       font-family="'Sans Serif'"
-       font-size="9px"
-       font-weight="400"
-       font-style="normal"
-       id="g10">
-      <path
-         vector-effect="none"
-         fill-rule="evenodd"
-         d="m -437.54855,-500 h 1000 V 500 h -1000 V -500"
-         id="path9" />
-      <path
-         vector-effect="none"
-         fill-rule="evenodd"
-         d="m 447.44298,-500.13831 h 999.99832 v 1000 H 447.44298 v -1000"
-         id="path9-6" />
-    </g>
     <g
        fill="none"
        stroke="#000000"
@@ -1643,50 +1622,6 @@
          font-weight="400"
          font-style="normal"
          id="text106">X-axis (m)</text>
-    </g>
-    <g
-       fill="none"
-       stroke="#000000"
-       stroke-opacity="1"
-       stroke-width="1"
-       stroke-linecap="square"
-       stroke-linejoin="bevel"
-       transform="matrix(1.27099,0,0,1.27099,179.26947,-2.3635121)"
-       font-family="'Sans Serif'"
-       font-size="9px"
-       font-weight="400"
-       font-style="normal"
-       id="g107-6">
-      <text
-         fill="#000000"
-         fill-opacity="1"
-         stroke="none"
-         xml:space="preserve"
-         x="12.177124"
-         y="13.141047"
-         font-family="'Sans Serif'"
-         font-size="9px"
-         font-weight="400"
-         font-style="normal"
-         id="text106-5"
-         style="font-style:normal;font-weight:400;font-size:9px;font-family:'Sans Serif';fill:#000000;fill-opacity:1;stroke:none"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.7357px;font-family:'Sans Serif';-inkscape-font-specification:'Sans Serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-           id="tspan216">a)</tspan></text>
-      <text
-         fill="#000000"
-         fill-opacity="1"
-         stroke="none"
-         xml:space="preserve"
-         x="275.56436"
-         y="13.14873"
-         font-family="'Sans Serif'"
-         font-size="9px"
-         font-weight="400"
-         font-style="normal"
-         id="text106-5-9"
-         style="font-style:normal;font-weight:400;font-size:9px;font-family:'Sans Serif';fill:#000000;fill-opacity:1;stroke:none"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.7357px;font-family:'Sans Serif';-inkscape-font-specification:'Sans Serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-           id="tspan216-1">b)</tspan></text>
     </g>
     <g
        fill="none"
@@ -3301,8 +3236,8 @@
          id="rect216-5"
          width="78.535172"
          height="31.764223"
-         x="257.98032"
-         y="2.1147692" />
+         x="-4.609818"
+         y="270.01572" />
       <g
          fill="#23ff2a"
          fill-opacity="1"
@@ -3311,7 +3246,7 @@
          stroke-width="1"
          stroke-linecap="square"
          stroke-linejoin="bevel"
-         transform="matrix(0.28346329,0,0,0.28346329,321.70984,14.888014)"
+         transform="matrix(0.28346329,0,0,0.28346329,55.579164,283.96914)"
          font-family="'Sans Serif'"
          font-size="9px"
          font-weight="400"
@@ -3331,7 +3266,7 @@
          stroke-width="1"
          stroke-linecap="square"
          stroke-linejoin="bevel"
-         transform="matrix(0.28346329,0,0,0.28346329,321.63949,26.112468)"
+         transform="matrix(0.28346329,0,0,0.28346329,55.508814,295.78368)"
          font-family="'Sans Serif'"
          font-size="9px"
          font-weight="400"
@@ -3350,7 +3285,7 @@
          stroke-width="1"
          stroke-linecap="square"
          stroke-linejoin="bevel"
-         transform="translate(263.88204,1.1253246)"
+         transform="translate(1.2919056,267.84609)"
          font-family="'Sans Serif'"
          font-size="9px"
          font-weight="400"
@@ -3376,7 +3311,7 @@
          stroke-width="1"
          stroke-linecap="square"
          stroke-linejoin="bevel"
-         transform="translate(264.41261,0.32947327)"
+         transform="translate(3.002656,268.82051)"
          font-family="'Sans Serif'"
          font-size="9px"
          font-weight="400"
@@ -3400,8 +3335,8 @@
          fill-opacity="1"
          stroke="none"
          xml:space="preserve"
-         x="263.88205"
-         y="27.990728"
+         x="2.4720955"
+         y="297.07187"
          font-family="'Sans Serif'"
          font-size="5px"
          font-weight="400"
@@ -3416,7 +3351,7 @@
        stroke-linecap="square"
        stroke-linejoin="bevel"
        id="g215"
-       transform="translate(539.10114,68.251523)">
+       transform="translate(203.10171,409.50095)">
       <g
          fill="none"
          stroke="#000000"
@@ -6566,7 +6501,7 @@
        stroke-width="1"
        stroke-linecap="square"
        stroke-linejoin="bevel"
-       transform="matrix(0.360279,0,0,0.360279,178.90901,180.23484)"
+       transform="matrix(0.360279,0,0,0.360279,-157.09042,521.48427)"
        font-family="'Sans Serif'"
        font-size="9px"
        font-weight="400"
