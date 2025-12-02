@@ -1,4 +1,5 @@
 #include <cstdio>
+#include <algorithm>
 #include <chrono>
 #include <functional>
 #include <memory>
@@ -8,6 +9,7 @@
 #include <vector>
 #include <cmath>
 #include <iostream>
+#include <algorithm>
 
 #include <opencv2/core.hpp>
 #include <opencv2/imgcodecs.hpp>
@@ -16,7 +18,6 @@
 #include <opencv2/aruco.hpp> 
 #include <stdio.h>
 
-#include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/image.hpp>
 #include <sensor_msgs/image_encodings.hpp>
 //#include <std_msgs/msg/bool.hpp>
@@ -65,7 +66,26 @@ class Aruco_Detector : public rclcpp::Node
   public:
     Aruco_Detector() : Node("aruco_detector")
     {
-      //bool readOk = readCameraParameters("src/img_proc_pkg/config/camera_calib_charuco.yaml", cameraMatrix, distCoeffs);
+      this->declare_parameter<std::string>("calibration_file", "/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/config/camera_calib_charuco.yaml");
+      std::string calib_file = this->get_parameter("calibration_file").as_string();
+
+      cv::FileStorage fs(calib_file, cv::FileStorage::READ);
+      if (fs.isOpened())
+      {
+        fs["camera_matrix"] >> cameraMatrix;
+        fs["distortion_coefficients"] >> distCoeffs;
+        RCLCPP_INFO(this->get_logger(), "Loaded camera parameters from %s", calib_file.c_str());
+      }
+      else
+      {
+        RCLCPP_ERROR(this->get_logger(), "Could not open calibration file: %s. Using default parameters.", calib_file.c_str());
+        cameraMatrix = cv::Mat::eye(3, 3, CV_64F);
+        cameraMatrix.at<double>(0, 0) = 1000.0;
+        cameraMatrix.at<double>(1, 1) = 1000.0;
+        cameraMatrix.at<double>(0, 2) = 640.0;
+        cameraMatrix.at<double>(1, 2) = 360.0;
+        distCoeffs = cv::Mat::zeros(1, 5, CV_64F);
+      }
 
       subscription_ = this->create_subscription<sensor_msgs::msg::Image>(
       "cameras/camera1/image_raw", 10, std::bind(&Aruco_Detector::topic_callback, this, _1));
@@ -632,18 +652,19 @@ class Aruco_Detector : public rclcpp::Node
 
         */
 
-        // Send the transformation
-            tf_broadcaster->sendTransform(camera_tf);
-        // Send the transformation
-            tf_broadcaster->sendTransform(r1_tf);
-        // Send the transformation
-            tf_broadcaster->sendTransform(r2_tf);
-        // Send the transformation
-            tf_broadcaster->sendTransform(o1_tf);
-        // Send the transformation
-            tf_broadcaster->sendTransform(o2_tf);
-        // Send the transformation
-            tf_broadcaster->sendTransform(tj_tf);
+        // Send the transformation only if the marker was detected
+        if (std::find(markerIds.begin(), markerIds.end(), 0) != markerIds.end())
+          tf_broadcaster->sendTransform(camera_tf);
+        if (std::find(markerIds.begin(), markerIds.end(), 1) != markerIds.end())
+          tf_broadcaster->sendTransform(r1_tf);
+        if (std::find(markerIds.begin(), markerIds.end(), 2) != markerIds.end())
+          tf_broadcaster->sendTransform(r2_tf);
+        if (std::find(markerIds.begin(), markerIds.end(), 3) != markerIds.end())
+          tf_broadcaster->sendTransform(o1_tf);
+        if (std::find(markerIds.begin(), markerIds.end(), 4) != markerIds.end())
+          tf_broadcaster->sendTransform(o2_tf);
+        if (std::find(markerIds.begin(), markerIds.end(), 5) != markerIds.end())
+          tf_broadcaster->sendTransform(tj_tf);
 
         //std::cout << "markerCorners = " << std::endl << " "  << markerCorners[0,0] << std::endl << std::endl;
        
