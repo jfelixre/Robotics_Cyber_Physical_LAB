@@ -78,27 +78,53 @@ class Aruco_Nano_Detector : public rclcpp::Node
     Aruco_Nano_Detector() : Node("aruco_nano_detector")
     {
       std::cout<<"Aruco Nano Detector Node Started"<<std::endl;
-      //Read camera calibration parameters from file
-      cv::FileStorage fs("src/img_proc_pkg/config/camera_calib_charuco.yaml", cv::FileStorage::READ);
-      fs["camera_matrix"] >> cameraMatrix;
-      fs["distortion_coefficients"] >> distCoeffs;
-      fs["image_widht"] >> image_width;
-      fs["image_height"] >> image_height;
-      fs.release();
+      
+      // Declare and get parameter for calibration file
+      this->declare_parameter<std::string>("calibration_file", "/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/config/camera_calib_charuco.yaml");
+      std::string calib_file = this->get_parameter("calibration_file").as_string();
 
+      //Read camera calibration parameters from file
+      cv::FileStorage fs(calib_file, cv::FileStorage::READ);
+      if(!fs.isOpened()){
+        RCLCPP_ERROR(this->get_logger(), "Could not open calibration file: %s", calib_file.c_str());
+        // Set default values to avoid crash/garbage
+        cameraMatrix = cv::Mat::eye(3, 3, CV_64F);
+        cameraMatrix.at<double>(0, 0) = 1000.0;
+        cameraMatrix.at<double>(1, 1) = 1000.0;
+        cameraMatrix.at<double>(0, 2) = 640.0;
+        cameraMatrix.at<double>(1, 2) = 360.0;
+        distCoeffs = cv::Mat::zeros(1, 5, CV_64F);
+      } else {
+        fs["camera_matrix"] >> cameraMatrix;
+        fs["distortion_coefficients"] >> distCoeffs;
+        fs["image_widht"] >> image_width;
+        fs["image_height"] >> image_height;
+        fs.release();
+        RCLCPP_INFO(this->get_logger(), "Loaded calibration from: %s", calib_file.c_str());
+      }
       
       subscription_ = this->create_subscription<sensor_msgs::msg::Image>(
       "/cameras/cam_1", 10, std::bind(&Aruco_Nano_Detector::topic_callback, this, _1));
 
       // Initialize the transform broadcaster
       tf_broadcaster = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+
+      // Initialize Kalman filter variables
+      int state_dim_cam = 14;  // (x, y, z, rx, ry, rz, rw, vx, vy, vz, vrx, vry, vrz, vrw)
+      int meas_dim_cam = 7;   // (x, y, z, rx, ry,rz, rw)
+      kf_cam = cv::KalmanFilter(state_dim_cam, meas_dim_cam, 0);
+      cv::setIdentity(kf_cam.measurementMatrix);
+      cv::setIdentity(kf_cam.processNoiseCov, cv::Scalar::all(Q));
+      cv::setIdentity(kf_cam.measurementNoiseCov, cv::Scalar::all(R));
+      cv::setIdentity(kf_cam.errorCovPost, cv::Scalar::all(1));
            
       
     }
 
   private:
 
-
+    cv::KalmanFilter kf_cam;
+    cv::Mat state_cam;
 
     void topic_callback(const sensor_msgs::msg::Image::SharedPtr msg)
     { 
@@ -151,47 +177,101 @@ class Aruco_Nano_Detector : public rclcpp::Node
             //Declare variables for the tf message
             geometry_msgs::msg::TransformStamped tag_tf;
             tag_tf.header.stamp = msg->header.stamp;
-            /*
+            
             if(m.id==0){
-              tag_tf.header.frame_id = "cam_1";
-              tag_tf.child_frame_id = "marker_id_00";
+              // Publish Camera pose relative to Marker 0 (Origin)
+              tag_tf.header.frame_id = "marker_id_00";
+              tag_tf.child_frame_id = "cam_1";
 
-              rvec_origin(0)=rotation_matrix.at<double>(0);
-              rvec_origin(1)=rotation_matrix.at<double>(1);;
-              rvec_origin(2)=rotation_matrix.at<double>(2);;
-              tvec_origin(0)=traslation_vector.at<double>(0);
-              tvec_origin(1)=traslation_vector.at<double>(1);
-              tvec_origin(2)=traslation_vector.at<double>(2);
+              cv::Mat rvec = rotation_matrix; // 3x1
+              cv::Mat tvec = traslation_vector; // 3x1
 
-              cv::Mat new_rmat;
-              cv::Rodrigues(rotation_matrix,new_rmat);
-              //cv::Mat camera_rotation_matrix = new_rmat.t();
-              cv::Mat camera_rotation_matrix = new_rmat;
-              //cv::Mat camera_translation_vector = -camera_rotation_matrix * traslation_vector;
-              cv::Mat camera_translation_vector = traslation_vector;
+              cv::Mat rmat;
+              cv::Rodrigues(rvec, rmat); // Convert to 3x3
 
-              tf2::Matrix3x3 mat(camera_rotation_matrix.at<double>(0,0), camera_rotation_matrix.at<double>(0,1), camera_rotation_matrix.at<double>(0,2),
-                    camera_rotation_matrix.at<double>(1,0), camera_rotation_matrix.at<double>(1,1), camera_rotation_matrix.at<double>(1,2),
-                    camera_rotation_matrix.at<double>(2,0), camera_rotation_matrix.at<double>(2,1), camera_rotation_matrix.at<double>(2,2));
+              // Invert to get Camera in Marker frame
+              cv::Mat rmat_inv = rmat.t();
+              cv::Mat tvec_inv = -rmat_inv * tvec;
+
+              tf2::Matrix3x3 mat(rmat_inv.at<double>(0,0), rmat_inv.at<double>(0,1), rmat_inv.at<double>(0,2),
+                    rmat_inv.at<double>(1,0), rmat_inv.at<double>(1,1), rmat_inv.at<double>(1,2),
+                    rmat_inv.at<double>(2,0), rmat_inv.at<double>(2,1), rmat_inv.at<double>(2,2));
               
               tf2::Quaternion qu;
-              
               mat.getRotation(qu);
 
+              // --- KALMAN FILTER START ---
+              
+              // Initialize state if empty
+              if (state_cam.empty())
+              {
+                  state_cam = cv::Mat::zeros(kf_cam.statePre.rows, kf_cam.statePre.cols, kf_cam.statePre.type());
+                  // Initialize with current measurement to avoid initial jump
+                  kf_cam.statePost.at<float>(0, 0) = tvec_inv.at<double>(0);
+                  kf_cam.statePost.at<float>(1, 0) = tvec_inv.at<double>(1);
+                  kf_cam.statePost.at<float>(2, 0) = tvec_inv.at<double>(2);
+                  kf_cam.statePost.at<float>(3, 0) = qu.x();
+                  kf_cam.statePost.at<float>(4, 0) = qu.y();
+                  kf_cam.statePost.at<float>(5, 0) = qu.z();
+                  kf_cam.statePost.at<float>(6, 0) = qu.w();
+              }
 
-              tag_tf.transform.rotation.x = qu.x();
-              tag_tf.transform.rotation.y = qu.y();
-              tag_tf.transform.rotation.z = qu.z();
-              tag_tf.transform.rotation.w = qu.w();
-              tag_tf.transform.translation.x = camera_translation_vector.at<double>(0);
-              tag_tf.transform.translation.y = camera_translation_vector.at<double>(1);
-              tag_tf.transform.translation.z = camera_translation_vector.at<double>(2);
+              // Outlier Rejection Logic
+              double dist_sq = 0.0;
+              dist_sq += pow(tvec_inv.at<double>(0) - kf_cam.statePost.at<float>(0, 0), 2);
+              dist_sq += pow(tvec_inv.at<double>(1) - kf_cam.statePost.at<float>(1, 0), 2);
+              dist_sq += pow(tvec_inv.at<double>(2) - kf_cam.statePost.at<float>(2, 0), 2);
+              double dist = sqrt(dist_sq);
+
+              // Threshold in meters (e.g., 0.5m jump in one frame is impossible for static cam)
+              if (dist > 0.5) {
+                  // RCLCPP_WARN(this->get_logger(), "Outlier detected! Distance: %f. Ignoring measurement.", dist);
+                  std::cout << "Outlier detected! Distance: " << dist << ". Ignoring measurement." << std::endl;
+                  // Use prediction only (or just skip update)
+                  kf_cam.predict();
+                  // Use previous state
+                  tag_tf.transform.translation.x = kf_cam.statePost.at<float>(0,0);
+                  tag_tf.transform.translation.y = kf_cam.statePost.at<float>(1,0);
+                  tag_tf.transform.translation.z = kf_cam.statePost.at<float>(2,0);
+                  tag_tf.transform.rotation.x = kf_cam.statePost.at<float>(3,0);
+                  tag_tf.transform.rotation.y = kf_cam.statePost.at<float>(4,0);
+                  tag_tf.transform.rotation.z = kf_cam.statePost.at<float>(5,0);
+                  tag_tf.transform.rotation.w = kf_cam.statePost.at<float>(6,0);
+              } else {
+                  // Prepare measurement
+                  cv::Mat measurement_cam(7, 1, CV_32F);
+                  measurement_cam.at<float>(0, 0) = tvec_inv.at<double>(0);
+                  measurement_cam.at<float>(1, 0) = tvec_inv.at<double>(1);
+                  measurement_cam.at<float>(2, 0) = tvec_inv.at<double>(2);
+                  measurement_cam.at<float>(3, 0) = qu.x();
+                  measurement_cam.at<float>(4, 0) = qu.y();
+                  measurement_cam.at<float>(5, 0) = qu.z();
+                  measurement_cam.at<float>(6, 0) = qu.w();
+
+                  // Predict and Correct
+                  kf_cam.predict();
+                  cv::Mat corrected_state = kf_cam.correct(measurement_cam);
+
+                  // Use corrected state for TF
+                  tag_tf.transform.translation.x = corrected_state.at<float>(0,0);
+                  tag_tf.transform.translation.y = corrected_state.at<float>(1,0);
+                  tag_tf.transform.translation.z = corrected_state.at<float>(2,0);
+                  tag_tf.transform.rotation.x = corrected_state.at<float>(3,0);
+                  tag_tf.transform.rotation.y = corrected_state.at<float>(4,0);
+                  tag_tf.transform.rotation.z = corrected_state.at<float>(5,0);
+                  tag_tf.transform.rotation.w = corrected_state.at<float>(6,0);
+              }
+
+              // --- KALMAN FILTER END ---
 
               tf_broadcaster->sendTransform(tag_tf);
+              
+              saved_tag=tag_tf;
+              register_tag_00=true;
 
             }
 
-            else{*/
+            else{
               tag_tf.header.frame_id = "cam_1";
               std::stringstream ss_frame_name;
 
@@ -238,12 +318,9 @@ class Aruco_Nano_Detector : public rclcpp::Node
 
               tf_broadcaster->sendTransform(tag_tf);
 
-              if(m.id==0){
-                saved_tag=tag_tf;
-                register_tag_00=true;
-              }
+            } // End else
 
-          }
+          } // End for loop
 
           if (register_tag_00==false){
             tf_broadcaster->sendTransform(saved_tag);
