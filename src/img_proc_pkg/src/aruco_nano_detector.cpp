@@ -36,6 +36,7 @@
 #include "tf2_ros/transform_broadcaster.h"
 #include <opencv2/video/tracking.hpp>
 #include <fstream>
+#include <map>
 
 
 
@@ -109,6 +110,17 @@ class Aruco_Nano_Detector : public rclcpp::Node
       // Initialize the transform broadcaster
       tf_broadcaster = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
 
+      // Initialize Fixed Markers Map (ID -> Position in World [x, y, z])
+      fixed_markers[0] = cv::Point3f(0.0, 0.0, 0.0);
+      fixed_markers[99] = cv::Point3f(-2.0, 1.0, 0.0);
+      fixed_markers[98] = cv::Point3f(0.0, 1.0, 0.0);
+      fixed_markers[97] = cv::Point3f(2.0, 1.0, 0.0);
+      fixed_markers[96] = cv::Point3f(-2.0, 0.0, 0.0);
+      fixed_markers[95] = cv::Point3f(2.0, 0.0, 0.0);
+      fixed_markers[94] = cv::Point3f(-2.0, -1.0, 0.0);
+      fixed_markers[93] = cv::Point3f(0.0, -1.0, 0.0);
+      fixed_markers[92] = cv::Point3f(2.0, -1.0, 0.0);
+
       // Initialize Kalman filter variables
       int state_dim_cam = 14;  // (x, y, z, rx, ry, rz, rw, vx, vy, vz, vrx, vry, vrz, vrw)
       int meas_dim_cam = 7;   // (x, y, z, rx, ry,rz, rw)
@@ -125,6 +137,8 @@ class Aruco_Nano_Detector : public rclcpp::Node
 
     cv::KalmanFilter kf_cam;
     cv::Mat state_cam;
+    std::map<int, cv::Point3f> fixed_markers;
+    std::map<int, cv::Point3f> last_dynamic_pos;
 
     void topic_callback(const sensor_msgs::msg::Image::SharedPtr msg)
     { 
@@ -178,9 +192,10 @@ class Aruco_Nano_Detector : public rclcpp::Node
             geometry_msgs::msg::TransformStamped tag_tf;
             tag_tf.header.stamp = msg->header.stamp;
             
-            if(m.id==0){
-              // Publish Camera pose relative to Marker 0 (Origin)
-              tag_tf.header.frame_id = "marker_id_00";
+            // Check if the detected marker is one of our fixed anchors
+            if(fixed_markers.count(m.id)){
+              // Publish Camera pose relative to World Origin (via this marker)
+              tag_tf.header.frame_id = "marker_id_00"; // Always reference to world origin
               tag_tf.child_frame_id = "cam_1";
 
               cv::Mat rvec = rotation_matrix; // 3x1
@@ -189,10 +204,22 @@ class Aruco_Nano_Detector : public rclcpp::Node
               cv::Mat rmat;
               cv::Rodrigues(rvec, rmat); // Convert to 3x3
 
-              // Invert to get Camera in Marker frame
+              // 1. Calculate Camera Pose in Marker Frame (T_cam_marker)
               cv::Mat rmat_inv = rmat.t();
-              cv::Mat tvec_inv = -rmat_inv * tvec;
+              cv::Mat tvec_inv = -rmat_inv * tvec; // Position of Camera in Marker Frame
 
+              // 2. Transform to World Frame (T_cam_world = T_marker_world * T_cam_marker)
+              // Assuming markers are aligned with world axes (Identity rotation)
+              // P_cam_world = P_marker_world + P_cam_marker
+              
+              cv::Point3f marker_pos_world = fixed_markers[m.id];
+              
+              // Add marker offset to camera position
+              tvec_inv.at<double>(0) += marker_pos_world.x;
+              tvec_inv.at<double>(1) += marker_pos_world.y;
+              tvec_inv.at<double>(2) += marker_pos_world.z;
+
+              // Rotation is the same (assuming aligned markers)
               tf2::Matrix3x3 mat(rmat_inv.at<double>(0,0), rmat_inv.at<double>(0,1), rmat_inv.at<double>(0,2),
                     rmat_inv.at<double>(1,0), rmat_inv.at<double>(1,1), rmat_inv.at<double>(1,2),
                     rmat_inv.at<double>(2,0), rmat_inv.at<double>(2,1), rmat_inv.at<double>(2,2));
@@ -224,7 +251,7 @@ class Aruco_Nano_Detector : public rclcpp::Node
               double dist = sqrt(dist_sq);
 
               // Threshold in meters (e.g., 0.5m jump in one frame is impossible for static cam)
-              if (dist > 0.5) {
+              if (dist > 0.1) {
                   // RCLCPP_WARN(this->get_logger(), "Outlier detected! Distance: %f. Ignoring measurement.", dist);
                   std::cout << "Outlier detected! Distance: " << dist << ". Ignoring measurement." << std::endl;
                   // Use prediction only (or just skip update)
@@ -268,6 +295,41 @@ class Aruco_Nano_Detector : public rclcpp::Node
               
               saved_tag=tag_tf;
               register_tag_00=true;
+
+              // Also publish the raw marker detection for visualization in RViz
+              if (m.id != 0) {
+                  geometry_msgs::msg::TransformStamped marker_vis_tf;
+                  marker_vis_tf.header.stamp = msg->header.stamp;
+                  marker_vis_tf.header.frame_id = "cam_1";
+                  
+                  std::stringstream ss_vis_name;
+                  ss_vis_name << "marker_id_" << m.id;
+                  marker_vis_tf.child_frame_id = ss_vis_name.str();
+
+                  // Use the raw detection (rvec, tvec)
+                  // Note: tvec is already in camera frame. rvec needs conversion to quaternion.
+                  
+                  // Re-calculate rotation matrix from rvec (we used it above)
+                  cv::Mat rmat_vis;
+                  cv::Rodrigues(rvec, rmat_vis);
+                  
+                  tf2::Matrix3x3 mat_vis(rmat_vis.at<double>(0,0), rmat_vis.at<double>(0,1), rmat_vis.at<double>(0,2),
+                        rmat_vis.at<double>(1,0), rmat_vis.at<double>(1,1), rmat_vis.at<double>(1,2),
+                        rmat_vis.at<double>(2,0), rmat_vis.at<double>(2,1), rmat_vis.at<double>(2,2));
+                  
+                  tf2::Quaternion qu_vis;
+                  mat_vis.getRotation(qu_vis);
+
+                  marker_vis_tf.transform.translation.x = tvec.at<double>(0);
+                  marker_vis_tf.transform.translation.y = tvec.at<double>(1);
+                  marker_vis_tf.transform.translation.z = tvec.at<double>(2);
+                  marker_vis_tf.transform.rotation.x = qu_vis.x();
+                  marker_vis_tf.transform.rotation.y = qu_vis.y();
+                  marker_vis_tf.transform.rotation.z = qu_vis.z();
+                  marker_vis_tf.transform.rotation.w = qu_vis.w();
+
+                  tf_broadcaster->sendTransform(marker_vis_tf);
+              }
 
             }
 
@@ -316,7 +378,30 @@ class Aruco_Nano_Detector : public rclcpp::Node
               tag_tf.transform.translation.y = camera_translation_vector.at<double>(1);
               tag_tf.transform.translation.z = camera_translation_vector.at<double>(2);
 
-              tf_broadcaster->sendTransform(tag_tf);
+              // Outlier Rejection for Dynamic Markers (Threshold 0.5m)
+              bool publish_dynamic = true;
+              if (last_dynamic_pos.count(m.id)) {
+                  double dist_sq = 0.0;
+                  dist_sq += pow(camera_translation_vector.at<double>(0) - last_dynamic_pos[m.id].x, 2);
+                  dist_sq += pow(camera_translation_vector.at<double>(1) - last_dynamic_pos[m.id].y, 2);
+                  dist_sq += pow(camera_translation_vector.at<double>(2) - last_dynamic_pos[m.id].z, 2);
+                  double dist = sqrt(dist_sq);
+
+                  if (dist > 0.5) {
+                      std::cout << "Dynamic Outlier ID " << m.id << "! Dist: " << dist << ". Ignoring." << std::endl;
+                      publish_dynamic = false;
+                  }
+              }
+
+              if (publish_dynamic) {
+                  tf_broadcaster->sendTransform(tag_tf);
+                  // Update history
+                  last_dynamic_pos[m.id] = cv::Point3f(
+                      camera_translation_vector.at<double>(0),
+                      camera_translation_vector.at<double>(1),
+                      camera_translation_vector.at<double>(2)
+                  );
+              }
 
             } // End else
 

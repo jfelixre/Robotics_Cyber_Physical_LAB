@@ -90,11 +90,74 @@
           </geometry>
         </visual>
         <visual name='marker_op_1'>
-          <pose>1 0 0.01 0 0 0</pose>
+          <pose>1 2 0.01 0 0 0</pose>
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
               <uri>../../../../robot_custom_description/share/robot_custom_description/models/markers/marker_99.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='marker_op_2'>
+          <pose>1 0 0.01 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>../../../../robot_custom_description/share/robot_custom_description/models/markers/marker_98.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='marker_op_3'>
+          <pose>1 -2 0.01 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>../../../../robot_custom_description/share/robot_custom_description/models/markers/marker_97.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='marker_op_4'>
+          <pose>0 2 0.01 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>../../../../robot_custom_description/share/robot_custom_description/models/markers/marker_96.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='marker_op_5'>
+          <pose>0 -2 0.01 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>../../../../robot_custom_description/share/robot_custom_description/models/markers/marker_95.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='marker_op_6'>
+          <pose>-1 2 0.01 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>../../../../robot_custom_description/share/robot_custom_description/models/markers/marker_94.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='marker_op_7'>
+          <pose>-1 0 0.01 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>../../../../robot_custom_description/share/robot_custom_description/models/markers/marker_93.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='marker_op_8'>
+          <pose>-1 -2 0.01 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>../../../../robot_custom_description/share/robot_custom_description/models/markers/marker_92.dae</uri>
             </mesh>
           </geometry>
         </visual>
@@ -118,7 +181,7 @@
     </model>
     <model name='cam'>
       <static>true</static>
-      <pose>0 0 2.8 0 1.5708 0</pose>
+      <pose>0 0 4 0 1.5708 0</pose>
       <link name='cam_link'>
         <inertial>
           <inertia>
