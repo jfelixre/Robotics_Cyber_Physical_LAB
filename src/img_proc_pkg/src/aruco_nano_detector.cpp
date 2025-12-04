@@ -84,6 +84,15 @@ class Aruco_Nano_Detector : public rclcpp::Node
       this->declare_parameter<std::string>("calibration_file", "/home/javierfr/Robotics_Cyber_Physical_LAB/src/img_proc_pkg/config/camera_calib_charuco.yaml");
       std::string calib_file = this->get_parameter("calibration_file").as_string();
 
+      // Declare and get parameters for camera configuration
+      this->declare_parameter<std::string>("camera_topic", "/cameras/cam_1");
+      this->declare_parameter<std::string>("camera_frame", "cam_1");
+      
+      camera_topic = this->get_parameter("camera_topic").as_string();
+      camera_frame_id = this->get_parameter("camera_frame").as_string();
+
+      RCLCPP_INFO(this->get_logger(), "Configured for Camera: %s on Topic: %s", camera_frame_id.c_str(), camera_topic.c_str());
+
       //Read camera calibration parameters from file
       cv::FileStorage fs(calib_file, cv::FileStorage::READ);
       if(!fs.isOpened()){
@@ -105,7 +114,7 @@ class Aruco_Nano_Detector : public rclcpp::Node
       }
       
       subscription_ = this->create_subscription<sensor_msgs::msg::Image>(
-      "/cameras/cam_1", 10, std::bind(&Aruco_Nano_Detector::topic_callback, this, _1));
+      camera_topic, 10, std::bind(&Aruco_Nano_Detector::topic_callback, this, _1));
 
       // Initialize the transform broadcaster
       tf_broadcaster = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
@@ -139,6 +148,8 @@ class Aruco_Nano_Detector : public rclcpp::Node
     cv::Mat state_cam;
     std::map<int, cv::Point3f> fixed_markers;
     std::map<int, cv::Point3f> last_dynamic_pos;
+    std::string camera_topic;
+    std::string camera_frame_id;
 
     void topic_callback(const sensor_msgs::msg::Image::SharedPtr msg)
     { 
@@ -196,7 +207,7 @@ class Aruco_Nano_Detector : public rclcpp::Node
             if(fixed_markers.count(m.id)){
               // Publish Camera pose relative to World Origin (via this marker)
               tag_tf.header.frame_id = "marker_id_00"; // Always reference to world origin
-              tag_tf.child_frame_id = "cam_1";
+              tag_tf.child_frame_id = camera_frame_id;
 
               cv::Mat rvec = rotation_matrix; // 3x1
               cv::Mat tvec = traslation_vector; // 3x1
@@ -300,7 +311,7 @@ class Aruco_Nano_Detector : public rclcpp::Node
               if (m.id != 0) {
                   geometry_msgs::msg::TransformStamped marker_vis_tf;
                   marker_vis_tf.header.stamp = msg->header.stamp;
-                  marker_vis_tf.header.frame_id = "cam_1";
+                  marker_vis_tf.header.frame_id = camera_frame_id;
                   
                   std::stringstream ss_vis_name;
                   ss_vis_name << "marker_id_" << m.id;
@@ -334,7 +345,7 @@ class Aruco_Nano_Detector : public rclcpp::Node
             }
 
             else{
-              tag_tf.header.frame_id = "cam_1";
+              tag_tf.header.frame_id = camera_frame_id;
               std::stringstream ss_frame_name;
 
               if (m.id<10)
