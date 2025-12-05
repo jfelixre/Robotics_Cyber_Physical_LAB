@@ -57,6 +57,9 @@ std::vector<float> angle_obstacle;
 std::vector<float> type_obstacle;   //0: Robot, 1: Single object, 2: Double object
 int n_obstacles = 0;
 int leader_robot_id = 0;
+std::vector<geometry_msgs::msg::Polygon> other_robot_paths;
+std::vector<cv::Mat> other_robot_path_mats;
+std::vector<rclcpp::Subscription<geometry_msgs::msg::Polygon>::SharedPtr> other_path_subs;
 int robot_state = 0;
 geometry_msgs::msg::Polygon path_leader;
 
@@ -95,6 +98,29 @@ class Compute_Trajectory : public rclcpp::Node
             robot_id = this->get_parameter("robot_id").as_int();
             RCLCPP_INFO(this->get_logger(), "Received Robot_ID: %d", robot_id);
 
+            // Parameters for sizes in meters
+            this->declare_parameter<float>("robot_size_x", 0.7);
+            this->declare_parameter<float>("robot_size_y", 0.6);
+            this->declare_parameter<float>("object_size_small_x", 0.4);
+            this->declare_parameter<float>("object_size_small_y", 0.4);
+            this->declare_parameter<float>("object_size_big_x", 0.6);
+            this->declare_parameter<float>("object_size_big_y", 0.2);
+
+            float r_x = this->get_parameter("robot_size_x").as_double();
+            float r_y = this->get_parameter("robot_size_y").as_double();
+            float os_x = this->get_parameter("object_size_small_x").as_double();
+            float os_y = this->get_parameter("object_size_small_y").as_double();
+            float ob_x = this->get_parameter("object_size_big_x").as_double();
+            float ob_y = this->get_parameter("object_size_big_y").as_double();
+
+            // Convert to grid cells
+            robot_size_x_cells = static_cast<int>(r_x / x_grid);
+            robot_size_y_cells = static_cast<int>(r_y / y_grid);
+            object_size_small_x_cells = static_cast<int>(os_x / x_grid);
+            object_size_small_y_cells = static_cast<int>(os_y / y_grid);
+            object_size_big_x_cells = static_cast<int>(ob_x / x_grid);
+            object_size_big_y_cells = static_cast<int>(ob_y / y_grid);
+
 
             tf_buffer_ = std::make_shared<tf2_ros::Buffer>(this->get_clock());
             tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
@@ -127,11 +153,36 @@ class Compute_Trajectory : public rclcpp::Node
             subs_task_assigned = this->create_subscription<interfaces::msg::TaskDescription>(
                 topic_name_3, 1, std::bind(&Compute_Trajectory::task_assigned_callback, this, _1));
 
-            std::stringstream ss_topic_name_4;
-            ss_topic_name_4 << "/robot_0" << leader_robot_id << "/path";
-            std::string topic_name_4 = ss_topic_name_4.str();
-            subs_path_leader = this->create_subscription<geometry_msgs::msg::Polygon>(
-                topic_name_4, 1, std::bind(&Compute_Trajectory::path_leader_callback, this, _1));
+
+            // Intentar suscribirse a los paths de robot_01 a robot_09 (excepto el propio)
+            for (int i = 1; i <= 9; ++i) {
+                if (i == robot_id) continue;
+                std::stringstream ss_topic_name;
+                ss_topic_name << "/robot_0" << i << "/path";
+                std::string topic_name = ss_topic_name.str();
+                try {
+                    auto sub = this->create_subscription<geometry_msgs::msg::Polygon>(
+                        topic_name, 1,
+                        [this, i](const geometry_msgs::msg::Polygon::SharedPtr msg) {
+                            if (other_robot_paths.size() <= i) other_robot_paths.resize(i+1);
+                            if (other_robot_path_mats.size() <= i) other_robot_path_mats.resize(i+1);
+                            other_robot_paths[i] = *msg;
+                            cv::Mat mat = cv::Mat::zeros(n_y_spaces, n_x_spaces, CV_8UC1);
+                            for (const auto &point : msg->points) {
+                                int x_map = static_cast<int>((point.x * n_x_spaces) / x_world) + (n_x_spaces / 2);
+                                int y_map = n_y_spaces - (static_cast<int>((point.y * n_y_spaces) / y_world) + (n_y_spaces / 2));
+                                if (x_map >= 0 && x_map < n_x_spaces && y_map >= 0 && y_map < n_y_spaces) {
+                                    mat.at<uchar>(y_map, x_map) = 255;
+                                }
+                            }
+                            other_robot_path_mats[i] = mat;
+                        });
+                    other_path_subs.push_back(sub);
+                    RCLCPP_INFO(this->get_logger(), "Intentando suscribirse a: %s", topic_name.c_str());
+                } catch (const std::exception &e) {
+                    RCLCPP_WARN(this->get_logger(), "No se pudo suscribir a: %s", topic_name.c_str());
+                }
+            }
 
             timer_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
 
@@ -143,6 +194,12 @@ class Compute_Trajectory : public rclcpp::Node
 
 
     private:
+        int robot_size_x_cells;
+        int robot_size_y_cells;
+        int object_size_small_x_cells;
+        int object_size_small_y_cells;
+        int object_size_big_x_cells;
+        int object_size_big_y_cells;
 
         rclcpp::Client<interfaces::srv::AStarService>::SharedPtr client;
         rclcpp::CallbackGroup::SharedPtr client_cb_group;
@@ -214,7 +271,7 @@ class Compute_Trajectory : public rclcpp::Node
         }
 
         void timer_callback()
-        {      
+        {
             
 
             
@@ -227,7 +284,7 @@ class Compute_Trajectory : public rclcpp::Node
             angle_obstacle.clear();
             type_obstacle.clear();
             //For to save the position of every marker on the scene
-            for (int marker=0; marker<30; marker++){
+            for (int marker=1; marker<30; marker++){
                 std::stringstream ss_marker;
                 if (marker<10){
                     ss_marker << "marker_id_0" << marker;
@@ -389,7 +446,7 @@ class Compute_Trajectory : public rclcpp::Node
             // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Center_x_map: %d" , Robot_center_point.x);
             // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Center_y_map: %d" , Robot_center_point.y);
 
-            cv::Size Robot_size(14,12);
+            cv::Size Robot_size(robot_size_x_cells, robot_size_y_cells);
             cv::RotatedRect Robot_rectangle(Robot_center_point, Robot_size, Robot_angle_degrees);
             cv::Point2f vertices2f_R[4];
             Robot_rectangle.points(vertices2f_R);
@@ -413,7 +470,7 @@ class Compute_Trajectory : public rclcpp::Node
 
             double Object_angle_degrees= (angle_object*180)/PI * -1;
             if(type_object==1){
-                cv::Size Object_size(8,8);
+                cv::Size Object_size(object_size_small_x_cells, object_size_small_y_cells);
                 cv::RotatedRect Object_rectangle(Object_point, Object_size, Object_angle_degrees);
                 cv::Point2f vertices2f_Object[4];
                 Object_rectangle.points(vertices2f_Object);
@@ -428,7 +485,7 @@ class Compute_Trajectory : public rclcpp::Node
             }
 
             else if(type_object==2){
-                cv::Size Object_size(12,4);
+                cv::Size Object_size(object_size_big_x_cells, object_size_big_y_cells);
                 cv::RotatedRect Object_rectangle(Object_point, Object_size, Object_angle_degrees);
                 cv::Point2f vertices2f_Object[4];
                 Object_rectangle.points(vertices2f_Object);
@@ -453,7 +510,7 @@ class Compute_Trajectory : public rclcpp::Node
 
                 double Obstacle_angle_degrees= (angle_obstacle[i]*180)/PI * -1;
                 if(type_obstacle[i]==0){
-                    cv::Size Obstacle_size(10,10);
+                    cv::Size Obstacle_size(robot_size_x_cells, robot_size_y_cells);
                     cv::RotatedRect Obstacle_rectangle(Obstacle_point, Obstacle_size, Obstacle_angle_degrees);
                     cv::Point2f vertices2f_Obstacle[4];
                     Obstacle_rectangle.points(vertices2f_Obstacle);
@@ -468,7 +525,7 @@ class Compute_Trajectory : public rclcpp::Node
                     cv::fillConvexPoly(map_bin,vertices_Obstacle, cv::Scalar(0));
                 }
                 else if(type_obstacle[i]==1){
-                    cv::Size Obstacle_size(8,8);
+                    cv::Size Obstacle_size(object_size_small_x_cells, object_size_small_y_cells);
                     cv::RotatedRect Obstacle_rectangle(Obstacle_point, Obstacle_size, Obstacle_angle_degrees);
                     cv::Point2f vertices2f_Obstacle[4];
                     Obstacle_rectangle.points(vertices2f_Obstacle);
@@ -483,7 +540,7 @@ class Compute_Trajectory : public rclcpp::Node
                     cv::fillConvexPoly(map_bin,vertices_Obstacle, cv::Scalar(0));
                 }
                 else if(type_obstacle[i]==2){
-                        cv::Size Obstacle_size(12,12);
+                        cv::Size Obstacle_size(object_size_big_x_cells, object_size_big_y_cells);
                         cv::RotatedRect Obstacle_rectangle(Obstacle_point, Obstacle_size, Obstacle_angle_degrees);
                         cv::Point2f vertices2f_Obstacle[4];
                         Obstacle_rectangle.points(vertices2f_Obstacle);
@@ -503,21 +560,17 @@ class Compute_Trajectory : public rclcpp::Node
 
             }
 
-            //If the robot_leader_id is different to robot_id, search on path_leader_mat white pixels and mark as a 1x1 obstacle
-            if (leader_robot_id != robot_id){
-                //For to search on path_leader_mat for white pixels and add it as obstacles on map and map_bin
-                for (int i = 0; i < path_leader_mat.rows; i++) {
-                    for (int j = 0; j < path_leader_mat.cols; j++) {
-                        if (path_leader_mat.at<uchar>(i, j) == 255) { // Check for white pixel
-                            // Mark the corresponding cell in map and map_bin as an obstacle
-                            map.at<uchar>(i, j) = 4; // Mark as obstacle in map
-                            map_bin.at<uchar>(i, j) = 0; // Mark as obstacle in map_bin
+            // Marcar los caminos de todos los otros robots como obstáculos
+            for (const auto& mat : other_robot_path_mats) {
+                if (mat.empty()) continue;
+                for (int i = 0; i < mat.rows; i++) {
+                    for (int j = 0; j < mat.cols; j++) {
+                        if (mat.at<uchar>(i, j) == 255) {
+                            map.at<uchar>(i, j) = 4; // Obstáculo por path de otro robot
+                            map_bin.at<uchar>(i, j) = 0; // Celda bloqueada
                         }
                     }
                 }
-
-
-                
             }
 
 
