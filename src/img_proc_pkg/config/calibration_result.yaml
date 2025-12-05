@@ -1,0 +1,18 @@
+%YAML:1.0
+---
+calibration_date: "Thu Dec  4 06:58:45 2025\n"
+image_width: 3840
+image_height: 2160
+camera_name: calibrated_camera
+camera_matrix: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [ 2.2839765864221563e+03, 0., 1.9199792112914024e+03, 0.,
+       2.2819836030763627e+03, 1.0783600890133130e+03, 0., 0., 1. ]
+distortion_coefficients: !!opencv-matrix
+   rows: 5
+   cols: 1
+   dt: d
+   data: [ 0., 0., 0., 0., 0. ]
+avg_reprojection_error: 1.0212503134608580e+01

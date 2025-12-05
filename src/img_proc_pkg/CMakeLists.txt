@@ -6,9 +6,9 @@ if(NOT CMAKE_C_STANDARD)
   set(CMAKE_C_STANDARD 99)
 endif()
 
-# Default to C++14
+# Default to C++17
 if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 14)
+  set(CMAKE_CXX_STANDARD 17)
 endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
@@ -135,6 +135,18 @@ find_package(Eigen3 REQUIRED)
     tf2
     tf2_ros
     geometry_msgs)
+
+  add_executable(calibration_node src/calibration_node.cpp)
+  target_include_directories(calibration_node PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
+  
+  ament_target_dependencies(calibration_node
+    "OpenCV"
+    sensor_msgs
+    std_msgs
+    rclcpp
+    cv_bridge)
   
 
 #add_executable(calibrate_camera_charuco src/calibrate_camera_charuco.cpp)
@@ -194,6 +206,7 @@ install(TARGETS
   compute_position
   #aruco_detector_v2
   aruco_nano_detector
+  calibration_node
   DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY 

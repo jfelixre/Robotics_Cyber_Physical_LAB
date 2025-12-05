@@ -1,0 +1,18 @@
+%YAML:1.0
+---
+calibration_date: "Manual Calculation from Gazebo SDF"
+image_width: 3840
+image_height: 2160
+camera_name: "gazebo_cam_1"
+camera_matrix: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [ 2.28816666e+03, 0., 1.92000000e+03, 0., 2.28816666e+03,
+       1.08000000e+03, 0., 0., 1. ]
+distortion_coefficients: !!opencv-matrix
+   rows: 5
+   cols: 1
+   dt: d
+   data: [ 0., 0., 0., 0., 0. ]
+avg_reprojection_error: 0.0

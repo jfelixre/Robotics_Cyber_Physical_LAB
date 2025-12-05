@@ -25,7 +25,7 @@ def generate_launch_description():
     pkg_project_robot_custom_description = get_package_share_directory('robot_custom_description')
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
 
-   #Aruco nano detection node for Camera 1
+    #Aruco nano detection node for Camera 1
     aruco_cam1 = Node(
         package='img_proc_pkg',
         executable='aruco_nano_detector',
@@ -33,23 +33,26 @@ def generate_launch_description():
         parameters=[{
             'camera_topic': '/cameras/cam_1',
             'camera_frame': 'cam_1',
-            'calibration_file': os.path.join(pkg_project_img_proc_pkg, 'config', 'camera_calib_charuco.yaml')
+            'calibration_file': os.path.join(pkg_project_img_proc_pkg, 'config', 'perfect_calibration.yaml'),
+            'marker_size': 0.0938
         }]
     )
 
-    # Example for a second camera (commented out)
-    # aruco_cam2 = Node(
-    #     package='img_proc_pkg',
-    #     executable='aruco_nano_detector',
-    #     name='aruco_detector_cam2',
-    #     parameters=[{
-    #         'camera_topic': '/cameras/cam_2',
-    #         'camera_frame': 'cam_2',
-    #         'calibration_file': os.path.join(pkg_project_img_proc_pkg, 'config', 'camera_calib_charuco.yaml')
-    #     }]
-    # )
+    # Aruco nano detection node for Camera 2 (Secondary / Failover)
+    aruco_cam2 = Node(
+        package='img_proc_pkg',
+        executable='aruco_nano_detector',
+        name='aruco_detector_cam2',
+        parameters=[{
+            'camera_topic': '/cameras/cam_2',
+            'camera_frame': 'cam_2',
+            'calibration_file': os.path.join(pkg_project_img_proc_pkg, 'config', 'perfect_calibration.yaml'),
+            'marker_size': 0.0938,
+            'master_camera_status_topic': '/aruco_detector_cam1/status'
+        }]
+    )
 
     return LaunchDescription([
         aruco_cam1,
-        # aruco_cam2
+        aruco_cam2
     ])

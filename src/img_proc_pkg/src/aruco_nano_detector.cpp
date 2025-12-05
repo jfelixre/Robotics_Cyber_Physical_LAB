@@ -19,7 +19,7 @@
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/image.hpp>
 #include <sensor_msgs/image_encodings.hpp>
-//#include <std_msgs/msg/bool.hpp>
+#include <std_msgs/msg/bool.hpp>
 //#include <image_transport/image_transport.h>
 #include <cv_bridge/cv_bridge.hpp>
 #include <interfaces/msg/img_data.hpp>
@@ -87,11 +87,48 @@ class Aruco_Nano_Detector : public rclcpp::Node
       // Declare and get parameters for camera configuration
       this->declare_parameter<std::string>("camera_topic", "/cameras/cam_1");
       this->declare_parameter<std::string>("camera_frame", "cam_1");
-      
+      this->declare_parameter<float>("marker_size", 0.0938); // Adjusted for Gazebo texture padding
+
       camera_topic = this->get_parameter("camera_topic").as_string();
       camera_frame_id = this->get_parameter("camera_frame").as_string();
+      markerSize = this->get_parameter("marker_size").as_double();
 
-      RCLCPP_INFO(this->get_logger(), "Configured for Camera: %s on Topic: %s", camera_frame_id.c_str(), camera_topic.c_str());
+      // Failover Parameters
+      this->declare_parameter<std::string>("master_camera_status_topic", "");
+      std::string master_topics_str = this->get_parameter("master_camera_status_topic").as_string();
+
+      // Status Publisher
+      status_pub_ = this->create_publisher<std_msgs::msg::Bool>("~/status", 10);
+
+      // Master Status Subscribers (List)
+      if (!master_topics_str.empty()) {
+          std::stringstream ss(master_topics_str);
+          std::string segment;
+          while (std::getline(ss, segment, ',')) {
+              // Trim whitespace (simple version)
+              segment.erase(0, segment.find_first_not_of(' '));
+              segment.erase(segment.find_last_not_of(' ') + 1);
+              
+              if (segment.empty()) continue;
+
+              auto topic = segment;
+              auto sub = this->create_subscription<std_msgs::msg::Bool>(
+                  topic, 10, 
+                  [this, topic](const std_msgs::msg::Bool::SharedPtr msg) {
+                      this->master_status_map_[topic] = msg->data;
+                      this->master_heartbeat_map_[topic] = this->now();
+                  });
+              master_subs_.push_back(sub);
+              master_status_map_[topic] = false;
+              master_heartbeat_map_[topic] = rclcpp::Time(0);
+              RCLCPP_INFO(this->get_logger(), "Monitoring Master: %s", topic.c_str());
+          }
+          RCLCPP_INFO(this->get_logger(), "Configured as Secondary/Backup Node.");
+      } else {
+          RCLCPP_INFO(this->get_logger(), "Configured as Primary (or Standalone).");
+      }
+
+      RCLCPP_INFO(this->get_logger(), "Configured for Camera: %s on Topic: %s. Marker Size: %.4f", camera_frame_id.c_str(), camera_topic.c_str(), markerSize);
 
       //Read camera calibration parameters from file
       cv::FileStorage fs(calib_file, cv::FileStorage::READ);
@@ -118,6 +155,17 @@ class Aruco_Nano_Detector : public rclcpp::Node
 
       // Initialize the transform broadcaster
       tf_broadcaster = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+
+      // Initialize Timeout Timer (check every 0.5s)
+      last_image_time_ = this->now();
+      status_timeout_timer_ = this->create_wall_timer(
+          500ms, [this]() {
+              if ((this->now() - last_image_time_).seconds() > 2.0) {
+                  std_msgs::msg::Bool status_msg;
+                  status_msg.data = false;
+                  status_pub_->publish(status_msg);
+              }
+          });
 
       // Initialize Fixed Markers Map (ID -> Position in World [x, y, z])
       fixed_markers[0] = cv::Point3f(0.0, 0.0, 0.0);
@@ -151,9 +199,19 @@ class Aruco_Nano_Detector : public rclcpp::Node
     std::string camera_topic;
     std::string camera_frame_id;
 
+    // Failover members
+    rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr status_pub_;
+    std::vector<rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr> master_subs_;
+    std::map<std::string, bool> master_status_map_;
+    std::map<std::string, rclcpp::Time> master_heartbeat_map_;
+
+    // Timeout members
+    rclcpp::TimerBase::SharedPtr status_timeout_timer_;
+    rclcpp::Time last_image_time_;
+
     void topic_callback(const sensor_msgs::msg::Image::SharedPtr msg)
     { 
-      
+      last_image_time_ = this->now();
     
       //RCLCPP_INFO(this->get_logger(), "Received image" );
       
@@ -176,14 +234,47 @@ class Aruco_Nano_Detector : public rclcpp::Node
         else{
 
           //RCLCPP_INFO(this->get_logger(), "IMAGE OK");
-          cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
+          std::string window_name = "Display Image - " + camera_frame_id;
+          cv::namedWindow(window_name, cv::WINDOW_NORMAL );
 
           //Detect markers
           auto markers = aruconano::MarkerDetector::detect(img_original);
           for(const auto &m:markers)
             m.draw(img_original);
 
+          // Check for fixed markers visibility
+          bool fixed_marker_visible = false;
+          for(const auto &m:markers){
+              if(fixed_markers.count(m.id)){
+                  fixed_marker_visible = true;
+                  break;
+              }
+          }
 
+          // Publish Status
+          std_msgs::msg::Bool status_msg;
+          status_msg.data = fixed_marker_visible;
+          status_pub_->publish(status_msg);
+
+          // Failover Check: Check ALL masters
+          bool any_master_healthy = false;
+          if (!master_subs_.empty()) {
+              for (auto const& [topic, is_alive] : master_status_map_) {
+                  double seconds_since_heartbeat = (this->now() - master_heartbeat_map_[topic]).seconds();
+                  // If ANY master is alive (sees markers) AND reporting recently -> We Standby
+                  if (is_alive && seconds_since_heartbeat < 2.0) {
+                      any_master_healthy = true;
+                      break;
+                  }
+              }
+
+              if (any_master_healthy) {
+                  // Standby Mode
+                  cv::imshow(window_name, img_original);
+                  cv::waitKey(1);
+                  return; 
+              }
+          }
 
           //Compute R and T vectors
 
@@ -425,7 +516,7 @@ class Aruco_Nano_Detector : public rclcpp::Node
 
 
 
-          cv::imshow("Display Image", img_original);
+          cv::imshow(window_name, img_original);
           cv::waitKey(1);
         }
 
