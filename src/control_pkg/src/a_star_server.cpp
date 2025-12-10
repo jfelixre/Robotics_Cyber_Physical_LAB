@@ -1,5 +1,5 @@
 #include "rclcpp/rclcpp.hpp"
-#include <interfaces/srv/a_star_service.hpp>
+#include <interfaces/srv/path_finding.hpp>
 
 
 #include <memory>
@@ -10,8 +10,8 @@
 using namespace std;
 //rclcpp::Node::SharedPtr AStarServer = nullptr;
 
-#define ROW 120
-#define COL 120
+#define ROW 160
+#define COL 90
 
 int robot_id = 0;
 
@@ -46,10 +46,10 @@ class AStarServer : public rclcpp::Node
             RCLCPP_INFO(this->get_logger(), "Received Robot_ID: %d", robot_id);
 
             std::stringstream ss_service_name;
-            ss_service_name << "/robot_0" << robot_id << "/a_star_server";
+            ss_service_name << "/robot_0" << robot_id << "/path_finding_server";
             std::string service_name = ss_service_name.str();
 
-            service_ = this->create_service<interfaces::srv::AStarService>(
+            service_ = this->create_service<interfaces::srv::PathFinding>(
                 service_name, std::bind(&AStarServer::a_star_caller, this,
                 std::placeholders::_1, std::placeholders::_2));
 
@@ -58,28 +58,27 @@ class AStarServer : public rclcpp::Node
     
     private:
 
-    rclcpp::Service<interfaces::srv::AStarService>::SharedPtr service_;
+        rclcpp::Service<interfaces::srv::PathFinding>::SharedPtr service_;
 
-    void a_star_caller(const std::shared_ptr<interfaces::srv::AStarService::Request> request,
-          std::shared_ptr<interfaces::srv::AStarService::Response>      response)
+        void a_star_caller(const std::shared_ptr<interfaces::srv::PathFinding::Request> request,
+            std::shared_ptr<interfaces::srv::PathFinding::Response>      response)
 		{
-            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint1");
-            //std::cout << "Llamada a servicio" << std::endl;
+            RCLCPP_INFO(this->get_logger(), "[A* SERVER] Solicitud recibida: src(%d,%d) dst(%d,%d) grid_size=%zu", 
+                        request->src_x, request->src_y, request->dst_x, request->dst_y, request->grid.size());
 
             int src_x = request->src_x;
             int src_y = request->src_y;
             int dst_x = request->dst_x;
             int dst_y = request->dst_y;
 
-
-            std::vector<int> grid_vect;
-            grid_vect = request->grid;
-            
-            // RCLCPP_INFO(this->get_logger(), "Received grid size: %d", grid_vect.size());
-            // RCLCPP_INFO(this->get_logger(), "Received src_x: %d", src_x);
-            // RCLCPP_INFO(this->get_logger(), "Received src_y: %d", src_y);
-            // RCLCPP_INFO(this->get_logger(), "Received dst_x: %d", dst_x);
-            // RCLCPP_INFO(this->get_logger(), "Received dst_y: %d", dst_y);
+            std::vector<int> grid_vect = request->grid;
+            if (grid_vect.size() != ROW * COL) {
+                RCLCPP_ERROR(this->get_logger(), "[A*] Grid size incorrecto: %zu, esperado: %d", grid_vect.size(), ROW * COL);
+                response->path_x.clear();
+                response->path_y.clear();
+                response->path_size = 0;
+                return;
+            }
             
            // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint2");
 
@@ -118,6 +117,13 @@ class AStarServer : public rclcpp::Node
             response->path_x = path_x;
             response->path_y = path_y;
             response->path_size = path_x.size();
+            
+            if (path_x.size() > 0) {
+                RCLCPP_INFO(this->get_logger(), "[A* SERVER] Respuesta enviada: path_size=%zu, primer_punto(%d,%d), ultimo_punto(%d,%d)",
+                            path_x.size(), path_x[0], path_y[0], path_x[path_x.size()-1], path_y[path_y.size()-1]);
+            } else {
+                RCLCPP_WARN(this->get_logger(), "[A* SERVER] Respuesta enviada: path_size=0 (no se encontró camino)");
+            }
 
           //  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint7");
 
@@ -825,7 +831,3 @@ int main(int argc, char **argv)
 
   return 0;
 }
-
-
-
-

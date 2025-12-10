@@ -36,7 +36,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/RobotVel.srv"
   "msg/RobotState.msg"
   "msg/Positions.msg"
-  "srv/AStarService.srv"
+  "srv/PathFinding.srv"
   "msg/Path.msg"
   "msg/RobotObjective.msg"
   "srv/EventControl.srv"

@@ -22,7 +22,7 @@
 #include <tf2/LinearMath/Matrix3x3.h>
 #include <geometry_msgs/msg/pose.hpp>
 #include <interfaces/msg/positions.hpp>
-#include <interfaces/srv/a_star_service.hpp>
+#include <interfaces/srv/path_finding.hpp>
 #include <geometry_msgs/msg/polygon.hpp>
 #include <geometry_msgs/msg/point32.h>
 #include <interfaces/msg/robot_objective.hpp>
@@ -56,7 +56,7 @@ std::vector<geometry_msgs::msg::Point> obstacle_position;
 std::vector<float> angle_obstacle;
 std::vector<float> type_obstacle;   //0: Robot, 1: Single object, 2: Double object
 int n_obstacles = 0;
-int leader_robot_id = 0;
+int leader_robot_id = -1; // Valor imposible para detectar inicialización
 std::vector<geometry_msgs::msg::Polygon> other_robot_paths;
 std::vector<cv::Mat> other_robot_path_mats;
 std::vector<rclcpp::Subscription<geometry_msgs::msg::Polygon>::SharedPtr> other_path_subs;
@@ -67,11 +67,16 @@ geometry_msgs::msg::Polygon path_leader;
 
 float x_grid = 0.05;    //All dimensions in meters
 float y_grid = 0.05;
-float x_world = 6;        
-float y_world = 3;          
 
-int n_x_spaces = (int)x_world/x_grid;
-int n_y_spaces = (int)y_world/y_grid;
+// Cálculo del campo de visión de la cámara
+// FOV horizontal de la cámara: 1.39626 rad, altura: 4m, ángulo: 90°
+float camera_height = 4.0;
+float camera_fov_h = 1.39626;
+float x_world = 2.0 * camera_height * tan(camera_fov_h / 2.0);  // ≈ 6.75 metros
+float y_world = x_world * (9.0 / 16.0);  // Proporción 16:9 ≈ 3.8 metros
+
+int n_x_spaces = 160;
+int n_y_spaces = 90;
 
 
 geometry_msgs::msg::Polygon path_ant;
@@ -97,6 +102,8 @@ class Compute_Trajectory : public rclcpp::Node
             this->declare_parameter<int>("robot_id", 0);
             robot_id = this->get_parameter("robot_id").as_int();
             RCLCPP_INFO(this->get_logger(), "Received Robot_ID: %d", robot_id);
+
+            leader_robot_id = robot_id; // Cada robot es su propio líder por defecto
 
             // Parameters for sizes in meters
             this->declare_parameter<float>("robot_size_x", 0.7);
@@ -142,10 +149,10 @@ class Compute_Trajectory : public rclcpp::Node
                 topic_name_2, 1, std::bind(&Compute_Trajectory::subs_obj_callback,this,_1));
 
             std::stringstream ss_service_name;
-            ss_service_name << "/robot_0" << robot_id << "/a_star_server";
+            ss_service_name << "/robot_0" << robot_id << "/path_finding_server";
             std::string service_name = ss_service_name.str();
 
-            client = this -> create_client<interfaces::srv::AStarService>(service_name, rclcpp::ServicesQoS(), client_cb_group);
+            client = this -> create_client<interfaces::srv::PathFinding>(service_name, rclcpp::ServicesQoS(), client_cb_group);
 
             std::stringstream ss_topic_name_3;
             ss_topic_name_3 << "/robot_0" << robot_id << "/task_assigned";
@@ -201,7 +208,7 @@ class Compute_Trajectory : public rclcpp::Node
         int object_size_big_x_cells;
         int object_size_big_y_cells;
 
-        rclcpp::Client<interfaces::srv::AStarService>::SharedPtr client;
+        rclcpp::Client<interfaces::srv::PathFinding>::SharedPtr client;
         rclcpp::CallbackGroup::SharedPtr client_cb_group;
         rclcpp::Subscription<interfaces::msg::TaskDescription>::SharedPtr subs_task_assigned;
         rclcpp::Subscription<geometry_msgs::msg::Polygon>::SharedPtr subs_path_leader;
@@ -252,11 +259,21 @@ class Compute_Trajectory : public rclcpp::Node
 
 
         void task_assigned_callback(const interfaces::msg::TaskDescription::SharedPtr task_msg){
-            leader_robot_id = task_msg->leader_robot_id;
-            if(leader_robot_id!=robot_id){
+            // Solo actualiza el líder si la tarea lo requiere
+            if (task_msg->leader_robot_id != 0 && task_msg->leader_robot_id != robot_id) {
+                leader_robot_id = task_msg->leader_robot_id;
                 update_subscription();
+            } else {
+                leader_robot_id = robot_id; // Mantener independencia si no hay tarea conjunta
             }
-           
+
+            // Actualizar objetivo si la tarea lo contiene
+            point_objective = task_msg->goal;
+            angle_objective = task_msg->angle_goal;
+            object_id = task_msg->obj_id;
+            robot_state = task_msg->state;
+            RCLCPP_INFO(this->get_logger(), "Tarea recibida: actualizando objetivo a (%.2f, %.2f), id=%d, ang=%.2f, state=%d", 
+                point_objective.x, point_objective.y, object_id, angle_objective, robot_state);
         }
 
         void subs_obj_callback(const interfaces::msg::RobotObjective::SharedPtr obj_msg){
@@ -267,7 +284,8 @@ class Compute_Trajectory : public rclcpp::Node
             point_objective = obj_msg->point;
             robot_state = obj_msg->robot_state;
 
-             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Update objective");
+            RCLCPP_INFO(this->get_logger(), "Update objective: point(%.2f, %.2f), object_id=%d, state=%d", 
+                        point_objective.x, point_objective.y, object_id, robot_state);
         }
 
         void timer_callback()
@@ -427,6 +445,16 @@ class Compute_Trajectory : public rclcpp::Node
             //Draw Robot on map
             int Robot_x__grip_map = ((int)((gripper_position.x * n_x_spaces)/x_world)) + (n_x_spaces/2);
             int Robot_y__grip_map = n_y_spaces - (((int)((gripper_position.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
+            
+            RCLCPP_INFO(this->get_logger(), "Gripper: world(%.2f,%.2f) -> grid(%d,%d)", 
+                        gripper_position.x, gripper_position.y, Robot_x__grip_map, Robot_y__grip_map);
+            
+            // Clamp coordinates
+            if (Robot_x__grip_map < 0) Robot_x__grip_map = 0;
+            if (Robot_x__grip_map >= n_x_spaces) Robot_x__grip_map = n_x_spaces - 1;
+            if (Robot_y__grip_map < 0) Robot_y__grip_map = 0;
+            if (Robot_y__grip_map >= n_y_spaces) Robot_y__grip_map = n_y_spaces - 1;
+
             cv::Point Robot_grip_point(Robot_x__grip_map,Robot_y__grip_map); 
             Robot_grip_point_f = Robot_grip_point;
 
@@ -456,7 +484,9 @@ class Compute_Trajectory : public rclcpp::Node
             for(int i=0; i<4; i++){
                 vertices_R.push_back(vertices2f_R[i]);
             }
-            cv::fillConvexPoly(map,vertices_R, cv::Scalar(1));
+            // Visual: dibujar robot en map_color (azul claro)
+            cv::fillConvexPoly(map_color,vertices_R, cv::Scalar(255,200,0));
+            // No marcar como obstáculo en map_bin ni en grid_vect
 
 
 
@@ -474,29 +504,23 @@ class Compute_Trajectory : public rclcpp::Node
                 cv::RotatedRect Object_rectangle(Object_point, Object_size, Object_angle_degrees);
                 cv::Point2f vertices2f_Object[4];
                 Object_rectangle.points(vertices2f_Object);
-
                 std::vector<cv::Point> vertices_Object;
-
                 for(int i=0; i<4; i++){
                     vertices_Object.push_back(vertices2f_Object[i]);
                 }
-
-                cv::fillConvexPoly(map,vertices_Object, cv::Scalar(1));
+                // Visual: objetivo en verde claro
+                cv::fillConvexPoly(map_color,vertices_Object, cv::Scalar(0,255,180));
             }
-
             else if(type_object==2){
                 cv::Size Object_size(object_size_big_x_cells, object_size_big_y_cells);
                 cv::RotatedRect Object_rectangle(Object_point, Object_size, Object_angle_degrees);
                 cv::Point2f vertices2f_Object[4];
                 Object_rectangle.points(vertices2f_Object);
-
                 std::vector<cv::Point> vertices_Object;
-
                 for(int i=0; i<4; i++){
                     vertices_Object.push_back(vertices2f_Object[i]);
                 }
-
-                cv::fillConvexPoly(map,vertices_Object, cv::Scalar(1));
+                cv::fillConvexPoly(map_color,vertices_Object, cv::Scalar(0,255,180));
             }
             
             
@@ -582,8 +606,20 @@ class Compute_Trajectory : public rclcpp::Node
 
             int goal_x = ((int)((point_objective.x * n_x_spaces)/x_world)) + (n_x_spaces/2);
             int goal_y = n_y_spaces - (((int)((point_objective.y * n_y_spaces)/y_world)) + (n_y_spaces/2));
+            
+            RCLCPP_INFO(this->get_logger(), "Goal calculation: world(%.2f,%.2f) -> grid(%d,%d)", 
+                        point_objective.x, point_objective.y, goal_x, goal_y);
+            
+            // Clamp coordinates
+            if (goal_x < 0) goal_x = 0;
+            if (goal_x >= n_x_spaces) goal_x = n_x_spaces - 1;
+            if (goal_y < 0) goal_y = 0;
+            if (goal_y >= n_y_spaces) goal_y = n_y_spaces - 1;
+
             cv::Point goal(goal_x,goal_y);
             goal_f = goal;
+            
+            RCLCPP_INFO(this->get_logger(), "Goal clamped: grid(%d,%d)", goal_x, goal_y);
 
             //goal_f.x = point_objective.x;
             //goal_f.y = point_objective.y;
@@ -591,15 +627,22 @@ class Compute_Trajectory : public rclcpp::Node
             
 
             //call a_star_service
-            auto request = std::make_shared<interfaces::srv::AStarService::Request>();
+            auto request = std::make_shared<interfaces::srv::PathFinding::Request>();
             request->src_x = Robot_grip_point_f.x;
             request->src_y = Robot_grip_point_f.y;
             request->dst_x = goal_f.x;
             request->dst_y = goal_f.y;
 
-            
+            RCLCPP_INFO(this->get_logger(), "Requesting path: src(%d,%d) -> dst(%d,%d)", 
+                        request->src_x, request->src_y, request->dst_x, request->dst_y);
 
-            std::vector<int> grid_vect(14400,1);
+            // Grid size must match n_x_spaces * n_y_spaces (120 * 60 = 7200)
+            std::vector<int> grid_vect(n_x_spaces * n_y_spaces, 1);
+            // Asegurar que la celda del robot y del objetivo estén libres en el grid binario
+            int robot_grid_idx = Robot_grip_point_f.y * n_x_spaces + Robot_grip_point_f.x;
+            int goal_grid_idx = goal_f.y * n_x_spaces + goal_f.x;
+            if (robot_grid_idx >= 0 && robot_grid_idx < (int)grid_vect.size()) grid_vect[robot_grid_idx] = 1;
+            if (goal_grid_idx >= 0 && goal_grid_idx < (int)grid_vect.size()) grid_vect[goal_grid_idx] = 1;
 
 
             int grid_index = 0;
@@ -680,108 +723,104 @@ class Compute_Trajectory : public rclcpp::Node
             //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint_3");
             request->grid = grid_vect;
 
-            while (!client->wait_for_service(1s)){
-                if (!rclcpp::ok()){
-                    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service A_Star. Exiting.");
+            // Verificar disponibilidad del servicio sin bloquear
+            if (!client->service_is_ready()){
+                // No mostrar warning en cada ciclo, solo ocasionalmente
+                static int warn_counter = 0;
+                if (warn_counter % 10 == 0) {
+                    RCLCPP_WARN(this->get_logger(), "Path finding service not ready yet...");
                 }
-                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service A_Star not available, waiting again...");
+                warn_counter++;
+                
+                // Mostrar mapa sin path
+                cv::circle(map_color,Robot_grip_point_f,1,cv::Scalar(0,0,255),1);
+                cv::circle(map_color,Robot_center_point_f,2,cv::Scalar(255,0,0),1);
+                cv::circle(map_color,goal_f,1,cv::Scalar(255,0,0),1);
+
+                std::stringstream ss_window_name;
+                ss_window_name << "map_robot_0" << robot_id;
+                std::string window_name = ss_window_name.str();
+
+                cv::namedWindow(window_name, cv::WINDOW_NORMAL );
+                cv::imshow(window_name, map_color);
+                cv::waitKey(1);
+                return;
             }
 
             // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint_4");
 
-            auto handle_response =
-                [this](rclcpp::Client<interfaces::srv::AStarService>::SharedFuture future) {
-                    auto result = future.get();
-                    // Handle the result
+            // Llamada síncrona al servicio para evitar problemas con cv::imshow
+            RCLCPP_INFO(this->get_logger(), "[CLIENT] Llamando servicio A*: src(%d,%d) dst(%d,%d) grid_size=%zu",
+                        request->src_x, request->src_y, request->dst_x, request->dst_y, request->grid.size());
+            auto future = client->async_send_request(request);
+            
+            // Esperar la respuesta con timeout
+            auto status = future.wait_for(std::chrono::seconds(2));
+            
+            if (status == std::future_status::ready)
+            {
+                auto result = future.get();
+                int path_size = result->path_size;
+                
+                RCLCPP_INFO(this->get_logger(), "[CLIENT] Respuesta recibida: path_size=%d", path_size);
+                
+                std::vector<int> path_x = result->path_x;
+                std::vector<int> path_y = result->path_y;
+                
+                if (path_size > 0) {
+                    RCLCPP_INFO(this->get_logger(), "First path point: (%d,%d), Last: (%d,%d)",
+                                path_x[0], path_y[0], path_x[path_size-1], path_y[path_size-1]);
+                }
 
-                    int path_size = result->path_size;
+                geometry_msgs::msg::Polygon path_msg;
 
-                    // if (path_size == 0){
-                    //     RCLCPP_INFO(get_logger(), "No path found");
-                    // }
-                    // else{
-                    //    RCLCPP_INFO(get_logger(), "Path found");
-                        std::vector<int> path_x;
-                        std::vector<int> path_y;
+                // Si el path está vacío, no mover el robot
+                if (path_size == 0) {
+                    RCLCPP_WARN(this->get_logger(), "Path vacío: el robot NO se mueve.");
+                    return;
+                }
 
+                // Visualización: dibujar todos los puntos del path, incluso si es solo uno
+                for (int i = 0; i < path_size; i++) {
+                    map_color.at<cv::Vec3b>(path_y[i], path_x[i]) = cv::Vec3b(0,0,255);
+                    geometry_msgs::msg::Point32 point;
+                    // Inverse transformation: grid -> world
+                    // world_x = (grid_x - n_x_spaces/2) * x_world / n_x_spaces
+                    // world_y = -(grid_y - n_y_spaces/2) * y_world / n_y_spaces
+                    point.x = (path_x[i] - (n_x_spaces/2)) * x_world / n_x_spaces;
+                    point.y = -(path_y[i] - (n_y_spaces/2)) * y_world / n_y_spaces;
+                    path_msg.points.push_back(point);
+                    if (i == 0) {
+                        RCLCPP_INFO(this->get_logger(), "First world point: grid(%d,%d) -> world(%.2f,%.2f)",
+                                    path_x[i], path_y[i], point.x, point.y);
+                    }
+                }
 
-                        
+                int size_path = path_msg.points.size();
+                int size_path_ant = path_ant.points.size();
 
-                        path_x.resize(path_size);
-                        path_y.resize(path_size);
+                if (!path_msg.points.empty()){
+                    if (size_path != size_path_ant){
+                        publisher_path -> publish(path_msg);
+                    }
+                }
+                path_ant = path_msg;
+            } else {
+                RCLCPP_WARN(this->get_logger(), "Path finding service timeout");
+            }
 
-     
+            // Mostrar mapa siempre (incluso si no hay path nuevo)
+            cv::circle(map_color,Robot_grip_point_f,1,cv::Scalar(0,0,255),1);
+            cv::circle(map_color,Robot_center_point_f,2,cv::Scalar(255,0,0),1);
+            cv::circle(map_color,goal_f,1,cv::Scalar(255,0,0),1);
 
-                        path_x = result->path_x;
-                        path_y = result->path_y;
+            std::stringstream ss_window_name;
+            ss_window_name << "map_robot_0" << robot_id;
+            std::string window_name = ss_window_name.str();
 
-                        //RCLCPP_INFO(get_logger(), "Checkpoint_5");
-
-                        geometry_msgs::msg::Polygon path_msg;
-
-                        for (int i=2; i<path_size; i++){
-                            map_color.at<cv::Vec3b>(path_y[i], path_x[i]) = cv::Vec3b(0,0,255);
-                            geometry_msgs::msg::Point32 point;
-                            point.x = ((path_x[i]-(n_x_spaces/2))*x_world)/n_x_spaces;
-                            point.y = ((path_y[i]-(n_y_spaces/2))*y_world)/n_y_spaces * -1;
-                            path_msg.points.push_back(point);
-
-                        }
-
-                        int size_path = path_msg.points.size();
-                        int size_path_ant = path_ant.points.size();
-
-                        if (!path_msg.points.empty()){
-                            if (size_path != size_path_ant){
-                                publisher_path -> publish(path_msg);
-                                //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path send");
-                            }
-                        }
-                        else {
-                            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path empty......");
-                        }
-                        
-                        path_ant = path_msg;
-
-                        ///////////////////////////////////////////////
-
-                        cv::circle(map_color,Robot_grip_point_f,1,cv::Scalar(0,0,255),1);
-                        cv::circle(map_color,Robot_center_point_f,2,cv::Scalar(255,0,0),1);
-                        cv::circle(map_color,goal_f,1,cv::Scalar(255,0,0),1);
-
-                        //cv::namedWindow("Display Image", cv::WINDOW_NORMAL );
-                        //cv::imshow("Display Image", map);
-
-                        
-
-                        // std::stringstream ss_image_name;
-                        // ss_image_name << "map_robot_0" << robot_id << ".png";
-                        // std::string image_name = ss_image_name.str();
-
-
-                        // bool check_img = cv::imwrite(image_name, map_color);
-                        // if(check_img==false){
-                        //     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Error saving image");
-                        // }
-                        
-                        std::stringstream ss_window_name;
-                        ss_window_name << "map_robot_0" << robot_id;
-                        std::string window_name = ss_window_name.str();
-
-                        cv::namedWindow(window_name, cv::WINDOW_NORMAL );
-
-                        cv::imshow(window_name, map_color);
-                        cv::waitKey(1);
-
-                        // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Checkpoint_6");
-
-                        
-                   // }
-
-                                        
-                };
-
-            auto future = client->async_send_request(request, handle_response);
+            cv::namedWindow(window_name, cv::WINDOW_NORMAL );
+            cv::imshow(window_name, map_color);
+            cv::waitKey(1);
 
         }
 

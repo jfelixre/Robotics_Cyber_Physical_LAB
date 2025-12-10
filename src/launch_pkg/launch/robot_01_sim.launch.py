@@ -107,7 +107,15 @@ def generate_launch_description():
             #arguments=['--ros-args', '--log-level', 'debug'],
             )
     
-    #Launch a_star_server node for robot_01
+    #Launch d_star_lite_server node for robot_01
+    d_star_lite_server = Node(
+            package='control_pkg',
+            namespace='robot_01',
+            executable='d_star_lite_server',
+            parameters=[{'robot_id': 1}],
+            )
+    
+     #Launch a_star_server node for robot_01
     a_star_server = Node(
             package='control_pkg',
             namespace='robot_01',
@@ -187,14 +195,27 @@ def generate_launch_description():
 
 
 
+    detach_robots = TimerAction(
+        period=5.0,
+        actions=[
+            ExecuteProcess(
+                cmd=[[
+                    'ros2 topic pub --once /R01R02/detach std_msgs/msg/Empty',
+                ]],
+                shell=True
+            )
+        ]
+    )
+
     return LaunchDescription([
         task_manager,
         gz_robot_spawn,
         bridge,
         robot_state_publisher,
         event_driven_control,
-        compute_trajectory,
-        a_star_server,
+        #compute_trajectory,
+        #d_star_lite_server,
+        #a_star_server,
         control_trajectory,
         robot_platform_vel,
         arm_position,
@@ -202,5 +223,5 @@ def generate_launch_description():
         detach11,
         detach12,
         detach21,
-       
+        detach_robots,
     ])

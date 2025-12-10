@@ -229,35 +229,30 @@ class Node_Subs_Path : public rclcpp::Node
 
             //memset(hxd, 0, sizeof(hxd));
             //memset(hyd, 0, sizeof(hyd));
+            // Si el path está vacío, desactivar control y limpiar trayectorias
+            if (path_msg->points.empty()) {
+                RCLCPP_WARN(this->get_logger(), "Path vacío recibido: desactivando control y deteniendo robot.");
+                control_active = false;
+                std::fill(hxd.begin(), hxd.end(), 0.0);
+                std::fill(hyd.begin(), hyd.end(), 0.0);
+                std::fill(hxdp.begin(), hxdp.end(), 0.0);
+                std::fill(hydp.begin(), hydp.end(), 0.0);
+                k = 0;
+                return;
+            }
+
             hxd.resize(N,0);
             hyd.resize(N,0);
-            
             int n_points= path_msg->points.size();
 
-            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "n points %d", n_points);
-           
-            
             //colocar primer punto del mensaje en el espacio actual (k) de la trayectoria deseada
             hxd[k] = path_msg->points[0].x;
             hyd[k] = path_msg->points[0].y;
 
-            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "first point");
-            
             if (n_points>1){
-                //colocar el ultimo punto del mensaje en el ultimo espacio de la trayectoria deseada
                 hxd[N] = path_msg->points[n_points-1].x;
                 hyd[N] = path_msg->points[n_points-1].y;
-
-                //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "last point");
-            
-
-                //calcular espacios entre puntos
-                
-
                 int step_size = floor((N - k)/n_points);
-                
-
-                //Colocar los puntos del mensaje en el espacio que corresponden
                 int max_size_i;
 
                 for (int i = 1; i<(n_points); i++){

@@ -182,7 +182,7 @@ private:
             
             std::string frame_name = ss_frame_name.str();
 
-            //RCLCPP_INFO(this->get_logger(), "Frame name %s", frame_name.c_str());
+            RCLCPP_INFO(this->get_logger(), "Looking for transform: marker_id_00 -> %s", frame_name.c_str());
 
             try{
                 geometry_msgs::msg::TransformStamped transform = tf_buffer_->lookupTransform("marker_id_00", frame_name, tf2::TimePointZero);
@@ -195,6 +195,9 @@ private:
                 double Obj_orientation_x, Obj_orientation_y, Obj_orientation_z;
                 Obj_m.getRPY(Obj_orientation_x, Obj_orientation_y, Obj_orientation_z);
                 Angobj= Obj_orientation_z;
+                
+                RCLCPP_INFO(this->get_logger(), "Object position: x=%.2f, y=%.2f, z=%.2f, angle=%.2f", 
+                            Xobj, Yobj, Zobj, Angobj);
 
                 std::stringstream ss_frame_cube;
                 ss_frame_cube << "cube_id_" << task.obj_id << "/cube_link";
@@ -345,6 +348,11 @@ private:
                 objective.angle = Angobj;       //
                 objective.obj_id = task.obj_id;
                 objective.robot_state = robot_state.robot_state;
+                
+                RCLCPP_INFO(this->get_logger(), "Publishing objective: point(%.2f, %.2f, %.2f), angle=%.2f, obj_id=%d, state=%d",
+                            objective.point.x, objective.point.y, objective.point.z, 
+                            objective.angle, objective.obj_id, objective.robot_state);
+                
                 publisher_robot_objective->publish(objective);
 
                 //Send objective position to /tf2

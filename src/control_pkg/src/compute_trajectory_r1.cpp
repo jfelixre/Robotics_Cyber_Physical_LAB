@@ -463,13 +463,19 @@ class Compute_Trajectory_R1 : public rclcpp::Node
 */
             geometry_msgs::msg::Polygon path_msg;
 
-            for (int i=2; i<path_size; i++){
+            // Si el path está vacío, no mover el robot
+            if (path_size == 0) {
+                RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Path vacío: el robot NO se mueve.");
+                return;
+            }
+
+            // Visualización: dibujar todos los puntos del path, incluso si es solo uno
+            for (int i = 0; i < path_size; i++) {
                 map_color.at<cv::Vec3b>(path_x[i], path_y[i]) = cv::Vec3b(0,0,255);
                 geometry_msgs::msg::Point32 point;
                 point.y = ((path_x[i]-(n_x_spaces/2))*x_world)/n_x_spaces * -1;
                 point.x = ((path_y[i]-(n_y_spaces/2))*y_world)/n_y_spaces;
                 path_msg.points.push_back(point);
-
             }
 
             int size_path = path_msg.points.size();
@@ -480,11 +486,9 @@ class Compute_Trajectory_R1 : public rclcpp::Node
                     publisher_path -> publish(path_msg);
                     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path send");
                 }
-            }
-            else {
+            } else {
                 RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path empty......");
             }
-            
             path_ant = path_msg;
 
             ///////////////////////////////////////////////
