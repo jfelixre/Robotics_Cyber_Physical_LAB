@@ -1,10 +1,10 @@
-#!/bin/bash
-source /opt/ros/jazzy/setup.bash
-source "$HOME/Robotics_Cyber_Physical_LAB/install/setup.bash"
+#!/bin/zsh
+source /opt/ros/jazzy/setup.zsh
+source "$HOME/Robotics_Cyber_Physical_LAB/install/setup.zsh"
 cd "$HOME/Robotics_Cyber_Physical_LAB"
 
 
-ros2 topic list
+
 ros2 launch launch_pkg create_task3.launch.py
 
 #echo "Presiona enter para salir..."
