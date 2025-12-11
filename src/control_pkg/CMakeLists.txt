@@ -29,6 +29,8 @@ find_package(tf2_sensor_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(OpenCV REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(visualization_msgs REQUIRED)
 find_package(visualization_msgs REQUIRED)
 
 
@@ -90,6 +92,9 @@ find_package(visualization_msgs REQUIRED)
     tf2
     tf2_ros
     )
+
+  target_link_libraries(a_star_server ${OpenCV_LIBS})
+  target_include_directories(a_star_server PUBLIC ${OpenCV_INCLUDE_DIRS})
 
   add_executable(d_star_lite_server src/d_star_lite_server.cpp)
   target_include_directories(d_star_lite_server PUBLIC
@@ -375,6 +380,8 @@ ament_target_dependencies(event_driven_control
     tf2_ros
     geometry_msgs
     "OpenCV"
+    nav_msgs
+    visualization_msgs
     )
 
 
