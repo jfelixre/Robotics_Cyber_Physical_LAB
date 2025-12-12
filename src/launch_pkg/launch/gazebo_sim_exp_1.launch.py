@@ -5,7 +5,7 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.actions import IncludeLaunchDescription
-from launch.actions import ExecuteProcess
+from launch.actions import ExecuteProcess, TimerAction
 from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
@@ -31,6 +31,15 @@ def generate_launch_description():
     'config',
     'params.yaml'
     )
+
+    # --- NUEVO: Configuración de RViz ---
+    # Asumiendo que guardaste el archivo como 'config_path.rviz' en la carpeta 'rviz' de 'control_pkg'
+    rviz_config_path = os.path.join(
+        pkg_project_control_pkg,
+        'rviz',
+        'rviz_visualize.rviz' 
+    )
+    # ------------------------------------
 
     # Setup to launch the simulator and Gazebo world
     gz_sim = IncludeLaunchDescription(
@@ -125,6 +134,16 @@ def generate_launch_description():
         shell=True
     )
 
+    # --- NUEVO: Nodo RViz ---
+    rviz_node = Node(
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        output='screen',
+        arguments=['-d', rviz_config_path]
+    )
+    # ------------------------
+
     return LaunchDescription([
         gz_sim,
         bridge,
@@ -137,5 +156,5 @@ def generate_launch_description():
         launch_cube_id_11,
         launch_cube_id_12,
         # launch_cube_id_21,
-        
+        rviz_node, 
     ])

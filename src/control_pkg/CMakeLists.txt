@@ -124,6 +124,22 @@ find_package(visualization_msgs REQUIRED)
     tf2_ros
     )
 
+  add_executable(greedy_server src/greedy_server.cpp)
+  target_include_directories(greedy_server PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
+
+  ament_target_dependencies(greedy_server
+    sensor_msgs
+    std_msgs
+    rclcpp
+    interfaces
+    tf2
+    tf2_ros
+    )
+
+
+
 #   add_executable(a_star_server_2 src/a_star_server_2.cpp)
 #   target_include_directories(a_star_server_2 PUBLIC
 #     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -518,6 +534,7 @@ install(TARGETS
   a_star_server
   #d_star_lite_server
   reverse_a_star_server
+  greedy_server
   #compute_trajectory_r1
   #event_driven_control_r1
   #control_trajectory_r1
