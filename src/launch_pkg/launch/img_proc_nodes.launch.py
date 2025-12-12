@@ -25,11 +25,20 @@ def generate_launch_description():
     pkg_project_robot_custom_description = get_package_share_directory('robot_custom_description')
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
 
-    #Aruco nano detection node for Camera 1
+    # Nombre del tópico global compartido
+    shared_image_topic = '/aruco_system/result_image'
+
+    # Aruco nano detection node for Camera 1 (Primary)
     aruco_cam1 = Node(
         package='img_proc_pkg',
         executable='aruco_nano_detector',
         name='aruco_detector_cam1',
+        
+        # Redirigimos la salida privada del nodo a un tópico global común
+        remappings=[
+            ('~/result_image', shared_image_topic),
+            
+        ],
         parameters=[{
             'camera_topic': '/cameras/cam_1',
             'camera_frame': 'cam_1',
@@ -43,6 +52,9 @@ def generate_launch_description():
         package='img_proc_pkg',
         executable='aruco_nano_detector',
         name='aruco_detector_cam2',
+        remappings=[
+            ('~/result_image', shared_image_topic)
+        ],
         parameters=[{
             'camera_topic': '/cameras/cam_2',
             'camera_frame': 'cam_2',

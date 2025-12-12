@@ -35,7 +35,7 @@ def generate_launch_description():
     # --- NUEVO: Configuración de RViz ---
     # Asumiendo que guardaste el archivo como 'config_path.rviz' en la carpeta 'rviz' de 'control_pkg'
     rviz_config_path = os.path.join(
-        pkg_project_control_pkg,
+        pkg_project_launch_pkg,
         'rviz',
         'rviz_visualize.rviz' 
     )

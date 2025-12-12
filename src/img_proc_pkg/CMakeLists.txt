@@ -30,6 +30,7 @@ find_package(tf2_sensor_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(Eigen3 REQUIRED)
+find_package(image_transport REQUIRED)
 
 
 
@@ -133,6 +134,7 @@ find_package(Eigen3 REQUIRED)
     interfaces
     tf2
     tf2_ros
+    image_transport
     geometry_msgs)
 
   add_executable(calibration_node src/calibration_node.cpp)
