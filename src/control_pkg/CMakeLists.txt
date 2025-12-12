@@ -96,12 +96,26 @@ find_package(visualization_msgs REQUIRED)
   target_link_libraries(a_star_server ${OpenCV_LIBS})
   target_include_directories(a_star_server PUBLIC ${OpenCV_INCLUDE_DIRS})
 
-  add_executable(d_star_lite_server src/d_star_lite_server.cpp)
-  target_include_directories(d_star_lite_server PUBLIC
+  # add_executable(d_star_lite_server src/d_star_lite_server.cpp)
+  # target_include_directories(d_star_lite_server PUBLIC
+  #   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  #   $<INSTALL_INTERFACE:include>)
+
+  # ament_target_dependencies(d_star_lite_server
+  #   sensor_msgs
+  #   std_msgs
+  #   rclcpp
+  #   interfaces
+  #   tf2
+  #   tf2_ros
+  #   )
+
+  add_executable(reverse_a_star_server src/reverse_a_star_server.cpp)
+  target_include_directories(reverse_a_star_server PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>)
 
-  ament_target_dependencies(d_star_lite_server
+  ament_target_dependencies(reverse_a_star_server
     sensor_msgs
     std_msgs
     rclcpp
@@ -502,7 +516,8 @@ install(TARGETS
   #control_pid_r2_node
   #compute_trajectory
   a_star_server
-  d_star_lite_server
+  #d_star_lite_server
+  reverse_a_star_server
   #compute_trajectory_r1
   #event_driven_control_r1
   #control_trajectory_r1
