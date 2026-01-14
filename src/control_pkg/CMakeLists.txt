@@ -430,6 +430,7 @@ ament_target_dependencies(event_driven_control
     tf2_ros
     geometry_msgs
     Eigen3
+    visualization_msgs
     )
 
   add_executable(robot_state_service src/robot_state_service.cpp)
@@ -524,6 +525,18 @@ ament_target_dependencies(team_ready_node
     
       )
 
+  add_executable(pid_control_trajectory_node src/PID_control_trajectory_node.cpp)
+  ament_target_dependencies(pid_control_trajectory_node
+    rclcpp
+    tf2
+    tf2_ros
+    geometry_msgs
+    interfaces
+    std_msgs
+    # Eigen3 (si es requerido)
+    visualization_msgs
+  )
+
 
 install(TARGETS
   #control_pid_p1_node
@@ -558,6 +571,7 @@ install(TARGETS
   team_ready_node
   position_publisher_exp1
   position_publisher_exp2
+  pid_control_trajectory_node
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

@@ -37,7 +37,7 @@ def generate_launch_description():
     rviz_config_path = os.path.join(
         pkg_project_launch_pkg,
         'rviz',
-        'rviz_visualize.rviz' 
+        'rviz_visualize_exp1.rviz' 
     )
     # ------------------------------------
 

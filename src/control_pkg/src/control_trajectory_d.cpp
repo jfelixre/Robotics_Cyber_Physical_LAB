@@ -9,953 +9,538 @@
 #include <interfaces/msg/platform_vel.hpp>
 #include <interfaces/msg/data_control.hpp>
 #include <Eigen/Dense>
-#include <interfaces/msg/robot_objective.hpp>
 #include <tf2_ros/transform_broadcaster.h>
-#include <tf2_ros/transform_listener.h>
 #include "tf2_ros/buffer.h"
 #include <interfaces/msg/control_finish.hpp>
 #include <interfaces/msg/data_error.hpp>
 #include <std_msgs/msg/float32_multi_array.hpp>
 
-#include <memory>
-#include <cinttypes>
-#include <chrono>
-#include <functional>
-#include <cmath>
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <math.h>
+// --- LIBRERÍA PARA MARCADORES EN RVIZ ---
+#include <visualization_msgs/msg/marker_array.hpp> 
 
-//std::ofstream myfile;
+#include <memory>
+#include <chrono>
+#include <cmath>
+#include <vector>
+#include <algorithm> 
+#include <iomanip> 
 
 using std::placeholders::_1;
 using namespace std::chrono_literals;
-geometry_msgs::msg::Polygon path;
 
-
-double ANG_Ob = -1;
-double ANG_Tg = -1;
-
-int n_objective = -1;
-float distance_objective = 0;
- double phid = 0;
-
-
-
- int robot_id = 0;
+// --- VARIABLES GLOBALES ---
+int robot_id = 0;
 int object_id = 0;
 float angle_objective = 0;
 geometry_msgs::msg::Point point_objective;
-geometry_msgs::msg::Point robot_position;
 geometry_msgs::msg::Point gripper_position;
 float angle_robot = 0;
-geometry_msgs::msg::Point object_position;
-float angle_object = 0;
-float type_object = 0;  //1: Single object, 2: Double object
+int robot_state=0;
+
+// Variables de tiempo y control
+double tf = 10.0; 
+double ts = 0.1;  
+int N = 100;      
+
+std::vector<double> hxd;
+std::vector<double> hyd;
+std::vector<double> uxRef;
+std::vector<double> uyRef;
+std::vector<double> wRef;
+std::vector<double> hxe;
+std::vector<double> hye;
+std::vector<double> hwe;
+
+int k = 0;  
+double hxa = 0; 
+double hya = 0; 
+double phia = 0; 
+double phid = 0; 
+
+bool control_active = false;
+
+// --- NUEVO: Variables para el término Integral (PID) ---
+double sum_x_err = 0.0;
+double sum_y_err = 0.0;
+double sum_w_err = 0.0;
 
 interfaces::msg::DataError data_error;
 interfaces::msg::DataError data_error_total;
 
-int robot_state=0;
-
-
-
-
-//Variables de tiempo y control
-    int tf = 180; // tiempo de simulacion
-    double ts = 0.1; // tiempo de muestreo
-    //const int N = std::round((tf + ts) / ts); // cantidad de muestras 
-    int N = std::round((tf+ts)/ts); //1801;     //N = 1201 para 60 s y 601 para 30s
-   // std::vector<std::vector<double>> he(2, std::vector<double>(1));
-   // std::vector<std::vector<double>> J(2, std::vector<double>(2));
-   // std::vector<std::vector<double>> K(2, std::vector<double>(2));
-   // std::vector<std::vector<double>> qpRef(2, std::vector<double>(1));
-
-
-    // TRAYECTORIA DESEADA
-    //double hxd[N] = {};
-    //double hyd[N] = {};
-
-    std::vector<double> hxd(N);
-    std::vector<double> hyd(N);
-//    double phid[N] = {};
-
-   
-
-    //double hxdp[N] = {};
-    //double hydp[N] = {};
-
-    std::vector<double>  hxdp(N);
-    std::vector<double>  hydp(N);
-
-    // ERRORES
-    //double hxe[N] = {};
-    //double hye[N] = {};
-
-    // Posición deseada
-   // const double hxd = 1;
-   // const double hyd = 1;
-   // const double hwd = 0;
-
-    // Velocidades de referecias - El algoritmo debe calcular las velocidades necesarias. 
-    std::vector<double> uxRef(N, 1.0);
-    std::vector<double> uyRef(N, 1.0);
-    std::vector<double> wRef(N, 1.0);
-
-    // Errores 
-    std::vector<double> hxe(N, 0);
-    std::vector<double> hye(N, 0);
-    std::vector<double> hwe(N, 0);
-
-    //Variable adicional
-    std::vector<double> gain(N, 0);
-
-
-   
-
-   // double t[N];
-
-    int k = 0;  //Step control
-    double hxa = 0;
-    double hya = 0;
-    double phia = 0;
-
-
-    //double uRef[N] = {};  // Velocidad lineal en metros/segundos [m/s]
-    //double wRef[N] = {};  // Velocidad angular en radianes/segundos [rad/s]
-    
-
-        std::vector<double> t(N); // time vector
-
-
-    bool control_active = false;
-
-    //rclcpp::Client<interfaces::srv::PlatformVel>::SharedPtr client_vel;
-
-
+// --- NODO 1: Configuración Inicial ---
 class Control_Trajectory_Node : public rclcpp::Node
 {
-	public:
-		Control_Trajectory_Node() : Node("control_trajectory_node")
-		{
-
+    public:
+        Control_Trajectory_Node() : Node("control_trajectory_node")
+        {
             this->declare_parameter<int>("robot_id", 0);
             robot_id = this->get_parameter("robot_id").as_int();
-            //RCLCPP_INFO(this->get_logger(), "Received Robot_ID: %d", robot_id);
 
             std::stringstream ss_topic_name;
             ss_topic_name << "/robot_0" << robot_id << "/trajectory_control";
-            std::string topic_name = ss_topic_name.str();
-
-
+            
             subs_trajectory_control = this->create_subscription<interfaces::msg::TrajectoryControl>(
-                topic_name, 1, std::bind(&Control_Trajectory_Node::trajectory_control_caller, this,
-                std::placeholders::_1));
-
+                ss_topic_name.str(), 1, std::bind(&Control_Trajectory_Node::trajectory_control_caller, this, _1));
         }
 
     private:
-
         rclcpp::Subscription<interfaces::msg::TrajectoryControl>::SharedPtr subs_trajectory_control;
         
         void trajectory_control_caller(const interfaces::msg::TrajectoryControl::SharedPtr trajectory_msg)
-		{   
-           // //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "subs trajectory");
-            tf = trajectory_msg->time;
-
-            N = std::round((tf+ts)/ts);
-            hxd.resize(N,0);
-            hyd.resize(N,0);
-            hxdp.resize(N,0);
-            hydp.resize(N,0);
-            uxRef.resize(N,1.0);
-            uyRef.resize(N,1.0);
-            wRef.resize(N,1.0);
-            hxe.resize(N,0);
-            hye.resize(N,0);
-            hwe.resize(N,0);
-            gain.resize(N,0);
-
-            hxa = 0;
-            hya = 0;
-            phia = 0;
-            k=0;
-
-            std::cout << "trajectory control start" << std::endl;
-            control_active = true;
-            // rclcpp::sleep_for(std::chrono::seconds(tf));
-            // std::cout << "service finish" << std::endl;
-
-
-
-
+        {   
+            tf = trajectory_msg->time; 
         }
-
-
-
-
 };
 
+// --- NODO 2: Suscripción al Path (GENERADOR) ---
 class Node_Subs_Path : public rclcpp::Node
 {
-	public:
-		Node_Subs_Path() : Node("node_subs_path")
-		{
-
+    public:
+        Node_Subs_Path() : Node("node_subs_path")
+        {
             this->declare_parameter<int>("robot_id", 0);
             robot_id = this->get_parameter("robot_id").as_int();
-            //RCLCPP_INFO(this->get_logger(), "Received Robot_ID: %d", robot_id);
 
             std::stringstream ss_topic_name;
             ss_topic_name << "/robot_0" << robot_id << "/path";
-            std::string topic_name = ss_topic_name.str();
-        
-
+            
             subs_path = this->create_subscription<geometry_msgs::msg::Polygon>(
-               topic_name, 1, std::bind(&Node_Subs_Path::subs_path_callback,this,_1));
-
+               ss_topic_name.str(), 1, std::bind(&Node_Subs_Path::subs_path_callback,this,_1));
         }
 
     private:
+        rclcpp::Subscription<geometry_msgs::msg::Polygon>::SharedPtr subs_path;
 
-    rclcpp::Subscription<geometry_msgs::msg::Polygon>::SharedPtr subs_path;
-
-     void subs_path_callback(const geometry_msgs::msg::Polygon::SharedPtr path_msg)
+        void subs_path_callback(const geometry_msgs::msg::Polygon::SharedPtr path_msg)
         {   
-
-           // std::cout << "subs path" << k << std::endl;
-           //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "subs_path_callback");
-
-            //memset(hxd, 0, sizeof(hxd));
-            //memset(hyd, 0, sizeof(hyd));
-            // Si el path está vacío, desactivar control y limpiar trayectorias
             if (path_msg->points.empty()) {
-                RCLCPP_WARN(this->get_logger(), "Path vacío recibido: desactivando control y deteniendo robot.");
                 control_active = false;
-                std::fill(hxd.begin(), hxd.end(), 0.0);
-                std::fill(hyd.begin(), hyd.end(), 0.0);
-                std::fill(hxdp.begin(), hxdp.end(), 0.0);
-                std::fill(hydp.begin(), hydp.end(), 0.0);
                 k = 0;
                 return;
             }
 
-            hxd.resize(N,0);
-            hyd.resize(N,0);
-            int n_points= path_msg->points.size();
+            int n_points = path_msg->points.size();
+            double total_distance = 0.0;
+            for(int i = 0; i < n_points - 1; i++) {
+                double dx = path_msg->points[i+1].x - path_msg->points[i].x;
+                double dy = path_msg->points[i+1].y - path_msg->points[i].y;
+                total_distance += std::sqrt(dx*dx + dy*dy);
+            }
 
-            //colocar primer punto del mensaje en el espacio actual (k) de la trayectoria deseada
-            hxd[k] = path_msg->points[0].x;
-            hyd[k] = path_msg->points[0].y;
+            double desired_velocity = 0.35; // m/s
+            tf = total_distance / desired_velocity;
+            if (tf < 1.5) tf = 1.5;
 
-            if (n_points>1){
-                hxd[N] = path_msg->points[n_points-1].x;
-                hyd[N] = path_msg->points[n_points-1].y;
-                int step_size = floor((N - k)/n_points);
-                int max_size_i;
+            N = std::round((tf + ts) / ts);
 
-                for (int i = 1; i<(n_points); i++){
-                    hxd[k+(step_size*i)] = path_msg->points[i].x;
-                    hyd[k+(step_size*i)] = path_msg->points[i].y;
-                    max_size_i = k + (step_size*(i));
-                }
+            hxd.assign(N, 0.0); 
+            hyd.assign(N, 0.0);
+            uxRef.assign(N + 100, 0.0); 
+            uyRef.assign(N + 100, 0.0);
+            wRef.assign(N + 100, 0.0);
+            hxe.assign(N + 100, 0.0); 
+            hye.assign(N + 100, 0.0); 
+            hwe.assign(N + 100, 0.0);
 
-                //for (int i=0; i<=N; i++){
-                //    std::cout << hxd[i] << ";" << hyd[i] << std::endl;
-                //}
-
-                for (int i = 0; i<(n_points-1); i++){
-                    hxd[k+(step_size*i)] = path_msg->points[i].x;
-
-                    double dx = (hxd[k+(step_size*(i+1))] - hxd[k+(step_size*i)])/(step_size+1);
-                    double dy = (hyd[k+(step_size*(i+1))] - hyd[k+(step_size*i)])/(step_size+1);
-
-                    for (int j=1; j<step_size; j++){
-                        hxd[(k+(step_size*i))+j] = hxd[(k+(step_size*i))+j-1]+dx;
-                        hyd[(k+(step_size*i))+j] = hyd[(k+(step_size*i))+j-1]+dy;
-                    }
-                }
-                    
-
-                //std::cout<<max_size_i<<std::endl;
-
-                    double dx_l = (hxd[N] - hxd[max_size_i])/(N-max_size_i);
-                    double dy_l = (hyd[N] - hyd[max_size_i])/(N-max_size_i);
-
-                    for (int i=(max_size_i+1); i<N; i++){
-                        hxd[i] = hxd[i-1]+dx_l;
-                        hyd[i] = hyd[i-1]+dy_l;
-                    }
-
-
-            
-                /*
-                for (int i=0; i<=N; i++){
-                    std::cout << hxd[i] << ";" << hyd[i] << std::endl;
-                }
-                */
-
-                ////RCLCPP_INFO(this->get_logger(), "path received");
+            if (n_points == 1) {
+                std::fill(hxd.begin(), hxd.end(), path_msg->points[0].x);
+                std::fill(hyd.begin(), hyd.end(), path_msg->points[0].y);
+            } 
+            else {
+                int current_idx = 0;
+                int segments = n_points - 1;
                 
+                for (int i = 0; i < segments; i++) {
+                    double p1_x = path_msg->points[i].x;
+                    double p1_y = path_msg->points[i].y;
+                    double p2_x = path_msg->points[i+1].x;
+                    double p2_y = path_msg->points[i+1].y;
 
-                //Derivadas
+                    double seg_dist = std::sqrt(pow(p2_x - p1_x, 2) + pow(p2_y - p1_y, 2));
+                    int steps_seg = std::round((seg_dist / total_distance) * N);
+                    if (steps_seg < 1) steps_seg = 1;
 
-                hxdp[0]= 0;
-                hydp[0]= 0;
+                    double dx = (p2_x - p1_x) / steps_seg;
+                    double dy = (p2_y - p1_y) / steps_seg;
 
-                hxdp[N]= 0;
-                hydp[N]= 0;
-
-                for (int i=0; i<=N; i++){
-                    hxdp[i]= (hxd[i+1] - hxd[i]) /ts;
-                    hydp[i]= (hyd[i+1] - hyd[i]) /ts;
+                    for (int j = 0; j < steps_seg; j++) {
+                        if (current_idx >= N) break;
+                        hxd[current_idx] = p1_x + (dx * j);
+                        hyd[current_idx] = p1_y + (dy * j);
+                        current_idx++;
+                    }
                 }
-
-                hxdp[N]= 0;
-                hydp[N]= 0;
-
-                //for (int i=0; i<=N; i++){
-                //     std::cout << hxdp[i] << "  " << hydp[i] << std::endl;
-                //}
+                while (current_idx < N) {
+                    hxd[current_idx] = path_msg->points[n_points-1].x;
+                    hyd[current_idx] = path_msg->points[n_points-1].y;
+                    current_idx++;
+                }
             }
             
+            // RESETEO DE VARIABLES DE CONTROL
+            k = 0;
+            hxa = hxd[0];
+            hya = hyd[0];
+            phia = angle_robot; 
+            
+            // IMPORTANTE: Resetear integrales para el nuevo camino
+            sum_x_err = 0.0;
+            sum_y_err = 0.0;
+            sum_w_err = 0.0;
 
-
+            control_active = true;
+            RCLCPP_INFO(this->get_logger(), "Path recibido. Control PID Iniciado.");
         }
-
 };
 
+// --- NODO 3: Suscripción a Objetivos ---
 class Node_Subs_Positions : public rclcpp::Node
 {
-	public:
-		Node_Subs_Positions() : Node("node_subs_positions")
-		{   
-            
-
+    public:
+        Node_Subs_Positions() : Node("node_subs_positions")
+        {   
             std::stringstream ss_topic_name;
             ss_topic_name << "/robot_0" << robot_id << "/objective";
-            std::string topic_name = ss_topic_name.str();
-
-
             subs_objective = this->create_subscription<interfaces::msg::RobotObjective>(
-                topic_name, 1, std::bind(&Node_Subs_Positions::subs_obj_callback,this,_1));
-
+                ss_topic_name.str(), 1, std::bind(&Node_Subs_Positions::subs_obj_callback,this,_1));
         }
-
     private:
-
-    rclcpp::Subscription<interfaces::msg::RobotObjective>::SharedPtr subs_objective;
-
-
-    void subs_obj_callback(const interfaces::msg::RobotObjective::SharedPtr obj_msg){
-        ////RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "subs_obj_callback");
-
-        object_id = obj_msg->obj_id;
-        angle_objective = obj_msg->angle;
-        point_objective = obj_msg->point;
-        robot_state = obj_msg->robot_state;
-
-       //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Trajectory control Start");
-        control_active = true;
-        k=0;
-
-    }
-    
+        rclcpp::Subscription<interfaces::msg::RobotObjective>::SharedPtr subs_objective;
+        void subs_obj_callback(const interfaces::msg::RobotObjective::SharedPtr obj_msg){
+            object_id = obj_msg->obj_id;
+            angle_objective = obj_msg->angle;
+            point_objective = obj_msg->point;
+            robot_state = obj_msg->robot_state;
+        }
 };
 
-
+// --- NODO 4: Loop de Control ---
 class Node_Control_Timer : public rclcpp::Node
 {
-	public:
-		Node_Control_Timer() : Node("node_control_timer")
-		{
-
+    public:
+        Node_Control_Timer() : Node("node_control_timer")
+        {
             tf_buffer_ = std::make_shared<tf2_ros::Buffer>(this->get_clock());
             tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
             tf_broadcaster_ = std::make_shared<tf2_ros::TransformBroadcaster>(*this);
 
-           //client_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
-           //timer_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
-           //client_vel = this->create_client<interfaces::srv::PlatformVel>("robot_1/set_platform_vel", rmw_qos_profile_services_default, client_cb_group_);
-           std::stringstream ss_topic_name;
-            ss_topic_name << "/robot_0" << robot_id << "/set_platform_vel";
-            std::string topic_name = ss_topic_name.str();
+            std::stringstream ss_base; 
+            ss_base << "/robot_0" << robot_id;
 
-
-            publisher_vel = this->create_publisher<interfaces::msg::PlatformVel>(topic_name,1);
-
-            std::stringstream ss_topic_name_finish;
-            ss_topic_name_finish << "/robot_0" << robot_id << "/control_finish";
-            std::string topic_name_finish = ss_topic_name_finish.str();
-
-            publisher_control_finish = this->create_publisher<interfaces::msg::ControlFinish>(topic_name_finish,1);
+            publisher_vel = this->create_publisher<interfaces::msg::PlatformVel>(ss_base.str() + "/set_platform_vel", 1);
+            publisher_control_finish = this->create_publisher<interfaces::msg::ControlFinish>(ss_base.str() + "/control_finish", 1);
+            publisher_data_error = this->create_publisher<interfaces::msg::DataError>(ss_base.str() + "/data_error", 1);
+            publisher_data_error_total = this->create_publisher<interfaces::msg::DataError>(ss_base.str() + "/total_data_error", 1);
+            publisher_plot_data = this->create_publisher<std_msgs::msg::Float32MultiArray>(ss_base.str() + "/plot_data", 1);
+            
+            // Publisher para RVIZ
+            publisher_markers_ = this->create_publisher<visualization_msgs::msg::MarkerArray>(ss_base.str() + "/control_markers", 1);
 
             timer_ = this->create_wall_timer(
                  100ms, std::bind(&Node_Control_Timer::timer_callback, this));
-
-            std::stringstream ss_topic_name_error;
-            ss_topic_name_error << "/robot_0" << robot_id << "/data_error";
-            std::string topic_name_error = ss_topic_name_error.str();
-
-            publisher_data_error = this->create_publisher<interfaces::msg::DataError>(topic_name_error,1);
-
-            std::stringstream ss_topic_name_error_total;
-            ss_topic_name_error_total << "/robot_0" << robot_id << "/total_data_error";
-            std::string topic_name_error_total = ss_topic_name_error_total.str();
-
-            publisher_data_error_total = this->create_publisher<interfaces::msg::DataError>(topic_name_error_total,1);
-
-            std::stringstream ss_topic_name_plot;
-            ss_topic_name_plot << "/robot_0" << robot_id << "/plot_data";
-            std::string topic_name_plot = ss_topic_name_plot.str();
-            publisher_plot_data = this->create_publisher<std_msgs::msg::Float32MultiArray>(topic_name_plot,1);
-
-            
-
- 
-          
-
         }
 
     private:
+        rclcpp::TimerBase::SharedPtr timer_;
+        rclcpp::Publisher<interfaces::msg::PlatformVel>::SharedPtr publisher_vel;
+        std::shared_ptr<tf2_ros::Buffer> tf_buffer_;
+        std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
+        std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
+        rclcpp::Publisher<interfaces::msg::ControlFinish>::SharedPtr publisher_control_finish;
+        rclcpp::Publisher<interfaces::msg::DataError>::SharedPtr publisher_data_error;
+        rclcpp::Publisher<interfaces::msg::DataError>::SharedPtr publisher_data_error_total;
+        rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr publisher_plot_data;
+        rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr publisher_markers_;
 
-    rclcpp::TimerBase::SharedPtr timer_;
-    //rclcpp::Client<interfaces::srv::PlatformVel>::SharedPtr client_vel;
-
-    //rclcpp::CallbackGroup::SharedPtr client_cb_group_;
-    rclcpp::CallbackGroup::SharedPtr timer_cb_group_;
-    //rclcpp::Publisher<interfaces::msg::DataControl>::SharedPtr data_control_robot1_publisher;
-    rclcpp::Publisher<interfaces::msg::PlatformVel>::SharedPtr publisher_vel;
-    std::shared_ptr<tf2_ros::Buffer> tf_buffer_;
-    std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
-    std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
-    rclcpp::Publisher<interfaces::msg::ControlFinish>::SharedPtr publisher_control_finish;
-    rclcpp::Publisher<interfaces::msg::DataError>::SharedPtr publisher_data_error;
-    rclcpp::Publisher<interfaces::msg::DataError>::SharedPtr publisher_data_error_total;
-    rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr publisher_plot_data;
-
-
-    void timer_callback()   //////CONTROL/////////
+    void timer_callback()
     { 
+       if (control_active == true) {
 
-       // std::cout << " Callback de tiempo" << std::endl;
-        //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "timer_callback");
-
-        
-       if (control_active == true){
-
-        //Save robot and object position
-        for (int marker=1; marker<30; marker++){
-                std::stringstream ss_marker;
-                if (marker<10){
-                    ss_marker << "marker_id_0" << marker;
-                }
-                else{
-                ss_marker << "marker_id_" << marker;
-                }
-
-                std::string marker_name = ss_marker.str();
-
-                ////RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Object ID %d", object_id);
-
+            // 1. OBTENER POSICIÓN ACTUAL (TF)
+            try {
+                std::string gripper_frame = "robot_0" + std::to_string(robot_id) + "/gr_ref_link";
+                auto tf_grip = tf_buffer_->lookupTransform("marker_id_00", gripper_frame, tf2::TimePointZero);
                 
-                    if(robot_id==marker){                   
-                        
-                        std::stringstream ss_gripper;
-                        ss_gripper << "robot_0" << robot_id << "/gr_ref_link";
-                        std::string gripper_name = ss_gripper.str();
+                // Sin offset manual, confiamos en el TF
+                gripper_position.x = tf_grip.transform.translation.x; 
+                gripper_position.y = tf_grip.transform.translation.y;
 
-
-                        try{
-                            geometry_msgs::msg::TransformStamped transformStamped_gripper = tf_buffer_->lookupTransform("marker_id_00", gripper_name, tf2::TimePointZero);
-                            gripper_position.x = transformStamped_gripper.transform.translation.x - 0.05;
-                            gripper_position.y = transformStamped_gripper.transform.translation.y;
-                        }
-                        catch (tf2::TransformException &ex){
-                            ////RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
-                            continue;
-                        }
-
-
-                        std::stringstream ss_base;
-                        ss_base << "robot_0" << robot_id << "/base_link";
-                        std::string base_name = ss_base.str();
-
-                        try{
-                            geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_->lookupTransform("marker_id_00", base_name, tf2::TimePointZero);
-                            robot_position.x = transformStamped.transform.translation.x;
-                            robot_position.y = transformStamped.transform.translation.y;
-                            tf2::Quaternion quat(transformStamped.transform.rotation.x, transformStamped.transform.rotation.y, transformStamped.transform.rotation.z, transformStamped.transform.rotation.w);
-                            tf2::Matrix3x3 m(quat);
-                            double roll, pitch, yaw;
-                            m.getRPY(roll,pitch,yaw);
-                            angle_robot = yaw;
-                        }
-                        catch (tf2::TransformException &ex){
-                            ////RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
-                            continue;
-                        }
-
-                    }
-
-                    // else if(object_id==marker){
-                    //     ////RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Object detected ID %d", object_id);
-                    //     try{
-                    //         geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_->lookupTransform("marker_id_00", marker_name, tf2::TimePointZero);
-                    //         object_position.x = transformStamped.transform.translation.x;
-                    //         object_position.y = transformStamped.transform.translation.y;
-                    //         tf2::Quaternion quat(transformStamped.transform.rotation.x, transformStamped.transform.rotation.y, transformStamped.transform.rotation.z, transformStamped.transform.rotation.w);
-                    //         tf2::Matrix3x3 m(quat);
-                    //         double roll, pitch, yaw;
-                    //         m.getRPY(roll,pitch,yaw);
-                    //         angle_object = yaw;
-                    //         if(marker>10 && marker<20){
-                    //             type_object = 1;
-                    //         }
-                    //         else if(marker>20){
-                    //             type_object = 2;
-                    //         }
-                    //     }
-                    //     catch (tf2::TransformException &ex){
-                    //         ////RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%s", ex.what());
-                    //         continue;
-                    //     }
-                    // }
-
-        }
-
-        //std::cout << "inicio " << std::endl;
-        //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "inicio");
-
-            phid= angle_objective;  //Desired angle
-
-            double vxd,vyd,vwd,ErrAng;
-
-           if (k<N){
-                vxd = (hxd[k+3] - hxa)/ts;    
-                vyd = (hyd[k+3] - hya)/ts;
-                vwd = (phid - phia)/ts;
-
-                hxe[k] = hxd[k+3] - gripper_position.x;
-                hye[k] = hyd[k+3] - gripper_position.y;
-
-                ErrAng = phid - angle_robot;
-
-                hwe[k] = ErrAng;
-           }
-           else{
-                 vxd = (hxd[k] - hxa)/ts;    
-                 vyd = (hyd[k] - hya)/ts;
-                 vwd = (phid - phia)/ts;
-
-                hxe[k] = hxd[k] - gripper_position.x;
-                hye[k] = hyd[k] - gripper_position.y;
-
-                ErrAng = phid - angle_robot;
-
-                hwe[k] = ErrAng;
-           }
-
-            // Parametros Robot
-
-
-            //Errores!
-
-
-                //  hxe[k] = hxd[k] - gripper_position.x;
-                //  hye[k] = hyd[k] - gripper_position.y;
-
-                //  double ErrAng = phid - angle_robot;
-
-                // hwe[k] = ErrAng;
-
-                data_error.x_error = hxe[k];
-                data_error.y_error = hye[k];
-                data_error.ang_error = hwe[k];
-                data_error.k = k;
-                publisher_data_error->publish(data_error);
-
-                data_error_total.x_error = hxd[N] - gripper_position.x;
-                data_error_total.y_error = hyd[N] - gripper_position.y;
-                data_error_total.ang_error = phid - angle_robot;
-                data_error_total.k = k;
-                publisher_data_error_total->publish(data_error_total);
-
-
-                std_msgs::msg::Float32MultiArray msg_plot_data;
-                msg_plot_data.data.push_back(robot_state);
-                msg_plot_data.data.push_back(hxe[k]);
-                msg_plot_data.data.push_back(hye[k]);
-                msg_plot_data.data.push_back(hwe[k]);
-                msg_plot_data.data.push_back(data_error_total.x_error);
-                msg_plot_data.data.push_back(data_error_total.y_error);
-                msg_plot_data.data.push_back(data_error_total.ang_error);
-                msg_plot_data.data.push_back(hxd[N]);
-                msg_plot_data.data.push_back(hyd[N]);
-                msg_plot_data.data.push_back(phid);
+                std::string base_frame = "robot_0" + std::to_string(robot_id) + "/base_link";
+                auto tf_base = tf_buffer_->lookupTransform("marker_id_00", base_frame, tf2::TimePointZero);
                 
-                publisher_plot_data->publish(msg_plot_data);
+                tf2::Quaternion q(tf_base.transform.rotation.x, tf_base.transform.rotation.y, tf_base.transform.rotation.z, tf_base.transform.rotation.w);
+                tf2::Matrix3x3 m(q); double r, p, y; m.getRPY(r, p, y);
+                angle_robot = y;
+            } catch (tf2::TransformException &ex) { return; }
 
-            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hxe = %f", hxe[k]);
-            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hye = %f", hye[k]);
-            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "hwe = %f", hwe[k]);
-            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "k = %d", k);
-            if (k>10){
-                float min_error = 0.001;   //Error to skip control to next step
+            phid = angle_objective;
 
-                if(abs(data_error_total.x_error)<min_error && abs(data_error_total.y_error)<min_error && abs(data_error_total.ang_error)<min_error){
-                        k=N;
-                        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "End of control FOR ERROR <0.01");
+            // ============================================================
+            // CORRECCIÓN DE DENSIDAD: SINCRONIZAR 'k' CON LA REALIDAD
+            // ============================================================
+            
+            // Buscamos el punto del camino más cercano a la posición real del robot.
+            // Esto evita que 'k' se quede atrasado si el robot va rápido.
+            
+            double min_dist_to_path = 9999.0;
+            int closest_k = k;
+            
+            // Buscamos solo en una ventana hacia adelante (ej. 100 puntos) para no saltar
+            // a otra parte del camino si se cruza (como en una pista de carreras)
+            int search_window = 100; 
+            int search_limit = std::min(k + search_window, N);
+
+            for (int i = k; i < search_limit; i++) {
+                double d = std::hypot(hxd[i] - gripper_position.x, hyd[i] - gripper_position.y);
+                if (d < min_dist_to_path) {
+                    min_dist_to_path = d;
+                    closest_k = i;
                 }
             }
-               
+            
+            // Actualizamos k. PERO nunca permitimos que k retroceda (hysteresis)
+            if (closest_k > k) {
+                k = closest_k;
+            }
 
+            // 2. BUSQUEDA ADAPTATIVA DEL OBJETIVO (CARROT CHASING)
+            double vxd, vyd, vwd, ErrAng;
+            
+            double min_lookahead_dist = 0.15; // 15 cm
+            double dist_to_final = std::hypot(hxd[N-1] - gripper_position.x, hyd[N-1] - gripper_position.y);
+            
+            if (dist_to_final < min_lookahead_dist) {
+                min_lookahead_dist = dist_to_final; 
+            }
+
+            int target_idx = k;
+            for (int i = k; i < N; i++) {
+                double dist = std::hypot(hxd[i] - gripper_position.x, hyd[i] - gripper_position.y);
+                if (dist >= min_lookahead_dist) {
+                    target_idx = i;
+                    break;
+                }
+                if (i == N - 1) target_idx = N - 1; 
+            }
+
+            // Variables para visualización RVIZ
+            double target_x_vis = 0;
+            double target_y_vis = 0;
+
+            if (target_idx < N) {
+                int prev_idx = (target_idx - 1 < 0) ? 0 : target_idx - 1;
+                vxd = (hxd[target_idx] - hxd[prev_idx]) / ts;    
+                vyd = (hyd[target_idx] - hyd[prev_idx]) / ts;
+                vwd = (phid - phia) / ts; 
+
+                hxe[k] = hxd[target_idx] - gripper_position.x;
+                hye[k] = hyd[target_idx] - gripper_position.y;
                 
-
-                //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Errores");
-
-                //double grados = (ANG_Robot * 180)/M_PI;
-                //double cos_val = cos(ANG_Robot);
-                //double sin_val = sin(ANG_Robot);
-            
-            
-           // std::cout << " Grados= " << grados << " cos = " << cos_val << " sin =" << sin_val << std::endl;
-            
-
-            //std::cout << "x deseada = " << hxd[k]  << "  X_Rob = " << gripper_position.x << std::endl;
-            //std::cout << "y deseada = " << hyd[k]  << "  Y_Rob = " << gripper_position.y << std::endl;
-            //std::cout << "phi deseada = " << phid  << "  ANG_Rob = " << ANG_Robot << std::endl;
-            //std::cout << "error x = " <<  hxe[k] << "  error y = " <<hye[k] << " error w = " << hwe[k] << " Grados= " << grados << std::endl;
-            
-
-            //Ganancias
-
-            double Kx = 50;
-            double Ky = 50;
-            double Kw = 3;
-
-
-            if (hxe[k]>0.01){
-                Kx = 50;
-            }
-            else{
-                Kx = 200;
+                target_x_vis = hxd[target_idx];
+                target_y_vis = hyd[target_idx];
+            } else {
+                vxd = 0; vyd = 0; vwd = 0; 
+                hxe[k] = hxd[N-1] - gripper_position.x;
+                hye[k] = hyd[N-1] - gripper_position.y;
+                target_x_vis = hxd[N-1];
+                target_y_vis = hyd[N-1];
             }
 
-            if (hye[k]>0.01){
-                Ky = 50;
-            }
-            else{
-                Ky = 200;
-            }
-            
-            
-            
-           
+            ErrAng = phid - angle_robot;
+            while (ErrAng > M_PI) ErrAng -= 2*M_PI;
+            while (ErrAng < -M_PI) ErrAng += 2*M_PI;
+            hwe[k] = ErrAng;
 
+            // 3. PUBLICAR DATOS Y VISUALIZACIÓN
+            publish_control_markers(gripper_position.x, gripper_position.y, target_x_vis, target_y_vis, hxe[k], hye[k], hwe[k]);
+
+            data_error.x_error = hxe[k]; data_error.y_error = hye[k]; data_error.ang_error = hwe[k]; data_error.k = k;
+            publisher_data_error->publish(data_error);
+
+            // Error TOTAL al final del camino (para checar si terminamos)
+            data_error_total.x_error = hxd[N-1] - gripper_position.x;
+            data_error_total.y_error = hyd[N-1] - gripper_position.y;
+            data_error_total.ang_error = ErrAng;
+            data_error_total.k = k;
+            publisher_data_error_total->publish(data_error_total);
+
+            std_msgs::msg::Float32MultiArray msg_plot;
+            msg_plot.data = { (float)robot_state, (float)hxe[k], (float)hye[k], (float)hwe[k],
+                (float)data_error_total.x_error, (float)data_error_total.y_error, (float)data_error_total.ang_error,
+                (float)hxd[N-1], (float)hyd[N-1], (float)phid };
+            publisher_plot_data->publish(msg_plot);
+
+            // =========================================================
+            // 4. LEY DE CONTROL (SINTONIZACIÓN SUAVE / SOFT LANDING)
+            // =========================================================
+            
+            // CAMBIO 1: ZONA DE ACTIVACIÓN MÁS PEQUEÑA
+            // Antes: 1.5m. Ahora: 0.40m (40 cm).
+            // No queremos que acumule error desde lejos, solo al final.
+            if (dist_to_final < 0.40) { 
+                sum_x_err += hxe[k] * ts;
+                sum_y_err += hye[k] * ts;
+                // sum_w_err += hwe[k] * ts; 
+            } else {
+                // Importante: Si nos alejamos, limpiar el integral para no guardar "basura"
+                sum_x_err = 0.0;
+                sum_y_err = 0.0;
+            }
+            
+            // CAMBIO 2: SATURACIÓN MÁS ESTRICTA
+            // Antes: 1.5. Ahora: 0.3 (Max 30 cm/s de corrección integral)
+            // Esto evita que el integral dé "patadas" fuertes.
+            double max_I = 0.3; 
+            sum_x_err = std::clamp(sum_x_err, -max_I, max_I);
+            sum_y_err = std::clamp(sum_y_err, -max_I, max_I);
+
+            // CAMBIO 3: GANANCIAS BALANCEADAS
+            // Kx/Ky: Bajamos de 60 a 25 para que no se acerque tan violento.
+            double Kx = 25.0; 
+            double Ky = 25.0;
+            double Kw = 3.0; // El angular suele estar bien bajo
+            
+            // Ki: Bajamos de 35 a 5.0. 
+            // 5.0 es suficiente para empujar suavemente los últimos cm sin causar rebote.
+            double Ki = 20.0; 
 
             Eigen::MatrixXd he(3,1);
-            he << vxd + Kx * tanh(hxe[k]), 
-                  vyd + Ky * tanh(hye[k]),
+            he << vxd + Kx * tanh(hxe[k]) + Ki * sum_x_err, 
+                  vyd + Ky * tanh(hye[k]) + Ki * sum_y_err, 
                   vwd + Kw * tanh(hwe[k]);
 
-            //std::cout << "he =" << he << std::endl;
-
-            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Matrix he");
-
-
-            
-            int sign_cos = 1;
-            int sign_sin = 1;
-
-            double cos_ang_robot = cos(angle_robot) * sign_cos;
-            double sin_ang_robot = sin(angle_robot) * sign_sin;
-
-
-
-
-            // Matriz Jacobiana
+            double cos_th = cos(angle_robot); double sin_th = sin(angle_robot);
             Eigen::MatrixXd J(3,3);
-            J << cos_ang_robot, -sin_ang_robot, 0,
-                 sin_ang_robot,  cos_ang_robot, 0,
-                 0,                 0,            1;
+            J << cos_th, -sin_th, 0, sin_th,  cos_th, 0, 0, 0, 1;
 
+            Eigen::MatrixXd qpRef = J.inverse() * he; 
 
-            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Jacobiana");
-
-            // Define variables
-            Eigen::MatrixXd qpRef;
+            if (uxRef.size() <= (size_t)k) { uxRef.resize(k+100, 0); uyRef.resize(k+100, 0); wRef.resize(k+100, 0); }
+            uxRef[k] = qpRef(0, 0); uyRef[k] = qpRef(1, 0); wRef[k] = qpRef(2, 0);
             
+            interfaces::msg::PlatformVel msg_vel;
+            double gain_vel = 35.0; 
+            msg_vel.x_vel = uxRef[k] * gain_vel;
+            msg_vel.y_vel = uyRef[k] * gain_vel;
+            if (abs(ErrAng) > M_PI) msg_vel.ang_vel = wRef[k] * -0.3; else msg_vel.ang_vel = wRef[k];
 
-            // Ley de control
-            qpRef = J.inverse() * he; 
-
-            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "inverse Jacobiana");
-
-
-
-            // Aplicar control
-            uxRef[k] = qpRef(0, 0);
-            uyRef[k] = qpRef(1, 0);
-            wRef[k] = qpRef(2, 0);
-            
-            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "apply control");
-
-            //auto request = std::make_shared<interfaces::srv::PlatformVel::Request>();
-            interfaces::msg::PlatformVel msg_platform_vel;
-            
-            uxRef[k] = uxRef[k] * 35;
-            uyRef[k] = uyRef[k] * 35;
-
-            msg_platform_vel.x_vel = uxRef[k];
-            msg_platform_vel.y_vel = uyRef[k];
-
-            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Error Ang = %f", ErrAng);
-
-            if (abs(ErrAng)>M_PI){
-                msg_platform_vel.ang_vel = wRef[k] *-0.3;
-            }
-            else{
-                msg_platform_vel.ang_vel = wRef[k];
-            }
-
-            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "create variable for control ");
-            
-            //std::cout << " Xvel = " << uxRef[k] << "  Yvel = " << uyRef[k] <<  "  ANG_vel = " << wRef[k] << std::endl;
-
-            //auto result = client_vel->async_send_request(request);
-
-
-            // std::future_status status = result.wait_for(100ms);  // timeout to guarantee a graceful finish
-            // if (status == std::future_status::ready) {
-            //    // //RCLCPP_INFO(this->get_logger(), "Received response");
-            // }
-
-            publisher_vel->publish(msg_platform_vel);
-
-            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "publicar control");
-
-            // std::cout << "Antes de publicar" << std::endl;
-            //std::cout << "k = " << k << std::endl;
-            //save_data(k, hxd[k], gripper_position.x, hxe[k], hyd[k], gripper_position.y, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
-            // //SEND DATA 
-            
-            auto time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count();
-            
-            std::cout << time << "_" << k << "_" << hxd[k] << "_" << gripper_position.x << "_" << hxe[k] << "_" << hyd[k] << "_" << gripper_position.y << "_" << hye[k] << "_" << 
-                phid << "_" << angle_robot << "_" << hwe[k] << "_" << uxRef[k] << "_" << uyRef[k] << "_" << wRef[k] << std::endl;
-            //////////////////////////
-          //  std::cout << "Despues de publicar" << std::endl;
+            publisher_vel->publish(msg_vel);
 
             k++;
-
             
-
-            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "k = %d", k);
-            //float left_time = tf - (k*ts);
-            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Time left = %f", left_time);
-
-            hxa = hxd[k];
-            hya = hyd[k];
+            // Actualizar anterior
+            if (target_idx < N) {
+                hxa = hxd[target_idx];
+                hya = hyd[target_idx];
+            } else {
+                hxa = hxd[N-1];
+                hya = hyd[N-1];
+            }
             phia = phid;
+
+            // 5. CHECK FINISH (LÓGICA MEJORADA)
             
-            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Guardar anteriores");
-        //   std::cout << "Despues de asignar valorees anteriores" << std::endl;
+            // Tolerancias: Si el error baja de 1cm, cortamos INMEDIATAMENTE.
+            bool pos_ok = abs(data_error_total.x_error) < 0.01 && abs(data_error_total.y_error) < 0.01;
+            bool ang_ok = abs(data_error_total.ang_error) < 0.08;
+            
+            // Timeout de Seguridad (Solo si algo falla físicamente y pasan 30 segundos extra)
+            bool hard_timeout = (k >= N + 300);
 
-          
-
-            if (k==N){
+            if ((pos_ok && ang_ok) || hard_timeout) {
                 
-            //    std::cout << "k=N" << k << N << std::endl;
-            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "k==N");
+                if (pos_ok) RCLCPP_INFO(this->get_logger(), "¡OBJETIVO ALCANZADO! (Por precisión)");
+                else RCLCPP_INFO(this->get_logger(), "TIMEOUT (Por seguridad)");
 
-                msg_platform_vel.x_vel = 0.0;
-                msg_platform_vel.y_vel = 0.0;
-                msg_platform_vel.ang_vel = 0.0;
+                msg_vel.x_vel = 0.0; msg_vel.y_vel = 0.0; msg_vel.ang_vel = 0.0;
+                publisher_vel->publish(msg_vel);
 
-                // auto result = client_vel->async_send_request(request);
-                // std::future_status status = result.wait_for(100ms);  // timeout to guarantee a graceful finish
-                // if (status == std::future_status::ready) {
-                // // //RCLCPP_INFO(this->get_logger(), "Received response");
-                // }
-                 publisher_vel->publish(msg_platform_vel);
-              //  std::cout << "k=N" << k << N << std::endl;
-                interfaces::msg::ControlFinish msg_control_finish;
-                msg_control_finish.finish_confirm = true;
-                publisher_control_finish->publish(msg_control_finish);
-                control_active = false;
-                k=0;
-                data_error.ang_error = 1000;
-                data_error.x_error = 1000;
-                data_error.y_error = 1000;
-                data_error_total.ang_error = 1000;
-                data_error_total.x_error = 1000;
-                data_error_total.y_error = 1000;
-
-
-
-                //save_data(k, hxd[k], gripper_position.x, hxe[k], hyd[k], gripper_position.y, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
-
-
-            }
-
-            else if (k>N){
-               // k=0;
-              // std::cout << "k>N" << k << N << std::endl;
-              //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "K>N");
-                msg_platform_vel.x_vel = 0.0;
-                msg_platform_vel.y_vel = 0.0;
-                msg_platform_vel.ang_vel = 0.0;
-
-                // auto result = client_vel->async_send_request(request);
-                // std::future_status status = result.wait_for(100ms);  // timeout to guarantee a graceful finish
-                // if (status == std::future_status::ready) {
-                // //RCLCPP_INFO(this->get_logger(), "Received response");
-                // }
-                publisher_vel->publish(msg_platform_vel);
-                interfaces::msg::ControlFinish msg_control_finish;
-                msg_control_finish.finish_confirm = true;
-                publisher_control_finish->publish(msg_control_finish);
+                interfaces::msg::ControlFinish finish_msg;
+                finish_msg.finish_confirm = true;
+                publisher_control_finish->publish(finish_msg);
 
                 control_active = false;
-                k=0;
-                data_error.ang_error = 1000;
-                data_error.x_error = 1000;
-                data_error.y_error = 1000;
-                data_error_total.ang_error = 1000;
-                data_error_total.x_error = 1000;
-                data_error_total.y_error = 1000;
-               //save_data(k, hxd[k], gripper_position.x, hxe[k], hyd[k], gripper_position.y, hye[k], phid, ANG_Robot, hwe[k], uxRef[k], uyRef[k], wRef[k]);
+                k = 0;
             }
-
-            //std::cout << "Despues de los ifss" << std::endl;
- 
-          //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Fin de control");
-
+       } else {
+           interfaces::msg::PlatformVel stop_msg;
+           stop_msg.x_vel=0.0; stop_msg.y_vel=0.0; stop_msg.ang_vel=0.0;
+           publisher_vel->publish(stop_msg);
        }
-
-       else{
-           //std::cout << "Control no activo" << std::endl;
-           interfaces::msg::PlatformVel msg_platform_vel;
-            msg_platform_vel.x_vel = 0.0;
-            msg_platform_vel.y_vel = 0.0;
-            msg_platform_vel.ang_vel = 0.0;
-            publisher_vel->publish(msg_platform_vel);
-            //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Control no activo");
-            k=0;
-       }
-        //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Fin de todo");
     }
 
-     /* void save_data(int k, double x_des, double x_rob, double x_err, double y_des, double y_rob, double y_err, double ang_des, double ang_rob, double ang_err, double x_vel, double y_vel, double ang_vel)
-		{
-    		auto time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count();
+    void publish_control_markers(double curr_x, double curr_y, double targ_x, double targ_y, double ex, double ey, double eth) {
+        visualization_msgs::msg::MarkerArray markers;
 
-            std::cout << "Guardar datos" << std
-			myfile << time;
-            myfile << "_";
-            myfile << k;
-            myfile << "_";
-            myfile << x_des;
-            myfile << "_";
-            myfile << x_rob;
-            myfile << "_";
-            myfile << x_err;
-            myfile << "_";
-            myfile << y_des;
-            myfile << "_";
-            myfile << y_rob;
-            myfile << "_";
-            myfile << y_err;
-            myfile << "_";
-            myfile << ang_des;
-            myfile << "_";
-            myfile << ang_rob;
-            myfile << "_";
-            myfile << ang_err;
-            myfile << "_";
-            myfile << x_vel;
-            myfile << "_";
-            myfile << y_vel;
-            myfile << "_";
-            myfile << ang_vel;
-            myfile << "\n";
+        // Flecha
+        visualization_msgs::msg::Marker arrow;
+        arrow.header.frame_id = "marker_id_00";
+        arrow.header.stamp = this->now();
+        arrow.ns = "error_vector";
+        arrow.id = 0;
+        arrow.type = visualization_msgs::msg::Marker::ARROW;
+        arrow.action = visualization_msgs::msg::Marker::ADD;
+        geometry_msgs::msg::Point p1, p2;
+        p1.x = curr_x; p1.y = curr_y; p1.z = 0.1;
+        p2.x = targ_x; p2.y = targ_y; p2.z = 0.1;
+        arrow.points.push_back(p1); arrow.points.push_back(p2);
+        arrow.scale.x = 0.02; arrow.scale.y = 0.04; arrow.scale.z = 0.05; 
+        arrow.color.r = 1.0; arrow.color.a = 1.0; 
+        markers.markers.push_back(arrow);
 
+        // Texto
+        visualization_msgs::msg::Marker text;
+        text.header.frame_id = "marker_id_00";
+        text.header.stamp = this->now();
+        text.ns = "error_text";
+        text.id = 1;
+        text.type = visualization_msgs::msg::Marker::TEXT_VIEW_FACING;
+        text.action = visualization_msgs::msg::Marker::ADD;
+        text.pose.position.x = curr_x + 0.3;
+        text.pose.position.y = curr_y - 0.3;
+        text.pose.position.z = 0.5; 
+        text.scale.z = 0.05; 
+        text.color.r = 1.0; text.color.g = 1.0; text.color.b = 0.0; text.color.a = 1.0; 
+        std::stringstream ss;
+        ss << "ex:" << std::fixed << std::setprecision(2) << ex << "m\n";
+        ss << "ey:" << std::fixed << std::setprecision(2) << ey << "m\n";
+        ss << "eTh:" << std::fixed << std::setprecision(2) << eth << "rad";
+        text.text = ss.str();
+        markers.markers.push_back(text);
 
-		} */
-    
+        // Carrot Point
+        visualization_msgs::msg::Marker sphere;
+        sphere.header.frame_id = "marker_id_00";
+        sphere.header.stamp = this->now();
+        sphere.ns = "target_point";
+        sphere.id = 2;
+        sphere.type = visualization_msgs::msg::Marker::SPHERE;
+        sphere.action = visualization_msgs::msg::Marker::ADD;
+        sphere.pose.position.x = targ_x; sphere.pose.position.y = targ_y; sphere.pose.position.z = 0.1;
+        sphere.scale.x = 0.05; sphere.scale.y = 0.05; sphere.scale.z = 0.05;
+        sphere.color.r = 0.0; sphere.color.g = 1.0; sphere.color.b = 0.0; sphere.color.a = 0.8; 
+        markers.markers.push_back(sphere);
 
- 
+        publisher_markers_->publish(markers);
+    }
 };
-
-
 
 int main(int argc, char * argv[])
 {
-
-
     rclcpp::init(argc, argv);
-    /* myfile.open ("csv/Control_Trajectory_Node.csv");
-
-    myfile << "Time";
-    myfile << "_";
-    myfile << "K";
-    myfile << "_";
-    myfile << "X-Des";
-    myfile << "_";
-    myfile << "X-Rob";
-    myfile << "_";
-    myfile << "X-Err";
-    myfile << "_";
-    myfile << "Y-Des";
-    myfile << "_";
-    myfile << "Y-Rob";
-    myfile << "_";
-    myfile << "Y-Err";
-    myfile << "_";
-    myfile << "Ang-Des";
-    myfile << "_";
-    myfile << "Ang-Rob";
-    myfile << "_";
-    myfile << "Ang-Err";
-    myfile << "_";
-    myfile << "X-vel";
-    myfile << "_";
-    myfile << "Y-vel";
-    myfile << "_";
-    myfile << "Ang-vel";
-    myfile << "\n"; 
-    */
-   
-  	//rclcpp::spin(std::make_shared<Control_Trajectory_Node>());
-
-    for (int i = 0; i < N; i++) {
-        t[i] = i * ts;
-    }
-    k=0;
-
-
-
-   // hx[0] = 0.9; // # Posicion inicial en el eje x en metros [m]
-    //hy[0] = -0.7;  //# Posicion inicial en el eje y en metros [m]
-    //phi[0] = 180*(M_PI/180); //# Orientacion inicial en radianes [rad]
-	
-	auto node = std::make_shared<Control_Trajectory_Node>();
+    
+    auto node = std::make_shared<Control_Trajectory_Node>();
     auto node_subs_path = std::make_shared<Node_Subs_Path>();
-	auto node_subs_positions = std::make_shared<Node_Subs_Positions>();
+    auto node_subs_positions = std::make_shared<Node_Subs_Positions>();
     auto node_control_timer = std::make_shared<Node_Control_Timer>();
-   // auto node_client_vel = std::make_shared<Node_Client_Vel>();
 
     rclcpp::executors::MultiThreadedExecutor executor;
     executor.add_node(node);
     executor.add_node(node_subs_path);
-	executor.add_node(node_subs_positions);
+    executor.add_node(node_subs_positions);
     executor.add_node(node_control_timer);
-    //executor.add_node(node_client_vel);
     executor.spin();
 
- 	rclcpp::shutdown();
-   // myfile.close();
-  
+    rclcpp::shutdown();
+    return 0;
 }

@@ -5,7 +5,10 @@ cd "$HOME/Robotics_Cyber_Physical_LAB"
 
 
 
-ros2 launch launch_pkg robot_02_sim.launch.py
+##planner puede ser astar, reverse o greedy
+#Control puede ser pid o geometric
 
-#echo "Presiona enter para salir..."
-#read  # O puedes poner $SHELL para quedarte en la terminal
+ros2 launch launch_pkg robot_02_sim.launch.py planner:=astar controller:=pid
+
+echo "Presiona enter para salir..."
+read  # O puedes poner $SHELL para quedarte en la terminal

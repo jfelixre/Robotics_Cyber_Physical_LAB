@@ -6,7 +6,10 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /Robot_021/Map1
+        - /Robot_011
+        - /Robot_011/MarkerArray1
+        - /Robot_011/MarkerArray2
+        - /Robot_021
         - /Objects1/RobotModel1
         - /TF1/Frames1
         - /TF1/Tree1
@@ -80,14 +83,37 @@ Visualization Manager:
           Enabled: true
           Name: MarkerArray
           Namespaces:
-            goal_pt: true
-            start_pt: true
+            {}
           Topic:
             Depth: 5
             Durability Policy: Volatile
             History Policy: Keep Last
             Reliability Policy: Reliable
             Value: /robot_01/debug_markers
+          Value: true
+        - Class: rviz_default_plugins/MarkerArray
+          Enabled: true
+          Name: MarkerArray
+          Namespaces:
+            {}
+          Topic:
+            Depth: 5
+            Durability Policy: Volatile
+            History Policy: Keep Last
+            Reliability Policy: Reliable
+            Value: /robot_01/control_markers
+          Value: true
+        - Class: rviz_default_plugins/MarkerArray
+          Enabled: true
+          Name: MarkerArray
+          Namespaces:
+            {}
+          Topic:
+            Depth: 5
+            Durability Policy: Volatile
+            History Policy: Keep Last
+            Reliability Policy: Reliable
+            Value: /robot_01/state_marker
           Value: true
         - Alpha: 1
           Buffer Length: 1
@@ -135,251 +161,6 @@ Visualization Manager:
             Expand Link Details: false
             Expand Tree: false
             Link Tree Style: Links in Alphabetic Order
-            marker_id_01:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/b1_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/b2_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/b3_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/base_arm:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/base_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/gr_ref_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m1_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m1_r1_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m1_r2_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m1_r3_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m1_r4_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m1_r5_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m1_r6_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m1_r7_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m1_r8_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m1_r9_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m2_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m2_r1_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m2_r2_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m2_r3_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m2_r4_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m2_r5_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m2_r6_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m2_r7_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m2_r8_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m2_r9_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m3_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m3_r1_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m3_r2_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m3_r3_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m3_r4_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m3_r5_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m3_r6_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m3_r7_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m3_r8_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m3_r9_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m4_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m4_r1_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m4_r2_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m4_r3_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m4_r4_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m4_r5_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m4_r6_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m4_r7_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m4_r8_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/m4_r9_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/p1_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
-            robot_01/p2_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
-              Value: true
           Mass Properties:
             Inertia: false
             Mass: false
@@ -419,14 +200,37 @@ Visualization Manager:
           Enabled: true
           Name: MarkerArray
           Namespaces:
-            goal_pt: true
-            start_pt: true
+            {}
           Topic:
             Depth: 5
             Durability Policy: Volatile
             History Policy: Keep Last
             Reliability Policy: Reliable
             Value: /robot_02/debug_markers
+          Value: true
+        - Class: rviz_default_plugins/MarkerArray
+          Enabled: true
+          Name: MarkerArray
+          Namespaces:
+            {}
+          Topic:
+            Depth: 5
+            Durability Policy: Volatile
+            History Policy: Keep Last
+            Reliability Policy: Reliable
+            Value: /robot_02/control_markers
+          Value: true
+        - Class: rviz_default_plugins/MarkerArray
+          Enabled: true
+          Name: MarkerArray
+          Namespaces:
+            {}
+          Topic:
+            Depth: 5
+            Durability Policy: Volatile
+            History Policy: Keep Last
+            Reliability Policy: Reliable
+            Value: /robot_02/state_marker
           Value: true
         - Alpha: 1
           Buffer Length: 1
@@ -815,15 +619,13 @@ Visualization Manager:
         cam_1:
           Value: false
         cam_2:
-          Value: false
+          Value: true
         cube_id_11/cube_link:
           Value: true
         cube_id_12/cube_link:
           Value: true
         marker_id_00:
           Value: true
-        marker_id_01:
-          Value: false
         marker_id_02:
           Value: false
         marker_id_11:
@@ -844,110 +646,6 @@ Visualization Manager:
           Value: true
         marker_id_99:
           Value: true
-        objective_1:
-          Value: true
-        objective_2:
-          Value: true
-        robot_01/b1_link:
-          Value: false
-        robot_01/b2_link:
-          Value: false
-        robot_01/b3_link:
-          Value: false
-        robot_01/base_arm:
-          Value: false
-        robot_01/base_link:
-          Value: true
-        robot_01/gr_ref_link:
-          Value: true
-        robot_01/m1_link:
-          Value: false
-        robot_01/m1_r1_link:
-          Value: false
-        robot_01/m1_r2_link:
-          Value: false
-        robot_01/m1_r3_link:
-          Value: false
-        robot_01/m1_r4_link:
-          Value: false
-        robot_01/m1_r5_link:
-          Value: false
-        robot_01/m1_r6_link:
-          Value: false
-        robot_01/m1_r7_link:
-          Value: false
-        robot_01/m1_r8_link:
-          Value: false
-        robot_01/m1_r9_link:
-          Value: false
-        robot_01/m2_link:
-          Value: false
-        robot_01/m2_r1_link:
-          Value: false
-        robot_01/m2_r2_link:
-          Value: false
-        robot_01/m2_r3_link:
-          Value: false
-        robot_01/m2_r4_link:
-          Value: false
-        robot_01/m2_r5_link:
-          Value: false
-        robot_01/m2_r6_link:
-          Value: false
-        robot_01/m2_r7_link:
-          Value: false
-        robot_01/m2_r8_link:
-          Value: false
-        robot_01/m2_r9_link:
-          Value: false
-        robot_01/m3_link:
-          Value: false
-        robot_01/m3_r1_link:
-          Value: false
-        robot_01/m3_r2_link:
-          Value: false
-        robot_01/m3_r3_link:
-          Value: false
-        robot_01/m3_r4_link:
-          Value: false
-        robot_01/m3_r5_link:
-          Value: false
-        robot_01/m3_r6_link:
-          Value: false
-        robot_01/m3_r7_link:
-          Value: false
-        robot_01/m3_r8_link:
-          Value: false
-        robot_01/m3_r9_link:
-          Value: false
-        robot_01/m4_link:
-          Value: false
-        robot_01/m4_r1_link:
-          Value: false
-        robot_01/m4_r2_link:
-          Value: false
-        robot_01/m4_r3_link:
-          Value: false
-        robot_01/m4_r4_link:
-          Value: false
-        robot_01/m4_r5_link:
-          Value: false
-        robot_01/m4_r6_link:
-          Value: false
-        robot_01/m4_r7_link:
-          Value: false
-        robot_01/m4_r8_link:
-          Value: false
-        robot_01/m4_r9_link:
-          Value: false
-        robot_01/p1_link:
-          Value: false
-        robot_01/p2_link:
-          Value: false
-        robot_02/b1_link:
-          Value: false
-        robot_02/b2_link:
-          Value: false
         robot_02/b3_link:
           Value: false
         robot_02/base_arm:
@@ -956,90 +654,6 @@ Visualization Manager:
           Value: true
         robot_02/gr_ref_link:
           Value: true
-        robot_02/m1_link:
-          Value: false
-        robot_02/m1_r1_link:
-          Value: false
-        robot_02/m1_r2_link:
-          Value: false
-        robot_02/m1_r3_link:
-          Value: false
-        robot_02/m1_r4_link:
-          Value: false
-        robot_02/m1_r5_link:
-          Value: false
-        robot_02/m1_r6_link:
-          Value: false
-        robot_02/m1_r7_link:
-          Value: false
-        robot_02/m1_r8_link:
-          Value: false
-        robot_02/m1_r9_link:
-          Value: false
-        robot_02/m2_link:
-          Value: false
-        robot_02/m2_r1_link:
-          Value: false
-        robot_02/m2_r2_link:
-          Value: false
-        robot_02/m2_r3_link:
-          Value: false
-        robot_02/m2_r4_link:
-          Value: false
-        robot_02/m2_r5_link:
-          Value: false
-        robot_02/m2_r6_link:
-          Value: false
-        robot_02/m2_r7_link:
-          Value: false
-        robot_02/m2_r8_link:
-          Value: false
-        robot_02/m2_r9_link:
-          Value: false
-        robot_02/m3_link:
-          Value: false
-        robot_02/m3_r1_link:
-          Value: false
-        robot_02/m3_r2_link:
-          Value: false
-        robot_02/m3_r3_link:
-          Value: false
-        robot_02/m3_r4_link:
-          Value: false
-        robot_02/m3_r5_link:
-          Value: false
-        robot_02/m3_r6_link:
-          Value: false
-        robot_02/m3_r7_link:
-          Value: false
-        robot_02/m3_r8_link:
-          Value: false
-        robot_02/m3_r9_link:
-          Value: false
-        robot_02/m4_link:
-          Value: false
-        robot_02/m4_r1_link:
-          Value: false
-        robot_02/m4_r2_link:
-          Value: false
-        robot_02/m4_r3_link:
-          Value: false
-        robot_02/m4_r4_link:
-          Value: false
-        robot_02/m4_r5_link:
-          Value: false
-        robot_02/m4_r6_link:
-          Value: false
-        robot_02/m4_r7_link:
-          Value: false
-        robot_02/m4_r8_link:
-          Value: false
-        robot_02/m4_r9_link:
-          Value: false
-        robot_02/p1_link:
-          Value: false
-        robot_02/p2_link:
-          Value: false
       Marker Scale: 1
       Name: TF
       Show Arrows: false
@@ -1050,182 +664,6 @@ Visualization Manager:
           cam_1:
             {}
           cam_2:
-            marker_id_01:
-              robot_01/base_link:
-                robot_01/base_arm:
-                  robot_01/b1_link:
-                    robot_01/b2_link:
-                      robot_01/b3_link:
-                        robot_01/gr_ref_link:
-                          {}
-                        robot_01/p1_link:
-                          {}
-                        robot_01/p2_link:
-                          {}
-                robot_01/m1_link:
-                  robot_01/m1_r1_link:
-                    {}
-                  robot_01/m1_r2_link:
-                    {}
-                  robot_01/m1_r3_link:
-                    {}
-                  robot_01/m1_r4_link:
-                    {}
-                  robot_01/m1_r5_link:
-                    {}
-                  robot_01/m1_r6_link:
-                    {}
-                  robot_01/m1_r7_link:
-                    {}
-                  robot_01/m1_r8_link:
-                    {}
-                  robot_01/m1_r9_link:
-                    {}
-                robot_01/m2_link:
-                  robot_01/m2_r1_link:
-                    {}
-                  robot_01/m2_r2_link:
-                    {}
-                  robot_01/m2_r3_link:
-                    {}
-                  robot_01/m2_r4_link:
-                    {}
-                  robot_01/m2_r5_link:
-                    {}
-                  robot_01/m2_r6_link:
-                    {}
-                  robot_01/m2_r7_link:
-                    {}
-                  robot_01/m2_r8_link:
-                    {}
-                  robot_01/m2_r9_link:
-                    {}
-                robot_01/m3_link:
-                  robot_01/m3_r1_link:
-                    {}
-                  robot_01/m3_r2_link:
-                    {}
-                  robot_01/m3_r3_link:
-                    {}
-                  robot_01/m3_r4_link:
-                    {}
-                  robot_01/m3_r5_link:
-                    {}
-                  robot_01/m3_r6_link:
-                    {}
-                  robot_01/m3_r7_link:
-                    {}
-                  robot_01/m3_r8_link:
-                    {}
-                  robot_01/m3_r9_link:
-                    {}
-                robot_01/m4_link:
-                  robot_01/m4_r1_link:
-                    {}
-                  robot_01/m4_r2_link:
-                    {}
-                  robot_01/m4_r3_link:
-                    {}
-                  robot_01/m4_r4_link:
-                    {}
-                  robot_01/m4_r5_link:
-                    {}
-                  robot_01/m4_r6_link:
-                    {}
-                  robot_01/m4_r7_link:
-                    {}
-                  robot_01/m4_r8_link:
-                    {}
-                  robot_01/m4_r9_link:
-                    {}
-            marker_id_02:
-              robot_02/base_link:
-                robot_02/base_arm:
-                  robot_02/b1_link:
-                    robot_02/b2_link:
-                      robot_02/b3_link:
-                        robot_02/gr_ref_link:
-                          {}
-                        robot_02/p1_link:
-                          {}
-                        robot_02/p2_link:
-                          {}
-                robot_02/m1_link:
-                  robot_02/m1_r1_link:
-                    {}
-                  robot_02/m1_r2_link:
-                    {}
-                  robot_02/m1_r3_link:
-                    {}
-                  robot_02/m1_r4_link:
-                    {}
-                  robot_02/m1_r5_link:
-                    {}
-                  robot_02/m1_r6_link:
-                    {}
-                  robot_02/m1_r7_link:
-                    {}
-                  robot_02/m1_r8_link:
-                    {}
-                  robot_02/m1_r9_link:
-                    {}
-                robot_02/m2_link:
-                  robot_02/m2_r1_link:
-                    {}
-                  robot_02/m2_r2_link:
-                    {}
-                  robot_02/m2_r3_link:
-                    {}
-                  robot_02/m2_r4_link:
-                    {}
-                  robot_02/m2_r5_link:
-                    {}
-                  robot_02/m2_r6_link:
-                    {}
-                  robot_02/m2_r7_link:
-                    {}
-                  robot_02/m2_r8_link:
-                    {}
-                  robot_02/m2_r9_link:
-                    {}
-                robot_02/m3_link:
-                  robot_02/m3_r1_link:
-                    {}
-                  robot_02/m3_r2_link:
-                    {}
-                  robot_02/m3_r3_link:
-                    {}
-                  robot_02/m3_r4_link:
-                    {}
-                  robot_02/m3_r5_link:
-                    {}
-                  robot_02/m3_r6_link:
-                    {}
-                  robot_02/m3_r7_link:
-                    {}
-                  robot_02/m3_r8_link:
-                    {}
-                  robot_02/m3_r9_link:
-                    {}
-                robot_02/m4_link:
-                  robot_02/m4_r1_link:
-                    {}
-                  robot_02/m4_r2_link:
-                    {}
-                  robot_02/m4_r3_link:
-                    {}
-                  robot_02/m4_r4_link:
-                    {}
-                  robot_02/m4_r5_link:
-                    {}
-                  robot_02/m4_r6_link:
-                    {}
-                  robot_02/m4_r7_link:
-                    {}
-                  robot_02/m4_r8_link:
-                    {}
-                  robot_02/m4_r9_link:
-                    {}
             marker_id_11:
               cube_id_11/cube_link:
                 {}
@@ -1246,10 +684,6 @@ Visualization Manager:
               {}
             marker_id_99:
               {}
-          objective_1:
-            {}
-          objective_2:
-            {}
       Update Interval: 0
       Value: true
     - Class: rviz_default_plugins/Image

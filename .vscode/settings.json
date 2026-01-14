@@ -111,5 +111,7 @@
         "stacktrace": "cpp",
         "syncstream": "cpp"
     },
-    "cmake.ignoreCMakeListsMissing": true
+    "cmake.ignoreCMakeListsMissing": true,
+    "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+    "ROS2.distro": "jazzy"
 }

@@ -9,10 +9,9 @@
 #include <cmath>
 #include <iostream>
 #include <mutex>
-#include <thread>   // Para sleep_for
-#include <cstdlib>  // Para rand()
+#include <thread>   
+#include <cstdlib>  
 
-// OpenCV solo para cálculos matemáticos
 #include <opencv2/core.hpp> 
 #include <opencv2/imgproc.hpp> 
 
@@ -30,7 +29,6 @@
 #include <interfaces/msg/task_description.hpp>
 #include <interfaces/msg/robot_state.hpp>
 
-// RViz Messages
 #include <nav_msgs/msg/occupancy_grid.hpp>
 #include <nav_msgs/msg/path.hpp>
 #include <visualization_msgs/msg/marker.hpp>
@@ -48,18 +46,16 @@ class Compute_Trajectory : public rclcpp::Node
 public:
     Compute_Trajectory() : Node("compute_trajectory")
     {
-        // 1. Parámetros Generales
+        // 1. Parámetros
         this->declare_parameter<int>("robot_id", 0);
         robot_id = this->get_parameter("robot_id").as_int();
         leader_robot_id = robot_id;
 
-        // NUEVO: Parámetro para saber qué algoritmo estamos usando (solo para logs)
         this->declare_parameter<std::string>("planner_name", "Unknown_Planner");
         planner_name_ = this->get_parameter("planner_name").as_string();
 
-        RCLCPP_INFO(this->get_logger(), "Iniciando Trajectory Controller para Robot %d usando [%s]", robot_id, planner_name_.c_str());
+        RCLCPP_INFO(this->get_logger(), "Iniciando Compute Trajectory para Robot %d [%s]", robot_id, planner_name_.c_str());
 
-        // Parámetros de Dimensiones
         this->declare_parameter<float>("robot_size_x", 0.7);
         this->declare_parameter<float>("robot_size_y", 0.6);
         this->declare_parameter<float>("object_size_small_x", 0.4);
@@ -81,7 +77,7 @@ public:
         object_size_big_x_cells = static_cast<int>(ob_x / x_grid);
         object_size_big_y_cells = static_cast<int>(ob_y / y_grid);
 
-        // 2. TF Listener
+        // 2. TF
         tf_buffer_ = std::make_shared<tf2_ros::Buffer>(this->get_clock());
         tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
         tf_broadcaster_ = std::make_shared<tf2_ros::TransformBroadcaster>(*this);
@@ -91,12 +87,11 @@ public:
         ss_topic_name << "/robot_0" << robot_id << "/path";
         publisher_path = this->create_publisher<geometry_msgs::msg::Polygon>(ss_topic_name.str(), 10);
 
-        // Publicadores para RViz (Debug)
         publisher_grid_ = this->create_publisher<nav_msgs::msg::OccupancyGrid>("debug_grid", 10);
         publisher_markers_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("debug_markers", 10);
         publisher_nav_path_ = this->create_publisher<nav_msgs::msg::Path>("debug_path", 10);
 
-        // 4. Suscripciones y Clientes
+        // 4. Suscripciones
         client_cb_group = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
 
         std::stringstream ss_topic_obj;
@@ -109,26 +104,27 @@ public:
         subs_task_assigned = this->create_subscription<interfaces::msg::TaskDescription>(
             ss_topic_task.str(), 1, std::bind(&Compute_Trajectory::task_assigned_callback, this, _1));
 
-        // Cliente del Servicio (El nombre es fijo, el algoritmo cambia en el launch)
+        // 5. Cliente A*
         std::stringstream ss_service_name;
         ss_service_name << "/robot_0" << robot_id << "/path_finding_server";
         client = this->create_client<interfaces::srv::PathFinding>(
             ss_service_name.str(), rmw_qos_profile_services_default, client_cb_group);
 
-        // Diagnóstico Inicial
         if (!client->wait_for_service(std::chrono::seconds(1))) {
-            RCLCPP_WARN(this->get_logger(), "Servicio '%s' no disponible al inicio.", ss_service_name.str().c_str());
+            RCLCPP_WARN(this->get_logger(), "Servicio '%s' no encontrado.", ss_service_name.str().c_str());
         }
 
         subscribe_to_others();
         
+        // Inicializar Matriz (aunque no se use para mostrar ventana)
+        map_color = cv::Mat(n_y_spaces, n_x_spaces, CV_8UC3, cv::Scalar(255, 255, 255));
+
         timer_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
         timer_ = this->create_wall_timer(
              500ms, std::bind(&Compute_Trajectory::timer_callback, this), timer_cb_group_);
     }
 
 private:
-    // Configuración
     float x_grid = 0.05;
     float y_grid = 0.05;
     float x_world = 2.0 * 4.0 * tan(1.39626 / 2.0);  
@@ -139,13 +135,16 @@ private:
     int robot_id;
     int leader_robot_id;
     int robot_state = 0;
-    std::string planner_name_; // Variable para guardar el nombre (A*, Greedy, etc)
+    std::string planner_name_;
     
+    // --- BANDERA DE SEGURIDAD ---
+    bool has_valid_objective_ = false; 
+    // ----------------------------
+
     int robot_size_x_cells, robot_size_y_cells;
     int object_size_small_x_cells, object_size_small_y_cells;
     int object_size_big_x_cells, object_size_big_y_cells;
 
-    // Estado
     geometry_msgs::msg::Point point_objective;
     float angle_objective = 0;
     int object_id = 0;
@@ -171,7 +170,6 @@ private:
     geometry_msgs::msg::Polygon path_ant;
     bool request_pending_ = false; 
 
-    // ROS
     rclcpp::Publisher<geometry_msgs::msg::Polygon>::SharedPtr publisher_path;
     rclcpp::Publisher<nav_msgs::msg::OccupancyGrid>::SharedPtr publisher_grid_;
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr publisher_markers_;
@@ -189,6 +187,8 @@ private:
     
     rclcpp::CallbackGroup::SharedPtr client_cb_group;
     rclcpp::CallbackGroup::SharedPtr timer_cb_group_;
+
+    cv::Mat map_color;
 
     void subscribe_to_others() {
         other_robot_path_mats.resize(10); 
@@ -236,6 +236,11 @@ private:
         angle_objective = task_msg->angle_goal;
         object_id = task_msg->obj_id;
         robot_state = task_msg->state;
+        
+        // Nota: El task manager NO envía RobotObjective directamente, 
+        // pero la actualización de point_objective aquí podría ser suficiente para empezar si
+        // configuras la bandera aquí también.
+        // Lo correcto es esperar a subs_obj_callback que viene de event_driven_control
     }
 
     void subs_obj_callback(const interfaces::msg::RobotObjective::SharedPtr obj_msg){
@@ -243,35 +248,34 @@ private:
         angle_objective = obj_msg->angle;
         point_objective = obj_msg->point;
         robot_state = obj_msg->robot_state;
+        
+        // --- ACTIVAR BANDERA CUANDO LLEGA EL PRIMER OBJETIVO ---
+        if (!has_valid_objective_) {
+            RCLCPP_INFO(this->get_logger(), "Primer objetivo recibido. Activando path planning.");
+            has_valid_objective_ = true;
+        }
     }
 
-    // --- VISUALIZACIÓN RVIZ ---
+    // --- RVIZ HELPERS ---
     void publish_debug_grid(const cv::Mat& map_bin_ext) {
         nav_msgs::msg::OccupancyGrid grid_msg;
         grid_msg.header.stamp = this->now();
         grid_msg.header.frame_id = "marker_id_00";
-
         grid_msg.info.resolution = x_world / n_x_spaces; 
         grid_msg.info.width = n_x_spaces;
         grid_msg.info.height = n_y_spaces;
-        
         grid_msg.info.origin.position.x = -x_world / 2.0;
         grid_msg.info.origin.position.y = -y_world / 2.0;
         grid_msg.info.origin.position.z = -0.1; 
         grid_msg.info.origin.orientation.w = 1.0;
-
         grid_msg.data.resize(n_x_spaces * n_y_spaces);
 
         for (int y = 0; y < n_y_spaces; y++) {
             for (int x = 0; x < n_x_spaces; x++) {
                 int ros_y = n_y_spaces - 1 - y;
                 int ros_idx = ros_y * n_x_spaces + x;
-                // 100 = ocupado (negro), 0 = libre (blanco/transparente)
-                if (map_bin_ext.at<uchar>(y, x) == 0) {
-                    grid_msg.data[ros_idx] = 100;
-                } else {
-                    grid_msg.data[ros_idx] = 0;
-                }
+                if (map_bin_ext.at<uchar>(y, x) == 0) grid_msg.data[ros_idx] = 100;
+                else grid_msg.data[ros_idx] = 0;
             }
         }
         publisher_grid_->publish(grid_msg);
@@ -279,8 +283,7 @@ private:
 
     void publish_debug_markers(int sx, int sy, int gx, int gy) {
         visualization_msgs::msg::MarkerArray markers;
-        
-        auto create_marker = [&](int id, float r, float g, float b, double x, double y, std::string ns) {
+        auto create_marker = [&](int id, float r, float g, float b, double x, double y, std::string ns, float scale) {
             visualization_msgs::msg::Marker m;
             m.header.frame_id = "marker_id_00";
             m.header.stamp = this->now();
@@ -291,32 +294,55 @@ private:
             m.pose.position.x = (x - (n_x_spaces/2)) * x_world / n_x_spaces;
             m.pose.position.y = -(y - (n_y_spaces/2)) * y_world / n_y_spaces;
             m.pose.position.z = 0.2; 
-            m.scale.x = 0.05; m.scale.y = 0.05; m.scale.z = 0.05;
+            m.scale.x = scale; m.scale.y = scale; m.scale.z = scale;
             m.color.r = r; m.color.g = g; m.color.b = b; m.color.a = 1.0;
             return m;
         };
+        markers.markers.push_back(create_marker(0, 0.0, 1.0, 0.0, sx, sy, "start", 0.10)); 
+        markers.markers.push_back(create_marker(1, 1.0, 0.0, 0.0, gx, gy, "goal", 0.10));
+        
+        visualization_msgs::msg::Marker text_dist;
+        text_dist.header.frame_id = "marker_id_00";
+        text_dist.header.stamp = this->now();
+        text_dist.ns = "dist_text";
+        text_dist.id = 2;
+        text_dist.type = visualization_msgs::msg::Marker::TEXT_VIEW_FACING;
+        text_dist.action = visualization_msgs::msg::Marker::ADD;
+        
+        // Posición del texto: Encima del robot
+        text_dist.pose.position.x = 0.3 + (sx - (n_x_spaces/2)) * x_world / n_x_spaces;
+        text_dist.pose.position.y = -(sy - (n_y_spaces/2)) * y_world / n_y_spaces;
+        text_dist.pose.position.z = 0.5; // Medio metro arriba
+        
+        text_dist.scale.z = 0.05; // Tamaño letra
+        text_dist.color.r = 1.0; text_dist.color.g = 1.0; text_dist.color.b = 1.0; text_dist.color.a = 1.0;
 
-        markers.markers.push_back(create_marker(0, 0.0, 1.0, 0.0, sx, sy, "start_pt")); 
-        markers.markers.push_back(create_marker(1, 1.0, 0.0, 0.0, gx, gy, "goal_pt"));  
+        // Calcular distancia real usando las coordenadas de grilla convertidas a mundo
+        double dx = (gx - sx) * (x_world / n_x_spaces);
+        double dy = (gy - sy) * (y_world / n_y_spaces); // Ojo con el signo de Y en tu mundo
+        //double dist = std::hypot(dx, dy);
+
+        std::stringstream ss;
+        ss << "dX:" << std::fixed << std::setprecision(2) << dx << "m\n";
+        ss << "dY:" << std::fixed << std::setprecision(2) << dy << "m";
+        text_dist.text = ss.str();
+
+        markers.markers.push_back(text_dist);
 
         publisher_markers_->publish(markers);
     }
 
-    // --- CALLBACK PRINCIPAL ---
     void response_callback(rclcpp::Client<interfaces::srv::PathFinding>::SharedFuture future) {
         request_pending_ = false; 
-        
         try {
             auto result = future.get();
             int path_size = result->path_size;
             
             if (path_size > 0) {
-                // LOG DINÁMICO: Usa el nombre del planner
-                RCLCPP_INFO(this->get_logger(), "[%s] Camino Recibido (%d pts).", planner_name_.c_str(), path_size);
+                RCLCPP_INFO(this->get_logger(), "[%s] Path OK (%d pts).", planner_name_.c_str(), path_size);
                 
                 geometry_msgs::msg::Polygon path_msg;
-                nav_msgs::msg::Path nav_path; // Para RViz
-                
+                nav_msgs::msg::Path nav_path;
                 nav_path.header.stamp = this->now();
                 nav_path.header.frame_id = "marker_id_00";
 
@@ -346,18 +372,12 @@ private:
                 publisher_nav_path_->publish(nav_path); 
 
             } else {
-                // --- LÓGICA DE TRÁFICO (Ceder el paso) ---
-                RCLCPP_WARN(this->get_logger(), "[TRAFFIC] Bloqueado. Cediendo el paso...");
-
-                // Parada de emergencia
+                RCLCPP_WARN(this->get_logger(), "[TRAFFIC] Bloqueado. Esperando...");
                 geometry_msgs::msg::Polygon stop_msg;
                 publisher_path->publish(stop_msg);
-
-                // Espera aleatoria proporcional al ID
                 int wait_ms = (robot_id * 200) + (std::rand() % 500);
                 std::this_thread::sleep_for(std::chrono::milliseconds(wait_ms));
             }
-
         } catch (const std::exception &e) {
             RCLCPP_ERROR(this->get_logger(), "Error Servicio: %s", e.what());
         }
@@ -365,11 +385,19 @@ private:
 
     void timer_callback()
     {
+        // 0. CHECK DE SEGURIDAD
+        if (!has_valid_objective_) {
+            // No hacemos nada hasta recibir orden
+            return;
+        }
+
+        // 1. Limpieza
         n_obstacles = 0;
         obstacle_position.clear();
         angle_obstacle.clear();
         type_obstacle.clear();
 
+        // 2. TF Loop
         for (int marker=1; marker<30; marker++){
             std::stringstream ss_marker;
             ss_marker << "marker_id_" << (marker < 10 ? "0" : "") << marker;
@@ -382,7 +410,7 @@ private:
                     robot_position.x = tf_base.transform.translation.x;
                     robot_position.y = tf_base.transform.translation.y;
                     tf2::Quaternion q(tf_base.transform.rotation.x, tf_base.transform.rotation.y, tf_base.transform.rotation.z, tf_base.transform.rotation.w);
-                    tf2::Matrix3x3 m(q); double r, p, y; m.getRPY(r,p,y);
+                    tf2::Matrix3x3 m(q); double r, p, y; m.getRPY(r, p, y);
                     angle_robot = y;
 
                     std::stringstream ss_grip; ss_grip << "robot_0" << robot_id << "/gr_ref_link";
@@ -395,7 +423,7 @@ private:
                     object_position.x = tf_obj.transform.translation.x;
                     object_position.y = tf_obj.transform.translation.y;
                     tf2::Quaternion q(tf_obj.transform.rotation.x, tf_obj.transform.rotation.y, tf_obj.transform.rotation.z, tf_obj.transform.rotation.w);
-                    tf2::Matrix3x3 m(q); double r, p, y; m.getRPY(r,p,y);
+                    tf2::Matrix3x3 m(q); double r, p, y; m.getRPY(r, p, y);
                     angle_object = y;
                     type_object = (marker > 20) ? 2 : 1;
                 }
@@ -408,7 +436,7 @@ private:
                     obstacle_position.push_back(pt);
                     
                     tf2::Quaternion q(tf_obs.transform.rotation.x, tf_obs.transform.rotation.y, tf_obs.transform.rotation.z, tf_obs.transform.rotation.w);
-                    tf2::Matrix3x3 m(q); double r, p, y; m.getRPY(r,p,y);
+                    tf2::Matrix3x3 m(q); double r, p, y; m.getRPY(r, p, y);
                     angle_obstacle.push_back(y);
                     
                     if(marker < 10) type_obstacle.push_back(0);
@@ -421,11 +449,11 @@ private:
             }
         }
 
-        // --- GRID GENERATION ---
+        // 3. Grid Generation
         cv::Mat map_bin = cv::Mat::zeros(n_y_spaces, n_x_spaces, CV_8UC1);
         map_bin = cv::Scalar(255); 
 
-        // Obstáculos
+        // Obstacles
         for(int i=0; i<n_obstacles; i++) {
             int ox = ((int)((obstacle_position[i].x * n_x_spaces)/x_world)) + (n_x_spaces/2);
             int oy = n_y_spaces - (((int)((obstacle_position[i].y * n_y_spaces)/y_world)) + (n_y_spaces/2));
@@ -437,10 +465,10 @@ private:
             cv::RotatedRect obs_rect(cv::Point(ox, oy), sz, -angle_obstacle[i]*180/PI);
             cv::Point2f v_obs[4]; obs_rect.points(v_obs);
             std::vector<cv::Point> poly_obs; for(int j=0;j<4;j++) poly_obs.push_back(v_obs[j]);
-            
             cv::fillConvexPoly(map_bin, poly_obs, cv::Scalar(0)); 
         }
 
+        // Other Robots Paths
         for (const auto& mat : other_robot_path_mats) {
             if (mat.empty()) continue;
              for (int i = 0; i < mat.rows; i++) {
@@ -460,7 +488,7 @@ private:
         clamp(start_x, n_x_spaces); clamp(start_y, n_y_spaces);
         clamp(goal_x, n_x_spaces); clamp(goal_y, n_y_spaces);
 
-        // Inflado
+        // Inflation
         cv::Mat map_bin_ext = map_bin.clone();
         int kernel_size = 2; 
         for (int i=0; i<n_y_spaces; i++){
@@ -477,11 +505,13 @@ private:
             }
         }
 
-        // --- PUBLICAR DEBUG (RVIZ) ---
+        
+
+        // Publish Debug
         publish_debug_grid(map_bin_ext);
         publish_debug_markers(start_x, start_y, goal_x, goal_y);
 
-        // --- PETICIÓN SERVICIO ---
+        // Prepare Request
         auto request = std::make_shared<interfaces::srv::PathFinding::Request>();
         request->src_x = start_x;
         request->src_y = start_y;
@@ -508,7 +538,10 @@ private:
                 client->async_send_request(request, 
                     std::bind(&Compute_Trajectory::response_callback, this, _1));
             }
-        } 
+        } else {
+            static int warn_count = 0;
+            if(warn_count++ % 10 == 0) RCLCPP_WARN(this->get_logger(), "Esperando servicio...");
+        }
     }
 };
 
