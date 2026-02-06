@@ -58,6 +58,7 @@ def generate_launch_description():
         parameters=[{
             'config_file': os.path.join(pkg_project_launch_pkg, 'config', 'bridge_s_c_02.yaml'),
             'qos_overrides./tf_static.publisher.durability': 'transient_local',
+            'use_sim_time': True
         }],
         output='screen'
     )

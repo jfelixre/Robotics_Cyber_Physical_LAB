@@ -68,6 +68,7 @@ def generate_launch_description():
         parameters=[{
             'config_file': bridge_config_file,
             'qos_overrides./tf_static.publisher.durability': 'transient_local',
+            'use_sim_time': True
         }],
         output='screen'
     )
@@ -100,14 +101,14 @@ def generate_launch_description():
         package='task_pkg',
         namespace='robot_02',
         executable='task_manager_node_client',
-        parameters=[{'robot_id': 2}],
+        parameters=[{'robot_id': 2, 'use_sim_time': True}],
     )
     
     event_driven_control = Node(
         package='control_pkg',
         namespace='robot_02',
         executable='event_driven_control_refactored',
-        parameters=[{'robot_id': 2}],
+        parameters=[{'robot_id': 2, 'use_sim_time': True}],
     )
     
     compute_trajectory = Node(
@@ -115,7 +116,7 @@ def generate_launch_description():
         namespace='robot_02',
         executable='compute_trajectory',
         parameters=[
-            {'robot_id': 2},
+            {'robot_id': 2, 'use_sim_time': True},
             {'planner_name': planner_type} 
         ],
         output='screen'
@@ -129,7 +130,7 @@ def generate_launch_description():
         package='control_pkg',
         namespace='robot_02',
         executable='a_star_server',
-        parameters=[{'robot_id': 2}],
+        parameters=[{'robot_id': 2, 'use_sim_time': True}],
         condition=IfCondition(
             PythonExpression(["'", planner_type, "' == 'astar'"])
         ),
@@ -140,7 +141,7 @@ def generate_launch_description():
         package='control_pkg',
         namespace='robot_02',
         executable='reverse_a_star_server',
-        parameters=[{'robot_id': 2}],
+        parameters=[{'robot_id': 2, 'use_sim_time': True}],
         condition=IfCondition(
             PythonExpression(["'", planner_type, "' == 'reverse'"])
         ),
@@ -151,7 +152,7 @@ def generate_launch_description():
         package='control_pkg',
         namespace='robot_02',
         executable='greedy_server',
-        parameters=[{'robot_id': 2}],
+        parameters=[{'robot_id': 2, 'use_sim_time': True}],
         condition=IfCondition(
             PythonExpression(["'", planner_type, "' == 'greedy'"])
         ),
@@ -167,7 +168,7 @@ def generate_launch_description():
         package='control_pkg',
         namespace='robot_02',
         executable='control_trajectory_d',
-        parameters=[{'robot_id': 2}],
+        parameters=[{'robot_id': 2, 'use_sim_time': True}],
         condition=IfCondition(
             PythonExpression(["'", controller_type, "' == 'geometric'"])
         ),
@@ -179,7 +180,7 @@ def generate_launch_description():
         package='control_pkg',
         namespace='robot_02',
         executable='pid_control_trajectory_node',
-        parameters=[{'robot_id': 2}],
+        parameters=[{'robot_id': 2, 'use_sim_time': True}],
         condition=IfCondition(
             PythonExpression(["'", controller_type, "' == 'pid'"])
         ),
@@ -194,21 +195,21 @@ def generate_launch_description():
         package='inv_kinematics_pkg',
         namespace='robot_02',
         executable='robot_platform_vel_node',
-        parameters=[{'robot_id': 2}],
+        parameters=[{'robot_id': 2, 'use_sim_time': True}],
     )
     
     arm_position = Node(
         package='inv_kinematics_pkg',
         namespace='robot_02',
         executable='arm_position_node',
-        parameters=[{'robot_id': 2}],
+        parameters=[{'robot_id': 2, 'use_sim_time': True}],
     )
     
     robot_state_service = Node(
         package='control_pkg',
         namespace='robot_02',
         executable='robot_state_service',
-        parameters=[{'robot_id': 2}],
+        parameters=[{'robot_id': 2, 'use_sim_time': True}],
     )
     
     # ---------------------------------------------------------

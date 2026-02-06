@@ -30,6 +30,7 @@ def generate_launch_description():
     task_scheduler = Node(
         package='launch_pkg',
         executable='task_scheduler',
+        parameters=[{'use_sim_time': True}]
     )
 
     return LaunchDescription([

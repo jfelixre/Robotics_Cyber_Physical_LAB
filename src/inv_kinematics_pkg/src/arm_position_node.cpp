@@ -146,197 +146,112 @@ class Arm_Position_Node : public rclcpp::Node
 
 
 
-        void timer_pid_callback()   //CONTROL PID//
+        void timer_pid_callback()   //CONTROL PID MEJORADO
         { 
+            // 1. MODOS FIJOS (HOME, TRANSPORT, TAKE)
             if (home_pos==true){
-               // RCLCPP_INFO(this->get_logger(), "Robot %d is in home position", robot_id);
-                msg_b1.data = 2.0;
-                msg_b2.data = -2.0;
-                msg_b3.data = 2.0;
-                msg_p1.data = -0.5;
-                msg_p2.data = msg_p1.data;
-
-                publisher_pos_b1->publish(msg_b1);
-                publisher_pos_b2->publish(msg_b2);
-                publisher_pos_b3->publish(msg_b3);
-                publisher_pos_p1->publish(msg_p1);
-                publisher_pos_p2->publish(msg_p2);
-
-
+                msg_b1.data = 2.0; msg_b2.data = -2.0; msg_b3.data = 2.0;
+                msg_p1.data = -0.5; msg_p2.data = msg_p1.data;
+                publisher_pos_b1->publish(msg_b1); publisher_pos_b2->publish(msg_b2);
+                publisher_pos_b3->publish(msg_b3); publisher_pos_p1->publish(msg_p1); publisher_pos_p2->publish(msg_p2);
             }
             else if (transport_pos==true){
-                msg_b1.data = 0.82;
-                msg_b2.data = 0.42;
-                msg_b3.data = 0.26;
-                msg_p1.data = 0.5;
-                msg_p2.data = msg_p1.data;
-
-                publisher_pos_b1->publish(msg_b1);
-                publisher_pos_b2->publish(msg_b2);
-                publisher_pos_b3->publish(msg_b3);
-                publisher_pos_p1->publish(msg_p1);
-                publisher_pos_p2->publish(msg_p2);
+                msg_b1.data = 0.82; msg_b2.data = 0.42; msg_b3.data = 0.26;
+                msg_p1.data = 0.5; msg_p2.data = msg_p1.data;
+                publisher_pos_b1->publish(msg_b1); publisher_pos_b2->publish(msg_b2);
+                publisher_pos_b3->publish(msg_b3); publisher_pos_p1->publish(msg_p1); publisher_pos_p2->publish(msg_p2);
 
                 if(send_finish==true){
                     i++;
-                    //RCLCPP_INFO(this->get_logger(), "i value %d", i);
                     if (i>=50){
-                        interfaces::msg::ControlFinish msg_finish;
-                        msg_finish.finish_confirm = true;
-                        publisher_control_finish->publish(msg_finish);
-                        i=0;
+                        interfaces::msg::ControlFinish msg_finish; msg_finish.finish_confirm = true;
+                        publisher_control_finish->publish(msg_finish); i=0;
                     }
                 }
             }
-
             else if (take_pos==true){
-                msg_b1.data = 1.5;
-                msg_b2.data = 1.5;
-                msg_b3.data = -1.5;
-                //msg_p1.data = 0.5;
-                //msg_p2.data = msg_p1.data;
-
-                publisher_pos_b1->publish(msg_b1);
-                publisher_pos_b2->publish(msg_b2);
-                publisher_pos_b3->publish(msg_b3);
-                //publisher_pos_p1->publish(msg_p1);
-                //publisher_pos_p2->publish(msg_p2);
+                msg_b1.data = 1.5; msg_b2.data = 1.5; msg_b3.data = -1.5;
+                publisher_pos_b1->publish(msg_b1); publisher_pos_b2->publish(msg_b2); publisher_pos_b3->publish(msg_b3);
 
                 if(send_finish==true){
                     i++;
-                    //RCLCPP_INFO(this->get_logger(), "i value %d", i);
                     if (i>=50){
-                        interfaces::msg::ControlFinish msg_finish;
-                        msg_finish.finish_confirm = true;
-                        publisher_control_finish->publish(msg_finish);
-                        i=0;
+                        interfaces::msg::ControlFinish msg_finish; msg_finish.finish_confirm = true;
+                        publisher_control_finish->publish(msg_finish); i=0;
                     }
                 }
             }
+            // 2. MODO IK (SEGUIMIENTO DE OBJETIVO)
+            else {
+                std::string objective_frame = "objective_" + std::to_string(robot_id);
+                std::string arm_frame = "robot_0" + std::to_string(robot_id) + "/base_arm";
 
-            else{
-                std::stringstream ss_frame_objective;
-                ss_frame_objective << "objective_" << robot_id;
-                std::string objective_frame = ss_frame_objective.str();
-
-                std::stringstream ss_frame_arm;
-                ss_frame_arm << "robot_0" << robot_id << "/base_arm";
-                std::string arm_frame = ss_frame_arm.str();
-
-
-                try{
-                    geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_->lookupTransform(arm_frame, objective_frame, tf2::TimePointZero);
-                    double target_x = transformStamped.transform.translation.x;
-                    double target_y = transformStamped.transform.translation.y;
-                    double target_z = transformStamped.transform.translation.z + 0.1;
-
-                    //RCLCPP_INFO(this->get_logger(), "Robot %d is moving to x=%f, y=%f, z=%f", robot_id, target_x, target_y, target_z);
-
-                    JointAngles joint_angles = inverseKinematics(target_x, target_y);
-
-                    //RCLCPP_INFO(this->get_logger(), "Robot %d joint angles: theta1=%f, theta2=%f, theta3=%f", robot_id, joint_angles.theta1, joint_angles.theta2, joint_angles.theta3);
-
-                    msg_b1.data = joint_angles.theta1 * -1;
-                    msg_b2.data = joint_angles.theta2 - -1;
-                    msg_b3.data = joint_angles.theta3 * -1;
-
-                                      
-
-
-                    if (std::isnan(joint_angles.theta1) == false && std::isnan(joint_angles.theta2) == false && std::isnan(joint_angles.theta3) == false){
-                        if(joint_angles.theta1>=-1.5 && joint_angles.theta1<=1.5 && joint_angles.theta2>=-1.5 && joint_angles.theta2<=1.5 && joint_angles.theta3>=-1.5 && joint_angles.theta3<= 1.5){
-                            publisher_pos_b1->publish(msg_b1);
-                            publisher_pos_b2->publish(msg_b2);
-                            publisher_pos_b3->publish(msg_b3);
-                            //publisher_pos_p1->publish(msg_p1);
-                            //publisher_pos_p2->publish(msg_p2);
+                // --- MEJORA: COMPROBAR SI EXISTE TF ANTES DE LEER ---
+                if (tf_buffer_->canTransform(arm_frame, objective_frame, tf2::TimePointZero)) {
+                    try{
+                        auto transformStamped = tf_buffer_->lookupTransform(arm_frame, objective_frame, tf2::TimePointZero);
+                        double target_x = transformStamped.transform.translation.x;
+                        double target_y = transformStamped.transform.translation.y;
                         
-                        }
-                        else{
-                            RCLCPP_INFO(this->get_logger(), "Out of range");
-                        }
+                        JointAngles joint_angles = inverseKinematics(target_x, target_y);
 
-                        //publisher_pos_p1->publish(msg_p1);
-                        //publisher_pos_p2->publish(msg_p2);
-                        
-                    }
-                    else{
-                        RCLCPP_INFO(this->get_logger(), "NaN detected");
-                    }
-                    
+                        msg_b1.data = joint_angles.theta1 * -1;
+                        msg_b2.data = joint_angles.theta2 - -1; // ¿Es esto correcto? ¿O querías * -1?
+                        msg_b3.data = joint_angles.theta3 * -1;
 
-                }
-                catch (tf2::TransformException &ex){
-                    RCLCPP_ERROR(this->get_logger(), "%s", ex.what());
+                        if (!std::isnan(joint_angles.theta1) && !std::isnan(joint_angles.theta2) && !std::isnan(joint_angles.theta3)){
+                            // Limites simples
+                            if(abs(joint_angles.theta1)<=1.5 && abs(joint_angles.theta2)<=1.5 && abs(joint_angles.theta3)<= 1.5){
+                                publisher_pos_b1->publish(msg_b1);
+                                publisher_pos_b2->publish(msg_b2);
+                                publisher_pos_b3->publish(msg_b3);
+                            }
+                        }
+                    }
+                    catch (tf2::TransformException &ex){
+                        // Silenciar error crítico, solo warn
+                        RCLCPP_WARN(this->get_logger(), "TF Error: %s", ex.what());
+                    }
+                } else {
+                    // Si no hay TF, no hacemos nada (evita spam de errores)
+                    // Esto ocurrirá mientras el EventDrivenControl no envíe datos válidos
                 }
 
                 if(send_finish==true){
                     i++;
-                    RCLCPP_INFO(this->get_logger(), "i value %d", i);
                     if (i>=100){
-                        interfaces::msg::ControlFinish msg_finish;
-                        msg_finish.finish_confirm = true;
-                        publisher_control_finish->publish(msg_finish);
-                        i=0;
+                        interfaces::msg::ControlFinish msg_finish; msg_finish.finish_confirm = true;
+                        publisher_control_finish->publish(msg_finish); i=0;
                     }
                 }
-
-                
-
-            
-
             }
 
+            // 3. CONTROL DE GRIPPER
             if (gripper==true){
-                //RCLCPP_INFO(this->get_logger(), "Closing gripper");
-                msg_p1.data = 0;
-                msg_p2.data = msg_p1.data;
+                msg_p1.data = 0; msg_p2.data = 0;
+                publisher_pos_p1->publish(msg_p1); publisher_pos_p2->publish(msg_p2);
 
-                
+                // Publicar Attach solo una vez o continuamente (tu lógica actual lo hace continuamente)
+                std::string topic_grab = "/robot_0" + std::to_string(robot_id) + "/cube_" + std::to_string(obj_id) + "/attach";
+                auto publisher_gripper = this->create_publisher<std_msgs::msg::Empty>(topic_grab,10);
+                publisher_gripper->publish(std_msgs::msg::Empty());
 
-                std::stringstream ss_topipc_grab;
-                ss_topipc_grab << "/robot_0" << robot_id << "/cube_" << obj_id << "/attach";
-                std::string topic_grab = ss_topipc_grab.str();
-                rclcpp::Publisher<std_msgs::msg::Empty>::SharedPtr publisher_gripper = this->create_publisher<std_msgs::msg::Empty>(topic_grab,10);
-                std_msgs::msg::Empty msg;
-                publisher_gripper->publish(msg);
-
-                std::stringstream ss_topipc_objf;
-                ss_topipc_objf << "/FC" << obj_id << "/detach";
-                std::string topipc_objf = ss_topipc_objf.str();
-                rclcpp::Publisher<std_msgs::msg::Empty>::SharedPtr publisher_obj_j= this->create_publisher<std_msgs::msg::Empty>(topipc_objf,10);
-                std_msgs::msg::Empty msg_f;
-                publisher_obj_j->publish(msg_f);
-
-                publisher_pos_p1->publish(msg_p1);
-                publisher_pos_p2->publish(msg_p2);
-
+                std::string topipc_objf = "/FC" + std::to_string(obj_id) + "/detach";
+                auto publisher_obj_j= this->create_publisher<std_msgs::msg::Empty>(topipc_objf,10);
+                publisher_obj_j->publish(std_msgs::msg::Empty());
             }
             else{
-                msg_p1.data = -0.5;
-                msg_p2.data = msg_p1.data;
+                msg_p1.data = -0.5; msg_p2.data = -0.5;
+                publisher_pos_p1->publish(msg_p1); publisher_pos_p2->publish(msg_p2);
 
-                publisher_pos_p1->publish(msg_p1);
-                publisher_pos_p2->publish(msg_p2);
+                std::string topic_grab = "/robot_0" + std::to_string(robot_id) + "/cube_" + std::to_string(obj_id) + "/detach";
+                auto publisher_gripper = this->create_publisher<std_msgs::msg::Empty>(topic_grab,10);
+                publisher_gripper->publish(std_msgs::msg::Empty());
 
-                std::stringstream ss_topipc_grab;
-                ss_topipc_grab << "/robot_0" << robot_id << "/cube_" << obj_id << "/detach";
-                std::string topic_grab = ss_topipc_grab.str();
-                rclcpp::Publisher<std_msgs::msg::Empty>::SharedPtr publisher_gripper = this->create_publisher<std_msgs::msg::Empty>(topic_grab,10);
-                std_msgs::msg::Empty msg;
-                publisher_gripper->publish(msg);
-
-                std::stringstream ss_topipc_objf;
-                ss_topipc_objf << "/FC" << obj_id << "/attach";
-                std::string topipc_objf = ss_topipc_objf.str();
-                rclcpp::Publisher<std_msgs::msg::Empty>::SharedPtr publisher_obj_j= this->create_publisher<std_msgs::msg::Empty>(topipc_objf,10);
-                std_msgs::msg::Empty msg_f;
-                publisher_obj_j->publish(msg_f);
-
-
+                std::string topipc_objf = "/FC" + std::to_string(obj_id) + "/attach";
+                auto publisher_obj_j= this->create_publisher<std_msgs::msg::Empty>(topipc_objf,10);
+                publisher_obj_j->publish(std_msgs::msg::Empty());
             }
-            
-
         }
 
         void arm_pos_callback(const interfaces::msg::ArmObjective::SharedPtr msg)

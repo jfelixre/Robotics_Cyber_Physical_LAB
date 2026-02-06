@@ -121,7 +121,7 @@ public:
 
         timer_cb_group_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
         timer_ = this->create_wall_timer(
-             500ms, std::bind(&Compute_Trajectory::timer_callback, this), timer_cb_group_);
+             100ms, std::bind(&Compute_Trajectory::timer_callback, this), timer_cb_group_);
     }
 
 private:
@@ -281,8 +281,10 @@ private:
         publisher_grid_->publish(grid_msg);
     }
 
-    void publish_debug_markers(int sx, int sy, int gx, int gy) {
+    void publish_debug_markers(double sx, double sy, double gx, double gy) {
         visualization_msgs::msg::MarkerArray markers;
+        
+        // Lambda modificada: Ya no hace conversión de grilla a mundo, usa coordenadas directas
         auto create_marker = [&](int id, float r, float g, float b, double x, double y, std::string ns, float scale) {
             visualization_msgs::msg::Marker m;
             m.header.frame_id = "marker_id_00";
@@ -291,14 +293,20 @@ private:
             m.id = id;
             m.type = visualization_msgs::msg::Marker::SPHERE;
             m.action = visualization_msgs::msg::Marker::ADD;
-            m.pose.position.x = (x - (n_x_spaces/2)) * x_world / n_x_spaces;
-            m.pose.position.y = -(y - (n_y_spaces/2)) * y_world / n_y_spaces;
+            
+            // CAMBIO: Asignación directa (ya vienen en metros)
+            m.pose.position.x = x; 
+            m.pose.position.y = y;
             m.pose.position.z = 0.2; 
+            
             m.scale.x = scale; m.scale.y = scale; m.scale.z = scale;
             m.color.r = r; m.color.g = g; m.color.b = b; m.color.a = 1.0;
             return m;
         };
+
+        // Marcador Inicio (Robot)
         markers.markers.push_back(create_marker(0, 0.0, 1.0, 0.0, sx, sy, "start", 0.10)); 
+        // Marcador Meta (Objetivo)
         markers.markers.push_back(create_marker(1, 1.0, 0.0, 0.0, gx, gy, "goal", 0.10));
         
         visualization_msgs::msg::Marker text_dist;
@@ -309,22 +317,23 @@ private:
         text_dist.type = visualization_msgs::msg::Marker::TEXT_VIEW_FACING;
         text_dist.action = visualization_msgs::msg::Marker::ADD;
         
-        // Posición del texto: Encima del robot
-        text_dist.pose.position.x = 0.3 + (sx - (n_x_spaces/2)) * x_world / n_x_spaces;
-        text_dist.pose.position.y = -(sy - (n_y_spaces/2)) * y_world / n_y_spaces;
-        text_dist.pose.position.z = 0.5; // Medio metro arriba
+        // Posición del texto (usando coordenadas reales)
+        text_dist.pose.position.x = sx + 0.3; 
+        text_dist.pose.position.y = sy;
+        text_dist.pose.position.z = 0.5; 
         
-        text_dist.scale.z = 0.05; // Tamaño letra
+        text_dist.scale.z = 0.05; 
         text_dist.color.r = 1.0; text_dist.color.g = 1.0; text_dist.color.b = 1.0; text_dist.color.a = 1.0;
 
-        // Calcular distancia real usando las coordenadas de grilla convertidas a mundo
-        double dx = (gx - sx) * (x_world / n_x_spaces);
-        double dy = (gy - sy) * (y_world / n_y_spaces); // Ojo con el signo de Y en tu mundo
-        //double dist = std::hypot(dx, dy);
+        // Calcular distancia real exacta
+        double dx = gx - sx;
+        double dy = gy - sy;
+        double dist = std::hypot(dx, dy); // Distancia Euclideana real
 
         std::stringstream ss;
-        ss << "dX:" << std::fixed << std::setprecision(2) << dx << "m\n";
-        ss << "dY:" << std::fixed << std::setprecision(2) << dy << "m";
+        ss << "dX:" << std::fixed << std::setprecision(3) << dx << "m\n"; // 3 decimales para ver milímetros
+        ss << "dY:" << std::fixed << std::setprecision(3) << dy << "m\n";
+        ss << "Dist:" << std::fixed << std::setprecision(3) << dist << "m";
         text_dist.text = ss.str();
 
         markers.markers.push_back(text_dist);
@@ -362,6 +371,22 @@ private:
                     pose.pose.position.z = 0.05; 
                     nav_path.poses.push_back(pose);
                 }
+
+                // =========================================================
+                // --- FIX: SNAP TO GOAL (ELIMINAR ERROR DE CUADRÍCULA) ---
+                // =========================================================
+                // Si el camino existe, forzamos que el ULTIMO punto sea 
+                // exactamente point_objective (flotante), no el centro de la celda.
+                if (!path_msg.points.empty()) {
+                    // Sobrescribimos el último punto del polígono
+                    path_msg.points.back().x = point_objective.x;
+                    path_msg.points.back().y = point_objective.y;
+
+                    // Opcional: También corregir el nav_path para que se vea bien en Rviz
+                    nav_path.poses.back().pose.position.x = point_objective.x;
+                    nav_path.poses.back().pose.position.y = point_objective.y;
+                }
+                // =========================================================
 
                 {
                     std::lock_guard<std::mutex> lock(path_mutex_);
@@ -509,7 +534,7 @@ private:
 
         // Publish Debug
         publish_debug_grid(map_bin_ext);
-        publish_debug_markers(start_x, start_y, goal_x, goal_y);
+        publish_debug_markers(gripper_position.x, gripper_position.y, point_objective.x, point_objective.y);
 
         // Prepare Request
         auto request = std::make_shared<interfaces::srv::PathFinding::Request>();

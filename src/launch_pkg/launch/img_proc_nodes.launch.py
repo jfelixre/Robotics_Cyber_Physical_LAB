@@ -43,7 +43,8 @@ def generate_launch_description():
             'camera_topic': '/cameras/cam_1',
             'camera_frame': 'cam_1',
             'calibration_file': os.path.join(pkg_project_img_proc_pkg, 'config', 'perfect_calibration.yaml'),
-            'marker_size': 0.0938
+            'marker_size': 0.0938,
+            'use_sim_time': True
         }]
     )
 
@@ -60,7 +61,8 @@ def generate_launch_description():
             'camera_frame': 'cam_2',
             'calibration_file': os.path.join(pkg_project_img_proc_pkg, 'config', 'perfect_calibration.yaml'),
             'marker_size': 0.0938,
-            'master_camera_status_topic': '/aruco_detector_cam1/status'
+            'master_camera_status_topic': '/aruco_detector_cam1/status',
+            'use_sim_time': True
         }]
     )
 

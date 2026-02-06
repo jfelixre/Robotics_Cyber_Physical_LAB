@@ -59,6 +59,7 @@ def generate_launch_description():
         parameters=[{
             'config_file': os.path.join(pkg_project_launch_pkg, 'config', 'bridge.yaml'),
             'qos_overrides./tf_static.publisher.durability': 'transient_local',
+            'use_sim_time': True
         }],
         output='screen'
     )
@@ -140,7 +141,8 @@ def generate_launch_description():
         executable='rviz2',
         name='rviz2',
         output='screen',
-        arguments=['-d', rviz_config_path]
+        arguments=['-d', rviz_config_path],
+        parameters=[{'use_sim_time': True}]
     )
     # ------------------------
 
