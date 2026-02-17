@@ -250,7 +250,7 @@ def generate_launch_description():
         
         # Lógica de Tareas
         task_manager,
-        event_driven_control,
+        #event_driven_control,
         compute_trajectory, # Cliente
         
         # Path Finding (Selección condicional)

@@ -168,13 +168,51 @@ private:
         objective_transform_.transform.rotation.w = 1.0; // <--- ESTO ES LA CLAVE
     }
 
+    // Función auxiliar para calcular la distancia real al objetivo (Desde el GRIPPER)
+    double get_distance_to_objective() {
+        try {
+            // --- CORRECCIÓN: USAR FRAME DEL GRIPPER, NO DE LA BASE ---
+            // El objetivo es para la herramienta, así que medimos desde la herramienta.
+            std::string gripper_frame = "robot_0" + std::to_string(robot_id) + "/gr_ref_link";
+            
+            // Preguntar a TF dónde está el GRIPPER realmente respecto al Origen (Marker 00)
+            auto tf = tf_buffer_->lookupTransform("marker_id_00", gripper_frame, tf2::TimePointZero);
+            double gx = tf.transform.translation.x; // Gripper X
+            double gy = tf.transform.translation.y; // Gripper Y
+
+            // Comparar con el objetivo actual
+            double tx = objective.point.x;
+            double ty = objective.point.y;
+
+            // Distancia Euclidiana
+            return std::hypot(tx - gx, ty - gy);
+
+        } catch (tf2::TransformException &ex) {
+            RCLCPP_ERROR(this->get_logger(), "Error TF en verificacion: %s", ex.what());
+            return 999.9; // Ante la duda, asumimos que estamos lejos
+        }
+    }
+
     // --- CALLBACKS ---
     void task_robot_callback(const interfaces::msg::TaskDescription::SharedPtr msg) {
-        // EVITAR REPETICIÓN: Si es la misma tarea que acabamos de terminar, ignorar.
-        if (msg->task_id == last_completed_task_id_) {
+        // 1. Si es una tarea vieja que ya terminamos, la ignoramos.
+        if (static_cast<int>(msg->task_id) == last_completed_task_id_) {
             return; 
         }
 
+        // 2. --- EL FIX QUE TE FALTA ---
+        // Si me mandan la MISMA tarea que ya estoy haciendo (task_id igual)
+        // Y NO estoy en reposo (State 0) ni reseteando (State 9)...
+        // ¡IGNORAR EL MENSAJE PARA NO REINICIAR EL TIMER!
+        if (msg->task_id == task.task_id && robot_state.robot_state != 0 && robot_state.robot_state != 9) {
+            return; 
+        }
+
+        if (static_cast<int>(task.task_id) != -1 && robot_state.robot_state != 0 && robot_state.robot_state != 9) {
+             return;
+        }
+
+        // Si pasa los filtros, aceptamos la nueva tarea
         task = *msg;
         RCLCPP_INFO(this->get_logger(), "--> NUEVA TAREA ACEPTADA: ID %d", task.task_id);
         
@@ -188,28 +226,54 @@ private:
         gripper_name = ss_gripper.str();
     }
 
-    // --- FILTRO INTELIGENTE DE FINALIZACIÓN ---
+    // --- FILTRO INTELIGENTE + VERIFICACIÓN DE DISTANCIA ---
     void control_finish_callback(const interfaces::msg::ControlFinish::SharedPtr msg) {
-        if (msg->finish_confirm == 1) {
+        if (msg->finish_confirm == true) {
             
-            // 1. FILTRO DE TIPO DE FASE:
-            // En fases estáticas (brazo), ignoramos señal de base.
-            if (robot_state.robot_state == 3 || 
-                robot_state.robot_state == 5 || 
-                robot_state.robot_state == 6) {
+            // 1. LISTA NEGRA (Fases de Brazo)
+            if (robot_state.robot_state == 0 ||
+                robot_state.robot_state == 3 ||
+                robot_state.robot_state == 6 ||
+                robot_state.robot_state == 9) { 
                 return; 
             }
 
-            // 2. FILTRO DE TIEMPO (DEBOUNCE):
-            // En fases de viaje largo (4 y 7), ignorar "llegada" los primeros 3 segundos.
-            if (robot_state.robot_state == 4 || robot_state.robot_state == 7) {
-                double seconds_since_start = (this->now() - state_start_time_).seconds();
+            double seconds_since_start = (this->now() - state_start_time_).seconds();
+
+            // 2. FILTRO DE TIEMPO (Regla de los 3 segundos)
+            if (robot_state.robot_state == 4 || 
+                robot_state.robot_state == 5 || 
+                robot_state.robot_state == 7 || 
+                robot_state.robot_state == 8) {
+                
                 if (seconds_since_start < 3.0) {
                     return; 
                 }
             }
 
-            RCLCPP_INFO(this->get_logger(), "Fase %d completada (Base Confirmada). Avanzando...", robot_state.robot_state);
+            // 3. --- NUEVO: FILTRO DE DISTANCIA REAL ---
+            // "Confiar pero Verificar". El controlador dice que llegó, pero... ¿es verdad?
+            if (robot_state.robot_state == 1 ||
+                robot_state.robot_state == 2 ||
+                robot_state.robot_state == 4 || 
+                robot_state.robot_state == 5 || 
+                robot_state.robot_state == 7 || // Retroceso
+                robot_state.robot_state == 8) { // Home
+                
+                double real_dist = get_distance_to_objective();
+                
+                // Tolerancia de 15cm (0.15m). 
+                // Si falta más de esto, el robot NO ha llegado, es un falso positivo.
+                if (real_dist > 0.15) {
+                    RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 1000, 
+                        "Falso positivo detectado en Fase %d. Distancia restante: %.2f m. Ignorando...", 
+                        robot_state.robot_state, real_dist);
+                    return; // ¡NO CAMBIAR DE FASE!
+                }
+            }
+
+            // Si pasamos todos los filtros, es una llegada real y verificada.
+            RCLCPP_INFO(this->get_logger(), "LLEGADA VERIFICADA en Fase %d. Avanzando...", robot_state.robot_state);
             robot_state.robot_state++;
             publisher_robot_state->publish(robot_state);
             reset_phase_flags(); 
@@ -312,8 +376,8 @@ private:
         timer_active_ = false;
         objective_sent_ = false; 
         
-        // Guardar tiempo inicio para debounce
-        state_start_time_ = this->now();
+        // --- ESTA LÍNEA ES CRÍTICA PARA EL FILTRO DE TIEMPO ---
+        state_start_time_ = this->now(); 
     }
 
     bool update_transforms() {
@@ -466,11 +530,23 @@ private:
                 wait_start_time_ = this->now();
                 timer_active_ = true; 
             } else {
-                if ((this->now() - wait_start_time_).seconds() >= 15.0) {
-                     RCLCPP_INFO(this->get_logger(), "Fase 3: Tiempo completado.");
-                     robot_state.robot_state++;
-                     publisher_robot_state->publish(robot_state);
-                     reset_phase_flags();
+                // Calcula el tiempo actual
+                double seconds = (this->now() - wait_start_time_).seconds();
+                
+                // IMPRIMIR CADA SEGUNDO (Throttle)
+                RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 1000, 
+                    "Fase 3: Cerrando Gripper... Tiempo: %.1f / 5.0", seconds);
+
+                // Republish para asegurar que el gripper no se suelte
+                arm_objective.gripper = true;
+                arm_objective.take_pos = true; // O false, segun tu logica obj_size
+                publisher_arm_objective->publish(arm_objective); 
+
+                if (seconds >= 5.0) {
+                        RCLCPP_INFO(this->get_logger(), "Fase 3: Tiempo completado.");
+                        robot_state.robot_state++;
+                        publisher_robot_state->publish(robot_state);
+                        reset_phase_flags();
                 }
             }
         }
@@ -540,53 +616,52 @@ private:
     }
 
     void phase_five_place_object() {
-        objective_transform_.transform.translation.x = objective.point.x;
-        objective_transform_.transform.translation.y = objective.point.y;
-        objective_transform_.transform.translation.z = Z_saved;
+        // 1. Definir Objetivo (El punto final de entrega)
+        objective.point.x = task.goal.x;
+        objective.point.y = task.goal.y;
+        objective.angle = angle_goal; 
+        
+        // Mantenemos la altura Z guardada
+        objective_transform_.transform.translation.z = Z_saved; 
 
-        // FASE ESTÁTICA: Usamos Timer y Avance Manual
-        if (!timer_active_) {
+        // 2. Enviar comandos (Solo una vez)
+        if (!objective_sent_) {
+            
+            // A. Publicar objetivo a la Base (Para que se acomode fino en el punto exacto)
+            objective.robot_state = robot_state.robot_state;
+            objective.obj_id = task.obj_id;
+            publisher_robot_objective->publish(objective);
+
+            // B. Publicar objetivo al Brazo
             if (task.obj_size == 1) {
-                objective.point.x = task.goal.x;
-                objective.point.y = task.goal.y;
-                objective.angle = angle_goal;
-                
-                if (!objective_sent_) {
-                     publisher_robot_objective->publish(objective);
-                     objective_sent_ = true;
-                }
-                arm_objective.gripper = true;
-                arm_objective.transport_pos = true; 
-                publisher_arm_objective->publish(arm_objective);
+                // Objeto chico: Mantenemos gripper cerrado y posición de transporte
+                arm_objective.gripper = true; 
+                arm_objective.transport_pos = false;
+                arm_objective.take_pos = true;
             }
             else if (task.obj_size == 2) {
-                if (!objective_sent_) {
-                    if (task.robot_id == task.leader_robot_id) {
-                        publisher_detach->publish(std_msgs::msg::Empty());
-                        interfaces::msg::ControlFinish finish_msg;
-                        finish_msg.finish_confirm = true;
-                        publisher_control_finish_team_robot->publish(finish_msg);
-                    }
-                    objective_sent_ = true;
+                // Objeto grande: Lógica de equipo
+                if (task.robot_id == task.leader_robot_id) {
+                    publisher_detach->publish(std_msgs::msg::Empty());
+                    interfaces::msg::ControlFinish finish_msg;
+                    finish_msg.finish_confirm = true;
+                    publisher_control_finish_team_robot->publish(finish_msg);
                 }
                 arm_objective.take_pos = true;
-                arm_objective.send_finish = true;
+                arm_objective.send_finish = true; // El brazo confirma su parte
                 arm_objective.transport_pos = false;
-                publisher_arm_objective->publish(arm_objective);
             }
+            publisher_arm_objective->publish(arm_objective);
 
-            RCLCPP_INFO(this->get_logger(), "Fase 5: Colocando (5s)...");
-            wait_start_time_ = this->now();
-            timer_active_ = true; 
-        } 
-        else {
-            if ((this->now() - wait_start_time_).seconds() >= 5.0) {
-                RCLCPP_INFO(this->get_logger(), "Fase 5: Completada.");
-                robot_state.robot_state++;
-                publisher_robot_state->publish(robot_state);
-                reset_phase_flags();
-            }
+            RCLCPP_INFO(this->get_logger(), "Fase 5: Acomodando en punto de entrega (Esperando confirmación de base)...");
+            objective_sent_ = true;
         }
+
+        // 3. ACTUALIZAR TF (Para visualización y referencia del brazo)
+        objective_transform_.transform.translation.x = objective.point.x;
+        objective_transform_.transform.translation.y = objective.point.y;
+        
+        // NOTA: Ya no hay Timer. El cambio de fase lo hace control_finish_callback
     }
 
     void phase_six_release_object() {
@@ -608,11 +683,11 @@ private:
             arm_objective.take_pos = true;
             publisher_arm_objective->publish(arm_objective);
 
-            RCLCPP_INFO(this->get_logger(), "Fase 6: Soltando (5s)...");
+            RCLCPP_INFO(this->get_logger(), "Fase 6: Soltando (6s)...");
             wait_start_time_ = this->now();
             timer_active_ = true;
         } else {
-            if ((this->now() - wait_start_time_).seconds() >= 5.0) {
+            if ((this->now() - wait_start_time_).seconds() >= 6.0) {
                 RCLCPP_INFO(this->get_logger(), "Fase 6: Completada.");
                 arm_objective.send_finish = true; 
                 publisher_arm_objective->publish(arm_objective);
@@ -625,84 +700,121 @@ private:
     }
 
     void phase_seven_return_to_start() {
+        // 1. Calcular el punto de destino (Retroceder)
         if (task.obj_size == 1) {
-            if(!timer_active_) {
-                wait_start_time_ = this->now();
-                timer_active_ = true;
-            } else {
-                if ((this->now() - wait_start_time_).seconds() >= 3.0) {
-                    if (!objective_sent_) {
-                        arm_objective.take_pos = true;
-                        publisher_arm_objective->publish(arm_objective);
-
-                        objective.point.x = task.goal.x - (0.5 * cos(angle_goal));
-                        objective.point.y = task.goal.y - (0.5 * sin(angle_goal));
-                        objective.angle = angle_goal;
-                        objective.robot_state = robot_state.robot_state;
-                        publisher_robot_objective->publish(objective);
-                        
-                        RCLCPP_INFO(this->get_logger(), "Fase 7: Retrocediendo...");
-                        objective_sent_ = true;
-                    }
-                }
-            }
+            // Retroceder 0.5m desde el punto de entrega en la dirección contraria al ángulo de llegada
+            objective.point.x = task.goal.x - (1 * cos(angle_goal));
+            objective.point.y = task.goal.y - (1 * sin(angle_goal));
+            objective.angle = angle_goal; // Mantener orientación o girar, según prefieras
         }
         else if (task.obj_size == 2) {
-              if (!objective_sent_) {
-                arm_objective.take_pos = true;
-                arm_objective.gripper = false;
-                publisher_arm_objective->publish(arm_objective);
-                if (task.robot_id == task.leader_robot_id) {
-                    objective.point.x = task.goal.x + (1.0 * cos(-M_PI));
-                    objective.point.y = task.goal.y + (1.0 * sin(-M_PI));
-                    objective.angle = 0;
-                } else {
-                    objective.point.x = task.goal.x - (1.0 * cos(M_PI));
-                    objective.point.y = task.goal.y - (1.0 * sin(M_PI));
-                    objective.angle = M_PI;
-                }
-                objective.robot_state = robot_state.robot_state;
-                publisher_robot_objective->publish(objective);
-                objective_sent_ = true;
-             }
+            // Lógica para objeto grande (Separación de robots)
+            if (task.robot_id == task.leader_robot_id) {
+                objective.point.x = task.goal.x + (1.0 * cos(-M_PI));
+                objective.point.y = task.goal.y + (1.0 * sin(-M_PI));
+                objective.angle = 0;
+            } else {
+                objective.point.x = task.goal.x - (1.0 * cos(M_PI));
+                objective.point.y = task.goal.y - (1.0 * sin(M_PI));
+                objective.angle = M_PI;
+            }
         }
+
+        // Mantener Z
+        objective.point.z = Z_saved;
+        objective.obj_id = task.obj_id;
+        objective.robot_state = robot_state.robot_state;
+
+        // 2. Enviar comandos (Solo una vez)
+        if (!objective_sent_) {
+            
+            // Configurar brazo para el viaje de regreso (Take Pos o Home)
+            arm_objective.take_pos = true; 
+            arm_objective.gripper = false; // Asegurar gripper abierto
+            arm_objective.transport_pos = false;
+            
+            publisher_arm_objective->publish(arm_objective);
+            publisher_robot_objective->publish(objective);
+            
+            RCLCPP_INFO(this->get_logger(), "Fase 7: Retrocediendo (Esperando confirmación de base)...");
+            objective_sent_ = true;
+        }
+
+        // 3. Actualizar TF para visualización
+        objective_transform_.transform.translation.x = objective.point.x;
+        objective_transform_.transform.translation.y = objective.point.y;
+        
+        // SIN TIMER: El cambio a Fase 8 lo hará control_finish_callback 
+        // cuando el robot llegue al punto calculado.
     }
 
     void phase_eight_finalize_task() {
+        // 1. Recuperar la posición inicial (Guardada en Fase 1)
+        objective.point.x = initial_position.point.x;
+        objective.point.y = initial_position.point.y;
+        objective.point.z = 0.0; // Altura de base (piso)
+        
+        // Asumimos ángulo 0 o el que tenía al inicio (si lo guardaste)
+        // Por lo general volver a 0 o mirar al frente es lo estándar.
+        objective.angle = 0.0; 
+
+        objective.robot_state = robot_state.robot_state;
+        objective.obj_id = -1; // Ya no hay objeto de interés
+
+        // 2. Enviar comandos (Solo una vez)
         if (!objective_sent_) {
+            
+            // Configurar Brazo: Ir a HOME, pero NO enviar 'send_finish' todavía.
+            // Queremos que el brazo se pliegue mientras la base viaja.
             arm_objective.home_pos = true;
             arm_objective.gripper = false;
             arm_objective.take_pos = false;
             arm_objective.transport_pos = false;
-            arm_objective.send_finish = true; 
-            publisher_arm_objective->publish(arm_objective);
+            arm_objective.send_finish = false; // <-- IMPORTANTE: No finalizar por brazo
 
-            interfaces::msg::RobotObjective end_objective = initial_position;
-            end_objective.robot_state = robot_state.robot_state;
-            publisher_robot_objective->publish(end_objective);
+            publisher_arm_objective->publish(arm_objective);
+            publisher_robot_objective->publish(objective);
             
-            RCLCPP_INFO(this->get_logger(), "Fase 8: Volviendo a Home...");
+            RCLCPP_INFO(this->get_logger(), "Fase 8: Volviendo a la Posición Inicial (Home)...");
             objective_sent_ = true;
         }
+
+        // 3. Actualizar TF para visualización
+        objective_transform_.transform.translation.x = objective.point.x;
+        objective_transform_.transform.translation.y = objective.point.y;
+        
+        // El cambio a Fase 9 ocurrirá cuando 'control_finish_callback'
+        // reciba la señal de que el robot llegó a la posicion inicial
     }
 
     void phase_nine_reset_state() {
-        RCLCPP_INFO_ONCE(this->get_logger(), "TAREA FINALIZADA. Avisando a Manager y esperando.");
-        
-        // 1. CONFIRMACIÓN A TASK MANAGER
-        if (task.task_id != -1) {
+        RCLCPP_INFO_ONCE(this->get_logger(), "TAREA FINALIZADA. Reseteando memoria...");
+
+        // 1. AVISAR AL MANAGER Y GUARDAR EN HISTORIAL
+        // Usamos el cast (int) para evitar los warnings que vimos antes
+        if (static_cast<int>(task.task_id) != -1) {
              std_msgs::msg::Int32 finished_msg;
              finished_msg.data = task.task_id;
              publisher_task_finished_->publish(finished_msg);
              
-             // 2. GUARDAR MEMORIA PARA NO REPETIR
-             last_completed_task_id_ = task.task_id;
+             // GUARDAR EL ID PARA NO REPETIRLO (Anti-Replay)
+             last_completed_task_id_ = static_cast<int>(task.task_id);
         }
         
+        // 2. --- BORRADO TOTAL DE LA TAREA (LO QUE PEDISTE) ---
+        // Al poner esto en -1, el robot "olvida" qué estaba haciendo.
         task.task_id = -1; 
+        task.obj_id = -1;
+        
+        // 3. LIMPIEZA DE BANDERAS INTERNAS
         reset_phase_flags();
+        objective_sent_ = false; // Asegurar que el candado se cierre
+
+        // 4. PASAR A MODO ESPERA (IDLE)
         robot_state.robot_state = 0;
         publisher_robot_state->publish(robot_state);
+        
+        RCLCPP_INFO(this->get_logger(), "Robot en Espera (State 0). Memoria limpia.");
     }
 };
 

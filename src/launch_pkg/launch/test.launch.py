@@ -6,8 +6,8 @@ def generate_launch_description():
         # Nodo compute_trajectory para Robot 1
         Node(
             package='control_pkg',
-            executable='compute_trajectory',
-            name='compute_trajectory',
+            executable='event_driven_control_refactored',
+            name='event_driven_control_refactored',
             namespace='robot_01',
             output='screen',
             parameters=[{'robot_id': 1}],

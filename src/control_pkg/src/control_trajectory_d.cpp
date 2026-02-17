@@ -439,7 +439,7 @@ class Node_Control_Timer : public rclcpp::Node
 
             // --- CHECK FINISH DIAGNÓSTICO ---
             // Tolerancia fina (1 cm)
-            bool pos_ok = abs(data_error_total.x_error) < 0.01 && abs(data_error_total.y_error) < 0.01;
+            bool pos_ok = abs(data_error_total.x_error) < 0.015 && abs(data_error_total.y_error) < 0.015;
             bool ang_ok = abs(data_error_total.ang_error) < 0.08;
             
             // Timeout de seguridad

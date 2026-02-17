@@ -166,17 +166,6 @@
       <output_topic>/R01C21/state</output_topic>
     </plugin>
 
-    <plugin filename="gz-sim-detachable-joint-system"
-            name="gz::sim::systems::DetachableJoint">
-      <parent_link>marker_id_01</parent_link>
-      <child_model>robot_02</child_model>
-      <child_link>marker_id_02</child_link>
-      <attach_topic>/R01R02/attach</attach_topic>
-      <detach_topic>/R01R02/detach</detach_topic>      
-      <output_topic>/R01R02/state</output_topic>
-    </plugin>
-
-
 
     <link name='marker_id_01'>
       <inertial>
