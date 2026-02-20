@@ -213,7 +213,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>../markers/marker_02.dae</uri>
+            <uri>../markers/marker_03.dae</uri>
           </mesh>
         </geometry>
       </visual>
