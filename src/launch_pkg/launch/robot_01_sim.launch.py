@@ -230,10 +230,6 @@ def generate_launch_description():
         actions=[ExecuteProcess(cmd=[['ros2 topic pub --once /robot_01/cube_21/detach std_msgs/msg/Empty']], shell=True)]
     )
 
-    detach_robots = TimerAction(
-        period=5.0,
-        actions=[ExecuteProcess(cmd=[['ros2 topic pub --once /R01R02/detach std_msgs/msg/Empty']], shell=True)]
-    )
 
     # ---------------------------------------------------------
     # 9. RETORNO FINAL
@@ -250,7 +246,7 @@ def generate_launch_description():
         
         # Lógica de Tareas
         task_manager,
-        #event_driven_control,
+        event_driven_control,
         compute_trajectory, # Cliente
         
         # Path Finding (Selección condicional)
@@ -268,7 +264,6 @@ def generate_launch_description():
         robot_state_service,
         
         # Timers
-        detach_robots,
         detach11,
         detach12,
         detach21,
