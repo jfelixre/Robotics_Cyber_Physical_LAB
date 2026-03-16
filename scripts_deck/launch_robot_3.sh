@@ -3,6 +3,9 @@ source /opt/ros/jazzy/setup.zsh
 source "$HOME/Robotics_Cyber_Physical_LAB/install/setup.zsh"
 cd "$HOME/Robotics_Cyber_Physical_LAB"
 
+# Cambiar título de la terminal
+echo -ne "\033]0;🤖 Robot 3 - Individual Launch\007"
+
 ##planner puede ser astar, reverse o greedy
 #Control puede ser pid o geometric
 

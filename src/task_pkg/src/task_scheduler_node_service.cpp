@@ -92,12 +92,20 @@ class Reg_Tasks_Node : public rclcpp::Node
 
 		void update_task_subs(const interfaces::msg::TaskReport::SharedPtr msg)
 			{	
+				// DEBUG COMPLETO - Task Scheduler recibió mensaje
+				RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "[SCHEDULER_RECV] Received TaskReport - task_id: %d, robot_id: %d, state: %d", 
+						   msg->task_id, msg->robot_id, msg->state);
 				
 				int task_to_update = msg->task_id;
 				rclcpp::Time time = Node::get_clock()->now();
+				bool found_task = false;
 
 				for (auto& task : task_list.task_queue) {
-					if (task.task_id == task_to_update) {  
+					if (task.task_id == task_to_update) {
+						found_task = true;
+						int old_state = task.state;
+						RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "[SCHEDULER_UPDATE] Updating task %d: state %d -> %d", 
+								   task_to_update, old_state, msg->state);  
 						task.state = msg->state;
 						task.robot_id = msg->robot_id;
 
@@ -117,11 +125,33 @@ class Reg_Tasks_Node : public rclcpp::Node
 							task.total_time = task.idle_time+task.task_time;
 						}
 
+                        else if (msg->state==99){
+                            // AUTOMATIC RESTART: Robot failed (state 99 = Emergency)
+                            RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "🔄 RESTARTING Task %d - Robot %d failed (emergency state 99)", task.task_id, task.robot_id);
+                            
+                            // REAL TASK RESTART
+                            task.state = 0;                    // Return to available state
+                            task.robot_id = 0;                 // Clear robot assignment  
+                            //task.in_progress_time_start = 0.0; // Resetear tiempos
+                            //task.finish_time = 0.0;
+                            //task.task_time = 0.0;
+                            //task.idle_time = 0.0;
+                            //task.total_time = 0.0;
+                            task.leader_robot_id = 0;          // Reset collaborative
+                            
+                            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "✅ Task %d RESTARTED - State: %d, Robot: %d - Available for reassignment", 
+                                       task.task_id, task.state, task.robot_id);
+						}
+
 						break;  
 					}
 				}
 
-				RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Task updated");
+				if (!found_task) {
+					RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "[SCHEDULER_ERROR] NOT FOUND - Task %d does not exist in queue", task_to_update);
+				} else {
+					RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "[SCHEDULER_PUBLISH] Publishing updated TaskMsg...");
+				}
 
 				publisher_test->publish(task_list);
 			}

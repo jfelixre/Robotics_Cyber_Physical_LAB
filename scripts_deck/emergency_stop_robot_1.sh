@@ -4,14 +4,11 @@ source "$HOME/Robotics_Cyber_Physical_LAB/install/setup.zsh"
 cd "$HOME/Robotics_Cyber_Physical_LAB"
 
 # Cambiar título de la terminal
-echo -ne "\033]0;🤖 Robot 2 - Individual Launch\007"
+echo -ne "\033]0;🚨 Emergency Stop - Robot 1\007"
 
+echo "Activando parada de emergencia para Robot 1..."
+ros2 run inv_kinematics_pkg robot_emergency_stop_node --ros-args -p robot_id:=1
 
-
-##planner puede ser astar, reverse o greedy
-#Control puede ser pid o geometric
-
-ros2 launch launch_pkg robot_02_sim.launch.py planner:=reverse controller:=geometric
-
+echo "Parada de emergencia completada para Robot 1"
 echo "Presiona enter para salir..."
 read  # O puedes poner $SHELL para quedarte en la terminal

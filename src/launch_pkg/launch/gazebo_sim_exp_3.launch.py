@@ -142,6 +142,12 @@ def generate_launch_description():
         shell=True
     )
 
+    # Launch heartbeat checker node
+    heartbeat_checker = ExecuteProcess(
+        cmd=[[ 'ros2 run task_pkg heartbeat_checker_node' ]],
+        shell=True
+    )
+
     # --- NUEVO: Nodo RViz ---
     rviz_node = Node(
         package='rviz2',
@@ -166,5 +172,6 @@ def generate_launch_description():
         launch_cube_id_11,
         launch_cube_id_12,
         # launch_cube_id_21,
-        rviz_node, 
+        rviz_node,
+        heartbeat_checker,
     ])

@@ -3,6 +3,9 @@ source /opt/ros/jazzy/setup.zsh
 source "$HOME/Robotics_Cyber_Physical_LAB/install/setup.zsh"
 cd "$HOME/Robotics_Cyber_Physical_LAB"
 
+# Cambiar título de la terminal
+echo -ne "\033]0;🧪 Test Launch 2 - Alternative Testing\007"
+
 
 
 ros2 launch launch_pkg test2.launch.py

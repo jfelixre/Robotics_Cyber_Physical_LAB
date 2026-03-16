@@ -29,7 +29,7 @@ def generate_launch_description():
     #First Task
     task2 = ExecuteProcess(
         cmd=[[
-            'ros2 topic pub --once /task_scheduler/new_task interfaces/msg/NewTaskMsg "{obj_id: 12, goal: {x: -2.2, y: 1}, angle_goal: 1.57, priority: 1}"',
+            'ros2 topic pub --once /task_scheduler/new_task interfaces/msg/NewTaskMsg "{obj_id: 12, goal: {x: -1, y: 1}, angle_goal: 1.57, priority: 1}"',
         ]],
         shell=True
     )

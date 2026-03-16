@@ -5,11 +5,9 @@ def generate_launch_description():
     return LaunchDescription([
         # Nodo compute_trajectory para Robot 1
         Node(
-            package='control_pkg',
-            executable='event_driven_control_refactored',
-            name='event_driven_control_refactored',
-            namespace='robot_01',
-            output='screen',
-            parameters=[{'robot_id': 1}],
+            package='task_pkg',
+        namespace='robot_01',
+        executable='task_manager_node_client',
+        parameters=[{'robot_id': 1, 'use_sim_time': False}],
         ),
     ])

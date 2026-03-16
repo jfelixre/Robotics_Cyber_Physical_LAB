@@ -28,6 +28,7 @@ using namespace std;
 int robot_id = 0;
 bool busy = false;
 int robot_state = -1;
+int previous_robot_state = -1;
 int leader_robot_id = 0;    //0 Leader   /   1 Follower
 
 interfaces::msg::TaskMsg task_list;
@@ -78,24 +79,55 @@ class Task_Manager_Node : public rclcpp::Node
 
      void robot_state_callback(const interfaces::msg::RobotState::SharedPtr msg)
         {
+            previous_robot_state = robot_state;
             robot_state = msg->robot_state;
+
+            // DEBUG: Log siempre los cambios de estado recibidos
+            if (previous_robot_state != robot_state) {
+                RCLCPP_INFO(this->get_logger(), "[STATE_DEBUG] Robot %d: %d → %d | Tarea activa: %d | Busy: %s", 
+                           robot_id, previous_robot_state, robot_state, 
+                           static_cast<int>(selected_task.task_id), busy ? "true" : "false");
+            }
+
+            // CASO ESPECIAL: Estado 99 (emergencia) - SIEMPRE enviar update
+            if (robot_state == 99 && previous_robot_state != 99) {
+                if (selected_task.task_id > 0) {
+                    interfaces::msg::TaskReport msg_update;
+                    msg_update.robot_id = robot_id;
+                    msg_update.task_id = selected_task.task_id;
+                    msg_update.state = 99;  // Estado de emergencia
+                    publisher_task_update->publish(msg_update);
+                    RCLCPP_ERROR(this->get_logger(), "🚨 [UPDATE_SENT] EMERGENCIA Robot %d → Estado 99 | Tarea %d reportada como FAILED", 
+                               robot_id, selected_task.task_id);
+                } else {
+                    RCLCPP_ERROR(this->get_logger(), "🚨 [NO_UPDATE] EMERGENCIA Robot %d → Estado 99 | Sin tarea activa para reportar", robot_id);
+                }
+            }
+
+            // Enviar update para otros cambios de estado (si hay tarea activa)
+            else if (previous_robot_state != robot_state && selected_task.task_id > 0 && robot_state != 99) {
+                interfaces::msg::TaskReport msg_update;
+                msg_update.robot_id = robot_id;
+                msg_update.task_id = selected_task.task_id;
+                msg_update.state = robot_state;  // ENVÍO DIRECTO: sin traducción
+                publisher_task_update->publish(msg_update);
+                RCLCPP_INFO(this->get_logger(), "[UPDATE_SENT] Robot %d cambió de estado %d → %d | Tarea %d | Estado de tarea: %d", 
+                           robot_id, previous_robot_state, robot_state, selected_task.task_id, msg_update.state);
+            }
+            else if (previous_robot_state != robot_state && selected_task.task_id <= 0) {
+                RCLCPP_WARN(this->get_logger(), "[NO_UPDATE] Robot %d cambió de estado %d → %d | Sin tarea activa (task_id=%d)", 
+                           robot_id, previous_robot_state, robot_state, static_cast<int>(selected_task.task_id));
+            }
 
             if (robot_state == 0){
                 busy=false;
             }
 
             else if (robot_state == 8){              //True: Robot finish task
-                
-                interfaces::msg::TaskReport msg_update;
-                msg_update.robot_id = robot_id;
-                msg_update.task_id = selected_task.task_id;
-                msg_update.state = 2;
-                publisher_task_update->publish(msg_update);   //Send message to update status to finish
                 RCLCPP_INFO(this->get_logger(), "Task ID %d finished by Robot %d", selected_task.task_id, robot_id);
                 leader_robot_id = 0;   //Reset leader/follower status
                 selected_task.priority = 15;    //To reset task selected
                 selected_task.task_id = 0;
-
             }
            
         }

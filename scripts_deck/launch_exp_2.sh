@@ -3,6 +3,9 @@ source /opt/ros/jazzy/setup.zsh
 source "$HOME/Robotics_Cyber_Physical_LAB/install/setup.zsh"
 cd "$HOME/Robotics_Cyber_Physical_LAB"
 
+# Cambiar título de la terminal
+echo -ne "\033]0;🚀 Experiment 2 - Multi-Robot Simulation\007"
+
 
 
 ros2 launch launch_pkg gazebo_sim_exp_2.launch.py

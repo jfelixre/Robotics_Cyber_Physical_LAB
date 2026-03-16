@@ -71,6 +71,9 @@ private:
 
     // VARIABLE CRÍTICA: Evita repetir tareas
     int last_completed_task_id_ = -1; 
+    
+    // EMERGENCY MODE: Bandera persistente que impide salir del estado 99
+    bool emergency_mode_ = false; 
 
     // Variables de Tarea y Posición
     float Xobj, Yobj, Zobj, Angobj;
@@ -113,31 +116,34 @@ private:
     rclcpp::Subscription<interfaces::msg::TaskDescription>::SharedPtr subscription_taskrobot_;
     rclcpp::Subscription<interfaces::msg::ControlFinish>::SharedPtr subscription_control_finish_;
     rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr subscription_team_ready_;
+    rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr subscription_emergency_stop_;
 
     // --- SETUP ---
     void setup_publishers_and_subscribers() {
-        std::string prefix = "/robot_0" + std::to_string(robot_id);
-
+        // USO TOPICS RELATIVOS - El namespace del launch se aplicará automáticamente
         subscription_taskrobot_ = this->create_subscription<interfaces::msg::TaskDescription>(
-            prefix + "/task_assigned", 10, std::bind(&EventDrivenControl::task_robot_callback, this, std::placeholders::_1));
+            "task_assigned", 10, std::bind(&EventDrivenControl::task_robot_callback, this, std::placeholders::_1));
 
         subscription_control_finish_ = this->create_subscription<interfaces::msg::ControlFinish>(
-            prefix + "/control_finish", 10, std::bind(&EventDrivenControl::control_finish_callback, this, std::placeholders::_1));
+            "control_finish", 10, std::bind(&EventDrivenControl::control_finish_callback, this, std::placeholders::_1));
 
         subscription_team_ready_ = this->create_subscription<std_msgs::msg::Bool>(
             "/team_ready", 10, std::bind(&EventDrivenControl::team_ready_callback, this, std::placeholders::_1));
 
-        publisher_robot_state = this->create_publisher<interfaces::msg::RobotState>(prefix + "/robot_state", 1);
-        publisher_robot_objective = this->create_publisher<interfaces::msg::RobotObjective>(prefix + "/objective", 1);
-        publisher_arm_objective = this->create_publisher<interfaces::msg::ArmObjective>(prefix + "/arm_objective", 1);
-        publisher_waiting_robot = this->create_publisher<interfaces::msg::WaitingTeam>(prefix + "/waiting_team", 10);
-        publisher_copy_control = this->create_publisher<std_msgs::msg::Bool>(prefix + "/copy_control", 10);
+        subscription_emergency_stop_ = this->create_subscription<std_msgs::msg::Int32>(
+            "emergency_stop", 10, std::bind(&EventDrivenControl::emergency_stop_callback, this, std::placeholders::_1));
+
+        publisher_robot_state = this->create_publisher<interfaces::msg::RobotState>("robot_state", 1);
+        publisher_robot_objective = this->create_publisher<interfaces::msg::RobotObjective>("objective", 1);
+        publisher_arm_objective = this->create_publisher<interfaces::msg::ArmObjective>("arm_objective", 1);
+        publisher_waiting_robot = this->create_publisher<interfaces::msg::WaitingTeam>("waiting_team", 10);
+        publisher_copy_control = this->create_publisher<std_msgs::msg::Bool>("copy_control", 10);
         publisher_leader_robot = this->create_publisher<interfaces::msg::LeaderRobot>("/leader_robot_id", 10);
         
-        publisher_state_marker_ = this->create_publisher<visualization_msgs::msg::Marker>(prefix + "/system_status_marker", 10);
+        publisher_state_marker_ = this->create_publisher<visualization_msgs::msg::Marker>("system_status_marker", 10);
         
         // Publisher para confirmar finalización al Manager
-        publisher_task_finished_ = this->create_publisher<std_msgs::msg::Int32>(prefix + "/task_completed", 10);
+        publisher_task_finished_ = this->create_publisher<std_msgs::msg::Int32>("task_completed", 10);
 
         if (robot_id == 1) { 
              publisher_follower_robot = this->create_publisher<interfaces::msg::FollowerRobot>("/robot_02/follower_robot", 10);
@@ -195,8 +201,20 @@ private:
 
     // --- CALLBACKS ---
     void task_robot_callback(const interfaces::msg::TaskDescription::SharedPtr msg) {
+        // 0. PROTECCIÓN ABSOLUTA: Si estamos en modo emergencia, RECHAZAR SIEMPRE
+        if (emergency_mode_ || robot_state.robot_state == 99) {
+            RCLCPP_ERROR(this->get_logger(), "🚨 TAREA RECHAZADA [EMERGENCIA]: Robot en modo de emergencia permanente (Estado: %d)", robot_state.robot_state);
+            RCLCPP_ERROR(this->get_logger(), "🚨 Para reactivar el robot, debe reiniciarse manualmente el nodo.");
+            return;
+        }
+        
+        // DEBUG: Log detallado de la tarea recibida
+        RCLCPP_INFO(this->get_logger(), "[DEBUG] Tarea recibida: ID=%d, Current_State=%d, Last_Completed=%d, Current_Task_ID=%d", 
+            static_cast<int>(msg->task_id), robot_state.robot_state, last_completed_task_id_, static_cast<int>(task.task_id));
+        
         // 1. Si es una tarea vieja que ya terminamos, la ignoramos.
         if (static_cast<int>(msg->task_id) == last_completed_task_id_) {
+            RCLCPP_WARN(this->get_logger(), "[ANTI-REPLAY] Tarea %d ya fue completada. IGNORANDO.", static_cast<int>(msg->task_id));
             return; 
         }
 
@@ -205,11 +223,23 @@ private:
         // Y NO estoy en reposo (State 0) ni reseteando (State 9)...
         // ¡IGNORAR EL MENSAJE PARA NO REINICIAR EL TIMER!
         if (msg->task_id == task.task_id && robot_state.robot_state != 0 && robot_state.robot_state != 9) {
+            RCLCPP_WARN(this->get_logger(), "[MISMO-ID] Tarea %d ya en progreso. IGNORANDO.", static_cast<int>(msg->task_id));
             return; 
         }
 
+        // 3. Si ya tengo una tarea activa y estoy ocupado, rechazar nueva
         if (static_cast<int>(task.task_id) != -1 && robot_state.robot_state != 0 && robot_state.robot_state != 9) {
+            RCLCPP_WARN(this->get_logger(), "[OCUPADO] Robot ocupado con tarea %d en estado %d. RECHAZANDO tarea %d.", 
+                static_cast<int>(task.task_id), robot_state.robot_state, static_cast<int>(msg->task_id));
              return;
+        }
+        
+        // 4. PROTECCIÓN ADICIONAL: Si acabamos de completar esta tarea hace menos de 2 segundos
+        static rclcpp::Time last_completion_time = rclcpp::Time(0);
+        if (static_cast<int>(msg->task_id) == last_completed_task_id_ && 
+            (this->now() - last_completion_time).seconds() < 2.0) {
+            RCLCPP_WARN(this->get_logger(), "[TIMING] Tarea %d completada hace poco. IGNORANDO repetición rápida.", static_cast<int>(msg->task_id));
+            return;
         }
 
         // Si pasa los filtros, aceptamos la nueva tarea
@@ -234,7 +264,8 @@ private:
             if (robot_state.robot_state == 0 ||
                 robot_state.robot_state == 3 ||
                 robot_state.robot_state == 6 ||
-                robot_state.robot_state == 9) { 
+                robot_state.robot_state == 9 ||
+                robot_state.robot_state == 99) { // Evitar cambios en emergencia
                 return; 
             }
 
@@ -284,6 +315,20 @@ private:
         team_ready_ = msg->data;
     }
 
+    void emergency_stop_callback(const std_msgs::msg::Int32::SharedPtr msg) {
+        if (msg->data == 99) {
+            RCLCPP_ERROR(this->get_logger(), "🚨 EMERGENCIA ACTIVADA! Robot entrando en modo de emergencia PERMANENTE");
+            RCLCPP_ERROR(this->get_logger(), "🚨 Estado cambiado a 99. Robot NO aceptará más tareas hasta reinicio manual.");
+            
+            emergency_mode_ = true;   // Bandera persistente - NO se puede desactivar
+            robot_state.robot_state = 99;
+            publisher_robot_state->publish(robot_state);
+            
+            // Detener cualquier timer activo
+            timer_active_ = false;
+        }
+    }
+
     // --- LÓGICA PRINCIPAL ---
     void logic_loop() {
         publish_state_marker();
@@ -329,6 +374,7 @@ private:
             case 7: phase_seven_return_to_start(); break;
             case 8: phase_eight_finalize_task(); break;
             case 9: phase_nine_reset_state(); break;
+            case 99: phase_emergency_stop(); break;
             default: break;
         }
     }
@@ -346,12 +392,12 @@ private:
         marker.id = 0; 
         marker.type = visualization_msgs::msg::Marker::TEXT_VIEW_FACING;
         marker.action = visualization_msgs::msg::Marker::ADD;
-        marker.pose.position.x = 0.0; marker.pose.position.y = 0.0; marker.pose.position.z = 0.8; 
-        marker.scale.z = 0.15; 
+        marker.pose.position.x = -0.15; marker.pose.position.y = 0.0; marker.pose.position.z = 0.8; 
+        marker.scale.z = 0.10; 
         marker.color.r = 0.0; marker.color.g = 1.0; marker.color.b = 1.0; marker.color.a = 1.0; 
 
         std::stringstream ss;
-        ss << "R" << robot_id << " | ST:" << robot_state.robot_state << "\n";
+        ss << "R" << robot_id << "\n" << "ST:" << robot_state.robot_state << "\n";
         
         std::string state_desc;
         switch(robot_state.robot_state) {
@@ -364,6 +410,7 @@ private:
             case 6: state_desc = "RELEASING"; break;
             case 7: state_desc = "RETURNING"; break;
             case 8: state_desc = "FINISH"; break;
+            case 99: state_desc = "ERROR"; break;
             default: state_desc = "UNKNOWN"; break;
         }
         ss << state_desc;
@@ -407,6 +454,13 @@ private:
     // --- FASES ---
 
     void phase_zero_initialization() {
+        // PROTECCIÓN: Si estamos en modo emergencia, NO cambiar el estado
+        if (emergency_mode_ || robot_state.robot_state == 99) {
+            RCLCPP_ERROR_THROTTLE(this->get_logger(), *this->get_clock(), 5000,
+                "🚨 Robot en MODO EMERGENCIA - No se puede cambiar a estado IDLE");
+            return;
+        }
+        
         // Publicar estado constantemente mientras esperamos.
         // Si no hacemos esto, el TaskManager podría perderse el mensaje inicial
         // y creer que el robot no está listo.
@@ -799,6 +853,7 @@ private:
              
              // GUARDAR EL ID PARA NO REPETIRLO (Anti-Replay)
              last_completed_task_id_ = static_cast<int>(task.task_id);
+             RCLCPP_INFO(this->get_logger(), "[COMPLETED] Tarea %d marcada como completada. Enviando confirmación al Manager.", last_completed_task_id_);
         }
         
         // 2. --- BORRADO TOTAL DE LA TAREA (LO QUE PEDISTE) ---
@@ -810,11 +865,65 @@ private:
         reset_phase_flags();
         objective_sent_ = false; // Asegurar que el candado se cierre
 
-        // 4. PASAR A MODO ESPERA (IDLE)
+        // 4. PEQUEÑO DELAY PARA EVITAR RACE CONDITIONS (Dar tiempo al Manager)
+        // Usamos un timer de una sola vez para resetear a estado 0 después de 500ms
+        auto reset_timer = this->create_wall_timer(
+            std::chrono::milliseconds(500),
+            [this]() {
+                robot_state.robot_state = 0;
+                publisher_robot_state->publish(robot_state);
+                RCLCPP_INFO(this->get_logger(), "Robot en Espera (State 0). Memoria limpia. Anti-replay activo para tarea %d.", last_completed_task_id_);
+            }
+        );
+        
+        // Cancelar el timer después de una ejecución
+        reset_timer->cancel();
+        
+        // Por ahora, ejecutar inmediatamente (se puede cambiar si el delay ayuda)
         robot_state.robot_state = 0;
         publisher_robot_state->publish(robot_state);
+        RCLCPP_INFO(this->get_logger(), "Robot en Espera (State 0). Memoria limpia. Anti-replay activo para tarea %d.", last_completed_task_id_);
+    }
+
+    void phase_emergency_stop() {
+        RCLCPP_ERROR_THROTTLE(this->get_logger(), *this->get_clock(), 2000, 
+            "ROBOT EN ESTADO DE EMERGENCIA (99). Manteniendo posición actual del gripper.");
         
-        RCLCPP_INFO(this->get_logger(), "Robot en Espera (State 0). Memoria limpia.");
+        // Obtener la posición actual del GRIPPER y establecerla como objetivo SIEMPRE
+        try {
+            std::string gripper_frame = "robot_0" + std::to_string(robot_id) + "/gr_ref_link";
+            auto tf_gripper = tf_buffer_->lookupTransform("marker_id_00", gripper_frame, tf2::TimePointZero);
+            
+            // Actualizar objetivo a posición actual del gripper SIEMPRE (no solo cada segundo)
+            objective.point.x = tf_gripper.transform.translation.x;
+            objective.point.y = tf_gripper.transform.translation.y;
+            objective.point.z = tf_gripper.transform.translation.z;
+            
+            // Obtener orientación actual del gripper
+            tf2::Quaternion q(tf_gripper.transform.rotation.x, tf_gripper.transform.rotation.y, 
+                             tf_gripper.transform.rotation.z, tf_gripper.transform.rotation.w);
+            tf2::Matrix3x3 m(q); 
+            double r, p, y; 
+            m.getRPY(r, p, y);
+            objective.angle = y;
+            
+            objective.robot_state = robot_state.robot_state;
+            objective.obj_id = -1; // Sin objeto
+            
+            // Configurar brazo a posición segura
+            arm_objective.home_pos = true;
+            arm_objective.gripper = false;
+            arm_objective.take_pos = false;
+            arm_objective.transport_pos = false;
+            arm_objective.send_finish = false;
+            publisher_arm_objective->publish(arm_objective);
+            publisher_robot_objective->publish(objective);
+            objective_sent_ = true;
+            
+        } catch (tf2::TransformException &ex) {
+            RCLCPP_ERROR_THROTTLE(this->get_logger(), *this->get_clock(), 5000,
+                "Error obteniendo posición actual en emergencia: %s", ex.what());
+        }
     }
 };
 

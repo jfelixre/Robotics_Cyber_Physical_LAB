@@ -56,7 +56,7 @@ def generate_launch_description():
         cmd=[[
             'ros2 run ros_gz_sim create --args -file "',
             robot_sdf_file,
-            '" -name robot_02 -x -1 -y -1 -z 0.09' 
+            '" -name robot_02 -x -1.5 -y -1.5 -z 0.09' 
         ]],
         shell=True
     )
@@ -101,14 +101,14 @@ def generate_launch_description():
         package='task_pkg',
         namespace='robot_02',
         executable='task_manager_node_client',
-        parameters=[{'robot_id': 2, 'use_sim_time': True}],
+        parameters=[{'robot_id': 2, 'use_sim_time': False}],
     )
     
     event_driven_control = Node(
         package='control_pkg',
         namespace='robot_02',
         executable='event_driven_control_refactored',
-        parameters=[{'robot_id': 2, 'use_sim_time': True}],
+        parameters=[{'robot_id': 2, 'use_sim_time': False}],
     )
     
     compute_trajectory = Node(

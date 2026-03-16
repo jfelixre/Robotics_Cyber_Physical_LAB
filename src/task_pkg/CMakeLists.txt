@@ -53,6 +53,14 @@ ament_target_dependencies(
     interfaces
     geometry_msgs
     )
+  
+  add_executable(heartbeat_checker_node src/heartbeat_checker_node.cpp)
+  ament_target_dependencies(
+    heartbeat_checker_node
+    rclcpp
+    interfaces
+    geometry_msgs
+  )
 
 
 install(TARGETS
@@ -60,7 +68,9 @@ install(TARGETS
   task_manager_node
   task_manager_node_client
   task_scheduler_node_service
+  heartbeat_checker_node
   DESTINATION lib/${PROJECT_NAME})
+
 
 
 ament_package()

@@ -8,6 +8,8 @@
 
 #include <memory>
 #include <cinttypes>
+#include <thread>
+#include <csignal>
 
 int robot_id=0;
 float copy_vel_x, copy_vel_y, copy_vel_ang;
@@ -61,13 +63,34 @@ class Robot_Platform_Vel_Node : public rclcpp::Node
 
         }
 
+        // Destructor para asegurar parada segura
+        ~Robot_Platform_Vel_Node() {
+            stop_robot();
+        }
+
+        void stop_robot() {
+            std_msgs::msg::Float64 zero;
+            zero.data = 0.0;
+            if (publisher_M1 && publisher_M2 && publisher_M3 && publisher_M4) {
+                publisher_M1->publish(zero);
+                publisher_M2->publish(zero);
+                publisher_M3->publish(zero);
+                publisher_M4->publish(zero);
+                RCLCPP_INFO(this->get_logger(), "Robot detenido: velocidades en 0");
+                // Dar tiempo para que se envíen los mensajes
+                std::this_thread::sleep_for(std::chrono::milliseconds(50));
+            }
+        }
+
+        // Hacer públicos los publishers para acceso desde shutdown_handler
+        rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr publisher_M1;
+        rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr publisher_M2;
+        rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr publisher_M3;
+        rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr publisher_M4;
+
     private:
 
         rclcpp::Subscription<interfaces::msg::PlatformVel>::SharedPtr subs_platform_vel_r1;
-		rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr publisher_M1;
-		rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr publisher_M2;
-		rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr publisher_M3;
-		rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr publisher_M4;
 
         void send_vel(const interfaces::msg::PlatformVel::SharedPtr request){
 
@@ -254,21 +277,39 @@ class Node_Extra_Subs : public rclcpp::Node
 			}
 	
 };
+
+std::shared_ptr<Robot_Platform_Vel_Node> global_node_ptr;
+
+void shutdown_handler(int signum) {
+    RCLCPP_INFO(rclcpp::get_logger("shutdown"), "Señal recibida (%d), deteniendo robot...", signum);
+    if (global_node_ptr) {
+        global_node_ptr->stop_robot();
+        // Esperar para asegurar publicación
+        rclcpp::sleep_for(std::chrono::milliseconds(200));
+    }
+    rclcpp::shutdown();
+    std::exit(signum);
+}
+
 int main(int argc, char **argv)
 {
-  rclcpp::init(argc, argv);
+	rclcpp::init(argc, argv);
 
-  auto node = std::make_shared<Robot_Platform_Vel_Node>();
-  auto node_copy = std::make_shared<Node_Copy>();
-  auto node_extra_subs = std::make_shared<Node_Extra_Subs>();
+	global_node_ptr = std::make_shared<Robot_Platform_Vel_Node>();
+	auto node_copy = std::make_shared<Node_Copy>();
+	auto node_extra_subs = std::make_shared<Node_Extra_Subs>();
 
-  rclcpp::executors::MultiThreadedExecutor executor;
-    executor.add_node(node);
+	// Registrar handler de señal para SIGINT y SIGTERM
+	std::signal(SIGINT, shutdown_handler);
+	std::signal(SIGTERM, shutdown_handler);
+
+	rclcpp::executors::MultiThreadedExecutor executor;
+	executor.add_node(global_node_ptr);
 	executor.add_node(node_copy);
 	executor.add_node(node_extra_subs);
 
 	executor.spin();
 
- 	rclcpp::shutdown();
-
+	rclcpp::shutdown();
+	return 0;
 }

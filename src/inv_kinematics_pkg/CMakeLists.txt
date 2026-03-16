@@ -143,6 +143,16 @@ ament_target_dependencies(arm_position_node
   geometry_msgs
   )
 
+add_executable(robot_emergency_stop_node  src/robot_emergency_stop_node.cpp)
+target_include_directories(robot_emergency_stop_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+ament_target_dependencies(robot_emergency_stop_node
+  std_msgs
+  rclcpp
+  )
+
 install(TARGETS
   # platform1_vel_server
   # platform1_vel_test_client
@@ -157,6 +167,7 @@ install(TARGETS
   # joint_to_tf
   robot_platform_vel_node
   arm_position_node
+  robot_emergency_stop_node
   DESTINATION lib/${PROJECT_NAME})
 
 

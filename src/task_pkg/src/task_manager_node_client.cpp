@@ -51,23 +51,19 @@ class Task_Manager_Node_Client : public rclcpp::Node
             RCLCPP_INFO(this->get_logger(), "Received Robot_ID: %d", robot_id);
 
             // 1. Suscripción al Estado (Solo para monitoreo visual o lógica 'busy')
-            std::stringstream ss_topic_name;
-            ss_topic_name << "/robot_0" << robot_id << "/robot_state";
+            // USO TOPIC RELATIVO - El namespace del launch se aplicará automáticamente
             subscription_robot_state = this->create_subscription<interfaces::msg::RobotState>(
-                ss_topic_name.str(), 10, std::bind(&Task_Manager_Node_Client::robot_state_callback, this, _1));
+                "robot_state", 10, std::bind(&Task_Manager_Node_Client::robot_state_callback, this, _1));
 
             // 2. NUEVA SUSCRIPCIÓN: Confirmación explícita de tarea terminada
-            std::stringstream ss_completed_topic;
-            ss_completed_topic << "/robot_0" << robot_id << "/task_completed";
             subscription_task_completed = this->create_subscription<std_msgs::msg::Int32>(
-                ss_completed_topic.str(), 10, std::bind(&Task_Manager_Node_Client::task_completed_callback, this, _1));
+                "task_completed", 10, std::bind(&Task_Manager_Node_Client::task_completed_callback, this, _1));
 
              timer_ = this->create_wall_timer(
              2000ms, std::bind(&Task_Manager_Node_Client::timer_callback, this)); // Bajé el tiempo a 2s para mayor reacción
 
-            std::stringstream ss_topic_name_2;
-            ss_topic_name_2 << "/robot_0" << robot_id << "/task_assigned";
-            publisher_task_robot = this->create_publisher<interfaces::msg::TaskDescription>(ss_topic_name_2.str(), 10);
+            // USO TOPIC RELATIVO - El namespace del launch se aplicará automáticamente
+            publisher_task_robot = this->create_publisher<interfaces::msg::TaskDescription>("task_assigned", 10);
 
             task_request_client = this->create_client<interfaces::srv::TaskListService>("/task_scheduler/assign_task");
         }
@@ -77,21 +73,45 @@ class Task_Manager_Node_Client : public rclcpp::Node
      // Callback de Estado: Solo gestiona la bandera 'busy' localmente
      void robot_state_callback(const interfaces::msg::RobotState::SharedPtr msg)
         {
+            int previous_robot_state = robot_state;
             robot_state = msg->robot_state;
+
+            // DEBUG: Log siempre los cambios de estado recibidos
+            if (previous_robot_state != robot_state) {
+                RCLCPP_INFO(this->get_logger(), "[STATE_DEBUG] Robot %d: %d → %d | Tarea activa: %d | Busy: %s", 
+                           robot_id, previous_robot_state, robot_state, 
+                           static_cast<int>(selected_task.task_id), busy ? "true" : "false");
+            }
 
             // Si el robot está en IDLE (0), lo marcamos como libre.
             if (robot_state == 0){
                 busy = false;
             }
-            // NOTA: Quitamos la lógica de finalización de aquí porque era insegura.
-            // Ahora usamos task_completed_callback.
+
+            // NUEVA LÓGICA: Enviar updates al scheduler cuando hay tarea activa
+            if (previous_robot_state != robot_state && selected_task.task_id > 0) {
+                interfaces::msg::TaskReport msg_update;
+                msg_update.robot_id = robot_id;
+                msg_update.task_id = selected_task.task_id;
+                
+                // ENVÍO DIRECTO: usar robot_state directamente
+                msg_update.state = robot_state;  
+                
+                publisher_task_update->publish(msg_update);
+                RCLCPP_INFO(this->get_logger(), "[UPDATE_SENT] Robot %d cambió de estado %d → %d | Tarea %d | Estado de tarea: %d", 
+                           robot_id, previous_robot_state, robot_state, selected_task.task_id, msg_update.state);
+            }
+            else if (previous_robot_state != robot_state && selected_task.task_id <= 0) {
+                RCLCPP_WARN(this->get_logger(), "[NO_UPDATE] Robot %d cambió de estado %d → %d | Sin tarea activa (task_id=%d)", 
+                           robot_id, previous_robot_state, robot_state, static_cast<int>(selected_task.task_id));
+            }
         }
 
     // NUEVO CALLBACK: Recibe la confirmación segura desde EventDrivenControl
     void task_completed_callback(const std_msgs::msg::Int32::SharedPtr msg) {
         int completed_task_id = msg->data;
         
-        RCLCPP_INFO(this->get_logger(), "CONFIRMACIÓN RECIBIDA: Tarea ID %d terminada por Robot %d", completed_task_id, robot_id);
+        RCLCPP_INFO(this->get_logger(), "CONFIRMATION RECEIVED: Task ID %d completed by Robot %d", completed_task_id, robot_id);
 
         // 1. Avisar al Scheduler
         interfaces::msg::TaskReport msg_update;
@@ -131,7 +151,7 @@ class Task_Manager_Node_Client : public rclcpp::Node
                         msg_update.task_id = selected_task.task_id;
                         msg_update.state = 1; // Estado: In Progress
 
-                        RCLCPP_INFO(this->get_logger(), ">>> Tarea ID %d ASIGNADA a Robot %d", selected_task.task_id, robot_id);
+                        RCLCPP_INFO(this->get_logger(), ">>> Task ID %d ASSIGNED to Robot %d", selected_task.task_id, robot_id);
 
                         busy = true;
 
@@ -148,7 +168,7 @@ class Task_Manager_Node_Client : public rclcpp::Node
 
                                 publisher_new_task->publish(msg_new_task);
                             } else {
-                                RCLCPP_INFO(this->get_logger(), "Uniendo como Robot Seguidor");
+                                RCLCPP_INFO(this->get_logger(), "Joining as Follower Robot");
                             }
                         }
 

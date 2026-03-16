@@ -125,6 +125,11 @@ def generate_launch_description():
         ]],
         shell=True
     )
+        # Launch heartbeat checker node
+    heartbeat_checker = ExecuteProcess(
+        cmd=[[ 'ros2 run task_pkg heartbeat_checker_node' ]],
+        shell=True
+    )
 
     #Launch team ready node
     team_ready = ExecuteProcess(
@@ -156,5 +161,5 @@ def generate_launch_description():
         launch_cube_id_21,
         team_ready,
         pos_publ,
-        
+        heartbeat_checker,
     ])
