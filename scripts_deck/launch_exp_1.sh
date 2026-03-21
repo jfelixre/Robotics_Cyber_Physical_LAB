@@ -6,6 +6,12 @@ cd "$HOME/Robotics_Cyber_Physical_LAB"
 # Cambiar título de la terminal
 echo -ne "\033]0;🚀 Experiment 1 - Gazebo Simulation\007"
 
+# Set experiment name for rosbag recording
+export EXPERIMENT_TIMESTAMP="experiment_1"
+echo "📊 Experiment Name: ${EXPERIMENT_TIMESTAMP}"
+echo "💡 To record rosbag: ./scripts_deck/record_rosbag.sh experiment_1"
+echo ""
+
 ros2 launch launch_pkg gazebo_sim_exp_1.launch.py
 
 #echo "Presiona enter para salir..."

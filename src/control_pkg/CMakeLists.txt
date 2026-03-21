@@ -574,4 +574,10 @@ install(TARGETS
   pid_control_trajectory_node
   DESTINATION lib/${PROJECT_NAME})
 
+# Install Python scripts
+install(PROGRAMS
+  scripts/robot_data_logger.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 ament_package()

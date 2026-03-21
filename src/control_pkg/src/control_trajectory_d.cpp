@@ -127,7 +127,7 @@ class Node_Subs_Path : public rclcpp::Node
                 total_distance += std::sqrt(dx*dx + dy*dy);
             }
 
-            double desired_velocity = 0.35; // m/s
+            double desired_velocity = 1.0; // m/s - Increased significantly for much faster movement
             tf = total_distance / desired_velocity;
             if (tf < 1.5) tf = 1.5;
 
@@ -307,7 +307,7 @@ class Node_Control_Timer : public rclcpp::Node
 
             // COPIAR: Carrot Chasing (Lookahead)
             double vxd, vyd, vwd, ErrAng;
-            double min_lookahead_dist = 0.40; 
+            double min_lookahead_dist = 0.25; // Reduced for tighter following and better diagonal movement 
             double dist_to_final = std::hypot(hxd[N-1] - gripper_position.x, hyd[N-1] - gripper_position.y);
             if (dist_to_final < min_lookahead_dist) min_lookahead_dist = dist_to_final; 
 
@@ -359,11 +359,11 @@ class Node_Control_Timer : public rclcpp::Node
             sum_x_err = std::clamp(sum_x_err, -0.15, 0.15);
             sum_y_err = std::clamp(sum_y_err, -0.15, 0.15);
 
-            // Ganancias
-            double Kx = 15.0; double Ky = 15.0; double Ki = 0.8;
+            // Ganancias - Increased significantly for much better response
+            double Kx = 30.0; double Ky = 30.0; double Ki = 2.0;
             
             // Supresión de giro si el error es pequeño
-            double Kw = (abs(err_w) > 0.1) ? 1.0 : 0.0; 
+            double Kw = (abs(err_w) > 0.05) ? 2.5 : 0.0; // Increased gain and reduced threshold 
 
             Eigen::MatrixXd he(3,1);
             he << vxd + Kx * tanh(err_x) + Ki * sum_x_err, 
@@ -381,24 +381,24 @@ class Node_Control_Timer : public rclcpp::Node
             interfaces::msg::PlatformVel msg_vel;
             
             // --- BOOST DIRECTO BASADO EN ERROR (IGNORANDO PID DÉBIL) ---
-            double min_lin_vel = 0.18; // Velocidad mínima para moverse
-            double min_ang_vel = 0.15; // Velocidad mínima para girar
-            double gain_lin = 25.0; 
-            double gain_ang = 4.0;
+            double min_lin_vel = 0.40; // Velocidad mínima para moverse - Much higher for diagonal movement
+            double min_ang_vel = 0.30; // Velocidad mínima para girar - Increased significantly
+            double gain_lin = 50.0; // Much higher for faster response
+            double gain_ang = 8.0; // Higher for better turning
 
             // Calculamos velocidades base
             double vx_cmd = uxRef[k] * gain_lin;
             double vy_cmd = uyRef[k] * gain_lin;
 
             // BOOST X: Si hay error en X significativo, aplicamos min_vel
-            if (abs(err_x) > 0.01) {
+            if (abs(err_x) > 0.005) { // Reduced threshold for more aggressive response
                 double sign_x = (err_x > 0) ? 1.0 : -1.0;
                 // Si el PID pide poco, forzamos el mínimo en la dirección del error
                 if (abs(vx_cmd) < min_lin_vel) vx_cmd = min_lin_vel * sign_x;
             }
 
             // BOOST Y: Lo mismo para Y
-            if (abs(err_y) > 0.01) {
+            if (abs(err_y) > 0.005) { // Reduced threshold for more aggressive response
                 double sign_y = (err_y > 0) ? 1.0 : -1.0;
                 if (abs(vy_cmd) < min_lin_vel) vy_cmd = min_lin_vel * sign_y;
             }
@@ -407,8 +407,8 @@ class Node_Control_Timer : public rclcpp::Node
             msg_vel.y_vel = vy_cmd;
 
             // CONTROL DE GIRO
-            // Solo giramos si el error es real (> 5 grados)
-            if (abs(err_w) > 0.08) {
+            // Solo giramos si el error es real (> 3 grados) - Reduced for more responsive turning
+            if (abs(err_w) > 0.05) {
                 double w_cmd = wRef[k] * gain_ang;
                 double w_sign = (ErrAng > 0) ? 1.0 : -1.0; // Girar hacia el error
                 
@@ -423,10 +423,10 @@ class Node_Control_Timer : public rclcpp::Node
                 msg_vel.ang_vel = 0.0; // Bloqueo total de oscilación
             }
 
-            // Clamps de seguridad
-            msg_vel.x_vel = std::clamp((double)msg_vel.x_vel, -70.0, 70.0);
-            msg_vel.y_vel = std::clamp((double)msg_vel.y_vel, -70.0, 70.0);
-            msg_vel.ang_vel = std::clamp((double)msg_vel.ang_vel, -0.5, 0.5);
+            // Clamps de seguridad - Much higher limits for fast operation
+            msg_vel.x_vel = std::clamp((double)msg_vel.x_vel, -120.0, 120.0);
+            msg_vel.y_vel = std::clamp((double)msg_vel.y_vel, -120.0, 120.0);
+            msg_vel.ang_vel = std::clamp((double)msg_vel.ang_vel, -1.0, 1.0);
 
             publisher_vel->publish(msg_vel);
 

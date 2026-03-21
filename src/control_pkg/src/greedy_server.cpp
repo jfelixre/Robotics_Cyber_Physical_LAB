@@ -82,7 +82,21 @@ private:
             response->path_size = 0; return;
         }
 
-        // 2. Greedy Search
+        // 2. Liberar Inicio y Meta (Safety Radius)
+        // Asegura que el robot no nazca atrapado
+        auto clear_radius = [&](int cx, int cy, int r) {
+            for(int dy=-r; dy<=r; dy++){
+                for(int dx=-r; dx<=r; dx++){
+                    if(isValid(cx+dx, cy+dy)) grid[cy+dy][cx+dx] = 1;
+                }
+            }
+        };
+        // Usar un radio mayor para liberar inicio y meta (aprox. tamaño del robot)
+        int safety_radius = 8; // Aproximadamente la mitad del robot más margen
+        clear_radius(srcX, srcY, safety_radius);
+        clear_radius(dstX, dstY, safety_radius);
+
+        // 3. Greedy Search
         std::vector<std::vector<bool>> visited(MAP_HEIGHT, std::vector<bool>(MAP_WIDTH, false));
         // Matriz para guardar padres y reconstruir
         std::vector<std::vector<std::pair<int, int>>> parents(MAP_HEIGHT, std::vector<std::pair<int, int>>(MAP_WIDTH, {-1, -1}));
@@ -130,7 +144,7 @@ private:
             }
         }
 
-        // 3. Reconstruir
+        // 4. Reconstruir
         if (found) {
             int cx = dstX;
             int cy = dstY;

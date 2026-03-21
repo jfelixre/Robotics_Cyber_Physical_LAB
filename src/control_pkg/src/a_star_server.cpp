@@ -90,8 +90,22 @@ private:
             return;
         }
 
-        // 2. Manejo de Destino Bloqueado
-        // Si la meta cae en un obstáculo, buscar el punto libre más cercano
+        // 2. Liberar Inicio y Meta (Safety Radius)
+        // Asegura que el robot no nazca atrapado
+        auto clear_radius = [&](int cx, int cy, int r) {
+            for(int dy=-r; dy<=r; dy++){
+                for(int dx=-r; dx<=r; dx++){
+                    if(isValid(cx+dx, cy+dy)) grid[cy+dy][cx+dx] = 1;
+                }
+            }
+        };
+        // Usar un radio mayor para liberar inicio y meta (aprox. tamaño del robot)
+        int safety_radius = 8; // Aproximadamente la mitad del robot más margen
+        clear_radius(srcX, srcY, safety_radius);
+        clear_radius(dstX, dstY, safety_radius);
+
+        // 3. Manejo adicional de Destino Bloqueado (Backup)
+        // Si después de limpiar la meta aún cae en obstáculo, buscar punto libre cercano
         if (grid[dstY][dstX] == 0) {
             bool found = false;
             for(int r=1; r<=3 && !found; r++) { 
@@ -108,12 +122,11 @@ private:
                 }
             }
             if(!found) {
-                // Si no hay punto cercano libre, abortamos para no perder tiempo
                 return; 
             }
         }
 
-        // 3. Inicialización A*
+        // 4. Inicialización A*
         std::vector<std::vector<NodeData>> node_info(MAP_HEIGHT, std::vector<NodeData>(MAP_WIDTH));
         std::vector<std::vector<bool>> closed_list(MAP_HEIGHT, std::vector<bool>(MAP_WIDTH, false));
 
@@ -139,7 +152,7 @@ private:
         int dy[] = {0, 0, 1, -1, 1, -1, 1, -1};
         double cost[] = {1.0, 1.0, 1.0, 1.0, 1.414, 1.414, 1.414, 1.414};
 
-        // 4. Bucle Principal
+        // 5. Bucle Principal
         while (!open_list.empty()) {
             iter++;
             if (iter > max_iter) break;
@@ -177,7 +190,7 @@ private:
             }
         }
 
-        // 5. Reconstrucción
+        // 6. Reconstrucción
         if (dest_found) {
             int cx = dstX;
             int cy = dstY;

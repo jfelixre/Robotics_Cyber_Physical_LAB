@@ -94,7 +94,7 @@ class Robot_Platform_Vel_Node : public rclcpp::Node
 
         void send_vel(const interfaces::msg::PlatformVel::SharedPtr request){
 
-			float max_vel = 5;
+			float max_vel = 12.0; // Much higher from 8.5 for very fast robot movement
 
 			float velx = request->x_vel;
 			float vely = request->y_vel;

@@ -103,8 +103,10 @@ private:
                 }
             }
         };
-        clear_radius(srcX, srcY, 1);
-        clear_radius(dstX, dstY, 1);
+        // Usar un radio mayor para liberar inicio y meta (aprox. tamaño del robot)
+        int safety_radius = 8; // Aproximadamente la mitad del robot más margen
+        clear_radius(srcX, srcY, safety_radius);
+        clear_radius(dstX, dstY, safety_radius);
 
         // 3. Algoritmo: A* Inverso (Búsqueda desde META hacia INICIO)
         // Esto crea un campo de atracción natural hacia la meta.

@@ -1,0 +1,157 @@
+ANÁLISIS DETALLADO DE ERRORES
+Experimento: experiment_3
+Fecha: 2026-03-18 18:11:20
+================================================================================
+
+🤖 ROBOT 01
+----------------------------------------
+📍 Comparación Fase 1:
+  Objetivo:     X=1.997799m, Y=0.498902m
+  Real:         X=-0.713232m, Y=-0.545413m
+  Error:        X=2.711031m (2711.0mm)
+                Y=1.044315m (1044.3mm)
+  Error Total:  2.905216m (2905.2mm)
+  Timestamp:    1773878018607668213
+
+📊 MÉTRICAS FINALES:
+  MSE_X:        7.349689
+  MSE_Y:        1.090593
+  RMSE_X:       2.711031 (2711.0mm)
+  RMSE_Y:       1.044315 (1044.3mm)
+  RMSE_Total:   2.905216 (2905.2mm)
+  MAE_X:        2.711031 (2711.0mm)
+  MAE_Y:        1.044315 (1044.3mm)
+  Max_Error_X:  2.711031 (2711.0mm)
+  Max_Error_Y:  1.044315 (1044.3mm)
+  Puntos:       1
+
+================================================================================
+
+🤖 ROBOT 02
+----------------------------------------
+📍 Comparación Fase 1:
+  Objetivo:     X=0.998173m, Y=0.498474m
+  Real:         X=0.998173m, Y=0.498474m
+  Error:        X=0.000000m (0.0mm)
+                Y=0.000000m (0.0mm)
+  Error Total:  0.000000m (0.0mm)
+  Timestamp:    1773878050187380588
+
+📍 Comparación Fase 2:
+  Objetivo:     X=0.998479m, Y=0.998474m
+  Real:         X=0.998479m, Y=0.998474m
+  Error:        X=0.000000m (0.0mm)
+                Y=0.000000m (0.0mm)
+  Error Total:  0.000000m (0.0mm)
+  Timestamp:    1773878071587466078
+
+📍 Comparación Fase 4:
+  Objetivo:     X=-2.200398m, Y=0.500000m
+  Real:         X=-2.196604m, Y=0.497594m
+  Error:        X=-0.003794m (-3.8mm)
+                Y=0.002406m (2.4mm)
+  Error Total:  0.004492m (4.5mm)
+  Timestamp:    1773878153587421237
+
+📍 Comparación Fase 5:
+  Objetivo:     X=-2.200000m, Y=1.000000m
+  Real:         X=-2.200000m, Y=1.000000m
+  Error:        X=0.000000m (0.0mm)
+                Y=0.000000m (0.0mm)
+  Error Total:  0.000000m (0.0mm)
+  Timestamp:    1773878175787391842
+
+📍 Comparación Fase 7:
+  Objetivo:     X=-2.200796m, Y=0.000000m
+  Real:         X=-2.199600m, Y=0.002622m
+  Error:        X=-0.001196m (-1.2mm)
+                Y=-0.002622m (-2.6mm)
+  Error Total:  0.002882m (2.9mm)
+  Timestamp:    1773878200687367882
+
+📍 Comparación Fase 8:
+  Objetivo:     X=1.496767m, Y=-1.409375m
+  Real:         X=1.496767m, Y=-1.409375m
+  Error:        X=-0.000000m (-0.0mm)
+                Y=-0.000000m (-0.0mm)
+  Error Total:  0.000000m (0.0mm)
+  Timestamp:    1773878525787364341
+
+📊 MÉTRICAS FINALES:
+  MSE_X:        0.000003
+  MSE_Y:        0.000002
+  RMSE_X:       0.001624 (1.6mm)
+  RMSE_Y:       0.001453 (1.5mm)
+  RMSE_Total:   0.002179 (2.2mm)
+  MAE_X:        0.000832 (0.8mm)
+  MAE_Y:        0.000838 (0.8mm)
+  Max_Error_X:  0.003794 (3.8mm)
+  Max_Error_Y:  0.002622 (2.6mm)
+  Puntos:       6
+
+================================================================================
+
+🤖 ROBOT 03
+----------------------------------------
+📍 Comparación Fase 1:
+  Objetivo:     X=1.997799m, Y=0.498902m
+  Real:         X=1.997799m, Y=0.498902m
+  Error:        X=0.000000m (0.0mm)
+                Y=0.000000m (0.0mm)
+  Error Total:  0.000000m (0.0mm)
+  Timestamp:    1773878082536986348
+
+📍 Comparación Fase 2:
+  Objetivo:     X=1.997746m, Y=0.998898m
+  Real:         X=1.997746m, Y=0.998898m
+  Error:        X=0.000000m (0.0mm)
+                Y=0.000000m (0.0mm)
+  Error Total:  0.000000m (0.0mm)
+  Timestamp:    1773878103937027613
+
+📍 Comparación Fase 4:
+  Objetivo:     X=-1.000398m, Y=0.500000m
+  Real:         X=-1.000398m, Y=0.500000m
+  Error:        X=0.000000m (0.0mm)
+                Y=0.000000m (0.0mm)
+  Error Total:  0.000000m (0.0mm)
+  Timestamp:    1773878400936956773
+
+📍 Comparación Fase 5:
+  Objetivo:     X=-1.000000m, Y=1.000000m
+  Real:         X=-1.000000m, Y=1.000000m
+  Error:        X=0.000000m (0.0mm)
+                Y=0.000000m (0.0mm)
+  Error Total:  0.000000m (0.0mm)
+  Timestamp:    1773878458236939338
+
+📍 Comparación Fase 7:
+  Objetivo:     X=-1.000796m, Y=0.000000m
+  Real:         X=-0.998557m, Y=0.002622m
+  Error:        X=-0.002240m (-2.2mm)
+                Y=-0.002622m (-2.6mm)
+  Error Total:  0.003448m (3.4mm)
+  Timestamp:    1773878483136941187
+
+📍 Comparación Fase 8:
+  Objetivo:     X=0.000017m, Y=-1.410764m
+  Real:         X=0.000017m, Y=-1.410764m
+  Error:        X=-0.000000m (-0.0mm)
+                Y=0.000000m (0.0mm)
+  Error Total:  0.000000m (0.0mm)
+  Timestamp:    1773878525836987871
+
+📊 MÉTRICAS FINALES:
+  MSE_X:        0.000001
+  MSE_Y:        0.000001
+  RMSE_X:       0.000914 (0.9mm)
+  RMSE_Y:       0.001070 (1.1mm)
+  RMSE_Total:   0.001408 (1.4mm)
+  MAE_X:        0.000373 (0.4mm)
+  MAE_Y:        0.000437 (0.4mm)
+  Max_Error_X:  0.002240 (2.2mm)
+  Max_Error_Y:  0.002622 (2.6mm)
+  Puntos:       6
+
+================================================================================
+

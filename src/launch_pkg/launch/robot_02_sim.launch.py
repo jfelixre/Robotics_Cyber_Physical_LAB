@@ -29,9 +29,19 @@ def generate_launch_description():
         description='Choose controller type: geometric, pid'
     )
     
+    # C) Timestamp para experimento compartido (✨ DETECCIÓN AUTOMÁTICA) 
+    # Detecta automáticamente si hay un timestamp de experimento activo
+    auto_timestamp = os.environ.get('EXPERIMENT_TIMESTAMP', '')
+    experiment_timestamp_arg = DeclareLaunchArgument(
+        'experiment_timestamp',
+        default_value=auto_timestamp,
+        description='Shared timestamp for multi-robot experiments (auto-detected from environment)'
+    )
+    
     # Capturar valores de configuración
     planner_type = LaunchConfiguration('planner')
     controller_type = LaunchConfiguration('controller')
+    experiment_timestamp = LaunchConfiguration('experiment_timestamp')
 
     # ---------------------------------------------------------
     # 2. CONFIGURACIÓN DE RUTAS Y DIRECTORIOS
@@ -233,12 +243,32 @@ def generate_launch_description():
     )
 
     # ---------------------------------------------------------
-    # 9. RETORNO FINAL
+    # 9. DATA LOGGING - DESHABILITADO (Robot 01 maneja todos los datos)
+    # ---------------------------------------------------------
+    # robot_data_logger = Node(
+    #     package='control_pkg',
+    #     executable='robot_data_logger.py',
+    #     name='robot_02_data_logger',
+    #     parameters=[{
+    #         'experiment_name': 'multi_robot_exp',
+    #         'robots': 1,
+    #         'robot_offset': 2,
+    #         'output_dir': '/home/javierfr/Robotics_Cyber_Physical_LAB/csv/',
+    #         'log_rate': 10.0,
+    #         'use_timestamp': True,
+    #         'shared_timestamp': experiment_timestamp
+    #     }],
+    #     output='screen'
+    # )
+
+    # ---------------------------------------------------------
+    # 10. RETORNO FINAL
     # ---------------------------------------------------------
     return LaunchDescription([
         # Argumentos
         planner_type_arg,
         controller_type_arg,
+        experiment_timestamp_arg,
         
         # Simulación y TF
         gz_robot_spawn,
@@ -263,6 +293,9 @@ def generate_launch_description():
         robot_platform_vel,
         arm_position,
         robot_state_service,
+        
+        # Data Logging - DESHABILITADO (Robot 01 maneja todos)
+        # robot_data_logger,
         
         # Timers
         detach11,

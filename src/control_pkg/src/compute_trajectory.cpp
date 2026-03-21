@@ -513,9 +513,16 @@ private:
         clamp(start_x, n_x_spaces); clamp(start_y, n_y_spaces);
         clamp(goal_x, n_x_spaces); clamp(goal_y, n_y_spaces);
 
-        // Inflation
+        // Inflation - Usar dimensiones reales del robot
         cv::Mat map_bin_ext = map_bin.clone();
-        int kernel_size = 2; 
+        // Usar la máxima dimensión del robot como radio de inflación + margen de seguridad
+        int kernel_size_x = (robot_size_x_cells / 2) + 3; // Mitad del robot + 3 células de margen
+        int kernel_size_y = (robot_size_y_cells / 2) + 3; // Mitad del robot + 3 células de margen
+        int kernel_size = std::max(kernel_size_x, kernel_size_y); // Usar el mayor para garantizar paso
+        
+        RCLCPP_DEBUG(this->get_logger(), "Inflation kernel: %d (robot: %dx%d cells)", 
+                     kernel_size, robot_size_x_cells, robot_size_y_cells);
+        
         for (int i=0; i<n_y_spaces; i++){
             for (int j=0; j<n_x_spaces; j++){
                 if (map_bin.at<uchar>(i,j) == 0){ 

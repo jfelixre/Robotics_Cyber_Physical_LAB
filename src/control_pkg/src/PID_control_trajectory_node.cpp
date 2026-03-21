@@ -105,8 +105,8 @@ class PID_Path_Subs : public rclcpp::Node
                 total_dist += std::sqrt(dx*dx + dy*dy);
             }
 
-            // 2. Configurar Velocidad Deseada (1.0 m/s)
-            double desired_vel = 1.0; 
+            // 2. Configurar Velocidad Deseada (2.0 m/s - Much faster for aggressive movement)
+            double desired_vel = 2.0; 
             tf = total_dist / desired_vel;
             if (tf < 1.0) tf = 1.0;
 
@@ -253,9 +253,9 @@ class PID_Controller_Loop : public rclcpp::Node
             hxe[k] = ex; hye[k] = ey; hwe[k] = et;
 
             // 3. LEY DE CONTROL: Feedforward + Proporcional (Global)
-            // Kp es la "agresividad" para corregir error.
-            double Kp = 2.5; 
-            double Kw = 1.5;
+            // Kp es la "agresividad" para corregir error - Much higher for aggressive response
+            double Kp = 5.0; 
+            double Kw = 3.0; // Much higher angular gain for faster turning
 
             // Velocidad Global Deseada = (Velocidad del Path) + (Corrección de Error)
             double vx_global = vxd_ff[idx] + Kp * ex;
@@ -273,9 +273,9 @@ class PID_Controller_Loop : public rclcpp::Node
             double vy_robot = -vx_global * sin_th + vy_global * cos_th;
             double w_robot  = w_global;
 
-            // 5. Saturación y Envío
-            double max_lin = 1.2; // m/s
-            double max_ang = 2.0; // rad/s
+            // 5. Saturación y Envío - Much higher limits for very fast movement
+            double max_lin = 2.5; // m/s - Much higher
+            double max_ang = 3.5; // rad/s - Much higher
 
             vx_robot = std::max(-max_lin, std::min(vx_robot, max_lin));
             vy_robot = std::max(-max_lin, std::min(vy_robot, max_lin));
@@ -284,7 +284,7 @@ class PID_Controller_Loop : public rclcpp::Node
             interfaces::msg::PlatformVel msg_vel;
             
             // Ganancia de Potencia (Ajustar si el robot es físico o simulación pesada)
-            double power_gain = 120.0; 
+            double power_gain = 200.0; // Much higher for very responsive movement 
             
             msg_vel.x_vel = vx_robot * power_gain;
             msg_vel.y_vel = vy_robot * power_gain; 

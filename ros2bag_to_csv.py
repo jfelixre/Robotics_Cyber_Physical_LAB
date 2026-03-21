@@ -40,7 +40,7 @@ def read_messages(input_bag: str):
  
     # Open the bag file for reading
     reader.open(
-        rosbag2_py.StorageOptions(uri=input_bag, storage_id="mcap"),
+        rosbag2_py.StorageOptions(uri=input_bag, storage_id="sqlite3"),
         rosbag2_py.ConverterOptions(
             input_serialization_format="cdr", output_serialization_format="cdr"
         ),

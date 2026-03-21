@@ -74,6 +74,41 @@ def generate_launch_description():
                     ]],
                     shell=True
             )
+    
+    detachr03c11 = ExecuteProcess(
+                cmd=[[
+                    'ros2 topic pub --once /robot_03/cube_11/detach std_msgs/msg/Empty',
+                    ]],
+                    shell=True
+            )
+    
+    detachr03c12 = ExecuteProcess(
+                cmd=[[
+                    'ros2 topic pub --once /robot_03/cube_12/detach std_msgs/msg/Empty',
+                    ]],
+                    shell=True
+            )
+    
+    detachr03c21 = ExecuteProcess(
+                cmd=[[
+                    'ros2 topic pub --once /robot_03/cube_21/detach std_msgs/msg/Empty',
+                    ]],
+                    shell=True
+            )
+    
+    detachFC11 = ExecuteProcess(
+                cmd=[[
+                    'ros2 topic pub --once /FC11/detach std_msgs/msg/Empty',
+                    ]],
+                    shell=True
+            )
+    
+    detachFC12 = ExecuteProcess(
+                cmd=[[
+                    'ros2 topic pub --once /FC12/detach std_msgs/msg/Empty',
+                    ]],
+                    shell=True
+            )
 
 
     return LaunchDescription([
@@ -83,6 +118,11 @@ def generate_launch_description():
         detachr02c11,
         detachr02c12,
         detachr02c21,
-        detachr01r02
+        detachr01r02,
+        detachr03c11,
+        detachr03c12,
+        detachr03c21,
+        detachFC11,
+        detachFC12
        
     ])

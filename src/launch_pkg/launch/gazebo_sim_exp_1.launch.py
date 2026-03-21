@@ -15,6 +15,14 @@ from launch_ros.actions import Node
 def generate_launch_description():
     # Configure ROS nodes for launch
 
+    print("\n" + "="*60)
+    print("🎯 EXPERIMENTO 1 - GAZEBO SIMULATION")
+    print("="*60)
+    print("💡 Para grabar rosbag: ./scripts_deck/record_rosbag.sh experiment_1")
+    print("📊 Para gráficas después: python3 plot_trajectories_professional.py --experiment experiment_1 --legacy --errors --robots NUM")
+    print("="*60)
+    print("="*60 + "\n")
+
     # Setup project paths
     pkg_project_control_pkg = get_package_share_directory('control_pkg')
     pkg_project_gazebo_plugin_sim = get_package_share_directory('gazebo_plugin_sim')
@@ -79,21 +87,9 @@ def generate_launch_description():
         shell=True
     )
 
-    #Launch robot_01
-    launch_robot_01 = ExecuteProcess(
-        cmd=[[
-            'ros2 launch launch_pkg robot_01_sim.launch.py'
-        ]],
-        shell=True
-    )
-
-    #Launch robot_02
-    launch_robot_02 = ExecuteProcess(
-        cmd=[[
-            'ros2 launch launch_pkg robot_02_sim.launch.py'
-        ]],
-        shell=True
-    )
+    # Robots se lanzan manualmente usando:
+    # ros2 launch launch_pkg robot_01_sim.launch.py experiment_timestamp:=TIMESTAMP
+    # ros2 launch launch_pkg robot_02_sim.launch.py experiment_timestamp:=TIMESTAMP
 
     #Launch cube_id_11
     launch_cube_id_11 = ExecuteProcess(
@@ -157,8 +153,7 @@ def generate_launch_description():
         bridge,
         bridge_unpause,
         unpause,
-        #launch_robot_01,
-        #launch_robot_02,
+        # Los robots se lanzan manualmente
         img_proc_nodes,
         task_scheduler,
         launch_cube_id_11,
