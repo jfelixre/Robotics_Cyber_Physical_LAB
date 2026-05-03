@@ -312,7 +312,7 @@ class PID_Controller_Loop : public rclcpp::Node
             
             // Criterio de parada: Llegar al final del tiempo (N) o Error muy bajo
             bool time_done = (k >= N);
-            bool error_done = (k > 10 && abs(data_error_total.x_error) < 0.04 && abs(data_error_total.y_error) < 0.04);
+            bool error_done = (k > 10 && abs(data_error_total.x_error) < 0.02 && abs(data_error_total.y_error) < 0.02);
 
             if (time_done || error_done) {
                 RCLCPP_INFO(this->get_logger(), "Meta Alcanzada (PID). Deteniendo.");

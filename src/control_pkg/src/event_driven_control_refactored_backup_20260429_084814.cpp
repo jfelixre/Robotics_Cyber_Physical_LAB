@@ -80,12 +80,6 @@ private:
     float angle_goal;
     float Z_saved = 0;
     std::string gripper_name;
-    
-    // Variables para guardar la relación espacial robot-objeto (para transporte colaborativo)
-    double robot_to_object_offset_x = 0.0;
-    double robot_to_object_offset_y = 0.0;
-    double robot_to_object_offset_angle = 0.0;
-    bool spatial_relation_saved = false;
 
     interfaces::msg::TaskDescription task;
     interfaces::msg::RobotState robot_state;
@@ -107,6 +101,7 @@ private:
     rclcpp::Publisher<interfaces::msg::ArmObjective>::SharedPtr publisher_arm_objective;
     rclcpp::Publisher<interfaces::msg::FollowerRobot>::SharedPtr publisher_follower_robot;
     rclcpp::Publisher<interfaces::msg::WaitingTeam>::SharedPtr publisher_waiting_robot;
+    rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr publisher_copy_control;
     rclcpp::Publisher<interfaces::msg::ControlFinish>::SharedPtr publisher_control_finish_team_robot;
     rclcpp::Publisher<interfaces::msg::LeaderRobot>::SharedPtr publisher_leader_robot;
     rclcpp::Publisher<std_msgs::msg::Empty>::SharedPtr publisher_attach;
@@ -142,6 +137,7 @@ private:
         publisher_robot_objective = this->create_publisher<interfaces::msg::RobotObjective>("objective", 1);
         publisher_arm_objective = this->create_publisher<interfaces::msg::ArmObjective>("arm_objective", 1);
         publisher_waiting_robot = this->create_publisher<interfaces::msg::WaitingTeam>("waiting_team", 10);
+        publisher_copy_control = this->create_publisher<std_msgs::msg::Bool>("copy_control", 10);
         publisher_leader_robot = this->create_publisher<interfaces::msg::LeaderRobot>("/leader_robot_id", 10);
         
         publisher_state_marker_ = this->create_publisher<visualization_msgs::msg::Marker>("system_status_marker", 10);
@@ -181,28 +177,21 @@ private:
     // Función auxiliar para calcular la distancia real al objetivo (Desde el GRIPPER)
     double get_distance_to_objective() {
         try {
-            // Usar frame correcto según la fase
-            std::string robot_frame;
+            // --- CORRECCIÓN: USAR FRAME DEL GRIPPER, NO DE LA BASE ---
+            // El objetivo es para la herramienta, así que medimos desde la herramienta.
+            std::string gripper_frame = "robot_0" + std::to_string(robot_id) + "/gr_ref_link";
             
-            if (robot_state.robot_state == 7 || robot_state.robot_state == 8) {
-                // Para retroceso (fase 7) y regreso a casa (fase 8), usar base del robot
-                robot_frame = "robot_0" + std::to_string(robot_id) + "/base_link";
-            } else {
-                // Para todas las demás fases, usar gripper (manipulación)
-                robot_frame = "robot_0" + std::to_string(robot_id) + "/gr_ref_link";
-            }
-            
-            // Obtener posición actual del frame correcto
-            auto tf = tf_buffer_->lookupTransform("marker_id_00", robot_frame, tf2::TimePointZero);
-            double robot_x = tf.transform.translation.x;
-            double robot_y = tf.transform.translation.y;
+            // Preguntar a TF dónde está el GRIPPER realmente respecto al Origen (Marker 00)
+            auto tf = tf_buffer_->lookupTransform("marker_id_00", gripper_frame, tf2::TimePointZero);
+            double gx = tf.transform.translation.x; // Gripper X
+            double gy = tf.transform.translation.y; // Gripper Y
 
             // Comparar con el objetivo actual
             double tx = objective.point.x;
             double ty = objective.point.y;
 
             // Distancia Euclidiana
-            return std::hypot(tx - robot_x, ty - robot_y);
+            return std::hypot(tx - gx, ty - gy);
 
         } catch (tf2::TransformException &ex) {
             RCLCPP_ERROR(this->get_logger(), "Error TF en verificacion: %s", ex.what());
@@ -282,82 +271,40 @@ private:
 
             double seconds_since_start = (this->now() - state_start_time_).seconds();
 
-            // 2. FILTRO DE TIEMPO (Regla de los 3 segundos para transporte, 1s para retroceso)
+            // 2. FILTRO DE TIEMPO (Regla de los 3 segundos)
             if (robot_state.robot_state == 4 || 
                 robot_state.robot_state == 5 || 
+                robot_state.robot_state == 7 || 
                 robot_state.robot_state == 8) {
                 
                 if (seconds_since_start < 3.0) {
                     return; 
                 }
             }
-            
-            // Filtro reducido para fase 7 (retroceso corto de 0.5m)
-            if (robot_state.robot_state == 7) {
-                if (seconds_since_start < 1.0) {  // Solo 1 segundo para retroceso
-                    RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 1000, 
-                        "Fase 7: Esperando filtro tiempo (%.1f/1.0s)", seconds_since_start);
-                    return; 
-                }
-            }
 
             // 3. --- NUEVO: FILTRO DE DISTANCIA REAL ---
             // "Confiar pero Verificar". El controlador dice que llegó, pero... ¿es verdad?
-            // NOTA: Para obj_size=2 en fase 5, no verificar distancia (es solo del brazo)
-            if ((robot_state.robot_state == 1 ||
+            if (robot_state.robot_state == 1 ||
                 robot_state.robot_state == 2 ||
                 robot_state.robot_state == 4 || 
+                robot_state.robot_state == 5 || 
                 robot_state.robot_state == 7 || // Retroceso
-                robot_state.robot_state == 8 || // Home
-                (robot_state.robot_state == 5 && task.obj_size == 1)) && // Solo verificar distancia en fase 5 para obj_size=1
-                !(task.obj_size == 2 && robot_state.robot_state == 5)) { // Excluir obj_size=2 fase 5
+                robot_state.robot_state == 8) { // Home
                 
                 double real_dist = get_distance_to_objective();
                 
-                // Tolerancia ajustable: mayor para tareas colaborativas
-                double tolerance = (task.obj_size == 2) ? 0.25 : 0.15; // 25cm para colaborativo, 15cm para individual
-                
-                // Si falta más de la tolerancia, el robot NO ha llegado, es un falso positivo.
-                if (real_dist > tolerance) {
-                    if (robot_state.robot_state == 7) {
-                        RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 1000, 
-                            "Fase 7: Distancia %.3fm > tolerancia %.3fm. Esperando...", real_dist, tolerance);
-                    } else {
-                        RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 1000, 
-                            "Falso positivo detectado en Fase %d. Distancia restante: %.2f m (tolerancia: %.2f m). Ignorando...", 
-                            robot_state.robot_state, real_dist, tolerance);
-                    }
+                // Tolerancia de 15cm (0.15m). 
+                // Si falta más de esto, el robot NO ha llegado, es un falso positivo.
+                if (real_dist > 0.15) {
+                    RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 1000, 
+                        "Falso positivo detectado en Fase %d. Distancia restante: %.2f m. Ignorando...", 
+                        robot_state.robot_state, real_dist);
                     return; // ¡NO CAMBIAR DE FASE!
-                } else if (robot_state.robot_state == 7) {
-                    RCLCPP_INFO(this->get_logger(), "Fase 7: Distancia OK (%.3fm ≤ %.3fm)", real_dist, tolerance);
                 }
             }
 
-            // Si pasamos todos los filtros, verificamos sincronización para tareas colaborativas
-            
-            // SINCRONIZACIÓN ESPECIAL para obj_size=2 en fases colaborativas críticas (4 y 5 solamente)
-            if (task.obj_size == 2 && (robot_state.robot_state == 4 || robot_state.robot_state == 5)) {
-                // Notificar que este robot está listo para avanzar
-                interfaces::msg::ControlFinish finish_msg;
-                finish_msg.finish_confirm = true;
-                publisher_control_finish_team_robot->publish(finish_msg);
-                
-                // Esperar confirmación del robot partner antes de avanzar
-                if (!team_ready_) {
-                    waiting_msg.waiting_team = true;
-                    publisher_waiting_robot->publish(waiting_msg);
-                    RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 2000,
-                        "Robot %d esperando confirmación del partner para avanzar de fase %d->%d", 
-                        task.robot_id, robot_state.robot_state, robot_state.robot_state + 1);
-                    return; // No avanzar hasta que el partner esté listo
-                }
-                
-                RCLCPP_INFO(this->get_logger(), "SINCRONIZACIÓN COMPLETADA. Ambos robots avanzan de fase %d->%d", 
-                           robot_state.robot_state, robot_state.robot_state + 1);
-            }
-            
-            RCLCPP_INFO(this->get_logger(), "LLEGADA VERIFICADA en Fase %d. Avanzando a Fase %d...", 
-                       robot_state.robot_state, robot_state.robot_state + 1);
+            // Si pasamos todos los filtros, es una llegada real y verificada.
+            RCLCPP_INFO(this->get_logger(), "LLEGADA VERIFICADA en Fase %d. Avanzando...", robot_state.robot_state);
             robot_state.robot_state++;
             publisher_robot_state->publish(robot_state);
             reset_phase_flags(); 
@@ -476,16 +423,6 @@ private:
         timer_active_ = false;
         objective_sent_ = false; 
         
-        // Reset de variables de relación espacial para nueva tarea
-        robot_to_object_offset_x = 0.0;
-        robot_to_object_offset_y = 0.0;
-        robot_to_object_offset_angle = 0.0;
-        spatial_relation_saved = false;
-        
-        // Reset de sincronización para nueva fase
-        team_ready_ = false;
-        waiting_msg.waiting_team = false;
-        
         // --- ESTA LÍNEA ES CRÍTICA PARA EL FILTRO DE TIEMPO ---
         state_start_time_ = this->now(); 
     }
@@ -559,7 +496,7 @@ private:
              if (task.robot_id == task.leader_robot_id) {
                 objective.point.x = Xobj + (0.8 * cos(Angobj));
                 objective.point.y = Yobj + (0.8 * sin(Angobj));
-                objective.angle = Angobj + M_PI;
+                objective.angle = (Angobj + M_PI) - static_cast<int>((Angobj + M_PI) / (2*M_PI)) * 2*M_PI;
             } else {
                 if(!phase_step_1_done_) {
                     std::string topic_follower = "/robot_0" + std::to_string(task.leader_robot_id) + "/follower_robot";
@@ -604,12 +541,12 @@ private:
         } 
         else if (task.obj_size == 2) {
              if (task.robot_id == task.leader_robot_id) {
-                objective.point.x = Xobj + (0.12 * cos(Angobj));  // Distancia corregida
-                objective.point.y = Yobj + (0.12 * sin(Angobj));
-                objective.angle = Angobj + M_PI;
+                objective.point.x = Xobj + (0.19 * cos(Angobj));
+                objective.point.y = Yobj + (0.19 * sin(Angobj));
+                objective.angle = (Angobj + M_PI) - static_cast<int>((Angobj + M_PI) / (2*M_PI)) * 2*M_PI;
             } else {
-                objective.point.x = Xobj - (0.15 * cos(Angobj));  // Ajuste fino para contacto sin colisión
-                objective.point.y = Yobj - (0.15 * sin(Angobj));
+                objective.point.x = Xobj - (0.27 * cos(Angobj));
+                objective.point.y = Yobj - (0.27 * sin(Angobj));
                 objective.angle = Angobj;
             }
         }
@@ -627,18 +564,6 @@ private:
             publisher_robot_objective->publish(objective);
             arm_objective.take_pos = true;
             publisher_arm_objective->publish(arm_objective);
-            
-            // PUNTO 1: Guardar la relación espacial robot-objeto para cálculos posteriores
-            if (task.obj_size == 2) {
-                robot_to_object_offset_x = objective.point.x - Xobj;
-                robot_to_object_offset_y = objective.point.y - Yobj;
-                robot_to_object_offset_angle = objective.angle - Angobj;
-                spatial_relation_saved = true;
-                
-                RCLCPP_INFO(this->get_logger(), "Relación espacial guardada - Offset X: %.3f, Y: %.3f, Ang: %.3f", 
-                           robot_to_object_offset_x, robot_to_object_offset_y, robot_to_object_offset_angle);
-            }
-            
             RCLCPP_INFO(this->get_logger(), "Fase 2: Aproximación Final...");
             objective_sent_ = true;
         }
@@ -712,32 +637,18 @@ private:
             objective.angle = angle_goal;
         } 
         else if (task.obj_size == 2) {
-            if (!phase_step_1_done_) {
-                publisher_attach->publish(std_msgs::msg::Empty());
-                phase_step_1_done_ = true;
-            }
-            
-            // Para obj_size=2: Fase 4 y 5 tienen el mismo objetivo (directo al final)
-            // PUNTO 3: Ambos robots usan trayectorias independientes (NO copy_control)
-            if (spatial_relation_saved) {
-                // Posición del gripper = Posición objetivo del objeto + offset guardado
-                objective.point.x = task.goal.x + robot_to_object_offset_x;
-                objective.point.y = task.goal.y + robot_to_object_offset_y;
-                objective.angle = angle_goal + robot_to_object_offset_angle;
-                
-                RCLCPP_INFO(this->get_logger(), "Objetivo final directo - Robot %d: X=%.3f, Y=%.3f, Ang=%.3f", 
-                           task.robot_id, objective.point.x, objective.point.y, objective.angle);
-            } else {
-                // Fallback al método anterior si no se guardó la relación espacial
-                if (task.robot_id == task.leader_robot_id) {
-                    objective.point.x = task.goal.x + (0.12 * cos(angle_goal));
-                    objective.point.y = task.goal.y + (0.12 * sin(angle_goal));
-                    objective.angle = angle_goal + M_PI;
-                } else {
-                    objective.point.x = task.goal.x - (0.15 * cos(angle_goal));
-                    objective.point.y = task.goal.y - (0.15 * sin(angle_goal));
-                    objective.angle = angle_goal;
+             if (task.robot_id == task.leader_robot_id) {
+                if(!phase_step_1_done_) {
+                    publisher_attach->publish(std_msgs::msg::Empty());
+                    phase_step_1_done_ = true;
                 }
+                objective.point.x = task.goal.x + (0.5 * cos(-M_PI));
+                objective.point.y = task.goal.y + (0.5 * sin(-M_PI));
+                objective.angle = 0;
+            } else {
+                std_msgs::msg::Bool copy_msg; copy_msg.data = true;
+                publisher_copy_control->publish(copy_msg);
+                objective.angle = M_PI;
             }
         }
 
@@ -759,53 +670,48 @@ private:
     }
 
     void phase_five_place_object() {
-        // Fase 5: Solo manejo del brazo, NO mover la base del robot
+        // 1. Definir Objetivo (El punto final de entrega)
+        objective.point.x = task.goal.x;
+        objective.point.y = task.goal.y;
+        objective.angle = angle_goal; 
         
+        // Mantenemos la altura Z guardada
+        objective_transform_.transform.translation.z = Z_saved; 
+
         // 2. Enviar comandos (Solo una vez)
         if (!objective_sent_) {
             
-            // Para obj_size=1: sí necesitamos mover el robot al punto final
+            // A. Publicar objetivo a la Base (Para que se acomode fino en el punto exacto)
+            objective.robot_state = robot_state.robot_state;
+            objective.obj_id = task.obj_id;
+            publisher_robot_objective->publish(objective);
+
+            // B. Publicar objetivo al Brazo
             if (task.obj_size == 1) {
-                objective.point.x = task.goal.x;
-                objective.point.y = task.goal.y;
-                objective.angle = angle_goal;
-                objective_transform_.transform.translation.z = Z_saved;
-                
-                // A. Publicar objetivo a la Base
-                objective.robot_state = robot_state.robot_state;
-                objective.obj_id = task.obj_id;
-                publisher_robot_objective->publish(objective);
-                
-                // B. Publicar objetivo al Brazo
+                // Objeto chico: Mantenemos gripper cerrado y posición de transporte
                 arm_objective.gripper = true; 
                 arm_objective.transport_pos = false;
                 arm_objective.take_pos = true;
-                publisher_arm_objective->publish(arm_objective);
             }
             else if (task.obj_size == 2) {
-                // Para obj_size=2: NO mover robot, solo manejar brazo
-                // El robot ya está en la posición correcta desde la fase 4
-                RCLCPP_INFO(this->get_logger(), "Fase 5: Solo colocando objeto (sin mover robot base)");
-                
-                // Objeto grande: Solo lógica del brazo
+                // Objeto grande: Lógica de equipo
                 if (task.robot_id == task.leader_robot_id) {
                     publisher_detach->publish(std_msgs::msg::Empty());
+                    interfaces::msg::ControlFinish finish_msg;
+                    finish_msg.finish_confirm = true;
+                    publisher_control_finish_team_robot->publish(finish_msg);
                 }
                 arm_objective.take_pos = true;
                 arm_objective.send_finish = true; // El brazo confirma su parte
                 arm_objective.transport_pos = false;
-                publisher_arm_objective->publish(arm_objective);
             }
+            publisher_arm_objective->publish(arm_objective);
 
-            RCLCPP_INFO(this->get_logger(), "Fase 5: Acomodando en punto de entrega (Esperando confirmación de brazo)...");
+            RCLCPP_INFO(this->get_logger(), "Fase 5: Acomodando en punto de entrega (Esperando confirmación de base)...");
             objective_sent_ = true;
         }
 
-        // 3. ACTUALIZAR TF (Solo para obj_size=1 que se mueve)
-        if (task.obj_size == 1) {
-            objective_transform_.transform.translation.x = objective.point.x;
-            objective_transform_.transform.translation.y = objective.point.y;
-        }
+        // 3. ACTUALIZAR TF (Para visualización y referencia del brazo)
         objective_transform_.transform.translation.x = objective.point.x;
         objective_transform_.transform.translation.y = objective.point.y;
         
@@ -813,18 +719,22 @@ private:
     }
 
     void phase_six_release_object() {
+        if (task.obj_size == 2) {
+             std_msgs::msg::Bool copy_msg; copy_msg.data = false;
+            publisher_copy_control->publish(copy_msg);
+            arm_objective.take_pos = true;
+            arm_objective.send_finish = true;
+            arm_objective.gripper = false;
+            publisher_arm_objective->publish(arm_objective);
+            return;
+        }
+
         objective_transform_.transform.translation.z = Z_saved;
 
         if (!timer_active_) {
             arm_objective.gripper = false; // ABRIR
             arm_objective.transport_pos = false;
             arm_objective.take_pos = true;
-            
-            // Para obj_size=2, también enviar send_finish para confirmar al brazo
-            if (task.obj_size == 2) {
-                arm_objective.send_finish = true;
-            }
-            
             publisher_arm_objective->publish(arm_objective);
 
             RCLCPP_INFO(this->get_logger(), "Fase 6: Soltando (6s)...");
@@ -844,59 +754,33 @@ private:
     }
 
     void phase_seven_return_to_start() {
-        // 1. Enviar comandos (Solo una vez) - CALCULAR OBJETIVO SOLO UNA VEZ
-        if (!objective_sent_) {
-            
-            // Calcular el punto de destino (Retroceder desde posición actual) SOLO UNA VEZ
-            try {
-                std::string base_frame = "robot_0" + std::to_string(robot_id) + "/base_link";
-                auto tf_current = tf_buffer_->lookupTransform("marker_id_00", base_frame, tf2::TimePointZero);
-                
-                // Posición actual del robot
-                double current_x = tf_current.transform.translation.x;
-                double current_y = tf_current.transform.translation.y;
-                
-                // Orientación actual del robot
-                tf2::Quaternion q_current(tf_current.transform.rotation.x, tf_current.transform.rotation.y, 
-                                         tf_current.transform.rotation.z, tf_current.transform.rotation.w);
-                tf2::Matrix3x3 m_current(q_current); 
-                double r, p, current_yaw; 
-                m_current.getRPY(r, p, current_yaw);
-                
-                // Retroceder 0.5m en la dirección opuesta a donde está mirando actualmente
-                double retreat_distance = 0.5;
-                objective.point.x = current_x - (retreat_distance * cos(current_yaw));
-                objective.point.y = current_y - (retreat_distance * sin(current_yaw));
-                objective.angle = current_yaw; // Mantener la orientación actual
-                
-                RCLCPP_INFO(this->get_logger(), "Fase 7: Objetivo fijo calculado - Retroceder desde (%.2f, %.2f) hasta (%.2f, %.2f) con ángulo %.2f", 
-                           current_x, current_y, objective.point.x, objective.point.y, current_yaw);
-                
-            } catch (tf2::TransformException &ex) {
-                RCLCPP_ERROR(this->get_logger(), "Error obteniendo posición actual para retroceso: %s", ex.what());
-                
-                // Fallback: usar método anterior
-                if (task.obj_size == 1) {
-                    objective.point.x = task.goal.x - (0.5 * cos(angle_goal));
-                    objective.point.y = task.goal.y - (0.5 * sin(angle_goal));
-                    objective.angle = angle_goal;
-                } else if (task.obj_size == 2) {
-                    if (task.robot_id == task.leader_robot_id) {
-                        objective.point.x = task.goal.x + (0.5 * cos(-M_PI));
-                        objective.point.y = task.goal.y + (0.5 * sin(-M_PI));
-                        objective.angle = 0;
-                    } else {
-                        objective.point.x = task.goal.x - (0.5 * cos(M_PI));
-                        objective.point.y = task.goal.y - (0.5 * sin(M_PI));
-                        objective.angle = M_PI;
-                    }
-                }
+        // 1. Calcular el punto de destino (Retroceder)
+        if (task.obj_size == 1) {
+            // Retroceder 0.5m desde el punto de entrega en la dirección contraria al ángulo de llegada
+            objective.point.x = task.goal.x - (1 * cos(angle_goal));
+            objective.point.y = task.goal.y - (1 * sin(angle_goal));
+            objective.angle = angle_goal; // Mantener orientación o girar, según prefieras
+        }
+        else if (task.obj_size == 2) {
+            // Lógica para objeto grande (Separación de robots)
+            if (task.robot_id == task.leader_robot_id) {
+                objective.point.x = task.goal.x + (1.0 * cos(-M_PI));
+                objective.point.y = task.goal.y + (1.0 * sin(-M_PI));
+                objective.angle = 0;
+            } else {
+                objective.point.x = task.goal.x - (1.0 * cos(M_PI));
+                objective.point.y = task.goal.y - (1.0 * sin(M_PI));
+                objective.angle = M_PI;
             }
+        }
 
-            // Mantener Z
-            objective.point.z = Z_saved;
-            objective.obj_id = task.obj_id;
-            objective.robot_state = robot_state.robot_state;
+        // Mantener Z
+        objective.point.z = Z_saved;
+        objective.obj_id = task.obj_id;
+        objective.robot_state = robot_state.robot_state;
+
+        // 2. Enviar comandos (Solo una vez)
+        if (!objective_sent_) {
             
             // Configurar brazo para el viaje de regreso (Take Pos o Home)
             arm_objective.take_pos = true; 
@@ -906,40 +790,16 @@ private:
             publisher_arm_objective->publish(arm_objective);
             publisher_robot_objective->publish(objective);
             
-            RCLCPP_INFO(this->get_logger(), "Fase 7: Objetivo enviado - Retrocediendo a punto fijo (%.2f, %.2f)", 
-                       objective.point.x, objective.point.y);
+            RCLCPP_INFO(this->get_logger(), "Fase 7: Retrocediendo (Esperando confirmación de base)...");
             objective_sent_ = true;
         }
 
-        // 2. Actualizar TF para visualización (usando objetivo YA CALCULADO)
+        // 3. Actualizar TF para visualización
         objective_transform_.transform.translation.x = objective.point.x;
         objective_transform_.transform.translation.y = objective.point.y;
         
-        // 3. DEBUG: Mostrar información de progreso cada 2 segundos
-        if (!timer_active_) {
-            wait_start_time_ = this->now();
-            timer_active_ = true;
-        }
-        
-        double progress_time = (this->now() - wait_start_time_).seconds();
-        if (static_cast<int>(progress_time) % 2 == 0 && progress_time > 0) {  // Cada 2 segundos
-            try {
-                double current_dist = get_distance_to_objective();
-                std::string base_frame = "robot_0" + std::to_string(robot_id) + "/base_link";
-                auto tf_current = tf_buffer_->lookupTransform("marker_id_00", base_frame, tf2::TimePointZero);
-                
-                RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 2000,
-                    "Fase 7 DEBUG - Tiempo: %.1fs, Distancia al objetivo FIJO: %.3fm, Pos actual: (%.2f, %.2f), Objetivo FIJO: (%.2f, %.2f)", 
-                    progress_time, current_dist, 
-                    tf_current.transform.translation.x, tf_current.transform.translation.y,
-                    objective.point.x, objective.point.y);
-            } catch (...) {
-                RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 2000, "Error obteniendo info de debug");
-            }
-        }
-        
         // SIN TIMER: El cambio a Fase 8 lo hará control_finish_callback 
-        // cuando el robot llegue al punto FIJO calculado.
+        // cuando el robot llegue al punto calculado.
     }
 
     void phase_eight_finalize_task() {

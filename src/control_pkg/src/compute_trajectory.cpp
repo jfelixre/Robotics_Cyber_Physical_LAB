@@ -135,6 +135,8 @@ private:
     int robot_id;
     int leader_robot_id;
     int robot_state = 0;
+    int obj_size = 1;        // Tamaño de la tarea (1=individual, 2=colaborativo)
+    int current_task_id = 0; // ID de la tarea actual para identificar colaboradores
     std::string planner_name_;
     
     // --- BANDERA DE SEGURIDAD ---
@@ -199,15 +201,27 @@ private:
             auto sub = this->create_subscription<geometry_msgs::msg::Polygon>(
                 ss.str(), 1,
                 [this, i](const geometry_msgs::msg::Polygon::SharedPtr msg) {
-                    cv::Mat mat = cv::Mat::zeros(n_y_spaces, n_x_spaces, CV_8UC1);
-                    for (const auto &point : msg->points) {
-                        int x_map = static_cast<int>((point.x * n_x_spaces) / x_world) + (n_x_spaces / 2);
-                        int y_map = n_y_spaces - (static_cast<int>((point.y * n_y_spaces) / y_world) + (n_y_spaces / 2));
-                        if (x_map >= 0 && x_map < n_x_spaces && y_map >= 0 && y_map < n_y_spaces) {
-                            mat.at<uchar>(y_map, x_map) = 255;
+                    // Solo procesar trayectorias de robots NO colaboradores
+                    if (!is_collaborating_robot(i)) {
+                        cv::Mat mat = cv::Mat::zeros(n_y_spaces, n_x_spaces, CV_8UC1);
+                        for (const auto &point : msg->points) {
+                            int x_map = static_cast<int>((point.x * n_x_spaces) / x_world) + (n_x_spaces / 2);
+                            int y_map = n_y_spaces - (static_cast<int>((point.y * n_y_spaces) / y_world) + (n_y_spaces / 2));
+                            if (x_map >= 0 && x_map < n_x_spaces && y_map >= 0 && y_map < n_y_spaces) {
+                                mat.at<uchar>(y_map, x_map) = 255;
+                            }
                         }
+                        other_robot_path_mats[i] = mat;
+                        
+                        RCLCPP_DEBUG_THROTTLE(this->get_logger(), *this->get_clock(), 10000,
+                            "[PATH_OBSTACLE] Robot %d using Robot %d path as obstacle", robot_id, i);
+                    } else {
+                        // Limpiar la matriz si ahora es colaborador para evitar obstáculos fantasma
+                        other_robot_path_mats[i] = cv::Mat();
+                        
+                        RCLCPP_DEBUG_THROTTLE(this->get_logger(), *this->get_clock(), 10000,
+                            "[PATH_COLLAB] Robot %d ignoring Robot %d path (collaboration mode)", robot_id, i);
                     }
-                    other_robot_path_mats[i] = mat;
                 });
             other_path_subs.push_back(sub);
         }
@@ -236,6 +250,11 @@ private:
         angle_objective = task_msg->angle_goal;
         object_id = task_msg->obj_id;
         robot_state = task_msg->state;
+        obj_size = task_msg->obj_size;        // Guardar tamaño de tarea
+        current_task_id = task_msg->task_id;  // Guardar ID de tarea para colaboración
+        
+        RCLCPP_INFO(this->get_logger(), "[TASK] Robot %d: obj_size=%d, task_id=%d, leader=%d, state=%d", 
+                    robot_id, obj_size, current_task_id, leader_robot_id, robot_state);
         
         // Nota: El task manager NO envía RobotObjective directamente, 
         // pero la actualización de point_objective aquí podría ser suficiente para empezar si
@@ -408,6 +427,35 @@ private:
         }
     }
 
+    // Helper: ¿Es este robot un colaborador en la tarea actual?
+    bool is_collaborating_robot(int other_robot_id) {
+        // Solo en tareas colaborativas (obj_size=2) durante fases de manipulación/transporte (3, 4, 5, 6)
+        // A partir de fase 7 (retorno), vuelven a ser obstáculos entre sí
+        if (obj_size == 2 && robot_state >= 3 && robot_state <= 6) { 
+            // Cualquier combinación de robots puede colaborar en obj_size=2
+            if ((robot_id == 1 && (other_robot_id == 2 || other_robot_id == 3)) ||
+                (robot_id == 2 && (other_robot_id == 1 || other_robot_id == 3)) ||
+                (robot_id == 3 && (other_robot_id == 1 || other_robot_id == 2))) {
+                return true;
+            }
+            
+            // También considerar relación líder-seguidor explícita
+            if (leader_robot_id != 0) {
+                // Si soy el líder o el otro robot es el líder, colaboramos
+                if (robot_id == leader_robot_id || other_robot_id == leader_robot_id) {
+                    return true;
+                }
+            }
+        }
+        
+        // En CUALQUIER otro caso: robots SON obstáculos entre sí
+        // - obj_size=1 (tareas individuales): SIEMPRE obstáculos
+        // - obj_size=2 en fases 1-2 (pre-manipulación): SIEMPRE obstáculos  
+        // - obj_size=2 en fases 3-6 pero sin relación: SIEMPRE obstáculos
+        // - obj_size=2 en fases 7-8 (retorno/home): SIEMPRE obstáculos
+        return false;
+    }
+
     void timer_callback()
     {
         // 0. CHECK DE SEGURIDAD
@@ -444,29 +492,60 @@ private:
                     gripper_position.y = tf_grip.transform.translation.y;
                 }
                 else if(object_id == marker && robot_state >= 2){
-                    auto tf_obj = tf_buffer_->lookupTransform("marker_id_00", marker_name, tf2::TimePointZero);
-                    object_position.x = tf_obj.transform.translation.x;
-                    object_position.y = tf_obj.transform.translation.y;
-                    tf2::Quaternion q(tf_obj.transform.rotation.x, tf_obj.transform.rotation.y, tf_obj.transform.rotation.z, tf_obj.transform.rotation.w);
-                    tf2::Matrix3x3 m(q); double r, p, y; m.getRPY(r, p, y);
-                    angle_object = y;
-                    type_object = (marker > 20) ? 2 : 1;
+                    // Solo agregar el objeto como obstáculo si NO estamos en modo colaborativo
+                    // o si no estamos en fases de manipulación/transporte  
+                    bool skip_object_as_obstacle = (obj_size == 2 && robot_state >= 3);
+                    
+                    if (!skip_object_as_obstacle) {
+                        auto tf_obj = tf_buffer_->lookupTransform("marker_id_00", marker_name, tf2::TimePointZero);
+                        object_position.x = tf_obj.transform.translation.x;
+                        object_position.y = tf_obj.transform.translation.y;
+                        tf2::Quaternion q(tf_obj.transform.rotation.x, tf_obj.transform.rotation.y, tf_obj.transform.rotation.z, tf_obj.transform.rotation.w);
+                        tf2::Matrix3x3 m(q); double r, p, y; m.getRPY(r, p, y);
+                        angle_object = y;
+                        type_object = (marker > 20) ? 2 : 1;
+                        
+                        RCLCPP_DEBUG_THROTTLE(this->get_logger(), *this->get_clock(), 8000,
+                            "[OBJECT] Robot %d treating Object %d as obstacle (obj_size=%d, state=%d)", 
+                            robot_id, marker, obj_size, robot_state);
+                    } else {
+                        RCLCPP_DEBUG_THROTTLE(this->get_logger(), *this->get_clock(), 5000,
+                            "[COLLAB] Robot %d ignoring Object %d as obstacle during manipulation (obj_size=%d, state=%d)", 
+                            robot_id, marker, obj_size, robot_state);
+                    }
                 }
                 else {
-                    auto tf_obs = tf_buffer_->lookupTransform("marker_id_00", marker_name, tf2::TimePointZero);
-                    n_obstacles++;
-                    geometry_msgs::msg::Point pt;
-                    pt.x = tf_obs.transform.translation.x;
-                    pt.y = tf_obs.transform.translation.y;
-                    obstacle_position.push_back(pt);
+                    // Verificar si este marker corresponde a un robot colaborador
+                    bool is_collaborator = false;
+                    if (marker >= 1 && marker <= 3) { // Rango de robots
+                        is_collaborator = is_collaborating_robot(marker);
+                    }
                     
-                    tf2::Quaternion q(tf_obs.transform.rotation.x, tf_obs.transform.rotation.y, tf_obs.transform.rotation.z, tf_obs.transform.rotation.w);
-                    tf2::Matrix3x3 m(q); double r, p, y; m.getRPY(r, p, y);
-                    angle_obstacle.push_back(y);
-                    
-                    if(marker < 10) type_obstacle.push_back(0);
-                    else if(marker < 20) type_obstacle.push_back(1);
-                    else type_obstacle.push_back(2);
+                    // Solo agregar como obstáculo si NO es un robot colaborador
+                    if (!is_collaborator) {
+                        auto tf_obs = tf_buffer_->lookupTransform("marker_id_00", marker_name, tf2::TimePointZero);
+                        n_obstacles++;
+                        geometry_msgs::msg::Point pt;
+                        pt.x = tf_obs.transform.translation.x;
+                        pt.y = tf_obs.transform.translation.y;
+                        obstacle_position.push_back(pt);
+                        
+                        tf2::Quaternion q(tf_obs.transform.rotation.x, tf_obs.transform.rotation.y, tf_obs.transform.rotation.z, tf_obs.transform.rotation.w);
+                        tf2::Matrix3x3 m(q); double r, p, y; m.getRPY(r, p, y);
+                        angle_obstacle.push_back(y);
+                        
+                        if(marker < 10) type_obstacle.push_back(0);
+                        else if(marker < 20) type_obstacle.push_back(1);
+                        else type_obstacle.push_back(2);
+                        
+                        RCLCPP_DEBUG_THROTTLE(this->get_logger(), *this->get_clock(), 8000,
+                            "[OBSTACLE] Robot %d treating Robot %d as obstacle (obj_size=%d, state=%d)", 
+                            robot_id, marker, obj_size, robot_state);
+                    } else {
+                        RCLCPP_DEBUG_THROTTLE(this->get_logger(), *this->get_clock(), 5000,
+                            "[COLLAB] Robot %d ignoring Robot %d as obstacle (obj_size=%d, state=%d, leader=%d)", 
+                            robot_id, marker, obj_size, robot_state, leader_robot_id);
+                    }
                 }
             }
             catch (tf2::TransformException &ex){

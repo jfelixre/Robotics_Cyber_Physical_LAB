@@ -40,6 +40,15 @@ def generate_launch_description():
     'params.yaml'
     )
 
+    # --- NUEVO: Configuración de RViz ---
+    # Configuración para Experimento 2 (2 robots)
+    rviz_config_path = os.path.join(
+        pkg_project_launch_pkg,
+        'rviz',
+        'rviz_visualize_exp2.rviz' 
+    )
+    # ------------------------------------
+
     # Setup to launch the simulator and Gazebo world
     gz_sim = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -142,9 +151,21 @@ def generate_launch_description():
         ]],
         shell=True
     )
+
+    # --- NUEVO: Nodo RViz ---
+    rviz_node = Node(
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        output='screen',
+        arguments=['-d', rviz_config_path],
+        parameters=[{'use_sim_time': True}]
+    )
+    # ------------------------
  
     return LaunchDescription([
         gz_sim,
+        rviz_node,  # ← Añadido aquí
         bridge,
         bridge_unpause,
         unpause,

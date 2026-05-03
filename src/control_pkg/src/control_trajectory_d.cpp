@@ -332,9 +332,16 @@ class Node_Control_Timer : public rclcpp::Node
                 hye[k] = hyd[N-1] - gripper_position.y;
             }
             
+            // Cálculo robusto del error angular que siempre elige el camino más corto
+            // Función específica para diferencia angular más corta
             ErrAng = phid - angle_robot;
-            while (ErrAng > M_PI) ErrAng -= 2*M_PI;
-            while (ErrAng < -M_PI) ErrAng += 2*M_PI;
+            
+            // Método más directo: normalizar la diferencia directamente
+            if (ErrAng > M_PI) {
+                ErrAng -= 2*M_PI;
+            } else if (ErrAng <= -M_PI) {
+                ErrAng += 2*M_PI;
+            }
             hwe[k] = ErrAng;
 
             publish_control_markers(gripper_position.x, gripper_position.y, hxd[target_idx], hyd[target_idx], hxe[k], hye[k], hwe[k]);
@@ -409,13 +416,11 @@ class Node_Control_Timer : public rclcpp::Node
             // CONTROL DE GIRO
             // Solo giramos si el error es real (> 3 grados) - Reduced for more responsive turning
             if (abs(err_w) > 0.05) {
-                double w_cmd = wRef[k] * gain_ang;
-                double w_sign = (ErrAng > 0) ? 1.0 : -1.0; // Girar hacia el error
+                // Usar directamente ErrAng para determinar magnitud y dirección
+                double w_cmd = ErrAng * gain_ang;
                 
-                // Corrección de dirección corta (si error > PI)
-                if (abs(ErrAng) > M_PI) w_sign *= -1.0;
-
-                // Aplicar mínimo
+                // Aplicar velocidad mínima manteniendo la dirección correcta
+                double w_sign = (ErrAng > 0) ? 1.0 : -1.0;
                 if (abs(w_cmd) < min_ang_vel) w_cmd = min_ang_vel * w_sign;
                 
                 msg_vel.ang_vel = w_cmd;
@@ -438,8 +443,8 @@ class Node_Control_Timer : public rclcpp::Node
             phia = phid;
 
             // --- CHECK FINISH DIAGNÓSTICO ---
-            // Tolerancia fina (1 cm)
-            bool pos_ok = abs(data_error_total.x_error) < 0.015 && abs(data_error_total.y_error) < 0.015;
+            // Tolerancia ajustada (2 cm para evitar bloqueos por errores mínimos)
+            bool pos_ok = abs(data_error_total.x_error) < 0.02 && abs(data_error_total.y_error) < 0.02;
             bool ang_ok = abs(data_error_total.ang_error) < 0.08;
             
             // Timeout de seguridad
@@ -499,6 +504,7 @@ class Node_Control_Timer : public rclcpp::Node
         std::stringstream ss;
         ss << "ex:" << std::fixed << std::setprecision(2) << ex << "m\n";
         ss << "ey:" << std::fixed << std::setprecision(2) << ey << "m\n";
+        ss << "eth:" << std::fixed << std::setprecision(2) << eth << "rad";
         text.text = ss.str();
         markers.markers.push_back(text);
 

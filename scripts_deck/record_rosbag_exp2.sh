@@ -42,13 +42,24 @@ echo ""
 # Record ALL topics EXCEPT camera and image topics (SQLite3 = more compact, MCAP = faster access)
 # For less disk space: use sqlite3
 # For faster analysis: use mcap
-# Exclude topics containing 'cam' or 'image' to save space and improve performance
-ros2 bag record -o bags/${EXPERIMENT_NAME} --all --storage sqlite3 --compression-mode file --exclude ".*cam.*|.*image.*" &
+# Use regex pattern to exclude topics containing 'cam' or 'image' 
+echo "🚀 Executing: ros2 bag record -o bags/${EXPERIMENT_NAME} --all --storage sqlite3 --compression-mode file --exclude-regex '.*cam.*|.*image.*'"
+ros2 bag record -o bags/${EXPERIMENT_NAME} --all --storage sqlite3 --compression-mode file --exclude-regex '.*cam.*|.*image.*' &
 ROSBAG_PID=$!
+
+# Check if rosbag command started successfully
+sleep 1
+if ! kill -0 $ROSBAG_PID 2>/dev/null; then
+    echo "❌ Error with exclude-regex, trying without exclusion..."
+    ros2 bag record -o bags/${EXPERIMENT_NAME} --all --storage sqlite3 --compression-mode file &
+    ROSBAG_PID=$!
+fi
 
 echo "✅ Rosbag recording started (PID: ${ROSBAG_PID})"
 echo ""
-echo "🎯 Recording ALL topics!"
+echo "🎯 Recording ALL topics EXCEPT:"
+echo "   - Topics containing 'cam' (camera data)"
+echo "   - Topics containing 'image' (image data)"
 echo "📊 Expected key topics:"
 echo "   - /tf"
 echo "   - /robot_01/robot_state"

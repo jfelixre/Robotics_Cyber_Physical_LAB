@@ -39,15 +39,70 @@ echo "🎥 Starting rosbag recording..."
 echo "📁 Saving to: bags/${EXPERIMENT_NAME}"
 echo ""
 
+# Function to cleanup on exit
+cleanup() {
+    echo ""
+    echo "🛑 Stopping rosbag recording..."
+    if kill -0 $ROSBAG_PID 2>/dev/null; then
+        kill -SIGINT $ROSBAG_PID
+        sleep 2
+        if kill -0 $ROSBAG_PID 2>/dev/null; then
+            kill -SIGTERM $ROSBAG_PID
+        fi
+        echo "✅ Rosbag recording stopped"
+    fi
+    echo "🏁 Experiment 1 recording completed!"
+    echo "📁 Rosbag saved in: bags/${EXPERIMENT_NAME}"
+    echo "📊 Next steps:"
+    echo "   python3 convert_experiment_to_csv.py ${EXPERIMENT_NAME}"
+    echo "   python3 plot_trajectories_professional.py"
+    exit 0
+}
+
+# Trap Ctrl+C and cleanup
+trap cleanup INT TERM
+
+# Test the command first
+echo "🔧 Testing rosbag command..."
+
 # Record ALL topics EXCEPT camera and image topics (SQLite3 = more compact, MCAP = faster access)
-# For less disk space: use sqlite3
+# For less disk space: use sqlite3  
 # For faster analysis: use mcap
-# Exclude topics containing 'cam' or 'image' to save space and improve performance
-ros2 bag record -o bags/${EXPERIMENT_NAME} --all --storage sqlite3 --compression-mode file --exclude ".*cam.*|.*image.*" &
+# Use regex pattern to exclude topics containing 'cam' or 'image'
+echo "🚀 Executing: ros2 bag record -o bags/${EXPERIMENT_NAME} --all --storage sqlite3 --compression-mode file --exclude-regex '.*cam.*|.*image.*'"
+ros2 bag record -o bags/${EXPERIMENT_NAME} --all --storage sqlite3 --compression-mode file --exclude-regex '.*cam.*|.*image.*' &
 ROSBAG_PID=$!
 
-# echo "✅ Rosbag recording started (PID: ${ROSBAG_PID})"
-# echo ""
+# Check if rosbag command started successfully
+sleep 1
+if ! kill -0 $ROSBAG_PID 2>/dev/null; then
+    echo "❌ Error with exclude-regex, trying without exclusion..."
+    ros2 bag record -o bags/${EXPERIMENT_NAME} --all --storage sqlite3 --compression-mode file &
+    ROSBAG_PID=$!
+fi
+
+echo "✅ Rosbag recording started (PID: ${ROSBAG_PID})"
+echo ""
+echo "🎯 Recording ALL topics EXCEPT:"
+echo "   - Topics containing 'cam' (camera data)"
+echo "   - Topics containing 'image' (image data)"
+echo "📊 Expected key topics:"
+echo "   - /tf"
+echo "   - /robot_01/robot_state"
+echo "   - /robot_02/robot_state"
+echo "   - /robot_01/cmd_vel"
+echo "   - /robot_02/cmd_vel"
+echo ""
+echo "📋 To stop recording:"
+echo "   Press Ctrl+C"
+echo ""
+echo "📊 To generate plots after recording:"
+echo "   python3 convert_experiment_to_csv.py ${EXPERIMENT_NAME}"
+echo "   python3 plot_trajectories_professional.py"
+echo ""
+
+# Wait for the background process to complete
+wait $ROSBAG_PID
 # echo "🎯 Recording ALL topics EXCEPT:"
 # echo "   - Topics containing 'cam' (camera data)"
 # echo "   - Topics containing 'image' (image data)"
